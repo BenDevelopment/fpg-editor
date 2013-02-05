@@ -1,0 +1,943 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="94">
+      <Unit0>
+        <Filename Value="pfpgedit.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="5"/>
+        <CursorPos X="1" Y="42"/>
+        <UsageCount Value="473"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="uFrmMain\uFrmMain.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmMain"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFrmMain"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="556"/>
+        <CursorPos X="25" Y="579"/>
+        <UsageCount Value="473"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="uFrmView\ufrmView.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmView"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ufrmView"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="25" Y="5"/>
+        <UsageCount Value="473"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="uFPG\uFPG.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uFPG"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="253"/>
+        <CursorPos X="27" Y="267"/>
+        <ExtraEditorCount Value="1"/>
+        <ExtraEditor1>
+          <WindowIndex Value="0"/>
+          <TopLine Value="800"/>
+          <CursorPos X="39" Y="816"/>
+        </ExtraEditor1>
+        <UsageCount Value="473"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="uPCX\uPCX.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uPCX"/>
+        <UsageCount Value="473"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="uFrmPalette\ufrmPalette.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmPalette"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ufrmPalette"/>
+        <UsageCount Value="473"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="uBMP\uBMP.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uBMP"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="166"/>
+        <CursorPos X="1" Y="181"/>
+        <UsageCount Value="473"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="uFrmAnimate\ufrmAnimate.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmAnimate"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ufrmAnimate"/>
+        <UsageCount Value="473"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="uIniFile\uinifile.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uinifile"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="17"/>
+        <CursorPos X="1" Y="23"/>
+        <UsageCount Value="473"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="uFPGConvert\uFPGConvert.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uFPGConvert"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="300"/>
+        <CursorPos X="1" Y="314"/>
+        <UsageCount Value="473"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="uSort\uSort.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uSort"/>
+        <UsageCount Value="473"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="uPAL\uPAL.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uPAL"/>
+        <UsageCount Value="473"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="uLanguage\uLanguage.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uLanguage"/>
+        <UsageCount Value="473"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="uTools\uTools.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uTools"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="394"/>
+        <CursorPos X="23" Y="410"/>
+        <UsageCount Value="473"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="uFrmExport\uFrmExport.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmExport"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFrmExport"/>
+        <UsageCount Value="473"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="uLoadImage\uLoadImage.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uLoadImage"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="155"/>
+        <CursorPos X="3" Y="144"/>
+        <UsageCount Value="473"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="uFrmExport\uExportToFiles\uExportToFiles.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uExportToFiles"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="226"/>
+        <CursorPos X="11" Y="234"/>
+        <UsageCount Value="473"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="uColor16bits\uColor16bits.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uColor16bits"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="47"/>
+        <CursorPos X="1" Y="54"/>
+        <UsageCount Value="473"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="uMessages\uFrmInputBox\uFrmInputBox.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmInputBox"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFrmInputBox"/>
+        <UsageCount Value="473"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="uMessages\uFrmMessageBox\uFrmMessageBox.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmMessageBox"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFrmMessageBox"/>
+        <UsageCount Value="473"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="uFrmConfig\ufrmConfig.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmConfig"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ufrmConfig"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="133"/>
+        <CursorPos X="2" Y="146"/>
+        <UsageCount Value="473"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="uFPGFrmImages\ufrmFPGImages.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmFPGImages"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ufrmFPGImages"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="21"/>
+        <CursorPos X="70" Y="31"/>
+        <UsageCount Value="473"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="uFPGListView\uListViewFPG.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uListViewFPG"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="307"/>
+        <CursorPos X="47" Y="325"/>
+        <UsageCount Value="473"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="uFPGFrmNew\ufrmNewFPG.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmNewFPG"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ufrmNewFPG"/>
+        <UsageCount Value="473"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="uFrmSplash\uFrmSplahs.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmSplash"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFrmSplahs"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="23" Y="42"/>
+        <UsageCount Value="473"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="uMap\uMap.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uMap"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="127"/>
+        <CursorPos X="52" Y="168"/>
+        <UsageCount Value="473"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="uPAL\ucopypalette.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uCopyPalette"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="19"/>
+        <CursorPos X="24" Y="23"/>
+        <UsageCount Value="473"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="uFrmZipFenix\ufrmZipFenix.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmZipFenix"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ufrmZipFenix"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="168"/>
+        <CursorPos X="31" Y="117"/>
+        <UsageCount Value="473"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="uAAtext\uAAText.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uAAText"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="122"/>
+        <CursorPos X="3" Y="137"/>
+        <UsageCount Value="141"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="uColorTable\uColorTable.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uColorTable"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="4"/>
+        <UsageCount Value="141"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="uFNT\uFNT.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uFNT"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="477"/>
+        <CursorPos X="17" Y="520"/>
+        <UsageCount Value="141"/>
+        <Loaded Value="True"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="uFrmBpp\uFrmBpp.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fBPP"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ufrmbpp"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="16"/>
+        <CursorPos X="3" Y="26"/>
+        <UsageCount Value="141"/>
+      </Unit31>
+      <Unit32>
+        <Filename Value="uFrmCFG\uFrmCFG.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrmCFG"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFrmCFG"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="39" Y="11"/>
+        <UsageCount Value="141"/>
+      </Unit32>
+      <Unit33>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmMainFNT"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFrmMainFNT"/>
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="11" Y="1696"/>
+        <UsageCount Value="141"/>
+        <Loaded Value="True"/>
+      </Unit33>
+      <Unit34>
+        <Filename Value="uFrmAbout\uFrmAbout.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrmAbout"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFrmAbout"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="48"/>
+        <CursorPos X="15" Y="54"/>
+        <UsageCount Value="138"/>
+      </Unit34>
+      <Unit35>
+        <Filename Value="uFrmFNTView\uFrmFNTView.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmFNTView"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFrmFNTView"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="106"/>
+        <CursorPos X="22" Y="144"/>
+        <UsageCount Value="82"/>
+      </Unit35>
+      <Unit36>
+        <Filename Value="C:\lazarus\lcl\graphics.pp"/>
+        <UnitName Value="Graphics"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="837"/>
+        <CursorPos X="14" Y="846"/>
+        <UsageCount Value="205"/>
+      </Unit36>
+      <Unit37>
+        <Filename Value="C:\lazarus\lcl\graphtype.pp"/>
+        <UnitName Value="GraphType"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="22"/>
+        <CursorPos X="15" Y="25"/>
+        <UsageCount Value="204"/>
+      </Unit37>
+      <Unit38>
+        <Filename Value="C:\lazarus\lcl\include\graphic.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="124"/>
+        <CursorPos X="25" Y="135"/>
+        <UsageCount Value="196"/>
+      </Unit38>
+      <Unit39>
+        <Filename Value="C:\lazarus\lcl\include\rasterimage.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="543"/>
+        <CursorPos X="1" Y="553"/>
+        <UsageCount Value="199"/>
+      </Unit39>
+      <Unit40>
+        <Filename Value="C:\lazarus\lcl\intfgraphics.pas"/>
+        <UnitName Value="IntfGraphics"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="3290"/>
+        <CursorPos X="1" Y="3301"/>
+        <UsageCount Value="44"/>
+      </Unit40>
+      <Unit41>
+        <Filename Value="C:\lazarus\fpc\2.6.1\source\packages\fcl-image\src\fpimage.pp"/>
+        <UnitName Value="FPimage"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="22"/>
+        <CursorPos X="32" Y="31"/>
+        <UsageCount Value="31"/>
+      </Unit41>
+      <Unit42>
+        <Filename Value="C:\lazarus\lcl\include\fpimagebitmap.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="138"/>
+        <CursorPos X="1" Y="147"/>
+        <UsageCount Value="4"/>
+      </Unit42>
+      <Unit43>
+        <Filename Value="C:\lazarus\fpc\2.6.1\source\packages\fcl-image\src\fpcanvas.pp"/>
+        <UnitName Value="FPCanvas"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="357"/>
+        <CursorPos X="26" Y="369"/>
+        <UsageCount Value="14"/>
+      </Unit43>
+      <Unit44>
+        <Filename Value="C:\lazarus\lcl\lcltype.pp"/>
+        <UnitName Value="LCLType"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="2963"/>
+        <CursorPos X="16" Y="2972"/>
+        <UsageCount Value="34"/>
+      </Unit44>
+      <Unit45>
+        <Filename Value="C:\lazarus\fpc\2.6.1\source\rtl\inc\objpash.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="196"/>
+        <CursorPos X="26" Y="204"/>
+        <UsageCount Value="7"/>
+      </Unit45>
+      <Unit46>
+        <Filename Value="C:\lazarus\lcl\include\winapih.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="71"/>
+        <CursorPos X="10" Y="81"/>
+        <UsageCount Value="11"/>
+      </Unit46>
+      <Unit47>
+        <Filename Value="C:\lazarus\fpc\2.6.1\source\rtl\objpas\types.pp"/>
+        <UnitName Value="types"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="292"/>
+        <CursorPos X="10" Y="302"/>
+        <UsageCount Value="6"/>
+      </Unit47>
+      <Unit48>
+        <Filename Value="C:\lazarus\lcl\include\customform.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="147"/>
+        <CursorPos X="46" Y="154"/>
+        <UsageCount Value="9"/>
+      </Unit48>
+      <Unit49>
+        <Filename Value="C:\lazarus\lcl\forms.pp"/>
+        <UnitName Value="Forms"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="1"/>
+      </Unit49>
+      <Unit50>
+        <Filename Value="C:\lazarus\components\lazutils\lazutf8.pas"/>
+        <UnitName Value="LazUTF8"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="2681"/>
+        <CursorPos X="1" Y="2693"/>
+        <UsageCount Value="1"/>
+      </Unit50>
+      <Unit51>
+        <Filename Value="uFrmAbout\ufrmAbout.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="57"/>
+        <CursorPos X="6" Y="96"/>
+        <UsageCount Value="1"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit51>
+      <Unit52>
+        <Filename Value="C:\lazarus\lcl\include\control.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="3637"/>
+        <CursorPos X="41" Y="3643"/>
+        <UsageCount Value="1"/>
+      </Unit52>
+      <Unit53>
+        <Filename Value="uFrmMain\uFrmMain.lfm"/>
+        <ComponentName Value="frmMain"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1128"/>
+        <CursorPos X="33" Y="1132"/>
+        <UsageCount Value="4"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit53>
+      <Unit54>
+        <Filename Value="C:\usr\lib\lazarus\0.9.30.4\lcl\include\control.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="3171"/>
+        <CursorPos X="43" Y="3177"/>
+        <UsageCount Value="1"/>
+      </Unit54>
+      <Unit55>
+        <Filename Value="uFrmZipFenix\ufrmZipFenix.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="12"/>
+        <CursorPos X="1" Y="44"/>
+        <UsageCount Value="1"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit55>
+      <Unit56>
+        <Filename Value="C:\lazarus\fpc\2.6.1\source\rtl\win\wininc\ascdef.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="283"/>
+        <CursorPos X="25" Y="261"/>
+        <UsageCount Value="6"/>
+      </Unit56>
+      <Unit57>
+        <Filename Value="C:\lazarus\fpc\2.6.1\source\rtl\win\wininc\struct.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="351"/>
+        <CursorPos X="6" Y="217"/>
+        <UsageCount Value="6"/>
+      </Unit57>
+      <Unit58>
+        <Filename Value="C:\lazarus\lcl\include\menuitem.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1037"/>
+        <CursorPos X="1" Y="1047"/>
+        <UsageCount Value="3"/>
+      </Unit58>
+      <Unit59>
+        <Filename Value="C:\lazarus\lcl\include\imglist.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="343"/>
+        <CursorPos X="1" Y="353"/>
+        <UsageCount Value="4"/>
+      </Unit59>
+      <Unit60>
+        <Filename Value="C:\lazarus\lcl\imglist.pp"/>
+        <UnitName Value="ImgList"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="30" Y="15"/>
+        <UsageCount Value="4"/>
+      </Unit60>
+      <Unit61>
+        <Filename Value="C:\lazarus\fpc\2.6.1\source\rtl\objpas\classes\classesh.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="708"/>
+        <CursorPos X="3" Y="617"/>
+        <UsageCount Value="3"/>
+      </Unit61>
+      <Unit62>
+        <Filename Value="C:\lazarus\lcl\comctrls.pp"/>
+        <UnitName Value="ComCtrls"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1029"/>
+        <CursorPos X="14" Y="1039"/>
+        <UsageCount Value="14"/>
+      </Unit62>
+      <Unit63>
+        <Filename Value="C:\usr\lib\lazarus\0.9.30.4\lcl\lclproc.pas"/>
+        <UnitName Value="LCLProc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1523"/>
+        <CursorPos X="46" Y="1539"/>
+        <UsageCount Value="3"/>
+      </Unit63>
+      <Unit64>
+        <Filename Value="C:\usr\lib\lazarus\0.9.30.4\lcl\interfaces\gtk2\gtk2winapi.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1825"/>
+        <CursorPos X="1" Y="1846"/>
+        <UsageCount Value="3"/>
+      </Unit64>
+      <Unit65>
+        <Filename Value="C:\lazarus\fpc\source\packages\fcl-image\src\fpcanvas.pp"/>
+        <UnitName Value="FPCanvas"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="164"/>
+        <CursorPos X="14" Y="174"/>
+        <UsageCount Value="5"/>
+      </Unit65>
+      <Unit66>
+        <Filename Value="C:\lazarus\fpc\source\packages\fcl-image\src\fpcanvas.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="718"/>
+        <CursorPos X="27" Y="726"/>
+        <UsageCount Value="5"/>
+      </Unit66>
+      <Unit67>
+        <Filename Value="C:\lazarus\lcl\include\canvas.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="36"/>
+        <CursorPos X="17" Y="54"/>
+        <UsageCount Value="5"/>
+      </Unit67>
+      <Unit68>
+        <Filename Value="C:\lazarus\fpc\source\packages\fcl-image\src\fpinterpolation.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="132"/>
+        <CursorPos X="23" Y="187"/>
+        <UsageCount Value="5"/>
+      </Unit68>
+      <Unit69>
+        <Filename Value="C:\lazarus\components\lazutils\winfileutil.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="292"/>
+        <CursorPos X="57" Y="303"/>
+        <UsageCount Value="4"/>
+      </Unit69>
+      <Unit70>
+        <Filename Value="Z:\usr\lib\lazarus\1.1\lcl\graphics.pp"/>
+        <UnitName Value="Graphics"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1293"/>
+        <CursorPos X="15" Y="1306"/>
+        <UsageCount Value="5"/>
+      </Unit70>
+      <Unit71>
+        <Filename Value="Z:\usr\lib\lazarus\1.1\lcl\include\rasterimage.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="548"/>
+        <CursorPos X="3" Y="552"/>
+        <UsageCount Value="4"/>
+      </Unit71>
+      <Unit72>
+        <Filename Value="Z:\usr\lib\lazarus\1.1\lcl\intfgraphics.pas"/>
+        <UnitName Value="IntfGraphics"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="3461"/>
+        <CursorPos X="42" Y="3466"/>
+        <UsageCount Value="4"/>
+      </Unit72>
+      <Unit73>
+        <Filename Value="Z:\usr\lib\lazarus\1.1\lcl\include\lclintfh.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="92"/>
+        <CursorPos X="10" Y="106"/>
+        <UsageCount Value="4"/>
+      </Unit73>
+      <Unit74>
+        <Filename Value="Z:\usr\lib\lazarus\1.1\lcl\include\lclintf.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="157"/>
+        <CursorPos X="3" Y="159"/>
+        <UsageCount Value="4"/>
+      </Unit74>
+      <Unit75>
+        <Filename Value="Z:\usr\lib\lazarus\1.1\lcl\interfacebase.pp"/>
+        <UnitName Value="InterfaceBase"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="229"/>
+        <CursorPos X="3" Y="138"/>
+        <UsageCount Value="4"/>
+      </Unit75>
+      <Unit76>
+        <Filename Value="C:\lazarus\fpc\2.6.1\source\packages\fcl-image\src\fpcanvas.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="347"/>
+        <CursorPos X="32" Y="348"/>
+        <UsageCount Value="14"/>
+      </Unit76>
+      <Unit77>
+        <Filename Value="C:\lazarus\fpc\2.6.1\source\packages\fcl-image\src\fpcdrawh.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="61"/>
+        <CursorPos X="3" Y="78"/>
+        <UsageCount Value="14"/>
+      </Unit77>
+      <Unit78>
+        <Filename Value="C:\lazarus\fpc\2.6.1\source\rtl\inc\systemh.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="845"/>
+        <CursorPos X="10" Y="854"/>
+        <UsageCount Value="11"/>
+      </Unit78>
+      <Unit79>
+        <Filename Value="uFrmFNTView\ufrmfpgview.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="27" Y="5"/>
+        <UsageCount Value="14"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit79>
+      <Unit80>
+        <Filename Value="C:\lazarus\fpc\2.6.1\source\packages\fcl-image\src\fpcolors.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="12"/>
+        <CursorPos X="1" Y="21"/>
+        <UsageCount Value="9"/>
+      </Unit80>
+      <Unit81>
+        <Filename Value="C:\lazarus\fpc\source\packages\fcl-image\src\fpimage.pp"/>
+        <UnitName Value="FPimage"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="20"/>
+        <CursorPos X="3" Y="30"/>
+        <UsageCount Value="7"/>
+      </Unit81>
+      <Unit82>
+        <Filename Value="C:\lazarus\lcl\lclintf.pas"/>
+        <UnitName Value="LCLIntf"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="230"/>
+        <CursorPos X="7" Y="246"/>
+        <UsageCount Value="8"/>
+      </Unit82>
+      <Unit83>
+        <Filename Value="C:\lazarus\fpc\2.6.1\source\rtl\objpas\sysutils\sysutilh.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="45" Y="288"/>
+        <UsageCount Value="8"/>
+      </Unit83>
+      <Unit84>
+        <Filename Value="C:\lazarus\fpc\2.6.1\source\rtl\objpas\sysutils\sysutils.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="63" Y="2"/>
+        <UsageCount Value="8"/>
+      </Unit84>
+      <Unit85>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="265"/>
+        <CursorPos X="23" Y="265"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit85>
+      <Unit86>
+        <Filename Value="C:\usr\lib\lazarus\1.1\lcl\shellctrls.pas"/>
+        <UnitName Value="ShellCtrls"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="9"/>
+      </Unit86>
+      <Unit87>
+        <Filename Value="C:\usr\share\fpcsrc\2.6.0\rtl\objpas\sysutils\osutilsh.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="10"/>
+        <CursorPos X="10" Y="29"/>
+        <UsageCount Value="10"/>
+      </Unit87>
+      <Unit88>
+        <Filename Value="C:\usr\share\fpcsrc\2.6.0\rtl\unix\sysutils.pp"/>
+        <UnitName Value="sysutils"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1191"/>
+        <CursorPos X="1" Y="1220"/>
+        <UsageCount Value="10"/>
+      </Unit88>
+      <Unit89>
+        <Filename Value="C:\usr\share\fpcsrc\2.6.0\rtl\objpas\classes\classesh.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="846"/>
+        <CursorPos X="14" Y="865"/>
+        <UsageCount Value="9"/>
+      </Unit89>
+      <Unit90>
+        <Filename Value="C:\usr\lib\lazarus\1.1\lcl\lclproc.pas"/>
+        <UnitName Value="LCLProc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="846"/>
+        <CursorPos X="22" Y="852"/>
+        <UsageCount Value="9"/>
+      </Unit90>
+      <Unit91>
+        <Filename Value="uIniFile\backup\uinifile.pas.bak"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="177"/>
+        <CursorPos X="11" Y="180"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="None"/>
+      </Unit91>
+      <Unit92>
+        <Filename Value="C:\lazarus\lcl\include\picture.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="698"/>
+        <CursorPos X="26" Y="711"/>
+        <UsageCount Value="9"/>
+      </Unit92>
+      <Unit93>
+        <Filename Value="C:\lazarus\lcl\include\application.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="996"/>
+        <CursorPos X="1" Y="1006"/>
+        <UsageCount Value="16"/>
+      </Unit93>
+    </Units>
+    <General>
+      <ActiveWindowIndexAtStart Value="0"/>
+    </General>
+    <JumpHistory Count="29" HistoryIndex="28">
+      <Position1>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1088" Column="8" TopLine="1053"/>
+      </Position1>
+      <Position2>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1093" Column="8" TopLine="1058"/>
+      </Position2>
+      <Position3>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1099" Column="8" TopLine="1064"/>
+      </Position3>
+      <Position4>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1107" Column="8" TopLine="1072"/>
+      </Position4>
+      <Position5>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1116" Column="6" TopLine="1080"/>
+      </Position5>
+      <Position6>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1122" Column="7" TopLine="1086"/>
+      </Position6>
+      <Position7>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1160" Column="14" TopLine="1125"/>
+      </Position7>
+      <Position8>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1166" Column="6" TopLine="1131"/>
+      </Position8>
+      <Position9>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1726" Column="11" TopLine="1690"/>
+      </Position9>
+      <Position10>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1742" Column="10" TopLine="1707"/>
+      </Position10>
+      <Position11>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1889" Column="25" TopLine="1854"/>
+      </Position11>
+      <Position12>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1949" Column="49" TopLine="1941"/>
+      </Position12>
+      <Position13>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1973" Column="34" TopLine="1960"/>
+      </Position13>
+      <Position14>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1995" Column="7" TopLine="1960"/>
+      </Position14>
+      <Position15>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="2024" Column="6" TopLine="1989"/>
+      </Position15>
+      <Position16>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="2090" Column="7" TopLine="2055"/>
+      </Position16>
+      <Position17>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="511" Column="18" TopLine="502"/>
+      </Position17>
+      <Position18>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
+      </Position18>
+      <Position19>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="2" Column="1" TopLine="1"/>
+      </Position19>
+      <Position20>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="338" Column="61" TopLine="329"/>
+      </Position20>
+      <Position21>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1168" Column="8" TopLine="1133"/>
+      </Position21>
+      <Position22>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1169" Column="8" TopLine="1134"/>
+      </Position22>
+      <Position23>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1210" Column="10" TopLine="1174"/>
+      </Position23>
+      <Position24>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1211" Column="10" TopLine="1175"/>
+      </Position24>
+      <Position25>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1281" Column="11" TopLine="1246"/>
+      </Position25>
+      <Position26>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1282" Column="11" TopLine="1247"/>
+      </Position26>
+      <Position27>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1690" Column="29" TopLine="1654"/>
+      </Position27>
+      <Position28>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1693" Column="11" TopLine="1657"/>
+      </Position28>
+      <Position29>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1696" Column="11" TopLine="1658"/>
+      </Position29>
+    </JumpHistory>
+  </ProjectSession>
+  <Debugging>
+    <BreakPoints Count="1">
+      <Item1>
+        <Kind Value="bpkData"/>
+        <WatchData Value="i"/>
+        <WatchScope Value="wpsGlobal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Expression Value="= 255"/>
+        <InitialEnabled Value="False"/>
+      </Item1>
+    </BreakPoints>
+    <Watches Count="2">
+      <Item1>
+        <Expression Value="i"/>
+      </Item1>
+      <Item2>
+        <Expression Value="drawProgress"/>
+      </Item2>
+    </Watches>
+  </Debugging>
+  <EditorMacros Count="0"/>
+</CONFIG>
