@@ -1,0 +1,155 @@
+object frmView: TfrmView
+  Left = 363
+  Height = 254
+  Top = 237
+  Width = 270
+  BorderIcons = [biSystemMenu, biMaximize]
+  Caption = 'frmView'
+  ClientHeight = 254
+  ClientWidth = 270
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  OnActivate = FormActivate
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDeactivate = FormDeactivate
+  OnResize = FormResize
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '1.1'
+  object Image: TImage
+    Left = 0
+    Height = 174
+    Top = 72
+    Width = 262
+    OnMouseDown = ImageMouseDown
+    Proportional = True
+    Stretch = True
+  end
+  object gbDetails: TGroupBox
+    Left = 0
+    Height = 72
+    Top = 0
+    Width = 270
+    Align = alTop
+    Caption = 'Detalles de la imagen'
+    ClientHeight = 54
+    ClientWidth = 266
+    Color = clBtnFace
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 0
+    object lbWidth: TLabel
+      Left = 5
+      Height = 13
+      Top = 2
+      Width = 45
+      Alignment = taRightJustify
+      Caption = 'Ancho :'
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lbHeight: TLabel
+      Left = 19
+      Height = 13
+      Top = 19
+      Width = 31
+      Alignment = taRightJustify
+      Caption = 'Alto :'
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lbAncho: TLabel
+      Left = 54
+      Height = 13
+      Top = 2
+      Width = 47
+      Caption = 'lbAncho'
+      Color = clBtnFace
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
+    object lbAlto: TLabel
+      Left = 54
+      Height = 13
+      Top = 18
+      Width = 33
+      Caption = 'lbAlto'
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lZoom: TLabel
+      Left = 158
+      Height = 13
+      Top = 3
+      Width = 40
+      Alignment = taRightJustify
+      Caption = 'Zoom :'
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object seZoom: TSpinEdit
+      Left = 209
+      Height = 21
+      Top = -4
+      Width = 50
+      MaxValue = 800
+      OnChange = seZoomChange
+      TabOrder = 0
+      Value = 100
+    end
+    object lBPP: TLabel
+      Left = 19
+      Height = 13
+      Top = 35
+      Width = 31
+      Alignment = taRightJustify
+      Caption = 'Bpp :'
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lbBpp: TLabel
+      Left = 54
+      Height = 13
+      Top = 35
+      Width = 33
+      Caption = 'lbBpp'
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+end

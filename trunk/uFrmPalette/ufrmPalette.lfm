@@ -1,0 +1,26 @@
+object frmPalette: TfrmPalette
+  Left = 204
+  Top = 121
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Paleta de 256 colores'
+  ClientHeight = 320
+  ClientWidth = 320
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  Position = poScreenCenter
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  OnShow = FormShow
+  PixelsPerInch = 96
+  object imgPalette: TImage
+    Left = 0
+    Top = 0
+    Width = 320
+    Height = 320
+  end
+end
