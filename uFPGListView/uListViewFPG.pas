@@ -72,6 +72,40 @@ begin
  progressBar.Hide;
 end;
 
+function FPGCreateBitmap(var bmp_src : TBitmap): TBitmap;
+begin
+ // Se crea la imagen resultante
+ result   := TBitMap.Create;
+ result.PixelFormat:=pf32bit;
+ result.SetSize(bmp_src.Width, bmp_src.Height);
+
+ CopyPixels(result,bmp_src,0,0);
+ if bmp_src.PixelFormat<>pf32bit then
+    setAlpha(result,255);
+ case FPG_type of
+    FPG1:
+    begin
+          simulate1bppIn32bpp(result);
+    end;
+    FPG8_DIV2:
+    begin
+         simulate8bppIn32bpp(result);
+    end;
+    FPG16:
+    begin
+         colorToTransparent(result,clBlack,true );
+    end;
+    FPG16_CDIV:
+    begin
+         colorToTransparent(result,clFuchsia,true );
+    end;
+    FPG24:
+    begin
+         colorToTransparent(result,clBlack );
+    end;
+ end;
+
+end;
 
 // Añadir index
 procedure lvFPG_add_bitmap( index : LongInt; name, description : String; var bmp_src: TBitmap );
@@ -93,41 +127,8 @@ begin
   FPG_images[index].points := 0;
 
   // Se crea la imagen resultante
-  FPG_images[index].bmp    := TBitMap.Create;
+  FPG_images[index].bmp    := FPGCreateBitmap(bmp_src);
 
-  if FPG_type <> FPG32 then
-    FPG_images[index].bmp.PixelFormat:=pf24bit
-  else
-    FPG_images[index].bmp.PixelFormat:=pf32bit;
-
-  FPG_images[index].bmp.SetSize(bmp_src.Width, bmp_src.Height);
-
-  CopyPixels(FPG_images[index].bmp,bmp_src,0,0);
-  case FPG_type of
-     FPG1:
-     begin
-           simulate1bppIn24bpp(FPG_images[index].bmp);
-     end;
-     FPG8_DIV2:
-     begin
-           simulate8bppIn24bpp(FPG_images[index].bmp);
-     end;(*
-     FPG16, FPG16_CDIV:
-     begin
-           simulate16bppIn24bpp(FPG_images[index].bmp);
-     end;*)
-  end;
-
-  if FPG_type <> FPG32 then
-  begin
-   if FPG_type = FPG16_CDIV then
-      FPG_images[index].bmp.TransparentColor:=clFuchsia;
-   if (FPG_type = FPG16) OR (FPG_type = FPG24) then
-      FPG_images[index].bmp.TransparentColor:=clBlack;
-   if FPG_type = FPG8_DIV2 then
-      FPG_images[index].bmp.TransparentColor:=RGBToColor(FPG_Header.palette[0],FPG_Header.palette[1],FPG_Header.palette[2]);
-   FPG_images[index].bmp.Transparent:=true;
-  end;
 
 end;
 
@@ -138,6 +139,7 @@ var
  pDst : pRGBLine;
  lazBMP: TLazIntfImage;
  ImgHandle,ImgMaskHandle: HBitmap;
+ src_in_32bpp : boolean;
 
 begin
   // Establece el código
@@ -150,43 +152,7 @@ begin
   FPG_images[index].height := bmp_src.Height;
 
   //FPG_images[index].points := 0;
-
-  // Se crea la imagen resultante
-  FPG_images[index].bmp    := TBitMap.Create;
-
-  if FPG_type <> FPG32 then
-    FPG_images[index].bmp.PixelFormat:=pf24bit
-  else
-    FPG_images[index].bmp.PixelFormat:=pf32bit;
-
-  FPG_images[index].bmp.SetSize(bmp_src.Width, bmp_src.Height);
-
-  CopyPixels(FPG_images[index].bmp,bmp_src,0,0);
-  case FPG_type of
-     FPG1:
-     begin
-           simulate1bppIn24bpp(FPG_images[index].bmp);
-     end;
-     FPG8_DIV2:
-     begin
-           simulate8bppIn24bpp(FPG_images[index].bmp);
-     end;(*
-     FPG16, FPG16_CDIV:
-     begin
-           simulate16bppIn24bpp(FPG_images[index].bmp);
-     end;*)
-  end;
-
-    if FPG_type <> FPG32 then
-    begin
-     if FPG_type = FPG16_CDIV then
-        FPG_images[index].bmp.TransparentColor:=clFuchsia;
-     if (FPG_type = FPG16) OR (FPG_type = FPG24) then
-        FPG_images[index].bmp.TransparentColor:=clBlack;
-     if FPG_type = FPG8_DIV2 then
-        FPG_images[index].bmp.TransparentColor:=RGBToColor(FPG_Header.palette[0],FPG_Header.palette[1],FPG_Header.palette[2]);
-     FPG_images[index].bmp.Transparent:=true;
-    end;
+  FPG_images[index].bmp    := FPGCreateBitmap(bmp_src);
 
 end;
 

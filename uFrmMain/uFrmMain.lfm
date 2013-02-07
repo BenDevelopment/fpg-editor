@@ -1734,6 +1734,16 @@ object frmMain: TfrmMain
       Caption = 'Remplazar Imagen'
       OnExecute = aReplazeImgExecute
     end
+    object aFPG24: TAction
+      Category = 'FPG-Convert'
+      Caption = '24 bits'
+      OnExecute = aFPG24Execute
+    end
+    object aFPG32: TAction
+      Category = 'FPG-Convert'
+      Caption = '32 bits'
+      OnExecute = aFPG32Execute
+    end
   end
   object ilMenu: TImageList
     left = 448
@@ -2189,6 +2199,12 @@ object frmMain: TfrmMain
         end
         object miFPG16f: TMenuItem
           Action = aFPG16f
+        end
+        object miFPG24: TMenuItem
+          Action = aFPG24
+        end
+        object miFPG32: TMenuItem
+          Action = aFPG32
         end
       end
       object miSeparator11: TMenuItem

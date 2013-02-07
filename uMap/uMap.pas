@@ -78,16 +78,10 @@ var
 begin
         // Se crea la imagen resultante
         result := TBitMap.Create;
-        result.PixelFormat := pf24bit;
-
-        if  bytes_per_pixel = 4 then
-        begin
-          result.PixelFormat := pf32bit;
-        end;
-
+        result.PixelFormat := pf32bit;
         result.SetSize(Width, Height);
 
-        lazBMP := result.CreateIntfImage;
+
         // Para usar en caso de un bit
         if bytes_per_pixel = 0 then
         begin
@@ -96,6 +90,7 @@ begin
             lenLineBits := lenLineBits + 1;
         end;
 
+        lazBMP := result.CreateIntfImage;
         for k := 0 to result.Height - 1 do
         begin
           p_bytearray := lazBMP.GetDataLineStart(k);
@@ -112,15 +107,17 @@ begin
                     begin
                       if (lineBit and 128) = 128 then
                       begin
-                        p_bytearray^[z * 3] := 255;
-                        p_bytearray^[(z * 3) + 1] := 255;
-                        p_bytearray^[(z * 3) + 2] := 255;
+                        p_bytearray^[z * 4] := 255;
+                        p_bytearray^[(z * 4) + 1] := 255;
+                        p_bytearray^[(z * 4) + 2] := 255;
+                        p_bytearray^[(z * 4) + 3] := 255;
                       end
                       else
                       begin
-                        p_bytearray^[z * 3] := 0;
-                        p_bytearray^[(z * 3) + 1] := 0;
-                        p_bytearray^[(z * 3) + 2] := 0;
+                        p_bytearray^[z * 4] := 0;
+                        p_bytearray^[(z * 4) + 1] := 0;
+                        p_bytearray^[(z * 4) + 2] := 0;
+                        p_bytearray^[(z * 4) + 3] := 0;
                       end;
                       lineBit := lineBit shl 1;
                     end
@@ -134,9 +131,12 @@ begin
               f.Read(byte_line, result.Width * bytes_per_pixel);
               for j:=0 to result.Width -1  do
               begin
-                 p_bytearray^[j*3+2] := palette[byte_line[j] * 3];
-                 p_bytearray^[j*3+1] := palette[byte_line[j] * 3 + 1];
-                 p_bytearray^[j*3] := palette[byte_line[j] * 3 + 2];
+                 p_bytearray^[j*4] := palette[byte_line[j] * 3 + 2];
+                 p_bytearray^[j*4+1] := palette[byte_line[j] * 3 + 1];
+                 p_bytearray^[j*4+2] := palette[byte_line[j] * 3];
+                 p_bytearray^[j*4+3]:=255;
+                 if byte_line[j]=0 then
+                   p_bytearray^[j*4+3]:=0;
               end;
             end;
             2:
@@ -144,36 +144,55 @@ begin
               f.Read(byte_line, result.Width * bytes_per_pixel);
               for j:=0 to result.Width -1  do
               begin
-                if is_cdiv  then
+                if is_cdiv then
+                begin
                   Calculate_RGB16(byte_line[j*2+1], byte_line[j*2],
-                    p_bytearray^[j * 3], p_bytearray^[(j * 3) + 1],
-                    p_bytearray^[(j * 3) + 2])
+                    p_bytearray^[j * 4], p_bytearray^[(j * 4) + 1],
+                    p_bytearray^[(j * 4) + 2]);
+                  p_bytearray^[(j * 4) + 3] := 255;
+                  if ( ( p_bytearray^[j * 4] = $F8) and
+                         ( p_bytearray^[j * 4 + 1] = 0) and
+                         ( p_bytearray^[j * 4 + 2] = $F8)  ) then
+                     p_bytearray^[(j * 4) + 3] := 0;
+                end
                 else
+                begin
                   Calculate_BGR16(byte_line[j*2+1], byte_line[j*2 ],
-                    p_bytearray^[j * 3], p_bytearray^[(j * 3) + 1],
-                    p_bytearray^[(j * 3) + 2]);
+                    p_bytearray^[j * 4], p_bytearray^[(j * 4) + 1],
+                    p_bytearray^[(j * 4) + 2]);
+                  p_bytearray^[(j * 4) + 3] := 255;
+                  if (byte_line[j*2+1] + byte_line[j*2 ]) = 0 then
+                     p_bytearray^[(j * 4) + 3] := 0;
+
+                end;
 
               end;
             end;
-            else // 24 y 32 bits
+            3:
+            begin
+              f.Read(byte_line, result.Width * bytes_per_pixel);
+              for j:=0 to result.Width -1  do
+              begin
+                p_bytearray^[j*4] := byte_line[j*3];
+                p_bytearray^[j*4+1] := byte_line[j*3+1];
+                p_bytearray^[j*4+2] := byte_line[j*3+2];
+                p_bytearray^[j*4+3]:=255;
+                if (byte_line[j*3+2] + byte_line[j*3+1] + byte_line[j*3 ]) = 0 then
+                     p_bytearray^[(j * 4) + 3] := 0;
+              end;
+            end;
+            else // 32 bits
                 f.Read(p_bytearray^, result.Width * bytes_per_pixel)
           end;
         end;
         result.LoadFromIntfImage(lazBMP);
         lazBMP.Free;
 
-        if result.PixelFormat = pf24bit then
-        begin
-           if is_cdiv then
-             result.TransparentColor:=clFuchsia
-           else
-             result.TransparentColor:=clBlack;
-           result.Transparent:=true;
-        end;
-
 end;
 
- function MAP_Load(filename: string) : TBitmap;
+
+
+function MAP_Load(filename: string) : TBitmap;
  var
   f       : TStream;
   frames,
