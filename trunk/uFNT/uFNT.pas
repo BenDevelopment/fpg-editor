@@ -5,7 +5,7 @@ unit uFNT;
 interface
 
 uses LCLIntf, LCLType, SysUtils, classes, graphics, Dialogs,
-     IntfGraphics, uIniFile;
+     IntfGraphics, uIniFile,FileUtil;
 
 type
  // Estructura datos de una letra
@@ -80,7 +80,7 @@ type
   procedure Calculate_BGR16( byte0, byte1 : Byte; var red, green, blue : Byte );
   function CopyPalette(Source: hPalette): hPalette;
   procedure SetFNTSetup;
-
+  function FNT_Test(str: string): boolean;
   var
    fnt_container : FNT_CONTAINER_R;
 
@@ -151,6 +151,48 @@ try
 finally
   FreeMem(LP, Sizeof(TLogPalette) + 256*Sizeof(TPaletteEntry));
 end;
+end;
+
+
+//Comprobamos si es un archivo FNT sin comprimir
+function FNT_Test(str: string): boolean;
+var
+  f: TFileStream;
+  header : FNX_HEADER_R;
+begin
+  Result := False;
+
+  if not FileExistsUTF8(str) { *Converted from FileExists*  } then
+    Exit;
+
+  try
+    f := TFileStream.Create(str, fmOpenRead);
+  except
+    Exit;
+  end;
+
+  try
+    f.Read(header.file_type, 3);
+    f.Read(header.code, 4);
+    f.Read(header.version, 1);
+  finally
+    f.Free;
+  end;
+
+  // Ficheros de 8 bit DIV
+  if (header.file_type[0] = 'f') and (header.file_type[1] = 'n') and
+    (header.file_type[2] = 't') and (header.code[0] = 26) and
+    (header.code[1] = 13) and (header.code[2] = 10) and
+    (header.code[3] = 0) then
+    Result := True;
+
+  // Ficheros Fenix
+  if (header.file_type[0] = 'f') and (header.file_type[1] = 'n') and
+    (header.file_type[2] = 'x') and (header.code[0] = 26) and
+    (header.code[1] = 13) and (header.code[2] = 10) and
+    (header.code[3] = 0) then
+    Result := True;
+
 end;
 
 function load_fnt( str : string ) : boolean;

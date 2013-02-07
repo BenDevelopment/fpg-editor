@@ -8,7 +8,7 @@ uses
   LCLIntf, LCLType, SysUtils, Forms, Classes, Graphics, Controls,
   Dialogs, ExtCtrls, StdCtrls, Buttons, ComCtrls, ExtDlgs, Spin,
   IntfGraphics, uFNT, uIniFile,  uFrmBpp, FileUtil, FPimage, uColorTable
-  , uSort, uTools, ufrmFNTView;
+  , uSort, uTools, ufrmFNTView, LConvEncoding;
 
 const
  FONT_COLOR   = 1;
@@ -176,7 +176,7 @@ type
     procedure drawProgress( str : string );
     procedure EnableButtons;
     procedure createSelectedImageBox(color1 :TColor);
-
+    function OpenFNT( sfile: string ) : boolean;
   public
     { Public declarations }
     dpCount, dpTotal : LongInt;
@@ -509,8 +509,8 @@ begin
  bmp_src.Canvas.Font.Assign(nFont);
 
  // Obtenemos el ancho y el alto real de esta imagen
- bmp_src.Width  := bmp_src.Canvas.TextWidth(UTF8Encode(''+WideChar(chr(index))));
- bmp_src.Height := bmp_src.Canvas.TextHeight(UTF8Encode(''+WideChar(chr(index))));
+ bmp_src.Width  := bmp_src.Canvas.TextWidth(ISO_8859_1ToUTF8(chr(index)));
+ bmp_src.Height := bmp_src.Canvas.TextHeight(ISO_8859_1ToUTF8(chr(index)));
 
  // Rellenamos la imagen de color transparente
  ClearBitmap(bmp_src);
@@ -532,7 +532,7 @@ begin
  // Pintamos la fuente
  bmp_src.Canvas.Brush.Color := clBlack;
  bmp_src.Canvas.Font.Color  := inifile_fnt_color;
- bmp_src.Canvas.TextOut(0, 0, UTF8Encode(''+WideChar(chr(index))));
+ bmp_src.Canvas.TextOut(0, 0, ISO_8859_1ToUTF8(chr(index)));
 
  // Obtenemos el desplazamiento vertical, ancho y alto mínimo
  fnt_container.header.char_info[index].vertical_offset:= GetUpOffset(bmp_src);
@@ -1179,12 +1179,44 @@ end;
 
 procedure TfrmMainFNT.EPreviewChange(Sender: TObject);
 begin
-    MakeText(UTF8ToSys(EPreview.Text));
+    MakeText(UTF8ToISO_8859_1(EPreview.Text));
 end;
 
 procedure TfrmMainFNT.cbExtendedChange(Sender: TObject);
 begin
 
+end;
+
+function TfrmMainFNT.OpenFNT( sfile: string ) : boolean;
+var
+ WorkDir: string;
+ BinDir: string;
+ f : TextFile;
+begin
+ result:=false;
+ // Comprobamos si es un formato sin comprimir
+ if not FNT_Test(sfile) then
+ begin
+
+ WorkDir := GetTempDir(False) ;
+ BinDir := ExtractFilePath(Application.ExeName);
+
+ {$IFDEF WINDOWS}
+  RunExe(BinDir + DirectorySeparator+'\zlib\zlib.exe -d "'+ sfile + '"', WorkDir );
+ {$ENDIF}
+
+ {$IFDEF Linux}
+   RunExe('/bin/gzip -dc "'+ sfile+'"', WorkDir,WorkDir +'________.uz' );
+ {$ENDIF}
+
+  result := load_fnt( WorkDir +'________.uz');
+
+  AssignFile(f, WorkDir +'________.uz');
+  Erase(f);
+
+ end
+ else
+  result := load_fnt(sfile);
 end;
 
 procedure TfrmMainFNT.sbOpenClick(Sender: TObject);
@@ -1202,7 +1234,7 @@ begin
   pInfo.Show;
   Repaint;
 
-  if load_fnt( dlgOpen.FileName ) then
+  if OpenFNT( dlgOpen.FileName ) then
   begin
    sbInfo.Panels.Items[0].Text := dlgOpen.FileName;
    sbInfo.Panels.Items[1].Text := 'Tamaño: ' + IntToStr(fnt_container.sizeof div 1024) + 'KB';

@@ -6,7 +6,7 @@ interface
 
 uses
   LCLIntf, LCLType, LMessages, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Menus, ComCtrls, ExtCtrls, StdCtrls, Grids, ufnt;
+  Dialogs, Menus, ComCtrls, ExtCtrls, StdCtrls, Grids, ufnt, LConvEncoding;
 
 type
 
@@ -135,7 +135,7 @@ begin
   begin
     listItem := ListView1.Items.add();
     listItem.Caption := IntToStr(i);
-    listItem.SubItems.Add(UTF8Encode(''+WideChar(chr(i))));
+    listItem.SubItems.Add(ISO_8859_1ToUTF8(chr(i)));
     listItem.SubItems.Add(IntToStr(fnt_container.header.char_info[i].Width));
     listItem.SubItems.Add(IntToStr(fnt_container.header.char_info[i].Height));
     listItem.SubItems.Add(IntToStr(fnt_container.header.char_info[i].width_offset));
