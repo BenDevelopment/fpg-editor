@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 117
+  Left = 116
   Height = 618
-  Top = 122
+  Top = 115
   Width = 818
   Caption = 'FPG Edit'
   ClientHeight = 598
