@@ -27,7 +27,7 @@ type
     GroupBox4: TGroupBox;
     Memo1: TMemo;
     Label4: TLabel;
-    ComboBox1: TComboBox;
+    cbCharset: TComboBox;
     GroupBox5: TGroupBox;
     ListView1: TListView;
     GroupBox6: TGroupBox;
@@ -116,7 +116,7 @@ begin
   edit2.Text := IntToHex(fnt_container.header.code[0], 2) + IntToHex(fnt_container.header.code[1], 2) +
     IntToHex(fnt_container.header.code[2], 2) + IntToHex(fnt_container.header.code[3], 2);
   edit3.Text := IntToStr(fnt_container.header.version);
-  ComboBox1.ItemIndex := fnt_container.header.charset;
+  cbCharset.ItemIndex := fnt_container.header.charset;
   label5.Caption := IntToStr(fnt_container.header.charset);
 
   stringmemo := '';
@@ -135,7 +135,11 @@ begin
   begin
     listItem := ListView1.Items.add();
     listItem.Caption := IntToStr(i);
-    listItem.SubItems.Add(ISO_8859_1ToUTF8(chr(i)));
+    if fnt_container.header.charset = 0 then
+        listItem.SubItems.Add(ISO_8859_1ToUTF8(chr(i)))
+    else
+        listItem.SubItems.Add(CP850ToUTF8(chr(i)));
+
     listItem.SubItems.Add(IntToStr(fnt_container.header.char_info[i].Width));
     listItem.SubItems.Add(IntToStr(fnt_container.header.char_info[i].Height));
     listItem.SubItems.Add(IntToStr(fnt_container.header.char_info[i].width_offset));
@@ -146,4 +150,4 @@ begin
   end;
 end;
 
-end.
+end.

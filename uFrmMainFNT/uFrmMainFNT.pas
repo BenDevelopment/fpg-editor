@@ -31,8 +31,10 @@ type
     Bevel1: TBevel;
     Bevel2: TBevel;
     Bevel3: TBevel;
+    cbCharset: TComboBox;
     dlgFont: TFontDialog;
     EPreview: TEdit;
+    gbCharset: TGroupBox;
     Label3: TLabel;
     Label4: TLabel;
     pTools: TToolBar;
@@ -509,8 +511,13 @@ begin
  bmp_src.Canvas.Font.Assign(nFont);
 
  // Obtenemos el ancho y el alto real de esta imagen
- bmp_src.Width  := bmp_src.Canvas.TextWidth(ISO_8859_1ToUTF8(chr(index)));
- bmp_src.Height := bmp_src.Canvas.TextHeight(ISO_8859_1ToUTF8(chr(index)));
+ if cbCharset.ItemIndex = 0 then begin
+   bmp_src.Width  := bmp_src.Canvas.TextWidth(ISO_8859_1ToUTF8(chr(index)));
+   bmp_src.Height := bmp_src.Canvas.TextHeight(ISO_8859_1ToUTF8(chr(index)));
+ end else begin
+  bmp_src.Width  := bmp_src.Canvas.TextWidth(CP850ToUTF8(chr(index)));
+  bmp_src.Height := bmp_src.Canvas.TextHeight(CP850ToUTF8(chr(index)));
+ end;
 
  // Rellenamos la imagen de color transparente
  ClearBitmap(bmp_src);
@@ -532,7 +539,10 @@ begin
  // Pintamos la fuente
  bmp_src.Canvas.Brush.Color := clBlack;
  bmp_src.Canvas.Font.Color  := inifile_fnt_color;
- bmp_src.Canvas.TextOut(0, 0, ISO_8859_1ToUTF8(chr(index)));
+ if cbCharset.ItemIndex = 0 then
+  bmp_src.Canvas.TextOut(0, 0, ISO_8859_1ToUTF8(chr(index)))
+ else
+  bmp_src.Canvas.TextOut(0, 0, CP850ToUTF8(chr(index)));
 
  // Obtenemos el desplazamiento vertical, ancho y alto mínimo
  fnt_container.header.char_info[index].vertical_offset:= GetUpOffset(bmp_src);
@@ -620,10 +630,6 @@ begin
  lazBMPdst:= bmp_dst.CreateIntfImage ;
 
  lazBMPdst.CopyPixels(lazBMPsrc, font_edge,font_edge);
- //for y := 0 to lazBMPsrc.Height -1 do
- // for x := 0 to lazBMPsrc.Width - 1 do
- //    lazBMPdst.Colors[x + font_edge, y + font_edge] := lazBMPsrc.Colors[x,y];
-
 
  fontColor:=TColorToFPColor(inifile_fnt_color);
  fontColor.alpha:= (MulDiv (high(word) , alpha_font , 100)) and $FF00;
@@ -1115,21 +1121,6 @@ begin
 
  DrawProgress('');
 
- (*
- // Creando paleta
- if (not FrmCFG.user_palette) or (FrmCFG.rbFNT2PAL.Checked) then
- begin
-  DrawProgress('Calculando paleta...');
-  CreatePAL;
- end;
- // Actualizando información
- Init_Color_Table_16_to_8;
-
- // Inicializa la tabla con la paleta
- Init_Color_Table_With_Palette;
-
- *)
-
  // Obtenemos el número de letras
  total := GetNumberOfFNT();
 
@@ -1141,8 +1132,10 @@ begin
 
  sbInfo.Panels.Items[0].Text := '';
 
-// fnt_container.header.version := 8;
-// fnt_container.header.charset   := inifile_symbol_type;
+ unload_fnt;
+
+ //fnt_container.header.version := 32;
+ fnt_container.header.charset   := cbCharset.ItemIndex;
 
  font_edge  := sedSizeEdge.Value;
  font_shadow:= sedSizeShadow.Value;
@@ -1169,6 +1162,8 @@ begin
  sbSaveAs.Enabled := true;
 
  MakePreview;
+ EnableButtons;
+
 end;
 
 procedure TfrmMainFNT.FormResize(Sender: TObject);
@@ -1179,7 +1174,11 @@ end;
 
 procedure TfrmMainFNT.EPreviewChange(Sender: TObject);
 begin
-    MakeText(UTF8ToISO_8859_1(EPreview.Text));
+ if fnt_container.header.charset = 0 then
+    MakeText(UTF8ToISO_8859_1(EPreview.Text))
+ else
+    MakeText(CP850ToUTF8(EPreview.Text))
+
 end;
 
 procedure TfrmMainFNT.cbExtendedChange(Sender: TObject);
@@ -2319,4 +2318,4 @@ begin
    +Byte(fnt_container.header.file_type[3])) <> 0);
 end;
 
-end.
+end.

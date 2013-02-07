@@ -413,16 +413,6 @@ end;
    Exit;
   end;
 
-  fnt_container.HEADER.file_type[0] := 'f';
-  fnt_container.HEADER.file_type[1] := 'n';
-  fnt_container.HEADER.file_type[2] := 'x';
-
-  fnt_container.HEADER.code[0] := 26;
-  fnt_container.HEADER.code[1] := 13;
-  fnt_container.HEADER.code[2] := 10;
-  fnt_container.HEADER.code[3] := 0;
-
-
   case bpp of
     0:
       fnt_container.HEADER.version := 1;
@@ -578,11 +568,19 @@ end;
    fnt_container.header.char_info[i].file_offset := 0;
   end;
 
-  FillByte(fnt_container.header.file_type , 3, 0);
+  fnt_container.header.file_type[0]:='f';
+  fnt_container.header.file_type[1]:='n';
+  fnt_container.header.file_type[2]:='x';
+
+  fnt_container.header.code[0]:=26;
+  fnt_container.header.code[1]:=13;
+  fnt_container.header.code[2]:=10;
+  fnt_container.header.code[3]:=0;
+
   FillByte(fnt_container.HEADER.palette , 768, 0);
   FillByte(fnt_container.HEADER.gamma , 576, 0);
   fnt_container.HEADER.charset:=0;
-  fnt_container.HEADER.version:=0;
+  fnt_container.HEADER.version:=32;
 
   fnt_container.width  := 0;
   fnt_container.height := 0;
@@ -686,4 +684,4 @@ begin
 end;
 
 
-end.
+end.
