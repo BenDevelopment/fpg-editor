@@ -25,7 +25,7 @@ object frmFNTView: TfrmFNTView
       Left = 36
       Height = 13
       Top = 140
-      Width = 44
+      Width = 50
       Caption = 'Charset'
       Font.Color = clWindowText
       Font.Height = -11
@@ -47,7 +47,7 @@ object frmFNTView: TfrmFNTView
       Top = 8
       Width = 161
       Caption = 'Header'
-      ClientHeight = 103
+      ClientHeight = 106
       ClientWidth = 157
       Font.Color = clWindowText
       Font.Height = -11
@@ -59,7 +59,7 @@ object frmFNTView: TfrmFNTView
         Left = 41
         Height = 13
         Top = 5
-        Width = 33
+        Width = 38
         Caption = 'Magic'
         Font.Color = clWindowText
         Font.Height = -11
@@ -72,7 +72,7 @@ object frmFNTView: TfrmFNTView
         Left = 11
         Height = 13
         Top = 37
-        Width = 63
+        Width = 74
         Caption = 'MSDOS End'
         Font.Color = clWindowText
         Font.Height = -11
@@ -85,7 +85,7 @@ object frmFNTView: TfrmFNTView
         Left = 1
         Height = 13
         Top = 68
-        Width = 73
+        Width = 85
         Caption = 'Bits Per Pixel'
         Font.Color = clWindowText
         Font.Height = -11
@@ -96,7 +96,7 @@ object frmFNTView: TfrmFNTView
       end
       object Edit1: TEdit
         Left = 78
-        Height = 21
+        Height = 23
         Top = 5
         Width = 72
         Enabled = False
@@ -105,7 +105,7 @@ object frmFNTView: TfrmFNTView
       end
       object Edit2: TEdit
         Left = 78
-        Height = 21
+        Height = 23
         Top = 32
         Width = 73
         Enabled = False
@@ -114,7 +114,7 @@ object frmFNTView: TfrmFNTView
       end
       object Edit3: TEdit
         Left = 78
-        Height = 21
+        Height = 23
         Top = 68
         Width = 72
         Enabled = False
@@ -128,7 +128,7 @@ object frmFNTView: TfrmFNTView
       Top = 8
       Width = 401
       Caption = 'Colors'
-      ClientHeight = 183
+      ClientHeight = 186
       ClientWidth = 397
       Font.Color = clWindowText
       Font.Height = -11
@@ -142,12 +142,12 @@ object frmFNTView: TfrmFNTView
         Top = 2
         Width = 185
         Caption = 'Palette'
-        ClientHeight = 159
+        ClientHeight = 162
         ClientWidth = 181
         TabOrder = 0
         object DrawGrid1: TDrawGrid
           Left = 0
-          Height = 159
+          Height = 162
           Top = 0
           Width = 181
           Align = alClient
@@ -173,12 +173,12 @@ object frmFNTView: TfrmFNTView
         Top = 2
         Width = 193
         Caption = 'Gamma'
-        ClientHeight = 159
+        ClientHeight = 162
         ClientWidth = 189
         TabOrder = 1
         object Memo1: TMemo
           Left = 0
-          Height = 159
+          Height = 162
           Top = 0
           Width = 189
           Align = alClient
@@ -188,13 +188,13 @@ object frmFNTView: TfrmFNTView
         end
       end
     end
-    object ComboBox1: TComboBox
+    object cbCharset: TComboBox
       Left = 86
-      Height = 21
+      Height = 27
       Top = 136
       Width = 74
       Enabled = False
-      ItemHeight = 13
+      ItemHeight = 0
       Items.Strings = (
         'ISO8859'
         'CP850'
@@ -208,7 +208,7 @@ object frmFNTView: TfrmFNTView
       Top = 6
       Width = 193
       Caption = 'Preview'
-      ClientHeight = 183
+      ClientHeight = 186
       ClientWidth = 189
       Font.Color = clWindowText
       Font.Height = -11
@@ -218,7 +218,7 @@ object frmFNTView: TfrmFNTView
       TabOrder = 3
       object Image1: TImage
         Left = 0
-        Height = 183
+        Height = 186
         Top = 0
         Width = 189
         Align = alClient
@@ -235,7 +235,7 @@ object frmFNTView: TfrmFNTView
     Width = 788
     Align = alClient
     Caption = 'Descriptors'
-    ClientHeight = 344
+    ClientHeight = 347
     ClientWidth = 784
     Font.Color = clWindowText
     Font.Height = -11
@@ -245,7 +245,7 @@ object frmFNTView: TfrmFNTView
     TabOrder = 1
     object ListView1: TListView
       Left = 0
-      Height = 344
+      Height = 347
       Top = 0
       Width = 784
       Align = alClient
@@ -279,7 +279,7 @@ object frmFNTView: TfrmFNTView
         end      
         item
           Caption = 'File Offset'
-          Width = 100
+          Width = 214
         end>
       GridLines = True
       ReadOnly = True
@@ -289,4 +289,4 @@ object frmFNTView: TfrmFNTView
       OnSelectItem = ListView1SelectItem
     end
   end
-end
+end
