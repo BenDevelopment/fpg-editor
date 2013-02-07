@@ -47,6 +47,8 @@ type
     aBennu: TAction;
     aCDiv: TAction;
     aAnimFPG: TAction;
+    aFPG32: TAction;
+    aFPG24: TAction;
     aReplazeImg: TAction;
     aFPG16f: TAction;
     aFPG16c: TAction;
@@ -87,6 +89,8 @@ type
     aClose: TAction;
     ActionList: TActionList;
     Bevel13: TBevel;
+    miFPG32: TMenuItem;
+    miFPG24: TMenuItem;
     sbFilter: TSpeedButton;
     edFPGCODE: TSpinEdit;
     EFilter: TComboBox;
@@ -216,6 +220,8 @@ type
     Bevel11: TBevel;
     Bevel12: TBevel;
     procedure aFPG16cExecute(Sender: TObject);
+    procedure aFPG24Execute(Sender: TObject);
+    procedure aFPG32Execute(Sender: TObject);
     procedure aFPG8Execute(Sender: TObject);
     procedure aFPG16fExecute(Sender: TObject);
 
@@ -1676,9 +1682,22 @@ begin
  Update_Panels;
 end;
 
+procedure TfrmMain.aFPG24Execute(Sender: TObject);
+begin
+ Convert_to_FPG24(ilFPG, lvFPG, TForm(frmMain), pbFPG);
+ Update_Panels;
+end;
+
+procedure TfrmMain.aFPG32Execute(Sender: TObject);
+begin
+ Convert_to_FPG32(ilFPG, lvFPG, TForm(frmMain), pbFPG);
+ Update_Panels;
+
+end;
+
 procedure TfrmMain.aFPG16fExecute(Sender: TObject);
 begin
- Convert_to_FPG16(ilFPG, lvFPG, TForm(frmMain), pbFPG);
+ Convert_to_FPG16_FENIX(ilFPG, lvFPG, TForm(frmMain), pbFPG);
  Update_Panels;
 end;
 

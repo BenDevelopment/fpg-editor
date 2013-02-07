@@ -26,7 +26,7 @@ interface
 
 uses LCLIntf, LCLType, SysUtils, Forms, Classes,
   Graphics, FileUtil, ComCtrls, IntfGraphics,
-  uFrmMessageBox, uLanguage, uColor16bits, uCopyPalette, uMap, Dialogs;
+  uFrmMessageBox, uLanguage, uColor16bits, uMap, Dialogs;
 
 const
   MAX_NUM_IMAGES = 999;
@@ -107,7 +107,7 @@ function Find_Color(index, rc, gc, bc: integer): integer;
 procedure stringToArray(var inarray: array of char; str: string; len: integer);
 
 procedure MAP_Save(index: integer; filename: string);
-procedure writeBitmap( var f: TFileStream ;var bitmap : TBitmap; byte_size : word);
+procedure writeDataBitmap( var f: TFileStream ;var bitmap : TBitmap; bytes_per_pixel : word; cdivformat : boolean =false);
 
 
 implementation
@@ -253,7 +253,7 @@ end;
 procedure FPG_Save(var frmMain: TForm; var gFPG: TProgressBar);
 var
   f: TFileStream;
-  i, j, k: word;
+  i, j : word;
   graph_size: longint;
   bytes_per_pixel: word;
   widthForFPG1: integer;
@@ -332,7 +332,7 @@ begin
     if ((FPG_Images[i].points > 0) and (FPG_Images[i].points <> 4096)) then
       f.Write(FPG_Images[i].control_points, FPG_Images[i].points * 4);
 
-    writeBitmap(f,FPG_Images[i].bmp,bytes_per_pixel );
+    writeDataBitmap(f,FPG_Images[i].bmp,bytes_per_pixel, (FPG_type = FPG16_CDIV));
 
     gFPG.Position := (i * 100) div (FPG_add_pos - 1);
     gFPG.Repaint;
@@ -673,77 +673,6 @@ begin
   end;
 end;
 
-procedure writeBitmap( var f: TFileStream ;var bitmap : TBitmap; byte_size : word);
-var
-  lazBMP : TLazIntfImage;
-  byte_line: array [0 .. 16383] of byte;
-  byteForFPG1: byte;
-  insertedBits: integer;
-  p_bytearray: PByteArray;
-  i, j, k: word;
-begin
-  lazBMP := bitmap.CreateIntfImage;
-
-  for k := 0 to bitmap.Height - 1 do
-  begin
-    p_bytearray := lazBmp.GetDataLineStart(k);
-    case FPG_type of
-      FPG1:
-      begin
-          insertedBits := 0;
-          byteForFPG1 := 0;
-          for j := 0 to bitmap.Width - 1 do
-          begin
-            if (p_bytearray^[j * 3] shr 7) = 1 then
-            begin
-              byteForFPG1 := byteForFPG1 or 1; // bit más alto en 8 bits
-            end;
-            insertedBits := insertedBits + 1;
-            if (insertedBits = 8) then
-            begin
-              f.Write(byteForFPG1, 1);
-              byteForFPG1 := 0;
-              insertedBits := 0;
-            end else
-              byteForFPG1 := byteForFPG1 shl 1;
-          end;
-          if insertedBits > 0 then
-          begin
-            byteForFPG1 := byteForFPG1 shl (7 - insertedBits);
-            f.Write(byteForFPG1, 1);
-          end;
-     end;
-     FPG8_DIV2:
-     begin
-        for j := 0 to bitmap.Width - 1 do
-        begin
-           byte_line[j]:=Find_Color(0,p_bytearray^[j * 3+2],p_bytearray^[j * 3+1],p_bytearray^[j * 3]);
-        end;
-        f.Write(byte_line, bitmap.Width);
-     end;
-     FPG16,
-     FPG16_CDIV:
-     begin
-       for j := 0 to bitmap.Width - 1 do
-       begin
-         if FPG_type = FPG16 then
-           set_BGR16(byte_line[j*2+1], byte_line[j*2],p_bytearray^[j * 3],p_bytearray^[j * 3+1],p_bytearray^[j * 3+2] )
-         else
-           set_RGB16(byte_line[j*2+1], byte_line[j*2],p_bytearray^[j * 3],p_bytearray^[j * 3+1],p_bytearray^[j * 3+2] );
-       end;
-       f.Write(byte_line, bitmap.Width*byte_size);
-     end;
-     else  // 24 y 32 bits
-     begin
-         f.Write(p_bytearray^, bitmap.Width * byte_size);
-     end;
-     end;
-
-  end;
-  lazBMP.Free;
-
-end;
-
 procedure MAP_Save(index: integer; filename: string);
 var
   f: TFileStream;
@@ -813,12 +742,106 @@ begin
   if ((header.flags > 0) and (header.flags <> 4096)) then
     f.Write(FPG_Images[index].control_points, header.flags * 4);
 
-  writeBitmap(f, FPG_Images[index].bmp,byte_size );
+  writeDataBitmap(f, FPG_Images[index].bmp,byte_size );
 
   f.Free;
 
 end;
 
+procedure writeDataBitmap( var f: TFileStream ;var bitmap : TBitmap; bytes_per_pixel : word; cdivformat : boolean =false);
+var
+  lazBMP : TLazIntfImage;
+  byte_line: array [0 .. 16383] of byte;
+  byteForFPG1: byte;
+  insertedBits: integer;
+  p_bytearray: PByteArray;
+  j, k: word;
+begin
+  lazBMP := bitmap.CreateIntfImage;
 
+  for k := 0 to bitmap.Height - 1 do
+  begin
+    p_bytearray := lazBmp.GetDataLineStart(k);
+    case bytes_per_pixel of
+      0:
+      begin
+          insertedBits := 0;
+          byteForFPG1 := 0;
+          for j := 0 to bitmap.Width - 1 do
+          begin
+            if (p_bytearray^[j * 4] shr 7) = 1 then
+            begin
+              byteForFPG1 := byteForFPG1 or 1; // bit más alto en 8 bits
+            end;
+            insertedBits := insertedBits + 1;
+            if (insertedBits = 8) then
+            begin
+              f.Write(byteForFPG1, 1);
+              byteForFPG1 := 0;
+              insertedBits := 0;
+            end else
+              byteForFPG1 := byteForFPG1 shl 1;
+          end;
+          if insertedBits > 0 then
+          begin
+            byteForFPG1 := byteForFPG1 shl (7 - insertedBits);
+            f.Write(byteForFPG1, 1);
+          end;
+     end;
+     1:
+     begin
+        for j := 0 to bitmap.Width - 1 do
+        begin
+          byte_line[j]:=0;
+          if p_bytearray^[j * 4 + 3 ] <> 0 then
+             byte_line[j]:=Find_Color(0,p_bytearray^[j * 4+2],p_bytearray^[j * 4+1],p_bytearray^[j * 4]);
+        end;
+        f.Write(byte_line, bitmap.Width);
+     end;
+     2:
+     begin
+       for j := 0 to bitmap.Width - 1 do
+       begin
+           if cdivformat then
+             if p_bytearray^[j * 4 + 3 ] <> 0 then
+                set_RGB16(byte_line[j*2+1], byte_line[j*2],p_bytearray^[j * 4],p_bytearray^[j * 4+1],p_bytearray^[j * 4+2] )
+             else
+               set_RGB16(byte_line[j*2+1], byte_line[j*2],248,0,248 )
+           else begin
+            byte_line[j*2]:=0;
+            byte_line[j*2+1]:=0;
+            if p_bytearray^[j * 4 + 3 ] <> 0 then
+              set_BGR16(byte_line[j*2+1], byte_line[j*2],p_bytearray^[j * 4],p_bytearray^[j * 4+1],p_bytearray^[j * 4+2] )
+
+           end;
+       end;
+       f.Write(byte_line, bitmap.Width*bytes_per_pixel);
+     end;
+     3:
+     begin
+       for j := 0 to bitmap.Width - 1 do
+       begin
+         byte_line[j*3]:=0;
+         byte_line[j*3+1]:=0;
+         byte_line[j*3+2]:=0;
+         if p_bytearray^[j * 4 + 3 ] <> 0 then
+         begin
+           byte_line[j*3]:= p_bytearray^[j * 4];
+           byte_line[j*3+1]:=p_bytearray^[j * 4 + 1];
+           byte_line[j*3+2]:=p_bytearray^[j * 4 + 2 ];
+         end;
+       end;
+       f.Write(byte_line, bitmap.Width*bytes_per_pixel);
+     end;
+     else  // 32 bits
+     begin
+         f.Write(p_bytearray^, bitmap.Width * bytes_per_pixel);
+     end;
+     end;
+
+  end;
+  lazBMP.Free;
+
+end;
 
 end.
