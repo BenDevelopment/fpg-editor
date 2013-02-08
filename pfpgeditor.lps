@@ -6,12 +6,15 @@
     <BuildModes Active="Default"/>
     <Units Count="99">
       <Unit0>
-        <Filename Value="pfpgedit.lpr"/>
+        <Filename Value="pfpgeditor.lpr"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="pfpgeditor"/>
+        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
         <TopLine Value="5"/>
-        <CursorPos X="1" Y="42"/>
+        <CursorPos X="33" Y="16"/>
         <UsageCount Value="473"/>
+        <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
@@ -20,10 +23,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmMain"/>
+        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1528"/>
         <CursorPos X="30" Y="1534"/>
         <UsageCount Value="473"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="uFrmView\ufrmView.pas"/>
@@ -89,10 +95,13 @@
         <Filename Value="uIniFile\uinifile.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uinifile"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
         <TopLine Value="17"/>
-        <CursorPos X="1" Y="23"/>
+        <CursorPos X="42" Y="31"/>
         <UsageCount Value="473"/>
+        <Loaded Value="True"/>
       </Unit8>
       <Unit9>
         <Filename Value="uFPGConvert\uFPGConvert.pas"/>
@@ -325,10 +334,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmMainFNT"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="2254"/>
+        <TopLine Value="2258"/>
         <CursorPos X="21" Y="2286"/>
         <UsageCount Value="169"/>
         <Loaded Value="True"/>
@@ -341,10 +349,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmAbout"/>
+        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="48"/>
-        <CursorPos X="15" Y="54"/>
+        <TopLine Value="1"/>
+        <CursorPos X="5" Y="2"/>
         <UsageCount Value="166"/>
+        <Loaded Value="True"/>
       </Unit34>
       <Unit35>
         <Filename Value="uFrmFNTView\uFrmFNTView.pas"/>
@@ -843,7 +853,20 @@
     <General>
       <ActiveWindowIndexAtStart Value="0"/>
     </General>
-    <JumpHistory Count="0" HistoryIndex="-1"/>
+    <JumpHistory Count="3" HistoryIndex="2">
+      <Position1>
+        <Filename Value="uFrmAbout\uFrmAbout.pas"/>
+        <Caret Line="54" Column="15" TopLine="40"/>
+      </Position1>
+      <Position2>
+        <Filename Value="pfpgeditor.lpr"/>
+        <Caret Line="42" Column="1" TopLine="5"/>
+      </Position2>
+      <Position3>
+        <Filename Value="uIniFile\uinifile.pas"/>
+        <Caret Line="23" Column="1" TopLine="17"/>
+      </Position3>
+    </JumpHistory>
   </ProjectSession>
   <Debugging>
     <BreakPoints Count="1">
