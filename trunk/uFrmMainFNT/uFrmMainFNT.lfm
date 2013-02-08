@@ -1216,8 +1216,8 @@ object frmMainFNT: TfrmMainFNT
   object dlgOpen: TOpenDialog
     Filter = 'FNT (*.fnt)|*.fnt|(*.*)|*.*'
     Options = [ofEnableSizing]
-    left = 448
-    top = 152
+    left = 376
+    top = 304
   end
   object dlgColor: TColorDialog
     Color = clBlack
@@ -1266,7 +1266,7 @@ object frmMainFNT: TfrmMainFNT
     Title = 'Importar una fuente de una imagen'
     DefaultExt = '.bmp'
     Filter = 'Archivo BMP|*.bmp|Todos (*.*)|*.*'
-    left = 496
-    top = 152
+    left = 448
+    top = 304
   end
 end

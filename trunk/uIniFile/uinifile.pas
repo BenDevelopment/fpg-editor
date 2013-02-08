@@ -28,7 +28,7 @@ interface
 uses inifiles, SysUtils, graphics, LCLIntf, LCLType, Forms, FileUtil;
 
 const
- sINIFILE         =  DirectorySeparator+'fpgedit.ini';
+ sINIFILE         =  DirectorySeparator+'fpg-editor.ini';
  sDEFAULT_LNG     = DirectorySeparator+'lng'+DirectorySeparator+'Spanish.ini';
 
  sMAIN            = 'FPG';
@@ -228,4 +228,4 @@ begin
  inifile.Destroy;
 end;
 
-end.
+end.
