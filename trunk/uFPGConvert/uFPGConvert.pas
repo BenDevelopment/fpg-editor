@@ -40,6 +40,7 @@ var
  Table_FPG_Convert : array [0 .. 31, 0 .. 63, 0 .. 31] of LongWord;
  New_type          : Integer;
 
+ procedure Convert_to_FPG1(var ilFPG : TImageList; var lvFPG: TListView; var frmMain: TForm; var gFPG: TProgressBar);
  procedure Convert_to_FPG8_DIV2(var ilFPG : TImageList; var lvFPG: TListView; var frmMain: TForm; var gFPG: TProgressBar);
 
  procedure Convert_to_FPG16_common(var ilFPG : TImageList; var lvFPG: TListView; var frmMain: TForm; var gFPG: TProgressBar; cdivformat:boolean =false);
@@ -232,10 +233,7 @@ end;
 procedure Convert_to_FPG16_common(var ilFPG : TImageList; var lvFPG: TListView; var frmMain: TForm; var gFPG: TProgressBar; cdivformat : boolean = false);
 var
  count   : LongInt;
- i, j    : LongInt;
- rgbLine : pRGBLine;
- lazBMP: TLazIntfImage;
-  ImgHandle,ImgMaskHandle: HBitmap;
+ tmpBMP : TBitmap;
 begin
  ilFPG.Clear;
  lvFPG.Items.Clear;
@@ -250,8 +248,9 @@ begin
  for count:= 1 to FPG_add_pos - 1 do
  begin
 
-  FreeAndNil(FPG_images[count].bmp);
-  FPG_images[count].bmp:=createBitmap16bpp(FPG_images[count].bmp,cdivformat);
+  tmpBMP:=FPG_images[count].bmp;
+  FPG_images[count].bmp:=createBitmap16bpp(tmpBMP,cdivformat);
+  FreeAndNil(tmpBMP);
   lvFPG_add_items( count, lvFPG, ilFPG);
 
   gFPG.Position:= (count * 100) div (FPG_add_pos - 1);
@@ -293,7 +292,8 @@ var
  count   : LongInt;
  i, j    : LongInt;
  rgbLine : pRGBLine;
- lazBMP: TLazIntfImage;
+ lazBMP  : TLazIntfImage;
+ tmpBMP  : TBitmap;
   ImgHandle,ImgMaskHandle: HBitmap;
 begin
  New_type := FPG24;
@@ -310,9 +310,9 @@ begin
 
  for count:= 1 to FPG_add_pos - 1 do
  begin
-
-  FreeAndNil(FPG_images[count].bmp);
-  FPG_images[count].bmp:=createBitmap24bpp(FPG_images[count].bmp);
+  tmpBMP:= FPG_images[count].bmp;
+  FPG_images[count].bmp:=createBitmap24bpp(tmpBMP);
+  FreeAndNil(tmpBMP);
   lvFPG_add_items( count, lvFPG, ilFPG);
 
   gFPG.Position:= (count * 100) div (FPG_add_pos - 1);
@@ -339,6 +339,44 @@ begin
  FPG_update := true;
 end;
 
+procedure Convert_to_FPG1(var ilFPG : TImageList; var lvFPG: TListView; var frmMain: TForm; var gFPG: TProgressBar);
+var
+ count   : LongInt;
+ tmpBMP : TBitmap;
+
+begin
+ New_type := FPG1;
+
+
+ ilFPG.Clear;
+ lvFPG.Items.Clear;
+
+ ilFPG.Width  := inifile_sizeof_icon;
+ ilFPG.Height := inifile_sizeof_icon;
+
+ gFPG.Position := 0;
+ gFPG.Show;
+ gFPG.Repaint;
+
+ for count:= 1 to FPG_add_pos - 1 do
+ begin
+
+  tmpBMP:=FPG_images[count].bmp;
+  FPG_images[count].bmp:=createBitmap1bpp(tmpBMP);
+  FreeAndNil(tmpBMP);
+  lvFPG_add_items( count, lvFPG, ilFPG);
+
+  gFPG.Position:= (count * 100) div (FPG_add_pos - 1);
+  gFPG.Repaint;
+ end;
+
+ gFPG.Hide;
+ // Actualizamos los datos del FPG
+ FPG_type             := FPG1;
+ FPG_header.file_type := 'f01';
+ FPG_load_palette     := false;
+ FPG_update := true;
+end;
 
 
 end.

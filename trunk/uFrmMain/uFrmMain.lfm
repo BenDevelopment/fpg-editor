@@ -4,7 +4,7 @@ object frmMain: TfrmMain
   Top = 115
   Width = 818
   Caption = 'FPG Editor'
-  ClientHeight = 589
+  ClientHeight = 598
   ClientWidth = 818
   Menu = MainMenu
   OnActivate = FormActivate
@@ -27,18 +27,18 @@ object frmMain: TfrmMain
   end
   object gbFPG: TGroupBox
     Left = 0
-    Height = 300
+    Height = 311
     Top = 264
     Width = 818
     Align = alClient
     Caption = ' FPG (Ficheros de gráficos) '
-    ClientHeight = 277
+    ClientHeight = 293
     ClientWidth = 814
     TabOrder = 0
     object pbFPG: TProgressBar
       Left = 0
       Height = 11
-      Top = 266
+      Top = 282
       Width = 814
       Align = alBottom
       TabOrder = 1
@@ -586,7 +586,7 @@ object frmMain: TfrmMain
       end
       object edFPGCODE: TSpinEdit
         Left = 720
-        Height = 23
+        Height = 22
         Top = 2
         Width = 63
         Font.Height = -11
@@ -602,28 +602,34 @@ object frmMain: TfrmMain
     end
     object lvFPG: TListView
       Left = 0
-      Height = 240
+      Height = 256
       Top = 26
       Width = 814
       Align = alClient
       Columns = <      
         item
           MinWidth = 50
+          Width = 10
         end      
         item
           MinWidth = 50
+          Width = 10
         end      
         item
           MinWidth = 50
+          Width = 10
         end      
         item
           MinWidth = 50
+          Width = 10
         end      
         item
           MinWidth = 50
+          Width = 10
         end      
         item
           MinWidth = 50
+          Width = 10
         end>
       LargeImages = ilFPG
       MultiSelect = True
@@ -639,8 +645,8 @@ object frmMain: TfrmMain
   end
   object sbFPGEdit: TStatusBar
     Left = 0
-    Height = 25
-    Top = 564
+    Height = 23
+    Top = 575
     Width = 818
     Panels = <    
       item
@@ -662,21 +668,21 @@ object frmMain: TfrmMain
     Width = 818
     Align = alTop
     Caption = ' Imagenes '
-    ClientHeight = 236
+    ClientHeight = 241
     ClientWidth = 814
     TabOrder = 2
     object panelDirs: TPanel
       Left = 0
-      Height = 236
+      Height = 241
       Top = 0
       Width = 233
       Align = alLeft
-      ClientHeight = 236
+      ClientHeight = 241
       ClientWidth = 233
       TabOrder = 0
       object ShellTreeView1: TShellTreeView
         Left = 1
-        Height = 134
+        Height = 139
         Top = 1
         Width = 231
         Align = alClient
@@ -691,7 +697,7 @@ object frmMain: TfrmMain
       object ShellListView1: TShellListView
         Left = 1
         Height = 100
-        Top = 135
+        Top = 140
         Width = 231
         Align = alBottom
         Color = clDefault
@@ -699,24 +705,23 @@ object frmMain: TfrmMain
         Visible = False
         ViewStyle = vsReport
         ObjectTypes = [otNonFolders]
-        Root = '/'
         ShellTreeView = ShellTreeView1
       end
     end
     object pImagesList: TPanel
       Left = 238
-      Height = 236
+      Height = 241
       Top = 0
       Width = 576
       Align = alClient
       Caption = 'pImagesList'
-      ClientHeight = 236
+      ClientHeight = 241
       ClientWidth = 576
       TabOrder = 1
       object pbImages: TProgressBar
         Left = 1
         Height = 10
-        Top = 225
+        Top = 230
         Width = 574
         Align = alBottom
         OnContextPopup = pbImagesContextPopup
@@ -1135,7 +1140,7 @@ object frmMain: TfrmMain
           AutoSize = False
           Font.Height = -11
           Font.Name = 'Sans'
-          ItemHeight = 0
+          ItemHeight = 14
           Items.Strings = (
             '*.bmp;*.pcx;*.tif;*.tiff;*.fax;*.bw;*.rgb;*.rgba;*.sgi;*.cel;*.pic;*.jpg;*.jif;*.gif;*.dib;*.rle;*.tga;*.vst;*.icb;*.vda;*.win;*.pcc;*.scr;*.pcd;*.ppm;*.pgm;*.pbm;*.cut;*.pal;*.rla;*.rpf;*.psd;*.pdd;*.psp;*.png;*.mng;*.jng;*.wmf;*.emf;*.ico;*.map'
             '*.*'
@@ -1153,7 +1158,7 @@ object frmMain: TfrmMain
       end
       object lvImages: TListView
         Left = 1
-        Height = 200
+        Height = 205
         Top = 25
         Width = 574
         Align = alClient
@@ -1162,18 +1167,22 @@ object frmMain: TfrmMain
           item
             Caption = 'name'
             MinWidth = 50
+            Width = 10
           end        
           item
             Caption = 'width'
             MinWidth = 50
+            Width = 10
           end        
           item
             Caption = 'height'
             MinWidth = 50
+            Width = 10
           end        
           item
             Caption = 'bpp'
             MinWidth = 50
+            Width = 10
           end>
         LargeImages = ilImages
         MultiSelect = True
@@ -1188,7 +1197,7 @@ object frmMain: TfrmMain
     end
     object Splitter1: TSplitter
       Left = 233
-      Height = 236
+      Height = 241
       Top = 0
       Width = 5
     end
@@ -1705,6 +1714,16 @@ object frmMain: TfrmMain
       Caption = 'Abrir'
       OnExecute = aOpenImgExecute
     end
+    object aReplazeImg: TAction
+      Category = 'FPG'
+      Caption = 'Remplazar Imagen'
+      OnExecute = aReplazeImgExecute
+    end
+    object aFPG1: TAction
+      Category = 'FPG-Convert'
+      Caption = '1 Bit'
+      OnExecute = aFPG1Execute
+    end
     object aFPG8: TAction
       Category = 'FPG-Convert'
       Caption = '8 bits'
@@ -1719,11 +1738,6 @@ object frmMain: TfrmMain
       Category = 'FPG-Convert'
       Caption = '16 bits Fenix'
       OnExecute = aFPG16fExecute
-    end
-    object aReplazeImg: TAction
-      Category = 'FPG'
-      Caption = 'Remplazar Imagen'
-      OnExecute = aReplazeImgExecute
     end
     object aFPG24: TAction
       Category = 'FPG-Convert'
@@ -2182,6 +2196,9 @@ object frmMain: TfrmMain
       end
       object miConvert: TMenuItem
         Caption = 'Convertir a'
+        object miFPG1: TMenuItem
+          Action = aFPG1
+        end
         object mifpg8: TMenuItem
           Action = aFPG8
         end
@@ -2798,4 +2815,4 @@ object frmMain: TfrmMain
       end
     end
   end
-end
+end

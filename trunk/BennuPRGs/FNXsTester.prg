@@ -16,6 +16,7 @@ Global
 	id_fnt8 =0;
 	id_fnt16 =0;
 	id_fnt32 =0;
+        char value,v2;
 Begin
     set_title("fuente 32 bits FNX");
 	set_mode(800,600,depth);
@@ -26,10 +27,12 @@ Begin
     id_fnt8=load_fnt("8bits.fnt");
     id_fnt16=load_fnt("16bits.fnt");
     id_fnt32=load_fnt("32bits.fnt");
-    write(id_fnt1,200,100,0,"hola jeringa gañán 1"); 
-    write(id_fnt8,200,180,0,"hola jeringa gañán 8"); 
-    write(id_fnt16,200,260,0,"hola jeringa gañán 16"); 
-    write(id_fnt32,200,340,0,"hola jeringa gañán 32"); 
+    value=252;
+    v2=209;
+    write(id_fnt1,50,100,0,"€çÇhola j gañán 1" +value+v2); 
+    write(id_fnt8,50,180,0,"€çÇhola j gañán 8"+value+v2 );  
+    write(id_fnt16,50,260,0,"€çÇhola j gañán 16"+value +v2); 
+    write(id_fnt32,50,340,0,"€çÇhola j gañán 32"+value +v2); 
     while (!key(_esc)) 
 		if (key(_f))
             if (full_screen==true)

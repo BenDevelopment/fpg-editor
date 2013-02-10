@@ -37,7 +37,7 @@ object frmZipFenix: TfrmZipFenix
     end
     object fcb: TFilterComboBox
       Left = 270
-      Height = 27
+      Height = 21
       Top = 4
       Width = 225
       Filter = 'FPG, FNT (*.fpg;*.fnt)|*.fpg; *.fnt|(*.*)|*.*'
@@ -50,7 +50,7 @@ object frmZipFenix: TfrmZipFenix
       TabOrder = 1
     end
     object bbCompress: TBitBtn
-      Left = 270
+      Left = 272
       Height = 38
       Top = 283
       Width = 225
@@ -188,8 +188,8 @@ object frmZipFenix: TfrmZipFenix
       Visible = False
       object lbZipFile: TLabel
         Left = 2
-        Height = 15
-        Top = 48
+        Height = 16
+        Top = 47
         Width = 245
         Align = alBottom
         Alignment = taCenter
@@ -337,14 +337,13 @@ object frmZipFenix: TfrmZipFenix
       OnChange = flbChange
       OnSelectItem = flbSelectItem
       ObjectTypes = [otNonFolders]
-      Root = '/'
       ShellTreeView = dlb
     end
   end
   object statusbar: TStatusBar
     Left = 0
-    Height = 25
-    Top = 325
+    Height = 23
+    Top = 327
     Width = 504
     Panels = <    
       item
@@ -356,4 +355,4 @@ object frmZipFenix: TfrmZipFenix
     SimplePanel = False
     SizeGrip = False
   end
-end
+end

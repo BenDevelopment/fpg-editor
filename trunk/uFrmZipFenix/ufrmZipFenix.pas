@@ -178,7 +178,7 @@ begin
  {$ENDIF}
 
  {$IFDEF Linux}
-   RunExe('/bin/gzip -nc "'+ FileName + '"', GetTempDir(False),FileName +'.gz' );
+   RunExe('/bin/gzip -nc >"'+ FileName + '"', GetTempDir(False),FileName +'.gz' );
  {$ENDIF}
 
 
@@ -211,4 +211,4 @@ begin
 end;
 
 end.
-
+
