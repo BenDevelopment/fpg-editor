@@ -514,10 +514,23 @@ begin
  if cbCharset.ItemIndex = 0 then begin
    bmp_src.Width  := bmp_src.Canvas.TextWidth(ISO_8859_1ToUTF8(chr(index)));
    bmp_src.Height := bmp_src.Canvas.TextHeight(ISO_8859_1ToUTF8(chr(index)));
- end else begin
+ end;
+
+ if cbCharset.ItemIndex = 1 then begin
   bmp_src.Width  := bmp_src.Canvas.TextWidth(CP850ToUTF8(chr(index)));
   bmp_src.Height := bmp_src.Canvas.TextHeight(CP850ToUTF8(chr(index)));
  end;
+
+ if cbCharset.ItemIndex = 2 then begin
+   bmp_src.Width  := bmp_src.Canvas.TextWidth(ISO_8859_15ToUTF8(chr(index)));
+   bmp_src.Height := bmp_src.Canvas.TextHeight(ISO_8859_15ToUTF8(chr(index)));
+ end;
+
+ if cbCharset.ItemIndex = 3 then begin
+   bmp_src.Width  := bmp_src.Canvas.TextWidth(CP1252ToUTF8(chr(index)));
+   bmp_src.Height := bmp_src.Canvas.TextHeight(CP1252ToUTF8(chr(index)));
+ end;
+
 
  // Rellenamos la imagen de color transparente
  ClearBitmap(bmp_src);
@@ -540,9 +553,16 @@ begin
  bmp_src.Canvas.Brush.Color := clBlack;
  bmp_src.Canvas.Font.Color  := inifile_fnt_color;
  if cbCharset.ItemIndex = 0 then
-  bmp_src.Canvas.TextOut(0, 0, ISO_8859_1ToUTF8(chr(index)))
- else
+  bmp_src.Canvas.TextOut(0, 0, ISO_8859_1ToUTF8(chr(index)));
+
+ if cbCharset.ItemIndex = 1 then
   bmp_src.Canvas.TextOut(0, 0, CP850ToUTF8(chr(index)));
+
+ if cbCharset.ItemIndex = 2 then
+  bmp_src.Canvas.TextOut(0, 0, ISO_8859_15ToUTF8(chr(index)));
+
+ if cbCharset.ItemIndex = 3 then
+  bmp_src.Canvas.TextOut(0, 0, CP1252ToUTF8(chr(index)));
 
  // Obtenemos el desplazamiento vertical, ancho y alto mínimo
  fnt_container.header.char_info[index].vertical_offset:= GetUpOffset(bmp_src);
@@ -1136,6 +1156,10 @@ begin
 
  //fnt_container.header.version := 32;
  fnt_container.header.charset   := cbCharset.ItemIndex;
+ if cbCharset.ItemIndex = 2 then
+    fnt_container.header.charset:=0;
+ if cbCharset.ItemIndex = 3 then
+    fnt_container.header.charset:=0;
 
  font_edge  := sedSizeEdge.Value;
  font_shadow:= sedSizeShadow.Value;
@@ -1175,9 +1199,15 @@ end;
 procedure TfrmMainFNT.EPreviewChange(Sender: TObject);
 begin
  if fnt_container.header.charset = 0 then
-    MakeText(UTF8ToISO_8859_1(EPreview.Text))
+  if cbCharset.ItemIndex = 2 then
+    MakeText(UTF8ToISO_8859_15(EPreview.Text))
+  else
+   MakeText(UTF8ToISO_8859_1(EPreview.Text))
  else
-    MakeText(UTF8ToCP850(EPreview.Text))
+   if cbCharset.ItemIndex = 3 then
+      MakeText(UTF8ToCP1252(EPreview.Text))
+   else
+    MakeText(UTF8ToCP850(EPreview.Text));
 
 end;
 
@@ -2318,4 +2348,4 @@ begin
    +Byte(fnt_container.header.file_type[3])) <> 0);
 end;
 
-end.
+end.

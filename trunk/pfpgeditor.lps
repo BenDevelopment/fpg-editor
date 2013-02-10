@@ -9,7 +9,7 @@
         <Filename Value="pfpgeditor.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="pfpgeditor"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="8"/>
         <WindowIndex Value="0"/>
         <TopLine Value="5"/>
         <CursorPos X="33" Y="16"/>
@@ -23,10 +23,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmMain"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1687"/>
-        <CursorPos X="14" Y="1690"/>
+        <TopLine Value="1"/>
+        <CursorPos X="68" Y="7"/>
         <UsageCount Value="473"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -70,8 +70,13 @@
         <ComponentName Value="frmPalette"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="ufrmPalette"/>
+        <UnitName Value="uFrmPalette"/>
+        <EditorIndex Value="1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="8" Y="21"/>
         <UsageCount Value="473"/>
+        <Loaded Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="uBMP\uBMP.pas"/>
@@ -95,7 +100,7 @@
         <Filename Value="uIniFile\uinifile.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uinifile"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="6"/>
         <WindowIndex Value="0"/>
         <TopLine Value="17"/>
         <CursorPos X="42" Y="31"/>
@@ -106,10 +111,9 @@
         <Filename Value="uFPGConvert\uFPGConvert.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uFPGConvert"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="355"/>
+        <TopLine Value="342"/>
         <CursorPos X="44" Y="359"/>
         <UsageCount Value="473"/>
         <Loaded Value="True"/>
@@ -136,7 +140,7 @@
         <Filename Value="uTools\uTools.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uTools"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
         <TopLine Value="393"/>
         <CursorPos X="11" Y="394"/>
@@ -276,7 +280,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmZipFenix"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
         <TopLine Value="86"/>
         <CursorPos X="4" Y="197"/>
@@ -291,7 +295,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="122"/>
         <CursorPos X="3" Y="137"/>
-        <UsageCount Value="174"/>
+        <UsageCount Value="177"/>
       </Unit28>
       <Unit29>
         <Filename Value="uColorTable\uColorTable.pas"/>
@@ -300,7 +304,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="4"/>
-        <UsageCount Value="174"/>
+        <UsageCount Value="177"/>
       </Unit29>
       <Unit30>
         <Filename Value="uFNT\uFNT.pas"/>
@@ -308,7 +312,7 @@
         <UnitName Value="uFNT"/>
         <TopLine Value="425"/>
         <CursorPos X="39" Y="436"/>
-        <UsageCount Value="174"/>
+        <UsageCount Value="177"/>
       </Unit30>
       <Unit31>
         <Filename Value="uFrmBpp\uFrmBpp.pas"/>
@@ -320,7 +324,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="38" Y="10"/>
-        <UsageCount Value="174"/>
+        <UsageCount Value="177"/>
       </Unit31>
       <Unit32>
         <Filename Value="uFrmCFG\uFrmCFG.pas"/>
@@ -332,7 +336,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="39" Y="11"/>
-        <UsageCount Value="174"/>
+        <UsageCount Value="177"/>
       </Unit32>
       <Unit33>
         <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
@@ -341,11 +345,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmMainFNT"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1198"/>
-        <CursorPos X="34" Y="1208"/>
-        <UsageCount Value="174"/>
+        <TopLine Value="1"/>
+        <CursorPos X="19" Y="1320"/>
+        <UsageCount Value="177"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit33>
@@ -356,11 +361,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmAbout"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="5" Y="2"/>
-        <UsageCount Value="171"/>
+        <UsageCount Value="174"/>
         <Loaded Value="True"/>
       </Unit34>
       <Unit35>
@@ -373,7 +378,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="76" Y="141"/>
-        <UsageCount Value="115"/>
+        <UsageCount Value="118"/>
       </Unit35>
       <Unit36>
         <Filename Value="C:\lazarus\lcl\graphics.pp"/>
@@ -862,124 +867,124 @@
     </General>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="uFrmZipFenix\ufrmZipFenix.pas"/>
-        <Caret Line="181" Column="27" TopLine="171"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="526" Column="56" TopLine="494"/>
       </Position1>
       <Position2>
-        <Filename Value="uFrmZipFenix\ufrmZipFenix.pas"/>
-        <Caret Line="197" Column="4" TopLine="185"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="557" Column="56" TopLine="530"/>
       </Position2>
       <Position3>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="1526" Column="27" TopLine="1507"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="562" Column="40" TopLine="530"/>
       </Position3>
       <Position4>
-        <Filename Value="uFPGConvert\uFPGConvert.pas"/>
-        <Caret Line="37" Column="19" TopLine="31"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1201" Column="64" TopLine="1175"/>
       </Position4>
       <Position5>
-        <Filename Value="uFPGConvert\uFPGConvert.pas"/>
-        <Caret Line="232" Column="22" TopLine="224"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1203" Column="28" TopLine="1175"/>
       </Position5>
       <Position6>
-        <Filename Value="uFPGConvert\uFPGConvert.pas"/>
-        <Caret Line="226" Column="20" TopLine="224"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="6" Column="62" TopLine="1"/>
       </Position6>
       <Position7>
-        <Filename Value="uFPGConvert\uFPGConvert.pas"/>
-        <Caret Line="232" Column="22" TopLine="223"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="515" Column="55" TopLine="491"/>
       </Position7>
       <Position8>
-        <Filename Value="uFPGConvert\uFPGConvert.pas"/>
-        <Caret Line="267" Column="22" TopLine="253"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="516" Column="56" TopLine="491"/>
       </Position8>
       <Position9>
-        <Filename Value="uFPGConvert\uFPGConvert.pas"/>
-        <Caret Line="271" Column="13" TopLine="254"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="525" Column="55" TopLine="493"/>
       </Position9>
       <Position10>
-        <Filename Value="uFPGConvert\uFPGConvert.pas"/>
-        <Caret Line="280" Column="22" TopLine="263"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="526" Column="56" TopLine="494"/>
       </Position10>
       <Position11>
-        <Filename Value="uFPGConvert\uFPGConvert.pas"/>
-        <Caret Line="284" Column="13" TopLine="267"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="556" Column="40" TopLine="530"/>
       </Position11>
       <Position12>
-        <Filename Value="uFPGConvert\uFPGConvert.pas"/>
-        <Caret Line="318" Column="91" TopLine="304"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="562" Column="40" TopLine="530"/>
       </Position12>
       <Position13>
-        <Filename Value="uFPGConvert\uFPGConvert.pas"/>
-        <Caret Line="334" Column="22" TopLine="326"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1203" Column="28" TopLine="1171"/>
       </Position13>
       <Position14>
-        <Filename Value="uFPGConvert\uFPGConvert.pas"/>
-        <Caret Line="43" Column="23" TopLine="33"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1205" Column="27" TopLine="1173"/>
       </Position14>
       <Position15>
-        <Filename Value="uFPGConvert\uFPGConvert.pas"/>
-        <Caret Line="45" Column="23" TopLine="33"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="4" Column="69" TopLine="1"/>
       </Position15>
       <Position16>
-        <Filename Value="uFPGConvert\uFPGConvert.pas"/>
-        <Caret Line="46" Column="23" TopLine="33"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="514" Column="24" TopLine="482"/>
       </Position16>
       <Position17>
-        <Filename Value="uFPGConvert\uFPGConvert.pas"/>
-        <Caret Line="47" Column="23" TopLine="33"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="519" Column="24" TopLine="487"/>
       </Position17>
       <Position18>
-        <Filename Value="uFPGConvert\uFPGConvert.pas"/>
-        <Caret Line="48" Column="23" TopLine="33"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="524" Column="24" TopLine="492"/>
       </Position18>
       <Position19>
-        <Filename Value="uFPGConvert\uFPGConvert.pas"/>
-        <Caret Line="49" Column="23" TopLine="33"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="529" Column="24" TopLine="497"/>
       </Position19>
       <Position20>
-        <Filename Value="uTools\uTools.pas"/>
-        <Caret Line="495" Column="1" TopLine="485"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="555" Column="24" TopLine="523"/>
       </Position20>
       <Position21>
-        <Filename Value="uFPGConvert\uFPGConvert.pas"/>
-        <Caret Line="46" Column="35" TopLine="37"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="558" Column="24" TopLine="526"/>
       </Position21>
       <Position22>
-        <Filename Value="uFPGConvert\uFPGConvert.pas"/>
-        <Caret Line="50" Column="28" TopLine="37"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="561" Column="24" TopLine="529"/>
       </Position22>
       <Position23>
-        <Filename Value="uFPGConvert\uFPGConvert.pas"/>
-        <Caret Line="365" Column="37" TopLine="241"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="564" Column="24" TopLine="532"/>
       </Position23>
       <Position24>
-        <Filename Value="uTools\uTools.pas"/>
-        <Caret Line="56" Column="28" TopLine="45"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1150" Column="55" TopLine="1126"/>
       </Position24>
       <Position25>
-        <Filename Value="uTools\uTools.pas"/>
-        <Caret Line="482" Column="1" TopLine="480"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1158" Column="55" TopLine="1126"/>
       </Position25>
       <Position26>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="1526" Column="27" TopLine="1507"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1159" Column="24" TopLine="1127"/>
       </Position26>
       <Position27>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="1528" Column="27" TopLine="1509"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1161" Column="24" TopLine="1129"/>
       </Position27>
       <Position28>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="1689" Column="14" TopLine="1686"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1202" Column="25" TopLine="1170"/>
       </Position28>
       <Position29>
-        <Filename Value="uFPGConvert\uFPGConvert.pas"/>
-        <Caret Line="43" Column="12" TopLine="33"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1207" Column="26" TopLine="1175"/>
       </Position29>
       <Position30>
-        <Filename Value="uFPGConvert\uFPGConvert.pas"/>
-        <Caret Line="365" Column="60" TopLine="355"/>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1304" Column="19" TopLine="1272"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

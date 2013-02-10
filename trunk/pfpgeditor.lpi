@@ -77,7 +77,7 @@
         <ComponentName Value="frmPalette"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="ufrmPalette"/>
+        <UnitName Value="uFrmPalette"/>
       </Unit5>
       <Unit6>
         <Filename Value="uBMP\uBMP.pas"/>
