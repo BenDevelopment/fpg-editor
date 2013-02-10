@@ -1177,7 +1177,7 @@ begin
  if fnt_container.header.charset = 0 then
     MakeText(UTF8ToISO_8859_1(EPreview.Text))
  else
-    MakeText(CP850ToUTF8(EPreview.Text))
+    MakeText(UTF8ToCP850(EPreview.Text))
 
 end;
 
@@ -1205,7 +1205,7 @@ begin
  {$ENDIF}
 
  {$IFDEF Linux}
-   RunExe('/bin/gzip -dc "'+ sfile+'"', WorkDir,WorkDir +'________.uz' );
+   RunExe('/bin/gzip -dc >"'+ sfile+'"', WorkDir,WorkDir +'________.uz' );
  {$ENDIF}
 
   result := load_fnt( WorkDir +'________.uz');
@@ -2318,4 +2318,4 @@ begin
    +Byte(fnt_container.header.file_type[3])) <> 0);
 end;
 
-end.
+end.

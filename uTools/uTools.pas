@@ -51,6 +51,7 @@ uses
  procedure colorToTransparent(var bmp_src : TBitmap; color1 : tcolor ; splitTo16b :boolean = false);
  procedure setAlpha(var Bitmap: TBItmap; value: Byte);
 
+ function createBitmap1bpp( bmp_src : TBitmap; cdivformat : boolean = false): TBitmap;
  function createBitmap8bpp( bmp_src : TBitmap): TBitmap;
  function createBitmap16bpp( bmp_src : TBitmap; cdivformat : boolean = false): TBitmap;
  function createBitmap24bpp( bmp_src : TBitmap): TBitmap;
@@ -477,6 +478,16 @@ begin
    lazBMP_src.free;
 end;
 
+function createBitmap1bpp( bmp_src : TBitmap; cdivformat : boolean = false): TBitmap;
+begin
+   result := TBitmap.create;
+   result.PixelFormat:=pf32bit;
+   result.SetSize(bmp_src.Width,bmp_src.Height);
+   copyPixels(Result,bmp_src,0,0);
+   if bmp_src.PixelFormat<>pf32bit then
+    setAlpha(result,255);
+   simulate1bppIn32bpp(bmp_src);
+end;
 function createBitmap8bpp( bmp_src : TBitmap): TBitmap;
 begin
    result := TBitmap.create;
@@ -485,6 +496,7 @@ begin
    copyPixels(Result,bmp_src,0,0);
    simulate8bppIn32bpp(result);
 end;
+
 
 function createBitmap16bpp( bmp_src : TBitmap; cdivformat : boolean = false): TBitmap;
 var

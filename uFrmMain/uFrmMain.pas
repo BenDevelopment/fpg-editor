@@ -47,6 +47,7 @@ type
     aBennu: TAction;
     aCDiv: TAction;
     aAnimFPG: TAction;
+    aFPG1: TAction;
     aFPG32: TAction;
     aFPG24: TAction;
     aReplazeImg: TAction;
@@ -89,6 +90,7 @@ type
     aClose: TAction;
     ActionList: TActionList;
     Bevel13: TBevel;
+    miFPG1: TMenuItem;
     miFPG32: TMenuItem;
     miFPG24: TMenuItem;
     sbFilter: TSpeedButton;
@@ -220,6 +222,7 @@ type
     Bevel11: TBevel;
     Bevel12: TBevel;
     procedure aFPG16cExecute(Sender: TObject);
+    procedure aFPG1Execute(Sender: TObject);
     procedure aFPG24Execute(Sender: TObject);
     procedure aFPG32Execute(Sender: TObject);
     procedure aFPG8Execute(Sender: TObject);
@@ -1523,7 +1526,7 @@ begin
  {$ENDIF}
 
  {$IFDEF Linux}
-   RunExe('/bin/gzip -dc "'+ FPG_source+'"', WorkDir,WorkDir +'________.uz' );
+   RunExe('/bin/gzip -dc >"'+ FPG_source+'"', WorkDir,WorkDir +'________.uz' );
  {$ENDIF}
 
 
@@ -1679,6 +1682,12 @@ end;
 procedure TfrmMain.aFPG16cExecute(Sender: TObject);
 begin
  Convert_to_FPG16_CDIV(ilFPG, lvFPG, TForm(frmMain), pbFPG);
+ Update_Panels;
+end;
+
+procedure TfrmMain.aFPG1Execute(Sender: TObject);
+begin
+ Convert_to_FPG1(ilFPG, lvFPG, TForm(frmMain), pbFPG);
  Update_Panels;
 end;
 
