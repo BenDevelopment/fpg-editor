@@ -18,7 +18,7 @@
  *
  *)
 
-unit ufrmPalette;
+unit uFrmPalette;
 
 
 interface
@@ -88,4 +88,4 @@ begin
  frmPalette.Caption := LNG_STRINGS[121];
 end;
 
-end.
+end.
