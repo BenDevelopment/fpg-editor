@@ -146,7 +146,7 @@ begin
               begin
                 if is_cdiv then
                 begin
-                  Calculate_RGB16(byte_line[j*2+1], byte_line[j*2],
+                  Calculate_RGB(byte_line[j*2+1], byte_line[j*2],
                     p_bytearray^[j * 4], p_bytearray^[(j * 4) + 1],
                     p_bytearray^[(j * 4) + 2]);
                   p_bytearray^[(j * 4) + 3] := 255;
@@ -157,7 +157,7 @@ begin
                 end
                 else
                 begin
-                  Calculate_BGR16(byte_line[j*2+1], byte_line[j*2 ],
+                  Calculate_BGR(byte_line[j*2+1], byte_line[j*2 ],
                     p_bytearray^[j * 4], p_bytearray^[(j * 4) + 1],
                     p_bytearray^[(j * 4) + 2]);
                   p_bytearray^[(j * 4) + 3] := 255;

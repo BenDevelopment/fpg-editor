@@ -39,7 +39,8 @@ type
   TRGBLine = Array[Word] of TRGBTriple;
   pRGBLine = ^TRGBLine;
 
- procedure Calculate_BGR16( byte0, byte1 : Byte; var red, green, blue : Byte );
+ procedure Calculate_BGR( byte0, byte1 : Byte; var red, green, blue : Byte );
+ procedure Calculate_RGB( byte0, byte1 : Byte; var red, green, blue : Byte );
  procedure Calculate_RGB16( byte0, byte1 : Byte; var red, green, blue : Byte );
  procedure set_BGR16( var byte0, byte1 : Byte; red, green, blue : Byte );
  procedure set_RGB16( var byte0, byte1 : Byte; red, green, blue : Byte );
@@ -52,7 +53,7 @@ type
 implementation
 
 // Calcula las componentes RGB almacenadas en 2 bytes como BGR
-procedure Calculate_BGR16( byte0, byte1 : Byte; var red, green, blue : Byte );
+procedure Calculate_BGR( byte0, byte1 : Byte; var red, green, blue : Byte );
 begin
  blue := byte0 and $F8; // me quedo 5 bits 11111000
  green := (byte0 shl 5) or ( (byte1 and $E0) shr 3); // me quedo 3 bits de byte0 y 3 bits de byte 1 (11100000)
@@ -60,11 +61,19 @@ begin
 end;
 
 // Calcula las componentes RGB almacenadas en 2 bytes como RGB
-procedure Calculate_RGB16( byte0, byte1 : Byte; var red, green, blue : Byte );
+procedure Calculate_RGB( byte0, byte1 : Byte; var red, green, blue : Byte );
 begin
  red := byte0 and $F8; // me quedo 5 bits 11111000
  green := (byte0 shl 5) or ( (byte1 and $E0) shr 3); // me quedo 3 bits de byte0 y 3 bits de byte 1 (11100000)
  blue := byte1 shl 3; // me quedo 5 bits
+end;
+
+procedure Calculate_RGB16( byte0, byte1 : Byte; var red, green, blue : Byte );
+begin
+ Calculate_RGB(byte0,byte1,red,green,blue);
+ red := red shr 3;
+ green := green shr 2;
+ blue := blue shr 3;
 end;
 
 // Establece las componentes RGB almacenandolas en 2 bytes como BGR
@@ -147,7 +156,7 @@ begin
  byte1 := in2bytes shr 8;
  byte0 := 255 and in2bytes;
 
- Calculate_BGR16(byte0, byte1, R16, G16, B16);
+ Calculate_BGR(byte0, byte1, R16, G16, B16);
  set_RGB16(byte0, byte1, R16, G16, B16);
 
  result := (byte1 shl 8) + byte0;

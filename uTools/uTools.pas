@@ -486,7 +486,8 @@ begin
    copyPixels(Result,bmp_src,0,0);
    if bmp_src.PixelFormat<>pf32bit then
     setAlpha(result,255);
-   simulate1bppIn32bpp(bmp_src);
+   simulate1bppIn32bpp(result);
+
 end;
 function createBitmap8bpp( bmp_src : TBitmap): TBitmap;
 begin
