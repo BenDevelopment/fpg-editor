@@ -8,7 +8,7 @@ uses
   LCLIntf, LCLType, SysUtils, Forms, Classes, Graphics, Controls,
   Dialogs, ExtCtrls, StdCtrls, Buttons, ComCtrls, ExtDlgs, Spin,
   IntfGraphics, uFNT, uIniFile,  uFrmBpp, FileUtil, FPimage, uColorTable
-  , uSort, uTools, ufrmFNTView, LConvEncoding;
+  , uSort, uTools, ufrmFNTView, LConvEncoding, uFrmCFG, uFrmPalette;
 
 const
  FONT_COLOR   = 1;
@@ -37,6 +37,7 @@ type
     gbCharset: TGroupBox;
     Label3: TLabel;
     Label4: TLabel;
+    Label5: TLabel;
     pTools: TToolBar;
     pTop: TPanel;
     gbLoadFont: TGroupBox;
@@ -82,7 +83,6 @@ type
     lbSizeEdge: TLabel;
     lbNameFontB: TLabel;
     lbNameFont: TLabel;
-    sbShowPalette: TSpeedButton;
     sbShowFNT: TSpeedButton;
     sedSizeEdge: TSpinEdit;
     sedSizeShadow: TSpinEdit;
@@ -102,10 +102,12 @@ type
     seFontAlfa: TSpinEdit;
     seSoAlfa: TSpinEdit;
     Label2: TLabel;
+    seCharPreview: TSpinEdit;
     ToolBar1: TToolBar;
-    procedure cbExtendedChange(Sender: TObject);
+    procedure cbCharsetChange(Sender: TObject);
     procedure EPreviewChange(Sender: TObject);
     procedure FormResize(Sender: TObject);
+    procedure Label5Click(Sender: TObject);
     procedure sbOpenClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure lvFontExit(Sender: TObject);
@@ -144,6 +146,7 @@ type
     procedure sbImportClick(Sender: TObject);
     procedure sbOptionsClick(Sender: TObject);
     procedure sbSaveTextClick(Sender: TObject);
+    procedure seCharPreviewChange(Sender: TObject);
     procedure seFontAlfaChange(Sender: TObject);
     procedure seSoAlfaChange(Sender: TObject);
     procedure seReAlfaChange(Sender: TObject);
@@ -172,6 +175,7 @@ type
     procedure ClearBitmap(var bmp: TBitmap);
     procedure UpdateBGColor;
     procedure MakeText(str_in: string);
+    procedure MakeChar(index: integer);
     procedure ExportFNT(str : string);
     procedure ImportFNT(str : string);
 
@@ -179,6 +183,7 @@ type
     procedure EnableButtons;
     procedure createSelectedImageBox(color1 :TColor);
     function OpenFNT( sfile: string ) : boolean;
+    procedure MakeTextParsingCharset( str : String);
   public
     { Public declarations }
     dpCount, dpTotal : LongInt;
@@ -194,11 +199,298 @@ var
   //AATable : Array [0 .. 255, 0 .. 255] of real;
   //posadd : Longint;
 
+const
+ //  to use with previous lazarus version without iso8859_15
+ArrayISO_8859_15ToUTF8: TCharToUTF8Table = (
+  #0,                 // #0
+  #1,                 // #1
+  #2,                 // #2
+  #3,                 // #3
+  #4,                 // #4
+  #5,                 // #5
+  #6,                 // #6
+  #7,                 // #7
+  #8,                 // #8
+  #9,                 // #9
+  #10,                // #10
+  #11,                // #11
+  #12,                // #12
+  #13,                // #13
+  #14,                // #14
+  #15,                // #15
+  #16,                // #16
+  #17,                // #17
+  #18,                // #18
+  #19,                // #19
+  #20,                // #20
+  #21,                // #21
+  #22,                // #22
+  #23,                // #23
+  #24,                // #24
+  #25,                // #25
+  #26,                // #26
+  #27,                // #27
+  #28,                // #28
+  #29,                // #29
+  #30,                // #30
+  #31,                // #31
+  ' ',                // ' '
+  '!',                // '!'
+  '"',                // '"'
+  '#',                // '#'
+  '$',                // '$'
+  '%',                // '%'
+  '&',                // '&'
+  '''',               // ''''
+  '(',                // '('
+  ')',                // ')'
+  '*',                // '*'
+  '+',                // '+'
+  ',',                // ','
+  '-',                // '-'
+  '.',                // '.'
+  '/',                // '/'
+  '0',                // '0'
+  '1',                // '1'
+  '2',                // '2'
+  '3',                // '3'
+  '4',                // '4'
+  '5',                // '5'
+  '6',                // '6'
+  '7',                // '7'
+  '8',                // '8'
+  '9',                // '9'
+  ':',                // ':'
+  ';',                // ';'
+  '<',                // '<'
+  '=',                // '='
+  '>',                // '>'
+  '?',                // '?'
+  '@',                // '@'
+  'A',                // 'A'
+  'B',                // 'B'
+  'C',                // 'C'
+  'D',                // 'D'
+  'E',                // 'E'
+  'F',                // 'F'
+  'G',                // 'G'
+  'H',                // 'H'
+  'I',                // 'I'
+  'J',                // 'J'
+  'K',                // 'K'
+  'L',                // 'L'
+  'M',                // 'M'
+  'N',                // 'N'
+  'O',                // 'O'
+  'P',                // 'P'
+  'Q',                // 'Q'
+  'R',                // 'R'
+  'S',                // 'S'
+  'T',                // 'T'
+  'U',                // 'U'
+  'V',                // 'V'
+  'W',                // 'W'
+  'X',                // 'X'
+  'Y',                // 'Y'
+  'Z',                // 'Z'
+  '[',                // '['
+  '\',                // '\'
+  ']',                // ']'
+  '^',                // '^'
+  '_',                // '_'
+  '`',                // '`'
+  'a',                // 'a'
+  'b',                // 'b'
+  'c',                // 'c'
+  'd',                // 'd'
+  'e',                // 'e'
+  'f',                // 'f'
+  'g',                // 'g'
+  'h',                // 'h'
+  'i',                // 'i'
+  'j',                // 'j'
+  'k',                // 'k'
+  'l',                // 'l'
+  'm',                // 'm'
+  'n',                // 'n'
+  'o',                // 'o'
+  'p',                // 'p'
+  'q',                // 'q'
+  'r',                // 'r'
+  's',                // 's'
+  't',                // 't'
+  'u',                // 'u'
+  'v',                // 'v'
+  'w',                // 'w'
+  'x',                // 'x'
+  'y',                // 'y'
+  'z',                // 'z'
+  '{',                // '{'
+  '|',                // '|'
+  '}',                // '}'
+  '~',                // '~'
+  #127,               // #127
+  #194#128,           // #128
+  #194#129,           // #129
+  #194#130,           // #130
+  #194#131,           // #131
+  #194#132,           // #132
+  #194#133,           // #133
+  #194#134,           // #134
+  #194#135,           // #135
+  #194#136,           // #136
+  #194#137,           // #137
+  #194#138,           // #138
+  #194#139,           // #139
+  #194#140,           // #140
+  #194#141,           // #141
+  #194#142,           // #142
+  #194#143,           // #143
+  #194#144,           // #144
+  #194#145,           // #145
+  #194#146,           // #146
+  #194#147,           // #147
+  #194#148,           // #148
+  #194#149,           // #149
+  #194#150,           // #150
+  #194#151,           // #151
+  #194#152,           // #152
+  #194#153,           // #153
+  #194#154,           // #154
+  #194#155,           // #155
+  #194#156,           // #156
+  #194#157,           // #157
+  #194#158,           // #158
+  #194#159,           // #159
+  #194#160,           // #160
+  #194#161,           // #161
+  #194#162,           // #162
+  #194#163,           // #163
+  #226#130#172,       // #164
+  #194#165,           // #165
+  #197#160,           // #166
+  #194#167,           // #167
+  #197#161,           // #168
+  #194#169,           // #169
+  #194#170,           // #170
+  #194#171,           // #171
+  #194#172,           // #172
+  #194#173,           // #173
+  #194#174,           // #174
+  #194#175,           // #175
+  #194#176,           // #176
+  #194#177,           // #177
+  #194#178,           // #178
+  #194#179,           // #179
+  #197#189,           // #180
+  #194#181,           // #181
+  #194#182,           // #182
+  #194#183,           // #183
+  #197#190,           // #184
+  #194#185,           // #185
+  #194#186,           // #186
+  #194#187,           // #187
+  #197#146,           // #188
+  #197#147,           // #189
+  #197#184,           // #190
+  #194#191,           // #191
+  #195#128,           // #192
+  #195#129,           // #193
+  #195#130,           // #194
+  #195#131,           // #195
+  #195#132,           // #196
+  #195#133,           // #197
+  #195#134,           // #198
+  #195#135,           // #199
+  #195#136,           // #200
+  #195#137,           // #201
+  #195#138,           // #202
+  #195#139,           // #203
+  #195#140,           // #204
+  #195#141,           // #205
+  #195#142,           // #206
+  #195#143,           // #207
+  #195#144,           // #208
+  #195#145,           // #209
+  #195#146,           // #210
+  #195#147,           // #211
+  #195#148,           // #212
+  #195#149,           // #213
+  #195#150,           // #214
+  #195#151,           // #215
+  #195#152,           // #216
+  #195#153,           // #217
+  #195#154,           // #218
+  #195#155,           // #219
+  #195#156,           // #220
+  #195#157,           // #221
+  #195#158,           // #222
+  #195#159,           // #223
+  #195#160,           // #224
+  #195#161,           // #225
+  #195#162,           // #226
+  #195#163,           // #227
+  #195#164,           // #228
+  #195#165,           // #229
+  #195#166,           // #230
+  #195#167,           // #231
+  #195#168,           // #232
+  #195#169,           // #233
+  #195#170,           // #234
+  #195#171,           // #235
+  #195#172,           // #236
+  #195#173,           // #237
+  #195#174,           // #238
+  #195#175,           // #239
+  #195#176,           // #240
+  #195#177,           // #241
+  #195#178,           // #242
+  #195#179,           // #243
+  #195#180,           // #244
+  #195#181,           // #245
+  #195#182,           // #246
+  #195#183,           // #247
+  #195#184,           // #248
+  #195#185,           // #249
+  #195#186,           // #250
+  #195#187,           // #251
+  #195#188,           // #252
+  #195#189,           // #253
+  #195#190,           // #254
+  #195#191            // #255
+);
+
+
 implementation
 
-uses uFrmCFG, uFrmPalette;
-
 {$R *.lfm}
+
+function ISO_8859_15ToUTF8(const s: string): string;
+begin
+  Result:=SingleByteToUTF8(s,ArrayISO_8859_15ToUTF8);
+end;
+
+function UnicodeToISO_8859_15(Unicode: cardinal): integer;
+begin
+  case Unicode of
+  0..255: Result:=Unicode;
+  8364: Result:=164;
+  352: Result:=166;
+  353: Result:=168;
+  381: Result:=180;
+  382: Result:=184;
+  338: Result:=188;
+  339: Result:=189;
+  376: Result:=190;
+  else Result:=-1;
+  end;
+end;
+
+function UTF8ToISO_8859_15(const s: string): string;
+begin
+  Result:=UTF8ToSingleByte(s,@UnicodeToISO_8859_15);
+end;
+
 
 function  TfrmMainFNT.GetNumberOfFNT( ) : LongInt;
 begin
@@ -495,15 +787,6 @@ begin
  +' - ' +  'c2.red:'+inttostr(c2.red)+' - '+'c2.green:'+inttostr(c2.green)+' - '+'c2.blue:'+inttostr(c2.blue)+' - '+'c2.alpha:'+inttostr(c2.alpha) );
 end;
 
-function ISO_8859_15ToUTF8(const s: string): string;
-begin
- result:=ISO_8859_1ToUTF8(s);
-end;
-function UTF8ToISO_8859_15(const s: string): string;
-begin
- result:=UTF8ToISO_8859_1(s);
-end;
-
 procedure TfrmMainFNT.ExtractFNT( index : LongInt );
 var
  x, y : LongInt;
@@ -520,24 +803,31 @@ begin
  bmp_src.Canvas.Font.Assign(nFont);
 
  // Obtenemos el ancho y el alto real de esta imagen
- if cbCharset.ItemIndex = 0 then begin
-   bmp_src.Width  := bmp_src.Canvas.TextWidth(ISO_8859_1ToUTF8(chr(index)));
-   bmp_src.Height := bmp_src.Canvas.TextHeight(ISO_8859_1ToUTF8(chr(index)));
- end;
+ case cbCharset.ItemIndex of
+   0:begin
+     bmp_src.Width  := bmp_src.Canvas.TextWidth(ISO_8859_1ToUTF8(chr(index)));
+     bmp_src.Height := bmp_src.Canvas.TextHeight(ISO_8859_1ToUTF8(chr(index)));
+   end;
 
- if cbCharset.ItemIndex = 1 then begin
-  bmp_src.Width  := bmp_src.Canvas.TextWidth(CP850ToUTF8(chr(index)));
-  bmp_src.Height := bmp_src.Canvas.TextHeight(CP850ToUTF8(chr(index)));
- end;
+   1:begin
+    bmp_src.Width  := bmp_src.Canvas.TextWidth(CP850ToUTF8(chr(index)));
+    bmp_src.Height := bmp_src.Canvas.TextHeight(CP850ToUTF8(chr(index)));
+   end;
 
- if cbCharset.ItemIndex = 2 then begin
-   bmp_src.Width  := bmp_src.Canvas.TextWidth(ISO_8859_15ToUTF8(chr(index)));
-   bmp_src.Height := bmp_src.Canvas.TextHeight(ISO_8859_15ToUTF8(chr(index)));
- end;
+   2:begin
+     bmp_src.Width  := bmp_src.Canvas.TextWidth(ISO_8859_15ToUTF8(chr(index)));
+     bmp_src.Height := bmp_src.Canvas.TextHeight(ISO_8859_15ToUTF8(chr(index)));
+   end;
 
- if cbCharset.ItemIndex = 3 then begin
-   bmp_src.Width  := bmp_src.Canvas.TextWidth(CP1252ToUTF8(chr(index)));
-   bmp_src.Height := bmp_src.Canvas.TextHeight(CP1252ToUTF8(chr(index)));
+   3:begin
+     bmp_src.Width  := bmp_src.Canvas.TextWidth(CP1252ToUTF8(chr(index)));
+     bmp_src.Height := bmp_src.Canvas.TextHeight(CP1252ToUTF8(chr(index)));
+   end;
+
+   4:begin
+     bmp_src.Width  := bmp_src.Canvas.TextWidth(CP437ToUTF8(chr(index)));
+     bmp_src.Height := bmp_src.Canvas.TextHeight(CP437ToUTF8(chr(index)));
+   end;
  end;
 
 
@@ -561,17 +851,14 @@ begin
  // Pintamos la fuente
  bmp_src.Canvas.Brush.Color := clBlack;
  bmp_src.Canvas.Font.Color  := inifile_fnt_color;
- if cbCharset.ItemIndex = 0 then
-  bmp_src.Canvas.TextOut(0, 0, ISO_8859_1ToUTF8(chr(index)));
 
- if cbCharset.ItemIndex = 1 then
-  bmp_src.Canvas.TextOut(0, 0, CP850ToUTF8(chr(index)));
-
- if cbCharset.ItemIndex = 2 then
-  bmp_src.Canvas.TextOut(0, 0, ISO_8859_15ToUTF8(chr(index)));
-
- if cbCharset.ItemIndex = 3 then
-  bmp_src.Canvas.TextOut(0, 0, CP1252ToUTF8(chr(index)));
+ case cbCharset.ItemIndex of
+  0: bmp_src.Canvas.TextOut(0, 0, ISO_8859_1ToUTF8(chr(index)));
+  1: bmp_src.Canvas.TextOut(0, 0, CP850ToUTF8(chr(index)));
+  2: bmp_src.Canvas.TextOut(0, 0, ISO_8859_15ToUTF8(chr(index)));
+  3: bmp_src.Canvas.TextOut(0, 0, CP1252ToUTF8(chr(index)));
+  4: bmp_src.Canvas.TextOut(0, 0, CP437ToUTF8(chr(index)));
+ end;
 
  // Obtenemos el desplazamiento vertical, ancho y alto mínimo
  fnt_container.header.char_info[index].vertical_offset:= GetUpOffset(bmp_src);
@@ -1169,6 +1456,8 @@ begin
     fnt_container.header.charset:=0;
  if cbCharset.ItemIndex = 3 then
     fnt_container.header.charset:=0;
+ if cbCharset.ItemIndex = 4 then
+    fnt_container.header.charset:=0;
 
  font_edge  := sedSizeEdge.Value;
  font_shadow:= sedSizeShadow.Value;
@@ -1205,25 +1494,38 @@ begin
  if height < 480 then height := 480;
 end;
 
-procedure TfrmMainFNT.EPreviewChange(Sender: TObject);
+procedure TfrmMainFNT.Label5Click(Sender: TObject);
+begin
+
+end;
+
+procedure TfrmMainFNT.MakeTextParsingCharset( str : String);
 begin
  if fnt_container.header.charset = 0 then
-  if cbCharset.ItemIndex = 2 then
-    MakeText(UTF8ToISO_8859_15(EPreview.Text))
-  else
-   MakeText(UTF8ToISO_8859_1(EPreview.Text))
+  case cbCharset.ItemIndex of
+    0:MakeText(UTF8ToISO_8859_1(str));
+    2:MakeText(UTF8ToISO_8859_15(str));
+    4:MakeText(UTF8ToCP437(str));
+  end
  else
-   if cbCharset.ItemIndex = 3 then
-      MakeText(UTF8ToCP1252(EPreview.Text))
-   else
-    MakeText(UTF8ToCP850(EPreview.Text));
+  case cbCharset.ItemIndex of
+   3: MakeText(UTF8ToCP1252(str))
+  else
+    MakeText(UTF8ToCP850(str));
+  end;
 
 end;
 
-procedure TfrmMainFNT.cbExtendedChange(Sender: TObject);
+procedure TfrmMainFNT.EPreviewChange(Sender: TObject);
 begin
-
+    MakeTextParsingCharset(EPreview.Text);
 end;
+
+procedure TfrmMainFNT.cbCharsetChange(Sender: TObject);
+begin
+  inifile_charset_to_gen:=cbCharset.ItemIndex;
+end;
+
 
 function TfrmMainFNT.OpenFNT( sfile: string ) : boolean;
 var
@@ -1290,6 +1592,10 @@ begin
    cbSymbol.Checked   := ((inifile_symbol_type and 8 ) = 8);
    cbExtended.Checked := ((inifile_symbol_type and 16) = 16);
 
+   if fnt_container.header.file_type[2] = 'x' then
+   begin
+    cbCharset.ItemIndex:= fnt_container.header.charset;
+   end;
 
   end;
 
@@ -1843,11 +2149,8 @@ begin
 end;
 
 procedure TfrmMainFNT.DestroyBitmaps;
-var
- i : Integer;
 begin
  unload_fnt;
-
  img_font.Destroy;
  img_edge.Destroy;
  img_shadow.Destroy;
@@ -1967,6 +2270,15 @@ begin
 // imgPreview.Picture.Bitmap.TransparentColor:=clBlack;
 
  bmp_buffer.Destroy;
+end;
+
+procedure TfrmMainFNT.MakeChar(index: integer);
+begin
+ if not isFNTLoad then
+   exit;
+ if not fnt_container.char_data[index].ischar then
+   exit;
+ imgPreview.Picture.Bitmap.Assign(fnt_container.char_data[index].Bitmap);
 end;
 
 
@@ -2332,6 +2644,11 @@ begin
    imgPreview.Picture.SaveToFile(sdSaveText.FileName);
   end;
  end;
+end;
+
+procedure TfrmMainFNT.seCharPreviewChange(Sender: TObject);
+begin
+ MakeTextParsingCharset(''+chr(seCharPreview.Value));
 end;
 
 procedure TfrmMainFNT.seFontAlfaChange(Sender: TObject);
