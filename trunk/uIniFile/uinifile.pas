@@ -60,6 +60,7 @@ var
  inifile_bg_color : TColor;
  inifile_bg_colorFPG : TColor;
 
+ inifile_charset_to_gen,
  inifile_fnt_charset,
  inifile_fnt_height,
  inifile_fnt_size,
@@ -126,6 +127,7 @@ begin
   inifile_bg_colorFPG        := clWhite;
 
   inifile_fnt_charset := DEFAULT_CHARSET;
+  inifile_charset_to_gen := 0;
   inifile_fnt_height  := -11;
   inifile_fnt_effects := 0; // 0-Normal 1-Negrita 2-Subrayado 3-Tachado
   inifile_fnt_size    := 8;
@@ -164,6 +166,7 @@ begin
   
 
   inifile_fnt_charset   := inifile.ReadInteger(sFONT, 'CHARSET', DEFAULT_CHARSET);
+  inifile_charset_to_gen:= inifile.ReadInteger(sFONT, 'CHARSET TO GEN', 0);
   inifile_fnt_height    := inifile.ReadInteger(sFONT, 'HEIGHT' , -11);
   inifile_fnt_size      := inifile.ReadInteger(sFONT, 'SIZE' , 8);
   inifile_fnt_effects   := inifile.ReadInteger(sFONT, 'EFFECTS', 0);
@@ -208,6 +211,7 @@ begin
  inifile.WriteInteger( sMAIN, sBG_COLOR_FPG   , inifile_bg_colorFPG);
 
   inifile.WriteInteger(sFONT, 'CHARSET', inifile_fnt_charset);
+  inifile.WriteInteger(sFONT, 'CHARSET TO GEN', inifile_charset_to_gen);
   inifile.WriteInteger(sFONT, 'HEIGHT' , inifile_fnt_height);
   inifile.WriteInteger(sFONT, 'SIZE' , inifile_fnt_size);
   inifile.WriteInteger(sFONT, 'EFFECTS', inifile_fnt_effects);
@@ -228,4 +232,4 @@ begin
  inifile.Destroy;
 end;
 
-end.
+end.
