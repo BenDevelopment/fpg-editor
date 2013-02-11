@@ -77,11 +77,12 @@ var
 
   lazBMP: TLazIntfImage;
   ImgHandle,ImgMaskHandle: HBitmap;
+  tmpBMP : TBitmap;
 
 begin
  New_type := FPG8_DIV2;
 
- Convert_to_FPG16_common(ilFPG, lvFPG, frmMain, gFPG );
+ //Convert_to_FPG16_common(ilFPG, lvFPG, frmMain, gFPG );
 
  Init_Table_FPG_Convert;
 
@@ -167,14 +168,14 @@ begin
    byte0 := sort_pixel.nLink shr 8;
    byte1 := sort_pixel.nLink - (byte0 shl 8);
 
-   // Extrae el RGB de 16bits
-   Calculate_RGB16(byte0, byte1, R16, G16, B16);
+   // Extrae el RGB de 16bits ya convertido en 0-255 valores
+   Calculate_RGB(byte0, byte1, R16, G16, B16);
 
    count := count + 1;
 
-   FPG_Header.palette[  count * 3      ] := R16 shl 3;
-   FPG_Header.palette[ (count * 3) + 1 ] := G16 shl 2;
-   FPG_Header.palette[ (count * 3) + 2 ] := B16 shl 3;
+   FPG_Header.palette[  count * 3      ] := R16;
+   FPG_Header.palette[ (count * 3) + 1 ] := G16;
+   FPG_Header.palette[ (count * 3) + 2 ] := B16;
   end;
 
   i := i - 1;
@@ -183,7 +184,7 @@ begin
  // Ordenamos los colores de la paleta
  Sort_Palette;
 
- FPG_Create_hpal;
+ //FPG_Create_hpal;
 
  FPG_type             := FPG8_DIV2;
  FPG_header.file_type := 'fpg';
@@ -193,8 +194,8 @@ begin
  ilFPG.Clear;
  lvFPG.Items.Clear;
 
- ilFPG.Width  := inifile_sizeof_icon;
- ilFPG.Height := inifile_sizeof_icon;
+ //ilFPG.Width  := inifile_sizeof_icon;
+ //ilFPG.Height := inifile_sizeof_icon;
 
  gFPG.Position := 0;
  gFPG.Show;
@@ -205,8 +206,9 @@ begin
 
  for count:= 1 to FPG_add_pos - 1 do
  begin
-  FreeAndNil(FPG_images[count].bmp);
-  FPG_images[count].bmp:=createBitmap8bpp(FPG_images[count].bmp);
+  tmpBMP:=FPG_images[count].bmp;
+  FPG_images[count].bmp:=createBitmap8bpp(tmpBMP);
+  FreeAndNil(tmpBMP);
 
   lvFPG_add_items( count, lvFPG, ilFPG);
 

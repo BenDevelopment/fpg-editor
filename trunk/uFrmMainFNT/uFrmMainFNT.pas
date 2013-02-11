@@ -495,6 +495,15 @@ begin
  +' - ' +  'c2.red:'+inttostr(c2.red)+' - '+'c2.green:'+inttostr(c2.green)+' - '+'c2.blue:'+inttostr(c2.blue)+' - '+'c2.alpha:'+inttostr(c2.alpha) );
 end;
 
+function ISO_8859_15ToUTF8(const s: string): string;
+begin
+ result:=ISO_8859_1ToUTF8(s);
+end;
+function UTF8ToISO_8859_15(const s: string): string;
+begin
+ result:=UTF8ToISO_8859_1(s);
+end;
+
 procedure TfrmMainFNT.ExtractFNT( index : LongInt );
 var
  x, y : LongInt;
@@ -2348,4 +2357,4 @@ begin
    +Byte(fnt_container.header.file_type[3])) <> 0);
 end;
 
-end.
+end.
