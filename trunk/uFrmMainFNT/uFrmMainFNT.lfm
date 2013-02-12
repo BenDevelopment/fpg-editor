@@ -785,6 +785,7 @@ object frmMainFNT: TfrmMainFNT
           Font.Height = -8
           Font.Name = 'Sans'
           ItemHeight = 0
+          ItemIndex = 0
           Items.Strings = (
             'ISO8859_1'
             'CP850'

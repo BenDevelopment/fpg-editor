@@ -1526,7 +1526,7 @@ begin
  {$ENDIF}
 
  {$IFDEF Linux}
-   RunExe('/bin/gzip -dc >"'+ FPG_source+'"', WorkDir,WorkDir +'________.uz' );
+   RunExe('/bin/gzip -dc "'+ FPG_source+'"', WorkDir,WorkDir +'________.uz' );
  {$ENDIF}
 
 
@@ -1923,4 +1923,4 @@ begin
 
 end;
 
-end.
+end.

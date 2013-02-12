@@ -51,8 +51,8 @@ object frmFPGImages: TfrmFPGImages
     TabOrder = 2
     object tsProperties: TTabSheet
       Caption = 'tsProperties'
-      ClientHeight = 295
-      ClientWidth = 385
+      ClientHeight = 290
+      ClientWidth = 387
       ImageIndex = 1
       object Panel2: TPanel
         Left = 184
@@ -66,7 +66,7 @@ object frmFPGImages: TfrmFPGImages
           Left = 81
           Height = 13
           Top = 22
-          Width = 27
+          Width = 29
           Alignment = taRightJustify
           Caption = 'Alto:'
           Font.Height = -11
@@ -79,7 +79,7 @@ object frmFPGImages: TfrmFPGImages
           Left = 68
           Height = 13
           Top = 6
-          Width = 41
+          Width = 43
           Alignment = taRightJustify
           BidiMode = bdRightToLeft
           Caption = 'Ancho:'
@@ -94,7 +94,7 @@ object frmFPGImages: TfrmFPGImages
           Left = 115
           Height = 13
           Top = 6
-          Width = 36
+          Width = 40
           Caption = 'lbWidth'
           ParentColor = False
         end
@@ -102,7 +102,7 @@ object frmFPGImages: TfrmFPGImages
           Left = 115
           Height = 13
           Top = 22
-          Width = 39
+          Width = 46
           Caption = 'lbHeight'
           ParentColor = False
         end
@@ -110,7 +110,7 @@ object frmFPGImages: TfrmFPGImages
           Left = 4
           Height = 13
           Top = 38
-          Width = 105
+          Width = 117
           Alignment = taRightJustify
           Caption = 'Puntos de control:'
           Font.Height = -11
@@ -123,7 +123,7 @@ object frmFPGImages: TfrmFPGImages
           Left = 115
           Height = 13
           Top = 38
-          Width = 44
+          Width = 51
           Caption = 'lbNumCP'
           ParentColor = False
         end
@@ -152,7 +152,7 @@ object frmFPGImages: TfrmFPGImages
         Top = 184
         Width = 57
         Caption = ' Código '
-        ClientHeight = 31
+        ClientHeight = 34
         ClientWidth = 53
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
@@ -160,7 +160,7 @@ object frmFPGImages: TfrmFPGImages
         TabOrder = 2
         object edCode: TEdit
           Left = 6
-          Height = 21
+          Height = 23
           Top = 2
           Width = 41
           MaxLength = 3
@@ -176,7 +176,7 @@ object frmFPGImages: TfrmFPGImages
         Top = 184
         Width = 313
         Caption = ' Nombre '
-        ClientHeight = 31
+        ClientHeight = 34
         ClientWidth = 309
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
@@ -184,7 +184,7 @@ object frmFPGImages: TfrmFPGImages
         TabOrder = 3
         object edName: TEdit
           Left = 6
-          Height = 21
+          Height = 23
           Top = 2
           Width = 297
           MaxLength = 8
@@ -199,7 +199,7 @@ object frmFPGImages: TfrmFPGImages
         Top = 240
         Width = 377
         Caption = ' Descripción '
-        ClientHeight = 31
+        ClientHeight = 34
         ClientWidth = 373
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
@@ -207,7 +207,7 @@ object frmFPGImages: TfrmFPGImages
         TabOrder = 4
         object edDescription: TEdit
           Left = 6
-          Height = 21
+          Height = 23
           Top = 2
           Width = 361
           MaxLength = 32
@@ -219,8 +219,8 @@ object frmFPGImages: TfrmFPGImages
     end
     object tsControlPoints: TTabSheet
       Caption = 'tsControlPoints'
-      ClientHeight = 295
-      ClientWidth = 385
+      ClientHeight = 290
+      ClientWidth = 387
       ImageIndex = 1
       object sbDelete: TSpeedButton
         Left = 224
@@ -503,7 +503,7 @@ object frmFPGImages: TfrmFPGImages
           end        
           item
             Caption = 'Y'
-            Width = 75
+            Width = 77
           end>
         ReadOnly = True
         TabOrder = 0
@@ -516,7 +516,7 @@ object frmFPGImages: TfrmFPGImages
         Top = 0
         Width = 113
         Caption = ' X '
-        ClientHeight = 23
+        ClientHeight = 26
         ClientWidth = 109
         TabOrder = 1
         object edCoordX: TEdit
@@ -536,7 +536,7 @@ object frmFPGImages: TfrmFPGImages
         Top = 48
         Width = 113
         Caption = ' Y '
-        ClientHeight = 23
+        ClientHeight = 26
         ClientWidth = 109
         TabOrder = 2
         object edCoordY: TEdit
@@ -563,6 +563,7 @@ object frmFPGImages: TfrmFPGImages
           Height = 19
           Top = 0
           Width = 20
+          Checked = True
           TabOrder = 0
         end
         object rbTM: TRadioButton
@@ -664,4 +665,4 @@ object frmFPGImages: TfrmFPGImages
     left = 120
     top = 352
   end
-end
+end

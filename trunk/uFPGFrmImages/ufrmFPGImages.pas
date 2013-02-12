@@ -643,4 +643,4 @@ begin
  edCoordY.Color := clWhite;
 end;
 
-end.
+end.
