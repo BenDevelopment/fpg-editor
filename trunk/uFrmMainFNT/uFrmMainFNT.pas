@@ -32,9 +32,11 @@ type
     Bevel2: TBevel;
     Bevel3: TBevel;
     cbCharset: TComboBox;
+    cbCharset1: TComboBox;
     dlgFont: TFontDialog;
     EPreview: TEdit;
     gbCharset: TGroupBox;
+    gbCharset1: TGroupBox;
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
@@ -1450,14 +1452,7 @@ begin
 
  unload_fnt;
 
- //fnt_container.header.version := 32;
- fnt_container.header.charset   := cbCharset.ItemIndex;
- if cbCharset.ItemIndex = 2 then
-    fnt_container.header.charset:=0;
- if cbCharset.ItemIndex = 3 then
-    fnt_container.header.charset:=0;
- if cbCharset.ItemIndex = 4 then
-    fnt_container.header.charset:=0;
+ fnt_container.header.charset   := cbCharset1.ItemIndex;
 
  font_edge  := sedSizeEdge.Value;
  font_shadow:= sedSizeShadow.Value;
@@ -1582,8 +1577,6 @@ begin
    sbSave.Enabled := true;
    sbSaveAs.Enabled := true;
 
-//   inifile_symbol_type := fnt_container.header.charset;
-
    MakePreview;
 
    cbNumbers.Checked  := ((inifile_symbol_type and 1 ) = 1);
@@ -1657,7 +1650,8 @@ begin
     sbSave.Enabled := true;
     sbSaveAs.Enabled := true;
 
-    inifile_symbol_type := fnt_container.header.charset;
+    if fnt_container.header.file_type[2]='x' then
+        inifile_symbol_type := fnt_container.header.charset;
 
     MakePreview;
    end;
@@ -2555,7 +2549,6 @@ begin
  bmp_tmp.Destroy;
 
  SetFNTSetup;
-// fnt_container.header.charset := inifile_symbol_type;
  MakePreview;
 
  cbNumbers.Checked  := ((inifile_symbol_type and 1 ) = 1);
@@ -2674,4 +2667,4 @@ begin
    +Byte(fnt_container.header.file_type[3])) <> 0);
 end;
 
-end.
+end.
