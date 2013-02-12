@@ -1541,7 +1541,7 @@ begin
  {$ENDIF}
 
  {$IFDEF Linux}
-   RunExe('/bin/gzip -dc >"'+ sfile+'"', WorkDir,WorkDir +'________.uz' );
+   RunExe('/bin/gzip -dc "'+ sfile+'"', WorkDir,WorkDir +'________.uz' );
  {$ENDIF}
 
   result := load_fnt( WorkDir +'________.uz');
