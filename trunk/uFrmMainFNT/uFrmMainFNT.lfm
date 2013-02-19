@@ -55,13 +55,13 @@ object frmMainFNT: TfrmMainFNT
       Left = 0
       Height = 40
       Top = 0
-      Width = 336
+      Width = 464
       Caption = 'Nombre de la fuente'
       ClientHeight = 25
-      ClientWidth = 332
+      ClientWidth = 460
       TabOrder = 0
       object sbLoadFont: TSpeedButton
-        Left = 221
+        Left = 350
         Height = 22
         Hint = 'Cambiar el tipo de letra'
         Top = 0
@@ -123,7 +123,7 @@ object frmMainFNT: TfrmMainFNT
       end
     end
     object bgSize: TGroupBox
-      Left = 341
+      Left = 467
       Height = 40
       Top = 0
       Width = 52
@@ -143,7 +143,7 @@ object frmMainFNT: TfrmMainFNT
       end
     end
     object gbStyle: TGroupBox
-      Left = 398
+      Left = 524
       Height = 40
       Top = 0
       Width = 104
@@ -735,12 +735,12 @@ object frmMainFNT: TfrmMainFNT
       end
     end
     object gbCharset: TGroupBox
-      Left = 506
-      Height = 80
-      Top = 0
+      Left = 508
+      Height = 40
+      Top = 39
       Width = 120
       Caption = 'Charset'
-      ClientHeight = 65
+      ClientHeight = 25
       ClientWidth = 116
       TabOrder = 7
       object cbCharset: TComboBox
@@ -765,36 +765,6 @@ object frmMainFNT: TfrmMainFNT
         ParentFont = False
         TabOrder = 0
         Text = 'ISO8859_1'
-      end
-      object gbCharset1: TGroupBox
-        Left = 0
-        Height = 37
-        Top = 20
-        Width = 116
-        Caption = 'Simular con'
-        ClientHeight = 22
-        ClientWidth = 112
-        TabOrder = 1
-        object cbCharset1: TComboBox
-          Left = 4
-          Height = 20
-          Top = 0
-          Width = 100
-          Constraints.MaxHeight = 20
-          Font.Color = clWindowText
-          Font.Height = -8
-          Font.Name = 'Sans'
-          ItemHeight = 0
-          ItemIndex = 0
-          Items.Strings = (
-            'ISO8859_1'
-            'CP850'
-          )
-          OnChange = cbCharsetChange
-          ParentFont = False
-          TabOrder = 0
-          Text = 'ISO8859_1'
-        end
       end
     end
   end
