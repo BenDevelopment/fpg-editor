@@ -32,11 +32,9 @@ type
     Bevel2: TBevel;
     Bevel3: TBevel;
     cbCharset: TComboBox;
-    cbCharset1: TComboBox;
     dlgFont: TFontDialog;
     EPreview: TEdit;
     gbCharset: TGroupBox;
-    gbCharset1: TGroupBox;
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
@@ -1112,9 +1110,9 @@ begin
   end;
 
   mixFontColor:= TColorToFPColor(Blend(inifile_fnt_color,inifile_shadow_color,alpha_font));
-  mixFontColor.alpha:= shadowColor.alpha;
+  mixFontColor.alpha:= fontColor.alpha;
   mixEdgeColor:= TColorToFPColor(Blend(inifile_edge_color,inifile_shadow_color,alpha_edge));
-  mixEdgeColor.alpha:= shadowColor.alpha;
+  mixEdgeColor.alpha:= edgeColor.alpha;
   // Añadimos la sombra
  for k := 0 to lazBMPtmp.Height -1 do
  begin
@@ -1452,7 +1450,9 @@ begin
 
  unload_fnt;
 
- fnt_container.header.charset   := cbCharset1.ItemIndex;
+ fnt_container.header.charset   := 1; // no aplicar tabla de transformación
+ if cbCharset.ItemIndex = 0 then
+  fnt_container.header.charset   :=  0; // Aplicar tabla de transformación CP850 a ISO8859_1
 
  font_edge  := sedSizeEdge.Value;
  font_shadow:= sedSizeShadow.Value;
