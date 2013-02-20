@@ -204,6 +204,9 @@ end;
 procedure TfrmZipFenix.flbSelectItem(Sender: TObject; Item: TListItem;
   Selected: Boolean);
 begin
+    if not Selected then
+      exit;
+    bbCompress.Enabled:=(flb.Selected <> nil);
 end;
 
 procedure TfrmZipFenix.FormActivate(Sender: TObject);
