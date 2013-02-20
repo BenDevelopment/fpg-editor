@@ -1,7 +1,7 @@
 object frmNewFPG: TfrmNewFPG
-  Left = 291
+  Left = 398
   Height = 196
-  Top = 179
+  Top = 371
   Width = 416
   Caption = 'Nuevo FPG (Fichero de gráficos)'
   ClientHeight = 196
@@ -9,7 +9,7 @@ object frmNewFPG: TfrmNewFPG
   Font.Name = 'MS Sans Serif'
   OnActivate = FormActivate
   OnShow = FormShow
-  Position = poScreenCenter
+  Position = poMainFormCenter
   LCLVersion = '1.1'
   object gbName: TGroupBox
     Left = 0
@@ -18,12 +18,12 @@ object frmNewFPG: TfrmNewFPG
     Width = 416
     Align = alTop
     Caption = ' Nombre : '
-    ClientHeight = 31
+    ClientHeight = 32
     ClientWidth = 412
     TabOrder = 0
     object edNombre: TEdit
       Left = 6
-      Height = 24
+      Height = 25
       Top = 2
       Width = 401
       OnEnter = edNombreEnter
@@ -38,15 +38,15 @@ object frmNewFPG: TfrmNewFPG
     Width = 416
     Align = alTop
     Caption = ' Tipo de FPG '
-    ClientHeight = 31
+    ClientHeight = 32
     ClientWidth = 412
     TabOrder = 1
     object cbTipoFPG: TComboBox
       Left = 6
-      Height = 24
+      Height = 27
       Top = 2
       Width = 401
-      ItemHeight = 16
+      ItemHeight = 0
       ItemIndex = 5
       Items.Strings = (
         'FPG 1 bit'
@@ -70,7 +70,7 @@ object frmNewFPG: TfrmNewFPG
     Width = 416
     Align = alTop
     Caption = ' Paleta ( FPG 8 bits )'
-    ClientHeight = 31
+    ClientHeight = 32
     ClientWidth = 412
     TabOrder = 2
     object btLoadPal: TButton
@@ -121,4 +121,4 @@ object frmNewFPG: TfrmNewFPG
     Filter = '( *.pal *.fpg *.pcx *.bmp )|*.pal;*.fpg;*.bmp;*.pcx|PAL (DIV2/PSP4/MS)|*.pal|FPG (DIV2)|*.fpg|BMP|*.bmp|PCX|*.pcx'
     left = 200
   end
-end
+end

@@ -17,7 +17,7 @@ object frmView: TfrmView
   OnDeactivate = FormDeactivate
   OnResize = FormResize
   OnShow = FormShow
-  Position = poScreenCenter
+  Position = poMainFormCenter
   LCLVersion = '1.1'
   object Image: TImage
     Left = 0
@@ -35,7 +35,7 @@ object frmView: TfrmView
     Width = 270
     Align = alTop
     Caption = 'Detalles de la imagen'
-    ClientHeight = 54
+    ClientHeight = 57
     ClientWidth = 266
     Color = clBtnFace
     Font.Color = clBlack
@@ -48,7 +48,7 @@ object frmView: TfrmView
       Left = 5
       Height = 13
       Top = 2
-      Width = 45
+      Width = 47
       Alignment = taRightJustify
       Caption = 'Ancho :'
       Font.Color = clWindowText
@@ -62,7 +62,7 @@ object frmView: TfrmView
       Left = 19
       Height = 13
       Top = 19
-      Width = 31
+      Width = 33
       Alignment = taRightJustify
       Caption = 'Alto :'
       Font.Color = clWindowText
@@ -76,7 +76,7 @@ object frmView: TfrmView
       Left = 54
       Height = 13
       Top = 2
-      Width = 47
+      Width = 51
       Caption = 'lbAncho'
       Color = clBtnFace
       Font.Color = clBlue
@@ -91,7 +91,7 @@ object frmView: TfrmView
       Left = 54
       Height = 13
       Top = 18
-      Width = 33
+      Width = 37
       Caption = 'lbAlto'
       Font.Color = clBlue
       Font.Height = -11
@@ -104,7 +104,7 @@ object frmView: TfrmView
       Left = 158
       Height = 13
       Top = 3
-      Width = 40
+      Width = 43
       Alignment = taRightJustify
       Caption = 'Zoom :'
       Font.Color = clWindowText
@@ -116,7 +116,7 @@ object frmView: TfrmView
     end
     object seZoom: TSpinEdit
       Left = 209
-      Height = 21
+      Height = 23
       Top = -4
       Width = 50
       MaxValue = 800
@@ -128,7 +128,7 @@ object frmView: TfrmView
       Left = 19
       Height = 13
       Top = 35
-      Width = 31
+      Width = 33
       Alignment = taRightJustify
       Caption = 'Bpp :'
       Font.Color = clWindowText
@@ -142,7 +142,7 @@ object frmView: TfrmView
       Left = 54
       Height = 13
       Top = 35
-      Width = 33
+      Width = 37
       Caption = 'lbBpp'
       Font.Color = clBlue
       Font.Height = -11
@@ -152,4 +152,4 @@ object frmView: TfrmView
       ParentFont = False
     end
   end
-end
+end

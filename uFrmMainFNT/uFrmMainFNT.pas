@@ -1781,7 +1781,7 @@ end;
 procedure TfrmMainFNT.sbShowFNTClick(Sender: TObject);
 begin
  frmFNTView.setImageBGColor(inifile_bgcolor);
-  frmFNTView.ShowModal;
+  frmFNTView.Show;
 end;
 
 procedure TfrmMainFNT.sbShowPaletteClick(Sender: TObject);

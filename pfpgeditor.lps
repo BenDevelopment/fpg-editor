@@ -25,8 +25,8 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="999"/>
-        <CursorPos X="16" Y="1004"/>
+        <TopLine Value="973"/>
+        <CursorPos X="22" Y="981"/>
         <UsageCount Value="473"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -71,7 +71,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmPalette"/>
-        <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="21" Y="7"/>
@@ -93,6 +92,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmAnimate"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
         <UsageCount Value="473"/>
       </Unit7>
       <Unit8>
@@ -155,6 +157,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmExport"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="29" Y="14"/>
         <UsageCount Value="473"/>
       </Unit14>
       <Unit15>
@@ -191,6 +196,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmInputBox"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
         <UsageCount Value="473"/>
       </Unit18>
       <Unit19>
@@ -200,6 +208,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmMessageBox"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
         <UsageCount Value="473"/>
       </Unit19>
       <Unit20>
@@ -223,7 +234,7 @@
         <UnitName Value="ufrmFPGImages"/>
         <WindowIndex Value="0"/>
         <TopLine Value="121"/>
-        <CursorPos X="22" Y="140"/>
+        <CursorPos X="55" Y="139"/>
         <UsageCount Value="473"/>
       </Unit21>
       <Unit22>
@@ -242,6 +253,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmNewFPG"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
         <UsageCount Value="473"/>
       </Unit23>
       <Unit24>
@@ -282,8 +296,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmZipFenix"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="151"/>
-        <CursorPos X="1" Y="118"/>
+        <TopLine Value="18"/>
+        <CursorPos X="10" Y="49"/>
         <UsageCount Value="473"/>
       </Unit27>
       <Unit28>
@@ -293,7 +307,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="122"/>
         <CursorPos X="3" Y="137"/>
-        <UsageCount Value="194"/>
+        <UsageCount Value="198"/>
       </Unit28>
       <Unit29>
         <Filename Value="uColorTable\uColorTable.pas"/>
@@ -302,7 +316,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="4"/>
-        <UsageCount Value="194"/>
+        <UsageCount Value="198"/>
       </Unit29>
       <Unit30>
         <Filename Value="uFNT\uFNT.pas"/>
@@ -311,7 +325,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="47" Y="10"/>
-        <UsageCount Value="194"/>
+        <UsageCount Value="198"/>
       </Unit30>
       <Unit31>
         <Filename Value="uFrmBpp\uFrmBpp.pas"/>
@@ -323,7 +337,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="38" Y="10"/>
-        <UsageCount Value="194"/>
+        <UsageCount Value="198"/>
       </Unit31>
       <Unit32>
         <Filename Value="uFrmCFG\uFrmCFG.pas"/>
@@ -335,7 +349,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="39" Y="11"/>
-        <UsageCount Value="194"/>
+        <UsageCount Value="198"/>
       </Unit32>
       <Unit33>
         <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
@@ -345,9 +359,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmMainFNT"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1452"/>
-        <CursorPos X="1" Y="1464"/>
-        <UsageCount Value="194"/>
+        <TopLine Value="1752"/>
+        <CursorPos X="18" Y="1784"/>
+        <UsageCount Value="198"/>
       </Unit33>
       <Unit34>
         <Filename Value="uFrmAbout\uFrmAbout.pas"/>
@@ -359,7 +373,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="5" Y="2"/>
-        <UsageCount Value="191"/>
+        <UsageCount Value="195"/>
       </Unit34>
       <Unit35>
         <Filename Value="uFrmFNTView\uFrmFNTView.pas"/>
@@ -371,7 +385,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="76" Y="141"/>
-        <UsageCount Value="135"/>
+        <UsageCount Value="139"/>
       </Unit35>
       <Unit36>
         <Filename Value="C:\lazarus\lcl\graphics.pp"/>
@@ -922,7 +936,16 @@
     <General>
       <ActiveWindowIndexAtStart Value="0"/>
     </General>
-    <JumpHistory Count="0" HistoryIndex="-1"/>
+    <JumpHistory Count="2" HistoryIndex="1">
+      <Position1>
+        <Filename Value="uFrmMain\uFrmMain.pas"/>
+        <Caret Line="1006" Column="17" TopLine="999"/>
+      </Position1>
+      <Position2>
+        <Filename Value="uFrmMain\uFrmMain.pas"/>
+        <Caret Line="31" Column="35" TopLine="11"/>
+      </Position2>
+    </JumpHistory>
   </ProjectSession>
   <Debugging>
     <BreakPoints Count="1">

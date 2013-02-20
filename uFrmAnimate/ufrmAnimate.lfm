@@ -17,8 +17,8 @@ object frmAnimate: TfrmAnimate
   OnDblClick = FormDeactivate
   OnDeactivate = FormDeactivate
   OnKeyPress = FormKeyPress
-  Position = poScreenCenter
-  LCLVersion = '1.0.1.3'
+  Position = poMainFormCenter
+  LCLVersion = '1.1'
   object tAnimate: TTimer
     Enabled = False
     Interval = 100
@@ -26,4 +26,4 @@ object frmAnimate: TfrmAnimate
     left = 200
     top = 8
   end
-end
+end

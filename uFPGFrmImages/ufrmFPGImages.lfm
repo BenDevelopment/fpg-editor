@@ -1,7 +1,7 @@
 object frmFPGImages: TfrmFPGImages
-  Left = 278
+  Left = 467
   Height = 385
-  Top = 116
+  Top = 414
   Width = 398
   Caption = 'Editar propiedades de la imagen'
   ClientHeight = 385
@@ -10,7 +10,7 @@ object frmFPGImages: TfrmFPGImages
   Font.Name = 'MS Sans Serif'
   OnActivate = FormActivate
   OnShow = FormShow
-  Position = poScreenCenter
+  Position = poMainFormCenter
   LCLVersion = '1.1'
   object sbSetControlPoint: TSpeedButton
     Left = 280
@@ -565,6 +565,7 @@ object frmFPGImages: TfrmFPGImages
           Width = 20
           Checked = True
           TabOrder = 0
+          TabStop = True
         end
         object rbTM: TRadioButton
           Left = 16

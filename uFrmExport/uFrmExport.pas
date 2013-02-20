@@ -33,10 +33,11 @@ type
   { TfrmExport }
 
   TfrmExport = class(TForm)
+    bbExport: TBitBtn;
     gbImages: TGroupBox;
     DirectoryListBox1: TShellTreeView ;
+    Panel1: TPanel;
     rgResType: TRadioGroup;
-    bbExport: TBitBtn;
     rgFilename: TRadioGroup;
     procedure bbExportClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
