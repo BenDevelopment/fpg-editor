@@ -1,7 +1,7 @@
 object fBPP: TfBPP
-  Left = 404
+  Left = 572
   Height = 103
-  Top = 327
+  Top = 579
   Width = 170
   BorderStyle = bsDialog
   Caption = 'Select BPP'
@@ -11,6 +11,7 @@ object fBPP: TfBPP
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
+  Position = poMainFormCenter
   LCLVersion = '1.1'
   object Label1: TLabel
     Left = 8

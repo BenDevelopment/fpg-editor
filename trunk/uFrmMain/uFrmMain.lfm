@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 172
+  Left = 330
   Height = 618
-  Top = 136
+  Top = 176
   Width = 818
   Caption = 'FPG Editor'
   ClientHeight = 589
@@ -22,7 +22,6 @@ object frmMain: TfrmMain
     Top = 259
     Width = 818
     Align = alTop
-    MinSize = 50
     ResizeAnchor = akTop
   end
   object gbFPG: TGroupBox
@@ -625,10 +624,12 @@ object frmMain: TfrmMain
         item
           MinWidth = 50
         end>
+      IconOptions.AutoArrange = True
       LargeImages = ilFPG
       MultiSelect = True
       PopupMenu = ppFPGImages
       ReadOnly = True
+      ScrollBars = ssAutoVertical
       SortColumn = 0
       SortType = stBoth
       TabOrder = 2
@@ -682,6 +683,7 @@ object frmMain: TfrmMain
         Align = alClient
         FileSortType = fstNone
         ReadOnly = True
+        ScrollBars = ssAutoVertical
         TabOrder = 0
         OnChange = ShellTreeView1Change
         Options = [tvoAutoItemHeight, tvoHideSelection, tvoKeepCollapsedNodes, tvoReadOnly, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
@@ -694,10 +696,8 @@ object frmMain: TfrmMain
         Top = 135
         Width = 231
         Align = alBottom
-        Color = clDefault
         TabOrder = 1
         Visible = False
-        ViewStyle = vsReport
         ObjectTypes = [otNonFolders]
         Root = '/'
         ShellTreeView = ShellTreeView1
@@ -1157,7 +1157,6 @@ object frmMain: TfrmMain
         Top = 25
         Width = 574
         Align = alClient
-        Color = clScrollBar
         Columns = <        
           item
             Caption = 'name'
@@ -1175,10 +1174,12 @@ object frmMain: TfrmMain
             Caption = 'bpp'
             MinWidth = 50
           end>
+        IconOptions.AutoArrange = True
         LargeImages = ilImages
         MultiSelect = True
         PopupMenu = ppImages
         ReadOnly = True
+        ScrollBars = ssAutoVertical
         SortColumn = 0
         SortType = stBoth
         TabOrder = 2

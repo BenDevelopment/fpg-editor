@@ -1,7 +1,7 @@
 object frmFNTView: TfrmFNTView
-  Left = 176
+  Left = 330
   Height = 579
-  Top = 91
+  Top = 286
   Width = 788
   Caption = 'Visor de datos FNT'
   ClientHeight = 579
@@ -11,6 +11,7 @@ object frmFNTView: TfrmFNTView
   Font.Height = -11
   Font.Name = 'Tahoma'
   OnShow = FormShow
+  Position = poMainFormCenter
   LCLVersion = '1.1'
   object Panel1: TPanel
     Left = 0

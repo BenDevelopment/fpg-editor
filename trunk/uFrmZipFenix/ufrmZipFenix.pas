@@ -34,15 +34,18 @@ type
   { TfrmZipFenix }
 
   TfrmZipFenix = class(TForm)
-    flb: TShellListView;
-    Panel1: TPanel;
-    dlb: TShellTreeView;
-    fcb: TFilterComboBox;
     bbCompress: TBitBtn;
-    statusbar: TStatusBar;
-    pZip: TPanel;
-    lbZipFile: TLabel;
+    dlb: TShellTreeView;
+    flb: TShellListView;
     imgAnimate: TImage;
+    lbZipFile: TLabel;
+    Panel1: TPanel;
+    fcb: TFilterComboBox;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    pZip: TPanel;
+    Splitter1: TSplitter;
+    statusbar: TStatusBar;
     procedure dlbChange(Sender: TObject; Node: TTreeNode);
     procedure flbChange(Sender: TObject; Item: TListItem; Change: TItemChange);
     procedure flbClick(Sender: TObject);
@@ -112,6 +115,7 @@ procedure TfrmZipFenix.dlbChange(Sender: TObject; Node: TTreeNode);
 begin
    bbCompress.Enabled:=(flb.Selected <> nil);
 end;
+
 
 procedure TfrmZipFenix.bbCompressClick(Sender: TObject);
 var

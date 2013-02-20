@@ -1,7 +1,7 @@
 object frmMainFNT: TfrmMainFNT
-  Left = 346
+  Left = 328
   Height = 582
-  Top = 121
+  Top = 282
   Width = 650
   Caption = 'Generador de fuentes'
   ClientHeight = 582
@@ -13,7 +13,7 @@ object frmMainFNT: TfrmMainFNT
   OnClose = FormClose
   OnCreate = FormCreate
   OnResize = FormResize
-  Position = poScreenCenter
+  Position = poMainFormCenter
   LCLVersion = '1.1'
   object pTop: TPanel
     Left = 0
@@ -753,7 +753,7 @@ object frmMainFNT: TfrmMainFNT
         Font.Height = -8
         Font.Name = 'Sans'
         ItemHeight = 0
-        ItemIndex = 0
+        ItemIndex = 2
         Items.Strings = (
           'ISO8859_1'
           'CP850'
@@ -764,7 +764,7 @@ object frmMainFNT: TfrmMainFNT
         OnChange = cbCharsetChange
         ParentFont = False
         TabOrder = 0
-        Text = 'ISO8859_1'
+        Text = 'ISO8859_15'
       end
     end
   end
