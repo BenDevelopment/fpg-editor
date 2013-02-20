@@ -4,7 +4,7 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="107">
+    <Units Count="108">
       <Unit0>
         <Filename Value="pfpgeditor.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -22,7 +22,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmMain"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
         <TopLine Value="973"/>
@@ -295,10 +294,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmZipFenix"/>
+        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
         <TopLine Value="18"/>
-        <CursorPos X="10" Y="49"/>
+        <CursorPos X="33" Y="41"/>
         <UsageCount Value="473"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit27>
       <Unit28>
         <Filename Value="uAAtext\uAAText.pas"/>
@@ -382,10 +384,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmFNTView"/>
+        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="76" Y="141"/>
+        <TopLine Value="66"/>
+        <CursorPos X="1" Y="91"/>
         <UsageCount Value="139"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit35>
       <Unit36>
         <Filename Value="C:\lazarus\lcl\graphics.pp"/>
@@ -918,10 +923,13 @@
       </Unit104>
       <Unit105>
         <Filename Value="uFrmZipFenix\backup\ufrmZipFenix.pas.bak"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="161"/>
-        <CursorPos X="16" Y="181"/>
+        <TopLine Value="84"/>
+        <CursorPos X="64" Y="101"/>
         <UsageCount Value="10"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="None"/>
       </Unit105>
       <Unit106>
@@ -932,11 +940,21 @@
         <CursorPos X="57" Y="6151"/>
         <UsageCount Value="10"/>
       </Unit106>
+      <Unit107>
+        <Filename Value="uFrmFNTView\backup\uFrmFNTView.pas.bak"/>
+        <EditorIndex Value="2"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="66"/>
+        <CursorPos X="32" Y="86"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="None"/>
+      </Unit107>
     </Units>
     <General>
       <ActiveWindowIndexAtStart Value="0"/>
     </General>
-    <JumpHistory Count="2" HistoryIndex="1">
+    <JumpHistory Count="19" HistoryIndex="18">
       <Position1>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
         <Caret Line="1006" Column="17" TopLine="999"/>
@@ -945,6 +963,74 @@
         <Filename Value="uFrmMain\uFrmMain.pas"/>
         <Caret Line="31" Column="35" TopLine="11"/>
       </Position2>
+      <Position3>
+        <Filename Value="uFrmFNTView\uFrmFNTView.pas"/>
+        <Caret Line="141" Column="76" TopLine="102"/>
+      </Position3>
+      <Position4>
+        <Filename Value="uFrmFNTView\uFrmFNTView.pas"/>
+        <Caret Line="9" Column="60" TopLine="1"/>
+      </Position4>
+      <Position5>
+        <Filename Value="uFrmFNTView\uFrmFNTView.pas"/>
+        <Caret Line="93" Column="4" TopLine="86"/>
+      </Position5>
+      <Position6>
+        <Filename Value="uFrmFNTView\uFrmFNTView.pas"/>
+        <Caret Line="86" Column="44" TopLine="71"/>
+      </Position6>
+      <Position7>
+        <Filename Value="uFrmFNTView\uFrmFNTView.pas"/>
+        <Caret Line="40" Column="24" TopLine="21"/>
+      </Position7>
+      <Position8>
+        <Filename Value="uFrmFNTView\backup\uFrmFNTView.pas.bak"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
+      </Position8>
+      <Position9>
+        <Filename Value="uFrmFNTView\backup\uFrmFNTView.pas.bak"/>
+        <Caret Line="40" Column="24" TopLine="7"/>
+      </Position9>
+      <Position10>
+        <Filename Value="uFrmZipFenix\ufrmZipFenix.pas"/>
+        <Caret Line="49" Column="10" TopLine="18"/>
+      </Position10>
+      <Position11>
+        <Filename Value="uFrmZipFenix\ufrmZipFenix.pas"/>
+        <Caret Line="53" Column="18" TopLine="20"/>
+      </Position11>
+      <Position12>
+        <Filename Value="uFrmZipFenix\ufrmZipFenix.pas"/>
+        <Caret Line="5" Column="55" TopLine="1"/>
+      </Position12>
+      <Position13>
+        <Filename Value="uFrmZipFenix\ufrmZipFenix.pas"/>
+        <Caret Line="49" Column="24" TopLine="17"/>
+      </Position13>
+      <Position14>
+        <Filename Value="uFrmZipFenix\ufrmZipFenix.pas"/>
+        <Caret Line="50" Column="78" TopLine="18"/>
+      </Position14>
+      <Position15>
+        <Filename Value="uFrmZipFenix\ufrmZipFenix.pas"/>
+        <Caret Line="110" Column="45" TopLine="81"/>
+      </Position15>
+      <Position16>
+        <Filename Value="uFrmZipFenix\ufrmZipFenix.pas"/>
+        <Caret Line="114" Column="33" TopLine="82"/>
+      </Position16>
+      <Position17>
+        <Filename Value="uFrmZipFenix\backup\ufrmZipFenix.pas.bak"/>
+        <Caret Line="181" Column="16" TopLine="161"/>
+      </Position17>
+      <Position18>
+        <Filename Value="uFrmZipFenix\ufrmZipFenix.pas"/>
+        <Caret Line="1" Column="45" TopLine="1"/>
+      </Position18>
+      <Position19>
+        <Filename Value="uFrmZipFenix\ufrmZipFenix.pas"/>
+        <Caret Line="49" Column="24" TopLine="17"/>
+      </Position19>
     </JumpHistory>
   </ProjectSession>
   <Debugging>

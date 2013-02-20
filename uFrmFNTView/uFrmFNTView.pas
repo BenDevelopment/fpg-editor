@@ -88,6 +88,8 @@ procedure TfrmFNTView.ListView1SelectItem(Sender: TObject; Item: TListItem;
 var
   tmp : TBitmap;
 begin
+   if not Selected then
+      exit;
    if fnt_container.char_data[Item.Index].Bitmap = nil then
      Image1.Picture.Clear
    else
