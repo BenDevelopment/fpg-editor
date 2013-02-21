@@ -673,18 +673,16 @@ object frmMain: TfrmMain
         Left = 1
         Height = 26
         Top = 1
-        Width = 122
+        Width = 1
         Align = alLeft
-        Caption = 'Nombre de archivo'
         ParentColor = False
       end
       object lblTransparentColor: TLabel
-        Left = 478
+        Left = 603
         Height = 26
         Top = 1
-        Width = 126
+        Width = 1
         Align = alRight
-        Caption = 'Color transparente'
         ParentColor = False
       end
     end

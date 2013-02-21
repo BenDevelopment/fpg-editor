@@ -2358,8 +2358,8 @@ begin
 
  // Limpiamos la imagen
  lazBMPbuffer:= bmp_buffer.CreateIntfImage;
- for j := 0 to bmp_buffer.Height - 1 do
-  for i := 0 to bmp_buffer.Width - 1 do
+ for i := 0 to bmp_buffer.Width - 1 do
+  for j := 0 to bmp_buffer.Height - 1 do
    lazBMPbuffer.Colors[i,j]:= colBlack;
 
  x := 1;
@@ -2425,7 +2425,7 @@ begin
 
  bExit := (lazBMPbuffer.Colors[0,0] <> colTransparent) or bExit;
 
- bExit := (lazBMPbuffer.Colors[0,1] <> colBlack) or bExit;
+ //bExit := (lazBMPbuffer.Colors[0,1] <> colBlack) or bExit;
 
  if bExit then
  begin
