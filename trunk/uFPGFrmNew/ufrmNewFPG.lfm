@@ -1,7 +1,7 @@
 object frmNewFPG: TfrmNewFPG
-  Left = 398
+  Left = 526
   Height = 196
-  Top = 371
+  Top = 397
   Width = 416
   Caption = 'Nuevo FPG (Fichero de gráficos)'
   ClientHeight = 196

@@ -26,18 +26,18 @@ object frmMain: TfrmMain
   end
   object gbFPG: TGroupBox
     Left = 0
-    Height = 300
+    Height = 325
     Top = 264
     Width = 818
     Align = alClient
     Caption = ' FPG (Ficheros de gráficos) '
-    ClientHeight = 277
+    ClientHeight = 302
     ClientWidth = 814
     TabOrder = 0
     object pbFPG: TProgressBar
       Left = 0
       Height = 11
-      Top = 266
+      Top = 263
       Width = 814
       Align = alBottom
       TabOrder = 1
@@ -601,7 +601,7 @@ object frmMain: TfrmMain
     end
     object lvFPG: TListView
       Left = 0
-      Height = 240
+      Height = 237
       Top = 26
       Width = 814
       Align = alClient
@@ -637,24 +637,57 @@ object frmMain: TfrmMain
       ViewStyle = vsIcon
       OnDblClick = lvFPGDblClick
     end
-  end
-  object sbFPGEdit: TStatusBar
-    Left = 0
-    Height = 25
-    Top = 564
-    Width = 818
-    Panels = <    
-      item
-        Width = 400
-      end    
-      item
-        Alignment = taCenter
-        Width = 100
-      end    
-      item
-        Width = 100
-      end>
-    SimplePanel = False
+    object pFPGStatus: TPanel
+      Left = 0
+      Height = 28
+      Top = 274
+      Width = 814
+      Align = alBottom
+      ClientHeight = 28
+      ClientWidth = 814
+      TabOrder = 3
+      object cbTipoFPG: TComboBox
+        Left = 604
+        Height = 26
+        Top = 1
+        Width = 209
+        Align = alRight
+        Font.Height = -11
+        ItemHeight = 0
+        ItemIndex = 5
+        Items.Strings = (
+          'FPG 1 bit'
+          'FPG 8 bits'
+          'FPG 16 bits ( Fenix)'
+          'FPG 16 bits ( CDIV )'
+          'FPG 24 bits '
+          'FPG 32 bits (BennuGD )'
+        )
+        OnChange = cbTipoFPGChange
+        ParentFont = False
+        TabOrder = 0
+        Text = 'FPG 32 bits (BennuGD )'
+        Visible = False
+      end
+      object lblFilename: TLabel
+        Left = 1
+        Height = 26
+        Top = 1
+        Width = 122
+        Align = alLeft
+        Caption = 'Nombre de archivo'
+        ParentColor = False
+      end
+      object lblTransparentColor: TLabel
+        Left = 478
+        Height = 26
+        Top = 1
+        Width = 126
+        Align = alRight
+        Caption = 'Color transparente'
+        ParentColor = False
+      end
+    end
   end
   object gbImages: TGroupBox
     Left = 0
@@ -696,8 +729,10 @@ object frmMain: TfrmMain
         Top = 135
         Width = 231
         Align = alBottom
+        Color = clDefault
         TabOrder = 1
         Visible = False
+        ViewStyle = vsReport
         ObjectTypes = [otNonFolders]
         Root = '/'
         ShellTreeView = ShellTreeView1
@@ -1085,7 +1120,7 @@ object frmMain: TfrmMain
           Width = 2
         end
         object sbFilter: TSpeedButton
-          Left = 532
+          Left = 397
           Height = 22
           Top = 2
           Width = 25
@@ -1127,28 +1162,26 @@ object frmMain: TfrmMain
           }
           OnClick = sbFilterClick
         end
-        object EFilter: TComboBox
-          Left = 397
-          Height = 22
-          Top = 2
-          Width = 135
-          AutoSize = False
-          Font.Height = -11
-          Font.Name = 'Sans'
-          ItemHeight = 0
-          Items.Strings = (
-            '*.bmp;*.pcx;*.tif;*.tiff;*.fax;*.bw;*.rgb;*.rgba;*.sgi;*.cel;*.pic;*.jpg;*.jif;*.gif;*.dib;*.rle;*.tga;*.vst;*.icb;*.vda;*.win;*.pcc;*.scr;*.pcd;*.ppm;*.pgm;*.pbm;*.cut;*.pal;*.rla;*.rpf;*.psd;*.pdd;*.psp;*.png;*.mng;*.jng;*.wmf;*.emf;*.ico;*.map'
-            '*.*'
-          )
-          OnKeyUp = EFilterKeyUp
-          ParentFont = False
-          TabOrder = 0
-        end
         object Bevel13: TBevel
           Left = 557
           Height = 22
           Top = 2
           Width = 2
+        end
+        object EFilter: TFilterComboBox
+          Left = 422
+          Height = 22
+          Top = 2
+          Width = 135
+          AutoSize = False
+          Filter = 'All Images (*.bmp;*.pcx;*.tif;*.tiff;*.fax;*.bw;*.rgb;*.rgba;*.sgi;*.cel;*.pic;*.jpg;*.jif;*.gif;*.dib;*.rle;*.tga;*.vst;*.icb;*.vda;*.win;*.pcc;*.scr;*.pcd;*.ppm;*.pgm;*.pbm;*.cut;*.pal;*.rla;*.rpf;*.psd;*.pdd;*.psp;*.png;*.mng;*.jng;*.wmf;*.emf;*.ico;*.map)|*.bmp;*.pcx;*.tif;*.tiff;*.fax;*.bw;*.rgb;*.rgba;*.sgi;*.cel;*.pic;*.jpg;*.jif;*.gif;*.dib;*.rle;*.tga;*.vst;*.icb;*.vda;*.win;*.pcc;*.scr;*.pcd;*.ppm;*.pgm;*.pbm;*.cut;*.pal;*.rla;*.rpf;*.psd;*.pdd;*.psp;*.png;*.mng;*.jng;*.wmf;*.emf;*.ico;*.map|All Files(*.*)|*.*'
+          Font.Height = -11
+          Font.Name = 'Sans'
+          ItemIndex = 0
+          ParentFont = False
+          ShellListView = ShellListView1
+          TabOrder = 0
+          OnKeyUp = EFilterKeyUp
         end
       end
       object lvImages: TListView

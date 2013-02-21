@@ -90,12 +90,16 @@ type
     aClose: TAction;
     ActionList: TActionList;
     Bevel13: TBevel;
+    cbTipoFPG: TComboBox;
+    EFilter: TFilterComboBox;
+    lblTransparentColor: TLabel;
+    lblFilename: TLabel;
     miFPG1: TMenuItem;
     miFPG32: TMenuItem;
     miFPG24: TMenuItem;
+    pFPGStatus: TPanel;
     sbFilter: TSpeedButton;
     edFPGCODE: TSpinEdit;
-    EFilter: TComboBox;
     gbFPG: TGroupBox;
     ilMenu: TImageList;
     lvFPG: TListView;
@@ -158,7 +162,6 @@ type
     miSalir: TMenuItem;
     miFPG: TMenuItem;
     pFPGCODE: TPanel;
-    sbFPGEdit: TStatusBar;
     ShellListView1: TShellListView;
     ShellTreeView1: TShellTreeView;
     Splitter1: TSplitter;
@@ -267,6 +270,8 @@ type
     procedure aSelectAllExecute(Sender: TObject);
     procedure aSelectAllImgsExecute(Sender: TObject);
     procedure aZipToolExecute(Sender: TObject);
+    procedure cbTipoFPGChange(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
     procedure sbFilterClick(Sender: TObject);
     procedure edFPGCODEChange(Sender: TObject);
     procedure EFilterKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
@@ -449,55 +454,36 @@ end;
 
 procedure TfrmMain.Update_Panels;
 begin
-  sbFPGEdit.Panels[0].Text := FPG_source;
+  lblFilename.Caption := FPG_source;
 
+  cbTipoFPG.ItemIndex := FPG_type;
   case FPG_type of
    FPG1:
     begin
-     sbFPGEdit.Panels[1].Text := 'RGB(0, 0, 0)';
-     sbFPGEdit.Panels[2].Text := STRFPG1;
+     lblTransparentColor.caption := 'RGB(0, 0, 0)';
     end;
    FPG8_DIV2:
     begin
-     sbFPGEdit.Panels[1].Text := 'RGB(0, 0, 0)';
-     sbFPGEdit.Panels[2].Text := STRFPG8;
+     lblTransparentColor.caption := 'RGB(0, 0, 0)';
     end;
    FPG16:
     begin
-     sbFPGEdit.Panels[1].Text := 'RGB(0, 0, 0)';
-     sbFPGEdit.Panels[2].Text := STRFPG16;
+     lblTransparentColor.caption := 'RGB(0, 0, 0)';
     end;
    FPG16_CDIV:
     begin
-     sbFPGEdit.Panels[1].Text := 'RGB(255, 0, 255)';
-     sbFPGEdit.Panels[2].Text := STRFPGCDIV16;
+     lblTransparentColor.caption := 'RGB(255, 0, 255)';
     end;
    FPG24:
     begin
-     sbFPGEdit.Panels[1].Text := 'RGB(0, 0, 0)';
-     sbFPGEdit.Panels[2].Text := STRFPG24;
+     lblTransparentColor.caption := 'RGB(0, 0, 0)';
     end;
    FPG32:
     begin
-     sbFPGEdit.Panels[1].Text := 'Alpha Channel';
-     sbFPGEdit.Panels[2].Text := STRFPG32;
+     lblTransparentColor.caption := 'Alpha Channel';
     end;
   end;
 
-  (*
-  mmFPG8.Enabled       := (FPG_type <> FPG8_DIV2);
-  mmFPG16FENIX.Enabled := (FPG_type <> FPG16);
-  mmFPG16CDIV.Enabled  := (FPG_type <> FPG16_CDIV);
-
-  mmFPG8.Checked       := not mmFPG8.Enabled;
-  mmFPG16FENIX.Checked := not mmFPG16FENIX.Enabled;
-  mmFPG16CDIV.Checked  := not mmFPG16CDIV.Enabled;
-
-  mmCopyImage.Enabled  := true;
-  mmPasteImage.Enabled := true;
-
-  mmViewFPGPalette.Enabled := FPG_load_palette;
-  *)
 end;
 
 procedure TfrmMain.FormResize(Sender: TObject);
@@ -650,43 +636,6 @@ begin
     frmAbout.showModal;
 end;
 
-(*
-procedure TfrmMain.aAddImgExecute(Sender: TObject);
-var
- InputString : String;
- InputValue  : LongInt;
-begin
- if lvFPG.visible then
- begin
-  while true do
-   try
-    InputString := IntToStr(FPG_last_code + 1);
-
-    if feInputBox(LNG_STRINGS[156], LNG_STRINGS[55] + ':', InputString, 1) = mrOK then
-    begin
-     InputValue  := StrToInt(InputString);
-
-     if ( (InputValue <= 0) or (InputValue > 999) ) then
-     begin
-      feMessageBox(LNG_STRINGS[LNG_ERROR], LNG_STRINGS[157], 0, 1);
-      continue;
-     end;
-
-     FPG_last_code := InputValue - 1;
-
-     // Pone el código de inserción actual
-     edFPGCode.Text := NumberTo3Char(FPG_last_code + 1);
-    end;
-
-    break;
-   except
-    feMessageBox(LNG_STRINGS[LNG_ERROR], LNG_STRINGS[157], 0, 1);
-    continue;
-   end;
- end;
-
-end;
-*)
 
 procedure TfrmMain.aAddImgExecute(Sender: TObject);
 var
@@ -1156,6 +1105,7 @@ begin
  if (FPG_active) then
  begin
   lvFPG.Visible := true;
+  cbTipoFPG.Visible := true;
   Update_Panels;
   edFPGCODE.Value:=1;
  end;
@@ -1170,24 +1120,16 @@ begin
   if not FPG_update then
   begin
    lvFPG.visible := FPG_active;
+   cbTipoFPG.Visible := FPG_active;
 
    FPG_Free;
    FPG_update := false;
 
    lvFPG.Items.Clear;
-   sbFPGEdit.Panels[0].Text := '';
-   sbFPGEdit.Panels[1].Text := '';
-   sbFPGEdit.Panels[2].Text := '';
+   lblFilename.Caption := '';
+   lblTransparentColor.Caption := '';
+   cbTipoFPG.ItemIndex:= 5;
 
-   (*
-   mmViewFPGPalette.Enabled := FPG_load_palette;
-   mmFPG8.Enabled       := false;
-   mmFPG16FENIX.Enabled := false;
-   mmFPG16CDIV.Enabled  := false;
-
-   mmCopyImage.Enabled  := false;
-   mmPasteImage.Enabled := false;
-   *)
    Exit;
   end;
 
@@ -1206,19 +1148,11 @@ begin
   FPG_update := false;
   lvFPG.Items.Clear;
   lvFPG.visible := FPG_active;
-  sbFPGEdit.Panels[0].Text := '';
-  sbFPGEdit.Panels[1].Text := '';
-  sbFPGEdit.Panels[2].Text := '';
+  cbTipoFPG.visible := FPG_active;
+  lblFilename.Caption := '';
+  lblTransparentColor.Caption := '';
+  cbTipoFPG.ItemIndex:= 5;
 
-  (*
-  mmViewFPGPalette.Enabled := FPG_load_palette;
-  mmFPG8.Enabled       := false;
-  mmFPG16FENIX.Enabled := false;
-  mmFPG16CDIV.Enabled  := false;
-
-  mmCopyImage.Enabled  := false;
-  mmPasteImage.Enabled := false;
-  *)
 
 end;
 
@@ -1294,7 +1228,7 @@ begin
   FPG_source := FPG_source + '.fpg';
 
  //Mensaje en Panel inferior
- sbFPGEdit.Panels.Items[0].Text := FPG_source;
+ lblFilename.Caption := FPG_source;
 
  //Guardamos el fichero y desactivamos FPG_update
  FPG_Save(TForm(frmMain), pbFPG);
@@ -1343,6 +1277,24 @@ procedure TfrmMain.aZipToolExecute(Sender: TObject);
 begin
   frmZipFenix.Show;
 end;
+
+procedure TfrmMain.cbTipoFPGChange(Sender: TObject);
+begin
+ case cbTipoFPG.ItemIndex of
+  0: begin aFPG1.Execute; end;
+  1: begin aFPG8.Execute; end;
+  2: begin aFPG16f.Execute; end;
+  3: begin aFPG16c.Execute; end;
+  4: begin aFPG24.Execute; end;
+  5: begin aFPG32.Execute; end;
+ end;
+end;
+
+procedure TfrmMain.ComboBox1Change(Sender: TObject);
+begin
+
+end;
+
 
 procedure TfrmMain.sbFilterClick(Sender: TObject);
 begin
@@ -1555,6 +1507,8 @@ procedure TfrmMain.lvFPG_Load_Bitmaps;
 begin
  FPG_active    := true;
  lvFPG.visible := true;
+ cbTipoFPG.visible := FPG_active;
+
 
  Update_Panels;
 
@@ -1803,51 +1757,6 @@ procedure TfrmMain.sbFPGCODEClick(Sender: TObject);
 begin
 
 end;
-
-//procedure TfrmMain.sbImagesFilterClick(Sender: TObject);
-//begin
-// ShellListView1.Mask := edImagesFilter.Text;
- //if not sbImagesFilter.Flat then
- //begin
- // sFilter := ShellListView1.Mask;
- //
- // sbImagesFilter.Flat := true;
- //
- // edImagesFilter.ReadOnly := true;
- // edImagesFilter.Color := clMedGray;
- //
- // ShellListView1.Mask := edImagesFilter.Text;
- //end
- //else
- //begin
- // sbImagesFilter.Flat := False;
- //
- // edImagesFilter.ReadOnly := false;
- // edImagesFilter.Color := clWhite;
- //
- // ShellListView1.Mask := sFilter;
- //end;
-// ShellListView1.Refresh;
-//end;
-
-(*
-procedure TfrmMain.sbFPGCODEClick(Sender: TObject);
-begin
- if not lvFPG.visible then
-  Exit;
-
- if CodeExists( StrToInt(edFPGCODE.Text) ) then
- begin
-  feMessageBox( LNG_STRINGS[LNG_ERROR], LNG_STRINGS[158], 0, 1);
-  Exit;
- end;
-
- edFPGCODE.Color := clMedGray;
-
- FPG_last_code := StrToInt(edFPGCODE.Text) - 1;
-
-end;
-*)
 
 procedure TfrmMain.edFPGCODEKeyPress(Sender: TObject; var Key: Char);
 begin
