@@ -549,10 +549,13 @@ begin
    end;
  end;
 
+ frmAnimate.ClientHeight:= frmAnimate.ClientHeight + frmAnimate.Panel1.Height;
+
  frmAnimate.Left := (Screen.Width - frmAnimate.Width) div 2;
  frmAnimate.Top  := (Screen.Height- frmAnimate.Height)div 2;
  frmAnimate.tAnimate.Interval := inifile_animate_delay;
 
+ frmAnimate.Color:=lvFPG.Color;
  frmAnimate.Show;
 
 end;
@@ -570,62 +573,63 @@ begin
   Exit;
  end;
 
+ if frmAnimate.num_of_images > 0 then
+  for i := 0 to frmAnimate.num_of_images - 1 do
+    FreeAndNil( frmAnimate.img_animate[i]);
+
  bmp_src := TBitmap.Create;
  bmp_src.PixelFormat := pf32bit;
 
  frmAnimate.ClientWidth := 0;
  frmAnimate.ClientHeight:= 0;
  frmAnimate.source := sIMG;
- frmAnimate.num_of_images := lvImages.SelCount;
- j := 1;
  pbImages.Position := 0;
  pbImages.Show;
  pbImages.Repaint;
 
 
+ j := 1;
  for i := 0 to lvImages.Items.Count - 1 do
  begin
   if not lvImages.Items.Item[i].Selected then
    continue;
 
   filename := lvImages.Items.Item[i].Caption;
-
   // Se prepara la ruta del fichero
   file_source := prepare_file_source(ShellListView1.Root, filename);
   // Se carga la imagen
   loadImageFile(bmp_src, file_source);
-
   if bmp_src.width > frmAnimate.ClientWidth then
      frmAnimate.ClientWidth := bmp_src.width;
-
   if bmp_src.height > frmAnimate.ClientHeight then
      frmAnimate.ClientHeight := bmp_src.Height;
 
-  frmAnimate.img_animate[j].bmp := TBitmap.Create;
-
-  frmAnimate.img_animate[j].bmp.PixelFormat := pf32bit;
-
-  frmAnimate.img_animate[j].bmp.SetSize(bmp_src.Width,bmp_src.Height);
-
-  frmAnimate.img_animate[j].bmp.Canvas.Draw(0, 0, bmp_src);
+  frmAnimate.img_animate[j]:= TBitmap.Create;
+  frmAnimate.img_animate[j].PixelFormat := pf32bit;
+  frmAnimate.img_animate[j].SetSize(bmp_src.Width,bmp_src.Height);
+  frmAnimate.img_animate[j].Canvas.Draw(0, 0, bmp_src);
 
   pbImages.Position := (j * 100) div lvImages.SelCount;
   pbImages.Repaint;
 
   j := j + 1;
  end;
+ frmAnimate.num_of_images := j-1;
+
+ FreeAndNil(bmp_src);
+
+ frmAnimate.ClientHeight:= frmAnimate.ClientHeight + frmAnimate.Panel1.Height;
+
  pbImages.Hide;
 
  frmAnimate.Left := (Screen.Width - frmAnimate.Width) div 2;
  frmAnimate.Top  := (Screen.Height- frmAnimate.Height)div 2;
  frmAnimate.tAnimate.Interval := inifile_animate_delay;
 
+
+ frmAnimate.Color:=lvImages.Color;
  frmAnimate.ShowModal;
 
- for i := 0 to frmAnimate.num_of_images - 1 do
-  frmAnimate.img_animate[i].bmp.Destroy;
-
- bmp_src.Destroy;
  pbImages.Hide;
 
 end;

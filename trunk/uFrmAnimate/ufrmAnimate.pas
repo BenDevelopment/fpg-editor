@@ -25,25 +25,30 @@ interface
 
 uses
   LCLIntf, LCLType, SysUtils, Classes, Graphics, Controls, Forms, uFPG,
-  ExtCtrls, uLanguage, uIniFile;
+  ExtCtrls, Spin, StdCtrls, uLanguage, uIniFile;
 
 const
  sFPG = 0;
  sIMG = 1;
 
 type
-  aBitmap = record
-   bmp : TBitmap
-  end;
+
+  { TfrmAnimate }
 
   TfrmAnimate = class(TForm)
+    cbStretch: TCheckBox;
+    cbProportional: TCheckBox;
+    Image1: TImage;
+    Panel1: TPanel;
+    seMilliseconds: TSpinEdit;
     tAnimate: TTimer;
+    procedure cbProportionalChange(Sender: TObject);
+    procedure cbStretchChange(Sender: TObject);
+    procedure FormHide(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure seMillisecondsChange(Sender: TObject);
     procedure tAnimateTimer(Sender: TObject);
-    procedure FormDeactivate(Sender: TObject);
-    procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
-    procedure FormKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
 
@@ -53,7 +58,7 @@ type
   public
     { Public declarations }
     fpg_animate : Array [1 .. 999] of boolean;
-    img_animate : Array [1 .. 99 ] of aBitmap;
+    img_animate : Array [1 .. 99 ] of TBitmap;
     num_of_images : integer;
     source : integer;
     i : integer;
@@ -62,7 +67,6 @@ type
 
 var
   frmAnimate: TfrmAnimate;
-  bmp : TBitmap;
 
 implementation
 
@@ -91,39 +95,19 @@ begin
 
     if fpg_animate[i] then
     begin
-     CenterX := (ClientWidth  - FPG_images[i].bmp.Width ) div 2;
-     CenterY := (ClientHeight - FPG_images[i].bmp.Height) div 2;
-
-     bmp.Canvas.Brush.Color := clBlack;
-     bmp.Canvas.FillRect( Rect(0,0, ClientWidth, ClientHeight ));
-     bmp.Canvas.Draw(CenterX, CenterY, FPG_images[i].bmp);
-     Canvas.Draw( 0, 0, bmp );
+     Image1.Picture.Bitmap.Assign(FPG_images[i].bmp);
      break;
     end;
 
     if i = 999 then i := 0;
    end;
 
-
   end;
   sImg:
   begin
-   while ( i < num_of_images ) do
-   begin
     i := i + 1;
-
-    CenterX := (ClientWidth  - IMG_animate[i].bmp.Width ) div 2;
-    CenterY := (ClientHeight - IMG_animate[i].bmp.Height) div 2;
-
-    bmp.Canvas.Brush.Color := clBlack;
-    bmp.Canvas.FillRect( Rect(0,0, ClientWidth, ClientHeight ));
-    bmp.Canvas.Draw(CenterX, CenterY, IMG_animate[i].bmp);
-    Canvas.Draw( 0, 0, bmp );
-    break;
-   end;
-
-   if ( i = num_of_images ) then i := 0;
-
+    Image1.Picture.Bitmap.Assign(IMG_animate[i]);
+    if i = num_of_images then i := 0;
   end;
  end;
 end;
@@ -134,41 +118,46 @@ begin
  Draw_Image;
 end;
 
-procedure TfrmAnimate.FormDeactivate(Sender: TObject);
+procedure TfrmAnimate.FormShow(Sender: TObject);
 begin
+  _set_lng;
  i := 0;
+ tAnimate.Enabled := true;
+ seMilliseconds.Value:=tAnimate.Interval;
+
+end;
+
+procedure TfrmAnimate.seMillisecondsChange(Sender: TObject);
+begin
+   tAnimate.Enabled:=false;
+   tAnimate.Interval:=seMilliseconds.Value;
+   tAnimate.Enabled:=true;
+end;
+
+procedure TfrmAnimate.FormHide(Sender: TObject);
+begin
+   i := 0;
  tAnimate.Enabled := false;
 
  num_of_images := 0;
  Hide;
  ModalResult := mrOK;
+
 end;
 
-procedure TfrmAnimate.FormActivate(Sender: TObject);
+procedure TfrmAnimate.cbStretchChange(Sender: TObject);
 begin
- _set_lng;
+  Image1.Stretch:=cbStretch.Checked;
+end;
 
- i := 0;
- bmp.Width  := ClientWidth;
- bmp.Height := ClientHeight;
- tAnimate.Enabled := true;
+procedure TfrmAnimate.cbProportionalChange(Sender: TObject);
+begin
+  image1.Proportional:=cbProportional.Checked;
 end;
 
 procedure TfrmAnimate.FormCreate(Sender: TObject);
 begin
- bmp := TBitmap.Create;
  source := sFPG;
 end;
 
-procedure TfrmAnimate.FormCloseQuery(Sender: TObject;
-  var CanClose: Boolean);
-begin
- FormDeactivate(Sender);
-end;
-
-procedure TfrmAnimate.FormKeyPress(Sender: TObject; var Key: Char);
-begin
- FormDeactivate(Sender);
-end;
-
-end.
+end.

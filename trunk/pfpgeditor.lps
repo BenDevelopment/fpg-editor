@@ -4,7 +4,7 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="103">
+    <Units Count="104">
       <Unit0>
         <Filename Value="pfpgeditor.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -23,13 +23,10 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmMain"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="104" Y="901"/>
+        <TopLine Value="602"/>
+        <CursorPos X="27" Y="585"/>
         <UsageCount Value="473"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="uFrmView\ufrmView.pas"/>
@@ -93,8 +90,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmAnimate"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
+        <TopLine Value="91"/>
+        <CursorPos X="1" Y="100"/>
         <UsageCount Value="473"/>
       </Unit7>
       <Unit8>
@@ -385,7 +382,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="66"/>
         <CursorPos X="1" Y="91"/>
-        <UsageCount Value="154"/>
+        <UsageCount Value="157"/>
       </Unit35>
       <Unit36>
         <Filename Value="C:\lazarus\lcl\graphics.pp"/>
@@ -903,10 +900,14 @@
         <UsageCount Value="9"/>
         <DefaultSyntaxHighlighter Value="None"/>
       </Unit102>
+      <Unit103>
+        <Filename Value="..\lazarus\lcl\include\picture.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="687"/>
+        <CursorPos X="1" Y="708"/>
+        <UsageCount Value="10"/>
+      </Unit103>
     </Units>
-    <General>
-      <ActiveWindowIndexAtStart Value="0"/>
-    </General>
     <JumpHistory Count="0" HistoryIndex="-1"/>
   </ProjectSession>
   <Debugging>
