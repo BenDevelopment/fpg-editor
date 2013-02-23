@@ -27,21 +27,21 @@ uses LCLIntf, LCLType, ComCtrls, Forms, {Gauges,} Graphics, Controls, SysUtils, 
      uLanguage, uFPG, uPAL, uIniFile,
      uFrmMessageBox,
      //inserted by me
-     uFrmExport {,GraphicEx};
+     uFrmExport, uFPGListView;
 
- procedure export_to_bmp( lvFPG: TListView; path: string; var frmMain: TForm; var gFPG: TProgressBar );
- procedure export_to_png( lvFPG: TListView; path: string; var frmMain: TForm; var gFPG: TProgressBar );
- procedure export_to_map( lvFPG: TListView; path: string; var frmMain: TForm; var gFPG: TProgressBar );
+ procedure export_to_bmp( lvFPG: TFPGListView; path: string; var frmMain: TForm; var gFPG: TProgressBar );
+ procedure export_to_png( lvFPG: TFPGListView; path: string; var frmMain: TForm; var gFPG: TProgressBar );
+ procedure export_to_map( lvFPG: TFPGListView; path: string; var frmMain: TForm; var gFPG: TProgressBar );
 
- procedure export_DIV2_PAL( path: string );
- procedure export_MS_PAL  ( path: string );
- procedure export_PSP_PAL ( path: string );
+ procedure export_DIV2_PAL( lvFPG: TFPGListView; path: string );
+ procedure export_MS_PAL  ( lvFPG: TFPGListView; path: string );
+ procedure export_PSP_PAL ( lvFPG: TFPGListView; path: string );
 
- procedure export_control_points( lvFPG: TListView; path: string; var frmMain: TForm; var gFPG: TProgressBar );
+ procedure export_control_points( lvFPG: TFPGListView; path: string; var frmMain: TForm; var gFPG: TProgressBar );
 
 implementation
 
-procedure export_control_points( lvFPG: TListView; path: string; var frmMain: TForm; var gFPG: TProgressBar );
+procedure export_control_points( lvFPG: TFPGListView; path: string; var frmMain: TForm; var gFPG: TProgressBar );
 var
  f : TextFile;
  i, j, k, icount: integer;
@@ -60,10 +60,10 @@ begin
 
   icount := icount + 1;
 
-  for j := 0 to FPG_add_pos - 1 do
-   if FPG_images[j].graph_code = StrToInt(lvFPG.Items.Item[i].Caption) then
+  for j := 1 to lvFPG.Fpg.Count do
+   if lvFPG.Fpg.images[j].graph_code = StrToInt(lvFPG.Items.Item[i].Caption) then
    begin
-    if FPG_images[j].points <= 0 then
+    if lvFPG.Fpg.images[j].points <= 0 then
      continue;
 
     try
@@ -76,12 +76,12 @@ begin
 
     WriteLn(f, 'CTRL-PTS');
 
-    WriteLn(f, FPG_images[j].points);
+    WriteLn(f, lvFPG.Fpg.images[j].points);
 
-    for k := 0 to FPG_images[j].points - 1 do
+    for k := 0 to lvFPG.Fpg.images[j].points - 1 do
     begin
-     Write(f, FPG_images[j].control_points[k*2]); Write(f, ' ');
-     WriteLn(f, FPG_images[j].control_points[(k*2) + 1]);
+     Write(f, lvFPG.Fpg.images[j].control_points[k*2]); Write(f, ' ');
+     WriteLn(f, lvFPG.Fpg.images[j].control_points[(k*2) + 1]);
     end;
 
     CloseFile(f);
@@ -96,7 +96,7 @@ begin
  gFPG.Hide;
 end;
 
-procedure export_to_bmp( lvFPG: TListView; path: string; var frmMain: TForm; var gFPG: TProgressBar );
+procedure export_to_bmp( lvFPG: TFPGListView; path: string; var frmMain: TForm; var gFPG: TProgressBar );
 var
  i, j, icount : integer;
  imageName :String;
@@ -120,8 +120,8 @@ begin
    2: imageName:= lvFPG.Items.Item[i].Caption +'(' + lvFPG.Items.Item[i].SubItems[0] +')';
   end;
 
-  for j := 0 to FPG_add_pos - 1 do
-   if FPG_images[j].graph_code = StrToInt(lvFPG.Items.Item[i].Caption) then
+  for j := 1 to lvFPG.Fpg.Count do
+   if lvFPG.Fpg.images[j].graph_code = StrToInt(lvFPG.Items.Item[i].Caption) then
    begin
     //Se comprueba si existe el fichero
     if FileExistsUTF8(path + imagename + '.bmp') { *Converted from FileExists*  } then
@@ -131,7 +131,7 @@ begin
       break;
     end;
 
-    FPG_images[j].bmp.SaveToFile(path + imagename + '.bmp');
+    lvFPG.Fpg.images[j].bmp.SaveToFile(path + imagename + '.bmp');
     break;
    end;
 
@@ -142,7 +142,7 @@ begin
  gFPG.Hide;
 end;
 
-procedure export_to_PNG( lvFPG: TListView; path: string; var frmMain: TForm; var gFPG: TProgressBar );
+procedure export_to_PNG( lvFPG: TFPGListView; path: string; var frmMain: TForm; var gFPG: TProgressBar );
 var
  i, j, icount: integer;
  image :TPortableNetworkGraphic;
@@ -170,8 +170,8 @@ begin
    4: imageName:= lvFPG.Items.Item[i].Caption +'(' + lvFPG.Items.Item[i].SubItems[1] +')';
   end;
 
-  for j := 0 to FPG_add_pos - 1 do
-   if FPG_images[j].graph_code = StrToInt(lvFPG.Items.Item[i].Caption) then
+  for j := 1 to lvFPG.Fpg.Count do
+   if lvFPG.Fpg.images[j].graph_code = StrToInt(lvFPG.Items.Item[i].Caption) then
    begin
     //Se comprueba si existe el fichero
     if FileExistsUTF8(path + imageName + '.png') { *Converted from FileExists*  } then
@@ -180,7 +180,7 @@ begin
       break;
     end;
 
-    image.Assign(FPG_images[j].bmp);
+    image.Assign(lvFPG.Fpg.images[j].bmp);
     image.savetofile(path + imageName + '.png');
 
     break;
@@ -195,7 +195,7 @@ begin
 end;
 
 
-procedure export_to_map( lvFPG: TListView; path: string; var frmMain: TForm; var gFPG: TProgressBar );
+procedure export_to_map( lvFPG: TFPGListView; path: string; var frmMain: TForm; var gFPG: TProgressBar );
 var
  i, j, icount : integer;
  imageName :String;
@@ -219,8 +219,8 @@ begin
    2: imageName:= lvFPG.Items.Item[i].Caption +'(' + lvFPG.Items.Item[i].SubItems[0] +')';
   end;
 
-  for j := 0 to FPG_add_pos - 1 do
-   if FPG_images[j].graph_code = StrToInt(lvFPG.Items.Item[i].Caption) then
+  for j := 1 to lvFPG.Fpg.Count do
+   if lvFPG.Fpg.images[j].graph_code = StrToInt(lvFPG.Items.Item[i].Caption) then
    begin
     //Se comprueba si existe el fichero
     if FileExistsUTF8(path + imagename + '.map') { *Converted from FileExists*  } then
@@ -230,8 +230,8 @@ begin
       break;
     end;
 
-    //FPG_images[j].bmp.SaveToFile(path + imagename + '.map');
-     MAP_Save(j,path + imagename + '.map');
+    //lvFPG.Fpg.images[j].bmp.SaveToFile(path + imagename + '.map');
+     lvFPG.Fpg.SaveMap(j,path + imagename + '.map');
     break;
    end;
 
@@ -242,19 +242,19 @@ begin
  gFPG.Hide;
 end;
 
-procedure export_DIV2_PAL( path: string );
+procedure export_DIV2_PAL( lvFPG: TFPGListView; path: string );
 begin
- Save_DIV2_PAL( path + 'DIV2.pal' );
+ Save_DIV2_PAL(lvFPG.Fpg.header.palette, path + 'DIV2.pal' );
 end;
 
-procedure export_MS_PAL( path: string );
+procedure export_MS_PAL( lvFPG: TFPGListView; path: string );
 begin
- Save_MS_PAL( path + 'MS.pal' );
+ Save_MS_PAL(lvFPG.Fpg.header.palette, path + 'MS.pal' );
 end;
 
-procedure export_PSP_PAL( path: string );
+procedure export_PSP_PAL( lvFPG: TFPGListView; path: string );
 begin
- Save_JASP_pal( path + 'PSP4.pal' );
+ Save_JASP_pal(lvFPG.Fpg.header.palette, path + 'PSP4.pal' );
 end;
 
 end.

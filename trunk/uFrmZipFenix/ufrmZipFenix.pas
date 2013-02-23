@@ -119,7 +119,7 @@ end;
 
 procedure TfrmZipFenix.bbCompressClick(Sender: TObject);
 var
- temp_fpg_header : div_fpg_header;
+ temp_fpg_header : TFpgHeader;
  f : File of Byte;
  f1: TFileStream;
  is_fpg : Boolean;
@@ -138,7 +138,7 @@ begin
 
  f1.Read(temp_fpg_header.file_type, 3);
  f1.Read(temp_fpg_header.fpg_code , 4);
- f1.Read(temp_fpg_header.version, 1);
+ f1.Read(temp_fpg_header.Version, 1);
 
  f1.free;
 
@@ -218,4 +218,4 @@ begin
 end;
 
 end.
-
+

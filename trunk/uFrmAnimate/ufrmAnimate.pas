@@ -62,6 +62,7 @@ type
     num_of_images : integer;
     source : integer;
     i : integer;
+    fpg : TFpg;
     procedure Draw_Image;
   end;
 
@@ -95,7 +96,7 @@ begin
 
     if fpg_animate[i] then
     begin
-     Image1.Picture.Bitmap.Assign(FPG_images[i].bmp);
+     Image1.Picture.Bitmap.Assign(Fpg.images[i].bmp);
      break;
     end;
 
@@ -160,4 +161,4 @@ begin
  source := sFPG;
 end;
 
-end.
+end.

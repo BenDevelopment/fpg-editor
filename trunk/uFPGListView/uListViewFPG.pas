@@ -28,42 +28,148 @@ uses LCLIntf, LCLType,  ComCtrls, Graphics, Controls, SysUtils, Classes,
      uLanguage, uFPG, uTools, uIniFile,
       uLoadImage, uColor16bits, uFrmMessageBox ,IntfGraphics;
 
- procedure lvFPG_Insert_Images(lImages : TStringList; dir : string; var frmMain: TForm;
-                            var ilFPG: TImageList; var lvFPG : TListView; var gFPG : TProgressBar);
+type
+  TFPGListView = class( TListView)
+  private
+    { Private declarations }
+    Ffpg: TFpg;
+  public
+    { Public declarations }
+    procedure Load_Images( progressBar : TProgressBar);
 
- procedure lvFPG_Insert_Imagescb(var ilFPG: TImageList; var lvFPG : TListView; var frmMain : TForm; var gFPG : TProgressBar);
+    procedure Insert_Images(lImages : TStringList; dir : string;  var progressBar : TProgressBar);
 
- procedure lvFPG_Load_Images(var ilFPG: TImageList; var lvFPG: TListView; var frmMain: TForm; var progressBar: TProgressBar);
+    procedure Insert_Imagescb(  var progressBar : TProgressBar);
 
- procedure lvFPG_add_bitmap( index : LongInt; name, description : String; var bmp_src: TBitmap );
- procedure lvFPG_add_items( index : Word; var lvFPG: TListView; var ilFPG: TImageList);
- procedure lvFPG_replace_bitmap( index : LongInt; name, description : String; var bmp_src: TBitmap );
- procedure lvFPG_replace_item( index : Word; var lvFPG: TListView; var ilFPG: TImageList);
+    procedure add_items( index : Word);
+    procedure replace_item( index : Word);
+    procedure freeFPG;
+   published
+    property Fpg : TFpg read Ffpg write Ffpg ;
+    property Align;
+    property AllocBy;
+    property Anchors;
+    property AutoSort;
+    property AutoWidthLastColumn;
+    property BorderSpacing;
+    property BorderStyle;
+    property BorderWidth;
+    property Checkboxes;
+    property Color;
+    property Columns;
+    property ColumnClick;
+    property Constraints;
+    property DragCursor;
+    property DragKind;
+    property DragMode;
+//    property DefaultItemHeight;
+//    property DropTarget;
+    property Enabled;
+//    property FlatScrollBars;
+    property Font;
+//    property FullDrag;
+    property GridLines;
+    property HideSelection;
+//    property HotTrack;
+//    property HotTrackStyles;
+//    property HoverTime;
+    property IconOptions;
+//    property ItemIndex; shouldn't be published, see bug 16367
+    property Items;
+    property LargeImages;
+    property MultiSelect;
+    property OwnerData;
+//    property OwnerDraw;
+    property ParentColor default False;
+    property ParentFont;
+    property ParentShowHint;
+    property PopupMenu;
+    property ReadOnly;
+    property RowSelect;
+    property ScrollBars;
+    property ShowColumnHeaders;
+    property ShowHint;
+//    property ShowWorkAreas;
+    property SmallImages;
+    property SortColumn;
+    property SortDirection;
+    property SortType;
+    property StateImages;
+    property TabStop;
+    property TabOrder;
+    property ToolTips;
+    property Visible;
+    property ViewStyle;
+    property OnAdvancedCustomDraw;
+    property OnAdvancedCustomDrawItem;
+    property OnAdvancedCustomDrawSubItem;
+    property OnChange;
+    property OnClick;
+    property OnColumnClick;
+    property OnCompare;
+    property OnContextPopup;
+    property OnCreateItemClass;
+    property OnCustomDraw;
+    property OnCustomDrawItem;
+    property OnCustomDrawSubItem;
+    property OnData;
+    property OnDataFind;
+    property OnDataHint;
+    property OnDataStateChange;
+    property OnDblClick;
+    property OnDeletion;
+    property OnDragDrop;
+    property OnDragOver;
+    property OnEdited;
+    property OnEditing;
+    property OnEndDock;
+    property OnEndDrag;
+    property OnEnter;
+    property OnExit;
+    property OnItemChecked;
+    property OnKeyDown;
+    property OnKeyPress;
+    property OnKeyUp;
+    property OnMouseDown;
+    property OnMouseEnter;
+    property OnMouseLeave;
+    property OnMouseMove;
+    property OnMouseUp;
+    property OnResize;
+    property OnSelectItem;
+    property OnStartDock;
+    property OnStartDrag;
+    property OnUTF8KeyPress;
+
+  end;
+
+procedure Register;
 
 implementation
 
-procedure lvFPG_Load_Images(var ilFPG: TImageList; var lvFPG: TListView; var frmMain: TForm; var progressBar: TProgressBar);
+
+procedure TFPGListView.Load_Images( progressBar : TProgressBar);
 var
  count   : Integer;
 begin
  //Limpiamos la lista de imagenes
- ilFPG.Clear;
- lvFPG.Items.Clear;
+ LargeImages.Clear;
+ Items.Clear;
 
- ilFPG.Width  := inifile_sizeof_icon;
- ilFPG.Height := inifile_sizeof_icon;
+ LargeImages.Width  := inifile_sizeof_icon;
+ LargeImages.Height := inifile_sizeof_icon;
 
  progressBar.Position := 0;
  progressBar.Show;
  progressBar.Repaint;
- for count:= 1 to FPG_add_pos - 1 do
+ for count:= 1 to Fpg.Count do
  begin
-  with FPG_images[count] do
+  with Fpg.images[count] do
   begin
-   lvFPG_add_items(count, lvFPG, ilFPG);
+   add_items(count);
    if (count mod inifile_repaint_number) = 0 then
    begin
-    progressBar.Position:= (count * 100) div (FPG_add_pos - 1);
+    progressBar.Position:= (count * 100) div Fpg.Count;
     progressBar.Repaint;
    end;
   end;
@@ -72,92 +178,9 @@ begin
  progressBar.Hide;
 end;
 
-function FPGCreateBitmap(var bmp_src : TBitmap): TBitmap;
-begin
- // Se crea la imagen resultante
- result   := TBitMap.Create;
- result.PixelFormat:=pf32bit;
- result.SetSize(bmp_src.Width, bmp_src.Height);
 
- CopyPixels(result,bmp_src,0,0);
- if bmp_src.PixelFormat<>pf32bit then
-    setAlpha(result,255);
- case FPG_type of
-    FPG1:
-    begin
-          simulate1bppIn32bpp(result);
-    end;
-    FPG8_DIV2:
-    begin
-         simulate8bppIn32bpp(result);
-    end;
-    FPG16:
-    begin
-         colorToTransparent(result,clBlack,true );
-    end;
-    FPG16_CDIV:
-    begin
-         colorToTransparent(result,clFuchsia,true );
-    end;
-    FPG24:
-    begin
-         colorToTransparent(result,clBlack );
-    end;
- end;
-
-end;
-
-// Añadir index
-procedure lvFPG_add_bitmap( index : LongInt; name, description : String; var bmp_src: TBitmap );
-var
- j, k    : LongInt;
- pDst : pRGBLine;
- lazBMP: TLazIntfImage;
-  ImgHandle,ImgMaskHandle: HBitmap;
-
-begin
-  // Establece el código
-  FPG_images[index].graph_code  := FPG_last_code;
-
-  // Se establecen los datos de la imagen
-  stringToArray(FPG_images[index].fpname,name,12);
-  stringToArray(FPG_images[index].name,description,32);
-  FPG_images[index].width  := bmp_src.Width;
-  FPG_images[index].height := bmp_src.Height;
-  FPG_images[index].points := 0;
-
-  // Se crea la imagen resultante
-  FPG_images[index].bmp    := FPGCreateBitmap(bmp_src);
-
-
-end;
-
-// Añadir index
-procedure lvFPG_replace_bitmap( index : LongInt; name, description : String; var bmp_src: TBitmap );
-var
- j, k    : LongInt;
- pDst : pRGBLine;
- lazBMP: TLazIntfImage;
- ImgHandle,ImgMaskHandle: HBitmap;
- src_in_32bpp : boolean;
-
-begin
-  // Establece el código
-  FPG_images[index].graph_code  := FPG_last_code;
-
-  // Se establecen los datos de la imagen
-  stringToArray(FPG_images[index].fpname,name,12);
-  stringToArray(FPG_images[index].name,description,32);
-  FPG_images[index].width  := bmp_src.Width;
-  FPG_images[index].height := bmp_src.Height;
-
-  //FPG_images[index].points := 0;
-  FPG_images[index].bmp    := FPGCreateBitmap(bmp_src);
-
-end;
-
-procedure lvFPG_Insert_Images(lImages : TStringList; dir : string; var frmMain: TForm;
-                            var ilFPG: TImageList; var lvFPG : TListView; var gFPG : TProgressBar);
+procedure TFPGListView.Insert_Images(lImages : TStringList; dir : string;
+                              var progressBar : TProgressBar);
 var
  i : Integer;
  bmp_src  : TBitmap;
@@ -167,18 +190,18 @@ begin
  // Creamos el bitmap fuente y destino
  bmp_src := TBitmap.Create;
  // Se inializa la barra de progresión
- gFPG.Position := 0;
- gFPG.Show;
- gFPG.Repaint;
+ progressBar.Position := 0;
+ progressBar.Show;
+ progressBar.Repaint;
 
 
  for i := 0 to lImages.Count - 1 do
  begin
 
-  index:=indexOfCode( FPG_last_code);
+  index:=Fpg.indexOfCode( Fpg.lastcode);
   if index<>0 then
   begin
-   if MessageDlg('El código: '+intToStr(FPG_last_code)+' ya existe. ¿Desea sobrescribirlo?',mtConfirmation,[mbYes,mbNo],0) = mrNo then
+   if MessageDlg('El código: '+intToStr(Fpg.lastcode)+' ya existe. ¿Desea sobrescribirlo?',mtConfirmation,[mbYes,mbNo],0) = mrNo then
          continue;
   end;
 
@@ -192,46 +215,45 @@ begin
 
   (*
   // Se incrementa el código de la imagen
-  FPG_last_code := FPG_last_code + 1;
+  Fpg.last_code := Fpg.last_code + 1;
 
   // Busca hasta que encuentre un código libre
-  while CodeExists(FPG_last_code) do
-    FPG_last_code := FPG_last_code + 1;
+  while CodeExists(Fpg.last_code) do
+    Fpg.last_code := Fpg.last_code + 1;
   *)
 
   // ver como meter fpgedit2009
   if index<>0 then
   begin
-   lvFPG_replace_bitmap( index, ChangeFileExt(filename,''), ChangeFileExt(filename,''), bmp_src );
-   lvFPG_replace_item( index, lvFPG, ilFPG);
+   fpg.replace_bitmap( index, ChangeFileExt(filename,''), ChangeFileExt(filename,''), bmp_src );
+   replace_item( index);
   end else begin
-      lvFPG_add_bitmap( FPG_add_pos, ChangeFileExt(filename,''), ChangeFileExt(filename,''), bmp_src );
-      lvFPG_add_items( FPG_add_pos, lvFPG, ilFPG);
+      Fpg.Count := Fpg.Count + 1;
+      fpg.add_bitmap( Fpg.Count, ChangeFileExt(filename,''), ChangeFileExt(filename,''), bmp_src );
+      add_items( Fpg.Count);
   end;
-
-  FPG_add_pos := FPG_add_pos + 1;
-  FPG_last_code := FPG_last_code + 1;
+  Fpg.lastcode := Fpg.lastcode + 1;
 
   //bmp_src.FreeImage;
-  gFPG.Position:= ((i+1) * 100) div lImages.Count;
-  gFPG.Repaint;
+  progressBar.Position:= ((i+1) * 100) div lImages.Count;
+  progressBar.Repaint;
 
  end;
- FPG_last_code := FPG_last_code - 1;
+ Fpg.lastcode := Fpg.lastcode - 1;
  bmp_src.Free;
- FPG_update := true;
- lvFPG.Repaint;
- gFPG.Hide;
+ Fpg.update := true;
+ Repaint;
+ progressBar.Hide;
 end;
 
-procedure lvFPG_Insert_Imagescb(var ilFPG: TImageList; var lvFPG : TListView; var frmMain : TForm; var gFPG : TProgressBar);
+procedure TFPGListView.Insert_Imagescb(   var progressBar : TProgressBar);
 var
  bmp_src : TBitmap;
 begin
  // Se inializa la barra de progresión
- gFPG.Position := 50;
- gFPG.Show;
- gFPG.Repaint;
+ progressBar.Position := 50;
+ progressBar.Show;
+ progressBar.Repaint;
 
  bmp_src := TBitmap.Create;
  bmp_src.PixelFormat := pf32bit;
@@ -240,84 +262,93 @@ begin
    bmp_src.LoadFromClipBoardFormat( cf_BitMap);
  except
    bmp_src.Destroy;
-   gFPG.Hide;
+   progressBar.Hide;
    feMessageBox(LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_NOT_CLIPBOARD_IMAGE], 0, 0);
    Exit;
  end;
 
- ilFPG.Width  := inifile_sizeof_icon;
- ilFPG.Height := inifile_sizeof_icon;
+ LargeImages.Width  := inifile_sizeof_icon;
+ LargeImages.Height := inifile_sizeof_icon;
 
  // Se incrementa el código de la imagen
-  FPG_last_code := FPG_last_code + 1;
+  Fpg.lastcode := Fpg.lastcode + 1;
 
   // Busca hasta que encuentre un código libre
-  while CodeExists(FPG_last_code) do
-   FPG_last_code := FPG_last_code + 1;
+  while Fpg.CodeExists(Fpg.lastcode) do
+   Fpg.lastcode := Fpg.lastcode + 1;
 
   // ver como meter fpgedit2009
- lvFPG_add_bitmap( FPG_add_pos, 'ClipBoard', 'ClipBoard', bmp_src );
- lvFPG_add_items( FPG_add_pos, lvFPG, ilFPG);
+ Fpg.Count := Fpg.Count + 1;
+ fpg.add_bitmap( Fpg.Count, 'ClipBoard', 'ClipBoard', bmp_src );
+ add_items( Fpg.Count);
 
- FPG_add_pos := FPG_add_pos + 1;
 
- gFPG.Hide;
+ progressBar.Hide;
 
  bmp_src.Destroy;
 
- FPG_update := true;
+ Fpg.update := true;
 end;
 
-procedure lvFPG_add_items( index : Word; var lvFPG: TListView; var ilFPG: TImageList);
+procedure TFPGListView.add_items( index : Word);
 var
  list_bmp : TListItem;
  bmp_dst: TBitMap;
- color : TColor;
 begin
 
  // Pintamos el icono
- DrawProportional(FPG_images[index].bmp, bmp_dst, lvFPG.color);
+ DrawProportional(Fpg.images[index].bmp, bmp_dst, color);
 
- list_bmp := lvFPG.Items.Add;
+ list_bmp := Items.Add;
 
- list_bmp.ImageIndex := ilFPG.add(bmp_dst, nil);
+ list_bmp.ImageIndex := LargeImages.add(bmp_dst, nil);
 
  // Se establece el código del FPG
- list_bmp.Caption := NumberTo3Char( FPG_images[index].graph_code );
+ list_bmp.Caption := NumberTo3Char( Fpg.images[index].graph_code );
 
  // Se añaden los datos de la imagen a la lista
- list_bmp.SubItems.Add(FPG_images[index].fpname);
- list_bmp.SubItems.Add(FPG_images[index].name);
+ list_bmp.SubItems.Add(Fpg.images[index].fpname);
+ list_bmp.SubItems.Add(Fpg.images[index].name);
 
- list_bmp.SubItems.Add(IntToStr(FPG_images[index].width));
- list_bmp.SubItems.Add(IntToStr(FPG_images[index].height));
- list_bmp.SubItems.Add(IntToStr(FPG_images[index].points));
+ list_bmp.SubItems.Add(IntToStr(Fpg.images[index].width));
+ list_bmp.SubItems.Add(IntToStr(Fpg.images[index].height));
+ list_bmp.SubItems.Add(IntToStr(Fpg.images[index].points));
 
 end;
 
-procedure lvFPG_replace_item( index : Word; var lvFPG: TListView; var ilFPG: TImageList);
+procedure TFPGListView.replace_item( index : Word);
 var
  list_bmp : TListItem;
  bmp_dst: TBitMap;
- color : TColor;
 begin
 
  // Pintamos el icono
- DrawProportional(FPG_images[index].bmp, bmp_dst, lvFPG.color);
+ DrawProportional(Fpg.images[index].bmp, bmp_dst, color);
 
- list_bmp := lvFPG.Items.Item[index -1];
+ list_bmp := Items.Item[index -1];
 
- ilFPG.Replace(index-1, bmp_dst, Nil);
+ LargeImages.Replace(index-1, bmp_dst, Nil);
  //list_bmp.ImageIndex :=
 
  // Se añaden los datos de la imagen a la lista
- list_bmp.SubItems.Strings[0]:=FPG_images[index].fpname;
- list_bmp.SubItems.Strings[1]:=FPG_images[index].name;
+ list_bmp.SubItems.Strings[0]:=Fpg.images[index].fpname;
+ list_bmp.SubItems.Strings[1]:=Fpg.images[index].name;
 
- list_bmp.SubItems.Strings[2]:=IntToStr(FPG_images[index].width);
- list_bmp.SubItems.Strings[3]:=IntToStr(FPG_images[index].height);
-// list_bmp.SubItems.Strings[4]:=IntToStr(FPG_images[index].points);
+ list_bmp.SubItems.Strings[2]:=IntToStr(Fpg.images[index].width);
+ list_bmp.SubItems.Strings[3]:=IntToStr(Fpg.images[index].height);
+// list_bmp.SubItems.Strings[4]:=IntToStr(Fpg.images[index].points);
 
 end;
+
+procedure TFPGListView.FreeFPG;
+begin
+    FreeAndNil(ffpg);
+end;
+
+procedure Register;
+begin
+ RegisterComponents('Common Controls',[TFPGListView]);
+end;
+
 
 end.

@@ -1,10 +1,10 @@
 object frmMain: TfrmMain
-  Left = 330
+  Left = 258
   Height = 618
-  Top = 176
+  Top = 104
   Width = 818
   Caption = 'FPG Editor'
-  ClientHeight = 589
+  ClientHeight = 598
   ClientWidth = 818
   Menu = MainMenu
   OnActivate = FormActivate
@@ -26,18 +26,18 @@ object frmMain: TfrmMain
   end
   object gbFPG: TGroupBox
     Left = 0
-    Height = 325
+    Height = 334
     Top = 264
     Width = 818
     Align = alClient
     Caption = ' FPG (Ficheros de gráficos) '
-    ClientHeight = 302
+    ClientHeight = 316
     ClientWidth = 814
     TabOrder = 0
     object pbFPG: TProgressBar
       Left = 0
       Height = 11
-      Top = 263
+      Top = 277
       Width = 814
       Align = alBottom
       TabOrder = 1
@@ -585,7 +585,7 @@ object frmMain: TfrmMain
       end
       object edFPGCODE: TSpinEdit
         Left = 720
-        Height = 23
+        Height = 22
         Top = 2
         Width = 63
         Font.Height = -11
@@ -599,30 +599,36 @@ object frmMain: TfrmMain
         Value = 1
       end
     end
-    object lvFPG: TListView
+    object lvFPG: TFPGListView
       Left = 0
-      Height = 237
+      Height = 251
       Top = 26
       Width = 814
       Align = alClient
       Columns = <      
         item
           MinWidth = 50
+          Width = 10
         end      
         item
           MinWidth = 50
+          Width = 10
         end      
         item
           MinWidth = 50
+          Width = 10
         end      
         item
           MinWidth = 50
+          Width = 10
         end      
         item
           MinWidth = 50
+          Width = 10
         end      
         item
           MinWidth = 50
+          Width = 10
         end>
       IconOptions.AutoArrange = True
       LargeImages = ilFPG
@@ -631,7 +637,7 @@ object frmMain: TfrmMain
       ReadOnly = True
       ScrollBars = ssAutoVertical
       SortColumn = 0
-      SortType = stBoth
+      SortType = stText
       TabOrder = 2
       Visible = False
       ViewStyle = vsIcon
@@ -640,7 +646,7 @@ object frmMain: TfrmMain
     object pFPGStatus: TPanel
       Left = 0
       Height = 28
-      Top = 274
+      Top = 288
       Width = 814
       Align = alBottom
       ClientHeight = 28
@@ -648,12 +654,12 @@ object frmMain: TfrmMain
       TabOrder = 3
       object cbTipoFPG: TComboBox
         Left = 604
-        Height = 26
+        Height = 21
         Top = 1
         Width = 209
         Align = alRight
         Font.Height = -11
-        ItemHeight = 0
+        ItemHeight = 13
         ItemIndex = 5
         Items.Strings = (
           'FPG 1 bit'
@@ -694,21 +700,21 @@ object frmMain: TfrmMain
     Width = 818
     Align = alTop
     Caption = ' Imagenes '
-    ClientHeight = 236
+    ClientHeight = 241
     ClientWidth = 814
     TabOrder = 2
     object panelDirs: TPanel
       Left = 0
-      Height = 236
+      Height = 241
       Top = 0
       Width = 233
       Align = alLeft
-      ClientHeight = 236
+      ClientHeight = 241
       ClientWidth = 233
       TabOrder = 0
       object ShellTreeView1: TShellTreeView
         Left = 1
-        Height = 134
+        Height = 139
         Top = 1
         Width = 231
         Align = alClient
@@ -724,7 +730,7 @@ object frmMain: TfrmMain
       object ShellListView1: TShellListView
         Left = 1
         Height = 100
-        Top = 135
+        Top = 140
         Width = 231
         Align = alBottom
         Color = clDefault
@@ -732,24 +738,23 @@ object frmMain: TfrmMain
         Visible = False
         ViewStyle = vsReport
         ObjectTypes = [otNonFolders]
-        Root = '/'
         ShellTreeView = ShellTreeView1
       end
     end
     object pImagesList: TPanel
       Left = 238
-      Height = 236
+      Height = 241
       Top = 0
       Width = 576
       Align = alClient
       Caption = 'pImagesList'
-      ClientHeight = 236
+      ClientHeight = 241
       ClientWidth = 576
       TabOrder = 1
       object pbImages: TProgressBar
         Left = 1
         Height = 10
-        Top = 225
+        Top = 230
         Width = 574
         Align = alBottom
         OnContextPopup = pbImagesContextPopup
@@ -1172,7 +1177,7 @@ object frmMain: TfrmMain
           Top = 2
           Width = 135
           AutoSize = False
-          Filter = 'All Images (*.bmp;*.pcx;*.tif;*.tiff;*.fax;*.bw;*.rgb;*.rgba;*.sgi;*.cel;*.pic;*.jpg;*.jif;*.gif;*.dib;*.rle;*.tga;*.vst;*.icb;*.vda;*.win;*.pcc;*.scr;*.pcd;*.ppm;*.pgm;*.pbm;*.cut;*.pal;*.rla;*.rpf;*.psd;*.pdd;*.psp;*.png;*.mng;*.jng;*.wmf;*.emf;*.ico;*.map)|*.bmp;*.pcx;*.tif;*.tiff;*.fax;*.bw;*.rgb;*.rgba;*.sgi;*.cel;*.pic;*.jpg;*.jif;*.gif;*.dib;*.rle;*.tga;*.vst;*.icb;*.vda;*.win;*.pcc;*.scr;*.pcd;*.ppm;*.pgm;*.pbm;*.cut;*.pal;*.rla;*.rpf;*.psd;*.pdd;*.psp;*.png;*.mng;*.jng;*.wmf;*.emf;*.ico;*.map|All Files(*.*)|*.*'
+          Filter = 'All Images (*.bmp;*.pcx;*.tif;*.tiff;*.fax;*.bw;*.rgb;*.rgba;*.sgi;*.cel;*.pic;*.jpg;*.jif;*.gif;*.dib;*.rle;*.tga;*.vst;*.icb;*.vda;*.win;*.pcc;*.scr;*.pcd;*.ppm;*.pgm;*.pbm;*.cut;*.pal;*.rla;*.rpf;*.psd;*.pdd;*.psp;*.png;*.mng;*.jng;*.wmf;*.emf;*.ico;*.map)|*.bmp;*.pcx;*.tif;*.tiff;*.fax;*.bw;*.rgb;*.rgba;*.sgi;*.cel;*.pic;*.jpg;*.jif;*.gif;*.dib;*.rle;*.tga;*.vst;*.icb;*.vda;*.win;*.pcc;*.scr;*.pcd;*.ppm;*.pgm;*.pbm;*.cut;*.pal;*.rla;*.rpf;*.psd;*.pdd;*.psp;*.png;*.mng;*.jng;*.wmf;*.emf;*.ico;*.map|Bitmaps (*.bmp)|*.bmp|Portable Network Graphic (*.png)|*.png|All Files(*.*)|*.*'
           Font.Height = -11
           Font.Name = 'Sans'
           ItemIndex = 0
@@ -1184,7 +1189,7 @@ object frmMain: TfrmMain
       end
       object lvImages: TListView
         Left = 1
-        Height = 200
+        Height = 205
         Top = 25
         Width = 574
         Align = alClient
@@ -1192,18 +1197,22 @@ object frmMain: TfrmMain
           item
             Caption = 'name'
             MinWidth = 50
+            Width = 10
           end        
           item
             Caption = 'width'
             MinWidth = 50
+            Width = 10
           end        
           item
             Caption = 'height'
             MinWidth = 50
+            Width = 10
           end        
           item
             Caption = 'bpp'
             MinWidth = 50
+            Width = 10
           end>
         IconOptions.AutoArrange = True
         LargeImages = ilImages
@@ -1220,7 +1229,7 @@ object frmMain: TfrmMain
     end
     object Splitter1: TSplitter
       Left = 233
-      Height = 236
+      Height = 241
       Top = 0
       Width = 5
     end
@@ -1736,11 +1745,6 @@ object frmMain: TfrmMain
       Category = 'Images'
       Caption = 'Abrir'
       OnExecute = aOpenImgExecute
-    end
-    object aReplazeImg: TAction
-      Category = 'FPG'
-      Caption = 'Remplazar Imagen'
-      OnExecute = aReplazeImgExecute
     end
     object aFPG1: TAction
       Category = 'FPG-Convert'
@@ -2838,4 +2842,4 @@ object frmMain: TfrmMain
       end
     end
   end
-end
+end

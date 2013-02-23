@@ -1,5 +1,5 @@
 (*
- *  FPG EDIT : Edit FPG file from DIV2, FENIX and CDIV 
+ *  FPG Editor : Edit FPG file from DIV2, FENIX and CDIV
  *
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -26,7 +26,7 @@ interface
 uses LCLIntf, LCLType, ComCtrls, Graphics, Controls, SysUtils, Classes,
      ClipBrd, Forms,
      uLanguage, uFPG, uIniFile, uTools,
-     uSort, uColor16bits, uListViewFPG, uFrmMessageBox, IntfGraphics;
+     uSort, uColor16bits, uFPGListView, uFrmMessageBox, IntfGraphics;
 
 const
  GMask = 63;
@@ -40,14 +40,14 @@ var
  Table_FPG_Convert : array [0 .. 31, 0 .. 63, 0 .. 31] of LongWord;
  New_type          : Integer;
 
- procedure Convert_to_FPG1(var ilFPG : TImageList; var lvFPG: TListView; var frmMain: TForm; var gFPG: TProgressBar);
- procedure Convert_to_FPG8_DIV2(var ilFPG : TImageList; var lvFPG: TListView; var frmMain: TForm; var gFPG: TProgressBar);
+ procedure Convert_to_FPG1( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
+ procedure Convert_to_FPG8_DIV2( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
 
- procedure Convert_to_FPG16_common(var ilFPG : TImageList; var lvFPG: TListView; var frmMain: TForm; var gFPG: TProgressBar; cdivformat:boolean =false);
- procedure Convert_to_FPG16_CDIV(var ilFPG : TImageList; var lvFPG: TListView; var frmMain: TForm; var gFPG: TProgressBar);
- procedure Convert_to_FPG16_FENIX(var ilFPG : TImageList; var lvFPG: TListView; var frmMain: TForm; var gFPG: TProgressBar);
- procedure Convert_to_FPG24(var ilFPG : TImageList; var lvFPG: TListView; var frmMain: TForm; var gFPG: TProgressBar);
- procedure Convert_to_FPG32(var ilFPG : TImageList; var lvFPG: TListView; var frmMain: TForm; var gFPG: TProgressBar);
+ procedure Convert_to_FPG16_common( var lvFPG: TFPGListView;  var gFPG: TProgressBar; cdivformat:boolean =false);
+ procedure Convert_to_FPG16_CDIV( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
+ procedure Convert_to_FPG16_FENIX( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
+ procedure Convert_to_FPG24( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
+ procedure Convert_to_FPG32( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
 
  procedure Init_Table_FPG_Convert;
 
@@ -63,7 +63,7 @@ implementation
      Table_FPG_Convert[r, g, b] := 0;
  end;
 
-procedure Convert_to_FPG8_DIV2(var ilFPG : TImageList; var lvFPG: TListView; var frmMain: TForm; var gFPG: TProgressBar);
+procedure Convert_to_FPG8_DIV2( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
 var
  i, j, count,
  byte0, byte1  : Word;
@@ -76,7 +76,6 @@ var
  rgbLine : PRGBAQuad;
 
   lazBMP: TLazIntfImage;
-  ImgHandle,ImgMaskHandle: HBitmap;
   tmpBMP : TBitmap;
 
 begin
@@ -93,9 +92,9 @@ begin
  gFPG.Show;
  gFPG.Repaint;
 
- for count:= 1 to FPG_add_pos - 1 do
+ for count:= 1 to lvFPG.Fpg.Count do
  begin
-  with FPG_images[count] do
+  with lvFPG.Fpg.images[count] do
   begin
    lazBMP:=TLazIntfImage.Create(0,0);
    lazBMP.LoadFromBitmap(bmp.Handle,bmp.MaskHandle);
@@ -121,7 +120,7 @@ begin
 
   end;
 
-  gFPG.Position:= (count * 100) div (FPG_add_pos - 1);
+  gFPG.Position:= (count * 100) div (lvFPG.Fpg.Count );
   gFPG.Repaint;
 
  end;
@@ -151,9 +150,9 @@ begin
  // Establecemos la paleta de colores
  i := 65535;
 
- FPG_Header.palette[ 0 ] := 0;
- FPG_Header.palette[ 1 ] := 0;
- FPG_Header.palette[ 2 ] := 0;
+ lvFPG.Fpg.Header.palette[ 0 ] := 0;
+ lvFPG.Fpg.Header.palette[ 1 ] := 0;
+ lvFPG.Fpg.Header.palette[ 2 ] := 0;
 
  count := 0;
 
@@ -173,46 +172,46 @@ begin
 
    count := count + 1;
 
-   FPG_Header.palette[  count * 3      ] := R16;
-   FPG_Header.palette[ (count * 3) + 1 ] := G16;
-   FPG_Header.palette[ (count * 3) + 2 ] := B16;
+   lvFPG.Fpg.Header.palette[  count * 3      ] := R16;
+   lvFPG.Fpg.Header.palette[ (count * 3) + 1 ] := G16;
+   lvFPG.Fpg.Header.palette[ (count * 3) + 2 ] := B16;
   end;
 
   i := i - 1;
  end;
 
  // Ordenamos los colores de la paleta
- Sort_Palette;
+ lvFPG.Fpg.Sort_Palette;
 
  //FPG_Create_hpal;
 
- FPG_type             := FPG8_DIV2;
- FPG_header.file_type := 'fpg';
- FPG_load_palette     := true;
- FPG_update := true;
+ lvFPG.Fpg.FPGtype             := FPG8_DIV2;
+ lvFPG.Fpg.header.FileType := 'fpg';
+ lvFPG.Fpg.loadpalette     := true;
+ lvFPG.Fpg.update := true;
 
- ilFPG.Clear;
+ lvFPG.LargeImages.Clear;
  lvFPG.Items.Clear;
 
- //ilFPG.Width  := inifile_sizeof_icon;
- //ilFPG.Height := inifile_sizeof_icon;
+ //lvFPG.LargeImages.Width  := inifile_sizeof_icon;
+ //lvFPG.LargeImages.Height := inifile_sizeof_icon;
 
  gFPG.Position := 0;
  gFPG.Show;
  gFPG.Repaint;
 
  // Creamos la tabla de conversión
- Create_FPG_table_16_to_8;
+ lvFPG.Fpg.Create_table_16_to_8;
 
- for count:= 1 to FPG_add_pos - 1 do
+ for count:= 1 to lvFPG.Fpg.Count do
  begin
-  tmpBMP:=FPG_images[count].bmp;
-  FPG_images[count].bmp:=createBitmap8bpp(tmpBMP);
+  tmpBMP:=lvFPG.Fpg.images[count].bmp;
+  lvFPG.Fpg.images[count].bmp:=createBitmap8bpp(tmpBMP,lvFPG.Fpg.header.palette);
   FreeAndNil(tmpBMP);
 
-  lvFPG_add_items( count, lvFPG, ilFPG);
+  lvFPG.add_items( count);
 
-  gFPG.Position:= (count * 100) div (FPG_add_pos - 1);
+  gFPG.Position:= (count * 100) div (lvFPG.Fpg.Count );
   gFPG.Repaint;
  end;
 
@@ -232,30 +231,30 @@ begin
             0, 0);
 end;
 
-procedure Convert_to_FPG16_common(var ilFPG : TImageList; var lvFPG: TListView; var frmMain: TForm; var gFPG: TProgressBar; cdivformat : boolean = false);
+procedure Convert_to_FPG16_common( var lvFPG: TFPGListView;  var gFPG: TProgressBar; cdivformat : boolean = false);
 var
  count   : LongInt;
  tmpBMP : TBitmap;
 begin
- ilFPG.Clear;
+ lvFPG.LargeImages.Clear;
  lvFPG.Items.Clear;
 
- ilFPG.Width  := inifile_sizeof_icon;
- ilFPG.Height := inifile_sizeof_icon;
+ lvFPG.LargeImages.Width  := inifile_sizeof_icon;
+ lvFPG.LargeImages.Height := inifile_sizeof_icon;
 
  gFPG.Position := 0;
  gFPG.Show;
  gFPG.Repaint;
 
- for count:= 1 to FPG_add_pos - 1 do
+ for count:= 1 to lvFPG.Fpg.Count  do
  begin
 
-  tmpBMP:=FPG_images[count].bmp;
-  FPG_images[count].bmp:=createBitmap16bpp(tmpBMP,cdivformat);
+  tmpBMP:=lvFPG.Fpg.images[count].bmp;
+  lvFPG.Fpg.images[count].bmp:=createBitmap16bpp(tmpBMP,cdivformat);
   FreeAndNil(tmpBMP);
-  lvFPG_add_items( count, lvFPG, ilFPG);
+  lvFPG.add_items( count);
 
-  gFPG.Position:= (count * 100) div (FPG_add_pos - 1);
+  gFPG.Position:= (count * 100) div (lvFPG.Fpg.Count );
   gFPG.Repaint;
  end;
 
@@ -263,85 +262,81 @@ begin
 end;
 
 
-procedure Convert_to_FPG16_FENIX(var ilFPG : TImageList; var lvFPG: TListView; var frmMain: TForm; var gFPG: TProgressBar);
+procedure Convert_to_FPG16_FENIX( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
 begin
  New_type := FPG16;
 
- Convert_to_FPG16_common( ilFPG, lvFPG, frmMain, gFPG);
+ Convert_to_FPG16_common( lvFPG, gFPG);
 
  // Actualizamos los datos del FPG
- FPG_type             := FPG16;
- FPG_header.file_type := 'f16';
- FPG_load_palette     := false;
- FPG_update := true;
+ lvFPG.Fpg.FPGtype             := FPG16;
+ lvFPG.Fpg.header.FileType := 'f16';
+ lvFPG.Fpg.loadPalette     := false;
+ lvFPG.Fpg.update := true;
 end;
 
-procedure Convert_to_FPG16_CDIV(var ilFPG : TImageList; var lvFPG: TListView; var frmMain: TForm; var gFPG: TProgressBar);
+procedure Convert_to_FPG16_CDIV( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
 begin
  New_type := FPG16_CDIV;
 
- Convert_to_FPG16_common( ilFPG, lvFPG, frmMain, gFPG, true);
+ Convert_to_FPG16_common( lvFPG, gFPG, true);
 
  // Actualizamos los datos del FPG
- FPG_type             := FPG16_CDIV;
- FPG_header.file_type := 'c16';
- FPG_load_palette     := false;
- FPG_update := true;
+ lvFPG.Fpg.FPGtype             := FPG16_CDIV;
+ lvFPG.Fpg.header.FileType := 'c16';
+ lvFPG.Fpg.loadPalette     := false;
+ lvFPG.Fpg.update := true;
 end;
 
-procedure Convert_to_FPG24(var ilFPG : TImageList; var lvFPG: TListView; var frmMain: TForm; var gFPG: TProgressBar);
+procedure Convert_to_FPG24( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
 var
  count   : LongInt;
- i, j    : LongInt;
- rgbLine : pRGBLine;
- lazBMP  : TLazIntfImage;
  tmpBMP  : TBitmap;
-  ImgHandle,ImgMaskHandle: HBitmap;
 begin
  New_type := FPG24;
 
- ilFPG.Clear;
+ lvFPG.LargeImages.Clear;
  lvFPG.Items.Clear;
 
- ilFPG.Width  := inifile_sizeof_icon;
- ilFPG.Height := inifile_sizeof_icon;
+ lvFPG.LargeImages.Width  := inifile_sizeof_icon;
+ lvFPG.LargeImages.Height := inifile_sizeof_icon;
 
  gFPG.Position := 0;
  gFPG.Show;
  gFPG.Repaint;
 
- for count:= 1 to FPG_add_pos - 1 do
+ for count:= 1 to lvFPG.Fpg.Count  do
  begin
-  tmpBMP:= FPG_images[count].bmp;
-  FPG_images[count].bmp:=createBitmap24bpp(tmpBMP);
+  tmpBMP:= lvFPG.Fpg.images[count].bmp;
+  lvFPG.Fpg.images[count].bmp:=createBitmap24bpp(tmpBMP);
   FreeAndNil(tmpBMP);
-  lvFPG_add_items( count, lvFPG, ilFPG);
+  lvFPG.add_items( count);
 
-  gFPG.Position:= (count * 100) div (FPG_add_pos - 1);
+  gFPG.Position:= (count * 100) div (lvFPG.Fpg.Count );
   gFPG.Repaint;
  end;
 
  gFPG.Hide;
  // Actualizamos los datos del FPG
- FPG_type             := FPG24;
- FPG_header.file_type := 'f24';
- FPG_load_palette     := false;
- FPG_update := true;
+ lvFPG.Fpg.FPGtype             := FPG24;
+ lvFPG.Fpg.header.FileType := 'f24';
+ lvFPG.Fpg.loadPalette     := false;
+ lvFPG.Fpg.update := true;
 
 end;
 
-procedure Convert_to_FPG32(var ilFPG : TImageList; var lvFPG: TListView; var frmMain: TForm; var gFPG: TProgressBar);
+procedure Convert_to_FPG32( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
 begin
  New_type := FPG32;
 
  // Actualizamos los datos del FPG
- FPG_type             := FPG32;
- FPG_header.file_type := 'f32';
- FPG_load_palette     := false;
- FPG_update := true;
+ lvFPG.Fpg.FPGtype             := FPG32;
+ lvFPG.Fpg.header.FileType := 'f32';
+ lvFPG.Fpg.loadPalette     := false;
+ lvFPG.Fpg.update := true;
 end;
 
-procedure Convert_to_FPG1(var ilFPG : TImageList; var lvFPG: TListView; var frmMain: TForm; var gFPG: TProgressBar);
+procedure Convert_to_FPG1( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
 var
  count   : LongInt;
  tmpBMP : TBitmap;
@@ -350,34 +345,34 @@ begin
  New_type := FPG1;
 
 
- ilFPG.Clear;
+ lvFPG.LargeImages.Clear;
  lvFPG.Items.Clear;
 
- ilFPG.Width  := inifile_sizeof_icon;
- ilFPG.Height := inifile_sizeof_icon;
+ lvFPG.LargeImages.Width  := inifile_sizeof_icon;
+ lvFPG.LargeImages.Height := inifile_sizeof_icon;
 
  gFPG.Position := 0;
  gFPG.Show;
  gFPG.Repaint;
 
- for count:= 1 to FPG_add_pos - 1 do
+ for count:= 1 to lvFPG.Fpg.Count do
  begin
 
-  tmpBMP:=FPG_images[count].bmp;
-  FPG_images[count].bmp:=createBitmap1bpp(tmpBMP);
+  tmpBMP:=lvFPG.Fpg.images[count].bmp;
+  lvFPG.Fpg.images[count].bmp:=createBitmap1bpp(tmpBMP);
   FreeAndNil(tmpBMP);
-  lvFPG_add_items( count, lvFPG, ilFPG);
+  lvFPG.add_items( count);
 
-  gFPG.Position:= (count * 100) div (FPG_add_pos - 1);
+  gFPG.Position:= (count * 100) div (lvFPG.Fpg.Count );
   gFPG.Repaint;
  end;
 
  gFPG.Hide;
  // Actualizamos los datos del FPG
- FPG_type             := FPG1;
- FPG_header.file_type := 'f01';
- FPG_load_palette     := false;
- FPG_update := true;
+ lvFPG.Fpg.FPGtype             := FPG1;
+ lvFPG.Fpg.header.FileType := 'f01';
+ lvFPG.Fpg.loadPalette     := false;
+ lvFPG.Fpg.update := true;
 end;
 
 

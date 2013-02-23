@@ -2607,6 +2607,7 @@ end;
 
 procedure TfrmMainFNT.sbOptionsClick(Sender: TObject);
 begin
+ FrmCFG.palette:=fnt_container.header.palette;
  FrmCFG.ShowModal;
 end;
 
@@ -2667,4 +2668,4 @@ begin
    +Byte(fnt_container.header.file_type[3])) <> 0);
 end;
 
-end.
+end.
