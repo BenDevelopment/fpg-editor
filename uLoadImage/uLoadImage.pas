@@ -148,7 +148,11 @@ begin
     bmp_src:= MAP_load(Filename);
   end else begin
     temp_pic:= TPicture.Create;
-    temp_pic.LoadFromFile(Filename);
+    try
+       temp_pic.LoadFromFile(Filename);
+    Except
+       exit;
+    end;
     if temp_pic.Graphic.ClassType = TIcon.ClassType then
     begin
       temp_pic.Icon.Current:= temp_pic.Icon.GetBestIndexForSize(Size(600,600)) ;
@@ -178,4 +182,4 @@ begin
  end
 end;
 
-end.
+end.

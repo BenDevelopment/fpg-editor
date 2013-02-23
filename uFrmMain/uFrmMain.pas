@@ -1,5 +1,5 @@
 (*
- *  FPG EDIT : Edit FPG file from DIV2, FENIX and CDIV
+ *  FPG Editor : Edit FPG file from DIV2, FENIX and CDIV
  *
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -27,8 +27,8 @@ uses
   StdCtrls, ExtCtrls, Menus, Buttons, ClipBrd, uIniFile, ufrmView, uFPG,
   ufrmNewFPG, ufrmPalette, ufrmFPGImages, uLanguage, Dialogs, uTools,
   uFPGConvert, uLoadImage, uFrmExport, uFrmInputBox, uFrmMessageBox,
-  uExportToFiles, uListViewFPG, FileUtil, ShellCtrls, ActnList, FileCtrl, Spin,
-  types, uFrmZipFenix, ufrmMainFNT, uFrmAbout;
+  uExportToFiles, uFPGListView, FileUtil, ShellCtrls, ActnList, FileCtrl, Spin,
+  types, uFrmZipFenix, ufrmMainFNT, uFrmAbout,uFrmLog;
 
 const
   DRAG_LVFPG    = 0;
@@ -50,7 +50,6 @@ type
     aFPG1: TAction;
     aFPG32: TAction;
     aFPG24: TAction;
-    aReplazeImg: TAction;
     aFPG16f: TAction;
     aFPG16c: TAction;
     aFPG8: TAction;
@@ -102,7 +101,7 @@ type
     edFPGCODE: TSpinEdit;
     gbFPG: TGroupBox;
     ilMenu: TImageList;
-    lvFPG: TListView;
+    lvFPG: TFPGListView;
     lvImages: TListView;
     MainMenu: TMainMenu;
     MenuItem1: TMenuItem;
@@ -264,7 +263,6 @@ type
     procedure aOpenExecute(Sender: TObject);
     procedure aOpenImgExecute(Sender: TObject);
     procedure aReloadExecute(Sender: TObject);
-    procedure aReplazeImgExecute(Sender: TObject);
     procedure aSaveAsExecute(Sender: TObject);
     procedure aSaveExecute(Sender: TObject);
     procedure aSelectAllExecute(Sender: TObject);
@@ -304,13 +302,10 @@ type
   private
     { Private declarations }
     _lng_str : string;
-    sFilter  : string;
-
     procedure _set_lng;
     procedure _flat_buttons;
   public
     { Public declarations }
-
    old_sizeof_icon : longint;
    //DragOver : byte;
    QueryResult : longint;
@@ -454,17 +449,17 @@ end;
 
 procedure TfrmMain.Update_Panels;
 begin
-  lblFilename.Caption := FPG_source;
+  lblFilename.Caption := lvFPG.Fpg.source;
 
-  cbTipoFPG.ItemIndex := FPG_type;
-  case FPG_type of
+  cbTipoFPG.ItemIndex := lvFPG.Fpg.FPGtype;
+  case lvFPG.Fpg.FPGtype of
    FPG1:
     begin
      lblTransparentColor.caption := 'RGB(0, 0, 0)';
     end;
    FPG8_DIV2:
     begin
-     lblTransparentColor.caption := 'RGB(0, 0, 0)';
+     lblTransparentColor.caption := 'RGB('+intTostr(lvFPG.Fpg.header.palette[0])+', '+intTostr(lvFPG.Fpg.header.palette[1])+', '+intTostr(lvFPG.Fpg.header.palette[2])+')';
     end;
    FPG16:
     begin
@@ -525,7 +520,7 @@ begin
  frmAnimate.source := sFPG;
 
  //Ponemos las animaciones a nulo
- for i := 1 to 999 do
+ for i := 1 to MAX_NUM_IMAGES do
   frmAnimate.fpg_animate[i] := false;
 
  //Establecemos las imagenes para hacer la animación
@@ -536,14 +531,14 @@ begin
    continue;
 
   //Buscamos la imagen del FPG seleccionada
-  for j := 0 to FPG_add_pos - 1 do
-   if FPG_images[j].graph_code = StrToInt(lvFPG.Items.Item[i].Caption) then
+  for j := 1 to lvFPG.Fpg.Count do
+   if lvFPG.Fpg.images[j].graph_code = StrToInt(lvFPG.Items.Item[i].Caption) then
    begin
-    if FPG_images[j].bmp.width > frmAnimate.ClientWidth then
-     frmAnimate.ClientWidth := FPG_images[j].bmp.width;
+    if lvFPG.Fpg.images[j].bmp.width > frmAnimate.ClientWidth then
+     frmAnimate.ClientWidth := lvFPG.Fpg.images[j].bmp.width;
 
-    if FPG_images[j].bmp.height > frmAnimate.ClientHeight then
-     frmAnimate.ClientHeight := FPG_images[j].bmp.Height;
+    if lvFPG.Fpg.images[j].bmp.height > frmAnimate.ClientHeight then
+     frmAnimate.ClientHeight := lvFPG.Fpg.images[j].bmp.Height;
 
     frmAnimate.fpg_animate[j] := true;
    end;
@@ -556,6 +551,7 @@ begin
  frmAnimate.tAnimate.Interval := inifile_animate_delay;
 
  frmAnimate.Color:=lvFPG.Color;
+ frmAnimate.fpg:=lvFPG.Fpg;
  frmAnimate.Show;
 
 end;
@@ -656,7 +652,7 @@ begin
       if not lvFPG.visible then
          Exit;
 
-      FPG_last_code:=edFPGCode.Value;
+      lvFPG.Fpg.lastCode:=edFPGCode.Value;
 
      lItems := TStringList.Create;
 
@@ -673,10 +669,10 @@ begin
       lItems.Add(lvImages.Items.Item[i].Caption);
      end;
 
-     lvFPG_insert_images(lItems, ShellListView1.Root, TForm(frmMain), ilFPG, lvFPG, pbFPG);
+     lvFPG.insert_images(lItems, ShellListView1.Root, pbFPG);
 
      // Pone el código de inserción actual
-     edFPGCode.Value  := FPG_last_code + 1;
+     edFPGCode.Value  := lvFPG.Fpg.lastCode + 1;
    end;
 end;
 
@@ -729,10 +725,10 @@ begin
    bmp_dst.Height:= inifile_sizeof_icon;
 
    for i := 0 to lvFPG.Items.Count - 1 do
-    for j := 0 to FPG_add_pos - 1 do
-     if FPG_images[j].graph_code = StrToInt(lvFPG.Items.Item[i].Caption) then
+    for j := 1 to lvFPG.Fpg.Count  do
+     if lvFPG.Fpg.images[j].graph_code = StrToInt(lvFPG.Items.Item[i].Caption) then
      begin
-      DrawProportional(FPG_images[j].bmp, bmp_dst,lvFPG.Color);
+      DrawProportional(lvFPG.Fpg.images[j].bmp, bmp_dst,lvFPG.Color);
       lvFPG.Items.Item[i].ImageIndex := ilFPG.add(bmp_dst, nil);
      end;
 
@@ -761,16 +757,16 @@ begin
   if not lvFPG.Items.Item[i].Selected then
    continue;
 
-  DeleteWithCode( StrToInt(lvFPG.Items.Item[i].Caption));
+  lvFPG.Fpg.DeleteWithCode( StrToInt(lvFPG.Items.Item[i].Caption));
  end;
 
  while(lvFPG.SelCount > 0) do
   lvFPG.Items.Delete(lvFPG.Selected.Index);
 
- FPG_update := true;
+ lvFPG.Fpg.update := true;
 
  // Pone el código de inserción actual
- edFPGCode.Value := FPG_last_code + 1;
+ edFPGCode.Value := lvFPG.Fpg.lastcode + 1;
  lvFPG.Repaint;
 end;
 
@@ -822,13 +818,14 @@ begin
   Exit;
  end;
 
- for i := 1 to FPG_add_pos - 1 do
-  if FPG_images[i].graph_code = StrToInt(lvFPG.Selected.Caption) then
+ for i := 1 to lvFPG.Fpg.Count do
+  if lvFPG.Fpg.images[i].graph_code = StrToInt(lvFPG.Selected.Caption) then
   begin
    frmFPGImages.fpg_index   := i;
    break;
   end;
 
+ frmFPGImages.fpg:=lvFPG.Fpg;
  frmFPGImages.ShowModal;
 
  if frmFPGImages.ModalResult = mrYes then
@@ -874,7 +871,7 @@ begin
  if not lvFPG.visible then
   Exit;
 
- if ((lvFPG.SelCount <= 0) and (FPG_type <> FPG8_DIV2)) then
+ if ((lvFPG.SelCount <= 0) and (lvFPG.Fpg.FPGtype <> FPG8_DIV2)) then
   Exit;
 
  with frmExport do
@@ -888,7 +885,7 @@ begin
    rgResType.Items.Add(LNG_STRINGS[LNG_IMAGE_TO] + ' MAP');
   end;
 
-  if FPG_type = FPG8_DIV2 then
+  if lvFPG.Fpg.FPGtype = FPG8_DIV2 then
   begin
    rgResType.Items.Add(LNG_STRINGS[LNG_PALETTE_TO] + ' PAL (DIV2)');
    rgResType.Items.Add(LNG_STRINGS[LNG_PALETTE_TO] + ' PAL (PSP4)');
@@ -920,9 +917,9 @@ begin
  if lvFPG.SelCount <= 0 then
  begin
   case frmExport.rgResType.ItemIndex of
-   0 : export_DIV2_PAL(path);
-   1 : export_PSP_PAL(path);
-   2 : export_MS_PAL(path);
+   0 : export_DIV2_PAL(lvFPG,path);
+   1 : export_PSP_PAL(lvFPG,path);
+   2 : export_MS_PAL(lvFPG,path);
   end;
 
   Exit;
@@ -934,11 +931,11 @@ begin
   2: export_to_MAP(lvFPG, path, TForm(frmMain), pbFPG);
  end;
 
- if FPG_type = FPG8_DIV2 then
+ if lvFPG.Fpg.FPGtype = FPG8_DIV2 then
   case frmExport.rgResType.ItemIndex of
-   3: export_DIV2_PAL(path);
-   4: export_PSP_PAL(path);
-   5: export_MS_PAL(path);
+   3: export_DIV2_PAL(lvFPG,path);
+   4: export_PSP_PAL(lvFPG,path);
+   5: export_MS_PAL(lvFPG,path);
    6: export_control_points(lvFPG, path, TForm(frmMain), pbFPG);
   end
  else
@@ -1022,6 +1019,7 @@ end;
 
 procedure TfrmMain.aFPGPaletteExecute(Sender: TObject);
 begin
+   frmPalette.fpg:=lvFPG.Fpg;
    frmPalette.ShowModal;
 end;
 
@@ -1101,12 +1099,14 @@ begin
  if QueryResult = mrCancel then
   Exit;
 
- FPG_source := prepare_file_source(ShellListView1.Root, LNG_STRINGS[48] + '.fpg');
+ lvFPG.Fpg.source := prepare_file_source(ShellListView1.Root, LNG_STRINGS[48] + '.fpg');
 
- frmNewFPG.edNombre.Text := FPG_source;
+ frmNewFPG.edNombre.Text := lvFPG.Fpg.source;
+ frmNewFPG.fpg:=lvFPG.Fpg;
  frmNewFPG.ShowModal;
 
- if (FPG_active) then
+ lvFPG.Fpg.Initialize;
+ if (lvFPG.Fpg.active) then
  begin
   lvFPG.Visible := true;
   cbTipoFPG.Visible := true;
@@ -1121,13 +1121,10 @@ begin
    Exit;
 
   //FPG no esta actualizado o no tiene elementos
-  if not FPG_update then
+  if not lvFPG.Fpg.update then
   begin
-   lvFPG.visible := FPG_active;
-   cbTipoFPG.Visible := FPG_active;
-
-   FPG_Free;
-   FPG_update := false;
+   lvFPG.visible := lvFPG.Fpg.active;
+   cbTipoFPG.Visible := lvFPG.Fpg.active;
 
    lvFPG.Items.Clear;
    lblFilename.Caption := '';
@@ -1147,22 +1144,18 @@ begin
   if QueryResult = mrOK then
    aSaveAsExecute(Sender);
 
-  FPG_Free;
-
-  FPG_update := false;
   lvFPG.Items.Clear;
-  lvFPG.visible := FPG_active;
-  cbTipoFPG.visible := FPG_active;
+  lvFPG.visible := lvFPG.Fpg.active;
+  cbTipoFPG.visible := lvFPG.Fpg.active;
   lblFilename.Caption := '';
   lblTransparentColor.Caption := '';
   cbTipoFPG.ItemIndex:= 5;
-
 
 end;
 
 procedure TfrmMain.aOpenExecute(Sender: TObject);
 begin
-   // Cerramos el FPG actual abierto
+ // Cerramos el FPG actual abierto
  QueryResult := mrYes;
 
  aCloseExecute(Sender);
@@ -1179,6 +1172,7 @@ begin
   Exit;
 
  OpenFPG(OpenDialog.Filename);
+ //frmLog.Show;
 
 end;
 
@@ -1202,10 +1196,7 @@ begin
  ShellListView1.Update;
 end;
 
-procedure TfrmMain.aReplazeImgExecute(Sender: TObject);
-begin
 
-end;
 
 procedure TfrmMain.aSaveAsExecute(Sender: TObject);
 begin
@@ -1225,18 +1216,18 @@ begin
  end;
 
  //Establecemos la dirección donde debe ser guardado
- FPG_source := SaveDialog.FileName;
+ lvFPG.Fpg.source := SaveDialog.FileName;
 
  //Comprobamos que se indicó el tipo de fichero
  if( AnsiPos( '.fpg',AnsiLowerCase(SaveDialog.FileName)) <= 0 ) then
-  FPG_source := FPG_source + '.fpg';
+  lvFPG.Fpg.source := lvFPG.Fpg.source + '.fpg';
 
  //Mensaje en Panel inferior
- lblFilename.Caption := FPG_source;
+ lblFilename.Caption := lvFPG.Fpg.source;
 
- //Guardamos el fichero y desactivamos FPG_update
- FPG_Save(TForm(frmMain), pbFPG);
- FPG_update := false;
+ //Guardamos el fichero y desactivamos lvFPG.Fpg.update
+ lvFPG.Fpg.Save( pbFPG);
+ lvFPG.Fpg.update := false;
 end;
 
 procedure TfrmMain.aSaveExecute(Sender: TObject);
@@ -1244,8 +1235,8 @@ begin
    if not lvFPG.visible then
   Exit;
 
- FPG_Save(TForm(frmMain), pbFPG);
- FPG_update := false;
+ lvFPG.Fpg.Save( pbFPG);
+ lvFPG.Fpg.update := false;
 
 end;
 
@@ -1313,7 +1304,7 @@ procedure TfrmMain.edFPGCODEChange(Sender: TObject);
 begin
  if not lvFPG.visible then
   Exit;
- FPG_last_code := edFPGCODE.Value;
+ lvFPG.Fpg.lastCode := edFPGCODE.Value;
 end;
 
 procedure TfrmMain.EFilterKeyUp(Sender: TObject; var Key: Word;
@@ -1358,7 +1349,6 @@ var
  WorkDir,
  filename,
  file_source : String;
- bpp_src : Byte;
 
 begin
  FileCount := ShellListView1.Items.Count;
@@ -1443,7 +1433,7 @@ end;
 procedure TfrmMain.FormDestroy(Sender: TObject);
 begin
  if lvFPG.visible then
-  FPG_Free;
+   lvFPG.freeFPG;
 end;
 
 //-----------------------------------------------------------------------------
@@ -1468,25 +1458,28 @@ var
  error : boolean;
  f : TextFile;
 begin
- FPG_source := sfile;
+ lvFPG.freeFPG;
+ lvFPG.Fpg:= TFpg.Create;
+
+ lvFPG.Fpg.source := sfile;
 
  // Comprobamos si es un formato sin comprimir
- if not FPG_Test(FPG_source) then
+ if not FPG_Test(lvFPG.Fpg.source) then
  begin
 
  WorkDir := GetTempDir(False) ;
  BinDir := ExtractFilePath(Application.ExeName);
 
  {$IFDEF WINDOWS}
-  RunExe(BinDir + DirectorySeparator+'\zlib\zlib.exe -d "'+ FPG_source + '"', WorkDir );
+  RunExe(BinDir + DirectorySeparator+'\zlib\zlib.exe -d "'+ lvFPG.Fpg.source + '"', WorkDir );
  {$ENDIF}
 
  {$IFDEF Linux}
-   RunExe('/bin/gzip -dc "'+ FPG_source+'"', WorkDir,WorkDir +'________.uz' );
+   RunExe('/bin/gzip -dc "'+ lvFPG.Fpg.source+'"', WorkDir,WorkDir +'________.uz' );
  {$ENDIF}
 
 
-  error := not FPG_Load( WorkDir +'________.uz', TForm(frmMain), pbFPG);
+  error := not lvFPG.Fpg.Load( WorkDir +'________.uz',  pbFPG,frmLog);
 
   AssignFile(f, WorkDir +'________.uz');
   Erase(f);
@@ -1496,7 +1489,7 @@ begin
   lvFPG_Load_Bitmaps;
  end
  else
-  if FPG_Load(FPG_source, TForm(frmMain), pbFPG) then
+  if lvFPG.Fpg.Load(lvFPG.Fpg.source, pbFPG,frmLog) then
   begin
    lvFPG_Load_Bitmaps;
   end;
@@ -1509,14 +1502,14 @@ end;
 
 procedure TfrmMain.lvFPG_Load_Bitmaps;
 begin
- FPG_active    := true;
+ lvFPG.Fpg.active    := true;
  lvFPG.visible := true;
- cbTipoFPG.visible := FPG_active;
+ cbTipoFPG.visible := lvFPG.Fpg.active;
 
 
  Update_Panels;
 
- lvFPG_Load_Images(ilFPG, lvFPG, TForm(frmMain), pbFPG);
+ lvFPG.Load_Images( pbFPG);
 end;
 
 
@@ -1533,16 +1526,16 @@ begin
  if lvFPG.SelCount <> 1 then
   Exit;
 
- if FPG_add_pos <= 1 then
+ if lvFPG.Fpg.Count < 1 then
   Exit;
 
  frmView.FPG := true;
  frmView.file_selected := lvFPG.Selected.Caption;
 
- for i := 0 to FPG_add_pos - 1 do
-  if StrToInt(lvFPG.Selected.Caption) = FPG_images[i].graph_code then
+ for i := 1 to lvFPG.Fpg.Count do
+  if StrToInt(lvFPG.Selected.Caption) = lvFPG.Fpg.images[i].graph_code then
    begin
-    frmView.Image.Picture.Bitmap := FPG_images[i].bmp;
+    frmView.Image.Picture.Bitmap := lvFPG.Fpg.images[i].bmp;
     break;
    end;
 
@@ -1559,7 +1552,7 @@ begin
 
  load_inifile;
 
- FPG_init;
+ lvFPG.Fpg:= TFpg.Create;
 
  load_language;
 
@@ -1570,7 +1563,6 @@ begin
   ShellListView1.Mask:= EFilter.Text;
   lvImages.Color:=inifile_bg_color;
   lvFPG.Color:=inifile_bg_colorFPG;
-  FPG_last_code:=0;
 
 end;
 
@@ -1631,7 +1623,7 @@ begin
   Exit;
  end;
 
- Convert_to_FPG8_DIV2(ilFPG, lvFPG, TForm(frmMain), pbFPG);
+ Convert_to_FPG8_DIV2(lvFPG, pbFPG);
 
  Update_Panels;
 end;
@@ -1639,32 +1631,32 @@ end;
 
 procedure TfrmMain.aFPG16cExecute(Sender: TObject);
 begin
- Convert_to_FPG16_CDIV(ilFPG, lvFPG, TForm(frmMain), pbFPG);
+ Convert_to_FPG16_CDIV(lvFPG,  pbFPG);
  Update_Panels;
 end;
 
 procedure TfrmMain.aFPG1Execute(Sender: TObject);
 begin
- Convert_to_FPG1(ilFPG, lvFPG, TForm(frmMain), pbFPG);
+ Convert_to_FPG1(lvFPG,  pbFPG);
  Update_Panels;
 end;
 
 procedure TfrmMain.aFPG24Execute(Sender: TObject);
 begin
- Convert_to_FPG24(ilFPG, lvFPG, TForm(frmMain), pbFPG);
+ Convert_to_FPG24(lvFPG, pbFPG);
  Update_Panels;
 end;
 
 procedure TfrmMain.aFPG32Execute(Sender: TObject);
 begin
- Convert_to_FPG32(ilFPG, lvFPG, TForm(frmMain), pbFPG);
+ Convert_to_FPG32(lvFPG,  pbFPG);
  Update_Panels;
 
 end;
 
 procedure TfrmMain.aFPG16fExecute(Sender: TObject);
 begin
- Convert_to_FPG16_FENIX(ilFPG, lvFPG, TForm(frmMain), pbFPG);
+ Convert_to_FPG16_FENIX( lvFPG,  pbFPG);
  Update_Panels;
 end;
 
@@ -1698,7 +1690,7 @@ end;
 procedure TfrmMain.mmPasteImageClick(Sender: TObject);
 begin
  if lvFPG.visible then
-  lvFPG_insert_imagescb(ilFPG, lvFPG, TForm(frmMain), pbFPG);
+  lvFPG.insert_imagescb ( pbFPG);
 end;
 
 procedure TfrmMain.mmCopyImageClick(Sender: TObject);
@@ -1718,12 +1710,12 @@ begin
   Exit;
  end;
 
- for j := 0 to FPG_add_pos - 1 do
-   if FPG_images[j].graph_code = StrToInt(lvFPG.Selected.Caption) then
+ for j := 1 to lvFPG.Fpg.Count do
+   if lvFPG.Fpg.images[j].graph_code = StrToInt(lvFPG.Selected.Caption) then
    begin
     MyFormat := cf_Bitmap;
 
-    FPG_images[j].bmp.SaveToClipboardFormat(MyFormat);
+    lvFPG.Fpg.images[j].bmp.SaveToClipboardFormat(MyFormat);
     {ClipBoard.SetFormat (MyFormat );}
 
     feMessageBox( LNG_STRINGS[LNG_INFO], LNG_STRINGS[LNG_IMAGE_TO_CLIPBOARD], 0, 0);
@@ -1836,4 +1828,4 @@ begin
 
 end;
 
-end.
+end.

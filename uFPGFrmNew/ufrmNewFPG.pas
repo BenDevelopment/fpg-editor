@@ -58,6 +58,7 @@ type
     procedure _set_lng;
   public
     { Public declarations }
+    fpg:TFpg;
   end;
 
 var
@@ -90,7 +91,7 @@ end;
 
 procedure TfrmNewFPG.bbCancelarClick(Sender: TObject);
 begin
- FPG_need_table := true;
+ FPG.needTable := true;
  Hide;
 end;
 
@@ -121,7 +122,7 @@ var
  temp : string;
 begin
  // Si no se cargo la paleta en un FPG de 8 bits
- if (cbTipoFPG.ItemIndex = 1) and (not FPG_load_palette) then
+ if (cbTipoFPG.ItemIndex = 1) and (not FPG.loadpalette) then
  begin
   feMessageBox(LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_NOTLOAD_PALETTE], 0, 0);
   Exit;
@@ -141,32 +142,10 @@ begin
   Exit;
  end;
 
- FPG_type     := cbTipoFPG.ItemIndex;
- FPG_source   := edNombre.Text;
- FPG_active   := true;
- FPG_add_pos  := 1;
- FPG_last_code:= 0;
-
- FPG_header.fpg_code[0] := 26;
- FPG_header.fpg_code[1] := 13;
- FPG_header.fpg_code[2] := 10;
- FPG_header.fpg_code[3] := 0;
- FPG_header.version     := 0;
-
- case FPG_type of
-  FPG1:
-    FPG_header.file_type := 'f01';
-  FPG8_DIV2:
-    FPG_header.file_type := 'fpg';
-  FPG16:
-    FPG_header.file_type := 'f16';
-  FPG16_CDIV:
-    FPG_header.file_type := 'c16';
-  FPG24:
-    FPG_header.file_type := 'f24';
-  FPG32:
-    FPG_header.file_type := 'f32';
- end;
+ FPG.Initialize;
+ FPG.source   := edNombre.Text;
+ FPG.FPGtype  := cbTipoFPG.ItemIndex;
+ FPG.setFileType;
 
  ModalResult := mrOK;
  Hide;
@@ -183,21 +162,21 @@ begin
   Exit;
  end;
 
- if Load_PAL(odPalette.FileName) then
+ if Load_PAL(fpg.header.palette, odPalette.FileName) then
  begin
-  FPG_load_palette  := true;
+  FPG.loadpalette  := true;
   btViewPal.Enabled := true;
  end
  else
  begin
-  FPG_load_palette  := false;
+  FPG.loadpalette  := false;
   btViewPal.Enabled := false;
   Exit;
  end;
 
  // Crea la tabla de conversión de imagenes a 8 bits
- if FPG_load_palette then
-  Create_FPG_table_16_to_8;
+ if FPG.loadpalette then
+  FPG.Create_table_16_to_8;
 end;
 
 procedure TfrmNewFPG.btViewPalClick(Sender: TObject);

@@ -5,7 +5,7 @@ interface
 
 uses
   LCLIntf, LCLType, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Buttons, StdCtrls, ComCtrls, uFNT, uPAL, ExtCtrls;
+  Dialogs, Buttons, StdCtrls, ComCtrls, uFNT, uPAL, ExtCtrls, uFPG;
 
 type
   TFrmCFG = class(TForm)
@@ -32,6 +32,7 @@ type
   public
     { Public declarations }
    user_palette : boolean;
+   palette : PByte;
   end;
 
 var
@@ -77,7 +78,7 @@ end;
 procedure TFrmCFG.sbLoadPALClick(Sender: TObject);
 begin
  if odPAL.Execute then
-  user_palette := load_PAL(odPAL.FileName);
+  user_palette := load_PAL(palette,odPAL.FileName);
 
  if user_palette then
  begin

@@ -58,11 +58,11 @@ object FrmCFG: TFrmCFG
       Left = 2
       Height = 105
       Top = 30
-      Width = 333
+      Width = 325
       Align = alTop
       Caption = 'Paleta de 256 colores'
-      ClientHeight = 90
-      ClientWidth = 329
+      ClientHeight = 87
+      ClientWidth = 321
       Color = clBtnFace
       Font.Color = clWindowText
       Font.Height = -11
@@ -119,9 +119,9 @@ object FrmCFG: TFrmCFG
       end
       object rbFNT2PAL: TRadioButton
         Left = 6
-        Height = 25
+        Height = 19
         Top = 2
-        Width = 368
+        Width = 264
         Caption = 'Calcular paleta optimizada a los colores de la fuente'
         Checked = True
         Font.Color = clWindowText
@@ -135,9 +135,9 @@ object FrmCFG: TFrmCFG
       end
       object rbPAL2FNT: TRadioButton
         Left = 6
-        Height = 25
+        Height = 19
         Top = 27
-        Width = 249
+        Width = 184
         Caption = 'Adaptar fuente a la paleta cargada'
         OnClick = rbPAL2FNTClick
         TabOrder = 1
@@ -149,4 +149,4 @@ object FrmCFG: TFrmCFG
     Options = [ofEnableSizing]
     left = 136
   end
-end
+end

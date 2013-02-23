@@ -18,7 +18,7 @@
       <StringTable ProductVersion=""/>
     </VersionInfo>
     <MacroValues Count="1">
-      <Macro1 Name="LCLWidgetType" Value="qt"/>
+      <Macro1 Name="LCLWidgetType" Value="win32"/>
     </MacroValues>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
@@ -34,15 +34,18 @@
         <LaunchingApplication PathPlusParams="\usr\bin\xterm -T 'Lazarus Run Output' -e $(LazarusDir)\tools\runwait.sh $(TargetCmdLine)"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="2">
+    <RequiredPackages Count="3">
       <Item1>
-        <PackageName Value="LCLBase"/>
+        <PackageName Value="fpg_editor_pkg"/>
       </Item1>
       <Item2>
-        <PackageName Value="LCL"/>
+        <PackageName Value="LCLBase"/>
       </Item2>
+      <Item3>
+        <PackageName Value="LCL"/>
+      </Item3>
     </RequiredPackages>
-    <Units Count="36">
+    <Units Count="37">
       <Unit0>
         <Filename Value="pfpgeditor.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -181,99 +184,107 @@
         <UnitName Value="ufrmFPGImages"/>
       </Unit21>
       <Unit22>
-        <Filename Value="uFPGListView\uListViewFPG.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="uListViewFPG"/>
-      </Unit22>
-      <Unit23>
         <Filename Value="uFPGFrmNew\ufrmNewFPG.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmNewFPG"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmNewFPG"/>
-      </Unit23>
-      <Unit24>
+      </Unit22>
+      <Unit23>
         <Filename Value="uFrmSplash\uFrmSplahs.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmSplash"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmSplahs"/>
-      </Unit24>
-      <Unit25>
+      </Unit23>
+      <Unit24>
         <Filename Value="uMap\uMap.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uMap"/>
-      </Unit25>
-      <Unit26>
+      </Unit24>
+      <Unit25>
         <Filename Value="uPAL\ucopypalette.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uCopyPalette"/>
-      </Unit26>
-      <Unit27>
+      </Unit25>
+      <Unit26>
         <Filename Value="uFrmZipFenix\ufrmZipFenix.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmZipFenix"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmZipFenix"/>
-      </Unit27>
-      <Unit28>
+      </Unit26>
+      <Unit27>
         <Filename Value="uAAtext\uAAText.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uAAText"/>
-      </Unit28>
-      <Unit29>
+      </Unit27>
+      <Unit28>
         <Filename Value="uColorTable\uColorTable.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uColorTable"/>
-      </Unit29>
-      <Unit30>
+      </Unit28>
+      <Unit29>
         <Filename Value="uFNT\uFNT.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uFNT"/>
-      </Unit30>
-      <Unit31>
+      </Unit29>
+      <Unit30>
         <Filename Value="uFrmBpp\uFrmBpp.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="fBPP"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmbpp"/>
-      </Unit31>
-      <Unit32>
+      </Unit30>
+      <Unit31>
         <Filename Value="uFrmCFG\uFrmCFG.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FrmCFG"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmCFG"/>
-      </Unit32>
-      <Unit33>
+      </Unit31>
+      <Unit32>
         <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmMainFNT"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmMainFNT"/>
-      </Unit33>
-      <Unit34>
+      </Unit32>
+      <Unit33>
         <Filename Value="uFrmAbout\uFrmAbout.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FrmAbout"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmAbout"/>
-      </Unit34>
-      <Unit35>
+      </Unit33>
+      <Unit34>
         <Filename Value="uFrmFNTView\uFrmFNTView.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmFNTView"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmFNTView"/>
+      </Unit34>
+      <Unit35>
+        <Filename Value="uFrmLog\uFrmLog.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmLog"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFrmLog"/>
       </Unit35>
+      <Unit36>
+        <Filename Value="uFPGListView\ufpglistview.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uFPGListView"/>
+      </Unit36>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -284,7 +295,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="uFrmMain;uBMP;uMap;uTools;uSort;uPCX;uFrmView;uLoadImage;uPAL;uColor16bits;uFPG;uFPGConvert;uFPGFrmImages;uFPGFrmNew;uFPGListView;uFrmAnimate;uFrmConfig;uFrmExport;uFrmPalette;uFrmSplash;uIniFile;uLanguage;uMessages\uFrmInputBox;uMessages\uFrmMessageBox;uFrmExport\uExportToFiles;uFrmZipFenix;uAAtext;uColorTable;uFNT;uFrmBpp;uFrmCFG;uFrmMainFNT;uFrmAbout;uFrmFPGView;uFrmFNTView"/>
+      <OtherUnitFiles Value="uFrmMain;uBMP;uMap;uTools;uSort;uPCX;uFrmView;uLoadImage;uPAL;uColor16bits;uFPG;uFPGConvert;uFPGFrmImages;uFPGFrmNew;uFPGListView;uFrmAnimate;uFrmConfig;uFrmExport;uFrmPalette;uFrmSplash;uIniFile;uLanguage;uMessages\uFrmInputBox;uMessages\uFrmMessageBox;uFrmExport\uExportToFiles;uFrmZipFenix;uAAtext;uColorTable;uFNT;uFrmBpp;uFrmCFG;uFrmMainFNT;uFrmAbout;uFrmFPGView;uFrmFNTView;uFrmLog"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <CodeGeneration>
@@ -294,9 +305,6 @@
       </Optimizations>
     </CodeGeneration>
     <Linking>
-      <Debugging>
-        <GenerateDebugInfo Value="False"/>
-      </Debugging>
       <Options>
         <Win32>
           <GraphicApplication Value="True"/>
@@ -309,10 +317,10 @@
       </CompilerMessages>
       <CompilerPath Value="$(CompPath)"/>
     </Other>
-    <LCLWidgetType Value="qt"/>
+    <LCLWidgetType Value="win32"/>
   </CompilerOptions>
   <Debugging>
-    <Exceptions Count="4">
+    <Exceptions Count="5">
       <Item1>
         <Name Value="EAbort"/>
       </Item1>
@@ -325,6 +333,9 @@
       <Item4>
         <Name Value="EReadError"/>
       </Item4>
+      <Item5>
+        <Name Value="EInvalidGraphic"/>
+      </Item5>
     </Exceptions>
   </Debugging>
 </CONFIG>

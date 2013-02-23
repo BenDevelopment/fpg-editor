@@ -27,7 +27,7 @@ interface
 uses
   LCLIntf, LCLType, Graphics, Classes, SysUtils, Forms, Dialogs, FileUtil,
   Process, IntfGraphics, FPimage,
-  uIniFile, uFPG , uMap, lazcanvas, GraphType;
+  uIniFile , uMap, lazcanvas, GraphType;
 
  function RunExe(Cmd, WorkDir: String): string;overload;
  function RunExe(Cmd, WorkDir,outputfilename: String): string;overload;
@@ -43,7 +43,7 @@ uses
  procedure DrawProportional( var bmp : TBitmap); overload;
 
  procedure simulate1bppIn32bpp(var bmp_src : TBitmap);
- procedure simulate8bppIn32bpp(var bmp_src : TBitmap);
+ procedure simulate8bppIn32bpp(var bmp_src : TBitmap; palette : PByte );
 
  function countAlphas(var Bitmap: TBItmap; value: Byte): Integer;
  procedure copyPixels(var dstBitmap: TBitmap; srcBitmap: TBitmap; x, y : Integer);
@@ -52,9 +52,10 @@ uses
  procedure setAlpha(var Bitmap: TBItmap; value: Byte);
 
  function createBitmap1bpp( bmp_src : TBitmap; cdivformat : boolean = false): TBitmap;
- function createBitmap8bpp( bmp_src : TBitmap): TBitmap;
+ function createBitmap8bpp( bmp_src : TBitmap; palette:PByte): TBitmap;
  function createBitmap16bpp( bmp_src : TBitmap; cdivformat : boolean = false): TBitmap;
  function createBitmap24bpp( bmp_src : TBitmap): TBitmap;
+ function Find_Color(index, rc, gc, bc: integer; palette : PByte  ): integer;
 
 implementation
 
@@ -419,7 +420,7 @@ begin
 end;
 
 
-procedure simulate8bppIn32bpp(var bmp_src : TBitmap );
+procedure simulate8bppIn32bpp(var bmp_src : TBitmap; palette : PByte );
 var
  lazBMP_src: TLazIntfImage;
  p_src : PRGBAQuad;
@@ -432,10 +433,10 @@ begin
     p_src := lazbmp_src.GetDataLineStart(j);
     for i := 0 to bmp_src.width - 1 do
      begin
-        pal_index := Find_Color(0, p_src[i].Red , p_src[i].Green, p_src[i].Blue);
-        p_src[i].red := FPG_Header.palette[pal_index * 3];
-        p_src[i].green := FPG_Header.palette[(pal_index * 3)+1];
-        p_src[i].blue := FPG_Header.palette[(pal_index * 3)+2];
+        pal_index := Find_Color(0, p_src[i].Red , p_src[i].Green, p_src[i].Blue,palette);
+        p_src[i].red := palette[pal_index * 3];
+        p_src[i].green := palette[(pal_index * 3)+1];
+        p_src[i].blue := palette[(pal_index * 3)+2];
         if ((p_src[i].Alpha shr 7) = 1) and (pal_index<>0) then
            p_src[i].Alpha:=255
         else
@@ -489,13 +490,13 @@ begin
    simulate1bppIn32bpp(result);
 
 end;
-function createBitmap8bpp( bmp_src : TBitmap): TBitmap;
+function createBitmap8bpp( bmp_src : TBitmap; palette : PByte): TBitmap;
 begin
    result := TBitmap.create;
    result.PixelFormat:=pf32bit;
    result.SetSize(bmp_src.Width,bmp_src.Height);
    copyPixels(Result,bmp_src,0,0);
-   simulate8bppIn32bpp(result);
+   simulate8bppIn32bpp(result,palette);
 end;
 
 
@@ -529,5 +530,31 @@ begin
    colorToTransparent(result,clBlack);
 end;
 
+function Find_Color(index, rc, gc, bc: integer; palette : PByte  ): integer;
+var
+  dif_colors, temp_dif_colors, i: word;
+begin
+  dif_colors := 800;
+  Result := 0;
+
+  for i := index to 255 do
+  begin
+    temp_dif_colors :=
+      Abs(rc - palette[i * 3]) +
+      Abs(gc - palette[(i * 3) + 1]) +
+      Abs(bc - palette[(i * 3) + 2]);
+
+    if temp_dif_colors <= dif_colors then
+    begin
+      Result := i;
+      dif_colors := temp_dif_colors;
+
+      if dif_colors = 0 then
+        Exit;
+    end;
+
+  end;
+
+end;
 
 end.

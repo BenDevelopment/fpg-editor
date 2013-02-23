@@ -24,21 +24,21 @@ unit uPAL;
 
 interface
 
- uses LCLIntf, LCLType, classes, SysUtils, uFrmMessageBox, uFPG, uBMP, uPCX, uLanguage;
+ uses LCLIntf, LCLType, classes, SysUtils, uFrmMessageBox, uBMP, uFPG, uPCX, uLanguage;
 
- function Load_PAL     ( name : string ) : boolean;
- function Load_JASP_pal( name : string ) : boolean;
- function Load_DIV2_pal( name : string ) : boolean;
- function Load_MS_pal  ( name : string ) : boolean;
- function Load_BMP_pal ( name : string ) : boolean;
- function Load_PCX_pal ( name : string ) : boolean;
+ function Load_PAL     ( palette:PByte; name : string ) : boolean;
+ function Load_JASP_pal( palette:PByte; name : string ) : boolean;
+ function Load_DIV2_pal( palette:PByte; name : string ) : boolean;
+ function Load_MS_pal  ( palette:PByte; name : string ) : boolean;
+ function Load_BMP_pal ( palette:PByte; name : string ) : boolean;
+ function Load_PCX_pal ( palette:PByte; name : string ) : boolean;
 
- function Save_JASP_pal( name : string ) : boolean;
- function Save_DIV2_pal( name : string ) : boolean;
- function Save_MS_pal  ( name : string ) : boolean;
+ function Save_JASP_pal( palette:PByte; name : string ) : boolean;
+ function Save_DIV2_pal( palette:PByte; name : string ) : boolean;
+ function Save_MS_pal  ( palette:PByte; name : string ) : boolean;
 implementation
 
- function Load_PAL( name : string ) : boolean;
+ function Load_PAL(palette:PByte;  name : string ) : boolean;
  var
   tmp: Integer;
  begin
@@ -47,10 +47,10 @@ implementation
   // Archivo PCX
   if ( AnsiPos( '.pcx',AnsiLowerCase(name)) > 0 ) then
   begin
-   if not Load_PCX_pal(name) then
+   if not Load_PCX_pal(palette, name) then
    begin
     feMessageBox( LNG_STRINGS[LNG_ERROR], 'PCX ' + LNG_STRINGS[LNG_NOT_FOUND_PALETTE], 0, 0);
-    FPG_load_palette  := false;
+   // FPG.loadPalette  := false;
     Exit;
    end;
 
@@ -61,10 +61,10 @@ implementation
   // Archivo BMP
   if ( AnsiPos(  '.bmp',AnsiLowerCase(name)) > 0 ) then
   begin
-   if not Load_BMP_pal(name) then
+   if not Load_BMP_pal(palette, name) then
    begin
     feMessageBox( LNG_STRINGS[LNG_ERROR],'BMP ' + LNG_STRINGS[LNG_NOT_FOUND_PALETTE], 0, 0);
-    FPG_load_palette  := false;
+//    fpg.loadPalette  := false;
     Exit;
    end;
 
@@ -75,10 +75,10 @@ implementation
   // Archivo FPG
   if ( AnsiPos( '.fpg',AnsiLowerCase(name)) > 0 ) then
   begin
-   if not Load_DIV2_pal(name) then
+   if not Load_DIV2_pal(palette, name) then
    begin
     feMessageBox(LNG_STRINGS[LNG_ERROR], 'FPG ' + LNG_STRINGS[LNG_NOT_FOUND_PALETTE], 0, 0);
-    FPG_load_palette  := false;
+//    fpg.loadPalette  := false;
     Exit;
    end;
 
@@ -89,18 +89,18 @@ implementation
   // Archivos PAL
   if ( AnsiPos( '.pal', AnsiLowerCase(name)) > 0 ) then
   begin
-   result := Load_DIV2_pal(name);
+   result := Load_DIV2_pal(palette, name);
 
    if not result then
-    result := Load_MS_pal(name);
+    result := Load_MS_pal(palette, name);
 
    if not result then
-    result := Load_JASP_pal(name);
+    result := Load_JASP_pal(palette, name);
 
    if not result then
    begin
     feMessageBox(LNG_STRINGS[LNG_ERROR], 'PAL ' + LNG_STRINGS[LNG_NOT_FOUND_PALETTE], 0, 0);
-    FPG_load_palette  := false;
+//    fpg.loadpalette  := false;
     Exit;
    end;
 
@@ -109,7 +109,7 @@ implementation
   end;
  end;
 
- function Load_JASP_pal( name : string ) : boolean;
+ function Load_JASP_pal( palette:PByte; name : string ) : boolean;
  var
   f       : TextFile;
   tstring : string;
@@ -138,28 +138,27 @@ implementation
   for i:= 0 to 255 do
    begin
     Read(f, r); Read(f, g); Readln(f, b);
-    FPG_Header.palette[i*3]       := r shr 2;
-    FPG_Header.palette[(i*3) + 1] := g shr 2;
-    FPG_Header.palette[(i*3) + 2] := b shr 2;
+    palette[i*3]       := r shr 2;
+    palette[(i*3) + 1] := g shr 2;
+    palette[(i*3) + 2] := b shr 2;
 
-    FPG_Header.palette[i*3]       := FPG_Header.palette[i*3] shl 2;
-    FPG_Header.palette[(i*3) + 1] := FPG_Header.palette[(i*3) + 1] shl 2;
-    FPG_Header.palette[(i*3) + 2] := FPG_Header.palette[(i*3) + 2] shl 2;
+    palette[i*3]       := palette[i*3] shl 2;
+    palette[(i*3) + 1] := palette[(i*3) + 1] shl 2;
+    palette[(i*3) + 2] := palette[(i*3) + 2] shl 2;
    end;
 
-  FPG_load_palette := true;
-  FPG_Create_hpal;
-  
+//  fpg.loadPalette := true;
+
   result := true;
 
   CloseFile(f);
  end;
 
 
- function Load_DIV2_pal( name : string ) : boolean;
+ function Load_DIV2_pal( palette:PByte; name : string ) : boolean;
  var
   f       : TFileStream;
-  temp_FPG_header  : div_fpg_header;
+  temp_FPG_header  : TFpgHeader;
   i : Word;
  begin
   result := false;
@@ -172,17 +171,17 @@ implementation
   end;
 
   try
-   f.Read(temp_FPG_header.file_type, 3);
-   f.Read(temp_FPG_header.fpg_code , 4);
-   f.Read(temp_FPG_header.version, 1);
+   f.Read(temp_FPG_header.FileType, 3);
+   f.Read(temp_FPG_header.Code , 4);
+   f.Read(temp_FPG_header.Version, 1);
   except
    f.free;
    Exit;
   end;
 
   if not (
-   (temp_FPG_header.fpg_code [0] = 26) and (temp_FPG_header.fpg_code [1] = 13) and
-   (temp_FPG_header.fpg_code [2] = 10) and (temp_FPG_header.fpg_code [3] = 0) )then
+   (temp_FPG_header.Code [0] = 26) and (temp_FPG_header.Code [1] = 13) and
+   (temp_FPG_header.Code [2] = 10) and (temp_FPG_header.Code [3] = 0) )then
   begin
    f.free;
    Exit;
@@ -193,15 +192,14 @@ implementation
   f.free;
 
   for i:=0 to 767 do
-   FPG_header.palette[i] := temp_FPG_header.palette[i] shl 2;
+   palette[i] := temp_FPG_header.palette[i] shl 2;
 
-  FPG_load_palette := true;
-  FPG_Create_hpal;
-  
+//  fpg.loadPalette := true;
+
   result := true;
  end;
 
- function Load_MS_pal( name : string ) : boolean;
+ function Load_MS_pal( palette:PByte; name : string ) : boolean;
  var
   f : TFileStream;
   i : LongInt;
@@ -238,23 +236,22 @@ implementation
   //Ajustamos la paleta
   for i:= 0 to 255 do
    begin
-    FPG_Header.palette[i*3]       := ms_pal[(i * 4) + 2] shr 2;
-    FPG_Header.palette[(i*3) + 1] := ms_pal[(i * 4) + 1] shr 2;
-    FPG_Header.palette[(i*3) + 2] := ms_pal[i * 4] shr 2;
+    palette[i*3]       := ms_pal[(i * 4) + 2] shr 2;
+    palette[(i*3) + 1] := ms_pal[(i * 4) + 1] shr 2;
+    palette[(i*3) + 2] := ms_pal[i * 4] shr 2;
 
-    FPG_Header.palette[i*3]       := FPG_Header.palette[i*3] shl 2;
-    FPG_Header.palette[(i*3) + 1] := FPG_Header.palette[(i*3) + 1] shl 2;
-    FPG_Header.palette[(i*3) + 2] := FPG_Header.palette[(i*3) + 2] shl 2;
+    palette[i*3]       := palette[i*3] shl 2;
+    palette[(i*3) + 1] := palette[(i*3) + 1] shl 2;
+    palette[(i*3) + 2] := palette[(i*3) + 2] shl 2;
    end;
 
-   FPG_load_palette := true;
-   FPG_Create_hpal;
-   
+//   fpg.loadPalette := true;
+
    result := true;
 
  end;
 
- function Load_BMP_pal( name : string ) : Boolean;
+ function Load_BMP_pal( palette:PByte; name : string ) : Boolean;
  var
   f : TFileStream;
   i : word;
@@ -276,23 +273,22 @@ implementation
    //Ajustamos la paleta
    for i:= 0 to 255 do
    begin
-    FPG_Header.palette[i*3]       := BMP_palette[(i * 4) + 2] shr 2;
-    FPG_Header.palette[(i*3) + 1] := BMP_palette[(i * 4) + 1] shr 2;
-    FPG_Header.palette[(i*3) + 2] := BMP_palette[i * 4] shr 2;
+    palette[i*3]       := BMP_palette[(i * 4) + 2] shr 2;
+    palette[(i*3) + 1] := BMP_palette[(i * 4) + 1] shr 2;
+    palette[(i*3) + 2] := BMP_palette[i * 4] shr 2;
 
-    FPG_Header.palette[i*3]       := FPG_Header.palette[i*3] shl 2;
-    FPG_Header.palette[(i*3) + 1] := FPG_Header.palette[(i*3) + 1] shl 2;
-    FPG_Header.palette[(i*3) + 2] := FPG_Header.palette[(i*3) + 2] shl 2;
+    palette[i*3]       := palette[i*3] shl 2;
+    palette[(i*3) + 1] := palette[(i*3) + 1] shl 2;
+    palette[(i*3) + 2] := palette[(i*3) + 2] shl 2;
    end;
 
-   FPG_load_palette := true;
-   FPG_Create_hpal;
+//   fpg.loadpalette := true;
 
    result := true;
   end;
  end;
 
- function Load_PCX_pal( name : string ) : Boolean;
+ function Load_PCX_pal( palette:PByte; name : string ) : Boolean;
  var
   f : TFileStream;
   i : integer;
@@ -307,30 +303,29 @@ implementation
 
    f.Seek( f.Size - 768, soFromBeginning);
 
-   f.Read( FPG_Header.Palette, 768 );
+   f.Read( Palette, 768 );
 
    f.free;
 
    //Ajustamos la paleta
    for i:= 0 to 255 do
    begin
-    FPG_Header.palette[i*3]       := FPG_Header.palette[i*3] shr 2;
-    FPG_Header.palette[(i*3) + 1] := FPG_Header.palette[(i*3) + 1] shr 2;
-    FPG_Header.palette[(i*3) + 2] := FPG_Header.palette[(i*3) + 2] shr 2;
+    palette[i*3]       := palette[i*3] shr 2;
+    palette[(i*3) + 1] := palette[(i*3) + 1] shr 2;
+    palette[(i*3) + 2] := palette[(i*3) + 2] shr 2;
 
-    FPG_Header.palette[i*3]       := FPG_Header.palette[i*3] shl 2;
-    FPG_Header.palette[(i*3) + 1] := FPG_Header.palette[(i*3) + 1] shl 2;
-    FPG_Header.palette[(i*3) + 2] := FPG_Header.palette[(i*3) + 2] shl 2;
+    palette[i*3]       := palette[i*3] shl 2;
+    palette[(i*3) + 1] := palette[(i*3) + 1] shl 2;
+    palette[(i*3) + 2] := palette[(i*3) + 2] shl 2;
    end;
 
-   FPG_load_palette := true;
-   FPG_Create_hpal;
+//   fpg.loadPalette := true;
 
    result := true;
   end;
  end;
 
- function Save_JASP_pal( name : string ) : boolean;
+ function Save_JASP_pal( palette:PByte; name : string ) : boolean;
  var
   f       : TextFile;
   i : byte;
@@ -351,11 +346,11 @@ implementation
 
   for i:= 0 to 255 do
    begin
-    Write(f, FPG_Header.palette[i*3]);
+    Write(f, palette[i*3]);
     Write(f, ' ');
-    Write(f, FPG_Header.palette[(i*3) + 1]);
+    Write(f, palette[(i*3) + 1]);
     Write(f, ' ');
-    WriteLn(f, FPG_Header.palette[(i*3) + 2]);
+    WriteLn(f, palette[(i*3) + 2]);
    end;
 
   result := true;
@@ -363,7 +358,7 @@ implementation
   CloseFile(f);
  end;
 
- function Save_DIV2_pal( name : string ) : boolean;
+ function Save_DIV2_pal( palette:PByte; name : string ) : boolean;
  var
   f        : file of byte;
   temp_byte: byte;
@@ -389,7 +384,7 @@ implementation
 
   for i:=0 to 767 do
   begin
-   temp_byte := FPG_header.palette[i] shr 2;
+   temp_byte := palette[i] shr 2;
    Write(f, temp_byte);
   end;
 
@@ -403,7 +398,7 @@ implementation
   result := true;
  end;
 
- function Save_MS_pal( name : string ) : boolean;
+ function Save_MS_pal( palette:PByte; name : string ) : boolean;
  var
   f : TFileStream;
   i : LongInt;
@@ -434,9 +429,9 @@ implementation
   for i:= 0 to 255 do
    begin
     ms_pal[(i * 4) + 2] := 0;
-    ms_pal[(i * 4) + 2] := FPG_Header.palette[i*3];
-    ms_pal[(i * 4) + 1] := FPG_Header.palette[(i*3) + 1];
-    ms_pal[ i * 4     ] := FPG_Header.palette[(i*3) + 2];
+    ms_pal[(i * 4) + 2] := palette[i*3];
+    ms_pal[(i * 4) + 1] := palette[(i*3) + 1];
+    ms_pal[ i * 4     ] := palette[(i*3) + 2];
    end;
 
   f.Write(ms_pal, 1024);

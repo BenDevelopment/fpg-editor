@@ -4,10 +4,10 @@ program pfpgeditor;
 uses
   Forms, Dialogs, uFrmMain, uBMP, uMap, uTools, uSort, uPCX, ufrmView,
   uLoadImage, uCopyPalette, uPAL, uColor16bits, uFPG, uFPGConvert,
-  ufrmFPGImages, ufrmNewFPG, uListViewFPG, ufrmAnimate, ufrmConfig, uFrmExport,
+  ufrmFPGImages, ufrmNewFPG, ufrmAnimate, ufrmConfig, uFrmExport,
   uExportToFiles, ufrmPalette, uFrmSplahs, uinifile, uLanguage, ufrmZipFenix,
   uAAText, uColorTable, uFNT, uFrmBpp, uFrmCFG, uFrmMainFNT, uFrmAbout,
-  uFrmInputBox, uFrmMessageBox, Interfaces, uFrmFNTView;
+  uFrmInputBox, uFrmMessageBox, Interfaces, uFrmFNTView, uFrmLog, uFPGListView;
 
 {$R *.res}
 
@@ -37,6 +37,7 @@ begin
   Application.CreateForm(TfBPP, fBPP);
   Application.CreateForm(TFrmAbout, FrmAbout);
   Application.CreateForm(TfrmFNTView, frmFNTView);
+  Application.CreateForm(TfrmLog, frmLog);
   //Application.CreateForm(TfrmSplash, frmSplash);
   Application.Run;
 end.
