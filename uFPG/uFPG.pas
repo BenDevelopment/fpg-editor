@@ -370,10 +370,11 @@ end;
 procedure TFpg.Save( var gFPG: TProgressBar);
 var
   f: TFileStream;
-  i : word;
-  graph_size: longint;
-  bytes_per_pixel: word;
-  widthForFPG1: integer;
+  i : Word;
+  graph_size: LongInt;
+  bytes_per_pixel: Word;
+  widthForFPG1: Integer;
+  Frames: Word;
 
 begin
   bytes_per_pixel := 0;
@@ -438,6 +439,8 @@ begin
 
     if ((Images[i].points > 0) and (Images[i].points <> 4096)) then
       graph_size := graph_size + (Images[i].points * 4);
+    if (Images[i].points = 4096) then
+      graph_size := graph_size + 6;
 
     f.Write(Images[i].graph_code, 4);
     f.Write(graph_size, 4);
@@ -449,6 +452,15 @@ begin
 
     if ((Images[i].points > 0) and (Images[i].points <> 4096)) then
       f.Write(Images[i].control_points, Images[i].points * 4);
+
+    if (Images[i].points = 4096) then
+    begin
+      Frames:=0;
+      f.Read(Frames, 2);
+      f.Read(Frames, 2); // Length
+      f.Read(Frames, 2);  // Speed
+     // f.Seek(length * 2, soFromCurrent);
+    end;
 
     writeDataBitmap(f,Images[i].bmp,bytes_per_pixel, (FPGtype = FPG16_CDIV), header.Palette);
 
@@ -627,9 +639,10 @@ end;
 procedure TFpg.SaveMap(index: integer; filename: string);
 var
   f: TFileStream;
-  byte_size: word;
+  byte_size: Word;
   MAPHeader: file_str_map;
-  i : word;
+  i : Word;
+  Frames : Word;
 begin
   byte_size := 0;
   case FPGtype of
@@ -660,10 +673,16 @@ begin
     end;
   end;
 
+
+  MAPHeader.msdosend[0]:= 26;
+  MAPHeader.msdosend[1]:= 10;
+  MAPHeader.msdosend[2]:= 13;
+  MAPHeader.msdosend[3]:= 0;
+
   f := TFileStream.Create(filename, fmCreate);
 
-
   f.Write(MAPHeader.magic, 3);
+  f.Write(MAPHeader.msdosend, 4);
   f.Write(Header.Code, 4);
   f.Write(Header.Version, 1);
 
@@ -692,6 +711,14 @@ begin
 
   if ((MAPHeader.flags > 0) and (MAPHeader.flags <> 4096)) then
     f.Write(Images[index].control_points, MAPHeader.flags * 4);
+  if (MAPHeader.flags = 4096) then
+  begin
+    Frames:=0;
+    f.Read(Frames, 2);
+    f.Read(Frames, 2); // Length
+    f.Read(Frames, 2);  // Speed
+   // f.Seek(length * 2, soFromCurrent);
+  end;
 
   writeDataBitmap(f, Images[index].bmp,byte_size ,(FPGtype = FPG16_CDIV), header.Palette);
 
@@ -893,12 +920,6 @@ end;
 
 // Añadir index
 procedure TFPG.add_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TBitmap );
-var
- j, k    : LongInt;
- pDst : pRGBLine;
- lazBMP: TLazIntfImage;
-  ImgHandle,ImgMaskHandle: HBitmap;
-
 begin
   // Establece el código
   FreeAndNil( images[index]);
@@ -915,18 +936,10 @@ begin
   // Se crea la imagen resultante
   images[index].bmp    := FPGCreateBitmap(bmp_src,FPGtype, header.palette);
 
-
 end;
 
 // Añadir index
 procedure TFPG.replace_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TBitmap );
-var
- j, k    : LongInt;
- pDst : pRGBLine;
- lazBMP: TLazIntfImage;
- ImgHandle,ImgMaskHandle: HBitmap;
- src_in_32bpp : boolean;
-
 begin
   // Establece el código
   images[index].graph_code  := lastcode;
@@ -937,7 +950,6 @@ begin
   images[index].width  := bmp_src.Width;
   images[index].height := bmp_src.Height;
 
-  //images[index].points := 0;
   images[index].bmp    := FPGCreateBitmap(bmp_src,FPGtype,header.Palette);
 
 end;
