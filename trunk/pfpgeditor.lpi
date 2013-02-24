@@ -45,7 +45,7 @@
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="37">
+    <Units Count="38">
       <Unit0>
         <Filename Value="pfpgeditor.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -285,6 +285,11 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="uFPGListView"/>
       </Unit36>
+      <Unit37>
+        <Filename Value="uMap\umapgraphic.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uMAPGraphic"/>
+      </Unit37>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -305,6 +310,9 @@
       </Optimizations>
     </CodeGeneration>
     <Linking>
+      <Debugging>
+        <GenerateDebugInfo Value="False"/>
+      </Debugging>
       <Options>
         <Win32>
           <GraphicApplication Value="True"/>

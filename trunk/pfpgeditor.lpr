@@ -7,7 +7,8 @@ uses
   ufrmFPGImages, ufrmNewFPG, ufrmAnimate, ufrmConfig, uFrmExport,
   uExportToFiles, ufrmPalette, uFrmSplahs, uinifile, uLanguage, ufrmZipFenix,
   uAAText, uColorTable, uFNT, uFrmBpp, uFrmCFG, uFrmMainFNT, uFrmAbout,
-  uFrmInputBox, uFrmMessageBox, Interfaces, uFrmFNTView, uFrmLog, uFPGListView;
+  uFrmInputBox, uFrmMessageBox, Interfaces, uFrmFNTView, uFrmLog, uFPGListView,
+  uMAPGraphic;
 
 {$R *.res}
 
