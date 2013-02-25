@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, LResources, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  ClipBrd, uLanguage, uFPG, uTools, uIniFile,
+  ClipBrd, uFPG, uLanguage, uinifile, uTools,
   uLoadImage, uColor16bits, uFrmMessageBox, IntfGraphics;
 
 type
@@ -244,4 +244,4 @@ begin
 end;
 
 
-end.
+end.

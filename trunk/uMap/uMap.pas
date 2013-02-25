@@ -18,17 +18,17 @@ const
 
 type
  file_str_map = record
-  magic          : array [0 .. 2] of char;
-  msdosend       : array [0 .. 3] of byte;
-  version        : byte;
+  Magic          : array [0 .. 2] of char;
+  MSDOSEnd       : array [0 .. 3] of byte;
+  Version        : byte;
   width          : word;
   height         : word;
   code           : dword;
   description    : array [0 .. 31] of char;
   palette   : array [0 .. 767] of byte;
   gamma     : array [0 .. 575] of byte;
-  flags          : word;
-  control_points : array [0 .. 2047] of short;
+  ncpoints          : word;
+  cpoints : array [0 .. high(Word)] of short; //maximun value of a Word 65535
   bmp : TBitMap;
  end;
 
@@ -218,9 +218,9 @@ function MAP_Load(filename: string) : TBitmap;
   end;
 
   try
-   f.Read(header.magic, 3);
-   f.Read(header.msdosend , 4);
-   f.Read(header.version, 1);
+   f.Read(header.Magic, 3);
+   f.Read(header.MSDOSEnd , 4);
+   f.Read(header.Version, 1);
   except
    f.free;
    Exit;
@@ -229,49 +229,49 @@ function MAP_Load(filename: string) : TBitmap;
   bytes_per_pixel := 0;
   is_cdiv:=false;
   // Ficheros de 1 bit
-  if (header.magic[0]         = 'm') and (header.magic[1]         = '0') and
-     (header.magic[2]         = '1') and (header.msdosend [0]     = 26 ) and
-     (header.msdosend [1]     = 13 ) and (header.msdosend [2] = 10 ) and
-     (header.msdosend [3] = 0) then begin
+  if (header.Magic[0]         = 'm') and (header.Magic[1]         = '0') and
+     (header.Magic[2]         = '1') and (header.MSDOSEnd [0]     = 26 ) and
+     (header.MSDOSEnd [1]     = 13 ) and (header.MSDOSEnd [2] = 10 ) and
+     (header.MSDOSEnd [3] = 0) then begin
    bytes_per_pixel := 0;
   end;
   // Ficheros de 8 bits para DIV2, FENIX y CDIV
-  if (header.magic[0]         = 'm') and (header.magic[1]         = 'a') and
-     (header.magic[2]         = 'p') and (header.msdosend [0]     = 26 ) and
-     (header.msdosend [1]     = 13 ) and (header.msdosend [2] = 10 ) and
-     (header.msdosend [3] = 0) then begin
+  if (header.Magic[0]         = 'm') and (header.Magic[1]         = 'a') and
+     (header.Magic[2]         = 'p') and (header.MSDOSEnd [0]     = 26 ) and
+     (header.MSDOSEnd [1]     = 13 ) and (header.MSDOSEnd [2] = 10 ) and
+     (header.MSDOSEnd [3] = 0) then begin
    bytes_per_pixel := 1;
   end;
   // Ficheros de 16 bits para FENIX
-  if (header.magic[0]         = 'm') and (header.magic[1]         = '1') and
-     (header.magic[2]         = '6') and (header.msdosend [0]     = 26 ) and
-     (header.msdosend [1]     = 13 ) and (header.msdosend [2] = 10 ) and
-     (header.msdosend [3] = 0) then begin
+  if (header.Magic[0]         = 'm') and (header.Magic[1]         = '1') and
+     (header.Magic[2]         = '6') and (header.MSDOSEnd [0]     = 26 ) and
+     (header.MSDOSEnd [1]     = 13 ) and (header.MSDOSEnd [2] = 10 ) and
+     (header.MSDOSEnd [3] = 0) then begin
    bytes_per_pixel := 2;
   end;
 
   // Ficheros de 16 bits para CDIV
-  if (header.magic[0]         = 'c') and (header.magic[1]         = '1') and
-     (header.magic[2]         = '6') and (header.msdosend [0]     = 26 ) and
-     (header.msdosend [1]     = 13 ) and (header.msdosend [2] = 10 ) and
-     (header.msdosend [3] = 0) then begin
+  if (header.Magic[0]         = 'c') and (header.Magic[1]         = '1') and
+     (header.Magic[2]         = '6') and (header.MSDOSEnd [0]     = 26 ) and
+     (header.MSDOSEnd [1]     = 13 ) and (header.MSDOSEnd [2] = 10 ) and
+     (header.MSDOSEnd [3] = 0) then begin
    bytes_per_pixel := 2;
    is_cdiv:=true;
   end;
 
   // Ficheros de 24 bits
-  if (header.magic[0]         = 'm') and (header.magic[1]         = '2') and
-     (header.magic[2]         = '4') and (header.msdosend [0]     = 26 ) and
-     (header.msdosend [1]     = 13 ) and (header.msdosend [2] = 10 ) and
-     (header.msdosend [3] = 0) then begin
+  if (header.Magic[0]         = 'm') and (header.Magic[1]         = '2') and
+     (header.Magic[2]         = '4') and (header.MSDOSEnd [0]     = 26 ) and
+     (header.MSDOSEnd [1]     = 13 ) and (header.MSDOSEnd [2] = 10 ) and
+     (header.MSDOSEnd [3] = 0) then begin
    bytes_per_pixel := 3;
   end;
 
      // Ficheros de 32 bits
-  if (header.magic[0]         = 'm') and (header.magic[1]         = '3') and
-     (header.magic[2]         = '2') and (header.msdosend [0]     = 26 ) and
-     (header.msdosend [1]     = 13 ) and (header.msdosend [2] = 10 ) and
-     (header.msdosend [3] = 0) then begin
+  if (header.Magic[0]         = 'm') and (header.Magic[1]         = '3') and
+     (header.Magic[2]         = '2') and (header.MSDOSEnd [0]     = 26 ) and
+     (header.MSDOSEnd [1]     = 13 ) and (header.MSDOSEnd [2] = 10 ) and
+     (header.MSDOSEnd [3] = 0) then begin
    bytes_per_pixel := 4;
   end;
 
@@ -300,21 +300,32 @@ function MAP_Load(filename: string) : TBitmap;
 
    end;
 
-   f.Read(header.flags, 2);
+   f.Read(header.ncpoints, 2);
 
    // Leemos los puntos de control del bitmap
-   if ((header.flags > 0) and (header.flags  <> 4096)) then
+
+
+
+   if header.ncpoints > 0 then
+    f.Read(header.cpoints, header.ncpoints  * 4)
+   else
+    FillChar(header.cpoints,High(Word),0); //borramos los puntos de control.
+
+   (*  BennuGD no controla que si ncpoints = 4096 haga algo distinto,
+       Habría que revistar esta funcionalidad en DIV si se quiere implementar
+   if ((header.ncpoints > 0) and (header.ncpoints  <> 4096)) then
    begin
-    f.Read(header.control_points, header.flags  * 4);
+    f.Read(header.cpoints, header.ncpoints  * 4);
    end;
 
-   if (header.flags  = 4096) then
+   if (header.ncpoints  = 4096) then
    begin
     f.Read(frames, 2);
     f.Read(length, 2);
     f.Read(speed , 2);
     f.Seek(length * 2, soFromCurrent);
    end;
+   *)
 
 
    // Se crea la imagen resultante
@@ -327,4 +338,4 @@ function MAP_Load(filename: string) : TBitmap;
  end;
 
 end.
- 
+ 

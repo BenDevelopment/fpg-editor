@@ -26,7 +26,7 @@ interface
 
 uses LCLIntf, LCLType, SysUtils, Forms, Classes,
   Graphics, FileUtil, ComCtrls, IntfGraphics,
-  uFrmMessageBox, uLanguage, uColor16bits, uMap, Dialogs, ufrmlog,uTools;
+  uFrmMessageBox, uLanguage, uColor16bits, uMap, Dialogs, uTools;
 
 const
   MAX_NUM_IMAGES = 999;
@@ -50,8 +50,8 @@ type
     { Private declarations }
   public
     { Public declarations }
-    FileType: array [0 .. 2] of char; {fpg, f16, c16}
-    Code: array [0 .. 3] of byte;
+    Magic: array [0 .. 2] of char; {fpg, f16, c16}
+    MSDOSEnd: array [0 .. 3] of byte;
     Version: byte;
     Palette: array [0 .. 767] of byte;
     Gamma: array [0 .. 575] of byte;
@@ -108,7 +108,7 @@ type
     procedure Initialize;
     procedure setFileType;
     procedure Save(var gFPG: TProgressBar);
-    function Load(str: string; var gFPG: TProgressBar; frmLog: TFrmLog =nil): boolean;
+    function Load(str: string; var gFPG: TProgressBar): boolean;
     procedure Create_table_16_to_8;
     procedure Sort_Palette;
     procedure SaveMap(index: integer; filename: string);
@@ -128,58 +128,58 @@ implementation
 function TFpgHeader.getFPGType(var byte_size : Word) :Integer;
 begin
  // Ficheros de 1 bit
- if (FileType[0] = 'f') and (FileType[1] = '0') and
-   (FileType[2] = '1') and (Code[0] = 26) and
-   (Code[1] = 13) and (Code[2] = 10) and
-   (Code[3] = 0) then
+ if (Magic[0] = 'f') and (Magic[1] = '0') and
+   (Magic[2] = '1') and (MSDOSEnd[0] = 26) and
+   (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
+   (MSDOSEnd[3] = 0) then
  begin
    Result := FPG1;
    byte_size := 0;
  end;
  // Ficheros de 8 bits para DIV2, FENIX y CDIV
- if (FileType[0] = 'f') and (FileType[1] = 'p') and
-   (FileType[2] = 'g') and (Code[0] = 26) and
-   (Code[1] = 13) and (Code[2] = 10) and
-   (Code[3] = 0) then
+ if (Magic[0] = 'f') and (Magic[1] = 'p') and
+   (Magic[2] = 'g') and (MSDOSEnd[0] = 26) and
+   (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
+   (MSDOSEnd[3] = 0) then
  begin
    Result := FPG8_DIV2;
    byte_size := 1;
  end;
  // Ficheros de 16 bits para FENIX
- if (FileType[0] = 'f') and (FileType[1] = '1') and
-   (FileType[2] = '6') and (Code[0] = 26) and
-   (Code[1] = 13) and (Code[2] = 10) and
-   (Code[3] = 0) then
+ if (Magic[0] = 'f') and (Magic[1] = '1') and
+   (Magic[2] = '6') and (MSDOSEnd[0] = 26) and
+   (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
+   (MSDOSEnd[3] = 0) then
  begin
    Result := FPG16;
    byte_size := 2;
  end;
 
  // Ficheros de 16 bits para CDIV
- if (FileType[0] = 'c') and (FileType[1] = '1') and
-   (FileType[2] = '6') and (Code[0] = 26) and
-   (Code[1] = 13) and (Code[2] = 10) and
-   (Code[3] = 0) then
+ if (Magic[0] = 'c') and (Magic[1] = '1') and
+   (Magic[2] = '6') and (MSDOSEnd[0] = 26) and
+   (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
+   (MSDOSEnd[3] = 0) then
  begin
    Result := FPG16_CDIV;
    byte_size := 2;
  end;
 
  // Ficheros de 24 bits
- if (FileType[0] = 'f') and (FileType[1] = '2') and
-   (FileType[2] = '4') and (Code[0] = 26) and
-   (Code[1] = 13) and (Code[2] = 10) and
-   (Code[3] = 0) then
+ if (Magic[0] = 'f') and (Magic[1] = '2') and
+   (Magic[2] = '4') and (MSDOSEnd[0] = 26) and
+   (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
+   (MSDOSEnd[3] = 0) then
  begin
    Result := FPG24;
    byte_size := 3;
  end;
 
  // Ficheros de 32 bits
- if (FileType[0] = 'f') and (FileType[1] = '3') and
-   (FileType[2] = '2') and (Code[0] = 26) and
-   (Code[1] = 13) and (Code[2] = 10) and
-   (Code[3] = 0) then
+ if (Magic[0] = 'f') and (Magic[1] = '3') and
+   (Magic[2] = '2') and (MSDOSEnd[0] = 26) and
+   (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
+   (MSDOSEnd[3] = 0) then
  begin
    Result := FPG32;
    byte_size := 4;
@@ -221,15 +221,15 @@ end;
 
 procedure TFpgHeader.loadFromStream(stream : TStream);
 begin
-  stream.Read(FileType, 3);
-  stream.Read(Code, 4);
+  stream.Read(Magic, 3);
+  stream.Read(MSDOSEnd, 4);
   stream.Read(Version, 1);
 end;
 
 procedure TFpgHeader.saveToStream(stream : TStream);
 begin
-  stream.Write(FileType, 3);
-  stream.Write(Code, 4);
+  stream.Write(Magic, 3);
+  stream.Write(MSDOSEnd, 4);
   stream.Write(Version, 1);
 end;
 
@@ -408,8 +408,8 @@ begin
   gFPG.Repaint;
   header.saveToStream(f);
   (*
-  f.Write(Header.FileType, 3);
-  f.Write(Header.Code, 4);
+  f.Write(Header.Magic, 3);
+  f.Write(Header.MSDOSEnd, 4);
   f.Write(Header.Version, 1);
   *)
   if FPGtype = FPG8_DIV2 then
@@ -437,10 +437,15 @@ begin
       graph_size := (widthForFPG1 div 8) * Images[i].Height + 64;
     end;
 
+    if Images[i].points > 0  then
+      graph_size := graph_size + (Images[i].points * 4);
+
+    (* BennuGD no comtempla el límite 4096, más info en la lectura de un MAP
     if ((Images[i].points > 0) and (Images[i].points <> 4096)) then
       graph_size := graph_size + (Images[i].points * 4);
     if (Images[i].points = 4096) then
       graph_size := graph_size + 6;
+    *)
 
     f.Write(Images[i].graph_code, 4);
     f.Write(graph_size, 4);
@@ -479,7 +484,7 @@ end;
 // LoadFPG: Carga un FPG a memoria.
 //-----------------------------------------------------------------------------
 
-function TFpg.Load(str: string; var gFPG: TProgressBar; frmLog: TFrmLog =nil): boolean;
+function TFpg.Load(str: string; var gFPG: TProgressBar): boolean;
 var
   f: TStream;
   frames, length, speed: word;
@@ -563,6 +568,12 @@ begin
         f.Read(points, 4);
 
         // Leemos los puntos de control del bitmap
+
+        if points > 0 then
+        begin
+          f.Read(control_points, points * 4);
+        end;
+        (* BennuGD no tiene el límite 4096, ver carga de map para más informacion
         if ((points > 0) and (points <> 4096)) then
         begin
           f.Read(control_points, points * 4);
@@ -575,6 +586,7 @@ begin
           f.Read(speed, 2);
           f.Seek(length * 2, soFromCurrent);
         end;
+        *)
 
         bmp:=loadDataBitmap(f,header.palette,width,height, byte_size, FPGtype=FPG16_CDIV);
 
@@ -649,41 +661,40 @@ begin
     FPG1:
     begin
       byte_size := 0;
-      stringToArray(MAPHeader.magic, 'm01', 3);
+      stringToArray(MAPHeader.Magic, 'm01', 3);
     end;
     FPG8_DIV2:
     begin
       byte_size := 1;
-      stringToArray(MAPHeader.magic, 'map', 3);
+      stringToArray(MAPHeader.Magic, 'map', 3);
     end;
     FPG16, FPG16_CDIV:
     begin
       byte_size := 2;
-      stringToArray(MAPHeader.magic, 'm16', 3);
+      stringToArray(MAPHeader.Magic, 'm16', 3);
     end;
     FPG24:
     begin
       byte_size := 3;
-      stringToArray(MAPHeader.magic, 'm24', 3);
+      stringToArray(MAPHeader.Magic, 'm24', 3);
     end;
     FPG32:
     begin
       byte_size := 4;
-      stringToArray(MAPHeader.magic, 'm32', 3);
+      stringToArray(MAPHeader.Magic, 'm32', 3);
     end;
   end;
 
 
-  MAPHeader.msdosend[0]:= 26;
-  MAPHeader.msdosend[1]:= 10;
-  MAPHeader.msdosend[2]:= 13;
-  MAPHeader.msdosend[3]:= 0;
+  MAPHeader.MSDOSEnd[0]:= 26;
+  MAPHeader.MSDOSEnd[1]:= 10;
+  MAPHeader.MSDOSEnd[2]:= 13;
+  MAPHeader.MSDOSEnd[3]:= 0;
 
   f := TFileStream.Create(filename, fmCreate);
 
-  f.Write(MAPHeader.magic, 3);
-  f.Write(MAPHeader.msdosend, 4);
-  f.Write(Header.Code, 4);
+  f.Write(MAPHeader.Magic, 3);
+  f.Write(MAPHeader.MSDOSEnd, 4);
   f.Write(Header.Version, 1);
 
   MAPHeader.Width := Images[index].Width;
@@ -706,12 +717,18 @@ begin
       Header.Palette[i] := Header.Palette[i] shl 2;
   end;
 
-  MAPHeader.flags := Images[index].points;
-  f.Write(MAPHeader.flags, 2);
+  MAPHeader.ncpoints := Images[index].points;
+  f.Write(MAPHeader.ncpoints, 2);
 
-  if ((MAPHeader.flags > 0) and (MAPHeader.flags <> 4096)) then
-    f.Write(Images[index].control_points, MAPHeader.flags * 4);
-  if (MAPHeader.flags = 4096) then
+  if MAPHeader.ncpoints > 0 then
+    f.Write(Images[index].control_points, MAPHeader.ncpoints * 4);
+
+  (* Mismo caso que en la Lectura, BennuGD no controla el valor 4096,
+     por lo que soporta más de 4096 puntos de control, si se necesita implementar
+     esta funcionalidad hay que ver que hace DIV
+  if ((MAPHeader.ncpoints > 0) and (MAPHeader.ncpoints <> 4096)) then
+    f.Write(Images[index].control_points, MAPHeader.ncpoints * 4);
+  if (MAPHeader.ncpoints = 4096) then
   begin
     Frames:=0;
     f.Read(Frames, 2);
@@ -719,6 +736,7 @@ begin
     f.Read(Frames, 2);  // Speed
    // f.Seek(length * 2, soFromCurrent);
   end;
+  *)
 
   writeDataBitmap(f, Images[index].bmp,byte_size ,(FPGtype = FPG16_CDIV), header.Palette);
 
@@ -730,17 +748,17 @@ Procedure TFpg.setFileType;
 begin
  case FPGtype of
   FPG1:
-    header.FileType := 'f01';
+    header.Magic := 'f01';
   FPG8_DIV2:
-    header.FileType := 'fpg';
+    header.Magic := 'fpg';
   FPG16:
-    header.FileType := 'f16';
+    header.Magic := 'f16';
   FPG16_CDIV:
-    header.FileType := 'c16';
+    header.Magic := 'c16';
   FPG24:
-    header.FileType := 'f24';
+    header.Magic := 'f24';
   FPG32:
-    header.FileType := 'f32';
+    header.Magic := 'f32';
  end;
 end;
 
@@ -754,10 +772,10 @@ begin
  Count   := 0;
  lastCode := 0;
  needTable:= false;
- header.Code[0] := 26;
- header.Code[1] := 13;
- header.Code[2] := 10;
- header.Code[3] := 0;
+ header.MSDOSEnd[0] := 26;
+ header.MSDOSEnd[1] := 13;
+ header.MSDOSEnd[2] := 10;
+ header.MSDOSEnd[3] := 0;
  header.Version     := 0;
 end;
 
@@ -955,4 +973,4 @@ begin
 end;
 
 
-end.
+end.

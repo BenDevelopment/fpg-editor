@@ -18,7 +18,7 @@
       <StringTable ProductVersion=""/>
     </VersionInfo>
     <MacroValues Count="1">
-      <Macro1 Name="LCLWidgetType" Value="win32"/>
+      <Macro1 Name="LCLWidgetType" Value="qt"/>
     </MacroValues>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
@@ -34,18 +34,15 @@
         <LaunchingApplication PathPlusParams="\usr\bin\xterm -T 'Lazarus Run Output' -e $(LazarusDir)\tools\runwait.sh $(TargetCmdLine)"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="3">
+    <RequiredPackages Count="2">
       <Item1>
-        <PackageName Value="fpg_editor_pkg"/>
+        <PackageName Value="LCLBase"/>
       </Item1>
       <Item2>
-        <PackageName Value="LCLBase"/>
-      </Item2>
-      <Item3>
         <PackageName Value="LCL"/>
-      </Item3>
+      </Item2>
     </RequiredPackages>
-    <Units Count="38">
+    <Units Count="37">
       <Unit0>
         <Filename Value="pfpgeditor.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -273,23 +270,15 @@
         <UnitName Value="uFrmFNTView"/>
       </Unit34>
       <Unit35>
-        <Filename Value="uFrmLog\uFrmLog.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmLog"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uFrmLog"/>
-      </Unit35>
-      <Unit36>
         <Filename Value="uFPGListView\ufpglistview.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uFPGListView"/>
-      </Unit36>
-      <Unit37>
+      </Unit35>
+      <Unit36>
         <Filename Value="uMap\umapgraphic.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uMAPGraphic"/>
-      </Unit37>
+      </Unit36>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -300,7 +289,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="uFrmMain;uBMP;uMap;uTools;uSort;uPCX;uFrmView;uLoadImage;uPAL;uColor16bits;uFPG;uFPGConvert;uFPGFrmImages;uFPGFrmNew;uFPGListView;uFrmAnimate;uFrmConfig;uFrmExport;uFrmPalette;uFrmSplash;uIniFile;uLanguage;uMessages\uFrmInputBox;uMessages\uFrmMessageBox;uFrmExport\uExportToFiles;uFrmZipFenix;uAAtext;uColorTable;uFNT;uFrmBpp;uFrmCFG;uFrmMainFNT;uFrmAbout;uFrmFPGView;uFrmFNTView;uFrmLog"/>
+      <OtherUnitFiles Value="uFrmMain;uBMP;uMap;uTools;uSort;uPCX;uFrmView;uLoadImage;uPAL;uColor16bits;uFPGConvert;uFPGFrmImages;uFPGFrmNew;uFrmAnimate;uFrmConfig;uFrmExport;uFrmPalette;uFrmSplash;uIniFile;uLanguage;uMessages\uFrmInputBox;uMessages\uFrmMessageBox;uFrmExport\uExportToFiles;uFrmZipFenix;uAAtext;uColorTable;uFNT;uFrmBpp;uFrmCFG;uFrmMainFNT;uFrmAbout;uFrmFPGView;uFrmFNTView;uFPG;uFPGListView"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <CodeGeneration>
@@ -310,9 +299,6 @@
       </Optimizations>
     </CodeGeneration>
     <Linking>
-      <Debugging>
-        <GenerateDebugInfo Value="False"/>
-      </Debugging>
       <Options>
         <Win32>
           <GraphicApplication Value="True"/>
@@ -325,7 +311,7 @@
       </CompilerMessages>
       <CompilerPath Value="$(CompPath)"/>
     </Other>
-    <LCLWidgetType Value="win32"/>
+    <LCLWidgetType Value="qt"/>
   </CompilerOptions>
   <Debugging>
     <Exceptions Count="5">
