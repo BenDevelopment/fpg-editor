@@ -43,8 +43,8 @@ type
     Name: array [0 .. 31] of Char;
     bPalette: array [0 .. 767] of Byte;
     Gamma: array [0 .. 575] of Byte;
-    Flags: Word;
-    ControlPoints: array [0 .. 2047] of SmallInt;
+    NCPoints: Word;
+    CPoints :   array[0..high(Word)*2] of Word;
     GraphSize: LongInt;               // Needed for FPG Graphics
     FbitsPerPixel: Word;            // to get faster this attribute.
     FCDIVFormat: Boolean;            // to get faster this attribute.
@@ -182,15 +182,15 @@ begin
 
   end;
 
-  Stream.Read(Flags, 2);
+  Stream.Read(ncpoints, 2);
 
   // Leemos los puntos de control del bitmap
-  if ((Flags > 0) and (Flags <> 4096)) then
+  if ((ncpoints > 0) and (ncpoints <> 4096)) then
   begin
-    Stream.Read(ControlPoints, Flags * 4);
+    Stream.Read(CPoints, ncpoints * 4);
   end;
 
-  if (Flags = 4096) then
+  if (ncpoints = 4096) then
   begin
     Stream.Read(frames, 2);
     Stream.Read(length, 2);
@@ -385,9 +385,9 @@ begin
       if (Width mod 8) <> 0 then
         widthForFPG1 := widthForFPG1 + 8 - (Width mod 8);
       graphSize := (widthForFPG1 div 8) * Height + 64;
-      if ((Flags > 0) and (Flags <> 4096)) then
-        graphSize := graphSize + (Flags * 4);
-      if (Flags = 4096) then
+      if ((ncpoints > 0) and (ncpoints <> 4096)) then
+        graphSize := graphSize + (ncpoints * 4);
+      if (ncpoints = 4096) then
         graphSize := graphSize + 6;
     end;
     Stream.Write(graphSize, 4);
@@ -415,15 +415,15 @@ begin
 
   if onFPG then
   begin
-    intFlags := Flags;
+    intFlags := ncpoints;
     Stream.Write(intFlags, 4);
   end
   else
-    Stream.Write(Flags, 2);
+    Stream.Write(ncpoints, 2);
 
-  if ((Flags > 0) and (Flags <> 4096)) then
-    Stream.Write(ControlPoints, Flags * 4);
-  if (Flags = 4096) then
+  if ((ncpoints > 0) and (ncpoints <> 4096)) then
+    Stream.Write(CPoints, ncpoints * 4);
+  if (ncpoints = 4096) then
   begin
     Frames := 0;
     Stream.Read(Frames, 2);
@@ -646,4 +646,4 @@ begin
   setMagic;
 end;
 
-end.
+end.

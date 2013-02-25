@@ -28,6 +28,9 @@ uses
   uLanguage, uFrmMessageBox;
 
 type
+
+  { TfrmFPGImages }
+
   TfrmFPGImages = class(TForm)
     bbAceptChanges: TBitBtn;
     bbCancelChanges: TBitBtn;
@@ -212,14 +215,14 @@ begin
  stringToArray(Fpg.images[fpg_index].fpname,frmFPGImages.edName.Text,12);
  stringToArray(Fpg.images[fpg_index].name,frmFPGImages.edDescription.Text,32);
 
- Fpg.images[fpg_index].points := lvControlPoints.Items.Count;
+ Fpg.images[fpg_index].ncpoints := lvControlPoints.Items.Count;
 
  if lvControlPoints.Items.Count > 0 then
   for j := 0 to lvControlPoints.Items.Count - 1 do
   begin
-   Fpg.images[fpg_index].control_points[j * 2] :=
+   Fpg.images[fpg_index].cpoints[j * 2] :=
     StrToInt(lvControlPoints.Items.Item[j].SubItems.Strings[0]);
-   Fpg.images[fpg_index].control_points[(j * 2) + 1] :=
+   Fpg.images[fpg_index].cpoints[(j * 2) + 1] :=
     StrToInt(lvControlPoints.Items.Item[j].SubItems.Strings[1]);
   end;
 
@@ -241,6 +244,7 @@ begin
  if Length(edCoordY.Text) = 0 then
   Exit;
 end;
+
 
 procedure TfrmFPGImages.sbAddClick(Sender: TObject);
 var
@@ -297,7 +301,7 @@ var
 begin
  lbWidth.Caption  := IntToStr(Fpg.images[fpg_index].width);
  lbHeight.Caption := IntToStr(Fpg.images[fpg_index].height);
- lbNumCP.Caption  := IntToStr(Fpg.images[fpg_index].points);
+ lbNumCP.Caption  := IntToStr(Fpg.images[fpg_index].ncpoints);
  imIcon.Picture.Bitmap := Fpg.images[fpg_index].bmp;
  edCode.Text := IntToStr(Fpg.images[fpg_index].graph_code);
  edName.Text := Fpg.images[fpg_index].fpname;
@@ -305,8 +309,8 @@ begin
 
  lvControlPoints.Items.Clear;
 
- if Fpg.images[fpg_index].points >= 1 then
-  for j := 0 to Fpg.images[fpg_index].points - 1 do
+ if Fpg.images[fpg_index].ncpoints >= 1 then
+  for j := 0 to Fpg.images[fpg_index].ncpoints - 1 do
   begin
      list_add := frmFPGImages.lvControlPoints.Items.Add;
 
@@ -317,8 +321,8 @@ begin
      else
       list_add.Caption := IntToStr(j);
 
-     list_add.SubItems.Add( IntToStr(Fpg.images[fpg_index].control_points[j * 2]));
-     list_add.SubItems.Add( IntToStr(Fpg.images[fpg_index].control_points[(j * 2) + 1]));
+     list_add.SubItems.Add( IntToStr(Fpg.images[fpg_index].cpoints[j * 2]));
+     list_add.SubItems.Add( IntToStr(Fpg.images[fpg_index].cpoints[(j * 2) + 1]));
   end;
 
 
@@ -386,6 +390,9 @@ begin
    lvControlPoints.Items.Item[i].Caption := IntToStr(i);
 end;
 
+
+
+
 procedure TfrmFPGImages.sbImageSelectClick(Sender: TObject);
 var
  i : integer;
@@ -395,7 +402,6 @@ begin
 
  frmView.FPG := true;
  frmView.Image.Picture.Bitmap := Fpg.images[fpg_index].bmp;
- frmView.Image.Picture.Bitmap.Canvas.Pen.Color := inifile_color_points;
 
  for i := 0 to lvControlPoints.Items.Count - 1 do
  begin
@@ -404,7 +410,9 @@ begin
 
   if( (pointX >= 0) and (pointX < frmView.Image.Picture.Bitmap.width) and
       (pointY >= 0) and (pointY < frmView.Image.Picture.Bitmap.height) ) then
-   frmView.Image.Picture.Bitmap.Canvas.Pixels[pointX, pointY] := inifile_color_points;
+  begin
+   frmView.paintCross(frmView.Image.Picture.Bitmap,pointX,pointY,inifile_color_points);
+  end;
  end;
 
  frmView.Show;
@@ -425,6 +433,7 @@ begin
  end;
 end;
 
+
 procedure TfrmFPGImages.sbViewControlPointsClick(Sender: TObject);
 var
  i : integer;
@@ -437,7 +446,6 @@ begin
 
  frmView.Image.Picture.Bitmap := Fpg.images[fpg_index].bmp;
 
- frmView.Image.Picture.Bitmap.Canvas.Pen.Color := inifile_color_points;
 
  for i := 0 to lvControlPoints.Items.Count - 1 do
  begin
@@ -446,11 +454,14 @@ begin
 
   if( (pointX >= 0) and (pointX < frmView.Image.Picture.Bitmap.width) and
       (pointY >= 0) and (pointY < frmView.Image.Picture.Bitmap.height) ) then
-   frmView.Image.Picture.Bitmap.Canvas.Pixels[pointX, pointY] := inifile_color_points;
+   begin
+     frmView.paintCross(frmView.Image.Picture.Bitmap,pointX,pointY,inifile_color_points);
+   end;
  end;
 
  frmView.Show;
 end;
+
 
 procedure TfrmFPGImages.sbRemoveAllClick(Sender: TObject);
 begin

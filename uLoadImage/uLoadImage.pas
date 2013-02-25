@@ -28,7 +28,7 @@ interface
    dialogs, uMap , IntfGraphics, GraphType, FPimage, Types, utools;
 
 
- function loadImageFile( var bmp_dst : TBitmap; filename : string ) : boolean;
+ function loadImageFile( var bmp_dst : TBitmap; filename : string ; var ncpoints:word; cpoints:PWord) : boolean;
  procedure getProportionalSize( var bmp_src : TBitMap; var newWidth, newHeight: integer );
 
 implementation
@@ -135,7 +135,7 @@ begin
 
 end;
 
-function loadImageFile( var bmp_dst : TBitmap; filename : string ) : boolean;
+function loadImageFile( var bmp_dst : TBitmap; filename : string ; var ncpoints:word; cpoints:PWord) : boolean;
 var
  temp_pic : TPicture;
  bmp_src : TBitmap;
@@ -145,7 +145,7 @@ begin
   bmp_src:= TBitmap.Create;
   if AnsiLowerCase(ExtractFileExt(Filename)) = '.map' then
   begin
-    bmp_src:= MAP_load(Filename);
+    bmp_src:= MAP_load(Filename,ncpoints,cpoints);
   end else begin
     temp_pic:= TPicture.Create;
     try

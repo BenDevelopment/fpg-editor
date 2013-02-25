@@ -562,6 +562,9 @@ var
  filename,
  file_source : string;
  bmp_src : TBitmap;
+ ncpoints : Word;
+ cpoints :   array[0..high(Word)*2] of Word;
+
 begin
  if lvImages.SelCount <= 1 then
  begin
@@ -594,7 +597,8 @@ begin
   // Se prepara la ruta del fichero
   file_source := prepare_file_source(ShellListView1.Root, filename);
   // Se carga la imagen
-  loadImageFile(bmp_src, file_source);
+  ncpoints:=0;
+  loadImageFile(bmp_src, file_source,ncpoints,cpoints);
   if bmp_src.width > frmAnimate.ClientWidth then
      frmAnimate.ClientWidth := bmp_src.width;
   if bmp_src.height > frmAnimate.ClientHeight then
@@ -826,6 +830,7 @@ begin
   end;
 
  frmFPGImages.fpg:=lvFPG.Fpg;
+ frmFPGImages.panel1.Color:=lvFPG.Color;
  frmFPGImages.ShowModal;
 
  if frmFPGImages.ModalResult = mrYes then
@@ -1185,6 +1190,7 @@ begin
  frmView.file_selected :=
   prepare_file_source(ShellListView1.Root, lvImages.Selected.Caption);
 
+ frmView.Color:=lvImages.Color;
  frmView.Show;
 end;
 
@@ -1349,6 +1355,8 @@ var
  WorkDir,
  filename,
  file_source : String;
+ ncpoints : Word;
+ cpoints :   array[0..high(Word)*2] of Word;
 
 begin
  FileCount := ShellListView1.Items.Count;
@@ -1380,8 +1388,8 @@ begin
   filename := ShellListView1.Items[i-1].Caption;
   file_source := prepare_file_source( WorkDir, filename );
 
-
-  if loadImageFile(bmp_src,file_source ) then
+  ncpoints:=0;
+  if loadImageFile(bmp_src,file_source,ncpoints,cpoints ) then
    begin
 
     list_bmp := lvImages.Items.Add;
@@ -1539,6 +1547,7 @@ begin
     break;
    end;
 
+ frmView.Color:=lvFPG.Color;
  frmView.Show;
 end;
 
@@ -1828,4 +1837,4 @@ begin
 
 end;
 
-end.
+end.
