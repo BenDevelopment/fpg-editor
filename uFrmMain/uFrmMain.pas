@@ -28,7 +28,7 @@ uses
   ufrmNewFPG, ufrmPalette, ufrmFPGImages, uLanguage, Dialogs, uTools,
   uFPGConvert, uLoadImage, uFrmExport, uFrmInputBox, uFrmMessageBox,
   uExportToFiles, uFPGListView, FileUtil, ShellCtrls, ActnList, FileCtrl, Spin,
-  types, uFrmZipFenix, ufrmMainFNT, uFrmAbout,uFrmLog;
+  types, uFrmZipFenix, ufrmMainFNT, uFrmAbout;
 
 const
   DRAG_LVFPG    = 0;
@@ -1479,7 +1479,7 @@ begin
  {$ENDIF}
 
 
-  error := not lvFPG.Fpg.Load( WorkDir +'________.uz',  pbFPG,frmLog);
+  error := not lvFPG.Fpg.Load( WorkDir +'________.uz',  pbFPG);
 
   AssignFile(f, WorkDir +'________.uz');
   Erase(f);
@@ -1489,7 +1489,7 @@ begin
   lvFPG_Load_Bitmaps;
  end
  else
-  if lvFPG.Fpg.Load(lvFPG.Fpg.source, pbFPG,frmLog) then
+  if lvFPG.Fpg.Load(lvFPG.Fpg.source, pbFPG) then
   begin
    lvFPG_Load_Bitmaps;
   end;
@@ -1828,4 +1828,4 @@ begin
 
 end;
 
-end.
+end.

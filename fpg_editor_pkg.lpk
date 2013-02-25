@@ -7,8 +7,8 @@
       <Version Value="11"/>
       <PathDelim Value="\"/>
       <SearchPaths>
-        <OtherUnitFiles Value="uFPGListView"/>
-        <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)\"/>
+        <OtherUnitFiles Value="uFPGListView;uFPG"/>
+        <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
       </SearchPaths>
       <Other>
         <CompilerMessages>
@@ -17,12 +17,16 @@
         <CompilerPath Value="$(CompPath)"/>
       </Other>
     </CompilerOptions>
-    <Files Count="1">
+    <Files Count="2">
       <Item1>
-        <Filename Value="uFPGListView\uFPGListView.pas"/>
+        <Filename Value="uFPG\uFPG.pas"/>
+        <UnitName Value="uFPG"/>
+      </Item1>
+      <Item2>
+        <Filename Value="uFPGListView\ufpglistview.pas"/>
         <HasRegisterProc Value="True"/>
         <UnitName Value="uFPGListView"/>
-      </Item1>
+      </Item2>
     </Files>
     <Type Value="RunAndDesignTime"/>
     <RequiredPkgs Count="1">

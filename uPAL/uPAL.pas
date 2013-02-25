@@ -171,8 +171,8 @@ implementation
   end;
 
   try
-   f.Read(temp_FPG_header.FileType, 3);
-   f.Read(temp_FPG_header.Code , 4);
+   f.Read(temp_FPG_header.Magic, 3);
+   f.Read(temp_FPG_header.MSDOSEnd , 4);
    f.Read(temp_FPG_header.Version, 1);
   except
    f.free;
@@ -180,8 +180,8 @@ implementation
   end;
 
   if not (
-   (temp_FPG_header.Code [0] = 26) and (temp_FPG_header.Code [1] = 13) and
-   (temp_FPG_header.Code [2] = 10) and (temp_FPG_header.Code [3] = 0) )then
+   (temp_FPG_header.MSDOSEnd [0] = 26) and (temp_FPG_header.MSDOSEnd [1] = 13) and
+   (temp_FPG_header.MSDOSEnd [2] = 10) and (temp_FPG_header.MSDOSEnd [3] = 0) )then
   begin
    f.free;
    Exit;
