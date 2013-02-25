@@ -76,6 +76,8 @@ procedure TFPGListView.Insert_Images(lImages: TStringList; dir: string;
 var
   i: integer;
   bmp_src: TBitmap;
+  ncpoints : Word;
+  cpoints :   array[0..high(Word)*2] of Word;
   file_source, filename: string;
   index: word;
 begin
@@ -105,7 +107,8 @@ begin
     file_source := prepare_file_source(Dir, filename);
 
     // Se carga la imagen
-    loadImageFile(bmp_src, file_source);
+    ncpoints:=0;
+    loadImageFile(bmp_src, file_source,ncpoints,cpoints);
 
   (*
   // Se incrementa el código de la imagen
@@ -116,18 +119,18 @@ begin
     Fpg.last_code := Fpg.last_code + 1;
   *)
 
-    // ver como meter fpgedit2009
+    // ver como meter fpgeditor3.1
     if index <> 0 then
     begin
       fpg.replace_bitmap(index, ChangeFileExt(filename, ''),
-        ChangeFileExt(filename, ''), bmp_src);
+        ChangeFileExt(filename, ''), bmp_src,ncpoints,cpoints);
       replace_item(index);
     end
     else
     begin
       Fpg.Count := Fpg.Count + 1;
       fpg.add_bitmap(Fpg.Count, ChangeFileExt(filename, ''),
-        ChangeFileExt(filename, ''), bmp_src);
+        ChangeFileExt(filename, ''), bmp_src,ncpoints,cpoints);
       add_items(Fpg.Count);
     end;
     Fpg.lastcode := Fpg.lastcode + 1;
@@ -147,6 +150,9 @@ end;
 procedure TFPGListView.Insert_Imagescb(var progressBar: TProgressBar);
 var
   bmp_src: TBitmap;
+  ncpoints : Word;
+  cpoints :   array[0..high(Word)*2] of Word;
+
 begin
   // Se inializa la barra de progresión
   progressBar.Position := 50;
@@ -175,9 +181,9 @@ begin
   while Fpg.CodeExists(Fpg.lastcode) do
     Fpg.lastcode := Fpg.lastcode + 1;
 
-  // ver como meter fpgedit2009
+  // ver como meter fpgeditor3.1
   Fpg.Count := Fpg.Count + 1;
-  fpg.add_bitmap(Fpg.Count, 'ClipBoard', 'ClipBoard', bmp_src);
+  fpg.add_bitmap(Fpg.Count, 'ClipBoard', 'ClipBoard', bmp_src,ncpoints,cpoints);
   add_items(Fpg.Count);
 
 
@@ -210,7 +216,7 @@ begin
 
   list_bmp.SubItems.Add(IntToStr(Fpg.images[index].Width));
   list_bmp.SubItems.Add(IntToStr(Fpg.images[index].Height));
-  list_bmp.SubItems.Add(IntToStr(Fpg.images[index].points));
+  list_bmp.SubItems.Add(IntToStr(Fpg.images[index].ncpoints));
 
 end;
 
@@ -234,7 +240,7 @@ begin
 
   list_bmp.SubItems.Strings[2] := IntToStr(Fpg.images[index].Width);
   list_bmp.SubItems.Strings[3] := IntToStr(Fpg.images[index].Height);
-  // list_bmp.SubItems.Strings[4]:=IntToStr(Fpg.images[index].points);
+  // list_bmp.SubItems.Strings[4]:=IntToStr(Fpg.images[index].ncpoints);
 
 end;
 
@@ -244,4 +250,4 @@ begin
 end;
 
 
-end.
+end.

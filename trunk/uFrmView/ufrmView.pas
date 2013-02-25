@@ -26,7 +26,7 @@ interface
 uses
   LCLIntf, LCLType, SysUtils, Classes, Graphics, Controls, Forms,
   StdCtrls, ExtCtrls, ClipBrd, dialogs, Spin,
-  uinifile, uLanguage, uLoadImage;
+  uinifile, uLanguage, uLoadImage, IntfGraphics, FPimage;
 
 const
  MIN_CLIENT_WIDTH  = 269;
@@ -63,6 +63,7 @@ type
     file_selected: String;
     FPG, control_points, point_active : Boolean;
     pointX, pointY: Integer;
+    procedure paintCross( Bitmap: TBitmap; x,y:integer; pcolor:TColor);
   end;
 
 var
@@ -82,13 +83,16 @@ end;
 procedure TfrmView.FormShow(Sender: TObject);
 var
  bmp  : TBitmap;
+ ncpoints : word;
+ cpoints :   array[0..high(Word)*2] of Word;
 begin
  Caption := file_selected;
 
  if not FPG then
  begin
   bmp := Image.Picture.Bitmap;
-  loadImageFile(bmp, file_selected);
+  ncpoints := 0;
+  loadImageFile(bmp, file_selected,ncpoints,cpoints);
  end;
 
  lbAncho.Caption := IntToStr(Image.Picture.Bitmap.Width);
@@ -135,7 +139,7 @@ begin
 
   if( (pointX >= 0) and (pointX < Image.Picture.Bitmap.width) and
       (pointY >= 0) and (pointY < Image.Picture.Bitmap.height) ) then
-   Image.Picture.Bitmap.Canvas.Pixels[pointX, pointY] := inifile_color_points;
+   paintCross(Image.Picture.Bitmap,pointX, pointY,inifile_color_points );
 
   point_active := true;
  end;
@@ -165,5 +169,32 @@ begin
  end;
 end;
 
+procedure TfrmView.paintCross( Bitmap: TBitmap; x,y:integer; pcolor:TColor);
+var
+ lazBmp : TLazIntfImage;
+ fpColor : TFPColor;
+begin
+   fpColor:=TColorToFPColor(pColor);
+  lazBmp:=Bitmap.CreateIntfImage;
+  if y+2 < lazBmp.Height Then
+   lazBmp.Colors[x,y+2]:=fpColor;
+  if y+1 < lazBmp.Height Then
+  lazBmp.Colors[x,y+1]:=fpColor;
+  if y-1 > 0 Then
+    lazBmp.Colors[x,y-1]:=fpColor;
+  if y-2 > 0 Then
+    lazBmp.Colors[x,y-2]:=fpColor;
+  lazBmp.Colors[x,y]:=fpColor;
+  if x-1 > 0 Then
+   lazBmp.Colors[x-1,y]:=fpColor;
+  if x-2 > 0 Then
+   lazBmp.Colors[x-2,y]:=fpColor;
+  if x+1 < lazBmp.Width Then
+   lazBmp.Colors[x+1,y]:=fpColor;
+  if x+2 < lazBmp.Width Then
+   lazBmp.Colors[x+2,y]:=fpColor;
+  Bitmap.LoadFromIntfImage(lazBmp);
+  FreeAndNil(lazBMP);
+end;
 
 end.

@@ -27,13 +27,14 @@ type
   description    : array [0 .. 31] of char;
   palette   : array [0 .. 767] of byte;
   gamma     : array [0 .. 575] of byte;
-  ncpoints          : word;
-  cpoints : array [0 .. high(Word)] of short; //maximun value of a Word 65535
+  ncpoints          : Word;
+  cpoints :   array[0..high(Word)*2] of Word;
+  //maximun value of a Word 65535, need 1 word for x and other word for y.
   bmp : TBitMap;
  end;
 
 
-function MAP_Load(filename: string) : TBitmap;
+function MAP_Load(filename: string; var ncpoints:word; cpoints:PWord) : TBitmap;
 function create_hpal (palette_ar : array of byte) : HPALETTE;
 function loadDataBitmap(var f : TStream; palette : PByte ; width , height : longint; bytes_per_pixel : word; is_cdiv: boolean): TBitmap;
 
@@ -192,7 +193,7 @@ end;
 
 
 
-function MAP_Load(filename: string) : TBitmap;
+function MAP_Load(filename: string; var ncpoints:word; cpoints:PWord) : TBitmap;
  var
   f       : TStream;
   frames,
@@ -300,16 +301,22 @@ function MAP_Load(filename: string) : TBitmap;
 
    end;
 
-   f.Read(header.ncpoints, 2);
+   f.Read(ncpoints, 2);
+   //ncpoints:=header.ncpoints;
 
    // Leemos los puntos de control del bitmap
 
 
-
-   if header.ncpoints > 0 then
-    f.Read(header.cpoints, header.ncpoints  * 4)
-   else
-    FillChar(header.cpoints,High(Word),0); //borramos los puntos de control.
+   if ncpoints > 0 then
+   begin
+    f.Read(header.cpoints, ncpoints  * 4);
+    for i:=0 to (ncpoints*2)-1 do
+    begin
+        cpoints[i]:=header.cpoints[i];
+    end;
+   end;
+   //else
+   // FillChar(cpoints,High(Word)*4,0); //borramos los puntos de control.
 
    (*  BennuGD no controla que si ncpoints = 4096 haga algo distinto,
        Habría que revistar esta funcionalidad en DIV si se quiere implementar
@@ -338,4 +345,4 @@ function MAP_Load(filename: string) : TBitmap;
  end;
 
 end.
- 
+ 

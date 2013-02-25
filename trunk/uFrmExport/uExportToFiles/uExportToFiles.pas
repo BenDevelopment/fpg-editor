@@ -63,7 +63,7 @@ begin
   for j := 1 to lvFPG.Fpg.Count do
    if lvFPG.Fpg.images[j].graph_code = StrToInt(lvFPG.Items.Item[i].Caption) then
    begin
-    if lvFPG.Fpg.images[j].points <= 0 then
+    if lvFPG.Fpg.images[j].ncpoints <= 0 then
      continue;
 
     try
@@ -76,12 +76,12 @@ begin
 
     WriteLn(f, 'CTRL-PTS');
 
-    WriteLn(f, lvFPG.Fpg.images[j].points);
+    WriteLn(f, lvFPG.Fpg.images[j].ncpoints);
 
-    for k := 0 to lvFPG.Fpg.images[j].points - 1 do
+    for k := 0 to lvFPG.Fpg.images[j].ncpoints - 1 do
     begin
-     Write(f, lvFPG.Fpg.images[j].control_points[k*2]); Write(f, ' ');
-     WriteLn(f, lvFPG.Fpg.images[j].control_points[(k*2) + 1]);
+     Write(f, lvFPG.Fpg.images[j].cpoints[k*2]); Write(f, ' ');
+     WriteLn(f, lvFPG.Fpg.images[j].cpoints[(k*2) + 1]);
     end;
 
     CloseFile(f);

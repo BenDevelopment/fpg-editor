@@ -75,8 +75,8 @@ type
     Name: array [0 .. 31] of char;
     Width: longint;
     Height: longint;
-    points: longint;
-    control_points: array [0 .. 2047] of short;
+    ncpoints: longint;
+    cpoints :   array[0..high(Word)*2] of Word;
     bmp: TBitMap;
     graph_size: longint;
     destructor Destroy; override;
@@ -112,8 +112,8 @@ type
     procedure Create_table_16_to_8;
     procedure Sort_Palette;
     procedure SaveMap(index: integer; filename: string);
-    procedure add_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TBitmap );
-    procedure replace_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TBitmap );
+    procedure add_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TBitmap ; ncpoints:word;cpoints :PWord);
+    procedure replace_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TBitmap; ncpoints:word;cpoints :PWord );
 
   end;
 
@@ -437,13 +437,13 @@ begin
       graph_size := (widthForFPG1 div 8) * Images[i].Height + 64;
     end;
 
-    if Images[i].points > 0  then
-      graph_size := graph_size + (Images[i].points * 4);
+    if Images[i].ncpoints > 0  then
+      graph_size := graph_size + (Images[i].ncpoints * 4);
 
     (* BennuGD no comtempla el límite 4096, más info en la lectura de un MAP
-    if ((Images[i].points > 0) and (Images[i].points <> 4096)) then
-      graph_size := graph_size + (Images[i].points * 4);
-    if (Images[i].points = 4096) then
+    if ((Images[i].ncpoints > 0) and (Images[i].ncpoints <> 4096)) then
+      graph_size := graph_size + (Images[i].ncpoints * 4);
+    if (Images[i].ncpoints = 4096) then
       graph_size := graph_size + 6;
     *)
 
@@ -453,12 +453,12 @@ begin
     f.Write(Images[i].fpname, 12);
     f.Write(Images[i].Width, 4);
     f.Write(Images[i].Height, 4);
-    f.Write(Images[i].points, 4);
+    f.Write(Images[i].ncpoints, 4);
 
-    if ((Images[i].points > 0) and (Images[i].points <> 4096)) then
-      f.Write(Images[i].control_points, Images[i].points * 4);
+    if ((Images[i].ncpoints > 0) and (Images[i].ncpoints <> 4096)) then
+      f.Write(Images[i].cpoints, Images[i].ncpoints * 4);
 
-    if (Images[i].points = 4096) then
+    if (Images[i].ncpoints = 4096) then
     begin
       Frames:=0;
       f.Read(Frames, 2);
@@ -565,21 +565,21 @@ begin
         f.Read(fpname, 12);
         f.Read(Width, 4);
         f.Read(Height, 4);
-        f.Read(points, 4);
+        f.Read(ncpoints, 4);
 
         // Leemos los puntos de control del bitmap
 
-        if points > 0 then
+        if ncpoints > 0 then
         begin
-          f.Read(control_points, points * 4);
+          f.Read(cpoints, ncpoints * 4);
         end;
         (* BennuGD no tiene el límite 4096, ver carga de map para más informacion
-        if ((points > 0) and (points <> 4096)) then
+        if ((ncpoints > 0) and (ncpoints <> 4096)) then
         begin
-          f.Read(control_points, points * 4);
+          f.Read(cpoints, ncpoints * 4);
         end;
 
-        if (points = 4096) then
+        if (ncpoints = 4096) then
         begin
           f.Read(frames, 2);
           f.Read(length, 2);
@@ -687,8 +687,8 @@ begin
 
 
   MAPHeader.MSDOSEnd[0]:= 26;
-  MAPHeader.MSDOSEnd[1]:= 10;
-  MAPHeader.MSDOSEnd[2]:= 13;
+  MAPHeader.MSDOSEnd[1]:= 13;
+  MAPHeader.MSDOSEnd[2]:= 10;
   MAPHeader.MSDOSEnd[3]:= 0;
 
   f := TFileStream.Create(filename, fmCreate);
@@ -717,17 +717,18 @@ begin
       Header.Palette[i] := Header.Palette[i] shl 2;
   end;
 
-  MAPHeader.ncpoints := Images[index].points;
+  MAPHeader.ncpoints := Images[index].ncpoints;
   f.Write(MAPHeader.ncpoints, 2);
 
   if MAPHeader.ncpoints > 0 then
-    f.Write(Images[index].control_points, MAPHeader.ncpoints * 4);
-
+  begin
+    f.Write(Images[index].cpoints, MAPHeader.ncpoints * 4);
+  end;
   (* Mismo caso que en la Lectura, BennuGD no controla el valor 4096,
      por lo que soporta más de 4096 puntos de control, si se necesita implementar
      esta funcionalidad hay que ver que hace DIV
   if ((MAPHeader.ncpoints > 0) and (MAPHeader.ncpoints <> 4096)) then
-    f.Write(Images[index].control_points, MAPHeader.ncpoints * 4);
+    f.Write(Images[index].cpoints, MAPHeader.ncpoints * 4);
   if (MAPHeader.ncpoints = 4096) then
   begin
     Frames:=0;
@@ -937,7 +938,9 @@ begin
 end;
 
 // Añadir index
-procedure TFPG.add_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TBitmap );
+procedure TFPG.add_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TBitmap ; ncpoints:word;cpoints :PWord);
+var
+  i: Word;
 begin
   // Establece el código
   FreeAndNil( images[index]);
@@ -949,7 +952,9 @@ begin
   stringToArray(images[index].name,GraphicName,32);
   images[index].width  := bmp_src.Width;
   images[index].height := bmp_src.Height;
-  images[index].points := 0;
+  images[index].ncpoints:= ncpoints;
+  for i:=0 to (ncpoints*2) -1 do
+     images[index].cpoints[i]:=cpoints[i];
 
   // Se crea la imagen resultante
   images[index].bmp    := FPGCreateBitmap(bmp_src,FPGtype, header.palette);
@@ -957,7 +962,9 @@ begin
 end;
 
 // Añadir index
-procedure TFPG.replace_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TBitmap );
+procedure TFPG.replace_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TBitmap ; ncpoints:word;cpoints :PWord);
+var
+  i : word;
 begin
   // Establece el código
   images[index].graph_code  := lastcode;
@@ -967,10 +974,16 @@ begin
   stringToArray(images[index].name,GraphicName,32);
   images[index].width  := bmp_src.Width;
   images[index].height := bmp_src.Height;
+  if ncpoints>0 then
+  begin
+    images[index].ncpoints:= ncpoints;
+    for i:=0 to (ncpoints*2) -1 do
+       images[index].cpoints[i]:=cpoints[i];
+  end;
 
   images[index].bmp    := FPGCreateBitmap(bmp_src,FPGtype,header.Palette);
 
 end;
 
 
-end.
+end.
