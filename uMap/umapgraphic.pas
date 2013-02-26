@@ -38,9 +38,9 @@ type
     Version: Byte;
     //      width          : word;  // Not needed, stored in TBitmap
     //      height         : word;  // Not needed, stored in TBitmap
-    Code: dword;
+    FCode: DWord;
     FPName: array [0 .. 11] of Char; // Needed for FPG Graphics
-    Name: array [0 .. 31] of Char;
+    FName: array [0 .. 31] of Char;
     bPalette: array [0 .. 767] of Byte;
     Gamma: array [0 .. 575] of Byte;
     NCPoints: Word;
@@ -58,6 +58,8 @@ type
     procedure SetFormat(cdiv : Boolean);
     procedure SetBitsPerPixel(bpp: word);
     procedure setMagic;
+    function getName : String;
+    procedure setName(str:String);
   public
     procedure LoadFromFile(const Filename: string); override;
     procedure LoadFromStream(Stream: TStream); override;
@@ -68,6 +70,9 @@ type
   published
     property CDIVFormat : Boolean read FCDIVFormat write SetFormat default False;
     property bitsPerPixel : Word read FbitsPerPixel write setBitsPerPixel default 32;
+    property CPointsCount : Word read NCPoints;
+    property Name : String read getName write setName;
+    property Code : DWord read FCode write FCode default 1;
   end;
 
 implementation
@@ -114,28 +119,28 @@ begin
   Stream.Read(MSDOSEnd, 4);
   Stream.Read(Version, 1);
 
-  bitsPerPixel := 0;
-  CDIVFormat := False;
+  FbitsPerPixel := 0;
+  FCDIVFormat := False;
   // Ficheros de 1 bit
   if (Magic[0] = 'm') and (Magic[1] = '0') and (Magic[2] = '1') and
     (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
     (MSDOSEnd[3] = 0) then
   begin
-    bitsPerPixel := 0;
+    FbitsPerPixel := 0;
   end;
   // Ficheros de 8 bits para DIV2, FENIX y CDIV
   if (Magic[0] = 'm') and (Magic[1] = 'a') and (Magic[2] = 'p') and
     (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
     (MSDOSEnd[3] = 0) then
   begin
-    bitsPerPixel := 8;
+    FbitsPerPixel := 8;
   end;
   // Ficheros de 16 bits para FENIX
   if (Magic[0] = 'm') and (Magic[1] = '1') and (Magic[2] = '6') and
     (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
     (MSDOSEnd[3] = 0) then
   begin
-    bitsPerPixel := 16;
+    FbitsPerPixel := 16;
   end;
 
   // Ficheros de 16 bits para CDIV
@@ -143,7 +148,7 @@ begin
     (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
     (MSDOSEnd[3] = 0) then
   begin
-    bitsPerPixel := 16;
+    FbitsPerPixel := 16;
   end;
 
   // Ficheros de 24 bits
@@ -151,7 +156,7 @@ begin
     (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
     (MSDOSEnd[3] = 0) then
   begin
-    bitsPerPixel := 24;
+    FbitsPerPixel := 24;
   end;
 
   // Ficheros de 32 bits
@@ -159,15 +164,15 @@ begin
     (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
     (MSDOSEnd[3] = 0) then
   begin
-    bitsPerPixel := 32;
+    FbitsPerPixel := 32;
   end;
 
-  bytes_per_pixel:=bitsPerPixel div 8;
+  bytes_per_pixel:=FbitsPerPixel div 8;
 
   Stream.Read(tmpWidth, 2);
   Stream.Read(tmpHeight, 2);
-  Stream.Read(Code, 4);
-  Stream.Read(Name, 32);
+  Stream.Read(FCode, 4);
+  Stream.Read(FName, 32);
 
   Width := tmpWidth;
   Height := tmpHeight;
@@ -280,7 +285,7 @@ begin
         Stream.Read(byte_line, Width * bytes_per_pixel);
         for j := 0 to Width - 1 do
         begin
-          if CDIVFormat then
+          if FCDIVFormat then
           begin
             RGB16toRGB24(byte_line[j * 2 + 1], byte_line[j * 2],
               p_bytearray^[j * 4], p_bytearray^[(j * 4) + 1],
@@ -357,8 +362,8 @@ begin
   if not onFPG then
   begin
     MSDOSEnd[0] := 26;
-    MSDOSEnd[1] := 10;
-    MSDOSEnd[2] := 13;
+    MSDOSEnd[1] := 13;
+    MSDOSEnd[2] := 10;
     MSDOSEnd[3] := 0;
 
     Stream.Write(Magic, 3);
@@ -371,7 +376,7 @@ begin
     Stream.Write(aHeight, 2);
   end;
 
-  Stream.Write(Code, 4);
+  Stream.Write(FCode, 4);
 
   if onFPG then
   begin
@@ -393,7 +398,7 @@ begin
     Stream.Write(graphSize, 4);
   end;
 
-  Stream.Write(Name, 32);
+  Stream.Write(FName, 32);
   if onFPG then
   begin
     Stream.Write(FPName, 11);
@@ -421,16 +426,9 @@ begin
   else
     Stream.Write(ncpoints, 2);
 
-  if ((ncpoints > 0) and (ncpoints <> 4096)) then
+  if ncpoints > 0  then
     Stream.Write(CPoints, ncpoints * 4);
-  if (ncpoints = 4096) then
-  begin
-    Frames := 0;
-    Stream.Read(Frames, 2);
-    Stream.Read(Frames, 2); // Length
-    Stream.Read(Frames, 2);  // Speed
-    // f.Seek(length * 2, soFromCurrent);
-  end;
+
   writeDataBitmap(Stream, byte_size);
 
 end;
@@ -491,7 +489,7 @@ begin
       begin
         for j := 0 to Width - 1 do
         begin
-          if CDIVFormat then
+          if FCDIVFormat then
             if p_bytearray^[j * 4 + 3] <> 0 then
               RGB24toRGB16(byte_line[j * 2 + 1],
                 byte_line[j * 2], p_bytearray^[j * 4], p_bytearray^[j * 4 + 1],
@@ -612,7 +610,8 @@ end;
 procedure  TMAPGraphic.SetFormat(cdiv : Boolean);
 begin
   FCDIVFormat:=cdiv;
-  FbitsPerPixel:=16;
+  if cdiv then
+    FbitsPerPixel:=16;
   setMagic;
 end;
 
@@ -631,7 +630,7 @@ begin
     magic[1]:='a';
     magic[2]:='p';
   end else begin
-    strBpp:=format('%.2d',[fbitsPerPixel]);
+    strBpp:=format('%.2d',[FbitsPerPixel]);
     magic[1]:=strBpp[1];
     magic[2]:=strBpp[2];
   end;
@@ -646,4 +645,29 @@ begin
   setMagic;
 end;
 
-end.
+function TMAPGraphic.getName : String;
+var
+  i : integer;
+begin
+  result:='';
+  i:=0;
+  while FName[i] <>char(0) do
+  begin
+        result:= result+FName[i];
+        i:=i+1;
+  end;
+end;
+
+procedure TMAPGraphic.setName(str:String);
+var
+  i : integer;
+begin
+  i:=0;
+  while (i<32) and ( i<=length(str) ) do
+  begin
+        FName[i]:=str[i+1];
+  end;
+end;
+
+
+end.
