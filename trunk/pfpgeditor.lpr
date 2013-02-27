@@ -5,10 +5,10 @@ uses
   Forms, Dialogs, uFrmMain, uBMP, uMap, uTools, uSort, uPCX, ufrmView,
   uLoadImage, uCopyPalette, uPAL, uColor16bits, uFPGConvert,
   ufrmFPGImages, ufrmNewFPG, ufrmAnimate, ufrmConfig, uFrmExport,
-  uExportToFiles, ufrmPalette, uFrmSplahs, uinifile, uLanguage, ufrmZipFenix,
+  uExportToFiles, ufrmPalette, uFrmSplahs, uinifile, uLanguage,
   uAAText, uColorTable, uFNT, uFrmBpp, uFrmCFG, uFrmMainFNT, uFrmAbout,
   uFrmInputBox, uFrmMessageBox, Interfaces, uFrmFNTView,
-  uMAPGraphic, uFPG, uFPGListView;
+  uMAPGraphic, uFPG, uFPGListView, ufrmZipFenix;
 
 {$R *.res}
 
@@ -32,7 +32,6 @@ begin
   Application.CreateForm(TfrmNewFPG, frmNewFPG);
   Application.CreateForm(TfrmPalette, frmPalette);
   Application.CreateForm(TfrmView, frmView);
-  Application.CreateForm(TfrmZipFenix, frmZipFenix);
   Application.CreateForm(TfrmMainFNT, frmMainFNT);
   Application.CreateForm(TFrmCFG, FrmCFG);
   Application.CreateForm(TfBPP, fBPP);

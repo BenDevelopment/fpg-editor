@@ -26,8 +26,8 @@ interface
 
 uses
   LCLIntf, LCLType, Graphics, Classes, SysUtils, Forms, Dialogs, FileUtil,
-  Process, IntfGraphics, FPimage,
-  uIniFile , uMap, lazcanvas, GraphType;
+  Process, IntfGraphics, FPimage, lazcanvas, GraphType,
+  uMap;
 
  function RunExe(Cmd, WorkDir: String): string;overload;
  function RunExe(Cmd, WorkDir,outputfilename: String): string;overload;
@@ -37,10 +37,7 @@ uses
  function prepare_file_source(dir : string; name : string) : string;
  function NumberTo3Char( number: LongInt ): string;
  
- procedure DrawProportional( var bmp_src : TBitMap; var bmp_dst: TBitMap; bgcolor:TColor; newwidth, newheight:Integer );overload;
- procedure DrawProportional( var bmp_src : TBitMap; var bmp_dst: TBitMap; bgcolor:TColor );overload;
- procedure DrawProportional( var bmp_src : TBitMap; var bmp_dst: TBitMap);overload;
- procedure DrawProportional( var bmp : TBitmap); overload;
+ procedure DrawProportional( var bmp_src : TBitMap; var bmp_dst: TBitMap; bgcolor:TColor; newwidth, newheight:Integer );
 
  procedure simulate1bppIn32bpp(var bmp_src : TBitmap);
  procedure simulate8bppIn32bpp(var bmp_src : TBitmap; palette : PByte );
@@ -50,6 +47,7 @@ uses
 
  procedure colorToTransparent(var bmp_src : TBitmap; color1 : tcolor ; splitTo16b :boolean = false);
  procedure setAlpha(var Bitmap: TBItmap; value: Byte);
+ procedure setAlpha(var Bitmap: TBItmap; value: Byte; in_rect : TRect );
 
  function createBitmap1bpp( bmp_src : TBitmap; cdivformat : boolean = false): TBitmap;
  function createBitmap8bpp( bmp_src : TBitmap; palette:PByte): TBitmap;
@@ -252,11 +250,6 @@ begin
   result := '0' + result;
 end;
 
-procedure DrawProportional( var bmp_src : TBitMap; var bmp_dst: TBitMap);
-begin
-    DrawProportional(bmp_src,bmp_dst,clWhite);
-end;
-
 
 procedure setAlpha(var Bitmap: TBItmap; value: Byte; in_rect : TRect );
 var
@@ -366,31 +359,6 @@ begin
 
 end;
 
-procedure DrawProportional( var bmp_src : TBitMap; var bmp_dst: TBitMap; bgcolor:TColor);
-begin
- DrawProportional( bmp_src , bmp_dst, bgcolor,inifile_sizeof_icon,inifile_sizeof_icon);
-end;
-
-procedure DrawProportional( var bmp : TBitmap);
-var
-  thumbRect : TRect;
-  maxWidth, maxHeight : integer;
-begin
- thumbRect.Left :=0; //  := inifile_sizeof_icon;
- thumbRect.Top := 0 ; // inifile_sizeof_icon;
- maxWidth:=  inifile_sizeof_icon;
- maxHeight:=  inifile_sizeof_icon ;
- if bmp <> nil then begin
-   if bmp.Width > bmp.Height then begin
-    thumbRect.Right := maxWidth;
-    thumbRect.Bottom := (maxWidth * bmp.Height) div bmp.Width;
-   end else begin
-    thumbRect.Bottom := maxHeight;
-    thumbRect.Right := (maxHeight * bmp.Width) div bmp.Height;
-   end;
-   bmp.Canvas.StretchDraw( thumbRect, bmp );
- end;
-end;
 
 procedure simulate1bppIn32bpp(var bmp_src : TBitmap);
 var
@@ -557,4 +525,4 @@ begin
 
 end;
 
-end.
+end.

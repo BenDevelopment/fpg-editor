@@ -89,7 +89,7 @@ type
     { Public declarations }
     header: TFpgHeader;
     images: array [1 .. MAX_NUM_IMAGES] of TFpgGraphic;
-    FPGtype: byte;
+    FPGFormat: byte;
     active, update: boolean;
     source: string;
 
@@ -106,7 +106,7 @@ type
     function indexOfCode(code: word): word;
     procedure DeleteWithCode(code: word);
     procedure Initialize;
-    procedure setFileType;
+    procedure setMagic;
     procedure Save(var gFPG: TProgressBar);
     function Load(str: string; var gFPG: TProgressBar): boolean;
     procedure Create_table_16_to_8;
@@ -378,7 +378,7 @@ var
 
 begin
   bytes_per_pixel := 0;
-  case FPGtype of
+  case FPGFormat of
     FPG1:
     begin
       bytes_per_pixel := 0;
@@ -412,7 +412,7 @@ begin
   f.Write(Header.MSDOSEnd, 4);
   f.Write(Header.Version, 1);
   *)
-  if FPGtype = FPG8_DIV2 then
+  if FPGFormat = FPG8_DIV2 then
   begin
     for i := 0 to 767 do
       Header.Palette[i] := Header.Palette[i] shr 2;
@@ -427,7 +427,7 @@ begin
   graph_size := 0;
   for i := 1 to Count do
   begin
-    if FPGtype <> FPG1 then
+    if FPGFormat <> FPG1 then
     begin
       graph_size := (Images[i].Width * Images[i].Height * bytes_per_pixel) + 64;
     end else begin
@@ -467,7 +467,7 @@ begin
      // f.Seek(length * 2, soFromCurrent);
     end;
 
-    writeDataBitmap(f,Images[i].bmp,bytes_per_pixel, (FPGtype = FPG16_CDIV), header.Palette);
+    writeDataBitmap(f,Images[i].bmp,bytes_per_pixel, (FPGFormat = FPG16_CDIV), header.Palette);
 
     gFPG.Position := (i * 100) div Count;
     gFPG.Repaint;
@@ -491,7 +491,7 @@ var
   byte_size: Word;
   i : Integer;
 begin
-  FPGtype := FPG_NULL;
+  FPGFormat := FPG_NULL;
   FreeAndNil(header);
   header:=TFpgHeader.Create();
 
@@ -528,9 +528,9 @@ begin
   gFPG.Repaint;
   byte_size := 0;
 
-  FPGtype := header.getFPGType(byte_size);
+  FPGFormat := header.getFPGType(byte_size);
 
-  if (FPGtype = FPG_NULL) then
+  if (FPGFormat = FPG_NULL) then
   begin
     feMessageBox(LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_WRONG_FPG], 0, 0);
     f.Free;
@@ -538,7 +538,7 @@ begin
   end;
 
   try
-    if (FPGtype = FPG8_DIV2) then
+    if (FPGFormat = FPG8_DIV2) then
     begin
       f.Read(header.palette, 768);
       f.Read(header.gamma, 576);
@@ -588,7 +588,7 @@ begin
         end;
         *)
 
-        bmp:=loadDataBitmap(f,header.palette,width,height, byte_size, FPGtype=FPG16_CDIV);
+        bmp:=loadDataBitmap(f,header.palette,width,height, byte_size, FPGFormat=FPG16_CDIV);
 
         gFPG.Position := (f.Position * 100) div f.Size;
         gFPG.Repaint;
@@ -657,7 +657,7 @@ var
   Frames : Word;
 begin
   byte_size := 0;
-  case FPGtype of
+  case FPGFormat of
     FPG1:
     begin
       byte_size := 0;
@@ -705,7 +705,7 @@ begin
   f.Write(Images[index].graph_code, 4);
   f.Write(Images[index].Name, 32);
 
-  if FPGtype = FPG8_DIV2 then
+  if FPGFormat = FPG8_DIV2 then
   begin
     for i := 0 to 767 do
       Header.Palette[i] := Header.Palette[i] shr 2;
@@ -739,15 +739,15 @@ begin
   end;
   *)
 
-  writeDataBitmap(f, Images[index].bmp,byte_size ,(FPGtype = FPG16_CDIV), header.Palette);
+  writeDataBitmap(f, Images[index].bmp,byte_size ,(FPGFormat = FPG16_CDIV), header.Palette);
 
   f.Free;
 
 end;
 
-Procedure TFpg.setFileType;
+Procedure TFpg.setMagic;
 begin
- case FPGtype of
+ case FPGFormat of
   FPG1:
     header.Magic := 'f01';
   FPG8_DIV2:
@@ -778,6 +778,8 @@ begin
  header.MSDOSEnd[2] := 10;
  header.MSDOSEnd[3] := 0;
  header.Version     := 0;
+ FPGFormat:=FPG32;
+
 end;
 
 //Comprobamos si es un archivo FPG sin comprimir
@@ -957,7 +959,7 @@ begin
      images[index].cpoints[i]:=cpoints[i];
 
   // Se crea la imagen resultante
-  images[index].bmp    := FPGCreateBitmap(bmp_src,FPGtype, header.palette);
+  images[index].bmp    := FPGCreateBitmap(bmp_src,FPGFormat, header.palette);
 
 end;
 
@@ -981,9 +983,9 @@ begin
        images[index].cpoints[i]:=cpoints[i];
   end;
 
-  images[index].bmp    := FPGCreateBitmap(bmp_src,FPGtype,header.Palette);
+  images[index].bmp    := FPGCreateBitmap(bmp_src,FPGFormat,header.Palette);
 
 end;
 
 
-end.
+end.

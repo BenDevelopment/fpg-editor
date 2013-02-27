@@ -630,7 +630,7 @@ begin
     magic[1]:='a';
     magic[2]:='p';
   end else begin
-    strBpp:=format('%.2d',[FbitsPerPixel]);
+    strBpp:= Format('%.2d',[FbitsPerPixel]);
     magic[1]:=strBpp[1];
     magic[2]:=strBpp[2];
   end;
@@ -669,5 +669,7 @@ begin
   end;
 end;
 
+initialization
+  TPicture.RegisterFileFormat('map','DIV MAP Images', TMAPGraphic);
 
 end.

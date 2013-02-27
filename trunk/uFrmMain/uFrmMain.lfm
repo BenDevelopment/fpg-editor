@@ -1,10 +1,10 @@
 object frmMain: TfrmMain
-  Left = 258
+  Left = 301
   Height = 618
-  Top = 104
+  Top = 177
   Width = 818
   Caption = 'FPG Editor'
-  ClientHeight = 598
+  ClientHeight = 589
   ClientWidth = 818
   Menu = MainMenu
   OnActivate = FormActivate
@@ -26,18 +26,18 @@ object frmMain: TfrmMain
   end
   object gbFPG: TGroupBox
     Left = 0
-    Height = 334
+    Height = 325
     Top = 264
     Width = 818
     Align = alClient
     Caption = ' FPG (Ficheros de gráficos) '
-    ClientHeight = 316
+    ClientHeight = 302
     ClientWidth = 814
     TabOrder = 0
     object pbFPG: TProgressBar
       Left = 0
       Height = 11
-      Top = 277
+      Top = 263
       Width = 814
       Align = alBottom
       TabOrder = 1
@@ -585,7 +585,7 @@ object frmMain: TfrmMain
       end
       object edFPGCODE: TSpinEdit
         Left = 720
-        Height = 22
+        Height = 23
         Top = 2
         Width = 63
         Font.Height = -11
@@ -601,34 +601,28 @@ object frmMain: TfrmMain
     end
     object lvFPG: TFPGListView
       Left = 0
-      Height = 251
+      Height = 237
       Top = 26
       Width = 814
       Align = alClient
       Columns = <      
         item
           MinWidth = 50
-          Width = 10
         end      
         item
           MinWidth = 50
-          Width = 10
         end      
         item
           MinWidth = 50
-          Width = 10
         end      
         item
           MinWidth = 50
-          Width = 10
         end      
         item
           MinWidth = 50
-          Width = 10
         end      
         item
           MinWidth = 50
-          Width = 10
         end>
       IconOptions.AutoArrange = True
       LargeImages = ilFPG
@@ -639,14 +633,14 @@ object frmMain: TfrmMain
       SortColumn = 0
       SortType = stText
       TabOrder = 2
-      Visible = False
       ViewStyle = vsIcon
       OnDblClick = lvFPGDblClick
+      repaintNumber = 0
     end
     object pFPGStatus: TPanel
       Left = 0
       Height = 28
-      Top = 288
+      Top = 274
       Width = 814
       Align = alBottom
       ClientHeight = 28
@@ -654,12 +648,12 @@ object frmMain: TfrmMain
       TabOrder = 3
       object cbTipoFPG: TComboBox
         Left = 604
-        Height = 21
+        Height = 26
         Top = 1
         Width = 209
         Align = alRight
         Font.Height = -11
-        ItemHeight = 13
+        ItemHeight = 0
         ItemIndex = 5
         Items.Strings = (
           'FPG 1 bit'
@@ -673,7 +667,6 @@ object frmMain: TfrmMain
         ParentFont = False
         TabOrder = 0
         Text = 'FPG 32 bits (BennuGD )'
-        Visible = False
       end
       object lblFilename: TLabel
         Left = 1
@@ -700,21 +693,22 @@ object frmMain: TfrmMain
     Width = 818
     Align = alTop
     Caption = ' Imagenes '
-    ClientHeight = 241
+    ClientHeight = 236
     ClientWidth = 814
     TabOrder = 2
+    Visible = False
     object panelDirs: TPanel
       Left = 0
-      Height = 241
+      Height = 236
       Top = 0
       Width = 233
       Align = alLeft
-      ClientHeight = 241
+      ClientHeight = 236
       ClientWidth = 233
       TabOrder = 0
       object ShellTreeView1: TShellTreeView
         Left = 1
-        Height = 139
+        Height = 134
         Top = 1
         Width = 231
         Align = alClient
@@ -730,7 +724,7 @@ object frmMain: TfrmMain
       object ShellListView1: TShellListView
         Left = 1
         Height = 100
-        Top = 140
+        Top = 135
         Width = 231
         Align = alBottom
         Color = clDefault
@@ -738,23 +732,24 @@ object frmMain: TfrmMain
         Visible = False
         ViewStyle = vsReport
         ObjectTypes = [otNonFolders]
+        Root = '/'
         ShellTreeView = ShellTreeView1
       end
     end
     object pImagesList: TPanel
       Left = 238
-      Height = 241
+      Height = 236
       Top = 0
       Width = 576
       Align = alClient
       Caption = 'pImagesList'
-      ClientHeight = 241
+      ClientHeight = 236
       ClientWidth = 576
       TabOrder = 1
       object pbImages: TProgressBar
         Left = 1
         Height = 10
-        Top = 230
+        Top = 225
         Width = 574
         Align = alBottom
         OnContextPopup = pbImagesContextPopup
@@ -1189,7 +1184,7 @@ object frmMain: TfrmMain
       end
       object lvImages: TListView
         Left = 1
-        Height = 205
+        Height = 200
         Top = 25
         Width = 574
         Align = alClient
@@ -1197,22 +1192,18 @@ object frmMain: TfrmMain
           item
             Caption = 'name'
             MinWidth = 50
-            Width = 10
           end        
           item
             Caption = 'width'
             MinWidth = 50
-            Width = 10
           end        
           item
             Caption = 'height'
             MinWidth = 50
-            Width = 10
           end        
           item
             Caption = 'bpp'
             MinWidth = 50
-            Width = 10
           end>
         IconOptions.AutoArrange = True
         LargeImages = ilImages
@@ -1229,7 +1220,7 @@ object frmMain: TfrmMain
     end
     object Splitter1: TSplitter
       Left = 233
-      Height = 241
+      Height = 236
       Top = 0
       Width = 5
     end
@@ -1776,6 +1767,10 @@ object frmMain: TfrmMain
       Caption = '32 bits'
       OnExecute = aFPG32Execute
     end
+    object aAddImg2: TAction
+      Category = 'FPG'
+      OnExecute = aAddImg2Execute
+    end
   end
   object ilMenu: TImageList
     left = 448
@@ -1860,45 +1855,6 @@ object frmMain: TfrmMain
           E1FFBEEBF5FFEDFFFFFFEDFFFFFFEDFFFFFFEDFFFFFF7BBED6FF54B0CEFF45A8
           C9FF45A6C7FF45A3C4FF69B1CEFF90C4D8FFFF00FF00FF00FF00FF00FF00C9EB
           F5FF6BC9E3FF69C5DFFF58BCDAFF58BAD8FF78C5DDFFA1D4E5FFFF00FF00FF00
-          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-        }
-      end
-      object miSalir: TMenuItem
-        Action = aClose
-        Bitmap.Data = {
-          36040000424D3604000000000000360000002800000010000000100000000100
-          2000000000000004000064000000640000000000000000000000FF00FF00FF00
-          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00239B
-          BDFF009CC8FF00A1CEFF009DCBFF009AC7FF0096C4FF0093C1FF008FBDFF008C
-          BAFF0088B6FF0084B3FF0080AFFF007CACFF478DA8FFFF00FF00FF00FF000096
-          C0FF05B1D9FFDBF8FDFFD3F7FFFFD2F6FFFFD2F6FFFFD2F6FFFFD1F5FFFFD1F5
-          FFFFD1F5FFFFD1F5FFFFD6F6FEFFD3E8F1FF007AA9FF9CA5A8FFFF00FF000097
-          C2FF00A2CEFFD9FAFDFF80F3FFFF78ECFFFF6FE6FFFF6EE5FFFF6DE5FFFF6CE4
-          FFFF6CE4FFFF6BE3FFFF7DE7FFFFC5EFF9FF298AB4FF7C9CA8FFFF00FF000098
-          C4FF28ABD1FFC4EFF7FF93F8FFFF93F8FFFF8FF6FFFF84F0FFFF7AECFFFF73E9
-          FFFF72E8FFFF71E8FFFF84ECFFFFADEAF8FF4B9BBEFF5D92A8FFFF00FF00009A
-          C5FF49B5D6FFA4E3F2FFB8FCFFFFA3FAFFFFA3FAFFFFA2FAFFFFA2FAFFFF9FF8
-          FFFF98F6FFFF92F4FFFF9CF5FFFFA9F0F9FF8CC1D6FF488CA8FFFF00FF00009B
-          C7FF82C8DFFF81D1E8FFD1FDFFFFB1FCFFFFB1FCFFFFB0FCFFFFB0FCFFFFB0FC
-          FFFFAFFCFFFFAEFCFFFFBAFDFFFFB7F9FDFFB8DCE7FF2884A7FFFF00FF00009C
-          C9FFABD7E6FF53C0DFFFDFFEFFFFBEFDFFFFBEFDFFFFBEFDFFFFBDFDFFFFBDFD
-          FFFFBDFDFFFFBDFDFFFFC6FDFFFFB6FAFDFFE1F9FBFF007AA9FFFF00FF00009E
-          CBFFBFE3EEFF1AAED7FFE8F8FCFFEDFEFEFFEEFEFFFFEDFEFFFFEDFEFFFFEDFE
-          FFFFECFEFFFFECFEFFFFEFFEFFFFEBFEFEFFE2F4F7FF007AA9FFFF00FF0013A2
-          CBFFD4F4F8FF39BFDDFF0FA6D1FF2EB5D7FF2EB1D5FF2EAED1FF2EACCFFF2EA9
-          CCFF2EA6CAFF2EA4C7FF2EA1C4FF2E9EC2FF1A8DB6FF0B7EAAFFFF00FF0033AB
-          CCFFDDF8F8FF8AFAFFFF8AFAFFFF8AFAFFFF8AFAFFFFCCFDFFFFEDFFFFFFEDFF
-          FFFFEDFFFFFFEDFFFFFFEDFFFFFF3C8AA7FFFF00FF00FF00FF00FF00FF0042AD
-          CBFFBEEBF5FFEDFFFFFFEDFFFFFFEDFFFFFFEDFFFFFF66A8C1FF3E9AB9FF3396
-          B8FF3394B6FF3392B3FF4E97B3FF6CA0B4FFFF00FF00FF00FF00FF00FF0097BA
-          C3FF51AEC8FF4EAAC5FF42A7C4FF42A4C2FF59A6BEFF79ADBEFFFF00FF00FF00
           FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
           FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
           FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
@@ -2842,4 +2798,8 @@ object frmMain: TfrmMain
       end
     end
   end
-end
+  object OpenPictureDialog: TOpenPictureDialog
+    left = 280
+    top = 200
+  end
+end

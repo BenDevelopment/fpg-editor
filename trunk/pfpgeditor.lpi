@@ -34,13 +34,16 @@
         <LaunchingApplication PathPlusParams="\usr\bin\xterm -T 'Lazarus Run Output' -e $(LazarusDir)\tools\runwait.sh $(TargetCmdLine)"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="2">
+    <RequiredPackages Count="3">
       <Item1>
-        <PackageName Value="LCLBase"/>
+        <PackageName Value="fpg_editor_pkg"/>
       </Item1>
       <Item2>
-        <PackageName Value="LCL"/>
+        <PackageName Value="LCLBase"/>
       </Item2>
+      <Item3>
+        <PackageName Value="LCL"/>
+      </Item3>
     </RequiredPackages>
     <Units Count="37">
       <Unit0>
@@ -289,7 +292,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="uFrmMain;uBMP;uMap;uTools;uSort;uPCX;uFrmView;uLoadImage;uPAL;uColor16bits;uFPGConvert;uFPGFrmImages;uFPGFrmNew;uFrmAnimate;uFrmConfig;uFrmExport;uFrmPalette;uFrmSplash;uIniFile;uLanguage;uMessages\uFrmInputBox;uMessages\uFrmMessageBox;uFrmExport\uExportToFiles;uFrmZipFenix;uAAtext;uColorTable;uFNT;uFrmBpp;uFrmCFG;uFrmMainFNT;uFrmAbout;uFrmFPGView;uFrmFNTView;uFPG;uFPGListView"/>
+      <OtherUnitFiles Value="uFrmMain;uBMP;uMap;uTools;uSort;uPCX;uFrmView;uLoadImage;uPAL;uColor16bits;uFPGConvert;uFPGFrmImages;uFPGFrmNew;uFrmAnimate;uFrmConfig;uFrmExport;uFrmPalette;uFrmSplash;uIniFile;uLanguage;uMessages\uFrmInputBox;uMessages\uFrmMessageBox;uFrmExport\uExportToFiles;uAAtext;uColorTable;uFNT;uFrmBpp;uFrmCFG;uFrmMainFNT;uFrmAbout;uFrmFPGView;uFrmFNTView;uFPG;uFPGListView;uFrmZipFenix"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <CodeGeneration>
