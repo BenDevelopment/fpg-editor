@@ -37,6 +37,7 @@ type
 function MAP_Load(filename: string; var ncpoints:word; cpoints:PWord) : TBitmap;
 function create_hpal (palette_ar : array of byte) : HPALETTE;
 function loadDataBitmap(var f : TStream; palette : PByte ; width , height : longint; bytes_per_pixel : word; is_cdiv: boolean): TBitmap;
+function MAP_test(filename :String):Boolean;
 
 implementation
  function create_hpal (palette_ar : array of byte) : HPALETTE;
@@ -191,7 +192,76 @@ begin
 
 end;
 
+function MAP_test(filename :String):Boolean;
+var
+ Stream       : TStream;
+ header : file_str_map;
+begin
+  Result := False;
+  if not FileExistsUTF8(filename) { *Converted from FileExists*  } then
+   Exit;
+  try
+   Stream := TFileStream.Create(filename, fmOpenRead);
+  except
+   Exit;
+  end;
 
+  try
+   Stream.Read(header.Magic, 3);
+   Stream.Read(header.MSDOSEnd , 4);
+   Stream.Read(header.Version, 1);
+  except
+   Stream.free;
+   Exit;
+  end;
+
+  // Ficheros de 1 bit
+  if (header.Magic[0]         = 'm') and (header.Magic[1]         = '0') and
+     (header.Magic[2]         = '1') and (header.MSDOSEnd [0]     = 26 ) and
+     (header.MSDOSEnd [1]     = 13 ) and (header.MSDOSEnd [2] = 10 ) and
+     (header.MSDOSEnd [3] = 0) then begin
+      Result := True;
+  end;
+  // Ficheros de 8 bits para DIV2, FENIX y CDIV
+  if (header.Magic[0]         = 'm') and (header.Magic[1]         = 'a') and
+     (header.Magic[2]         = 'p') and (header.MSDOSEnd [0]     = 26 ) and
+     (header.MSDOSEnd [1]     = 13 ) and (header.MSDOSEnd [2] = 10 ) and
+     (header.MSDOSEnd [3] = 0) then begin
+      Result := True;
+  end;
+  // Ficheros de 16 bits para FENIX
+  if (header.Magic[0]         = 'm') and (header.Magic[1]         = '1') and
+     (header.Magic[2]         = '6') and (header.MSDOSEnd [0]     = 26 ) and
+     (header.MSDOSEnd [1]     = 13 ) and (header.MSDOSEnd [2] = 10 ) and
+     (header.MSDOSEnd [3] = 0) then begin
+      Result := True;
+  end;
+
+  // Ficheros de 16 bits para CDIV
+  if (header.Magic[0]         = 'c') and (header.Magic[1]         = '1') and
+     (header.Magic[2]         = '6') and (header.MSDOSEnd [0]     = 26 ) and
+     (header.MSDOSEnd [1]     = 13 ) and (header.MSDOSEnd [2] = 10 ) and
+     (header.MSDOSEnd [3] = 0) then begin
+      Result := True;
+  end;
+
+  // Ficheros de 24 bits
+  if (header.Magic[0]         = 'm') and (header.Magic[1]         = '2') and
+     (header.Magic[2]         = '4') and (header.MSDOSEnd [0]     = 26 ) and
+     (header.MSDOSEnd [1]     = 13 ) and (header.MSDOSEnd [2] = 10 ) and
+     (header.MSDOSEnd [3] = 0) then begin
+      Result := True;
+  end;
+
+     // Ficheros de 32 bits
+  if (header.Magic[0]         = 'm') and (header.Magic[1]         = '3') and
+     (header.Magic[2]         = '2') and (header.MSDOSEnd [0]     = 26 ) and
+     (header.MSDOSEnd [1]     = 13 ) and (header.MSDOSEnd [2] = 10 ) and
+     (header.MSDOSEnd [3] = 0) then begin
+      Result := True;
+  end;
+  FreeAndNil(Stream);
+end;
 
 function MAP_Load(filename: string; var ncpoints:word; cpoints:PWord) : TBitmap;
  var

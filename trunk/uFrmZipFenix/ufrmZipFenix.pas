@@ -26,8 +26,8 @@ interface
 
 uses
   LCLIntf, LCLType, SysUtils, Classes, Graphics, Controls, Forms, ComCtrls,
-  StdCtrls, Buttons, FileCtrl, ExtCtrls, FileUtil, uFPG, uLanguage, uTools,
-  uFrmMessageBox, ShellCtrls;
+  StdCtrls, Buttons, FileCtrl, ExtCtrls, FileUtil, ShellCtrls, uFPG, uLanguage, uTools,
+  uFrmMessageBox, uMAP,uFNT ;
 
 type
 
@@ -119,61 +119,33 @@ end;
 
 procedure TfrmZipFenix.bbCompressClick(Sender: TObject);
 var
- temp_fpg_header : TFpgHeader;
  f : File of Byte;
  f1: TFileStream;
- is_fpg : Boolean;
+ uncompressed : Boolean;
  filename : String;
+
 begin
- is_fpg := false;
- filename := flb.Root + DirectorySeparator+ flb.selected.caption;
+ uncompressed := false;
 
  if flb.ItemIndex = -1 then
+   Exit;
+
+ filename := flb.Root + DirectorySeparator+ flb.selected.caption;
+
+ if not FileExists(filename) then
   Exit;
 
- if not FileExists(FileName) then
-  Exit;
-(*
- f1 := TFileStream.Create(FileName, fmOpenRead);
+ uncompressed:=FPG_Test(filename);
+ if not uncompressed then
+   uncompressed:=MAP_Test(filename);
+ if not uncompressed then
+   uncompressed:=FNT_Test(filename);
 
- f1.Read(temp_fpg_header.file_type, 3);
- f1.Read(temp_fpg_header.fpg_code , 4);
- f1.Read(temp_fpg_header.Version, 1);
-
- f1.free;
-
- //Ficheros de 8 bits para DIV2, FENIX
-  if (temp_fpg_header.file_type[0] = 'f') and (temp_fpg_header.file_type[1] = 'p') and
-     (temp_fpg_header.file_type[2] = 'g') and (temp_fpg_header.fpg_code [0] = 26 ) and
-     (temp_fpg_header.fpg_code [1] = 13 ) and (temp_fpg_header.fpg_code [2] = 10 ) and
-     (temp_fpg_header.fpg_code [3] = 0) then
-   is_fpg := true;
-
- //Ficheros de 16 bits para FENIX
-  if (temp_fpg_header.file_type[0] = 'f') and (temp_fpg_header.file_type[1] = '1') and
-     (temp_fpg_header.file_type[2] = '6') and (temp_fpg_header.fpg_code [0] = 26 ) and
-     (temp_fpg_header.fpg_code [1] = 13 ) and (temp_fpg_header.fpg_code [2] = 10 ) and
-     (temp_fpg_header.fpg_code [3] = 0) then
-   is_fpg := true;
-
-    //Ficheros de 32 bits para BenuGD
-  if (temp_fpg_header.file_type[0] = 'f') and (temp_fpg_header.file_type[1] = '2') and
-     (temp_fpg_header.file_type[2] = '4') and (temp_fpg_header.fpg_code [0] = 26 ) and
-     (temp_fpg_header.fpg_code [1] = 13 ) and (temp_fpg_header.fpg_code [2] = 10 ) and
-     (temp_fpg_header.fpg_code [3] = 0) then
-   is_fpg := true;
-    //Ficheros de 32 bits para BenuGD
-  if (temp_fpg_header.file_type[0] = 'f') and (temp_fpg_header.file_type[1] = '3') and
-     (temp_fpg_header.file_type[2] = '2') and (temp_fpg_header.fpg_code [0] = 26 ) and
-     (temp_fpg_header.fpg_code [1] = 13 ) and (temp_fpg_header.fpg_code [2] = 10 ) and
-     (temp_fpg_header.fpg_code [3] = 0) then
-   is_fpg := true;
-
- if not is_fpg then
+ if not uncompressed then
  begin
   feMessageBox(LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_NOTFPG], 0, 0);
   Exit;
- end; *)
+ end;
 
  pZip.Visible := true;
 
@@ -199,6 +171,7 @@ begin
  statusbar.Panels.Items[1].Text := IntToStr(old_file_size) + ' Bytes';
 
  pZip.Visible := False;
+ flb.Refresh;
 end;
 
 procedure TfrmZipFenix.flbSelectItem(Sender: TObject; Item: TListItem;
@@ -214,7 +187,6 @@ begin
  frmZipFenix.Caption := LNG_STRINGS[125];
  lbZipFile.Caption   := LNG_STRINGS[123];
  bbCompress.Caption  := LNG_STRINGS[124];
- flb.Mask:='*.fpg';
 end;
 
 end.
