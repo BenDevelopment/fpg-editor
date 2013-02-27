@@ -185,7 +185,7 @@ begin
 
  //FPG_Create_hpal;
 
- lvFPG.Fpg.FPGtype             := FPG8_DIV2;
+ lvFPG.Fpg.FPGFormat             := FPG8_DIV2;
  lvFPG.Fpg.header.Magic := 'fpg';
  lvFPG.Fpg.loadpalette     := true;
  lvFPG.Fpg.update := true;
@@ -269,7 +269,7 @@ begin
  Convert_to_FPG16_common( lvFPG, gFPG);
 
  // Actualizamos los datos del FPG
- lvFPG.Fpg.FPGtype             := FPG16;
+ lvFPG.Fpg.FPGFormat             := FPG16;
  lvFPG.Fpg.header.Magic := 'f16';
  lvFPG.Fpg.loadPalette     := false;
  lvFPG.Fpg.update := true;
@@ -282,7 +282,7 @@ begin
  Convert_to_FPG16_common( lvFPG, gFPG, true);
 
  // Actualizamos los datos del FPG
- lvFPG.Fpg.FPGtype             := FPG16_CDIV;
+ lvFPG.Fpg.FPGFormat             := FPG16_CDIV;
  lvFPG.Fpg.header.Magic := 'c16';
  lvFPG.Fpg.loadPalette     := false;
  lvFPG.Fpg.update := true;
@@ -318,7 +318,7 @@ begin
 
  gFPG.Hide;
  // Actualizamos los datos del FPG
- lvFPG.Fpg.FPGtype             := FPG24;
+ lvFPG.Fpg.FPGFormat             := FPG24;
  lvFPG.Fpg.header.Magic := 'f24';
  lvFPG.Fpg.loadPalette     := false;
  lvFPG.Fpg.update := true;
@@ -330,7 +330,7 @@ begin
  New_type := FPG32;
 
  // Actualizamos los datos del FPG
- lvFPG.Fpg.FPGtype             := FPG32;
+ lvFPG.Fpg.FPGFormat             := FPG32;
  lvFPG.Fpg.header.Magic := 'f32';
  lvFPG.Fpg.loadPalette     := false;
  lvFPG.Fpg.update := true;
@@ -369,7 +369,7 @@ begin
 
  gFPG.Hide;
  // Actualizamos los datos del FPG
- lvFPG.Fpg.FPGtype             := FPG1;
+ lvFPG.Fpg.FPGFormat             := FPG1;
  lvFPG.Fpg.header.Magic := 'f01';
  lvFPG.Fpg.loadPalette     := false;
  lvFPG.Fpg.update := true;

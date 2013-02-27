@@ -144,8 +144,8 @@ begin
 
  FPG.Initialize;
  FPG.source   := edNombre.Text;
- FPG.FPGtype  := cbTipoFPG.ItemIndex;
- FPG.setFileType;
+ FPG.FPGFormat  := cbTipoFPG.ItemIndex;
+ FPG.setMagic;
 
  ModalResult := mrOK;
  Hide;
@@ -209,4 +209,4 @@ begin
  cbTipoFPG.Color := clMedGray;
 end;
 
-end.
+end.

@@ -28,7 +28,7 @@ uses
   ufrmNewFPG, ufrmPalette, ufrmFPGImages, uLanguage, Dialogs, uTools,
   uFPGConvert, uLoadImage, uFrmExport, uFrmInputBox, uFrmMessageBox,
   uExportToFiles, uFPGListView, FileUtil, ShellCtrls, ActnList, FileCtrl, Spin,
-  types, uFrmZipFenix, ufrmMainFNT, uFrmAbout;
+  ExtDlgs, types, uFrmZipFenix, uFrmAbout, ufrmMainFNT;
 
 const
   DRAG_LVFPG    = 0;
@@ -47,6 +47,7 @@ type
     aBennu: TAction;
     aCDiv: TAction;
     aAnimFPG: TAction;
+    aAddImg2: TAction;
     aFPG1: TAction;
     aFPG32: TAction;
     aFPG24: TAction;
@@ -96,6 +97,7 @@ type
     miFPG1: TMenuItem;
     miFPG32: TMenuItem;
     miFPG24: TMenuItem;
+    OpenPictureDialog: TOpenPictureDialog;
     pFPGStatus: TPanel;
     sbFilter: TSpeedButton;
     edFPGCODE: TSpinEdit;
@@ -158,7 +160,6 @@ type
     miFNTmaker: TMenuItem;
     miZip: TMenuItem;
     miTools: TMenuItem;
-    miSalir: TMenuItem;
     miFPG: TMenuItem;
     pFPGCODE: TPanel;
     ShellListView1: TShellListView;
@@ -223,6 +224,7 @@ type
     Bevel10: TBevel;
     Bevel11: TBevel;
     Bevel12: TBevel;
+    procedure aAddImg2Execute(Sender: TObject);
     procedure aFPG16cExecute(Sender: TObject);
     procedure aFPG1Execute(Sender: TObject);
     procedure aFPG24Execute(Sender: TObject);
@@ -451,8 +453,8 @@ procedure TfrmMain.Update_Panels;
 begin
   lblFilename.Caption := lvFPG.Fpg.source;
 
-  cbTipoFPG.ItemIndex := lvFPG.Fpg.FPGtype;
-  case lvFPG.Fpg.FPGtype of
+  cbTipoFPG.ItemIndex := lvFPG.Fpg.FPGFormat;
+  case lvFPG.Fpg.FPGFormat of
    FPG1:
     begin
      lblTransparentColor.caption := 'RGB(0, 0, 0)';
@@ -640,44 +642,44 @@ begin
     frmAbout.showModal;
 end;
 
+procedure TfrmMain.aAddImg2Execute(Sender: TObject);
+var
+ i      : LongInt;
+
+begin
+end;
 
 procedure TfrmMain.aAddImgExecute(Sender: TObject);
 var
-  lItems : TStringList;
+  lItems : TStrings;
   i      : LongInt;
 
 begin
-   if lvFPG.Visible then
+   // Si no hay imagenes seleccionadas
+   if lvImages.Visible then
    begin
-     // Si no hay imagenes seleccionadas
-     if (lvImages.SelCount <= 0) then
+    if (lvImages.SelCount <= 0) then
+     Exit;
+
+    lItems := TStringList.Create;
+    for i := 0 to lvImages.Items.Count - 1 do
+    begin
+     // Si la imagen no ha sido selecionada pasamos
+     // a la siguiente imagen
+     if not lvImages.Items.Item[i].Selected then
+      continue;
+     lItems.Add(ShellListView1.Root + DirectorySeparator +lvImages.Items.Item[i].Caption);
+    end;
+   end else begin
+    if not OpenPictureDialog.Execute then
       Exit;
-
-      if not lvFPG.visible then
-         Exit;
-
-      lvFPG.Fpg.lastCode:=edFPGCode.Value;
-
-     lItems := TStringList.Create;
-
-     for i := 0 to lvImages.Items.Count - 1 do
-     begin
-
-
-      // Si la imagen no ha sido selecionada pasamos
-      // a la siguiente imagen
-      if not lvImages.Items.Item[i].Selected then
-       continue;
-
-
-      lItems.Add(lvImages.Items.Item[i].Caption);
-     end;
-
-     lvFPG.insert_images(lItems, ShellListView1.Root, pbFPG);
-
-     // Pone el código de inserción actual
-     edFPGCode.Value  := lvFPG.Fpg.lastCode + 1;
+    lItems:=OpenPictureDialog.Files;
    end;
+
+   lvFPG.Fpg.lastCode:=edFPGCode.Value;
+   lvFPG.insert_images(lItems, pbFPG);
+   // Pone el código de inserción actual
+   edFPGCode.Value  := lvFPG.Fpg.lastCode + 1;
 end;
 
 
@@ -732,7 +734,7 @@ begin
     for j := 1 to lvFPG.Fpg.Count  do
      if lvFPG.Fpg.images[j].graph_code = StrToInt(lvFPG.Items.Item[i].Caption) then
      begin
-      DrawProportional(lvFPG.Fpg.images[j].bmp, bmp_dst,lvFPG.Color);
+      DrawProportional(lvFPG.Fpg.images[j].bmp, bmp_dst,lvFPG.Color,ilFPG.width,ilfpg.Height);
       lvFPG.Items.Item[i].ImageIndex := ilFPG.add(bmp_dst, nil);
      end;
 
@@ -873,10 +875,8 @@ procedure TfrmMain.aExportExecute(Sender: TObject);
 var
  path : string;
 begin
- if not lvFPG.visible then
-  Exit;
 
- if ((lvFPG.SelCount <= 0) and (lvFPG.Fpg.FPGtype <> FPG8_DIV2)) then
+ if ((lvFPG.SelCount <= 0) and (lvFPG.Fpg.FPGFormat <> FPG8_DIV2)) then
   Exit;
 
  with frmExport do
@@ -890,7 +890,7 @@ begin
    rgResType.Items.Add(LNG_STRINGS[LNG_IMAGE_TO] + ' MAP');
   end;
 
-  if lvFPG.Fpg.FPGtype = FPG8_DIV2 then
+  if lvFPG.Fpg.FPGFormat = FPG8_DIV2 then
   begin
    rgResType.Items.Add(LNG_STRINGS[LNG_PALETTE_TO] + ' PAL (DIV2)');
    rgResType.Items.Add(LNG_STRINGS[LNG_PALETTE_TO] + ' PAL (PSP4)');
@@ -936,7 +936,7 @@ begin
   2: export_to_MAP(lvFPG, path, TForm(frmMain), pbFPG);
  end;
 
- if lvFPG.Fpg.FPGtype = FPG8_DIV2 then
+ if lvFPG.Fpg.FPGFormat = FPG8_DIV2 then
   case frmExport.rgResType.ItemIndex of
    3: export_DIV2_PAL(lvFPG,path);
    4: export_PSP_PAL(lvFPG,path);
@@ -1100,36 +1100,29 @@ procedure TfrmMain.aNewExecute(Sender: TObject);
 begin
  QueryResult := mrYes;
  aCloseExecute(Sender);
+
  // Si se cancela guardar archivo
  if QueryResult = mrCancel then
   Exit;
 
- lvFPG.Fpg.source := prepare_file_source(ShellListView1.Root, LNG_STRINGS[48] + '.fpg');
+ //lvFPG.Fpg.source := prepare_file_source(ShellListView1.Root, LNG_STRINGS[48] + '.fpg');
 
- frmNewFPG.edNombre.Text := lvFPG.Fpg.source;
- frmNewFPG.fpg:=lvFPG.Fpg;
- frmNewFPG.ShowModal;
+ //frmNewFPG.edNombre.Text := lvFPG.Fpg.source;
+ //frmNewFPG.fpg:=lvFPG.Fpg;
+ //frmNewFPG.ShowModal;
 
  lvFPG.Fpg.Initialize;
- if (lvFPG.Fpg.active) then
- begin
-  lvFPG.Visible := true;
-  cbTipoFPG.Visible := true;
-  Update_Panels;
-  edFPGCODE.Value:=1;
- end;
+ Update_Panels;
+ edFPGCODE.Value:=1;
+
 end;
 
 procedure TfrmMain.aCloseExecute(Sender: TObject);
 begin
-  if not lvFPG.visible then
-   Exit;
 
   //FPG no esta actualizado o no tiene elementos
   if not lvFPG.Fpg.update then
   begin
-   lvFPG.visible := lvFPG.Fpg.active;
-   cbTipoFPG.Visible := lvFPG.Fpg.active;
 
    lvFPG.Items.Clear;
    lblFilename.Caption := '';
@@ -1150,8 +1143,6 @@ begin
    aSaveAsExecute(Sender);
 
   lvFPG.Items.Clear;
-  lvFPG.visible := lvFPG.Fpg.active;
-  cbTipoFPG.visible := lvFPG.Fpg.active;
   lblFilename.Caption := '';
   lblTransparentColor.Caption := '';
   cbTipoFPG.ItemIndex:= 5;
@@ -1206,10 +1197,12 @@ end;
 
 procedure TfrmMain.aSaveAsExecute(Sender: TObject);
 begin
-   if not lvFPG.visible then
-  Exit;
 
  //Sale si no se pulsa cancelar
+ if lvfpg.fpg.source ='' then
+    SaveDialog.FileName:=LNG_STRINGS[48] + '.fpg'
+ else
+    SaveDialog.FileName:=lvfpg.fpg.source;
  if not SaveDialog.Execute then
   Exit;
 
@@ -1238,11 +1231,12 @@ end;
 
 procedure TfrmMain.aSaveExecute(Sender: TObject);
 begin
-   if not lvFPG.visible then
-  Exit;
-
- lvFPG.Fpg.Save( pbFPG);
- lvFPG.Fpg.update := false;
+ if lvFPG.Fpg.source = '' then
+    aSaveAsExecute(Sender)
+ else begin
+    lvFPG.Fpg.Save( pbFPG);
+    lvFPG.Fpg.update := false;
+ end;
 
 end;
 
@@ -1308,8 +1302,6 @@ end;
 
 procedure TfrmMain.edFPGCODEChange(Sender: TObject);
 begin
- if not lvFPG.visible then
-  Exit;
  lvFPG.Fpg.lastCode := edFPGCODE.Value;
 end;
 
@@ -1394,7 +1386,7 @@ begin
 
     list_bmp := lvImages.Items.Add;
 
-    DrawProportional(bmp_src, bmp_dst, lvImages.Color);
+    DrawProportional(bmp_src, bmp_dst, lvImages.Color,ilImages.Width,ilImages.Height);
 
     list_bmp.ImageIndex := ilImages.add(bmp_dst, nil);
 
@@ -1440,8 +1432,7 @@ end;
 
 procedure TfrmMain.FormDestroy(Sender: TObject);
 begin
- if lvFPG.visible then
-   lvFPG.freeFPG;
+ lvFPG.freeFPG;
 end;
 
 //-----------------------------------------------------------------------------
@@ -1511,9 +1502,6 @@ end;
 procedure TfrmMain.lvFPG_Load_Bitmaps;
 begin
  lvFPG.Fpg.active    := true;
- lvFPG.visible := true;
- cbTipoFPG.visible := lvFPG.Fpg.active;
-
 
  Update_Panels;
 
@@ -1572,6 +1560,9 @@ begin
   ShellListView1.Mask:= EFilter.Text;
   lvImages.Color:=inifile_bg_color;
   lvFPG.Color:=inifile_bg_colorFPG;
+  lvFPG.notClipboardImage:=LNG_STRINGS[LNG_NOT_CLIPBOARD_IMAGE];
+  lvFPG.repaintNumber:=inifile_repaint_number;
+  Update_Panels;
 
 end;
 
@@ -1644,6 +1635,7 @@ begin
  Update_Panels;
 end;
 
+
 procedure TfrmMain.aFPG1Execute(Sender: TObject);
 begin
  Convert_to_FPG1(lvFPG,  pbFPG);
@@ -1698,7 +1690,6 @@ end;
 
 procedure TfrmMain.mmPasteImageClick(Sender: TObject);
 begin
- if lvFPG.visible then
   lvFPG.insert_imagescb ( pbFPG);
 end;
 
@@ -1707,11 +1698,13 @@ var
  j : integer;
  MyFormat : Word;
 begin
+ (*
  if not lvFPG.visible then
  begin
   feMessageBox( LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_NOT_EXIST_FPG], 0, 0);
   Exit;
  end;
+ *)
 
  if (lvFPG.SelCount <> 1) then
  begin
@@ -1837,4 +1830,4 @@ begin
 
 end;
 
-end.
+end.

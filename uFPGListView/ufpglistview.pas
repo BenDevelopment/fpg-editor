@@ -6,28 +6,32 @@ interface
 
 uses
   Classes, SysUtils, LResources, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  ClipBrd, uFPG, uLanguage, uinifile, uTools,
-  uLoadImage, uColor16bits, uFrmMessageBox, IntfGraphics;
+  ClipBrd, IntfGraphics,
+  uFPG, uLoadImage,uTools;
 
 type
   TFPGListView = class(TListView)
   private
     { Private declarations }
+    FrepaintNumber : Integer ;
     ffpg: TFPG;
+    fnotClipboardImage : String;
   protected
     { Protected declarations }
   public
     { Public declarations }
     procedure Load_Images(progressBar: TProgressBar);
-    procedure Insert_Images(lImages: TStringList; dir: string;
-      var progressBar: TProgressBar);
+    procedure Insert_Images(lImages: TStrings; progressBar: TProgressBar);
     procedure Insert_Imagescb(var progressBar: TProgressBar);
     procedure add_items(index: word);
     procedure replace_item(index: word);
     procedure freeFPG;
+    procedure DrawProportional( var bmp_src : TBitMap; var bmp_dst: TBitMap );
   published
     { Published declarations }
     property Fpg: TFpg read Ffpg write Ffpg;
+    property repaintNumber: Integer read FrepaintNumber write FrepaintNumber default 1;
+    property notClipboardImage: String read fnotClipboardImage write fnotClipboardImage;
   end;
 
 procedure Register;
@@ -48,9 +52,6 @@ begin
   LargeImages.Clear;
   Items.Clear;
 
-  LargeImages.Width := inifile_sizeof_icon;
-  LargeImages.Height := inifile_sizeof_icon;
-
   progressBar.Position := 0;
   progressBar.Show;
   progressBar.Repaint;
@@ -59,7 +60,7 @@ begin
     with Fpg.images[Count] do
     begin
       add_items(Count);
-      if (Count mod inifile_repaint_number) = 0 then
+      if (Count mod repaintNumber) = 0 then
       begin
         progressBar.Position := (Count * 100) div Fpg.Count;
         progressBar.Repaint;
@@ -71,15 +72,14 @@ begin
 end;
 
 
-procedure TFPGListView.Insert_Images(lImages: TStringList; dir: string;
-  var progressBar: TProgressBar);
+procedure TFPGListView.Insert_Images(lImages: TStrings; progressBar: TProgressBar);
 var
-  i: integer;
-  bmp_src: TBitmap;
-  ncpoints : Word;
-  cpoints :   array[0..high(Word)*2] of Word;
-  file_source, filename: string;
-  index: word;
+  i       : Integer;
+  code    : Word;
+  bmp_src : TBitmap;
+  ncpoints: Word;
+  cpoints : array[0..high(Word)*2] of Word;
+  filename: String;
 begin
   // Creamos el bitmap fuente y destino
   bmp_src := TBitmap.Create;
@@ -88,12 +88,11 @@ begin
   progressBar.Show;
   progressBar.Repaint;
 
-
   for i := 0 to lImages.Count - 1 do
   begin
 
-    index := Fpg.indexOfCode(Fpg.lastcode);
-    if index <> 0 then
+    code := Fpg.indexOfCode(Fpg.lastcode);
+    if code <> 0 then
     begin
       if MessageDlg('El código: ' + IntToStr(Fpg.lastcode) +
         ' ya existe. ¿Desea sobrescribirlo?', mtConfirmation,
@@ -101,30 +100,18 @@ begin
         continue;
     end;
 
-    filename := lImages.Strings[i];
-
-    // Se prepara la ruta del fichero
-    file_source := prepare_file_source(Dir, filename);
+    filename :=  ExtractFileName(lImages.Strings[i]);;
 
     // Se carga la imagen
     ncpoints:=0;
-    loadImageFile(bmp_src, file_source,ncpoints,cpoints);
-
-  (*
-  // Se incrementa el código de la imagen
-  Fpg.last_code := Fpg.last_code + 1;
-
-  // Busca hasta que encuentre un código libre
-  while CodeExists(Fpg.last_code) do
-    Fpg.last_code := Fpg.last_code + 1;
-  *)
+    loadImageFile(bmp_src,  lImages.Strings[i] ,ncpoints,cpoints);
 
     // ver como meter fpgeditor3.1
-    if index <> 0 then
+    if code <> 0 then
     begin
-      fpg.replace_bitmap(index, ChangeFileExt(filename, ''),
+      fpg.replace_bitmap(code, ChangeFileExt(filename, ''),
         ChangeFileExt(filename, ''), bmp_src,ncpoints,cpoints);
-      replace_item(index);
+      replace_item(code);
     end
     else
     begin
@@ -167,12 +154,9 @@ begin
   except
     bmp_src.Destroy;
     progressBar.Hide;
-    feMessageBox(LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_NOT_CLIPBOARD_IMAGE], 0, 0);
+    MessageDlg(notClipboardImage, mtError, [mbOK], 0);
     Exit;
   end;
-
-  LargeImages.Width := inifile_sizeof_icon;
-  LargeImages.Height := inifile_sizeof_icon;
 
   // Se incrementa el código de la imagen
   Fpg.lastcode := Fpg.lastcode + 1;
@@ -201,14 +185,15 @@ var
 begin
 
   // Pintamos el icono
-  DrawProportional(Fpg.images[index].bmp, bmp_dst, color);
+  DrawProportional(Fpg.images[index].bmp, bmp_dst);
 
   list_bmp := Items.Add;
 
   list_bmp.ImageIndex := LargeImages.add(bmp_dst, nil);
 
   // Se establece el código del FPG
-  list_bmp.Caption := NumberTo3Char(Fpg.images[index].graph_code);
+  list_bmp.Caption := Format('%.3d',[Fpg.images[index].graph_code]);
+  //NumberTo3Char(Fpg.images[index].graph_code);
 
   // Se añaden los datos de la imagen a la lista
   list_bmp.SubItems.Add(Fpg.images[index].fpname);
@@ -227,7 +212,7 @@ var
 begin
 
   // Pintamos el icono
-  DrawProportional(Fpg.images[index].bmp, bmp_dst, color);
+  DrawProportional(Fpg.images[index].bmp, bmp_dst);
 
   list_bmp := Items.Item[index - 1];
 
@@ -249,5 +234,51 @@ begin
   FreeAndNil(ffpg);
 end;
 
+procedure TFPGListView.DrawProportional( var bmp_src : TBitMap; var bmp_dst: TBitMap );
+var
+ x, y, finalWidth, finalHeight : integer;
+ bitmap1 : TBitmap;
+ lazBMP : TLazIntfImage;
+ lazBMPsrc : TLazIntfImage;
 
-end.
+begin
+ bmp_dst := TBitmap.Create;
+ bmp_dst.PixelFormat:= pf32bit;
+ bitmap1 := TBitmap.Create;
+ bitmap1.PixelFormat:= pf32bit;
+
+ bmp_dst.SetSize(LargeImages.Width,LargeImages.Height);
+ setAlpha(bmp_dst,0,Rect(0, 0, LargeImages.Width , LargeImages.Height));
+
+ x := 0;
+ y := 0;
+ finalWidth  := bmp_dst.Width;
+ finalHeight := bmp_dst.Height;
+
+ if bmp_src <> nil then begin
+   if bmp_src.Width > bmp_src.Height then
+   begin
+    finalHeight := (bmp_src.Height * LargeImages.Width) div bmp_src.Width;
+    y := (LargeImages.Height - finalHeight) div 2;
+   end
+   else
+   begin
+    finalWidth  := (bmp_src.Width * LargeImages.Height) div bmp_src.Height;
+    x := (LargeImages.Width - finalWidth) div 2;
+   end;
+
+   bitmap1.SetSize(finalWidth,finalHeight);
+   bitmap1.Canvas.StretchDraw( Rect(0, 0, finalWidth , finalHeight ), bmp_src );
+
+   copyPixels(bmp_dst,bitmap1,x,y);
+
+   if countAlphas(bitmap1,0) >= finalWidth*finalHeight then
+    setAlpha(bmp_dst,255,Rect(x, y, x+finalWidth , y+finalHeight));
+
+   bitmap1.Free;
+
+ end;
+
+end;
+
+end.
