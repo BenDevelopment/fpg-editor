@@ -47,7 +47,6 @@ type
     aBennu: TAction;
     aCDiv: TAction;
     aAnimFPG: TAction;
-    aAddImg2: TAction;
     aFPG1: TAction;
     aFPG32: TAction;
     aFPG24: TAction;
@@ -99,7 +98,6 @@ type
     miFPG24: TMenuItem;
     OpenPictureDialog: TOpenPictureDialog;
     pFPGStatus: TPanel;
-    sbFilter: TSpeedButton;
     edFPGCODE: TSpinEdit;
     gbFPG: TGroupBox;
     ilMenu: TImageList;
@@ -224,7 +222,6 @@ type
     Bevel10: TBevel;
     Bevel11: TBevel;
     Bevel12: TBevel;
-    procedure aAddImg2Execute(Sender: TObject);
     procedure aFPG16cExecute(Sender: TObject);
     procedure aFPG1Execute(Sender: TObject);
     procedure aFPG24Execute(Sender: TObject);
@@ -271,17 +268,13 @@ type
     procedure aSelectAllImgsExecute(Sender: TObject);
     procedure aZipToolExecute(Sender: TObject);
     procedure cbTipoFPGChange(Sender: TObject);
-    procedure ComboBox1Change(Sender: TObject);
-    procedure sbFilterClick(Sender: TObject);
+    procedure FormDropFiles(Sender: TObject; const FileNames: array of String);
     procedure edFPGCODEChange(Sender: TObject);
     procedure EFilterKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormResize(Sender: TObject);
     procedure pbImagesContextPopup(Sender: TObject; MousePos: TPoint;
       var Handled: Boolean);
     procedure lvImagesDblClick(Sender: TObject);
-    procedure lvFPGDragOver(Sender, Source: TObject; X, Y: Integer;
-      State: TDragState; var Accept: Boolean);
-    procedure lvFPGDragDrop(Sender, Source: TObject; X, Y: Integer);
     procedure FormDestroy(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure lvFPGDblClick(Sender: TObject);
@@ -297,9 +290,10 @@ type
     procedure mmCopyImageClick(Sender: TObject);
     procedure mmClearClipBoardClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
-//    procedure sbImagesFilterClick(Sender: TObject);
     procedure sbFPGCODEClick(Sender: TObject);
     procedure edFPGCODEKeyPress(Sender: TObject; var Key: Char);
+    procedure ShellListView1Change(Sender: TObject; Item: TListItem;
+      Change: TItemChange);
     procedure ShellTreeView1Change(Sender: TObject; Node: TTreeNode);
   private
     { Private declarations }
@@ -640,13 +634,6 @@ end;
 procedure TfrmMain.aAboutExecute(Sender: TObject);
 begin
     frmAbout.showModal;
-end;
-
-procedure TfrmMain.aAddImg2Execute(Sender: TObject);
-var
- i      : LongInt;
-
-begin
 end;
 
 procedure TfrmMain.aAddImgExecute(Sender: TObject);
@@ -1285,19 +1272,25 @@ begin
  end;
 end;
 
-procedure TfrmMain.ComboBox1Change(Sender: TObject);
+
+procedure TfrmMain.FormDropFiles(Sender: TObject;
+  const FileNames: array of String);
+var
+ i: Integer;
+ litems : TStrings;
 begin
 
-end;
+ lItems := TStringList.Create;
+ for i := 0 to Length(FileNames) -1 do
+ begin
+   lItems.Add(FileNames[i]);
+ end;
 
+ lvFPG.Fpg.lastCode:=edFPGCode.Value;
+ lvFPG.insert_images(lItems, pbFPG);
+ // Pone el código de inserción actual
+ edFPGCode.Value  := lvFPG.Fpg.lastCode + 1;
 
-procedure TfrmMain.sbFilterClick(Sender: TObject);
-begin
-  if EFilter.Text<>'' then
-  begin
-   ShellListView1.Mask:=EFilter.Text;
-   ShellTreeView1Change(sender, nil);
-  end;
 end;
 
 procedure TfrmMain.edFPGCODEChange(Sender: TObject);
@@ -1310,7 +1303,11 @@ procedure TfrmMain.EFilterKeyUp(Sender: TObject; var Key: Word;
 begin
   if key = VK_RETURN then
   begin
-    sbFilterClick(sender);
+   if EFilter.Text<>'' then
+   begin
+    ShellListView1.Mask:=EFilter.Text;
+    ShellTreeView1Change(sender, nil);
+   end;
   end;
 end;
 
@@ -1416,17 +1413,6 @@ end;
 procedure TfrmMain.lvImagesDblClick(Sender: TObject);
 begin
  aOpenImgExecute(Sender);
-end;
-
-procedure TfrmMain.lvFPGDragOver(Sender, Source: TObject; X, Y: Integer;
-  State: TDragState; var Accept: Boolean);
-begin
-
-end;
-
-procedure TfrmMain.lvFPGDragDrop(Sender, Source: TObject; X, Y: Integer);
-begin
-
 end;
 
 
@@ -1563,6 +1549,7 @@ begin
   lvFPG.notClipboardImage:=LNG_STRINGS[LNG_NOT_CLIPBOARD_IMAGE];
   lvFPG.repaintNumber:=inifile_repaint_number;
   Update_Panels;
+  EFilter.Filter:=OpenPictureDialog.Filter;
 
 end;
 
@@ -1766,6 +1753,18 @@ begin
  end; 
 end;
 
+procedure TfrmMain.ShellListView1Change(Sender: TObject; Item: TListItem;
+  Change: TItemChange);
+begin
+  if inifile_autoload_images then
+ begin
+  cancel_load_icons := true;
+  lvBMP_add_icons
+ end
+ else
+  lvBMP_add_text;
+end;
+
 
 
 
@@ -1779,7 +1778,6 @@ begin
  sbImagesEdit.Flat    := inifile_show_flat;
  sbImagesUpdate.Flat  := inifile_show_flat;
  sbImagesRemove.Flat  := inifile_show_flat;
- sbFilter.Flat:= inifile_show_flat;
 
  lvImages.FlatScrollBars := inifile_show_flat;
 
