@@ -656,7 +656,7 @@ var
 
 begin
    // Si no hay imagenes seleccionadas
-   if lvImages.Visible then
+   if gbImages.Visible then
    begin
     if (lvImages.SelCount <= 0) then
      Exit;
@@ -1830,4 +1830,4 @@ begin
 
 end;
 
-end.
+end.

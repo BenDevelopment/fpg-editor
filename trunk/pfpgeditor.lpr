@@ -37,6 +37,7 @@ begin
   Application.CreateForm(TfBPP, fBPP);
   Application.CreateForm(TFrmAbout, FrmAbout);
   Application.CreateForm(TfrmFNTView, frmFNTView);
+  Application.CreateForm(TfrmZipFenix, frmZipFenix);
   //Application.CreateForm(TfrmSplash, frmSplash);
   Application.Run;
 end.
