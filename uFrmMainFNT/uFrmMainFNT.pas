@@ -191,6 +191,7 @@ type
     font_shadow: LongInt;
     img_font, img_edge, img_shadow : TBitMap;
     nFont : TFont;
+    procedure openParamFile;
   end;
 
 var
@@ -1597,6 +1598,27 @@ begin
  end;
 end;
 
+procedure TfrmMainFNT.openParamFile;
+begin
+ // Si hay fuente como parámetro
+ if ParamCount = 1 then
+  if FileExistsUTF8(ParamStr(1) ) { *Converted from FileExists*  } then
+   if load_fnt( ParamStr(1) ) then
+   begin
+    sbInfo.Panels.Items[0].Text := dlgOpen.FileName;
+    sbInfo.Panels.Items[1].Text := 'Tamaño: ' + IntToStr(fnt_container.sizeof div 1024) + 'KB';
+
+    sbSave.Enabled := true;
+    sbSaveAs.Enabled := true;
+
+    if fnt_container.header.file_type[2]='x' then
+        inifile_symbol_type := fnt_container.header.charset;
+
+    MakePreview;
+   end;
+
+end;
+
 procedure TfrmMainFNT.FormCreate(Sender: TObject);
 begin
  // Carga la configuración de inicio
@@ -1639,22 +1661,6 @@ begin
  if inifile_fnt_effects = 3 then // Tachado
   nFont.Style := [fsStrikeOut];
 
- // Si hay fuente como parámetro
- if ParamCount = 1 then
-  if FileExistsUTF8(ParamStr(1) ) { *Converted from FileExists*  } then
-   if load_fnt( ParamStr(1) ) then
-   begin
-    sbInfo.Panels.Items[0].Text := dlgOpen.FileName;
-    sbInfo.Panels.Items[1].Text := 'Tamaño: ' + IntToStr(fnt_container.sizeof div 1024) + 'KB';
-
-    sbSave.Enabled := true;
-    sbSaveAs.Enabled := true;
-
-    if fnt_container.header.file_type[2]='x' then
-        inifile_symbol_type := fnt_container.header.charset;
-
-    MakePreview;
-   end;
 
  cbNumbers.Checked  := ((inifile_symbol_type and 1 ) = 1);
  cbUpper.Checked    := ((inifile_symbol_type and 2 ) = 2);

@@ -57,7 +57,7 @@ object frmMainFNT: TfrmMainFNT
       Top = 0
       Width = 464
       Caption = 'Nombre de la fuente'
-      ClientHeight = 25
+      ClientHeight = 22
       ClientWidth = 460
       TabOrder = 0
       object sbLoadFont: TSpeedButton
@@ -109,7 +109,7 @@ object frmMainFNT: TfrmMainFNT
         Left = 6
         Height = 13
         Top = 0
-        Width = 79
+        Width = 69
         Caption = 'No hay fuente'
         ParentColor = False
       end
@@ -117,7 +117,7 @@ object frmMainFNT: TfrmMainFNT
         Left = 7
         Height = 13
         Top = 0
-        Width = 79
+        Width = 69
         Caption = 'No hay fuente'
         ParentColor = False
       end
@@ -128,12 +128,12 @@ object frmMainFNT: TfrmMainFNT
       Top = 0
       Width = 52
       Caption = 'Tamaño'
-      ClientHeight = 25
+      ClientHeight = 22
       ClientWidth = 48
       TabOrder = 1
       object edSizeFont: TEdit
         Left = 6
-        Height = 23
+        Height = 21
         Top = -2
         Width = 33
         MaxLength = 2
@@ -148,12 +148,12 @@ object frmMainFNT: TfrmMainFNT
       Top = 0
       Width = 104
       Caption = 'Estilo'
-      ClientHeight = 25
+      ClientHeight = 22
       ClientWidth = 100
       TabOrder = 2
       object cbStyle: TComboBox
         Left = 6
-        Height = 22
+        Height = 19
         Top = -2
         Width = 89
         Constraints.MaxHeight = 22
@@ -175,14 +175,14 @@ object frmMainFNT: TfrmMainFNT
       Top = 40
       Width = 160
       Caption = 'Contenido'
-      ClientHeight = 81
+      ClientHeight = 78
       ClientWidth = 156
       TabOrder = 3
       object cbUpper: TCheckBox
         Left = 7
-        Height = 25
+        Height = 19
         Top = 25
-        Width = 100
+        Width = 75
         Caption = 'Mayúsculas'
         Checked = True
         OnClick = cbUpperClick
@@ -191,9 +191,9 @@ object frmMainFNT: TfrmMainFNT
       end
       object cbMinus: TCheckBox
         Left = 7
-        Height = 25
+        Height = 19
         Top = 42
-        Width = 97
+        Width = 71
         Caption = 'Minúsculas'
         Checked = True
         OnClick = cbMinusClick
@@ -202,9 +202,9 @@ object frmMainFNT: TfrmMainFNT
       end
       object cbNumbers: TCheckBox
         Left = 7
-        Height = 25
+        Height = 19
         Top = 8
-        Width = 83
+        Width = 62
         Caption = 'Números'
         Checked = True
         OnClick = cbNumbersClick
@@ -213,9 +213,9 @@ object frmMainFNT: TfrmMainFNT
       end
       object cbSymbol: TCheckBox
         Left = 86
-        Height = 25
+        Height = 19
         Top = 8
-        Width = 84
+        Width = 61
         Caption = 'Símbolos'
         Checked = True
         OnClick = cbSymbolClick
@@ -224,9 +224,9 @@ object frmMainFNT: TfrmMainFNT
       end
       object cbExtended: TCheckBox
         Left = 86
-        Height = 25
+        Height = 19
         Top = 25
-        Width = 89
+        Width = 68
         Caption = 'Extendido'
         OnClick = cbExtendedClick
         TabOrder = 4
@@ -235,13 +235,13 @@ object frmMainFNT: TfrmMainFNT
         Left = 88
         Height = 13
         Top = 48
-        Width = 21
+        Width = 19
         Caption = 'Alfa'
         ParentColor = False
       end
       object seFontAlfa: TSpinEdit
         Left = 110
-        Height = 20
+        Height = 19
         Top = 44
         Width = 41
         Font.Color = clWindowText
@@ -259,7 +259,7 @@ object frmMainFNT: TfrmMainFNT
       Top = 39
       Width = 184
       Caption = 'Selección de colores'
-      ClientHeight = 81
+      ClientHeight = 78
       ClientWidth = 180
       TabOrder = 4
       object imgSelect: TImage
@@ -538,9 +538,9 @@ object frmMainFNT: TfrmMainFNT
       end
       object rbSFont: TRadioButton
         Left = 118
-        Height = 25
+        Height = 19
         Top = 8
-        Width = 70
+        Width = 54
         Caption = 'Fuente'
         Checked = True
         OnClick = rbSFontClick
@@ -549,18 +549,18 @@ object frmMainFNT: TfrmMainFNT
       end
       object rbSEdge: TRadioButton
         Left = 117
-        Height = 25
+        Height = 19
         Top = 27
-        Width = 79
+        Width = 61
         Caption = 'Reborde'
         OnClick = rbSEdgeClick
         TabOrder = 1
       end
       object rbSShadow: TRadioButton
         Left = 117
-        Height = 25
+        Height = 19
         Top = 46
-        Width = 73
+        Width = 56
         Caption = 'Sombra'
         OnClick = rbSShadowClick
         TabOrder = 2
@@ -572,14 +572,14 @@ object frmMainFNT: TfrmMainFNT
       Top = 39
       Width = 104
       Caption = 'Sombra'
-      ClientHeight = 81
+      ClientHeight = 78
       ClientWidth = 100
       TabOrder = 5
       object lbShadow: TLabel
         Left = 55
         Height = 13
         Top = 0
-        Width = 33
+        Width = 26
         Caption = 'Posici'
         ParentColor = False
       end
@@ -587,71 +587,71 @@ object frmMainFNT: TfrmMainFNT
         Left = 54
         Height = 13
         Top = 42
-        Width = 21
+        Width = 19
         Caption = 'Alfa'
         ParentColor = False
       end
       object rbsLT: TRadioButton
         Left = 5
-        Height = 22
+        Height = 19
         Top = 14
-        Width = 22
+        Width = 20
         OnClick = rbsLTClick
         TabOrder = 0
       end
       object rbsTM: TRadioButton
         Left = 21
-        Height = 22
+        Height = 19
         Top = 14
-        Width = 22
+        Width = 20
         OnClick = rbsTMClick
         TabOrder = 1
       end
       object rbsRT: TRadioButton
         Left = 37
-        Height = 22
+        Height = 19
         Top = 14
-        Width = 22
+        Width = 20
         OnClick = rbsRTClick
         TabOrder = 2
       end
       object rbsRM: TRadioButton
         Left = 37
-        Height = 22
+        Height = 19
         Top = 29
-        Width = 22
+        Width = 20
         OnClick = rbsRMClick
         TabOrder = 3
       end
       object rbsLM: TRadioButton
         Left = 5
-        Height = 22
+        Height = 19
         Top = 29
-        Width = 22
+        Width = 20
         OnClick = rbsLMClick
         TabOrder = 4
       end
       object rbsLD: TRadioButton
         Left = 5
-        Height = 22
+        Height = 19
         Top = 44
-        Width = 22
+        Width = 20
         OnClick = rbsLDClick
         TabOrder = 5
       end
       object rbsDM: TRadioButton
         Left = 21
-        Height = 22
+        Height = 19
         Top = 44
-        Width = 22
+        Width = 20
         OnClick = rbsDMClick
         TabOrder = 6
       end
       object rbsRD: TRadioButton
         Left = 37
-        Height = 22
+        Height = 19
         Top = 44
-        Width = 22
+        Width = 20
         Checked = True
         OnClick = rbsRDClick
         TabOrder = 7
@@ -659,7 +659,7 @@ object frmMainFNT: TfrmMainFNT
       end
       object sedSizeShadow: TSpinEdit
         Left = 54
-        Height = 20
+        Height = 19
         Top = 15
         Width = 41
         Font.Color = clWindowText
@@ -671,7 +671,7 @@ object frmMainFNT: TfrmMainFNT
       end
       object seSoAlfa: TSpinEdit
         Left = 53
-        Height = 20
+        Height = 19
         Top = 58
         Width = 41
         Font.Color = clWindowText
@@ -689,14 +689,14 @@ object frmMainFNT: TfrmMainFNT
       Top = 39
       Width = 56
       Caption = 'Reborde'
-      ClientHeight = 81
+      ClientHeight = 78
       ClientWidth = 52
       TabOrder = 6
       object lbSizeEdge: TLabel
         Left = 6
         Height = 13
         Top = 0
-        Width = 44
+        Width = 38
         Caption = 'Tamaño'
         ParentColor = False
       end
@@ -704,13 +704,13 @@ object frmMainFNT: TfrmMainFNT
         Left = 6
         Height = 13
         Top = 40
-        Width = 21
+        Width = 19
         Caption = 'Alfa'
         ParentColor = False
       end
       object sedSizeEdge: TSpinEdit
         Left = 6
-        Height = 20
+        Height = 19
         Top = 16
         Width = 41
         Font.Color = clWindowText
@@ -722,7 +722,7 @@ object frmMainFNT: TfrmMainFNT
       end
       object seReAlfa: TSpinEdit
         Left = 5
-        Height = 20
+        Height = 19
         Top = 57
         Width = 41
         Font.Color = clWindowText
@@ -740,19 +740,19 @@ object frmMainFNT: TfrmMainFNT
       Top = 39
       Width = 120
       Caption = 'Charset'
-      ClientHeight = 25
+      ClientHeight = 22
       ClientWidth = 116
       TabOrder = 7
       object cbCharset: TComboBox
         Left = 4
-        Height = 20
+        Height = 18
         Top = 0
         Width = 100
         Constraints.MaxHeight = 20
         Font.Color = clWindowText
         Font.Height = -8
         Font.Name = 'Sans'
-        ItemHeight = 0
+        ItemHeight = 10
         ItemIndex = 2
         Items.Strings = (
           'ISO8859_1'
@@ -775,13 +775,13 @@ object frmMainFNT: TfrmMainFNT
     Width = 650
     Align = alClient
     Caption = 'Fuente en FNT'
-    ClientHeight = 422
+    ClientHeight = 419
     ClientWidth = 646
     TabOrder = 1
     object sbInfo: TStatusBar
       Left = 0
-      Height = 25
-      Top = 397
+      Height = 23
+      Top = 396
       Width = 646
       Panels = <      
         item
@@ -794,16 +794,16 @@ object frmMainFNT: TfrmMainFNT
     end
     object pImage: TPanel
       Left = 0
-      Height = 350
+      Height = 349
       Top = 47
       Width = 646
       Align = alClient
-      ClientHeight = 350
+      ClientHeight = 349
       ClientWidth = 646
       TabOrder = 1
       object imgPreview: TImage
         Left = 1
-        Height = 311
+        Height = 310
         Top = 1
         Width = 644
         Align = alClient
@@ -813,7 +813,7 @@ object frmMainFNT: TfrmMainFNT
       object pInfo: TPanel
         Left = 1
         Height = 25
-        Top = 312
+        Top = 311
         Width = 644
         Align = alBottom
         BevelInner = bvLowered
@@ -825,7 +825,7 @@ object frmMainFNT: TfrmMainFNT
       object gInfo: TProgressBar
         Left = 1
         Height = 12
-        Top = 337
+        Top = 336
         Width = 644
         Align = alBottom
         TabOrder = 1
@@ -1155,23 +1155,23 @@ object frmMainFNT: TfrmMainFNT
       ParentColor = False
       TabOrder = 3
       object EPreview: TEdit
-        Left = 208
-        Height = 23
+        Left = 186
+        Height = 21
         Top = 2
         Width = 346
         OnChange = EPreviewChange
         TabOrder = 0
       end
       object Label3: TLabel
-        Left = 128
+        Left = 116
         Height = 13
         Top = 2
-        Width = 80
+        Width = 70
         Caption = 'Mostrar texto:'
         ParentColor = False
       end
       object sbSaveText: TSpeedButton
-        Left = 554
+        Left = 532
         Height = 22
         Hint = 'Guardar el texto escrito'
         Top = 2
@@ -1185,14 +1185,14 @@ object frmMainFNT: TfrmMainFNT
         Left = 1
         Height = 13
         Top = 2
-        Width = 77
+        Width = 65
         Caption = 'Mostrar char:'
         ParentColor = False
         OnClick = Label5Click
       end
       object seCharPreview: TSpinEdit
-        Left = 78
-        Height = 23
+        Left = 66
+        Height = 21
         Top = 2
         Width = 50
         MaxValue = 255
@@ -1271,4 +1271,4 @@ object frmMainFNT: TfrmMainFNT
     left = 448
     top = 304
   end
-end
+end

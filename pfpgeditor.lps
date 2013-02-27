@@ -25,8 +25,8 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="17" Y="3"/>
+        <TopLine Value="1584"/>
+        <CursorPos X="41" Y="1594"/>
         <UsageCount Value="473"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -350,10 +350,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmMainFNT"/>
+        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="775"/>
-        <CursorPos X="2" Y="786"/>
+        <TopLine Value="1600"/>
+        <CursorPos X="1" Y="1606"/>
         <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit32>
       <Unit33>
         <Filename Value="uFrmAbout\uFrmAbout.pas"/>
@@ -1099,7 +1102,128 @@
     <General>
       <ActiveWindowIndexAtStart Value="0"/>
     </General>
-    <JumpHistory Count="0" HistoryIndex="-1"/>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1560" Column="12" TopLine="1548"/>
+      </Position1>
+      <Position2>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1562" Column="33" TopLine="1548"/>
+      </Position2>
+      <Position3>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1572" Column="22" TopLine="1564"/>
+      </Position3>
+      <Position4>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1574" Column="42" TopLine="1564"/>
+      </Position4>
+      <Position5>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1647" Column="43" TopLine="1630"/>
+      </Position5>
+      <Position6>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1896" Column="16" TopLine="1878"/>
+      </Position6>
+      <Position7>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1902" Column="33" TopLine="1884"/>
+      </Position7>
+      <Position8>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1909" Column="31" TopLine="1891"/>
+      </Position8>
+      <Position9>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1918" Column="33" TopLine="1901"/>
+      </Position9>
+      <Position10>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1925" Column="32" TopLine="1908"/>
+      </Position10>
+      <Position11>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1934" Column="35" TopLine="1917"/>
+      </Position11>
+      <Position12>
+        <Filename Value="uFrmMain\uFrmMain.pas"/>
+        <Caret Line="3" Column="64" TopLine="1"/>
+      </Position12>
+      <Position13>
+        <Filename Value="uFrmMain\uFrmMain.pas"/>
+        <Caret Line="1534" Column="1" TopLine="1544"/>
+      </Position13>
+      <Position14>
+        <Filename Value="uFrmMain\uFrmMain.pas"/>
+        <Caret Line="1738" Column="2" TopLine="1736"/>
+      </Position14>
+      <Position15>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="1930" Column="10" TopLine="1924"/>
+      </Position15>
+      <Position16>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="34" Column="42" TopLine="28"/>
+      </Position16>
+      <Position17>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="86" Column="14" TopLine="69"/>
+      </Position17>
+      <Position18>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="99" Column="16" TopLine="82"/>
+      </Position18>
+      <Position19>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="118" Column="24" TopLine="101"/>
+      </Position19>
+      <Position20>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="157" Column="29" TopLine="140"/>
+      </Position20>
+      <Position21>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="160" Column="28" TopLine="143"/>
+      </Position21>
+      <Position22>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="161" Column="25" TopLine="144"/>
+      </Position22>
+      <Position23>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="164" Column="24" TopLine="147"/>
+      </Position23>
+      <Position24>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="179" Column="24" TopLine="163"/>
+      </Position24>
+      <Position25>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="180" Column="24" TopLine="164"/>
+      </Position25>
+      <Position26>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="185" Column="21" TopLine="169"/>
+      </Position26>
+      <Position27>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="197" Column="26" TopLine="179"/>
+      </Position27>
+      <Position28>
+        <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
+        <Caret Line="495" Column="22" TopLine="477"/>
+      </Position28>
+      <Position29>
+        <Filename Value="uFrmMain\uFrmMain.pas"/>
+        <Caret Line="1598" Column="21" TopLine="1584"/>
+      </Position29>
+      <Position30>
+        <Filename Value="uFrmMain\uFrmMain.pas"/>
+        <Caret Line="1599" Column="22" TopLine="1584"/>
+      </Position30>
+    </JumpHistory>
   </ProjectSession>
   <Debugging>
     <BreakPoints Count="1">
