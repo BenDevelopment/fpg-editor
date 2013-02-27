@@ -1591,7 +1591,15 @@ begin
  if not FileExistsUTF8(ParamStr(1)) { *Converted from FileExists*  } then
   Exit;
 
- OpenFPG(ParamStr(1));
+ if ExtractFileExt(ParamStr(1))='.fpg' then
+    OpenFPG(ParamStr(1));
+
+ if ExtractFileExt(ParamStr(1))='.fnt' then
+ begin
+    frmMainFNT.openParamFile;
+    frmMainFNT.Visible:=true;
+ end;
+
 end;
 
 procedure TfrmMain.lvFPGKeyUp(Sender: TObject; var Key: Word;
