@@ -3,7 +3,7 @@
   <ProjectSession>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="5">
+    <Units Count="6">
       <Unit0>
         <Filename Value="testfpglistview.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -19,7 +19,7 @@
         <UnitName Value="utestfpglistview"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
+        <TopLine Value="9"/>
         <CursorPos X="17" Y="6"/>
         <UsageCount Value="25"/>
         <Loaded Value="True"/>
@@ -28,38 +28,46 @@
       <Unit2>
         <Filename Value="../../uFPGListView/ufpglistview.pas"/>
         <UnitName Value="uFPGListView"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="13"/>
-        <CursorPos X="39" Y="21"/>
+        <TopLine Value="20"/>
+        <CursorPos X="22" Y="32"/>
         <UsageCount Value="13"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="/usr/share/fpcsrc/2.6.0/rtl/objpas/sysutils/sysstrh.inc"/>
-        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
         <TopLine Value="200"/>
         <CursorPos X="20" Y="213"/>
         <UsageCount Value="13"/>
-        <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="../../uTools/uTools.pas"/>
         <UnitName Value="uTools"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="38"/>
+        <TopLine Value="1"/>
         <CursorPos X="12" Y="46"/>
         <UsageCount Value="12"/>
         <Loaded Value="True"/>
       </Unit4>
+      <Unit5>
+        <Filename Value="../../uFPG/uFPG.pas"/>
+        <UnitName Value="uFPG"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="21"/>
+        <CursorPos X="31" Y="30"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit5>
     </Units>
     <General>
       <ActiveWindowIndexAtStart Value="0"/>
     </General>
-    <JumpHistory Count="28" HistoryIndex="27">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="../../uFPGListView/ufpglistview.pas"/>
         <Caret Line="257" Column="30" TopLine="237"/>
@@ -172,6 +180,14 @@
         <Filename Value="utestfpglistview.pas"/>
         <Caret Line="16" Column="54" TopLine="1"/>
       </Position28>
+      <Position29>
+        <Filename Value="../../uFPGListView/ufpglistview.pas"/>
+        <Caret Line="32" Column="22" TopLine="20"/>
+      </Position29>
+      <Position30>
+        <Filename Value="../../uFPG/uFPG.pas"/>
+        <Caret Line="85" Column="20" TopLine="75"/>
+      </Position30>
     </JumpHistory>
   </ProjectSession>
   <EditorMacros Count="0"/>

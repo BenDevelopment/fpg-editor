@@ -82,7 +82,7 @@ type
     destructor Destroy; override;
   end;
 
-  TFpg = class
+  TFpg = class(TPersistent)
   private
     { Private declarations }
   public
@@ -127,6 +127,7 @@ implementation
 
 function TFpgHeader.getFPGType(var byte_size : Word) :Integer;
 begin
+ Result := FPG_NULL;
  // Ficheros de 1 bit
  if (Magic[0] = 'f') and (Magic[1] = '0') and
    (Magic[2] = '1') and (MSDOSEnd[0] = 26) and
@@ -988,4 +989,4 @@ begin
 end;
 
 
-end.
+end.
