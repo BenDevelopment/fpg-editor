@@ -7,7 +7,8 @@ unit fpg_editor_pkg;
 interface
 
 uses
-  uFPG, uFPGListView, uLoadImage, uTools, LazarusPackageIntf;
+  uFPG, uFPGListView, uLoadImage, uTools, uFrmMessageBox, uLanguage, uinifile, 
+  uColor16bits, uMap, LazarusPackageIntf;
 
 implementation
 
