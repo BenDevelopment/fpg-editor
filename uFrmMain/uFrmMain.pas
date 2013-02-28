@@ -28,7 +28,7 @@ uses
   ufrmNewFPG, ufrmPalette, ufrmFPGImages, uLanguage, Dialogs, uTools,
   uFPGConvert, uLoadImage, uFrmExport, uFrmInputBox, uFrmMessageBox,
   uExportToFiles, uFPGListView, FileUtil, ShellCtrls, ActnList, FileCtrl, Spin,
-  ExtDlgs, types, uFrmZipFenix, uFrmAbout, ufrmMainFNT;
+  ExtDlgs, types, uFrmZipFenix, uFrmAbout, ufrmMainFNT, ufrmAnimate, ufrmConfig, uFrmSplahs;
 
 const
   DRAG_LVFPG    = 0;
@@ -40,6 +40,7 @@ type
 
   TfrmMain = class(TForm)
     aAddImg: TAction;
+    aAddImg2: TAction;
     aConfig: TAction;
     aAbout: TAction;
     aCopyImg: TAction;
@@ -91,6 +92,7 @@ type
     Bevel13: TBevel;
     cbTipoFPG: TComboBox;
     EFilter: TFilterComboBox;
+    lComments: TLabel;
     lblTransparentColor: TLabel;
     lblFilename: TLabel;
     miFPG1: TMenuItem;
@@ -297,7 +299,7 @@ type
     procedure ShellTreeView1Change(Sender: TObject; Node: TTreeNode);
   private
     { Private declarations }
-    _lng_str : string;
+    _lng_str : String;
     procedure _set_lng;
     procedure _flat_buttons;
   public
@@ -321,9 +323,36 @@ var
 
 implementation
 
-uses ufrmAnimate, ufrmConfig, uFrmSplahs;
-
 {$R *.lfm}
+
+//-----------------------------------------------------------------------------
+// FormCreate: Al crear la ventana carga el fichero "ini" si esto es posible.
+//-----------------------------------------------------------------------------
+
+procedure TfrmMain.FormCreate(Sender: TObject);
+begin
+// DragOver := 255;
+
+ load_inifile;
+
+ lvFPG.Fpg:= TFpg.Create;
+
+ load_language;
+
+ _lng_str := '';
+
+  ShellListView1.Root:= DirectorySeparator;
+  EFilter.ItemIndex:=0;
+  ShellListView1.Mask:= EFilter.Text;
+  lvImages.Color:=inifile_bg_color;
+  lvFPG.Color:=inifile_bg_colorFPG;
+  lvFPG.notClipboardImage:=LNG_STRINGS[LNG_NOT_CLIPBOARD_IMAGE];
+  lvFPG.repaintNumber:=inifile_repaint_number;
+  Update_Panels;
+  EFilter.Filter:=OpenPictureDialog.Filter;
+  FPG_EDITOR_R:='r36';
+
+end;
 
 procedure TfrmMain._set_lng;
 begin
@@ -474,6 +503,7 @@ begin
      lblTransparentColor.caption := 'Alpha Channel';
     end;
   end;
+  lComments.Caption:=lvFPG.Fpg.comments.Name;
 
 end;
 
@@ -1141,8 +1171,6 @@ begin
  // Cerramos el FPG actual abierto
  QueryResult := mrYes;
 
- aCloseExecute(Sender);
-
  if QueryResult = mrCancel then
   Exit;
 
@@ -1150,9 +1178,12 @@ begin
  if not OpenDialog.Execute then
   Exit;
 
+
  // Comprobamos si existe o no
  if not FileExistsUTF8(OpenDialog.Filename) { *Converted from FileExists*  } then
   Exit;
+
+ aCloseExecute(Sender);
 
  OpenFPG(OpenDialog.Filename);
  //frmLog.Show;
@@ -1212,7 +1243,7 @@ begin
  lblFilename.Caption := lvFPG.Fpg.source;
 
  //Guardamos el fichero y desactivamos lvFPG.Fpg.update
- lvFPG.Fpg.Save( pbFPG);
+ lvFPG.Fpg.SaveToFile( pbFPG);
  lvFPG.Fpg.update := false;
 end;
 
@@ -1221,7 +1252,7 @@ begin
  if lvFPG.Fpg.source = '' then
     aSaveAsExecute(Sender)
  else begin
-    lvFPG.Fpg.Save( pbFPG);
+    lvFPG.Fpg.SaveToFile( pbFPG);
     lvFPG.Fpg.update := false;
  end;
 
@@ -1464,7 +1495,7 @@ begin
  {$ENDIF}
 
 
-  error := not lvFPG.Fpg.Load( WorkDir +'________.uz',  pbFPG);
+  error := not lvFPG.Fpg.LoadFromFile( WorkDir +'________.uz',  pbFPG);
 
   AssignFile(f, WorkDir +'________.uz');
   Erase(f);
@@ -1474,7 +1505,7 @@ begin
   lvFPG_Load_Bitmaps;
  end
  else
-  if lvFPG.Fpg.Load(lvFPG.Fpg.source, pbFPG) then
+  if lvFPG.Fpg.LoadFromFile(lvFPG.Fpg.source, pbFPG) then
   begin
    lvFPG_Load_Bitmaps;
   end;
@@ -1525,33 +1556,6 @@ begin
  frmView.Show;
 end;
 
-//-----------------------------------------------------------------------------
-// FormCreate: Al crear la ventana carga el fichero "ini" si esto es posible.
-//-----------------------------------------------------------------------------
-
-procedure TfrmMain.FormCreate(Sender: TObject);
-begin
-// DragOver := 255;
-
- load_inifile;
-
- lvFPG.Fpg:= TFpg.Create;
-
- load_language;
-
- _lng_str := '';
-
-  ShellListView1.Root:= DirectorySeparator;
-  EFilter.ItemIndex:=0;
-  ShellListView1.Mask:= EFilter.Text;
-  lvImages.Color:=inifile_bg_color;
-  lvFPG.Color:=inifile_bg_colorFPG;
-  lvFPG.notClipboardImage:=LNG_STRINGS[LNG_NOT_CLIPBOARD_IMAGE];
-  lvFPG.repaintNumber:=inifile_repaint_number;
-  Update_Panels;
-  EFilter.Filter:=OpenPictureDialog.Filter;
-
-end;
 
 
 //-----------------------------------------------------------------------------
