@@ -158,7 +158,7 @@ implementation
  function Load_DIV2_pal( palette:PByte; name : string ) : boolean;
  var
   f       : TFileStream;
-  temp_FPG_header  : TFpgHeader;
+  fpg  : TFpg;
   i : Word;
  begin
   result := false;
@@ -171,28 +171,32 @@ implementation
   end;
 
   try
-   f.Read(temp_FPG_header.Magic, 3);
-   f.Read(temp_FPG_header.MSDOSEnd , 4);
-   f.Read(temp_FPG_header.Version, 1);
+   fpg.loadHeaderFromStream(f);
   except
    f.free;
    Exit;
   end;
 
   if not (
-   (temp_FPG_header.MSDOSEnd [0] = 26) and (temp_FPG_header.MSDOSEnd [1] = 13) and
-   (temp_FPG_header.MSDOSEnd [2] = 10) and (temp_FPG_header.MSDOSEnd [3] = 0) )then
+   (fpg.MSDOSEnd [0] = 26) and (fpg.MSDOSEnd [1] = 13) and
+   (fpg.MSDOSEnd [2] = 10) and (fpg.MSDOSEnd [3] = 0) )then
   begin
    f.free;
    Exit;
   end;
 
-  f.Read(temp_FPG_header.palette, 768);
+  if fpg.Magic[2]<>'g' then
+  begin
+   f.free;
+   Exit;
+  end;
+
+  f.Read(fpg.palette, 768);
 
   f.free;
 
   for i:=0 to 767 do
-   palette[i] := temp_FPG_header.palette[i] shl 2;
+   palette[i] := fpg.palette[i] shl 2;
 
 //  fpg.loadPalette := true;
 
@@ -445,4 +449,4 @@ implementation
 
  end;
 
-end.
+end.

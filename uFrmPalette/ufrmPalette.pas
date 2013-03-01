@@ -57,7 +57,7 @@ begin
  for i:=0 to 255 do
  begin
   imgPalette.Picture.Bitmap.Canvas.Brush.Color :=
-   RGB(FPG.Header.palette[i * 3], FPG.Header.palette[(i * 3) + 1], FPG.Header.palette[(i * 3) + 2]);
+   RGB(FPG.palette[i * 3], FPG.palette[(i * 3) + 1], FPG.palette[(i * 3) + 2]);
 
   if ((i mod 16) = 0) then
   begin
@@ -88,4 +88,4 @@ begin
  frmPalette.Caption := LNG_STRINGS[121];
 end;
 
-end.
+end.

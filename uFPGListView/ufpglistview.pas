@@ -185,14 +185,14 @@ var
 begin
 
   // Pintamos el icono
-  DrawProportional(Fpg.images[index].bmp, bmp_dst);
+  DrawProportional(TBitmap(Fpg.images[index]), bmp_dst);
 
   list_bmp := Items.Add;
 
   list_bmp.ImageIndex := LargeImages.add(bmp_dst, nil);
 
   // Se establece el código del FPG
-  list_bmp.Caption := Format('%.3d',[Fpg.images[index].graph_code]);
+  list_bmp.Caption := Format('%.3d',[Fpg.images[index].code]);
   //NumberTo3Char(Fpg.images[index].graph_code);
 
   // Se añaden los datos de la imagen a la lista
@@ -201,7 +201,7 @@ begin
 
   list_bmp.SubItems.Add(IntToStr(Fpg.images[index].Width));
   list_bmp.SubItems.Add(IntToStr(Fpg.images[index].Height));
-  list_bmp.SubItems.Add(IntToStr(Fpg.images[index].ncpoints));
+  list_bmp.SubItems.Add(IntToStr(Fpg.images[index].CPointsCount));
 
 end;
 
@@ -212,7 +212,7 @@ var
 begin
 
   // Pintamos el icono
-  DrawProportional(Fpg.images[index].bmp, bmp_dst);
+  DrawProportional(TBitmap(Fpg.images[index]), bmp_dst);
 
   list_bmp := Items.Item[index - 1];
 

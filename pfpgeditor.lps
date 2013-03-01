@@ -4,7 +4,7 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="128">
+    <Units Count="129">
       <Unit0>
         <Filename Value="pfpgeditor.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -25,8 +25,8 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="344"/>
-        <CursorPos X="21" Y="353"/>
+        <TopLine Value="1493"/>
+        <CursorPos X="53" Y="1505"/>
         <UsageCount Value="473"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -49,13 +49,13 @@
         <UnitName Value="uFPG"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="949"/>
-        <CursorPos X="17" Y="972"/>
+        <TopLine Value="467"/>
+        <CursorPos X="1" Y="475"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
           <WindowIndex Value="0"/>
-          <TopLine Value="786"/>
-          <CursorPos X="1" Y="792"/>
+          <TopLine Value="435"/>
+          <CursorPos X="25" Y="435"/>
         </ExtraEditor1>
         <UsageCount Value="473"/>
         <Loaded Value="True"/>
@@ -74,8 +74,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmPalette"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="49"/>
-        <CursorPos X="68" Y="60"/>
+        <TopLine Value="45"/>
+        <CursorPos X="58" Y="60"/>
         <UsageCount Value="473"/>
       </Unit5>
       <Unit6>
@@ -95,8 +95,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmAnimate"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="90"/>
-        <CursorPos X="35" Y="99"/>
+        <TopLine Value="84"/>
+        <CursorPos X="48" Y="99"/>
         <UsageCount Value="473"/>
       </Unit7>
       <Unit8>
@@ -113,8 +113,8 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="uFPGConvert"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="14"/>
-        <CursorPos X="27" Y="29"/>
+        <TopLine Value="32"/>
+        <CursorPos X="85" Y="46"/>
         <UsageCount Value="473"/>
       </Unit9>
       <Unit10>
@@ -131,8 +131,8 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="uPAL"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="19"/>
-        <CursorPos X="71" Y="27"/>
+        <TopLine Value="174"/>
+        <CursorPos X="28" Y="188"/>
         <UsageCount Value="473"/>
       </Unit11>
       <Unit12>
@@ -179,8 +179,8 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="uExportToFiles"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="220"/>
-        <CursorPos X="20" Y="234"/>
+        <TopLine Value="232"/>
+        <CursorPos X="26" Y="257"/>
         <UsageCount Value="473"/>
       </Unit16>
       <Unit17>
@@ -236,8 +236,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmFPGImages"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="16"/>
-        <CursorPos X="28" Y="28"/>
+        <TopLine Value="566"/>
+        <CursorPos X="2" Y="571"/>
         <UsageCount Value="473"/>
       </Unit21>
       <Unit22>
@@ -248,8 +248,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmNewFPG"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="28"/>
-        <CursorPos X="45" Y="39"/>
+        <TopLine Value="150"/>
+        <CursorPos X="18" Y="165"/>
         <UsageCount Value="473"/>
       </Unit22>
       <Unit23>
@@ -265,17 +265,6 @@
         <UsageCount Value="473"/>
       </Unit23>
       <Unit24>
-        <Filename Value="uMap\uMap.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="uMap"/>
-        <EditorIndex Value="2"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="165"/>
-        <CursorPos X="27" Y="171"/>
-        <UsageCount Value="473"/>
-        <Loaded Value="True"/>
-      </Unit24>
-      <Unit25>
         <Filename Value="uPAL\ucopypalette.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uCopyPalette"/>
@@ -283,8 +272,8 @@
         <TopLine Value="19"/>
         <CursorPos X="24" Y="23"/>
         <UsageCount Value="473"/>
-      </Unit25>
-      <Unit26>
+      </Unit24>
+      <Unit25>
         <Filename Value="uFrmZipFenix\ufrmZipFenix.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmZipFenix"/>
@@ -295,8 +284,8 @@
         <TopLine Value="1"/>
         <CursorPos X="62" Y="5"/>
         <UsageCount Value="473"/>
-      </Unit26>
-      <Unit27>
+      </Unit25>
+      <Unit26>
         <Filename Value="uAAtext\uAAText.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uAAText"/>
@@ -304,8 +293,8 @@
         <TopLine Value="31"/>
         <CursorPos X="3" Y="42"/>
         <UsageCount Value="200"/>
-      </Unit27>
-      <Unit28>
+      </Unit26>
+      <Unit27>
         <Filename Value="uColorTable\uColorTable.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uColorTable"/>
@@ -313,8 +302,8 @@
         <TopLine Value="1"/>
         <CursorPos X="1" Y="4"/>
         <UsageCount Value="200"/>
-      </Unit28>
-      <Unit29>
+      </Unit27>
+      <Unit28>
         <Filename Value="uFNT\uFNT.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uFNT"/>
@@ -322,8 +311,8 @@
         <TopLine Value="185"/>
         <CursorPos X="18" Y="158"/>
         <UsageCount Value="200"/>
-      </Unit29>
-      <Unit30>
+      </Unit28>
+      <Unit29>
         <Filename Value="uFrmBpp\uFrmBpp.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="fBPP"/>
@@ -334,8 +323,8 @@
         <TopLine Value="1"/>
         <CursorPos X="17" Y="9"/>
         <UsageCount Value="200"/>
-      </Unit30>
-      <Unit31>
+      </Unit29>
+      <Unit30>
         <Filename Value="uFrmCFG\uFrmCFG.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FrmCFG"/>
@@ -346,8 +335,8 @@
         <TopLine Value="37"/>
         <CursorPos X="18" Y="49"/>
         <UsageCount Value="200"/>
-      </Unit31>
-      <Unit32>
+      </Unit30>
+      <Unit31>
         <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmMainFNT"/>
@@ -358,8 +347,8 @@
         <TopLine Value="103"/>
         <CursorPos X="1" Y="1606"/>
         <UsageCount Value="200"/>
-      </Unit32>
-      <Unit33>
+      </Unit31>
+      <Unit32>
         <Filename Value="uFrmAbout\uFrmAbout.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FrmAbout"/>
@@ -370,8 +359,8 @@
         <TopLine Value="1"/>
         <CursorPos X="5" Y="2"/>
         <UsageCount Value="203"/>
-      </Unit33>
-      <Unit34>
+      </Unit32>
+      <Unit33>
         <Filename Value="uFrmFNTView\uFrmFNTView.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmFNTView"/>
@@ -382,24 +371,35 @@
         <TopLine Value="66"/>
         <CursorPos X="1" Y="91"/>
         <UsageCount Value="201"/>
-      </Unit34>
-      <Unit35>
+      </Unit33>
+      <Unit34>
         <Filename Value="uFPGListView\ufpglistview.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uFPGListView"/>
+        <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="18"/>
-        <CursorPos X="14" Y="32"/>
-        <UsageCount Value="76"/>
-      </Unit35>
-      <Unit36>
+        <TopLine Value="226"/>
+        <CursorPos X="3" Y="234"/>
+        <UsageCount Value="80"/>
+        <Loaded Value="True"/>
+      </Unit34>
+      <Unit35>
         <Filename Value="uMap\umapgraphic.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uMAPGraphic"/>
+        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="334"/>
-        <CursorPos X="20" Y="341"/>
-        <UsageCount Value="76"/>
+        <TopLine Value="127"/>
+        <CursorPos X="16" Y="139"/>
+        <UsageCount Value="80"/>
+        <Loaded Value="True"/>
+      </Unit35>
+      <Unit36>
+        <Filename Value="uMap\uMap.pas"/>
+        <UnitName Value="uMap"/>
+        <TopLine Value="34"/>
+        <CursorPos X="53" Y="4"/>
+        <UsageCount Value="473"/>
       </Unit36>
       <Unit37>
         <Filename Value="uFrmLog\uFrmLog.pas"/>
@@ -1099,6 +1099,14 @@
         <CursorPos X="1" Y="222"/>
         <UsageCount Value="9"/>
       </Unit127>
+      <Unit128>
+        <Filename Value="..\..\..\src\lazarus\lcl\interfaces\win32\win32wsdialogs.pp"/>
+        <UnitName Value="Win32WSDialogs"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="23"/>
+        <CursorPos X="3" Y="38"/>
+        <UsageCount Value="10"/>
+      </Unit128>
     </Units>
     <General>
       <ActiveWindowIndexAtStart Value="0"/>
@@ -1106,128 +1114,128 @@
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="uFPG\uFPG.pas"/>
-        <Caret Line="203" Column="33" TopLine="200"/>
+        <Caret Line="442" Column="1" TopLine="425"/>
       </Position1>
       <Position2>
         <Filename Value="uFPG\uFPG.pas"/>
-        <Caret Line="494" Column="29" TopLine="472"/>
+        <Caret Line="441" Column="99" TopLine="425"/>
       </Position2>
       <Position3>
         <Filename Value="uFPG\uFPG.pas"/>
-        <Caret Line="29" Column="3" TopLine="18"/>
+        <Caret Line="444" Column="1" TopLine="431"/>
       </Position3>
       <Position4>
         <Filename Value="uFPG\uFPG.pas"/>
-        <Caret Line="27" Column="19" TopLine="18"/>
+        <Caret Line="446" Column="1" TopLine="431"/>
       </Position4>
       <Position5>
         <Filename Value="uFPG\uFPG.pas"/>
-        <Caret Line="84" Column="52" TopLine="75"/>
+        <Caret Line="448" Column="1" TopLine="437"/>
       </Position5>
       <Position6>
         <Filename Value="uFPG\uFPG.pas"/>
-        <Caret Line="301" Column="22" TopLine="283"/>
+        <Caret Line="455" Column="1" TopLine="443"/>
       </Position6>
       <Position7>
         <Filename Value="uFPG\uFPG.pas"/>
-        <Caret Line="3" Column="74" TopLine="1"/>
+        <Caret Line="456" Column="1" TopLine="449"/>
       </Position7>
       <Position8>
         <Filename Value="uFPG\uFPG.pas"/>
-        <Caret Line="124" Column="1" TopLine="108"/>
+        <Caret Line="468" Column="1" TopLine="458"/>
       </Position8>
       <Position9>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="3" Column="54" TopLine="1"/>
+        <Filename Value="uFPG\uFPG.pas"/>
+        <Caret Line="470" Column="1" TopLine="467"/>
       </Position9>
       <Position10>
         <Filename Value="uFPG\uFPG.pas"/>
-        <Caret Line="126" Column="30" TopLine="116"/>
+        <Caret Line="472" Column="1" TopLine="467"/>
       </Position10>
       <Position11>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="142" Column="32" TopLine="133"/>
+        <Filename Value="uFPG\uFPG.pas"/>
+        <Caret Line="473" Column="1" TopLine="467"/>
       </Position11>
       <Position12>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="283" Column="25" TopLine="266"/>
+        <Filename Value="uFPG\uFPG.pas"/>
+        <Caret Line="474" Column="1" TopLine="467"/>
       </Position12>
       <Position13>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="578" Column="27" TopLine="561"/>
+        <Filename Value="uFPG\uFPG.pas"/>
+        <Caret Line="475" Column="1" TopLine="467"/>
       </Position13>
       <Position14>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="606" Column="45" TopLine="589"/>
+        <Filename Value="uMap\umapgraphic.pas"/>
+        <Caret Line="136" Column="1" TopLine="129"/>
       </Position14>
       <Position15>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="654" Column="33" TopLine="636"/>
+        <Filename Value="uMap\umapgraphic.pas"/>
+        <Caret Line="137" Column="1" TopLine="129"/>
       </Position15>
       <Position16>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="319" Column="78" TopLine="305"/>
+        <Filename Value="uMap\umapgraphic.pas"/>
+        <Caret Line="196" Column="1" TopLine="182"/>
       </Position16>
       <Position17>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="1559" Column="25" TopLine="1542"/>
+        <Filename Value="uMap\umapgraphic.pas"/>
+        <Caret Line="198" Column="1" TopLine="191"/>
       </Position17>
       <Position18>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="302" Column="17" TopLine="294"/>
+        <Filename Value="uMap\umapgraphic.pas"/>
+        <Caret Line="200" Column="1" TopLine="191"/>
       </Position18>
       <Position19>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="320" Column="69" TopLine="310"/>
+        <Filename Value="uMap\umapgraphic.pas"/>
+        <Caret Line="203" Column="1" TopLine="191"/>
       </Position19>
       <Position20>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="51" Column="22" TopLine="43"/>
+        <Filename Value="uMap\umapgraphic.pas"/>
+        <Caret Line="205" Column="1" TopLine="191"/>
       </Position20>
       <Position21>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="303" Column="1" TopLine="286"/>
+        <Filename Value="uMap\umapgraphic.pas"/>
+        <Caret Line="207" Column="1" TopLine="191"/>
       </Position21>
       <Position22>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="318" Column="1" TopLine="302"/>
+        <Filename Value="uMap\umapgraphic.pas"/>
+        <Caret Line="208" Column="1" TopLine="191"/>
       </Position22>
       <Position23>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="3" Column="63" TopLine="1"/>
+        <Filename Value="uMap\umapgraphic.pas"/>
+        <Caret Line="209" Column="1" TopLine="191"/>
       </Position23>
       <Position24>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="330" Column="1" TopLine="319"/>
+        <Filename Value="uMap\umapgraphic.pas"/>
+        <Caret Line="210" Column="1" TopLine="197"/>
       </Position24>
       <Position25>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="579" Column="26" TopLine="562"/>
+        <Filename Value="uMap\umapgraphic.pas"/>
+        <Caret Line="211" Column="1" TopLine="197"/>
       </Position25>
       <Position26>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="3" Column="70" TopLine="1"/>
+        <Filename Value="uMap\umapgraphic.pas"/>
+        <Caret Line="214" Column="1" TopLine="197"/>
       </Position26>
       <Position27>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="347" Column="23" TopLine="341"/>
+        <Filename Value="uMap\umapgraphic.pas"/>
+        <Caret Line="224" Column="1" TopLine="207"/>
       </Position27>
       <Position28>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="1175" Column="1" TopLine="1169"/>
+        <Filename Value="uMap\umapgraphic.pas"/>
+        <Caret Line="225" Column="1" TopLine="207"/>
       </Position28>
       <Position29>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="1180" Column="40" TopLine="1172"/>
+        <Filename Value="uMap\umapgraphic.pas"/>
+        <Caret Line="232" Column="1" TopLine="209"/>
       </Position29>
       <Position30>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="1131" Column="14" TopLine="1118"/>
+        <Filename Value="uMap\umapgraphic.pas"/>
+        <Caret Line="234" Column="1" TopLine="217"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>
   <Debugging>
-    <BreakPoints Count="1">
+    <BreakPoints Count="2">
       <Item1>
         <Kind Value="bpkData"/>
         <WatchData Value="i"/>
@@ -1236,6 +1244,13 @@
         <Expression Value="= 255"/>
         <InitialEnabled Value="False"/>
       </Item1>
+      <Item2>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="uFrmMain\uFrmMain.pas"/>
+        <Line Value="1170"/>
+      </Item2>
     </BreakPoints>
     <Watches Count="2">
       <Item1>

@@ -61,9 +61,9 @@ begin
   icount := icount + 1;
 
   for j := 1 to lvFPG.Fpg.Count do
-   if lvFPG.Fpg.images[j].graph_code = StrToInt(lvFPG.Items.Item[i].Caption) then
+   if lvFPG.Fpg.images[j].code = StrToInt(lvFPG.Items.Item[i].Caption) then
    begin
-    if lvFPG.Fpg.images[j].ncpoints <= 0 then
+    if lvFPG.Fpg.images[j].CPointsCount <= 0 then
      continue;
 
     try
@@ -76,9 +76,9 @@ begin
 
     WriteLn(f, 'CTRL-PTS');
 
-    WriteLn(f, lvFPG.Fpg.images[j].ncpoints);
+    WriteLn(f, lvFPG.Fpg.images[j].CPointsCount);
 
-    for k := 0 to lvFPG.Fpg.images[j].ncpoints - 1 do
+    for k := 0 to lvFPG.Fpg.images[j].CPointsCount - 1 do
     begin
      Write(f, lvFPG.Fpg.images[j].cpoints[k*2]); Write(f, ' ');
      WriteLn(f, lvFPG.Fpg.images[j].cpoints[(k*2) + 1]);
@@ -121,7 +121,7 @@ begin
   end;
 
   for j := 1 to lvFPG.Fpg.Count do
-   if lvFPG.Fpg.images[j].graph_code = StrToInt(lvFPG.Items.Item[i].Caption) then
+   if lvFPG.Fpg.images[j].code = StrToInt(lvFPG.Items.Item[i].Caption) then
    begin
     //Se comprueba si existe el fichero
     if FileExistsUTF8(path + imagename + '.bmp') { *Converted from FileExists*  } then
@@ -131,7 +131,7 @@ begin
       break;
     end;
 
-    lvFPG.Fpg.images[j].bmp.SaveToFile(path + imagename + '.bmp');
+    TBitmap(lvFPG.Fpg.images[j]).SaveToFile(path + imagename + '.bmp');
     break;
    end;
 
@@ -171,7 +171,7 @@ begin
   end;
 
   for j := 1 to lvFPG.Fpg.Count do
-   if lvFPG.Fpg.images[j].graph_code = StrToInt(lvFPG.Items.Item[i].Caption) then
+   if lvFPG.Fpg.images[j].code = StrToInt(lvFPG.Items.Item[i].Caption) then
    begin
     //Se comprueba si existe el fichero
     if FileExistsUTF8(path + imageName + '.png') { *Converted from FileExists*  } then
@@ -180,7 +180,7 @@ begin
       break;
     end;
 
-    image.Assign(lvFPG.Fpg.images[j].bmp);
+    image.Assign(lvFPG.Fpg.images[j]);
     image.savetofile(path + imageName + '.png');
 
     break;
@@ -220,7 +220,7 @@ begin
   end;
 
   for j := 1 to lvFPG.Fpg.Count do
-   if lvFPG.Fpg.images[j].graph_code = StrToInt(lvFPG.Items.Item[i].Caption) then
+   if lvFPG.Fpg.images[j].code = StrToInt(lvFPG.Items.Item[i].Caption) then
    begin
     //Se comprueba si existe el fichero
     if FileExistsUTF8(path + imagename + '.map') { *Converted from FileExists*  } then
@@ -244,17 +244,17 @@ end;
 
 procedure export_DIV2_PAL( lvFPG: TFPGListView; path: string );
 begin
- Save_DIV2_PAL(lvFPG.Fpg.header.palette, path + 'DIV2.pal' );
+ Save_DIV2_PAL(lvFPG.Fpg.palette, path + 'DIV2.pal' );
 end;
 
 procedure export_MS_PAL( lvFPG: TFPGListView; path: string );
 begin
- Save_MS_PAL(lvFPG.Fpg.header.palette, path + 'MS.pal' );
+ Save_MS_PAL(lvFPG.Fpg.palette, path + 'MS.pal' );
 end;
 
 procedure export_PSP_PAL( lvFPG: TFPGListView; path: string );
 begin
- Save_JASP_pal(lvFPG.Fpg.header.palette, path + 'PSP4.pal' );
+ Save_JASP_pal(lvFPG.Fpg.palette, path + 'PSP4.pal' );
 end;
 
-end.
+end.

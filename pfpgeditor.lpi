@@ -18,7 +18,7 @@
       <StringTable ProductVersion=""/>
     </VersionInfo>
     <MacroValues Count="1">
-      <Macro1 Name="LCLWidgetType" Value="win32"/>
+      <Macro1 Name="LCLWidgetType" Value="qt"/>
     </MacroValues>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
@@ -46,7 +46,7 @@
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="37">
+    <Units Count="36">
       <Unit0>
         <Filename Value="pfpgeditor.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -201,88 +201,83 @@
         <UnitName Value="uFrmSplahs"/>
       </Unit23>
       <Unit24>
-        <Filename Value="uMap\uMap.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="uMap"/>
-      </Unit24>
-      <Unit25>
         <Filename Value="uPAL\ucopypalette.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uCopyPalette"/>
-      </Unit25>
-      <Unit26>
+      </Unit24>
+      <Unit25>
         <Filename Value="uFrmZipFenix\ufrmZipFenix.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmZipFenix"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmZipFenix"/>
-      </Unit26>
-      <Unit27>
+      </Unit25>
+      <Unit26>
         <Filename Value="uAAtext\uAAText.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uAAText"/>
-      </Unit27>
-      <Unit28>
+      </Unit26>
+      <Unit27>
         <Filename Value="uColorTable\uColorTable.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uColorTable"/>
-      </Unit28>
-      <Unit29>
+      </Unit27>
+      <Unit28>
         <Filename Value="uFNT\uFNT.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uFNT"/>
-      </Unit29>
-      <Unit30>
+      </Unit28>
+      <Unit29>
         <Filename Value="uFrmBpp\uFrmBpp.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="fBPP"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmbpp"/>
-      </Unit30>
-      <Unit31>
+      </Unit29>
+      <Unit30>
         <Filename Value="uFrmCFG\uFrmCFG.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FrmCFG"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmCFG"/>
-      </Unit31>
-      <Unit32>
+      </Unit30>
+      <Unit31>
         <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmMainFNT"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmMainFNT"/>
-      </Unit32>
-      <Unit33>
+      </Unit31>
+      <Unit32>
         <Filename Value="uFrmAbout\uFrmAbout.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FrmAbout"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmAbout"/>
-      </Unit33>
-      <Unit34>
+      </Unit32>
+      <Unit33>
         <Filename Value="uFrmFNTView\uFrmFNTView.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmFNTView"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmFNTView"/>
-      </Unit34>
-      <Unit35>
+      </Unit33>
+      <Unit34>
         <Filename Value="uFPGListView\ufpglistview.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uFPGListView"/>
-      </Unit35>
-      <Unit36>
+      </Unit34>
+      <Unit35>
         <Filename Value="uMap\umapgraphic.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uMAPGraphic"/>
-      </Unit36>
+      </Unit35>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -303,9 +298,6 @@
       </Optimizations>
     </CodeGeneration>
     <Linking>
-      <Debugging>
-        <GenerateDebugInfo Value="False"/>
-      </Debugging>
       <Options>
         <Win32>
           <GraphicApplication Value="True"/>
@@ -318,7 +310,7 @@
       </CompilerMessages>
       <CompilerPath Value="$(CompPath)"/>
     </Other>
-    <LCLWidgetType Value="win32"/>
+    <LCLWidgetType Value="qt"/>
   </CompilerOptions>
   <Debugging>
     <Exceptions Count="5">

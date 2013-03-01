@@ -1,17 +1,17 @@
 object Form1: TForm1
-  Left = 401
-  Height = 322
-  Top = 327
-  Width = 434
+  Left = 392
+  Height = 347
+  Top = 311
+  Width = 463
   Caption = 'Form1'
-  ClientHeight = 322
-  ClientWidth = 434
+  ClientHeight = 347
+  ClientWidth = 463
   LCLVersion = '1.1'
   object FPGListView1: TFPGListView
     Left = 0
-    Height = 322
+    Height = 347
     Top = 0
-    Width = 434
+    Width = 463
     Align = alClient
     Columns = <>
     TabOrder = 0

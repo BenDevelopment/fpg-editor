@@ -2,7 +2,7 @@ program pfpgeditor;
 
 
 uses
-  Forms, Dialogs, uFrmMain, uBMP, uMap, uTools, uSort, uPCX, ufrmView,
+  Forms, Dialogs, uFrmMain, uBMP, uTools, uSort, uPCX, ufrmView,
   uLoadImage, uCopyPalette, uPAL, uColor16bits, uFPGConvert,
   ufrmFPGImages, ufrmNewFPG, ufrmAnimate, ufrmConfig, uFrmExport,
   uExportToFiles, ufrmPalette, uFrmSplahs, uinifile, uLanguage,

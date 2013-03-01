@@ -162,7 +162,7 @@ begin
   Exit;
  end;
 
- if Load_PAL(fpg.header.palette, odPalette.FileName) then
+ if Load_PAL(fpg.palette, odPalette.FileName) then
  begin
   FPG.loadpalette  := true;
   btViewPal.Enabled := true;
