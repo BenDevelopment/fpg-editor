@@ -39,20 +39,13 @@ uses
  
  procedure DrawProportional( var bmp_src : TBitMap; var bmp_dst: TBitMap; bgcolor:TColor; newwidth, newheight:Integer );
 
- procedure simulate1bppIn32bpp(var bmp_src : TBitmap);
- procedure simulate8bppIn32bpp(var bmp_src : TBitmap; palette : PByte );
 
  function countAlphas(var Bitmap: TBItmap; value: Byte): Integer;
  procedure copyPixels(var dstBitmap: TBitmap; srcBitmap: TBitmap; x, y : Integer);
 
- procedure colorToTransparent(var bmp_src : TBitmap; color1 : tcolor ; splitTo16b :boolean = false);
  procedure setAlpha(var Bitmap: TBItmap; value: Byte);
  procedure setAlpha(var Bitmap: TBItmap; value: Byte; in_rect : TRect );
 
- function createBitmap1bpp( bmp_src : TBitmap; cdivformat : boolean = false): TBitmap;
- function createBitmap8bpp( bmp_src : TBitmap; palette:PByte): TBitmap;
- function createBitmap16bpp( bmp_src : TBitmap; cdivformat : boolean = false): TBitmap;
- function createBitmap24bpp( bmp_src : TBitmap): TBitmap;
  function Find_Color(index, rc, gc, bc: integer; palette : PByte  ): integer;
 
 implementation
@@ -359,144 +352,6 @@ begin
 
 end;
 
-
-procedure simulate1bppIn32bpp(var bmp_src : TBitmap);
-var
- lazBMP: TLazIntfImage;
- rgbaLine : PRGBAQuad;
- i, j : LongInt;
-begin
-   lazBMP:=bmp_src.CreateIntfImage;
-   for j := 0 to bmp_src.height - 1 do begin
-    rgbaLine := lazBMP.GetDataLineStart(j);
-    for i := 0 to bmp_src.width - 1 do begin
-      if ((rgbaLine[i].Alpha shr 7) =1) and ((rgbaLine[i].Red shr 7) = 1)  then begin
-         rgbaLine[i].Red := 255;
-         rgbaLine[i].Green := 255;
-         rgbaLine[i].Blue := 255;
-         rgbaLine[i].Alpha:= 255;
-      end else begin
-         rgbaLine[i].Red := 0;
-         rgbaLine[i].Green := 0;
-         rgbaLine[i].Blue := 0;
-         rgbaLine[i].Alpha:= 0;
-      end;
-    end;
-   end;
-   bmp_src.LoadFromIntfImage(lazBMP);
-   lazBMP.free;
-end;
-
-
-procedure simulate8bppIn32bpp(var bmp_src : TBitmap; palette : PByte );
-var
- lazBMP_src: TLazIntfImage;
- p_src : PRGBAQuad;
- i, j : LongInt;
- pal_index : integer;
-begin
-   lazBMP_src:= bmp_src.CreateIntfImage;
-   for j := 0 to bmp_src.height - 1 do
-   begin
-    p_src := lazbmp_src.GetDataLineStart(j);
-    for i := 0 to bmp_src.width - 1 do
-     begin
-        pal_index := Find_Color(0, p_src[i].Red , p_src[i].Green, p_src[i].Blue,palette);
-        p_src[i].red := palette[pal_index * 3];
-        p_src[i].green := palette[(pal_index * 3)+1];
-        p_src[i].blue := palette[(pal_index * 3)+2];
-        if ((p_src[i].Alpha shr 7) = 1) and (pal_index<>0) then
-           p_src[i].Alpha:=255
-        else
-           p_src[i].Alpha:=0;
-     end;
-   end;
-   bmp_src.LoadFromIntfImage(lazBMP_src);
-   lazBMP_src.free;
-end;
-
-procedure colorToTransparent(var bmp_src : TBitmap; color1 : tcolor ;  splitTo16b :boolean = false);
-var
- lazBMP_src: TLazIntfImage;
- p_src : PRGBAQuad;
- i, j : LongInt;
- curColor: TColor;
-begin
-   if splitTo16b then
-       color1:=RGB(GetRValue(color1) and $F8, GetGValue(color1) and $FC,GetBValue(color1) and $F8);
-   lazBMP_src:= bmp_src.CreateIntfImage;
-   for j := 0 to bmp_src.height - 1 do
-   begin
-    p_src := lazbmp_src.GetDataLineStart(j);
-    for i := 0 to bmp_src.width - 1 do
-     begin
-        if splitTo16b then
-        begin
-          p_src[i].red := (p_src[i].red and $F8);
-          p_src[i].green := (p_src[i].green and $FC);
-          p_src[i].blue := (p_src[i].blue and $F8);
-        end;
-        curColor:=RGB(p_src[i].red, p_src[i].green,p_src[i].Blue );
-        if ((p_src[i].Alpha shr 7 )= 1 ) and (curColor <> color1) then
-          p_src[i].Alpha := 255
-        else
-          p_src[i].Alpha := 0;
-     end;
-   end;
-   bmp_src.LoadFromIntfImage(lazBMP_src);
-   lazBMP_src.free;
-end;
-
-function createBitmap1bpp( bmp_src : TBitmap; cdivformat : boolean = false): TBitmap;
-begin
-   result := TBitmap.create;
-   result.PixelFormat:=pf32bit;
-   result.SetSize(bmp_src.Width,bmp_src.Height);
-   copyPixels(Result,bmp_src,0,0);
-   if bmp_src.PixelFormat<>pf32bit then
-    setAlpha(result,255);
-   simulate1bppIn32bpp(result);
-
-end;
-function createBitmap8bpp( bmp_src : TBitmap; palette : PByte): TBitmap;
-begin
-   result := TBitmap.create;
-   result.PixelFormat:=pf32bit;
-   result.SetSize(bmp_src.Width,bmp_src.Height);
-   copyPixels(Result,bmp_src,0,0);
-   simulate8bppIn32bpp(result,palette);
-end;
-
-
-function createBitmap16bpp( bmp_src : TBitmap; cdivformat : boolean = false): TBitmap;
-var
- transparentColor : TColor;
-begin
-   result := TBitmap.create;
-   result.PixelFormat:=pf32bit;
-   result.SetSize(bmp_src.Width,bmp_src.Height);
-   copyPixels(Result,bmp_src,0,0);
-   if bmp_src.PixelFormat<>pf32bit then
-    setAlpha(result,255);
-
-   transparentColor:=clBlack;
-   if cdivformat then
-      transparentColor:=clFuchsia;
-
-   colorToTransparent(result,transparentColor,true);
-end;
-
-function createBitmap24bpp( bmp_src : TBitmap): TBitmap;
-begin
-   result := TBitmap.create;
-   result.PixelFormat:=pf32bit;
-   result.SetSize(bmp_src.Width,bmp_src.Height);
-   copyPixels(Result,bmp_src,0,0);
-   if bmp_src.PixelFormat<>pf32bit then
-    setAlpha(result,255);
-
-   colorToTransparent(result,clBlack);
-end;
 
 function Find_Color(index, rc, gc, bc: integer; palette : PByte  ): integer;
 var

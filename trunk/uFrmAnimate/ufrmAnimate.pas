@@ -96,7 +96,7 @@ begin
 
     if fpg_animate[i] then
     begin
-     Image1.Picture.Bitmap.Assign(Fpg.images[i].bmp);
+     Image1.Picture.Bitmap.Assign(Fpg.images[i]);
      break;
     end;
 
@@ -161,4 +161,4 @@ begin
  source := sFPG;
 end;
 
-end.
+end.

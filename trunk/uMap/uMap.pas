@@ -415,4 +415,4 @@ function MAP_Load(filename: string; var ncpoints:word; cpoints:PWord) : TBitmap;
  end;
 
 end.
- 
+ 

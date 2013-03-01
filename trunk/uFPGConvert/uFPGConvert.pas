@@ -43,7 +43,7 @@ var
  procedure Convert_to_FPG1( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
  procedure Convert_to_FPG8_DIV2( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
 
- procedure Convert_to_FPG16_common( var lvFPG: TFPGListView;  var gFPG: TProgressBar; cdivformat:boolean =false);
+ procedure Convert_to_FPG16_common( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
  procedure Convert_to_FPG16_CDIV( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
  procedure Convert_to_FPG16_FENIX( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
  procedure Convert_to_FPG24( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
@@ -96,8 +96,7 @@ begin
  begin
   with lvFPG.Fpg.images[count] do
   begin
-   lazBMP:=TLazIntfImage.Create(0,0);
-   lazBMP.LoadFromBitmap(bmp.Handle,bmp.MaskHandle);
+   lazBMP:=CreateIntfImage;
 
    for j := 0 to height - 1 do
    begin
@@ -115,7 +114,7 @@ begin
 
    total_pixels := total_pixels + (width * height);
 
-   bmp.LoadFromIntfImage(lazBMP);
+   LoadFromIntfImage(lazBMP);
    lazBMP.free;
 
   end;
@@ -150,9 +149,9 @@ begin
  // Establecemos la paleta de colores
  i := 65535;
 
- lvFPG.Fpg.Header.palette[ 0 ] := 0;
- lvFPG.Fpg.Header.palette[ 1 ] := 0;
- lvFPG.Fpg.Header.palette[ 2 ] := 0;
+ lvFPG.Fpg.palette[ 0 ] := 0;
+ lvFPG.Fpg.palette[ 1 ] := 0;
+ lvFPG.Fpg.palette[ 2 ] := 0;
 
  count := 0;
 
@@ -172,9 +171,9 @@ begin
 
    count := count + 1;
 
-   lvFPG.Fpg.Header.palette[  count * 3      ] := R16;
-   lvFPG.Fpg.Header.palette[ (count * 3) + 1 ] := G16;
-   lvFPG.Fpg.Header.palette[ (count * 3) + 2 ] := B16;
+   lvFPG.Fpg.palette[  count * 3      ] := R16;
+   lvFPG.Fpg.palette[ (count * 3) + 1 ] := G16;
+   lvFPG.Fpg.palette[ (count * 3) + 2 ] := B16;
   end;
 
   i := i - 1;
@@ -186,7 +185,7 @@ begin
  //FPG_Create_hpal;
 
  lvFPG.Fpg.FPGFormat             := FPG8_DIV2;
- lvFPG.Fpg.header.Magic := 'fpg';
+ lvFPG.Fpg.Magic := 'fpg';
  lvFPG.Fpg.loadpalette     := true;
  lvFPG.Fpg.update := true;
 
@@ -205,9 +204,9 @@ begin
 
  for count:= 1 to lvFPG.Fpg.Count do
  begin
-  tmpBMP:=lvFPG.Fpg.images[count].bmp;
-  lvFPG.Fpg.images[count].bmp:=createBitmap8bpp(tmpBMP,lvFPG.Fpg.header.palette);
-  FreeAndNil(tmpBMP);
+  lvFPG.Fpg.images[count].bitsPerPixel:=lvFPG.Fpg.getBPP;
+  lvFPG.Fpg.images[count].bPalette:=lvFPG.Fpg.palette;
+  lvFPG.Fpg.images[count].simulate8bppIn32bpp;
 
   lvFPG.add_items( count);
 
@@ -231,7 +230,7 @@ begin
             0, 0);
 end;
 
-procedure Convert_to_FPG16_common( var lvFPG: TFPGListView;  var gFPG: TProgressBar; cdivformat : boolean = false);
+procedure Convert_to_FPG16_common( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
 var
  count   : LongInt;
  tmpBMP : TBitmap;
@@ -249,9 +248,18 @@ begin
  for count:= 1 to lvFPG.Fpg.Count  do
  begin
 
-  tmpBMP:=lvFPG.Fpg.images[count].bmp;
-  lvFPG.Fpg.images[count].bmp:=createBitmap16bpp(tmpBMP,cdivformat);
-  FreeAndNil(tmpBMP);
+  lvFPG.Fpg.images[count].bitsPerPixel:=16;
+
+  if lvFPG.Fpg.FPGFormat = FPG16_CDIV then
+  begin
+    lvFPG.Fpg.images[count].CDIVFormat:=true;
+    lvFPG.Fpg.images[count].colorToTransparent(clPurple,true);
+  end
+  else begin
+    lvFPG.Fpg.images[count].CDIVFormat:=false;
+    lvFPG.Fpg.images[count].colorToTransparent(clBlack,true);
+  end;
+
   lvFPG.add_items( count);
 
   gFPG.Position:= (count * 100) div (lvFPG.Fpg.Count );
@@ -265,27 +273,27 @@ end;
 procedure Convert_to_FPG16_FENIX( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
 begin
  New_type := FPG16;
+ // Actualizamos los datos del FPG
+ lvFPG.Fpg.FPGFormat             := FPG16;
+ lvFPG.Fpg.Magic := 'f16';
+ lvFPG.Fpg.loadPalette     := false;
+ lvFPG.Fpg.update := true;
 
  Convert_to_FPG16_common( lvFPG, gFPG);
 
- // Actualizamos los datos del FPG
- lvFPG.Fpg.FPGFormat             := FPG16;
- lvFPG.Fpg.header.Magic := 'f16';
- lvFPG.Fpg.loadPalette     := false;
- lvFPG.Fpg.update := true;
 end;
 
 procedure Convert_to_FPG16_CDIV( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
 begin
  New_type := FPG16_CDIV;
-
- Convert_to_FPG16_common( lvFPG, gFPG, true);
-
  // Actualizamos los datos del FPG
  lvFPG.Fpg.FPGFormat             := FPG16_CDIV;
- lvFPG.Fpg.header.Magic := 'c16';
+ lvFPG.Fpg.Magic := 'c16';
  lvFPG.Fpg.loadPalette     := false;
  lvFPG.Fpg.update := true;
+
+ Convert_to_FPG16_common( lvFPG, gFPG);
+
 end;
 
 procedure Convert_to_FPG24( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
@@ -301,15 +309,20 @@ begin
  lvFPG.LargeImages.Width  := inifile_sizeof_icon;
  lvFPG.LargeImages.Height := inifile_sizeof_icon;
 
+ // Actualizamos los datos del FPG
+ lvFPG.Fpg.FPGFormat             := FPG24;
+ lvFPG.Fpg.Magic := 'f24';
+ lvFPG.Fpg.loadPalette     := false;
+ lvFPG.Fpg.update := true;
+
  gFPG.Position := 0;
  gFPG.Show;
  gFPG.Repaint;
 
  for count:= 1 to lvFPG.Fpg.Count  do
  begin
-  tmpBMP:= lvFPG.Fpg.images[count].bmp;
-  lvFPG.Fpg.images[count].bmp:=createBitmap24bpp(tmpBMP);
-  FreeAndNil(tmpBMP);
+  lvFPG.Fpg.images[count].bitsPerPixel:=24;
+  lvFPG.Fpg.images[count].colorToTransparent(clBlack);
   lvFPG.add_items( count);
 
   gFPG.Position:= (count * 100) div (lvFPG.Fpg.Count );
@@ -317,11 +330,6 @@ begin
  end;
 
  gFPG.Hide;
- // Actualizamos los datos del FPG
- lvFPG.Fpg.FPGFormat             := FPG24;
- lvFPG.Fpg.header.Magic := 'f24';
- lvFPG.Fpg.loadPalette     := false;
- lvFPG.Fpg.update := true;
 
 end;
 
@@ -331,7 +339,7 @@ begin
 
  // Actualizamos los datos del FPG
  lvFPG.Fpg.FPGFormat             := FPG32;
- lvFPG.Fpg.header.Magic := 'f32';
+ lvFPG.Fpg.Magic := 'f32';
  lvFPG.Fpg.loadPalette     := false;
  lvFPG.Fpg.update := true;
 end;
@@ -351,16 +359,20 @@ begin
  lvFPG.LargeImages.Width  := inifile_sizeof_icon;
  lvFPG.LargeImages.Height := inifile_sizeof_icon;
 
+  // Actualizamos los datos del FPG
+ lvFPG.Fpg.FPGFormat             := FPG1;
+ lvFPG.Fpg.Magic := 'f01';
+ lvFPG.Fpg.loadPalette     := false;
+ lvFPG.Fpg.update := true;
+
  gFPG.Position := 0;
  gFPG.Show;
  gFPG.Repaint;
 
  for count:= 1 to lvFPG.Fpg.Count do
  begin
-
-  tmpBMP:=lvFPG.Fpg.images[count].bmp;
-  lvFPG.Fpg.images[count].bmp:=createBitmap1bpp(tmpBMP);
-  FreeAndNil(tmpBMP);
+  lvFPG.Fpg.images[count].bitsPerPixel:=1;
+  lvFPG.Fpg.images[count].simulate1bppIn32bpp;
   lvFPG.add_items( count);
 
   gFPG.Position:= (count * 100) div (lvFPG.Fpg.Count );
@@ -368,12 +380,7 @@ begin
  end;
 
  gFPG.Hide;
- // Actualizamos los datos del FPG
- lvFPG.Fpg.FPGFormat             := FPG1;
- lvFPG.Fpg.header.Magic := 'f01';
- lvFPG.Fpg.loadPalette     := false;
- lvFPG.Fpg.update := true;
 end;
 
 
-end.
+end.

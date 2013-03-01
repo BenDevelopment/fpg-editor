@@ -26,7 +26,7 @@ interface
 
 uses
   Classes, SysUtils, Graphics,
-  IntfGraphics, FileUtil;
+  IntfGraphics, FileUtil,LCLIntf, LCLType;
 
 type
   { TMAPGraphic }
@@ -39,17 +39,17 @@ type
     //      width          : word;  // Not needed, stored in TBitmap
     //      height         : word;  // Not needed, stored in TBitmap
     FCode: DWord;
-    FPName: array [0 .. 11] of Char; // Needed for FPG Graphics
+    FFPName: array [0 .. 11] of Char; // Needed for FPG Graphics
     FName: array [0 .. 31] of Char;
-    bPalette: array [0 .. 767] of Byte;
     Gamma: array [0 .. 575] of Byte;
-    NCPoints: Word;
-    CPoints :   array[0..high(Word)*2] of Word;
+    (*BPalette must be public*)
+    NCPoints: LongInt;
+    (*CPoints must be public*)
     GraphSize: LongInt;               // Needed for FPG Graphics
     FbitsPerPixel: Word;            // to get faster this attribute.
     FCDIVFormat: Boolean;            // to get faster this attribute.
-    procedure loadDataBitmap(Stream: TStream; bytes_per_pixel: Word);
-    procedure writeDataBitmap(Stream: TStream; bytes_per_pixel: Word);
+    procedure loadDataBitmap(Stream: TStream);
+    procedure writeDataBitmap(Stream: TStream);
     procedure RGB24toBGR16(var byte0, byte1: Byte; red, green, blue: Byte);
     procedure RGB24toRGB16(var byte0, byte1: Byte; red, green, blue: Byte);
     procedure BGR16toRGB24(byte0, byte1: Byte; var red, green, blue: Byte);
@@ -60,18 +60,30 @@ type
     procedure setMagic;
     function getName : String;
     procedure setName(str:String);
+    function getFPName : String;
+    procedure setFPName(str:String);
+    procedure copyPixels(srcBitmap: TBitmap; x, y : Integer);
+    procedure setAlpha( value: Byte; in_rect : TRect );
   public
+    bPalette: array [0 .. 767] of Byte;
+    CPoints :   array[0..high(Word)*2] of Word;
     procedure LoadFromFile(const Filename: string); override;
     procedure LoadFromStream(Stream: TStream); override;
+    procedure LoadFromStream(Stream: TStream; onFPG: Boolean );
     procedure SaveToFile(const Filename: string); override;
     procedure SaveToStream(Stream: TStream); override;
     procedure SaveToStream(Stream: TStream; onFPG: Boolean);
+    procedure CreateBitmap(bmp_src : TBitmap);
+    procedure simulate1bppIn32bpp;
+    procedure simulate8bppIn32bpp;
+    procedure colorToTransparent(color1 : tcolor ;  splitTo16b :boolean = false);
     class function GetFileExtensions: string; override;
   published
     property CDIVFormat : Boolean read FCDIVFormat write SetFormat default False;
     property bitsPerPixel : Word read FbitsPerPixel write setBitsPerPixel default 32;
-    property CPointsCount : Word read NCPoints;
+    property CPointsCount : Integer read NCPoints write NCPoints;
     property Name : String read getName write setName;
+    property FPName : String read getFPName write setFPName;
     property Code : DWord read FCode write FCode default 1;
   end;
 
@@ -106,78 +118,100 @@ begin
 end;
 
 procedure TMAPGraphic.LoadFromStream(Stream: TStream);
+begin
+  LoadFromStream(Stream,false);
+end;
+
+procedure TMAPGraphic.LoadFromStream(Stream: TStream; onFPG: boolean);
 var
   frames: word;
   length: word;
   speed: word;
   tmpWidth: word;
   tmpHeight: word;
+  intWidth: LongInt;
+  intHeight: LongInt;
   i: integer;
-  bytes_per_pixel :Word;
+  tmpNCPoints :word;
 begin
-  Stream.Read(Magic, 3);
-  Stream.Read(MSDOSEnd, 4);
-  Stream.Read(Version, 1);
-
-  FbitsPerPixel := 0;
-  FCDIVFormat := False;
-  // Ficheros de 1 bit
-  if (Magic[0] = 'm') and (Magic[1] = '0') and (Magic[2] = '1') and
-    (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
-    (MSDOSEnd[3] = 0) then
+  if not onFPG then
   begin
+    Stream.Read(Magic, 3);
+    Stream.Read(MSDOSEnd, 4);
+    Stream.Read(Version, 1);
     FbitsPerPixel := 0;
-  end;
-  // Ficheros de 8 bits para DIV2, FENIX y CDIV
-  if (Magic[0] = 'm') and (Magic[1] = 'a') and (Magic[2] = 'p') and
-    (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
-    (MSDOSEnd[3] = 0) then
-  begin
-    FbitsPerPixel := 8;
-  end;
-  // Ficheros de 16 bits para FENIX
-  if (Magic[0] = 'm') and (Magic[1] = '1') and (Magic[2] = '6') and
-    (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
-    (MSDOSEnd[3] = 0) then
-  begin
-    FbitsPerPixel := 16;
+    FCDIVFormat := False;
+    // Ficheros de 1 bit
+    if (Magic[0] = 'm') and (Magic[1] = '0') and (Magic[2] = '1') and
+      (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
+      (MSDOSEnd[3] = 0) then
+    begin
+      FbitsPerPixel := 0;
+    end;
+    // Ficheros de 8 bits para DIV2, FENIX y CDIV
+    if (Magic[0] = 'm') and (Magic[1] = 'a') and (Magic[2] = 'p') and
+      (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
+      (MSDOSEnd[3] = 0) then
+    begin
+      FbitsPerPixel := 8;
+    end;
+    // Ficheros de 16 bits para FENIX
+    if (Magic[0] = 'm') and (Magic[1] = '1') and (Magic[2] = '6') and
+      (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
+      (MSDOSEnd[3] = 0) then
+    begin
+      FbitsPerPixel := 16;
+    end;
+
+    // Ficheros de 16 bits para CDIV
+    if (Magic[0] = 'c') and (Magic[1] = '1') and (Magic[2] = '6') and
+      (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
+      (MSDOSEnd[3] = 0) then
+    begin
+      FbitsPerPixel := 16;
+    end;
+
+    // Ficheros de 24 bits
+    if (Magic[0] = 'm') and (Magic[1] = '2') and (Magic[2] = '4') and
+      (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
+      (MSDOSEnd[3] = 0) then
+    begin
+      FbitsPerPixel := 24;
+    end;
+
+    // Ficheros de 32 bits
+    if (Magic[0] = 'm') and (Magic[1] = '3') and (Magic[2] = '2') and
+      (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
+      (MSDOSEnd[3] = 0) then
+    begin
+      FbitsPerPixel := 32;
+    end;
+
+    Stream.Read(tmpWidth, 2);
+    Stream.Read(tmpHeight, 2);
+    Width := tmpWidth;
+    Height := tmpHeight;
   end;
 
-  // Ficheros de 16 bits para CDIV
-  if (Magic[0] = 'c') and (Magic[1] = '1') and (Magic[2] = '6') and
-    (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
-    (MSDOSEnd[3] = 0) then
-  begin
-    FbitsPerPixel := 16;
-  end;
-
-  // Ficheros de 24 bits
-  if (Magic[0] = 'm') and (Magic[1] = '2') and (Magic[2] = '4') and
-    (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
-    (MSDOSEnd[3] = 0) then
-  begin
-    FbitsPerPixel := 24;
-  end;
-
-  // Ficheros de 32 bits
-  if (Magic[0] = 'm') and (Magic[1] = '3') and (Magic[2] = '2') and
-    (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
-    (MSDOSEnd[3] = 0) then
-  begin
-    FbitsPerPixel := 32;
-  end;
-
-  bytes_per_pixel:=FbitsPerPixel div 8;
-
-  Stream.Read(tmpWidth, 2);
-  Stream.Read(tmpHeight, 2);
   Stream.Read(FCode, 4);
+
+  if onFPG then
+  begin
+     Stream.Read(GraphSize,4);
+  end;
+
   Stream.Read(FName, 32);
 
-  Width := tmpWidth;
-  Height := tmpHeight;
+  if onFPG then
+  begin
+    Stream.Read(FFPName, 11);
+    Stream.Read(intWidth, 2);
+    Stream.Read(intHeight, 2);
+    Width := intWidth;
+    Height := intHeight;
+  end;
 
-  if (bytes_per_pixel = 1) then
+  if (not onFPG) and (bitsPerPixel = 8) then
   begin
     Stream.Read(bPalette, 768);
     Stream.Read(Gamma, 576);
@@ -187,28 +221,25 @@ begin
 
   end;
 
-  Stream.Read(ncpoints, 2);
+  if onFPG then
+      Stream.Read(ncpoints, 4)
+  else begin
+    Stream.Read(tmpNCPoints, 2);
+    ncpoints:= tmpNCPoints;
+  end;
 
   // Leemos los puntos de control del bitmap
-  if ((ncpoints > 0) and (ncpoints <> 4096)) then
+  if ncpoints > 0  then
   begin
     Stream.Read(CPoints, ncpoints * 4);
   end;
 
-  if (ncpoints = 4096) then
-  begin
-    Stream.Read(frames, 2);
-    Stream.Read(length, 2);
-    Stream.Read(speed, 2);
-    Stream.Seek(length * 2, soFromCurrent);
-  end;
-
   // Se carga la imagen resultante
-  loadDataBitmap(Stream, bytes_per_pixel);
+  loadDataBitmap(Stream);
 
 end;
 
-procedure TMAPGraphic.loadDataBitmap(Stream: TStream; bytes_per_pixel: word);
+procedure TMAPGraphic.loadDataBitmap(Stream: TStream);
 var
   lazBMP: TLazIntfImage;
   p_bytearray: PByteArray;
@@ -216,15 +247,17 @@ var
   byte_line: array [0 .. 16383] of byte;
   lenLineBits: integer;
   lineBit: byte;
+  bytesPerPixel: Word;
 
 begin
   // Se crea la imagen resultante
   PixelFormat := pf32bit;
   SetSize(Width, Height);
+  bytesPerPixel:=FbitsPerPixel div 8;
 
 
   // Para usar en caso de un bit
-  if bytes_per_pixel = 0 then
+  if FbitsPerPixel = 1 then
   begin
     lenLineBits := Width div 8;
     if (Width mod 8) <> 0 then
@@ -235,8 +268,8 @@ begin
   for k := 0 to Height - 1 do
   begin
     p_bytearray := lazBMP.GetDataLineStart(k);
-    case bytes_per_pixel of
-      0:
+    case FbitsPerPixel of
+      1:
       begin
         for j := 0 to lenLineBits - 1 do
         begin
@@ -267,9 +300,9 @@ begin
           end;
         end;
       end;
-      1:
+      8:
       begin
-        Stream.Read(byte_line, Width * bytes_per_pixel);
+        Stream.Read(byte_line, Width * bytesPerPixel);
         for j := 0 to Width - 1 do
         begin
           p_bytearray^[j * 4] := bPalette[byte_line[j] * 3 + 2];
@@ -280,9 +313,9 @@ begin
             p_bytearray^[j * 4 + 3] := 0;
         end;
       end;
-      2:
+      16:
       begin
-        Stream.Read(byte_line, Width * bytes_per_pixel);
+        Stream.Read(byte_line, Width * bytesPerPixel);
         for j := 0 to Width - 1 do
         begin
           if FCDIVFormat then
@@ -309,9 +342,9 @@ begin
 
         end;
       end;
-      3:
+      24:
       begin
-        Stream.Read(byte_line, Width * bytes_per_pixel);
+        Stream.Read(byte_line, Width * bytesPerPixel);
         for j := 0 to Width - 1 do
         begin
           p_bytearray^[j * 4] := byte_line[j * 3];
@@ -323,7 +356,7 @@ begin
         end;
       end;
       else // 32 bits
-        Stream.Read(p_bytearray^, Width * bytes_per_pixel)
+        Stream.Read(p_bytearray^, Width * bytesPerPixel)
     end;
   end;
   LoadFromIntfImage(lazBMP);
@@ -342,22 +375,9 @@ var
   i: word;
   aWidth, aHeight: word;
   Frames: word;
-  intFlags: longint;
+  wordNCPoints: Word;
   widthForFPG1: integer;
 begin
-  byte_size := 0;
-
-  if magic[2] = 'p' then
-    byte_size := 1;
-
-  if magic[2] = '6' then
-    byte_size := 2;
-
-  if magic[2] = '4' then
-    byte_size := 3;
-
-  if magic[2] = '2' then
-    byte_size := 4;
 
   if not onFPG then
   begin
@@ -380,11 +400,7 @@ begin
 
   if onFPG then
   begin
-    if magic[1] <> '0' then
-    begin
-      graphSize := (Width * Height * byte_size) + 64;
-    end
-    else
+    if FbitsPerPixel = 1 then
     begin
       widthForFPG1 := Width;
       if (Width mod 8) <> 0 then
@@ -394,6 +410,10 @@ begin
         graphSize := graphSize + (ncpoints * 4);
       if (ncpoints = 4096) then
         graphSize := graphSize + 6;
+    end
+    else
+    begin
+      graphSize := (Width * Height * byte_size) + 64;
     end;
     Stream.Write(graphSize, 4);
   end;
@@ -401,7 +421,7 @@ begin
   Stream.Write(FName, 32);
   if onFPG then
   begin
-    Stream.Write(FPName, 11);
+    Stream.Write(FFPName, 11);
     Stream.Write(Width, 4);
     Stream.Write(Height, 4);
   end;
@@ -419,21 +439,20 @@ begin
   end;
 
   if onFPG then
-  begin
-    intFlags := ncpoints;
-    Stream.Write(intFlags, 4);
-  end
-  else
-    Stream.Write(ncpoints, 2);
+      Stream.Write(ncpoints, 4)
+  else begin
+    wordNCPoints := ncpoints;
+    Stream.Write(wordNCPoints, 2);
+  end;
 
   if ncpoints > 0  then
     Stream.Write(CPoints, ncpoints * 4);
 
-  writeDataBitmap(Stream, byte_size);
+  writeDataBitmap(Stream);
 
 end;
 
-procedure TMAPGraphic.writeDataBitmap(Stream: TStream; bytes_per_pixel: word);
+procedure TMAPGraphic.writeDataBitmap(Stream: TStream);
 var
   lazBMP: TLazIntfImage;
   byte_line: array [0 .. 16383] of byte;
@@ -441,14 +460,15 @@ var
   insertedBits: integer;
   p_bytearray: PByteArray;
   j, k: word;
+  bytes_per_pixel : word;
 begin
   lazBMP := CreateIntfImage;
-
+  bytes_per_pixel:= FbitsPerPixel div 8;
   for k := 0 to Height - 1 do
   begin
     p_bytearray := lazBmp.GetDataLineStart(k);
-    case bytes_per_pixel of
-      0:
+    case FbitsPerPixel of
+      1:
       begin
         insertedBits := 0;
         byteForFPG1 := 0;
@@ -474,7 +494,7 @@ begin
           Stream.Write(byteForFPG1, 1);
         end;
       end;
-      1:
+      8:
       begin
         for j := 0 to Width - 1 do
         begin
@@ -485,7 +505,7 @@ begin
         end;
         Stream.Write(byte_line, Width);
       end;
-      2:
+      16:
       begin
         for j := 0 to Width - 1 do
         begin
@@ -509,7 +529,7 @@ begin
         end;
         Stream.Write(byte_line, Width * bytes_per_pixel);
       end;
-      3:
+      24:
       begin
         for j := 0 to Width - 1 do
         begin
@@ -651,22 +671,202 @@ var
 begin
   result:='';
   i:=0;
-  while FName[i] <>char(0) do
+  while ( FName[i] <>char(0) ) and (i<32) do
   begin
         result:= result+FName[i];
         i:=i+1;
   end;
+
 end;
+
+function TMAPGraphic.getFPName : String;
+var
+  i : integer;
+begin
+  result:='';
+  i:=0;
+  while ( FFPName[i] <>char(0) ) and (i<12) do
+  begin
+        result:= result+FFPName[i];
+        i:=i+1;
+  end;
+
+end;
+
 
 procedure TMAPGraphic.setName(str:String);
 var
   i : integer;
 begin
   i:=0;
-  while (i<32) and ( i<=length(str) ) do
+  while (i<32) and ( i<length(str) ) do
   begin
         FName[i]:=str[i+1];
   end;
+end;
+
+procedure TMAPGraphic.setFPName(str:String);
+var
+  i : integer;
+begin
+  i:=0;
+  while (i<12) and ( i<length(str) ) do
+  begin
+        FFPName[i]:=str[i+1];
+  end;
+end;
+
+procedure TMAPGraphic.copyPixels(srcBitmap: TBitmap; x, y : Integer);
+var
+  dstLazBitmap: TLazIntfImage;
+  srcLazBitmap: TLazIntfImage;
+begin
+ dstLazBitmap:=CreateIntfImage;
+ srcLazBitmap:=srcBitmap.CreateIntfImage;
+
+ dstLazBitmap.CopyPixels(srcLazBitmap,x,y);
+
+ srcLazBitmap.free;
+ LoadFromIntfImage(dstLazBitmap);
+ dstLazBitmap.free;
+end;
+
+
+procedure TMAPGraphic.CreateBitmap(bmp_src : TBitmap);
+begin
+ PixelFormat:=pf32bit;
+ SetSize(bmp_src.Width, bmp_src.Height);
+
+ CopyPixels(bmp_src,0,0);
+
+ if bmp_src.PixelFormat<>pf32bit then
+    setAlpha(255,Rect(0,0,Width,Height));
+ case FbitsPerPixel of
+    1:
+    begin
+          simulate1bppIn32bpp;
+    end;
+    8:
+    begin
+         simulate8bppIn32bpp;
+    end;
+    16:
+    begin
+         if CDIVFormat then
+                  colorToTransparent(clFuchsia,true )
+         else
+             colorToTransparent(clBlack,true );
+    end;
+    24:
+    begin
+         colorToTransparent(clBlack );
+    end;
+ end;
+
+end;
+
+procedure TMAPGraphic.setAlpha( value: Byte; in_rect : TRect );
+var
+  lazBitmap: TLazIntfImage;
+  k, j :integer;
+  ppixel : PRGBAQuad;
+begin
+ lazBitmap:= CreateIntfImage;
+ for k := in_rect.top to in_rect.Bottom -1 do
+ begin
+   ppixel := lazBitmap.GetDataLineStart(k);
+   for j := in_rect.Left to in_rect.Right - 1 do
+     ppixel[j].Alpha := value;
+ end;
+ LoadFromIntfImage(lazBitmap);
+ lazBitmap.free;
+end;
+
+procedure TMAPGraphic.simulate1bppIn32bpp;
+var
+ lazBMP: TLazIntfImage;
+ rgbaLine : PRGBAQuad;
+ i, j : LongInt;
+begin
+   lazBMP:=CreateIntfImage;
+   for j := 0 to height - 1 do begin
+    rgbaLine := lazBMP.GetDataLineStart(j);
+    for i := 0 to width - 1 do begin
+      if ((rgbaLine[i].Alpha shr 7) =1) and ((rgbaLine[i].Red shr 7) = 1)  then begin
+         rgbaLine[i].Red := 255;
+         rgbaLine[i].Green := 255;
+         rgbaLine[i].Blue := 255;
+         rgbaLine[i].Alpha:= 255;
+      end else begin
+         rgbaLine[i].Red := 0;
+         rgbaLine[i].Green := 0;
+         rgbaLine[i].Blue := 0;
+         rgbaLine[i].Alpha:= 0;
+      end;
+    end;
+   end;
+   LoadFromIntfImage(lazBMP);
+   lazBMP.free;
+end;
+
+
+procedure TMAPGraphic.simulate8bppIn32bpp;
+var
+ lazBMP_src: TLazIntfImage;
+ p_src : PRGBAQuad;
+ i, j : LongInt;
+ pal_index : integer;
+begin
+   lazBMP_src:= CreateIntfImage;
+   for j := 0 to height - 1 do
+   begin
+    p_src := lazbmp_src.GetDataLineStart(j);
+    for i := 0 to width - 1 do
+     begin
+        pal_index := FindColor(0, p_src[i].Red , p_src[i].Green, p_src[i].Blue);
+        p_src[i].red := bpalette[pal_index * 3];
+        p_src[i].green := bpalette[(pal_index * 3)+1];
+        p_src[i].blue := bpalette[(pal_index * 3)+2];
+        if ((p_src[i].Alpha shr 7) = 1) and (pal_index<>0) then
+           p_src[i].Alpha:=255
+        else
+           p_src[i].Alpha:=0;
+     end;
+   end;
+   LoadFromIntfImage(lazBMP_src);
+   lazBMP_src.free;
+end;
+
+procedure TMAPGraphic.colorToTransparent( color1 : tcolor ;  splitTo16b :boolean = false);
+var
+ lazBMP_src: TLazIntfImage;
+ p_src : PRGBAQuad;
+ i, j : LongInt;
+ curColor: TColor;
+begin
+   if splitTo16b then
+       color1:=RGB(GetRValue(color1) and $F8, GetGValue(color1) and $FC,GetBValue(color1) and $F8);
+   lazBMP_src:= CreateIntfImage;
+   for j := 0 to height - 1 do
+   begin
+    p_src := lazbmp_src.GetDataLineStart(j);
+    for i := 0 to width - 1 do
+     begin
+        if splitTo16b then
+        begin
+          p_src[i].red := (p_src[i].red and $F8);
+          p_src[i].green := (p_src[i].green and $FC);
+          p_src[i].blue := (p_src[i].blue and $F8);
+        end;
+        curColor:=RGB(p_src[i].red, p_src[i].green,p_src[i].Blue );
+        if ((p_src[i].Alpha shr 7 )= 1 ) and (curColor <> color1) then
+          p_src[i].Alpha := 255
+        else
+          p_src[i].Alpha := 0;
+     end;
+   end;
+   LoadFromIntfImage(lazBMP_src);
+   lazBMP_src.free;
 end;
 
 initialization

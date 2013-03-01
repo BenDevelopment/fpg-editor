@@ -350,7 +350,6 @@ begin
   lvFPG.repaintNumber:=inifile_repaint_number;
   Update_Panels;
   EFilter.Filter:=OpenPictureDialog.Filter;
-  FPG_EDITOR_R:='r36';
 
 end;
 
@@ -484,7 +483,7 @@ begin
     end;
    FPG8_DIV2:
     begin
-     lblTransparentColor.caption := 'RGB('+intTostr(lvFPG.Fpg.header.palette[0])+', '+intTostr(lvFPG.Fpg.header.palette[1])+', '+intTostr(lvFPG.Fpg.header.palette[2])+')';
+     lblTransparentColor.caption := 'RGB('+intTostr(lvFPG.Fpg.palette[0])+', '+intTostr(lvFPG.Fpg.palette[1])+', '+intTostr(lvFPG.Fpg.palette[2])+')';
     end;
    FPG16:
     begin
@@ -558,13 +557,13 @@ begin
 
   //Buscamos la imagen del FPG seleccionada
   for j := 1 to lvFPG.Fpg.Count do
-   if lvFPG.Fpg.images[j].graph_code = StrToInt(lvFPG.Items.Item[i].Caption) then
+   if lvFPG.Fpg.images[j].code = StrToInt(lvFPG.Items.Item[i].Caption) then
    begin
-    if lvFPG.Fpg.images[j].bmp.width > frmAnimate.ClientWidth then
-     frmAnimate.ClientWidth := lvFPG.Fpg.images[j].bmp.width;
+    if lvFPG.Fpg.images[j].width > frmAnimate.ClientWidth then
+     frmAnimate.ClientWidth := lvFPG.Fpg.images[j].width;
 
-    if lvFPG.Fpg.images[j].bmp.height > frmAnimate.ClientHeight then
-     frmAnimate.ClientHeight := lvFPG.Fpg.images[j].bmp.Height;
+    if lvFPG.Fpg.images[j].height > frmAnimate.ClientHeight then
+     frmAnimate.ClientHeight := lvFPG.Fpg.images[j].Height;
 
     frmAnimate.fpg_animate[j] := true;
    end;
@@ -749,9 +748,9 @@ begin
 
    for i := 0 to lvFPG.Items.Count - 1 do
     for j := 1 to lvFPG.Fpg.Count  do
-     if lvFPG.Fpg.images[j].graph_code = StrToInt(lvFPG.Items.Item[i].Caption) then
+     if lvFPG.Fpg.images[j].code = StrToInt(lvFPG.Items.Item[i].Caption) then
      begin
-      DrawProportional(lvFPG.Fpg.images[j].bmp, bmp_dst,lvFPG.Color,ilFPG.width,ilfpg.Height);
+      DrawProportional(TBitmap(lvFPG.Fpg.images[j]), bmp_dst,lvFPG.Color,ilFPG.width,ilfpg.Height);
       lvFPG.Items.Item[i].ImageIndex := ilFPG.add(bmp_dst, nil);
      end;
 
@@ -842,7 +841,7 @@ begin
  end;
 
  for i := 1 to lvFPG.Fpg.Count do
-  if lvFPG.Fpg.images[i].graph_code = StrToInt(lvFPG.Selected.Caption) then
+  if lvFPG.Fpg.images[i].code = StrToInt(lvFPG.Selected.Caption) then
   begin
    frmFPGImages.fpg_index   := i;
    break;
@@ -1546,9 +1545,9 @@ begin
  frmView.file_selected := lvFPG.Selected.Caption;
 
  for i := 1 to lvFPG.Fpg.Count do
-  if StrToInt(lvFPG.Selected.Caption) = lvFPG.Fpg.images[i].graph_code then
+  if StrToInt(lvFPG.Selected.Caption) = lvFPG.Fpg.images[i].code then
    begin
-    frmView.Image.Picture.Bitmap := lvFPG.Fpg.images[i].bmp;
+    frmView.Image.Picture.assign(lvFPG.Fpg.images[i]);
     break;
    end;
 
@@ -1712,11 +1711,11 @@ begin
  end;
 
  for j := 1 to lvFPG.Fpg.Count do
-   if lvFPG.Fpg.images[j].graph_code = StrToInt(lvFPG.Selected.Caption) then
+   if lvFPG.Fpg.images[j].code = StrToInt(lvFPG.Selected.Caption) then
    begin
     MyFormat := cf_Bitmap;
 
-    lvFPG.Fpg.images[j].bmp.SaveToClipboardFormat(MyFormat);
+    lvFPG.Fpg.images[j].SaveToClipboardFormat(MyFormat);
     {ClipBoard.SetFormat (MyFormat );}
 
     feMessageBox( LNG_STRINGS[LNG_INFO], LNG_STRINGS[LNG_IMAGE_TO_CLIPBOARD], 0, 0);
@@ -1840,4 +1839,4 @@ begin
 
 end;
 
-end.
+end.

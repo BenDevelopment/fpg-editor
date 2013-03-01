@@ -26,7 +26,7 @@ interface
 
 uses LCLIntf, LCLType, SysUtils, Forms, Classes,
   Graphics, FileUtil, ComCtrls, IntfGraphics,
-  uFrmMessageBox, uLanguage, uColor16bits, uMap, Dialogs, uTools;
+  uFrmMessageBox, uLanguage, uColor16bits, uMAPGraphic, Dialogs, uTools;
 
 const
   MAX_NUM_IMAGES = 999;
@@ -45,7 +45,8 @@ const
   STRFPG32 = 'FPG 32 bits (BennuGD)';
 
 type
-  TFpgHeader = class
+
+  TFpg = class(TPersistent)
   private
     { Private declarations }
   public
@@ -53,52 +54,20 @@ type
     Magic: array [0 .. 2] of char; {fpg, f16, c16}
     MSDOSEnd: array [0 .. 3] of byte;
     Version: byte;
-    Palette: array [0 .. 767] of byte;
     Gamma: array [0 .. 575] of byte;
-    function isKnownType: boolean;
-    function loadFromFile(fileName : String): Boolean;
-    procedure loadFromStream( stream : TStream );
-    procedure saveToStream(stream : TStream);
-    function getFPGFormat(var byte_size : Word): Integer ;
-    //published
-
-  end;
-
-
-  TFpgGraphic = class
-  private
-    { Private declarations }
-  public
-    { Public declarations }
-    graph_code: longint;
-    fpname: array [0 .. 11] of char;
-    Name: array [0 .. 31] of char;
-    Width: longint;
-    Height: longint;
-    ncpoints: longint;
-    cpoints :   array[0..high(Word)*2] of Word;
-    bmp: TBitMap;
-    graph_size: longint;
-    destructor Destroy; override;
-  end;
-
-  TFpg = class(TPersistent)
-  private
-    { Private declarations }
-  public
-    { Public declarations }
-    header: TFpgHeader;
-    images: array [1 .. MAX_NUM_IMAGES] of TFpgGraphic;
     FPGFormat: byte;
+    Palette: array [0 .. 767] of byte;
+    images: array [1 .. MAX_NUM_IMAGES] of TMAPGraphic;
     active, update: boolean;
     source: String;
-
     needTable: boolean;
     Count: word;
     lastCode: word;
     loadPalette: boolean;
-    comments : TFpgGraphic;
+    comments : TMAPGraphic;
     table_16_to_8: array [0 .. 31, 0 .. 63, 0 .. 31] of byte;
+    appName : String;
+    appVersion : String;
 
     constructor Create;
     destructor Destroy; override;
@@ -114,22 +83,51 @@ type
     procedure SaveMap(index: integer; filename: string);
     procedure add_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TBitmap ; ncpoints:word;cpoints :PWord);
     procedure replace_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TBitmap; ncpoints:word;cpoints :PWord );
+    function isKnownFormat: boolean;
+    function loadHeaderFromFile(fileName : String): Boolean;
+    procedure loadHeaderFromStream( stream : TStream );
+    procedure saveHeaderToStream(stream : TStream);
+    function getFormat(var byte_size : Word): Integer ;
+    function getBPP : Word;
 
   end;
 
 function FPG_Test(str: string): boolean;
 procedure stringToArray(var inarray: array of char; str: string; len: integer);
 procedure writeDataBitmap( var f: TFileStream ;var bitmap : TBitmap; bytes_per_pixel : word; cdivformat : boolean =false ; palette : PByte = nil);
-function FPGCreateBitmap(var bmp_src : TBitmap; FPGtype : integer; palette:PByte  ): TBitmap;
 
-var
- FPG_EDITOR_R : String = 'r0';
 
 implementation
 
 
+function TFpg.getBPP:Word;
+begin
+  result:=0;
+  case FPGFormat of
+    FPG1:
+    begin
+      result:=1;
+    end;
+    FPG8_DIV2:
+    begin
+      result:=8;
+    end;
+    FPG16, FPG16_CDIV:
+    begin
+      result:=16;
+    end;
+    FPG24:
+    begin
+      result:=24;
+    end;
+    FPG32:
+    begin
+      result:=32;
+    end;
+  end;
+end;
 
-function TFpgHeader.getFPGFormat(var byte_size : Word) :Integer;
+function TFpg.getFormat(var byte_size : Word) :Integer;
 begin
  Result := FPG_NULL;
  // Ficheros de 1 bit
@@ -192,15 +190,15 @@ begin
 
 end;
 
-function TFpgHeader.isKnownType : Boolean;
+function TFpg.isKnownFormat : Boolean;
 var
   byte_size: Word;
 begin
-  result := getFPGFormat(byte_size) <> FPG_NULL;
+  result := getFormat(byte_size) <> FPG_NULL;
 end;
 
 
-function TFpgHeader.loadFromFile(fileName : String): Boolean;
+function TFpg.loadHeaderFromFile(fileName : String): Boolean;
 var
   f : TFileStream;
 begin
@@ -216,7 +214,7 @@ begin
   end;
 
   try
-    loadFromStream(f);
+    loadHeaderFromStream(f);
   finally
     f.Free;
   end;
@@ -224,32 +222,25 @@ begin
   Result:=True;
 end;
 
-procedure TFpgHeader.loadFromStream(stream : TStream);
+procedure TFpg.loadHeaderFromStream(stream : TStream);
 begin
   stream.Read(Magic, 3);
   stream.Read(MSDOSEnd, 4);
   stream.Read(Version, 1);
 end;
 
-procedure TFpgHeader.saveToStream(stream : TStream);
+procedure TFpg.saveHeaderToStream(stream : TStream);
 begin
   stream.Write(Magic, 3);
   stream.Write(MSDOSEnd, 4);
   stream.Write(Version, 1);
 end;
 
-destructor TFpgGraphic.Destroy;
-begin
-  FreeAndNil(bmp);
-  inherited Destroy;
-end;
-
 
 constructor TFpg.Create;
 begin
   inherited Create;
-  header := TFpgHeader.Create;
-  comments := TFpgGraphic.Create;
+  comments := TMAPGraphic.Create;
   Initialize;
 end;
 
@@ -275,7 +266,7 @@ begin
   end;
 
   for i := 1 to Count do
-    if images[i].graph_code = code then
+    if images[i].code = code then
     begin
       indexOfCode := i;
       break;
@@ -290,7 +281,6 @@ destructor TFpg.Destroy;
 var
   i: word;
 begin
-  FreeAndNil(header);
   if Count > 0 then
   begin
     for i := 1 to Count do
@@ -316,7 +306,7 @@ begin
 
   for i := 1 to Count  do
   begin
-    if Images[i].graph_code = code then
+    if Images[i].code = code then
     begin
       FreeAndNil(Images[i]);
       break;
@@ -350,118 +340,52 @@ var
   f: TFileStream;
   i : Word;
   graph_size: LongInt;
-  bytes_per_pixel: Word;
+  bits_per_pixel: Word;
   widthForFPG1: Integer;
   Frames: Word;
   data_comments: array[0..31] of Byte;
 
 begin
-  bytes_per_pixel := 0;
-  case FPGFormat of
-    FPG1:
-    begin
-      bytes_per_pixel := 0;
-    end;
-    FPG8_DIV2:
-    begin
-      bytes_per_pixel := 1;
-    end;
-    FPG16, FPG16_CDIV:
-    begin
-      bytes_per_pixel := 2;
-    end;
-    FPG24:
-    begin
-      bytes_per_pixel := 3;
-    end;
-    FPG32:
-    begin
-      bytes_per_pixel := 4;
-    end;
-  end;
 
+  bits_per_pixel:=getBPP;
   f := TFileStream.Create(source, fmCreate);
-
-  header.saveToStream(f);
+  saveHeaderToStream(f);
 
   gFPG.Position := 0;
   gFPG.Show;
   gFPG.Repaint;
 
-  if FPGFormat = FPG8_DIV2 then
+  if bits_per_pixel = 8 then
   begin
     for i := 0 to 767 do
-      Header.Palette[i] := Header.Palette[i] shr 2;
+      Palette[i] := Palette[i] shr 2;
 
-    f.Write(Header.Palette, 768);
-    f.Write(Header.gamma, 576);
+    f.Write(Palette, 768);
+    f.Write(gamma, 576);
 
     for i := 0 to 767 do
-      Header.Palette[i] := Header.Palette[i] shl 2;
+      Palette[i] := Palette[i] shl 2;
   end;
 
   graph_size := 0;
   for i := 1 to Count do
   begin
-    if FPGFormat <> FPG1 then
-    begin
-      graph_size := (Images[i].Width * Images[i].Height * bytes_per_pixel) + 64;
-    end else begin
-      widthForFPG1 := Images[i].Width;
-      if (Images[i].Width mod 8) <> 0 then
-        widthForFPG1 := widthForFPG1 + 8 - (Images[i].Width mod 8);
-      graph_size := (widthForFPG1 div 8) * Images[i].Height + 64;
-    end;
-
-    (* BennuGD no comtempla el límite 4096, más info en la lectura de un MAP *)
-    if Images[i].ncpoints > 0  then
-      graph_size := graph_size + (Images[i].ncpoints * 4);
-
-
-    f.Write(Images[i].graph_code, 4);
-    f.Write(graph_size, 4);
-    f.Write(Images[i].Name, 32);
-    f.Write(Images[i].fpname, 12);
-    f.Write(Images[i].Width, 4);
-    f.Write(Images[i].Height, 4);
-    f.Write(Images[i].ncpoints, 4);
-
-    if Images[i].ncpoints > 0 then
-      f.Write(Images[i].cpoints, Images[i].ncpoints * 4);
-
-    writeDataBitmap(f,Images[i].bmp,bytes_per_pixel, (FPGFormat = FPG16_CDIV), header.Palette);
-
+    images[i].bitsPerPixel:=bits_per_pixel;
+    images[i].CDIVFormat:= (FPGFormat= FPG16_CDIV);
+    images[i].SaveToStream(f,true);
     gFPG.Position := (i * 100) div Count;
     gFPG.Repaint;
   end;
 
-
   FreeAndNil(comments);
-  comments := TFpgGraphic.Create;
-  comments.graph_code:=1001;
-  comments.width:=1;
-  comments.Height:=1;
-  if FPGFormat <> FPG1 then
-  begin
-    graph_size := (comments.Width * comments.Height * bytes_per_pixel) + 64;
-  end else begin
-    widthForFPG1 := comments.Width;
-    if (comments.Width mod 8) <> 0 then
-      widthForFPG1 := widthForFPG1 + 8 - (comments.Width mod 8);
-    graph_size := (widthForFPG1 div 8) * comments.Height + 64;
-  end;
-  stringToArray(comments.name,'FPG Editor v3.1 '+FPG_EDITOR_R,32);
-  stringToArray(comments.fpname,'FPG Editor',12);
-  comments.ncpoints:=0;
-  f.Write(comments.graph_code, 4);
-  f.Write(graph_size, 4);
-  f.Write(comments.Name, 32);
-  f.Write(comments.fpname, 12);
-  f.Write(comments.Width, 4);
-  f.Write(comments.Height, 4);
-  f.Write(comments.ncpoints, 4);
-  FillChar(data_comments,32,0);
-  f.write(data_comments,graph_size-64);
+  comments := TMAPGraphic.Create;
+  comments.bitsPerPixel:=bits_per_pixel;
+  comments.CDIVFormat:= (FPGFormat= FPG16_CDIV);
+  comments.code:=1001;
+  comments.SetSize(1,1);
+  comments.name:=appVersion;
+  comments.fpname:=appName;
+  comments.SaveToStream(f,true);
 
   gFPG.Hide;
 
@@ -482,11 +406,9 @@ var
   i : Integer;
   chr_comments : array[0..400] of Char;
   comemntslengt: Integer;
-  fpgGraphic    :TFpgGraphic;
+  fpgGraphic    :TMAPGraphic;
 begin
   FPGFormat := FPG_NULL;
-  FreeAndNil(header);
-  header:=TFpgHeader.Create();
 
   Result := False;
 
@@ -510,7 +432,7 @@ begin
   end;
 
   try
-    header.loadFromStream(f);
+    loadHeaderFromStream(f);
   except
     f.Free;
     Exit;
@@ -521,7 +443,7 @@ begin
   gFPG.Repaint;
   byte_size := 0;
 
-  FPGFormat := header.getFPGFormat(byte_size);
+  FPGFormat := getFormat(byte_size);
 
   if (FPGFormat = FPG_NULL) then
   begin
@@ -533,11 +455,11 @@ begin
   try
     if (FPGFormat = FPG8_DIV2) then
     begin
-      f.Read(header.palette, 768);
-      f.Read(header.gamma, 576);
+      f.Read(palette, 768);
+      f.Read(gamma, 576);
 
       for i := 0 to 767 do
-        header.palette[i] := header.palette[i] shl 2;
+        palette[i] := palette[i] shl 2;
 
       loadPalette := True;
       needTable := True;
@@ -547,42 +469,27 @@ begin
 
     while f.Position < f.Size do
     begin
-      fpgGraphic:= TFpgGraphic.Create;
-      // Establecemos la imagen
-      with fpgGraphic do
+      fpgGraphic:= TMAPGraphic.Create;
+      fpgGraphic.bitsPerPixel:= getBPP;
+      fpgGraphic.CDIVFormat:= (FPGFormat = FPG16_CDIV);
+      fpgGraphic.LoadFromStream(f,true);
+
+      if fpgGraphic.code=1001 then
       begin
-        f.Read(graph_code, 4);
-        f.Read(graph_size, 4);
-        f.Read(Name, 32);
-        f.Read(fpname, 12);
-        f.Read(Width, 4);
-        f.Read(Height, 4);
-        f.Read(ncpoints, 4);
-
-        // Leemos los puntos de control del bitmap
-
-        (* BennuGD no tiene el límite 4096, ver carga de map para más informacion *)
-        if ncpoints > 0 then
-        begin
-          f.Read(cpoints, ncpoints * 4);
-        end;
-
-        bmp:=loadDataBitmap(f,header.palette,width,height, byte_size, FPGFormat=FPG16_CDIV);
-
-
-        gFPG.Position := (f.Position * 100) div f.Size;
-        gFPG.Repaint;
-      end;  // end with
-      if fpgGraphic.graph_code=1001 then
-        comments:=fpgGraphic
-      else begin
+        FreeAndNil(comments);
+        comments:=fpgGraphic;
+      end else begin
         Count := Count + 1;
         images[Count] := fpgGraphic;
       end;
 
+      gFPG.Position := (f.Position * 100) div f.Size;
+      gFPG.Repaint;
+
     end; // end wile
     gFPG.Hide;
     Result := True;
+
 
   finally
     f.Free;
@@ -600,20 +507,20 @@ begin
 
   repeat
     // Buscamos el color que más se parece al anterior
-    color_index := Find_Color(i, Header.palette[(i - 1) * 3],
-      Header.palette[((i - 1) * 3) + 1], Header.palette[((i - 1) * 3) + 2],Header.palette);
+    color_index := Find_Color(i, palette[(i - 1) * 3],
+      palette[((i - 1) * 3) + 1], palette[((i - 1) * 3) + 2],palette);
     // Intercambio de colores
-    R := Header.palette[color_index * 3];
-    G := Header.palette[(color_index * 3) + 1];
-    B := Header.palette[(color_index * 3) + 2];
+    R := palette[color_index * 3];
+    G := palette[(color_index * 3) + 1];
+    B := palette[(color_index * 3) + 2];
 
-    Header.palette[color_index * 3] := Header.palette[i * 3];
-    Header.palette[(color_index * 3) + 1] := Header.palette[(i * 3) + 1];
-    Header.palette[(color_index * 3) + 2] := Header.palette[(i * 3) + 2];
+    palette[color_index * 3] := palette[i * 3];
+    palette[(color_index * 3) + 1] := palette[(i * 3) + 1];
+    palette[(color_index * 3) + 2] := palette[(i * 3) + 2];
 
-    Header.palette[i * 3] := R;
-    Header.palette[(i * 3) + 1] := G;
-    Header.palette[(i * 3) + 2] := B;
+    palette[i * 3] := R;
+    palette[(i * 3) + 1] := G;
+    palette[(i * 3) + 2] := B;
 
     i := i + 1;
   until i >= 255;
@@ -631,123 +538,39 @@ begin
 
   for i := 0 to 255 do
     table_16_to_8[
-      Header.palette[(i * 3)] shr 3,
-      Header.palette[(i * 3) + 1] shr 2,
-      Header.palette[(i * 3) + 2] shr 3] := i;
+      palette[(i * 3)] shr 3,
+      palette[(i * 3) + 1] shr 2,
+      palette[(i * 3) + 2] shr 3] := i;
 end;
 
 procedure TFpg.SaveMap(index: integer; filename: string);
 var
   f: TFileStream;
-  byte_size: Word;
-  MAPHeader: file_str_map;
-  i : Word;
-  Frames : Word;
 begin
-  byte_size := 0;
-  case FPGFormat of
-    FPG1:
-    begin
-      byte_size := 0;
-      stringToArray(MAPHeader.Magic, 'm01', 3);
-    end;
-    FPG8_DIV2:
-    begin
-      byte_size := 1;
-      stringToArray(MAPHeader.Magic, 'map', 3);
-    end;
-    FPG16, FPG16_CDIV:
-    begin
-      byte_size := 2;
-      stringToArray(MAPHeader.Magic, 'm16', 3);
-    end;
-    FPG24:
-    begin
-      byte_size := 3;
-      stringToArray(MAPHeader.Magic, 'm24', 3);
-    end;
-    FPG32:
-    begin
-      byte_size := 4;
-      stringToArray(MAPHeader.Magic, 'm32', 3);
-    end;
-  end;
-
-
-  MAPHeader.MSDOSEnd[0]:= 26;
-  MAPHeader.MSDOSEnd[1]:= 13;
-  MAPHeader.MSDOSEnd[2]:= 10;
-  MAPHeader.MSDOSEnd[3]:= 0;
-
   f := TFileStream.Create(filename, fmCreate);
 
-  f.Write(MAPHeader.Magic, 3);
-  f.Write(MAPHeader.MSDOSEnd, 4);
-  f.Write(Header.Version, 1);
-
-  MAPHeader.Width := Images[index].Width;
-  MAPHeader.Height := Images[index].Height;
-  f.Write(MAPHeader.Width, 2);
-  f.Write(MAPHeader.Height, 2);
-
-  f.Write(Images[index].graph_code, 4);
-  f.Write(Images[index].Name, 32);
-
-  if FPGFormat = FPG8_DIV2 then
-  begin
-    for i := 0 to 767 do
-      Header.Palette[i] := Header.Palette[i] shr 2;
-
-    f.Write(Header.Palette, 768);
-    f.Write(Header.gamma, 576);
-
-    for i := 0 to 767 do
-      Header.Palette[i] := Header.Palette[i] shl 2;
-  end;
-
-  MAPHeader.ncpoints := Images[index].ncpoints;
-  f.Write(MAPHeader.ncpoints, 2);
-
-  if MAPHeader.ncpoints > 0 then
-  begin
-    f.Write(Images[index].cpoints, MAPHeader.ncpoints * 4);
-  end;
-  (* Mismo caso que en la Lectura, BennuGD no controla el valor 4096,
-     por lo que soporta más de 4096 puntos de control, si se necesita implementar
-     esta funcionalidad hay que ver que hace DIV
-  if ((MAPHeader.ncpoints > 0) and (MAPHeader.ncpoints <> 4096)) then
-    f.Write(Images[index].cpoints, MAPHeader.ncpoints * 4);
-  if (MAPHeader.ncpoints = 4096) then
-  begin
-    Frames:=0;
-    f.Read(Frames, 2);
-    f.Read(Frames, 2); // Length
-    f.Read(Frames, 2);  // Speed
-   // f.Seek(length * 2, soFromCurrent);
-  end;
-  *)
-
-  writeDataBitmap(f, Images[index].bmp,byte_size ,(FPGFormat = FPG16_CDIV), header.Palette);
+  images[index].bitsPerPixel:=getBPP;
+  images[index].CDIVFormat:= (FPGFormat = FPG16_CDIV);
+  images[index].SaveToStream(f);
 
   f.Free;
-
 end;
 
 Procedure TFpg.setMagic;
 begin
  case FPGFormat of
   FPG1:
-    header.Magic := 'f01';
+    Magic := 'f01';
   FPG8_DIV2:
-    header.Magic := 'fpg';
+    Magic := 'fpg';
   FPG16:
-    header.Magic := 'f16';
+    Magic := 'f16';
   FPG16_CDIV:
-    header.Magic := 'c16';
+    Magic := 'c16';
   FPG24:
-    header.Magic := 'f24';
+    Magic := 'f24';
   FPG32:
-    header.Magic := 'f32';
+    Magic := 'f32';
  end;
 end;
 
@@ -763,11 +586,11 @@ begin
  needTable:= false;
 
  source:='';
- header.MSDOSEnd[0] := 26;
- header.MSDOSEnd[1] := 13;
- header.MSDOSEnd[2] := 10;
- header.MSDOSEnd[3] := 0;
- header.Version     := 0;
+ MSDOSEnd[0] := 26;
+ MSDOSEnd[1] := 13;
+ MSDOSEnd[2] := 10;
+ MSDOSEnd[3] := 0;
+ Version     := 0;
  FPGFormat:=FPG32;
  comments.fpname:='';
  comments.name:='';
@@ -777,15 +600,15 @@ end;
 //Comprobamos si es un archivo FPG sin comprimir
 function FPG_Test(str: string): boolean;
 var
-  header : TFpgHeader;
+  fpg : TFpg;
 begin
   Result := False;
-  header := TFpgHeader.Create;
+  fpg := TFpg.Create;
 
-  if header.loadFromFile(str) then
-     result:= header.isKnownType;
+  if fpg.loadHeaderFromFile(str) then
+     result:= fpg.isKnownFormat;
 
-  FreeAndNil(header);
+  FreeAndNil(fpg);
 end;
 
 procedure stringToArray(var inarray: array of char; str: string; len: integer);
@@ -896,41 +719,6 @@ begin
   lazBMP.Free;
 end;
 
-function FPGCreateBitmap(var bmp_src : TBitmap; FPGtype : integer ; palette : PByte ): TBitmap;
-begin
- // Se crea la imagen resultante
- result   := TBitMap.Create;
- result.PixelFormat:=pf32bit;
- result.SetSize(bmp_src.Width, bmp_src.Height);
-
- CopyPixels(result,bmp_src,0,0);
- if bmp_src.PixelFormat<>pf32bit then
-    setAlpha(result,255);
- case FPGtype of
-    FPG1:
-    begin
-          simulate1bppIn32bpp(result);
-    end;
-    FPG8_DIV2:
-    begin
-         simulate8bppIn32bpp(result,palette);
-    end;
-    FPG16:
-    begin
-         colorToTransparent(result,clBlack,true );
-    end;
-    FPG16_CDIV:
-    begin
-         colorToTransparent(result,clFuchsia,true );
-    end;
-    FPG24:
-    begin
-         colorToTransparent(result,clBlack );
-    end;
- end;
-
-end;
-
 // Añadir index
 procedure TFPG.add_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TBitmap ; ncpoints:word;cpoints :PWord);
 var
@@ -938,20 +726,23 @@ var
 begin
   // Establece el código
   FreeAndNil( images[index]);
-  images[index]:= TFpgGraphic.Create;
-  images[index].graph_code  := lastcode;
+  images[index]:= TMAPGraphic.Create;
+  images[index].code  := lastcode;
 
   // Se establecen los datos de la imagen
-  stringToArray(images[index].fpname,FileName,12);
-  stringToArray(images[index].name,GraphicName,32);
+  images[index].fpname:=FileName;
+  images[index].name:=GraphicName;
   images[index].width  := bmp_src.Width;
   images[index].height := bmp_src.Height;
-  images[index].ncpoints:= ncpoints;
+  images[index].CPointsCount := ncpoints;
   for i:=0 to (ncpoints*2) -1 do
      images[index].cpoints[i]:=cpoints[i];
 
   // Se crea la imagen resultante
-  images[index].bmp    := FPGCreateBitmap(bmp_src,FPGFormat, header.palette);
+  images[index].bitsPerPixel:=getBPP;
+  images[index].CDIVFormat:= (FPGFormat= FPG16_CDIV);
+  images[index].bPalette:=Palette;
+  images[index].CreateBitmap(bmp_src);
 
 end;
 
@@ -961,23 +752,27 @@ var
   i : word;
 begin
   // Establece el código
-  images[index].graph_code  := lastcode;
+  images[index].code  := lastcode;
 
   // Se establecen los datos de la imagen
-  stringToArray(images[index].fpname,FileName,12);
-  stringToArray(images[index].name,GraphicName,32);
+  images[index].fpname:=FileName;
+  images[index].name:=GraphicName;
   images[index].width  := bmp_src.Width;
   images[index].height := bmp_src.Height;
   if ncpoints>0 then
   begin
-    images[index].ncpoints:= ncpoints;
+    images[index].CPointsCount:= ncpoints;
     for i:=0 to (ncpoints*2) -1 do
        images[index].cpoints[i]:=cpoints[i];
   end;
 
-  images[index].bmp    := FPGCreateBitmap(bmp_src,FPGFormat,header.Palette);
+  // Se crea la imagen resultante
+  images[index].bitsPerPixel:=getBPP;
+  images[index].CDIVFormat:= (FPGFormat= FPG16_CDIV);
+  images[index].bPalette:=Palette;
+  images[index].CreateBitmap(bmp_src);
 
 end;
 
 
-end.
+end.
