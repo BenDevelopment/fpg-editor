@@ -30,7 +30,7 @@ type
   published
     { Published declarations }
     property Fpg: TFpg read Ffpg write Ffpg;
-    property repaintNumber: Integer read FrepaintNumber write FrepaintNumber default 1;
+    property repaintNumber: Integer read FrepaintNumber write FrepaintNumber;
     property notClipboardImage: String read fnotClipboardImage write fnotClipboardImage;
   end;
 
@@ -60,7 +60,7 @@ begin
     with Fpg.images[Count] do
     begin
       add_items(Count);
-      if (Count mod repaintNumber) = 0 then
+      if (Count mod FrepaintNumber) = 0 then
       begin
         progressBar.Position := (Count * 100) div Fpg.Count;
         progressBar.Repaint;
@@ -238,9 +238,6 @@ procedure TFPGListView.DrawProportional( var bmp_src : TBitMap; var bmp_dst: TBi
 var
  x, y, finalWidth, finalHeight : integer;
  bitmap1 : TBitmap;
- lazBMP : TLazIntfImage;
- lazBMPsrc : TLazIntfImage;
-
 begin
  bmp_dst := TBitmap.Create;
  bmp_dst.PixelFormat:= pf32bit;
@@ -281,4 +278,4 @@ begin
 
 end;
 
-end.
+end.

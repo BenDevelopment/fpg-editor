@@ -25,15 +25,19 @@ interface
 
 uses
   LCLIntf, LCLType, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls
+  Dialogs, ExtCtrls, StdCtrls
   {$IFDEF WINDOWS}
   , windows
   {$ENDIF}
   ;
 
 type
+
+  { TfrmSplash }
+
   TfrmSplash = class(TForm)
     Image1: TImage;
+    lblRevision: TLabel;
     tTimer: TTimer;
     procedure tTimerTimer(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -44,6 +48,7 @@ type
     procedure Execute;
   end;
 
+{$I revision.inc}
 var
   frmSplash: TfrmSplash;
 
@@ -66,6 +71,7 @@ end;
 
 procedure TfrmSplash.FormShow(Sender: TObject);
 begin
+ lblRevision.Caption:=RevisionStr;
  execute;
  tTimer.Enabled := true;
 end;
@@ -113,4 +119,4 @@ var
 end;
 
 
-end.
+end.

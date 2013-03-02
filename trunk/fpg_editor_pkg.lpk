@@ -17,15 +17,15 @@
         <CompilerPath Value="$(CompPath)"/>
       </Other>
     </CompilerOptions>
-    <Files Count="10">
+    <Files Count="8">
       <Item1>
-        <Filename Value="uFPG\uFPG.pas"/>
-        <UnitName Value="uFPG"/>
-      </Item1>
-      <Item2>
         <Filename Value="uFPGListView\ufpglistview.pas"/>
         <HasRegisterProc Value="True"/>
         <UnitName Value="uFPGListView"/>
+      </Item1>
+      <Item2>
+        <Filename Value="uFPG\uFPG.pas"/>
+        <UnitName Value="uFPG"/>
       </Item2>
       <Item3>
         <Filename Value="uLoadImage\uLoadImage.pas"/>
@@ -36,29 +36,21 @@
         <UnitName Value="uTools"/>
       </Item4>
       <Item5>
-        <Filename Value="uMessages\uFrmMessageBox\uFrmMessageBox.lfm"/>
-        <Type Value="LFM"/>
-      </Item5>
-      <Item6>
         <Filename Value="uMessages\uFrmMessageBox\uFrmMessageBox.pas"/>
         <UnitName Value="uFrmMessageBox"/>
-      </Item6>
-      <Item7>
+      </Item5>
+      <Item6>
         <Filename Value="uLanguage\uLanguage.pas"/>
         <UnitName Value="uLanguage"/>
-      </Item7>
-      <Item8>
+      </Item6>
+      <Item7>
         <Filename Value="uIniFile\uinifile.pas"/>
         <UnitName Value="uinifile"/>
-      </Item8>
-      <Item9>
+      </Item7>
+      <Item8>
         <Filename Value="uColor16bits\uColor16bits.pas"/>
         <UnitName Value="uColor16bits"/>
-      </Item9>
-      <Item10>
-        <Filename Value="uMap\uMap.pas"/>
-        <UnitName Value="uMap"/>
-      </Item10>
+      </Item8>
     </Files>
     <Type Value="RunAndDesignTime"/>
     <RequiredPkgs Count="1">
