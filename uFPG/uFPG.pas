@@ -24,7 +24,7 @@ unit uFPG;
 
 interface
 
-uses LCLIntf, LCLType, SysUtils, Forms, Classes,
+uses LCLIntf, LCLType,LResources, SysUtils, Forms, Classes,
   Graphics, FileUtil, ComCtrls, IntfGraphics,
   uFrmMessageBox, uLanguage, uColor16bits, uMAPGraphic, Dialogs, uTools;
 
@@ -46,7 +46,7 @@ const
 
 type
 
-  TFpg = class(TPersistent)
+  TFpg = class
   private
     { Private declarations }
   public
@@ -96,9 +96,15 @@ function FPG_Test(str: string): boolean;
 procedure stringToArray(var inarray: array of char; str: string; len: integer);
 procedure writeDataBitmap( var f: TFileStream ;var bitmap : TBitmap; bytes_per_pixel : word; cdivformat : boolean =false ; palette : PByte = nil);
 
+//procedure Register;
 
 implementation
 
+//procedure Register;
+//begin
+//  {$I uFPG_icon.lrs}
+//  RegisterComponents('FPG Editor', [TFpg]);
+//end;
 
 function TFpg.getBPP:Word;
 begin
@@ -244,6 +250,7 @@ begin
   Initialize;
 end;
 
+
 //-----------------------------------------------------------------------------
 // CodeExists: Comprueba si existe el código del gráfico en el FPG
 //-----------------------------------------------------------------------------
@@ -339,11 +346,7 @@ procedure TFpg.SaveToFile( var gFPG: TProgressBar);
 var
   f: TFileStream;
   i : Word;
-  graph_size: LongInt;
   bits_per_pixel: Word;
-  widthForFPG1: Integer;
-  Frames: Word;
-  data_comments: array[0..31] of Byte;
 
 begin
 
@@ -367,7 +370,6 @@ begin
       Palette[i] := Palette[i] shl 2;
   end;
 
-  graph_size := 0;
   for i := 1 to Count do
   begin
     images[i].bitsPerPixel:=bits_per_pixel;
@@ -401,11 +403,8 @@ end;
 function TFpg.LoadFromFile(str: string; var gFPG: TProgressBar): boolean;
 var
   f: TStream;
-  frames, length, speed: word;
   byte_size: Word;
   i : Integer;
-  chr_comments : array[0..400] of Char;
-  comemntslengt: Integer;
   fpgGraphic    :TMAPGraphic;
 begin
   FPGFormat := FPG_NULL;
@@ -453,7 +452,7 @@ begin
   end;
 
   try
-    if (FPGFormat = FPG8_DIV2) then
+    if FPGFormat = FPG8_DIV2 then
     begin
       f.Read(palette, 768);
       f.Read(gamma, 576);
@@ -586,12 +585,13 @@ begin
  needTable:= false;
 
  source:='';
+ FPGFormat:=FPG32;
+ Magic:='f32';
  MSDOSEnd[0] := 26;
  MSDOSEnd[1] := 13;
  MSDOSEnd[2] := 10;
  MSDOSEnd[3] := 0;
  Version     := 0;
- FPGFormat:=FPG32;
  comments.fpname:='';
  comments.name:='';
 
@@ -775,4 +775,4 @@ begin
 end;
 
 
-end.
+end.

@@ -17,7 +17,7 @@ object frmSplash: TfrmSplash
   Position = poScreenCenter
   LCLVersion = '1.1'
   object Image1: TImage
-    Left = 0
+    Left = 1
     Height = 130
     Top = 0
     Width = 320
@@ -270,6 +270,20 @@ object frmSplash: TfrmSplash
     Proportional = True
     Stretch = True
     Transparent = True
+  end
+  object lblRevision: TLabel
+    Left = 296
+    Height = 13
+    Top = 112
+    Width = 19
+    Alignment = taRightJustify
+    Caption = 'r00'
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
   end
   object tTimer: TTimer
     Enabled = False

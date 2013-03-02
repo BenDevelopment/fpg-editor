@@ -25,7 +25,7 @@ unit uMAPGraphic;
 interface
 
 uses
-  Classes, SysUtils, Graphics,
+  Classes, SysUtils, Graphics, Dialogs,
   IntfGraphics, FileUtil,LCLIntf, LCLType;
 
 type
@@ -64,6 +64,7 @@ type
     procedure setFPName(str:String);
     procedure copyPixels(srcBitmap: TBitmap; x, y : Integer);
     procedure setAlpha( value: Byte; in_rect : TRect );
+    procedure stringToArray(var inarray: array of char; str: string; len: integer);
   public
     bPalette: array [0 .. 767] of Byte;
     CPoints :   array[0..high(Word)*2] of Word;
@@ -204,14 +205,14 @@ begin
 
   if onFPG then
   begin
-    Stream.Read(FFPName, 11);
-    Stream.Read(intWidth, 2);
-    Stream.Read(intHeight, 2);
+    Stream.Read(FFPName, 12);
+    Stream.Read(intWidth, 4);
+    Stream.Read(intHeight, 4);
     Width := intWidth;
     Height := intHeight;
   end;
 
-  if (not onFPG) and (bitsPerPixel = 8) then
+  if (not onFPG) and (FbitsPerPixel = 8) then
   begin
     Stream.Read(bPalette, 768);
     Stream.Read(Gamma, 576);
@@ -371,7 +372,6 @@ end;
 
 procedure TMAPGraphic.SaveToStream(Stream: TStream; onFPG: boolean);
 var
-  byte_size: word;
   i: word;
   aWidth, aHeight: word;
   Frames: word;
@@ -413,7 +413,7 @@ begin
     end
     else
     begin
-      graphSize := (Width * Height * byte_size) + 64;
+      graphSize := (Width * Height * (FbitsPerPixel div 8)) + 64;
     end;
     Stream.Write(graphSize, 4);
   end;
@@ -421,12 +421,12 @@ begin
   Stream.Write(FName, 32);
   if onFPG then
   begin
-    Stream.Write(FFPName, 11);
+    Stream.Write(FFPName, 12);
     Stream.Write(Width, 4);
     Stream.Write(Height, 4);
   end;
 
-  if (not onFPG) and (Magic[1] = 'a') then
+  if (not onFPG) and (FbitsPerPixel = 8) then
   begin
     for i := 0 to 767 do
       bPalette[i] := bPalette[i] shr 2;
@@ -695,25 +695,13 @@ end;
 
 
 procedure TMAPGraphic.setName(str:String);
-var
-  i : integer;
 begin
-  i:=0;
-  while (i<32) and ( i<length(str) ) do
-  begin
-        FName[i]:=str[i+1];
-  end;
+ stringToArray(FName,str,32);
 end;
 
 procedure TMAPGraphic.setFPName(str:String);
-var
-  i : integer;
 begin
-  i:=0;
-  while (i<12) and ( i<length(str) ) do
-  begin
-        FFPName[i]:=str[i+1];
-  end;
+ stringToArray(FFPName,str,12);
 end;
 
 procedure TMAPGraphic.copyPixels(srcBitmap: TBitmap; x, y : Integer);
@@ -752,7 +740,7 @@ begin
     end;
     16:
     begin
-         if CDIVFormat then
+         if FCDIVFormat then
                   colorToTransparent(clFuchsia,true )
          else
              colorToTransparent(clBlack,true );
@@ -869,7 +857,20 @@ begin
    lazBMP_src.free;
 end;
 
+procedure TMAPGraphic.stringToArray(var inarray: array of char; str: string; len: integer);
+var
+  i: integer;
+begin
+  for i := 0 to len - 1 do
+  begin
+    if i >= length(str) then
+      inarray[i] := char(0)
+    else
+      inarray[i] := str[i + 1];
+  end;
+end;
+
 initialization
   TPicture.RegisterFileFormat('map','DIV MAP Images', TMAPGraphic);
 
-end.
+end.

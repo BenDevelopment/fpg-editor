@@ -1,12 +1,13 @@
 object FrmAbout: TFrmAbout
-  Left = 398
+  Left = 425
   Height = 414
-  Top = 302
+  Top = 272
   Width = 449
   Caption = 'Acerca de ...'
   ClientHeight = 414
   ClientWidth = 449
   OnActivate = FormActivate
+  OnCreate = FormCreate
   Position = poMainFormCenter
   LCLVersion = '1.1'
   object PageControl1: TPageControl
@@ -14,14 +15,14 @@ object FrmAbout: TFrmAbout
     Height = 380
     Top = 0
     Width = 449
-    ActivePage = tsCredits
+    ActivePage = tsDescription
     Align = alClient
-    TabIndex = 2
+    TabIndex = 0
     TabOrder = 0
     object tsDescription: TTabSheet
       Caption = 'Descripcion'
-      ClientHeight = 341
-      ClientWidth = 443
+      ClientHeight = 352
+      ClientWidth = 441
       object Memo2: TMemo
         Left = 0
         Height = 352
@@ -32,8 +33,9 @@ object FrmAbout: TFrmAbout
         Font.Height = -11
         Font.Name = 'Verdana'
         Lines.Strings = (
+          ''
           '--------------------'
-          'FPG EDIT'
+          'FPG Editor r'
           '--------------------'
           ''
           'Es un visualizador/editor de ficheros de imágenes (FPG) para '
@@ -60,8 +62,8 @@ object FrmAbout: TFrmAbout
     end
     object tsCharacteristic: TTabSheet
       Caption = 'Caracteristicas'
-      ClientHeight = 341
-      ClientWidth = 443
+      ClientHeight = 352
+      ClientWidth = 441
       ImageIndex = 1
       object Memo1: TMemo
         Left = 0
@@ -123,14 +125,14 @@ object FrmAbout: TFrmAbout
     end
     object tsCredits: TTabSheet
       Caption = 'Creditos'
-      ClientHeight = 341
-      ClientWidth = 443
+      ClientHeight = 352
+      ClientWidth = 441
       ImageIndex = 2
       object Memo3: TMemo
         Left = 0
-        Height = 341
+        Height = 352
         Top = 0
-        Width = 443
+        Width = 441
         Align = alClient
         Alignment = taCenter
         Font.Height = -11
@@ -138,7 +140,7 @@ object FrmAbout: TFrmAbout
         Lines.Strings = (
           ''
           '--------------------'
-          'FPG EDIT'
+          'FPG Editor r'
           '--------------------'
           ''
           'Programador:'
@@ -181,4 +183,4 @@ object FrmAbout: TFrmAbout
       TabOrder = 0
     end
   end
-end
+end

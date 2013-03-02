@@ -100,6 +100,7 @@ procedure export_to_bmp( lvFPG: TFPGListView; path: string; var frmMain: TForm; 
 var
  i, j, icount : integer;
  imageName :String;
+ bmp : TBitmap;
 begin
  icount := 1;
 
@@ -130,8 +131,10 @@ begin
      if feMessageBox(LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_EXISTS_FILE_OVERWRITE], 4, 2) <> mrYes then
       break;
     end;
-
-    TBitmap(lvFPG.Fpg.images[j]).SaveToFile(path + imagename + '.bmp');
+    bmp:=TBitmap.Create;
+    bmp.Assign(lvFPG.Fpg.images[j]);
+    bmp.SaveToFile(path + imagename + '.bmp');
+    FreeAndNil(bmp);
     break;
    end;
 
@@ -257,4 +260,4 @@ begin
  Save_JASP_pal(lvFPG.Fpg.palette, path + 'PSP4.pal' );
 end;
 
-end.
+end.

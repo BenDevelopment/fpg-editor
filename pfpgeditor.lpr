@@ -2,13 +2,12 @@ program pfpgeditor;
 
 
 uses
-  Forms, Dialogs, uFrmMain, uBMP, uTools, uSort, uPCX, ufrmView,
-  uLoadImage, uCopyPalette, uPAL, uColor16bits, uFPGConvert,
+  Forms, Dialogs, uFrmMain, ufrmView,
   ufrmFPGImages, ufrmNewFPG, ufrmAnimate, ufrmConfig, uFrmExport,
-  uExportToFiles, ufrmPalette, uFrmSplahs, uinifile, uLanguage,
-  uAAText, uColorTable, uFNT, uFrmBpp, uFrmCFG, uFrmMainFNT, uFrmAbout,
+  ufrmPalette, uinifile, uLanguage,
+  uFrmBpp, uFrmCFG, uFrmMainFNT, uFrmAbout,
   uFrmInputBox, uFrmMessageBox, Interfaces, uFrmFNTView,
-  uMAPGraphic, uFPG, uFPGListView, ufrmZipFenix;
+  uMAPGraphic, ufrmZipFenix;
 
 {$R *.res}
 

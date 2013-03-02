@@ -26,7 +26,8 @@ interface
 
 uses
   LCLIntf, LCLType,SysUtils, Classes, Graphics, Controls, Forms,
-  StdCtrls, Buttons, ComCtrls,  ExtCtrls, uLanguage, uIniFile;
+  StdCtrls, Buttons, ComCtrls,  ExtCtrls, uLanguage, uIniFile,
+  uFrmSplahs;
 
 type
 
@@ -43,6 +44,7 @@ type
     tsCredits: TTabSheet;
     Memo3: TMemo;
     procedure FormActivate(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -64,6 +66,14 @@ begin
  tsCharacteristic.Caption := LNG_STRINGS[81];
  tsCredits.Caption        := LNG_STRINGS[80];
 end;
+
+procedure TfrmAbout.FormCreate(Sender: TObject);
+begin
+  Memo3.Lines.Strings[2]:=Memo3.Lines.Strings[2]+RevisionStr;
+  Memo2.Lines.Strings[2]:=Memo2.Lines.Strings[2]+RevisionStr;
+end;
+
+
 
 
 end.

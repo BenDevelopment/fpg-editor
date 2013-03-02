@@ -18,6 +18,13 @@
  *
  *)
 
+(*
+ * TODO LIST:
+ * * Exportar/importar imagen con xml con información adicional.
+ * * Comprimir de forma transparente al usuario
+ * *
+*)
+
 unit uFrmMain;
 
 interface
@@ -25,8 +32,8 @@ interface
 uses
   LCLIntf, LCLType, SysUtils, Classes, Graphics, Controls, Forms, ComCtrls,
   StdCtrls, ExtCtrls, Menus, Buttons, ClipBrd, uIniFile, ufrmView, uFPG,
-  ufrmNewFPG, ufrmPalette, ufrmFPGImages, uLanguage, Dialogs, uTools,
-  uFPGConvert, uLoadImage, uFrmExport, uFrmInputBox, uFrmMessageBox,
+  ufrmPalette, ufrmFPGImages, uLanguage, Dialogs, uTools,
+  uFPGConvert, uLoadImage, uFrmExport, uFrmMessageBox,
   uExportToFiles, uFPGListView, FileUtil, ShellCtrls, ActnList, FileCtrl, Spin,
   ExtDlgs, types, uFrmZipFenix, uFrmAbout, ufrmMainFNT, ufrmAnimate, ufrmConfig, uFrmSplahs;
 
@@ -336,6 +343,8 @@ begin
  load_inifile;
 
  lvFPG.Fpg:= TFpg.Create;
+ lvFPG.Fpg.appName:='FPG Editor';
+ lvFPG.Fpg.appVersion:='r'+RevisionStr;
 
  load_language;
 
@@ -350,6 +359,7 @@ begin
   lvFPG.repaintNumber:=inifile_repaint_number;
   Update_Panels;
   EFilter.Filter:=OpenPictureDialog.Filter;
+  Caption:=Caption +' r'+ RevisionStr;
 
 end;
 
@@ -491,7 +501,7 @@ begin
     end;
    FPG16_CDIV:
     begin
-     lblTransparentColor.caption := 'RGB(255, 0, 255)';
+     lblTransparentColor.caption := 'RGB(248, 0, 248)';
     end;
    FPG24:
     begin
@@ -502,7 +512,7 @@ begin
      lblTransparentColor.caption := 'Alpha Channel';
     end;
   end;
-  lComments.Caption:=lvFPG.Fpg.comments.Name;
+  lComments.Caption:=lvFPG.Fpg.comments.FPName +' '+ lvFPG.Fpg.comments.Name;
 
 end;
 
@@ -1839,4 +1849,4 @@ begin
 
 end;
 
-end.
+end.
