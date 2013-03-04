@@ -1,11 +1,11 @@
 object frmMain: TfrmMain
-  Left = 262
+  Left = 257
   Height = 618
-  Top = 107
+  Top = 178
   Width = 818
   AllowDropFiles = True
   Caption = 'FPG Editor'
-  ClientHeight = 598
+  ClientHeight = 589
   ClientWidth = 818
   Menu = MainMenu
   OnActivate = FormActivate
@@ -34,7 +34,7 @@ object frmMain: TfrmMain
     Align = alTop
     Caption = ' Imagenes '
     ClientHeight = 241
-    ClientWidth = 814
+    ClientWidth = 810
     TabOrder = 2
     Visible = False
     object panelDirs: TPanel
@@ -73,6 +73,7 @@ object frmMain: TfrmMain
         ViewStyle = vsReport
         OnChange = ShellListView1Change
         ObjectTypes = [otNonFolders]
+        Root = '/'
         ShellTreeView = ShellTreeView1
       end
     end
@@ -80,17 +81,17 @@ object frmMain: TfrmMain
       Left = 238
       Height = 241
       Top = 0
-      Width = 576
+      Width = 572
       Align = alClient
       Caption = 'pImagesList'
       ClientHeight = 241
-      ClientWidth = 576
+      ClientWidth = 572
       TabOrder = 1
       object pbImages: TProgressBar
         Left = 1
         Height = 10
         Top = 230
-        Width = 574
+        Width = 570
         Align = alBottom
         OnContextPopup = pbImagesContextPopup
         TabOrder = 1
@@ -101,7 +102,7 @@ object frmMain: TfrmMain
         Left = 1
         Height = 24
         Top = 1
-        Width = 574
+        Width = 570
         AutoSize = True
         TabOrder = 0
         object sbImagesViewDir: TSpeedButton
@@ -472,7 +473,6 @@ object frmMain: TfrmMain
           Filter = 'All Images (*.bmp;*.pcx;*.tif;*.tiff;*.fax;*.bw;*.rgb;*.rgba;*.sgi;*.cel;*.pic;*.jpg;*.jif;*.gif;*.dib;*.rle;*.tga;*.vst;*.icb;*.vda;*.win;*.pcc;*.scr;*.pcd;*.ppm;*.pgm;*.pbm;*.cut;*.pal;*.rla;*.rpf;*.psd;*.pdd;*.psp;*.png;*.mng;*.jng;*.wmf;*.emf;*.ico;*.map)|*.bmp;*.pcx;*.tif;*.tiff;*.fax;*.bw;*.rgb;*.rgba;*.sgi;*.cel;*.pic;*.jpg;*.jif;*.gif;*.dib;*.rle;*.tga;*.vst;*.icb;*.vda;*.win;*.pcc;*.scr;*.pcd;*.ppm;*.pgm;*.pbm;*.cut;*.pal;*.rla;*.rpf;*.psd;*.pdd;*.psp;*.png;*.mng;*.jng;*.wmf;*.emf;*.ico;*.map|Bitmaps (*.bmp)|*.bmp|Portable Network Graphic (*.png)|*.png|All Files(*.*)|*.*'
           Font.Height = -11
           Font.Name = 'Sans'
-          ItemIndex = 0
           ParentFont = False
           ShellListView = ShellListView1
           TabOrder = 0
@@ -483,28 +483,24 @@ object frmMain: TfrmMain
         Left = 1
         Height = 205
         Top = 25
-        Width = 574
+        Width = 570
         Align = alClient
         Columns = <        
           item
             Caption = 'name'
             MinWidth = 50
-            Width = 10
           end        
           item
             Caption = 'width'
             MinWidth = 50
-            Width = 10
           end        
           item
             Caption = 'height'
             MinWidth = 50
-            Width = 10
           end        
           item
             Caption = 'bpp'
             MinWidth = 50
-            Width = 10
           end>
         IconOptions.AutoArrange = True
         LargeImages = ilImages
@@ -528,28 +524,28 @@ object frmMain: TfrmMain
   end
   object gbFPG: TGroupBox
     Left = 0
-    Height = 334
+    Height = 325
     Top = 264
     Width = 818
     Align = alClient
     Caption = ' FPG (Ficheros de gráficos) '
-    ClientHeight = 316
-    ClientWidth = 814
+    ClientHeight = 307
+    ClientWidth = 810
     TabOrder = 0
     object pbFPG: TProgressBar
       Left = 0
       Height = 11
-      Top = 277
-      Width = 814
+      Top = 268
+      Width = 810
       Align = alBottom
       TabOrder = 1
       Visible = False
     end
     object tbFPG: TToolBar
       Left = 0
-      Height = 24
+      Height = 26
       Top = 0
-      Width = 814
+      Width = 810
       AutoSize = True
       TabOrder = 0
       object sbFPGNew: TSpeedButton
@@ -1088,7 +1084,7 @@ object frmMain: TfrmMain
       end
       object edFPGCODE: TSpinEdit
         Left = 720
-        Height = 22
+        Height = 24
         Top = 2
         Width = 63
         Font.Height = -11
@@ -1104,34 +1100,28 @@ object frmMain: TfrmMain
     end
     object lvFPG: TFPGListView
       Left = 0
-      Height = 253
-      Top = 24
-      Width = 814
+      Height = 242
+      Top = 26
+      Width = 810
       Align = alClient
       Columns = <      
         item
           MinWidth = 50
-          Width = 10
         end      
         item
           MinWidth = 50
-          Width = 10
         end      
         item
           MinWidth = 50
-          Width = 10
         end      
         item
           MinWidth = 50
-          Width = 10
         end      
         item
           MinWidth = 50
-          Width = 10
         end      
         item
           MinWidth = 50
-          Width = 10
         end>
       IconOptions.AutoArrange = True
       LargeImages = ilFPG
@@ -1149,21 +1139,21 @@ object frmMain: TfrmMain
     object pFPGStatus: TPanel
       Left = 0
       Height = 28
-      Top = 288
-      Width = 814
+      Top = 279
+      Width = 810
       Align = alBottom
       ClientHeight = 28
-      ClientWidth = 814
+      ClientWidth = 810
       TabOrder = 3
       object cbTipoFPG: TComboBox
-        Left = 604
-        Height = 21
+        Left = 600
+        Height = 26
         Top = 1
         Width = 209
         Align = alRight
         AutoDropDown = True
         Font.Height = -11
-        ItemHeight = 13
+        ItemHeight = 0
         ItemIndex = 5
         Items.Strings = (
           'FPG 1 bit'
@@ -1189,7 +1179,7 @@ object frmMain: TfrmMain
         ParentColor = False
       end
       object lblTransparentColor: TLabel
-        Left = 599
+        Left = 595
         Height = 26
         Top = 1
         Width = 1
@@ -2791,4 +2781,4 @@ object frmMain: TfrmMain
     left = 280
     top = 200
   end
-end
+end
