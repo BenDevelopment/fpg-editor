@@ -22,7 +22,7 @@
  * TODO LIST:
  * * Exportar/importar imagen con xml con información adicional.
  * * Comprimir de forma transparente al usuario
- * *
+ * * Internationalization
 *)
 
 unit uFrmMain;
@@ -1849,4 +1849,4 @@ begin
 
 end;
 
-end.
+end.

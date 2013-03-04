@@ -451,6 +451,7 @@ begin
     Exit;
   end;
 
+
   try
     if FPGFormat = FPG8_DIV2 then
     begin
@@ -775,4 +776,4 @@ begin
 end;
 
 
-end.
+end.
