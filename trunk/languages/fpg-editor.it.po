@@ -1,0 +1,727 @@
+﻿msgid ""
+msgstr "Content-Type: text / plain; charset=UTF-8"
+
+#: tfrmcfg.caption
+msgid "Configuración del generador de fuentes"
+msgstr "Generatore di configurazione dei font"
+
+#: tfrmcfg.gbpaleta.caption
+msgid "Paleta de 256 colores"
+msgstr "256 colori della palette"
+
+#: tfrmcfg.rbfnt2pal.caption
+msgid "Calcular paleta optimizada a los colores de la fuente"
+msgstr "Calcola colori della tavolozza ottimizzata del codice sorgente"
+
+#: tfrmcfg.rbpal2fnt.caption
+msgid "Adaptar fuente a la paleta cargada"
+msgstr "Adattare alla fonte palette caricata"
+
+#: tfrmcfg.sbaccept.caption
+msgctxt "tfrmcfg.sbaccept.caption"
+msgid "&Aceptar"
+msgstr "Accettare"
+
+#: tfrmcfg.sbcancel.caption
+msgctxt "tfrmcfg.sbcancel.caption"
+msgid "&Cancelar"
+msgstr "Annullare"
+
+#: tfrmcfg.sbloadpal.caption
+msgid "&Cargar paleta"
+msgstr "& Load Palette"
+
+#: tfrmcfg.sbviewpal.caption
+msgid "&Ver paleta"
+msgstr "& Visualizza tavolozza"
+
+#: tfrmconfig.bbacept.caption
+msgctxt "TFRMCONFIG.BBACEPT.CAPTION"
+msgid "&Aceptar"
+msgstr "Accettare"
+
+#: tfrmconfig.bbcancel.caption
+msgctxt "TFRMCONFIG.BBCANCEL.CAPTION"
+msgid "&Cancelar"
+msgstr "Annullare"
+
+#: tfrmconfig.caption
+msgid "Configuración de FPG EDIT"
+msgstr "Configurazione di FPGEDIT"
+
+#: tfrmconfig.cbalfanegro.caption
+msgid "50% alfa a transparente"
+msgstr "50% alfa trasparente"
+
+#: tfrmconfig.cbautoloadimages.caption
+msgid "Auto carga de imágenes"
+msgstr "Auto caricare le immagini"
+
+#: tfrmconfig.cbautoloadremove.caption
+msgid "cbAutoloadRemove"
+msgstr "Rimuovere Autoload cb"
+
+#: tfrmconfig.cbflat.caption
+msgid "Botones tipo "flat""
+msgstr "Botones tipo "flat""
+
+#: tfrmconfig.cbsplash.caption
+msgid "Mostrar pantalla de inicio"
+msgstr "Mostra schermata iniziale"
+
+#: tfrmconfig.gbenviroment.caption
+msgid "gbEnviroment"
+msgstr "Ambiente gb"
+
+#: tfrmconfig.gbimageedit.caption
+msgid " Editor de imágenes "
+msgstr "Image Editor"
+
+#: tfrmconfig.gblanguaje.caption
+msgid "Lenguaje"
+msgstr "Lingua"
+
+#: tfrmconfig.gbtimeanimate.caption
+msgid " Tiempo entre animación "
+msgstr "Tempo tra animazione"
+
+#: tfrmconfig.groupbox1.caption
+msgid "Viewer Background Colors"
+msgstr "Viewer colori di sfondo"
+
+#: tfrmconfig.label1.caption
+msgctxt "tfrmconfig.label1.caption"
+msgid "FPG"
+msgstr "FPG"
+
+#: tfrmconfig.label2.caption
+msgid "Files"
+msgstr "File"
+
+#: tfrmconfig.lbmiliseconds.caption
+msgid "Milisegundos"
+msgstr "Millisecondi"
+
+#: tfrmconfig.lbpixels.caption
+msgid "Pixels"
+msgstr "Pixel"
+
+#: tfrmconfig.lbsizeoficon.caption
+msgid "Tamaño de los iconos:"
+msgstr "Formato delle icone:"
+
+#: tfrmconfig.tsenviroment.caption
+msgid "Entorno"
+msgstr "Ambiente"
+
+#: tfrmmain.aabout.caption
+msgid "Acerca de ..."
+msgstr "Informazioni su ..."
+
+#: tfrmmain.aaddimg.caption
+msgid "Añadir"
+msgstr "Aggiungere"
+
+#: tfrmmain.aanimfpg.caption
+msgctxt "TFRMMAIN.AANIMFPG.CAPTION"
+msgid "Animar"
+msgstr "Incoraggiare"
+
+#: tfrmmain.aanimimgs.caption
+msgctxt "tfrmmain.aanimimgs.caption"
+msgid "Animar"
+msgstr "Incoraggiare"
+
+#: tfrmmain.abennu.caption
+msgid "[BennuGD] http://bennugd.org/"
+msgstr "[BennuGD] http://bennugd.org/"
+
+#: tfrmmain.acdiv.caption
+msgid "[ CDIV ] http://cdiv.sourceforge.net/"
+msgstr "[ CDIV ] http://cdiv.sourceforge.net/"
+
+#: tfrmmain.aclose.caption
+msgid "&Cerrar"
+msgstr "Chiudere"
+
+#: tfrmmain.aconfig.caption
+msgid "Configuración"
+msgstr "Configurazione"
+
+#: tfrmmain.acopyimg.caption
+msgid "Copiar Imagen"
+msgstr "Copia immagine"
+
+#: tfrmmain.action2.caption
+msgid "Action2"
+msgstr "Azione 2"
+
+#: tfrmmain.adelete.caption
+msgctxt "tfrmmain.adelete.caption"
+msgid "Eliminar"
+msgstr "Rimuovere"
+
+#: tfrmmain.adeleteselimg.caption
+msgctxt "TFRMMAIN.ADELETESELIMG.CAPTION"
+msgid "Eliminar"
+msgstr "Rimuovere"
+
+#: tfrmmain.adiv2.caption
+msgid "[ DIV2 ] http://www.div-arena.com/"
+msgstr "[ DIV2 ] http://www.div-arena.com/"
+
+#: tfrmmain.aeditsel.caption
+msgctxt "tfrmmain.aeditsel.caption"
+msgid "Editar"
+msgstr "Modifica"
+
+#: tfrmmain.aeditselimg.caption
+msgctxt "TFRMMAIN.AEDITSELIMG.CAPTION"
+msgid "Editar"
+msgstr "Modifica"
+
+#: tfrmmain.aempty.caption
+msgid "Vaciar portapapeles"
+msgstr "Appunti vuoto"
+
+#: tfrmmain.aexit.caption
+msgid "Salir"
+msgstr "Lasciare"
+
+#: tfrmmain.aexport.caption
+msgctxt "TFRMMAIN.AEXPORT.CAPTION"
+msgid "Exportar"
+msgstr "Esportazione"
+
+#: tfrmmain.afenix.caption
+msgid "[ FENIX ] http://fenix.divsite.net/"
+msgstr "[ FENIX ] http://fenix.divsite.net/"
+
+#: tfrmmain.afntmaker.caption
+msgid "&Generador de Fuentes"
+msgstr "Potenza del generatore"
+
+#: tfrmmain.afpg1.caption
+msgid "1 Bit"
+msgstr "1 Bit"
+
+#: tfrmmain.afpg16c.caption
+msgid "16bits CDIV"
+msgstr "16 bit CDIV"
+
+#: tfrmmain.afpg16f.caption
+msgid "16 bits Fenix"
+msgstr "16 bit Fenix"
+
+#: tfrmmain.afpg24.caption
+msgid "24 bits"
+msgstr "24 bit"
+
+#: tfrmmain.afpg32.caption
+msgid "32 bits"
+msgstr "32 bits"
+
+#: tfrmmain.afpg8.caption
+msgid "8 bits"
+msgstr "8 bit"
+
+#: tfrmmain.afpgpalette.caption
+msgid "Paleta de colores"
+msgstr "Color Palette"
+
+#: tfrmmain.agemix.caption
+msgid "http://www.gemixstudio.com"
+msgstr "Error: Wrong language!"
+
+#: tfrmmain.ainvertsel.caption
+msgctxt "tfrmmain.ainvertsel.caption"
+msgid "Invertir selección"
+msgstr "Inverte la selezione"
+
+#: tfrmmain.ainvertselimgs.caption
+msgctxt "TFRMMAIN.AINVERTSELIMGS.CAPTION"
+msgid "Invertir selección"
+msgstr "Inverte la selezione"
+
+#: tfrmmain.aopenimg.caption
+msgctxt "TFRMMAIN.AOPENIMG.CAPTION"
+msgid "Abrir"
+msgstr "Aperto"
+
+#: tfrmmain.apasteimg.caption
+msgid "Pegar imagen"
+msgstr "Incolla Immagine"
+
+#: tfrmmain.areload.caption
+msgid "Recargar"
+msgstr "Ricaricare"
+
+#: tfrmmain.aselectall.caption
+msgctxt "tfrmmain.aselectall.caption"
+msgid "Seleccionar todo"
+msgstr "Seleziona tutto"
+
+#: tfrmmain.aselectallimgs.caption
+msgctxt "TFRMMAIN.ASELECTALLIMGS.CAPTION"
+msgid "Seleccionar todo"
+msgstr "Seleziona tutto"
+
+#: tfrmmain.aziptool.caption
+msgid "&Herramienta de Compresión"
+msgstr "Strumento di compressione"
+
+#: tfrmmain.caption
+msgid "FPG Editor"
+msgstr "FPG Editor"
+
+#: tfrmmain.cbtipofpg.text
+msgid "FPG 32 bits (BennuGD )"
+msgstr "FPG 32 bits (BennuGD )"
+
+#: tfrmmain.gbfpg.caption
+msgid " FPG (Ficheros de gráficos) "
+msgstr " FPG (Ficheros de gráficos) "
+
+#: tfrmmain.gbimages.caption
+msgid " Imagenes "
+msgstr "Stock"
+
+#: tfrmmain.lvimages.columns[0].caption
+msgid "name"
+msgstr "nome"
+
+#: tfrmmain.lvimages.columns[1].caption
+msgid "width"
+msgstr "larghezza"
+
+#: tfrmmain.lvimages.columns[2].caption
+msgid "height"
+msgstr "altezza"
+
+#: tfrmmain.lvimages.columns[3].caption
+msgid "bpp"
+msgstr "BPP"
+
+#: tfrmmain.menuitem4.caption
+msgctxt "TFRMMAIN.MENUITEM4.CAPTION"
+msgid "-"
+msgstr "-"
+
+#: tfrmmain.miaddimgs.caption
+msgid "Añadir selección"
+msgstr "Aggiungi selezione"
+
+#: tfrmmain.miconvert.caption
+msgid "Convertir a"
+msgstr "Converti"
+
+#: tfrmmain.mideletesel.caption
+msgid "Eliminar selección"
+msgstr "Remove Selection"
+
+#: tfrmmain.mieditsel.caption
+msgid "Editar selección"
+msgstr "Modifica selezione"
+
+#: tfrmmain.mieditselimg.caption
+msgid "Editar seleccion"
+msgstr "Modifica selezione"
+
+#: tfrmmain.mifpg.caption
+msgctxt "TFRMMAIN.MIFPG.CAPTION"
+msgid "FPG"
+msgstr "FPG"
+
+#: tfrmmain.mifpgdetails.caption
+msgctxt "tfrmmain.mifpgdetails.caption"
+msgid "Detalles"
+msgstr "Dettagli"
+
+#: tfrmmain.mifpgimages.caption
+msgctxt "tfrmmain.mifpgimages.caption"
+msgid "Imágenes"
+msgstr "Immagini"
+
+#: tfrmmain.mifpglist.caption
+msgctxt "tfrmmain.mifpglist.caption"
+msgid "Lista"
+msgstr "Elenco"
+
+#: tfrmmain.migemix.caption
+msgid "[Gemix] http://www.gemixstudio.com"
+msgstr "[Gemix] http://www.gemixstudio.com"
+
+#: tfrmmain.mihelp.caption
+msgid "Help"
+msgstr "Aiuto"
+
+#: tfrmmain.mihideshowdirs.caption
+msgid "Ocultar/Mostrar directorios"
+msgstr "Nascondi / Mostra le directory"
+
+#: tfrmmain.miimages.caption
+msgid "Images"
+msgstr "Immagini"
+
+#: tfrmmain.miimgdetails.caption
+msgctxt "TFRMMAIN.MIIMGDETAILS.CAPTION"
+msgid "Detalles"
+msgstr "Dettagli"
+
+#: tfrmmain.miimgimages.caption
+msgctxt "TFRMMAIN.MIIMGIMAGES.CAPTION"
+msgid "Imágenes"
+msgstr "Immagini"
+
+#: tfrmmain.miimglist.caption
+msgctxt "TFRMMAIN.MIIMGLIST.CAPTION"
+msgid "Lista"
+msgstr "Elenco"
+
+#: tfrmmain.minew.caption
+msgid "Nuevo"
+msgstr "Nuovo"
+
+#: tfrmmain.miopen.caption
+msgctxt "TFRMMAIN.MIOPEN.CAPTION"
+msgid "Abrir"
+msgstr "Aperto"
+
+#: tfrmmain.miseparator1.caption
+msgctxt "TFRMMAIN.MISEPARATOR1.CAPTION"
+msgid "-"
+msgstr "-"
+
+#: tfrmmain.miseparator10.caption
+msgctxt "TFRMMAIN.MISEPARATOR10.CAPTION"
+msgid "-"
+msgstr "-"
+
+#: tfrmmain.miseparator11.caption
+msgctxt "TFRMMAIN.MISEPARATOR11.CAPTION"
+msgid "-"
+msgstr "-"
+
+#: tfrmmain.miseparator2.caption
+msgctxt "TFRMMAIN.MISEPARATOR2.CAPTION"
+msgid "-"
+msgstr "-"
+
+#: tfrmmain.miseparator3.caption
+msgctxt "TFRMMAIN.MISEPARATOR3.CAPTION"
+msgid "-"
+msgstr "-"
+
+#: tfrmmain.miseparator4.caption
+msgctxt "TFRMMAIN.MISEPARATOR4.CAPTION"
+msgid "-"
+msgstr "-"
+
+#: tfrmmain.miseparator5.caption
+msgctxt "TFRMMAIN.MISEPARATOR5.CAPTION"
+msgid "-"
+msgstr "-"
+
+#: tfrmmain.miseparator6.caption
+msgctxt "TFRMMAIN.MISEPARATOR6.CAPTION"
+msgid "-"
+msgstr "-"
+
+#: tfrmmain.miseparator7.caption
+msgctxt "TFRMMAIN.MISEPARATOR7.CAPTION"
+msgid "-"
+msgstr "-"
+
+#: tfrmmain.miseparator8.caption
+msgctxt "TFRMMAIN.MISEPARATOR8.CAPTION"
+msgid "-"
+msgstr "-"
+
+#: tfrmmain.miseparator9.caption
+msgctxt "TFRMMAIN.MISEPARATOR9.CAPTION"
+msgid "-"
+msgstr "-"
+
+#: tfrmmain.mishowhideuppanel.caption
+msgid "Mostrar/Ocultar panel superior"
+msgstr "Mostra / Nascondi pannello superiore"
+
+#: tfrmmain.mitools.caption
+msgid "Tools"
+msgstr "Strumenti"
+
+#: tfrmmain.miviewfpg.caption
+msgid "&Ver"
+msgstr "& See"
+
+#: tfrmmain.miviewimg.caption
+msgid "Ver"
+msgstr "Vedere"
+
+#: tfrmmain.miwallpaper.caption
+msgid "Portapapeles"
+msgstr "Appunti"
+
+#: tfrmmain.n15.caption
+msgctxt "TFRMMAIN.N15.CAPTION"
+msgid "-"
+msgstr "-"
+
+#: tfrmmain.n20.caption
+msgctxt "tfrmmain.n20.caption"
+msgid "-"
+msgstr "-"
+
+#: tfrmmain.pfpgcode.caption
+msgid "Código de FPG"
+msgstr "FPG Codice"
+
+#: tfrmmain.pimageslist.caption
+msgid "pImagesList"
+msgstr "pImagesList"
+
+#: tfrmmain.ppcopyimage.caption
+msgid "&Copiar al portapapeles"
+msgstr "Copia nella clipboard"
+
+#: tfrmmain.ppfpgopen.caption
+msgctxt "tfrmmain.ppfpgopen.caption"
+msgid "Abrir"
+msgstr "Aperto"
+
+#: tfrmmainfnt.bgsize.caption
+msgctxt "tfrmmainfnt.bgsize.caption"
+msgid "Tamaño"
+msgstr "Dimensione"
+
+#: tfrmmainfnt.caption
+msgid "Generador de fuentes"
+msgstr "Font Generator"
+
+#: tfrmmainfnt.cbcharset.text
+msgid "ISO8859_15"
+msgstr "ISO8859_15"
+
+#: tfrmmainfnt.cbextended.caption
+msgid "Extendido"
+msgstr "Estesa"
+
+#: tfrmmainfnt.cbminus.caption
+msgid "Minúsculas"
+msgstr "Minuscolo"
+
+#: tfrmmainfnt.cbnumbers.caption
+msgid "Números"
+msgstr "Numeri"
+
+#: tfrmmainfnt.cbsymbol.caption
+msgid "Símbolos"
+msgstr "Simboli"
+
+#: tfrmmainfnt.cbupper.caption
+msgid "Mayúsculas"
+msgstr "Spostare"
+
+#: tfrmmainfnt.edsizefont.text
+msgid "8"
+msgstr "8"
+
+#: tfrmmainfnt.gbcharset.caption
+msgid "Charset"
+msgstr "Charset"
+
+#: tfrmmainfnt.gbedge.caption
+msgctxt "TFRMMAINFNT.GBEDGE.CAPTION"
+msgid "Reborde"
+msgstr "Flangia"
+
+#: tfrmmainfnt.gbfont.caption
+msgid "Fuente en FNT"
+msgstr "Sorgente in FNT"
+
+#: tfrmmainfnt.gbloadfont.caption
+msgid "Nombre de la fuente"
+msgstr "Nome del font"
+
+#: tfrmmainfnt.gbselectcolor.caption
+msgid "Selección de colores"
+msgstr "La scelta di colori"
+
+#: tfrmmainfnt.gbshadow.caption
+msgctxt "TFRMMAINFNT.GBSHADOW.CAPTION"
+msgid "Sombra"
+msgstr "Ombra"
+
+#: tfrmmainfnt.gbstyle.caption
+msgid "Estilo"
+msgstr "Stile"
+
+#: tfrmmainfnt.gbsymboltype.caption
+msgid "Contenido"
+msgstr "Contenuto"
+
+#: tfrmmainfnt.label1.caption
+msgctxt "TFRMMAINFNT.LABEL1.CAPTION"
+msgid "Alfa"
+msgstr "Alfa"
+
+#: tfrmmainfnt.label2.caption
+msgctxt "TFRMMAINFNT.LABEL2.CAPTION"
+msgid "Alfa"
+msgstr "Alfa"
+
+#: tfrmmainfnt.label3.caption
+msgid "Mostrar texto:"
+msgstr "Visualizzare il testo:"
+
+#: tfrmmainfnt.label4.caption
+msgctxt "tfrmmainfnt.label4.caption"
+msgid "Alfa"
+msgstr "Alfa"
+
+#: tfrmmainfnt.label5.caption
+msgid "Mostrar char:"
+msgstr "Mostra char:"
+
+#: tfrmmainfnt.lbnamefont.caption
+msgctxt "TFRMMAINFNT.LBNAMEFONT.CAPTION"
+msgid "No hay fuente"
+msgstr "Nessuna fonte"
+
+#: tfrmmainfnt.lbnamefontb.caption
+msgctxt "tfrmmainfnt.lbnamefontb.caption"
+msgid "No hay fuente"
+msgstr "Nessuna fonte"
+
+#: tfrmmainfnt.lbshadow.caption
+msgid "Posici"
+msgstr "Posizione"
+
+#: tfrmmainfnt.lbsizeedge.caption
+msgctxt "TFRMMAINFNT.LBSIZEEDGE.CAPTION"
+msgid "Tamaño"
+msgstr "Dimensione"
+
+#: tfrmmainfnt.odimportfnt.title
+msgid "Importar una fuente de una imagen"
+msgstr "Importare una sorgente di immagine"
+
+#: tfrmmainfnt.rbsedge.caption
+msgctxt "tfrmmainfnt.rbsedge.caption"
+msgid "Reborde"
+msgstr "Flangia"
+
+#: tfrmmainfnt.rbsfont.caption
+msgid "Fuente"
+msgstr "Fonte"
+
+#: tfrmmainfnt.rbsshadow.caption
+msgctxt "tfrmmainfnt.rbsshadow.caption"
+msgid "Sombra"
+msgstr "Ombra"
+
+#: tfrmmainfnt.sbchangebgcolor.caption
+msgid "Color de fondo"
+msgstr "Colore di sfondo"
+
+#: tfrmmainfnt.sbchangebgcolor.hint
+msgid "Cambiar el color de fondo"
+msgstr "Modificare il colore di sfondo"
+
+#: tfrmmainfnt.sbexport.caption
+msgctxt "tfrmmainfnt.sbexport.caption"
+msgid "Exportar"
+msgstr "Esportazione"
+
+#: tfrmmainfnt.sbexport.hint
+msgid "Exportar fuente de texto"
+msgstr "Esportare il carattere del testo"
+
+#: tfrmmainfnt.sbimport.caption
+msgid "Importar"
+msgstr "Importare"
+
+#: tfrmmainfnt.sbimport.hint
+msgid "Importar fuente de texto"
+msgstr "Importa testo carattere"
+
+#: tfrmmainfnt.sbloadfont.caption
+msgid "&Cargar Fuente"
+msgstr "Carico Sorgente"
+
+#: tfrmmainfnt.sbloadfont.hint
+msgid "Cambiar el tipo de letra"
+msgstr "Modificare il carattere"
+
+#: tfrmmainfnt.sbmakefont.caption
+msgid "Generar"
+msgstr "Generare"
+
+#: tfrmmainfnt.sbmakefont.hint
+msgid "Generar fuente"
+msgstr "Genera sorgente"
+
+#: tfrmmainfnt.sbopen.hint
+msgid "Abrir fuente de texto"
+msgstr "Testo sorgente aperto"
+
+#: tfrmmainfnt.sboptions.caption
+msgid "Opciones"
+msgstr "Opzioni"
+
+#: tfrmmainfnt.sboptions.hint
+msgid "Opciones generales"
+msgstr "Opzioni generali"
+
+#: tfrmmainfnt.sbsave.hint
+msgid "Guardar fuente de texto"
+msgstr "Salva il font del testo"
+
+#: tfrmmainfnt.sbsaveas.hint
+msgid "Guardar fuente de texto como"
+msgstr "Salva come carattere del testo"
+
+#: tfrmmainfnt.sbsavetext.caption
+msgctxt "tfrmmainfnt.sbsavetext.caption"
+msgid "Guardar texto"
+msgstr "Salva il testo"
+
+#: tfrmmainfnt.sbsavetext.hint
+msgid "Guardar el texto escrito"
+msgstr "Salva testo composto"
+
+#: tfrmmainfnt.sbselectcolor.caption
+msgid "Color"
+msgstr "Colore"
+
+#: tfrmmainfnt.sbselectcolor.hint
+msgid "Establece un color"
+msgstr "Consente di impostare un colore"
+
+#: tfrmmainfnt.sbselectimage.caption
+msgid "Imagen"
+msgstr "Immagine"
+
+#: tfrmmainfnt.sbselectimage.hint
+msgid "Establece una imagen"
+msgstr "Consente di impostare l'immagine"
+
+#: tfrmmainfnt.sbshowfnt.caption
+msgctxt "TFRMMAINFNT.SBSHOWFNT.CAPTION"
+msgid "Ver FNT"
+msgstr "Visualizza FNT"
+
+#: tfrmmainfnt.sbshowfnt.hint
+msgctxt "tfrmmainfnt.sbshowfnt.hint"
+msgid "Ver FNT"
+msgstr "Visualizza FNT"
+
+#: tfrmmainfnt.sdsavetext.title
+msgctxt "TFRMMAINFNT.SDSAVETEXT.TITLE"
+msgid "Guardar texto"
+msgstr "Salva il testo"
+
+#: tfrmmainfnt.toolbar1.caption
+msgid "ToolBar1"
+msgstr "ToolBar1"
+
