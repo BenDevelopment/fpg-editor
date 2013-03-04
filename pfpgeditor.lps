@@ -3,15 +3,15 @@
   <ProjectSession>
     <PathDelim Value="\"/>
     <Version Value="9"/>
-    <BuildModes Active="Default"/>
-    <Units Count="132">
+    <BuildModes Active="Debug"/>
+    <Units Count="135">
       <Unit0>
         <Filename Value="pfpgeditor.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="pfpgeditor"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
-        <CursorPos X="15" Y="10"/>
+        <CursorPos X="47" Y="10"/>
         <UsageCount Value="473"/>
       </Unit0>
       <Unit1>
@@ -21,11 +21,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmMain"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
         <TopLine Value="25"/>
-        <CursorPos X="39" Y="38"/>
+        <CursorPos X="92" Y="38"/>
         <UsageCount Value="473"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -101,8 +100,8 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="uinifile"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="174"/>
-        <CursorPos X="42" Y="186"/>
+        <TopLine Value="20"/>
+        <CursorPos X="12" Y="32"/>
         <UsageCount Value="473"/>
       </Unit8>
       <Unit9>
@@ -136,10 +135,13 @@
         <Filename Value="uLanguage\uLanguage.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uLanguage"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="88"/>
-        <CursorPos X="57" Y="22"/>
+        <TopLine Value="102"/>
+        <CursorPos X="50" Y="102"/>
         <UsageCount Value="473"/>
+        <Loaded Value="True"/>
       </Unit12>
       <Unit13>
         <Filename Value="uTools\uTools.pas"/>
@@ -221,7 +223,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmConfig"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="133"/>
+        <TopLine Value="203"/>
         <CursorPos X="2" Y="146"/>
         <UsageCount Value="473"/>
       </Unit20>
@@ -330,7 +332,7 @@
         <UnitName Value="uFrmCFG"/>
         <WindowIndex Value="0"/>
         <TopLine Value="37"/>
-        <CursorPos X="18" Y="49"/>
+        <CursorPos X="32" Y="54"/>
         <UsageCount Value="200"/>
       </Unit30>
       <Unit31>
@@ -341,8 +343,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmMainFNT"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="103"/>
-        <CursorPos X="1" Y="1606"/>
+        <TopLine Value="1"/>
+        <CursorPos X="46" Y="1592"/>
         <UsageCount Value="200"/>
       </Unit31>
       <Unit32>
@@ -376,7 +378,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="7"/>
         <CursorPos X="3" Y="234"/>
-        <UsageCount Value="88"/>
+        <UsageCount Value="93"/>
       </Unit34>
       <Unit35>
         <Filename Value="uMap\umapgraphic.pas"/>
@@ -385,7 +387,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="482"/>
         <CursorPos X="14" Y="85"/>
-        <UsageCount Value="88"/>
+        <UsageCount Value="93"/>
       </Unit35>
       <Unit36>
         <Filename Value="unit1.pas"/>
@@ -393,7 +395,7 @@
         <ComponentName Value="Form1"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="28"/>
       </Unit36>
       <Unit37>
         <Filename Value="uMap\uMap.pas"/>
@@ -1123,107 +1125,154 @@
         <CursorPos X="26" Y="36"/>
         <UsageCount Value="10"/>
       </Unit131>
+      <Unit132>
+        <Filename Value="..\..\..\src\lazarus\components\lazutils\lazfileutils.pas"/>
+        <UnitName Value="LazFileUtils"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1177"/>
+        <CursorPos X="8" Y="1191"/>
+        <UsageCount Value="10"/>
+      </Unit132>
+      <Unit133>
+        <Filename Value="..\..\..\src\lazarus\lcl\defaulttranslator.pas"/>
+        <UnitName Value="DefaultTranslator"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="459"/>
+        <CursorPos X="11" Y="417"/>
+        <UsageCount Value="11"/>
+      </Unit133>
+      <Unit134>
+        <Filename Value="..\..\..\..\..\usr\share\fpcsrc\2.6.0\rtl\objpas\sysutils\sysansih.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="10" Y="24"/>
+        <UsageCount Value="11"/>
+      </Unit134>
     </Units>
     <General>
       <ActiveWindowIndexAtStart Value="0"/>
     </General>
-    <JumpHistory Count="24" HistoryIndex="23">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="467" Column="19" TopLine="450"/>
+        <Caret Line="346" Column="19" TopLine="336"/>
       </Position1>
       <Position2>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="468" Column="22" TopLine="451"/>
+        <Caret Line="515" Column="40" TopLine="498"/>
       </Position2>
       <Position3>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="469" Column="19" TopLine="452"/>
+        <Caret Line="102" Column="14" TopLine="92"/>
       </Position3>
       <Position4>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="470" Column="21" TopLine="453"/>
+        <Caret Line="25" Column="26" TopLine="1"/>
       </Position4>
       <Position5>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="471" Column="21" TopLine="454"/>
+        <Caret Line="27" Column="35" TopLine="21"/>
       </Position5>
       <Position6>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="472" Column="24" TopLine="455"/>
+        <Caret Line="288" Column="25" TopLine="265"/>
       </Position6>
       <Position7>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="473" Column="21" TopLine="456"/>
+        <Caret Line="362" Column="10" TopLine="337"/>
       </Position7>
       <Position8>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="475" Column="18" TopLine="458"/>
+        <Caret Line="364" Column="6" TopLine="338"/>
       </Position8>
       <Position9>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="483" Column="22" TopLine="465"/>
+        <Caret Line="37" Column="31" TopLine="18"/>
       </Position9>
       <Position10>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="489" Column="33" TopLine="471"/>
+        <Caret Line="32" Column="5" TopLine="18"/>
       </Position10>
       <Position11>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="493" Column="33" TopLine="475"/>
+        <Caret Line="30" Column="5" TopLine="18"/>
       </Position11>
       <Position12>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="497" Column="33" TopLine="479"/>
+        <Caret Line="38" Column="26" TopLine="18"/>
       </Position12>
       <Position13>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="501" Column="33" TopLine="484"/>
+        <Caret Line="95" Column="9" TopLine="72"/>
       </Position13>
       <Position14>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="505" Column="33" TopLine="488"/>
+        <Caret Line="168" Column="10" TopLine="145"/>
       </Position14>
       <Position15>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="509" Column="33" TopLine="492"/>
+        <Caret Line="278" Column="19" TopLine="255"/>
       </Position15>
       <Position16>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="512" Column="20" TopLine="495"/>
+        <Caret Line="381" Column="1" TopLine="357"/>
       </Position16>
       <Position17>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="567" Column="70" TopLine="550"/>
+        <Caret Line="290" Column="25" TopLine="276"/>
       </Position17>
       <Position18>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="4" Column="47" TopLine="1"/>
+        <Caret Line="364" Column="9" TopLine="346"/>
       </Position18>
       <Position19>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="290" Column="22" TopLine="273"/>
+        <Caret Line="365" Column="15" TopLine="346"/>
       </Position19>
       <Position20>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="336" Column="11" TopLine="318"/>
+        <Caret Line="372" Column="22" TopLine="358"/>
       </Position20>
       <Position21>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="346" Column="19" TopLine="336"/>
+        <Caret Line="361" Column="7" TopLine="345"/>
       </Position21>
       <Position22>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="515" Column="40" TopLine="498"/>
+        <Caret Line="342" Column="9" TopLine="327"/>
       </Position22>
       <Position23>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="102" Column="14" TopLine="92"/>
+        <Caret Line="347" Column="49" TopLine="329"/>
       </Position23>
       <Position24>
         <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="25" Column="26" TopLine="1"/>
+        <Caret Line="348" Column="1" TopLine="335"/>
       </Position24>
+      <Position25>
+        <Filename Value="uFrmMain\uFrmMain.pas"/>
+        <Caret Line="345" Column="31" TopLine="331"/>
+      </Position25>
+      <Position26>
+        <Filename Value="uFrmMain\uFrmMain.pas"/>
+        <Caret Line="353" Column="1" TopLine="353"/>
+      </Position26>
+      <Position27>
+        <Filename Value="uFrmMain\uFrmMain.pas"/>
+        <Caret Line="360" Column="48" TopLine="353"/>
+      </Position27>
+      <Position28>
+        <Filename Value="uFrmMain\uFrmMain.pas"/>
+        <Caret Line="338" Column="1" TopLine="337"/>
+      </Position28>
+      <Position29>
+        <Filename Value="uLanguage\uLanguage.pas"/>
+        <Caret Line="138" Column="6" TopLine="115"/>
+      </Position29>
+      <Position30>
+        <Filename Value="uLanguage\uLanguage.pas"/>
+        <Caret Line="73" Column="2" TopLine="59"/>
+      </Position30>
     </JumpHistory>
   </ProjectSession>
   <Debugging>

@@ -35,7 +35,7 @@ uses
   ufrmPalette, ufrmFPGImages, uLanguage, Dialogs, uTools,
   uFPGConvert, uLoadImage, uFrmExport, uFrmMessageBox,
   uExportToFiles, uFPGListView, FileUtil, ShellCtrls, ActnList, FileCtrl, Spin,
-  ExtDlgs, types, uFrmZipFenix, uFrmAbout, ufrmMainFNT, ufrmAnimate, ufrmConfig, uFrmSplahs;
+  ExtDlgs, types, ufrmZipFenix, uFrmAbout, ufrmMainFNT, ufrmAnimate, ufrmConfig, uFrmSplahs;
 
 const
   DRAG_LVFPG    = 0;
@@ -336,6 +336,7 @@ implementation
 // FormCreate: Al crear la ventana carga el fichero "ini" si esto es posible.
 //-----------------------------------------------------------------------------
 
+
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
 // DragOver := 255;
@@ -362,6 +363,7 @@ begin
   Caption:=Caption +' r'+ RevisionStr;
 
 end;
+
 
 procedure TfrmMain._set_lng;
 begin

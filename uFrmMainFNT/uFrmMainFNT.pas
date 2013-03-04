@@ -2674,4 +2674,4 @@ begin
    +Byte(fnt_container.header.file_type[3])) <> 0);
 end;
 
-end.
+end.
