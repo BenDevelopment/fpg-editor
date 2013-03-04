@@ -23,7 +23,7 @@ unit uLanguage;
 
 interface
 
-uses Forms, FileUtil, inifiles, SysUtils, uinifile;
+uses Forms, FileUtil, inifiles, SysUtils, uinifile , DefaultTranslator, LCLProc;
 
 const
  NUM_OF_STRINGS                 = 200;
@@ -90,6 +90,33 @@ begin
  lngfile.Destroy;
 end;
 
+procedure setLanguage(lang: String);
+var
+  T :String;
+begin
+  if Lang = '' then
+    Lang := GetEnvironmentVariableUTF8('LANG');
+
+  if Lang = '' then
+    LCLGetLanguageIDs(Lang, T);
+
+  SetDefaultLang(lang);
+end;
+
+procedure setLanguageFromIniName(ininame: String);
+var
+  lang : String;
+begin
+  lang := '';
+  if AnsiPos('spanish',LowerCase( ininame) ) > 0 then
+    lang:='es';
+  if AnsiPos('english',LowerCase( ininame)) >  0 then
+    lang:='en';
+  if AnsiPos('euskara',LowerCase( ininame)) > 0 then
+    lang:='ek';
+  setLanguage(lang);
+end;
+
 procedure load_language;
 var
  lngfile : TIniFile;
@@ -111,6 +138,8 @@ begin
   LNG_STRINGS[ i ] := lngfile.ReadString('LNG', IntToStr(i), 'NULL');
 
  lngfile.Destroy;
+
+ setLanguageFromIniName(inifile_language);
 end;
 
-end.
+end.

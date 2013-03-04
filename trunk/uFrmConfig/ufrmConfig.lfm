@@ -1,7 +1,7 @@
 object frmConfig: TfrmConfig
   Left = 449
   Height = 340
-  Top = 381
+  Top = 380
   Width = 376
   Caption = 'Configuración de FPG EDIT'
   ClientHeight = 340
