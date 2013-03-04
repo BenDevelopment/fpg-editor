@@ -1,5 +1,6 @@
 svn update
 svn commit
+svn update
 svn2revisioninc .
 lazbuild -B pfpgeditor.lpi
 PVERSION=$(svnversion -n)
