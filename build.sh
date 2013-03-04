@@ -1,3 +1,4 @@
+svn update
 svn commit
 svn2revisioninc .
 lazbuild -B pfpgeditor.lpi
