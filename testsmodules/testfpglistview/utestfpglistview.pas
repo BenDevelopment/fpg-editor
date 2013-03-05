@@ -46,15 +46,17 @@ procedure TForm1.MenuItem2Click(Sender: TObject);
 begin
   if OpenDialog1.Execute then
   begin
-      FPGListView1.Fpg.LoadFromFile(OpenDialog1.FileName,ProgressBar1);
-      FPGListView1.Load_Images(ProgressBar1);
-      Label1.Caption:=FPGListView1.Fpg.comments.Name;
+      if TFpg.test(OpenDialog1.FileName) then
+      begin
+        FPGListView1.Fpg.LoadFromFile(OpenDialog1.FileName,ProgressBar1);
+        FPGListView1.Load_Images(ProgressBar1);
+        Label1.Caption:=FPGListView1.Fpg.appName+' '+ FPGListView1.Fpg.appVersion;
+      end;
   end;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  FPGListView1.Fpg:=TFpg.Create;
   FPGListView1.Fpg.appName:='TestFPGListview';
   FPGListView1.Fpg.appVersion:='r00';
 end;

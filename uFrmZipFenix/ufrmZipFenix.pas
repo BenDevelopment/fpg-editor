@@ -135,7 +135,7 @@ begin
  if not FileExists(filename) then
   Exit;
 
- uncompressed:=FPG_Test(filename);
+ uncompressed:=TFPG.Test(filename);
  if not uncompressed then
    uncompressed:=MAP_Test(filename);
  if not uncompressed then
@@ -190,4 +190,4 @@ begin
 end;
 
 end.
-
+

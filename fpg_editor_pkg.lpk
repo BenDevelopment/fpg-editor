@@ -17,7 +17,7 @@
         <CompilerPath Value="$(CompPath)"/>
       </Other>
     </CompilerOptions>
-    <Files Count="8">
+    <Files Count="3">
       <Item1>
         <Filename Value="uFPGListView\ufpglistview.pas"/>
         <HasRegisterProc Value="True"/>
@@ -28,29 +28,9 @@
         <UnitName Value="uFPG"/>
       </Item2>
       <Item3>
-        <Filename Value="uLoadImage\uLoadImage.pas"/>
-        <UnitName Value="uLoadImage"/>
+        <Filename Value="uMap\umapgraphic.pas"/>
+        <UnitName Value="uMAPGraphic"/>
       </Item3>
-      <Item4>
-        <Filename Value="uTools\uTools.pas"/>
-        <UnitName Value="uTools"/>
-      </Item4>
-      <Item5>
-        <Filename Value="uMessages\uFrmMessageBox\uFrmMessageBox.pas"/>
-        <UnitName Value="uFrmMessageBox"/>
-      </Item5>
-      <Item6>
-        <Filename Value="uLanguage\uLanguage.pas"/>
-        <UnitName Value="uLanguage"/>
-      </Item6>
-      <Item7>
-        <Filename Value="uIniFile\uinifile.pas"/>
-        <UnitName Value="uinifile"/>
-      </Item7>
-      <Item8>
-        <Filename Value="uColor16bits\uColor16bits.pas"/>
-        <UnitName Value="uColor16bits"/>
-      </Item8>
     </Files>
     <Type Value="RunAndDesignTime"/>
     <RequiredPkgs Count="1">

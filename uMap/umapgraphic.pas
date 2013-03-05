@@ -873,4 +873,4 @@ end;
 initialization
   TPicture.RegisterFileFormat('map','DIV MAP Images', TMAPGraphic);
 
-end.
+end.

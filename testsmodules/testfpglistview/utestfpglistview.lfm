@@ -1,17 +1,17 @@
 object Form1: TForm1
-  Left = 432
-  Height = 347
-  Top = 227
+  Left = 429
+  Height = 346
+  Top = 200
   Width = 463
   Caption = 'Form1'
-  ClientHeight = 327
+  ClientHeight = 317
   ClientWidth = 463
   Menu = MainMenu1
   OnCreate = FormCreate
   LCLVersion = '1.1'
   object FPGListView1: TFPGListView
     Left = 0
-    Height = 284
+    Height = 274
     Top = 0
     Width = 463
     Align = alClient
@@ -20,12 +20,16 @@ object Form1: TForm1
     LargeImages = ImageList1
     TabOrder = 0
     ViewStyle = vsIcon
+    Fpg.msgInfo = 'Info'
+    Fpg.msgError = 'Error'
+    Fpg.msgCorrect = 'Correct'
+    Fpg.msgWrong = 'Wrong'
     repaintNumber = 20
   end
   object ProgressBar1: TProgressBar
     Left = 0
     Height = 20
-    Top = 284
+    Top = 274
     Width = 463
     Align = alBottom
     TabOrder = 1
@@ -33,7 +37,7 @@ object Form1: TForm1
   object Panel1: TPanel
     Left = 0
     Height = 23
-    Top = 304
+    Top = 294
     Width = 463
     Align = alBottom
     ClientHeight = 23
@@ -41,9 +45,9 @@ object Form1: TForm1
     TabOrder = 2
     object Label1: TLabel
       Left = 162
-      Height = 15
+      Height = 21
       Top = 0
-      Width = 34
+      Width = 45
       Caption = 'Label1'
       ParentColor = False
     end

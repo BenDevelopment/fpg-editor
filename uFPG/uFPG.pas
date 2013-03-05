@@ -24,9 +24,8 @@ unit uFPG;
 
 interface
 
-uses LCLIntf, LCLType,LResources, SysUtils, Forms, Classes,
-  Graphics, FileUtil, ComCtrls, IntfGraphics,
-  uFrmMessageBox, uLanguage, uColor16bits, uMAPGraphic, Dialogs, uTools;
+uses SysUtils, Classes, Graphics, FileUtil, ComCtrls,
+     uMAPGraphic, Dialogs;
 
 const
   MAX_NUM_IMAGES = 999;
@@ -46,7 +45,7 @@ const
 
 type
 
-  TFpg = class
+  TFpg = class(TPersistent)
   private
     { Private declarations }
   public
@@ -64,11 +63,15 @@ type
     Count: word;
     lastCode: word;
     loadPalette: boolean;
-    comments : TMAPGraphic;
     table_16_to_8: array [0 .. 31, 0 .. 63, 0 .. 31] of byte;
     appName : String;
     appVersion : String;
 
+    (*Strings para mensajes*)
+    fmsgInfo    : String;
+    fmsgError   : String;
+    fmsgCorrect : String;
+    fmsgWrong   : String;
     constructor Create;
     destructor Destroy; override;
     function CodeExists(code: word): boolean;
@@ -76,11 +79,11 @@ type
     procedure DeleteWithCode(code: word);
     procedure Initialize;
     procedure setMagic;
-    procedure SaveToFile(var gFPG: TProgressBar);
-    function LoadFromFile(str: string; var gFPG: TProgressBar): boolean;
+    procedure SaveToFile(gFPG: TProgressBar);
+    procedure SaveToFile(index: integer; filename: string);
+    function LoadFromFile(str: string; gFPG: TProgressBar): boolean;
     procedure Create_table_16_to_8;
     procedure Sort_Palette;
-    procedure SaveMap(index: integer; filename: string);
     procedure add_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TBitmap ; ncpoints:word;cpoints :PWord);
     procedure replace_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TBitmap; ncpoints:word;cpoints :PWord );
     function isKnownFormat: boolean;
@@ -89,12 +92,18 @@ type
     procedure saveHeaderToStream(stream : TStream);
     function getFormat(var byte_size : Word): Integer ;
     function getBPP : Word;
+    function findColor(index, rc, gc, bc: integer): integer;
+
+    class function test(str: string): boolean;static ;
+  published
+    property msgInfo: String read fmsgInfo write fmsgInfo;
+    property msgError: String read fmsgError write fmsgError;
+    property msgCorrect: String read fmsgCorrect write fmsgCorrect;
+    property msgWrong: String read fmsgWrong write fmsgWrong;
 
   end;
 
-function FPG_Test(str: string): boolean;
 procedure stringToArray(var inarray: array of char; str: string; len: integer);
-procedure writeDataBitmap( var f: TFileStream ;var bitmap : TBitmap; bytes_per_pixel : word; cdivformat : boolean =false ; palette : PByte = nil);
 
 //procedure Register;
 
@@ -246,7 +255,6 @@ end;
 constructor TFpg.Create;
 begin
   inherited Create;
-  comments := TMAPGraphic.Create;
   Initialize;
 end;
 
@@ -295,7 +303,6 @@ begin
         FreeAndNil(images[i]);
     end;
   end;
-  FreeAndNil(comments);
   inherited Destroy;
 end;
 
@@ -342,12 +349,12 @@ end;
 // Save: Guarda el FPG actual a disco.
 //-----------------------------------------------------------------------------
 
-procedure TFpg.SaveToFile( var gFPG: TProgressBar);
+procedure TFpg.SaveToFile( gFPG: TProgressBar);
 var
   f: TFileStream;
   i : Word;
   bits_per_pixel: Word;
-
+  comments : TMAPGraphic;
 begin
 
   bits_per_pixel:=getBPP;
@@ -379,7 +386,6 @@ begin
     gFPG.Repaint;
   end;
 
-  FreeAndNil(comments);
   comments := TMAPGraphic.Create;
   comments.bitsPerPixel:=bits_per_pixel;
   comments.CDIVFormat:= (FPGFormat= FPG16_CDIV);
@@ -388,19 +394,21 @@ begin
   comments.name:=appVersion;
   comments.fpname:=appName;
   comments.SaveToStream(f,true);
+  FreeAndNil(comments);
 
   gFPG.Hide;
 
   f.Free;
 
-  feMessageBox(LNG_STRINGS[LNG_INFO], LNG_STRINGS[LNG_CORRECT_SAVING], 0, 0);
+  MessageDlg(fmsgInfo,fmsgCorrect,mtInformation,[mbOK],0);
+  //feMessageBox(LNG_STRINGS[LNG_INFO],LNG_STRINGS[LNG_CORRECT_SAVING], 0, 0);
 end;
 
 //-----------------------------------------------------------------------------
 // LoadFPG: Carga un FPG a memoria.
 //-----------------------------------------------------------------------------
 
-function TFpg.LoadFromFile(str: string; var gFPG: TProgressBar): boolean;
+function TFpg.LoadFromFile(str: string; gFPG: TProgressBar): boolean;
 var
   f: TStream;
   byte_size: Word;
@@ -446,7 +454,8 @@ begin
 
   if (FPGFormat = FPG_NULL) then
   begin
-    feMessageBox(LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_WRONG_FPG], 0, 0);
+    MessageDlg(fmsgError,fmsgWrong,mtError,[mbOK],0);
+    //feMessageBox(LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_WRONG_FPG], 0, 0);
     f.Free;
     Exit;
   end;
@@ -476,8 +485,9 @@ begin
 
       if fpgGraphic.code=1001 then
       begin
-        FreeAndNil(comments);
-        comments:=fpgGraphic;
+        appVersion:=fpgGraphic.name;
+        appName:=fpgGraphic.fpname;
+        FreeAndNil(fpgGraphic);
       end else begin
         Count := Count + 1;
         images[Count] := fpgGraphic;
@@ -507,8 +517,8 @@ begin
 
   repeat
     // Buscamos el color que más se parece al anterior
-    color_index := Find_Color(i, palette[(i - 1) * 3],
-      palette[((i - 1) * 3) + 1], palette[((i - 1) * 3) + 2],palette);
+    color_index := findColor(i, palette[(i - 1) * 3],
+      palette[((i - 1) * 3) + 1], palette[((i - 1) * 3) + 2]);
     // Intercambio de colores
     R := palette[color_index * 3];
     G := palette[(color_index * 3) + 1];
@@ -543,7 +553,7 @@ begin
       palette[(i * 3) + 2] shr 3] := i;
 end;
 
-procedure TFpg.SaveMap(index: integer; filename: string);
+procedure TFpg.SaveToFile(index: integer; filename: string);
 var
   f: TFileStream;
 begin
@@ -551,6 +561,7 @@ begin
 
   images[index].bitsPerPixel:=getBPP;
   images[index].CDIVFormat:= (FPGFormat = FPG16_CDIV);
+  images[index].bPalette:=Palette;
   images[index].SaveToStream(f);
 
   f.Free;
@@ -593,13 +604,13 @@ begin
  MSDOSEnd[2] := 10;
  MSDOSEnd[3] := 0;
  Version     := 0;
- comments.fpname:='';
- comments.name:='';
+ appName:='';
+ appVersion:='';
 
 end;
 
 //Comprobamos si es un archivo FPG sin comprimir
-function FPG_Test(str: string): boolean;
+class function TFPG.test(str: string): boolean;
 var
   fpg : TFpg;
 begin
@@ -612,6 +623,7 @@ begin
   FreeAndNil(fpg);
 end;
 
+
 procedure stringToArray(var inarray: array of char; str: string; len: integer);
 var
   i: integer;
@@ -623,101 +635,6 @@ begin
     else
       inarray[i] := str[i + 1];
   end;
-end;
-
-procedure writeDataBitmap( var f: TFileStream ;var bitmap : TBitmap; bytes_per_pixel : word; cdivformat : boolean =false; palette : PByte =nil);
-var
-  lazBMP : TLazIntfImage;
-  byte_line: array [0 .. 16383] of byte;
-  byteForFPG1: byte;
-  insertedBits: integer;
-  p_bytearray: PByteArray;
-  j, k: word;
-begin
-  lazBMP := bitmap.CreateIntfImage;
-
-  for k := 0 to bitmap.Height - 1 do
-  begin
-    p_bytearray := lazBmp.GetDataLineStart(k);
-    case bytes_per_pixel of
-      0:
-      begin
-          insertedBits := 0;
-          byteForFPG1 := 0;
-          for j := 0 to bitmap.Width - 1 do
-          begin
-            if (p_bytearray^[j * 4] shr 7) = 1 then
-            begin
-              byteForFPG1 := byteForFPG1 or 1; // bit más alto en 8 bits
-            end;
-            insertedBits := insertedBits + 1;
-            if (insertedBits = 8) then
-            begin
-              f.Write(byteForFPG1, 1);
-              byteForFPG1 := 0;
-              insertedBits := 0;
-            end else
-              byteForFPG1 := byteForFPG1 shl 1;
-          end;
-          if insertedBits > 0 then
-          begin
-            byteForFPG1 := byteForFPG1 shl (7 - insertedBits);
-            f.Write(byteForFPG1, 1);
-          end;
-     end;
-     1:
-     begin
-        for j := 0 to bitmap.Width - 1 do
-        begin
-          byte_line[j]:=0;
-          if p_bytearray^[j * 4 + 3 ] <> 0 then
-             byte_line[j]:=Find_Color(0,p_bytearray^[j * 4+2],p_bytearray^[j * 4+1],p_bytearray^[j * 4],palette);
-        end;
-        f.Write(byte_line, bitmap.Width);
-     end;
-     2:
-     begin
-       for j := 0 to bitmap.Width - 1 do
-       begin
-           if cdivformat then
-             if p_bytearray^[j * 4 + 3 ] <> 0 then
-                set_RGB16(byte_line[j*2+1], byte_line[j*2],p_bytearray^[j * 4],p_bytearray^[j * 4+1],p_bytearray^[j * 4+2] )
-             else
-               set_RGB16(byte_line[j*2+1], byte_line[j*2],248,0,248 )
-           else begin
-            byte_line[j*2]:=0;
-            byte_line[j*2+1]:=0;
-            if p_bytearray^[j * 4 + 3 ] <> 0 then
-              set_BGR16(byte_line[j*2+1], byte_line[j*2],p_bytearray^[j * 4],p_bytearray^[j * 4+1],p_bytearray^[j * 4+2] )
-
-           end;
-       end;
-       f.Write(byte_line, bitmap.Width*bytes_per_pixel);
-     end;
-     3:
-     begin
-       for j := 0 to bitmap.Width - 1 do
-       begin
-         byte_line[j*3]:=0;
-         byte_line[j*3+1]:=0;
-         byte_line[j*3+2]:=0;
-         if p_bytearray^[j * 4 + 3 ] <> 0 then
-         begin
-           byte_line[j*3]:= p_bytearray^[j * 4];
-           byte_line[j*3+1]:=p_bytearray^[j * 4 + 1];
-           byte_line[j*3+2]:=p_bytearray^[j * 4 + 2 ];
-         end;
-       end;
-       f.Write(byte_line, bitmap.Width*bytes_per_pixel);
-     end;
-     else  // 32 bits
-     begin
-         f.Write(p_bytearray^, bitmap.Width * bytes_per_pixel);
-     end;
-     end;
-
-  end;
-  lazBMP.Free;
 end;
 
 // Añadir index
@@ -772,6 +689,33 @@ begin
   images[index].CDIVFormat:= (FPGFormat= FPG16_CDIV);
   images[index].bPalette:=Palette;
   images[index].CreateBitmap(bmp_src);
+
+end;
+
+function TFPG.findColor(index, rc, gc, bc: integer): integer;
+var
+  dif_colors, temp_dif_colors, i: word;
+begin
+  dif_colors := 800;
+  Result := 0;
+
+  for i := index to 255 do
+  begin
+    temp_dif_colors :=
+      Abs(rc - palette[i * 3]) +
+      Abs(gc - palette[(i * 3) + 1]) +
+      Abs(bc - palette[(i * 3) + 2]);
+
+    if temp_dif_colors <= dif_colors then
+    begin
+      Result := i;
+      dif_colors := temp_dif_colors;
+
+      if dif_colors = 0 then
+        Exit;
+    end;
+
+  end;
 
 end;
 

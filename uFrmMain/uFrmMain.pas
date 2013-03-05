@@ -343,7 +343,10 @@ begin
 
  load_inifile;
 
- lvFPG.Fpg:= TFpg.Create;
+ lvFPG.Fpg.msgInfo:=LNG_STRINGS[LNG_INFO];
+ lvFPG.Fpg.msgError:=LNG_STRINGS[LNG_ERROR];
+ lvFPG.Fpg.msgWrong:=LNG_STRINGS[LNG_WRONG_FPG];
+ lvFPG.Fpg.msgCorrect:=LNG_STRINGS[LNG_CORRECT_SAVING];
  lvFPG.Fpg.appName:='FPG Editor';
  lvFPG.Fpg.appVersion:='r'+RevisionStr;
 
@@ -514,7 +517,7 @@ begin
      lblTransparentColor.caption := 'Alpha Channel';
     end;
   end;
-  lComments.Caption:=lvFPG.Fpg.comments.FPName +' '+ lvFPG.Fpg.comments.Name;
+  lComments.Caption:=lvFPG.Fpg.appName +' '+ lvFPG.Fpg.appVersion;
 
 end;
 
@@ -1460,7 +1463,7 @@ end;
 
 procedure TfrmMain.FormDestroy(Sender: TObject);
 begin
- lvFPG.freeFPG;
+
 end;
 
 //-----------------------------------------------------------------------------
@@ -1485,13 +1488,11 @@ var
  error : boolean;
  f : TextFile;
 begin
- lvFPG.freeFPG;
- lvFPG.Fpg:= TFpg.Create;
 
  lvFPG.Fpg.source := sfile;
 
  // Comprobamos si es un formato sin comprimir
- if not FPG_Test(lvFPG.Fpg.source) then
+ if not TFpg.Test(lvFPG.Fpg.source) then
  begin
 
  WorkDir := GetTempDir(False) ;
