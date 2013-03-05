@@ -1,65 +1,65 @@
 ﻿msgid ""
-msgstr "Content-Type: text / plain; charset=UTF-8"
+msgstr "Content-Type: text/plain; charset=UTF-8"
 
 #: tfrmcfg.caption
 msgid "Configuración del generador de fuentes"
-msgstr "Font Generator Configuration"
+msgstr "Configuración del generador de fuentes"
 
 #: tfrmcfg.gbpaleta.caption
 msgid "Paleta de 256 colores"
-msgstr "256 color palette"
+msgstr "Paleta de 256 colores"
 
 #: tfrmcfg.rbfnt2pal.caption
 msgid "Calcular paleta optimizada a los colores de la fuente"
-msgstr "Calculate optimized palette colors of the source"
+msgstr "Calcular paleta optimizada a los colores de la fuente"
 
 #: tfrmcfg.rbpal2fnt.caption
 msgid "Adaptar fuente a la paleta cargada"
-msgstr "Adapt to the palette loaded source"
+msgstr "Adaptar fuente a la paleta cargada"
 
 #: tfrmcfg.sbaccept.caption
 msgctxt "tfrmcfg.sbaccept.caption"
 msgid "&Aceptar"
-msgstr "Accept"
+msgstr "Aceptar"
 
 #: tfrmcfg.sbcancel.caption
 msgctxt "tfrmcfg.sbcancel.caption"
 msgid "&Cancelar"
-msgstr "Cancel"
+msgstr "Cancelar"
 
 #: tfrmcfg.sbloadpal.caption
 msgid "&Cargar paleta"
-msgstr "& Load Palette"
+msgstr "&Cargar paleta"
 
 #: tfrmcfg.sbviewpal.caption
 msgid "&Ver paleta"
-msgstr "& View palette"
+msgstr "&Ver paleta"
 
 #: tfrmconfig.bbacept.caption
 msgctxt "TFRMCONFIG.BBACEPT.CAPTION"
 msgid "&Aceptar"
-msgstr "Accept"
+msgstr "Aceptar"
 
 #: tfrmconfig.bbcancel.caption
 msgctxt "TFRMCONFIG.BBCANCEL.CAPTION"
 msgid "&Cancelar"
-msgstr "Cancel"
+msgstr "Cancelar"
 
 #: tfrmconfig.caption
 msgid "Configuración de FPG EDIT"
-msgstr "Configuration of FPGEDIT"
+msgstr "Configuraci n de FPGEDIT"
 
 #: tfrmconfig.cbalfanegro.caption
 msgid "50% alfa a transparente"
-msgstr "50% alpha transparent"
+msgstr "50% alfa a transparente"
 
 #: tfrmconfig.cbautoloadimages.caption
 msgid "Auto carga de imágenes"
-msgstr "Auto load images"
+msgstr "Auto carga de imágenes"
 
 #: tfrmconfig.cbautoloadremove.caption
 msgid "cbAutoloadRemove"
-msgstr "Remove Autoload cb"
+msgstr "cb Autoload Remove"
 
 #: tfrmconfig.cbflat.caption
 msgid "Botones tipo "flat""
@@ -67,23 +67,23 @@ msgstr "Botones tipo "flat""
 
 #: tfrmconfig.cbsplash.caption
 msgid "Mostrar pantalla de inicio"
-msgstr "Show home screen"
+msgstr "Mostrar pantalla de inicio"
 
 #: tfrmconfig.gbenviroment.caption
 msgid "gbEnviroment"
-msgstr "Environment gb"
+msgstr "gb Environment"
 
 #: tfrmconfig.gbimageedit.caption
 msgid " Editor de imágenes "
-msgstr "Image Editor"
+msgstr "Editor de imágenes"
 
 #: tfrmconfig.gblanguaje.caption
 msgid "Lenguaje"
-msgstr "Language"
+msgstr "Lenguaje"
 
 #: tfrmconfig.gbtimeanimate.caption
 msgid " Tiempo entre animación "
-msgstr "Time between animation"
+msgstr "Tiempo entre animación"
 
 #: tfrmconfig.groupbox1.caption
 msgid "Viewer Background Colors"
@@ -100,7 +100,7 @@ msgstr "Files"
 
 #: tfrmconfig.lbmiliseconds.caption
 msgid "Milisegundos"
-msgstr "Milliseconds"
+msgstr "Milisegundos"
 
 #: tfrmconfig.lbpixels.caption
 msgid "Pixels"
@@ -108,29 +108,29 @@ msgstr "Pixels"
 
 #: tfrmconfig.lbsizeoficon.caption
 msgid "Tamaño de los iconos:"
-msgstr "Size of the icons:"
+msgstr "Tamaño de los iconos:"
 
 #: tfrmconfig.tsenviroment.caption
 msgid "Entorno"
-msgstr "Environment"
+msgstr "Entorno"
 
 #: tfrmmain.aabout.caption
 msgid "Acerca de ..."
-msgstr "About ..."
+msgstr "Acerca de ..."
 
 #: tfrmmain.aaddimg.caption
 msgid "Añadir"
-msgstr "Add"
+msgstr "Añadir"
 
 #: tfrmmain.aanimfpg.caption
 msgctxt "TFRMMAIN.AANIMFPG.CAPTION"
 msgid "Animar"
-msgstr "Encourage"
+msgstr "Animar"
 
 #: tfrmmain.aanimimgs.caption
 msgctxt "tfrmmain.aanimimgs.caption"
 msgid "Animar"
-msgstr "Encourage"
+msgstr "Animar"
 
 #: tfrmmain.abennu.caption
 msgid "[BennuGD] http://bennugd.org/"
@@ -142,15 +142,15 @@ msgstr "[ CDIV ] http://cdiv.sourceforge.net/"
 
 #: tfrmmain.aclose.caption
 msgid "&Cerrar"
-msgstr "Close"
+msgstr "Cerrar"
 
 #: tfrmmain.aconfig.caption
 msgid "Configuración"
-msgstr "Configuration"
+msgstr "Configuración"
 
 #: tfrmmain.acopyimg.caption
 msgid "Copiar Imagen"
-msgstr "Image Copy"
+msgstr "Copiar Imagen"
 
 #: tfrmmain.action2.caption
 msgid "Action2"
@@ -159,12 +159,12 @@ msgstr "Action 2"
 #: tfrmmain.adelete.caption
 msgctxt "tfrmmain.adelete.caption"
 msgid "Eliminar"
-msgstr "Remove"
+msgstr "Eliminar"
 
 #: tfrmmain.adeleteselimg.caption
 msgctxt "TFRMMAIN.ADELETESELIMG.CAPTION"
 msgid "Eliminar"
-msgstr "Remove"
+msgstr "Eliminar"
 
 #: tfrmmain.adiv2.caption
 msgid "[ DIV2 ] http://www.div-arena.com/"
@@ -173,25 +173,25 @@ msgstr "[ DIV2 ] http://www.div-arena.com/"
 #: tfrmmain.aeditsel.caption
 msgctxt "tfrmmain.aeditsel.caption"
 msgid "Editar"
-msgstr "Edit"
+msgstr "Editar"
 
 #: tfrmmain.aeditselimg.caption
 msgctxt "TFRMMAIN.AEDITSELIMG.CAPTION"
 msgid "Editar"
-msgstr "Edit"
+msgstr "Editar"
 
 #: tfrmmain.aempty.caption
 msgid "Vaciar portapapeles"
-msgstr "Empty clipboard"
+msgstr "Vaciar portapapeles"
 
 #: tfrmmain.aexit.caption
 msgid "Salir"
-msgstr "Leave"
+msgstr "Salir"
 
 #: tfrmmain.aexport.caption
 msgctxt "TFRMMAIN.AEXPORT.CAPTION"
 msgid "Exportar"
-msgstr "Export"
+msgstr "Exportar"
 
 #: tfrmmain.afenix.caption
 msgid "[ FENIX ] http://fenix.divsite.net/"
@@ -199,7 +199,7 @@ msgstr "[ FENIX ] http://fenix.divsite.net/"
 
 #: tfrmmain.afntmaker.caption
 msgid "&Generador de Fuentes"
-msgstr "Power Generator"
+msgstr "Generador de Fuentes"
 
 #: tfrmmain.afpg1.caption
 msgid "1 Bit"
@@ -227,7 +227,7 @@ msgstr "8 bits"
 
 #: tfrmmain.afpgpalette.caption
 msgid "Paleta de colores"
-msgstr "Color Palette"
+msgstr "Paleta de colores"
 
 #: tfrmmain.agemix.caption
 msgid "http://www.gemixstudio.com"
@@ -236,39 +236,39 @@ msgstr "Error: Wrong language!"
 #: tfrmmain.ainvertsel.caption
 msgctxt "tfrmmain.ainvertsel.caption"
 msgid "Invertir selección"
-msgstr "Invert selection"
+msgstr "Invertir selección"
 
 #: tfrmmain.ainvertselimgs.caption
 msgctxt "TFRMMAIN.AINVERTSELIMGS.CAPTION"
 msgid "Invertir selección"
-msgstr "Invert selection"
+msgstr "Invertir selección"
 
 #: tfrmmain.aopenimg.caption
 msgctxt "TFRMMAIN.AOPENIMG.CAPTION"
 msgid "Abrir"
-msgstr "Open"
+msgstr "Abrir"
 
 #: tfrmmain.apasteimg.caption
 msgid "Pegar imagen"
-msgstr "Paste Picture"
+msgstr "Pegar imagen"
 
 #: tfrmmain.areload.caption
 msgid "Recargar"
-msgstr "Reload"
+msgstr "Recargar"
 
 #: tfrmmain.aselectall.caption
 msgctxt "tfrmmain.aselectall.caption"
 msgid "Seleccionar todo"
-msgstr "Select All"
+msgstr "Seleccionar todo"
 
 #: tfrmmain.aselectallimgs.caption
 msgctxt "TFRMMAIN.ASELECTALLIMGS.CAPTION"
 msgid "Seleccionar todo"
-msgstr "Select All"
+msgstr "Seleccionar todo"
 
 #: tfrmmain.aziptool.caption
 msgid "&Herramienta de Compresión"
-msgstr "Compression Tool"
+msgstr "Herramienta de Compresi n"
 
 #: tfrmmain.caption
 msgid "FPG Editor"
@@ -284,7 +284,7 @@ msgstr " FPG (Ficheros de gráficos) "
 
 #: tfrmmain.gbimages.caption
 msgid " Imagenes "
-msgstr "Stock"
+msgstr "Imagenes"
 
 #: tfrmmain.lvimages.columns[0].caption
 msgid "name"
@@ -309,23 +309,23 @@ msgstr "-"
 
 #: tfrmmain.miaddimgs.caption
 msgid "Añadir selección"
-msgstr "Add selection"
+msgstr "Añadir selección"
 
 #: tfrmmain.miconvert.caption
 msgid "Convertir a"
-msgstr "Convert to"
+msgstr "Convertir a"
 
 #: tfrmmain.mideletesel.caption
 msgid "Eliminar selección"
-msgstr "Remove Selection"
+msgstr "Eliminar selección"
 
 #: tfrmmain.mieditsel.caption
 msgid "Editar selección"
-msgstr "Edit selection"
+msgstr "Editar selección"
 
 #: tfrmmain.mieditselimg.caption
 msgid "Editar seleccion"
-msgstr "Edit selection"
+msgstr "Editar seleccion"
 
 #: tfrmmain.mifpg.caption
 msgctxt "TFRMMAIN.MIFPG.CAPTION"
@@ -335,17 +335,17 @@ msgstr "FPG"
 #: tfrmmain.mifpgdetails.caption
 msgctxt "tfrmmain.mifpgdetails.caption"
 msgid "Detalles"
-msgstr "Details"
+msgstr "Detalles"
 
 #: tfrmmain.mifpgimages.caption
 msgctxt "tfrmmain.mifpgimages.caption"
 msgid "Imágenes"
-msgstr "Imagery"
+msgstr "Imágenes"
 
 #: tfrmmain.mifpglist.caption
 msgctxt "tfrmmain.mifpglist.caption"
 msgid "Lista"
-msgstr "List"
+msgstr "Lista"
 
 #: tfrmmain.migemix.caption
 msgid "[Gemix] http://www.gemixstudio.com"
@@ -357,7 +357,7 @@ msgstr "Help"
 
 #: tfrmmain.mihideshowdirs.caption
 msgid "Ocultar/Mostrar directorios"
-msgstr "Hide / Show directories"
+msgstr "Ocultar/Mostrar directorios"
 
 #: tfrmmain.miimages.caption
 msgid "Images"
@@ -366,26 +366,26 @@ msgstr "Images"
 #: tfrmmain.miimgdetails.caption
 msgctxt "TFRMMAIN.MIIMGDETAILS.CAPTION"
 msgid "Detalles"
-msgstr "Details"
+msgstr "Detalles"
 
 #: tfrmmain.miimgimages.caption
 msgctxt "TFRMMAIN.MIIMGIMAGES.CAPTION"
 msgid "Imágenes"
-msgstr "Imagery"
+msgstr "Imágenes"
 
 #: tfrmmain.miimglist.caption
 msgctxt "TFRMMAIN.MIIMGLIST.CAPTION"
 msgid "Lista"
-msgstr "List"
+msgstr "Lista"
 
 #: tfrmmain.minew.caption
 msgid "Nuevo"
-msgstr "New"
+msgstr "Nuevo"
 
 #: tfrmmain.miopen.caption
 msgctxt "TFRMMAIN.MIOPEN.CAPTION"
 msgid "Abrir"
-msgstr "Open"
+msgstr "Abrir"
 
 #: tfrmmain.miseparator1.caption
 msgctxt "TFRMMAIN.MISEPARATOR1.CAPTION"
@@ -444,7 +444,7 @@ msgstr "-"
 
 #: tfrmmain.mishowhideuppanel.caption
 msgid "Mostrar/Ocultar panel superior"
-msgstr "Show / Hide top panel"
+msgstr "Mostrar/Ocultar panel superior"
 
 #: tfrmmain.mitools.caption
 msgid "Tools"
@@ -452,15 +452,15 @@ msgstr "Tools"
 
 #: tfrmmain.miviewfpg.caption
 msgid "&Ver"
-msgstr "& See"
+msgstr "&Ver"
 
 #: tfrmmain.miviewimg.caption
 msgid "Ver"
-msgstr "See"
+msgstr "Ver"
 
 #: tfrmmain.miwallpaper.caption
 msgid "Portapapeles"
-msgstr "Clipboard"
+msgstr "Portapapeles"
 
 #: tfrmmain.n15.caption
 msgctxt "TFRMMAIN.N15.CAPTION"
@@ -474,7 +474,7 @@ msgstr "-"
 
 #: tfrmmain.pfpgcode.caption
 msgid "Código de FPG"
-msgstr "FPG Code"
+msgstr "Código de FPG"
 
 #: tfrmmain.pimageslist.caption
 msgid "pImagesList"
@@ -482,21 +482,21 @@ msgstr "pImagesList"
 
 #: tfrmmain.ppcopyimage.caption
 msgid "&Copiar al portapapeles"
-msgstr "Copy to clipboard"
+msgstr "Copiar al portapapeles"
 
 #: tfrmmain.ppfpgopen.caption
 msgctxt "tfrmmain.ppfpgopen.caption"
 msgid "Abrir"
-msgstr "Open"
+msgstr "Abrir"
 
 #: tfrmmainfnt.bgsize.caption
 msgctxt "tfrmmainfnt.bgsize.caption"
 msgid "Tamaño"
-msgstr "Size"
+msgstr "Tamaño"
 
 #: tfrmmainfnt.caption
 msgid "Generador de fuentes"
-msgstr "Font Generator"
+msgstr "Generador de fuentes"
 
 #: tfrmmainfnt.cbcharset.text
 msgid "ISO8859_15"
@@ -504,23 +504,23 @@ msgstr "ISO8859_15"
 
 #: tfrmmainfnt.cbextended.caption
 msgid "Extendido"
-msgstr "Extended"
+msgstr "Extendido"
 
 #: tfrmmainfnt.cbminus.caption
 msgid "Minúsculas"
-msgstr "Lowercase"
+msgstr "Minúsculas"
 
 #: tfrmmainfnt.cbnumbers.caption
 msgid "Números"
-msgstr "Numbers"
+msgstr "Números"
 
 #: tfrmmainfnt.cbsymbol.caption
 msgid "Símbolos"
-msgstr "Symbols"
+msgstr "Símbolos"
 
 #: tfrmmainfnt.cbupper.caption
 msgid "Mayúsculas"
-msgstr "Shift"
+msgstr "Mayúsculas"
 
 #: tfrmmainfnt.edsizefont.text
 msgid "8"
@@ -533,162 +533,162 @@ msgstr "Charset"
 #: tfrmmainfnt.gbedge.caption
 msgctxt "TFRMMAINFNT.GBEDGE.CAPTION"
 msgid "Reborde"
-msgstr "Flange"
+msgstr "Reborde"
 
 #: tfrmmainfnt.gbfont.caption
 msgid "Fuente en FNT"
-msgstr "Source in FNT"
+msgstr "Fuente en FNT"
 
 #: tfrmmainfnt.gbloadfont.caption
 msgid "Nombre de la fuente"
-msgstr "Font name"
+msgstr "Nombre de la fuente"
 
 #: tfrmmainfnt.gbselectcolor.caption
 msgid "Selección de colores"
-msgstr "Choosing colors"
+msgstr "Selección de colores"
 
 #: tfrmmainfnt.gbshadow.caption
 msgctxt "TFRMMAINFNT.GBSHADOW.CAPTION"
 msgid "Sombra"
-msgstr "Shadow"
+msgstr "Sombra"
 
 #: tfrmmainfnt.gbstyle.caption
 msgid "Estilo"
-msgstr "Style"
+msgstr "Estilo"
 
 #: tfrmmainfnt.gbsymboltype.caption
 msgid "Contenido"
-msgstr "Content"
+msgstr "Contenido"
 
 #: tfrmmainfnt.label1.caption
 msgctxt "TFRMMAINFNT.LABEL1.CAPTION"
 msgid "Alfa"
-msgstr "Alpha"
+msgstr "Alfa"
 
 #: tfrmmainfnt.label2.caption
 msgctxt "TFRMMAINFNT.LABEL2.CAPTION"
 msgid "Alfa"
-msgstr "Alpha"
+msgstr "Alfa"
 
 #: tfrmmainfnt.label3.caption
 msgid "Mostrar texto:"
-msgstr "Display text:"
+msgstr "Mostrar texto:"
 
 #: tfrmmainfnt.label4.caption
 msgctxt "tfrmmainfnt.label4.caption"
 msgid "Alfa"
-msgstr "Alpha"
+msgstr "Alfa"
 
 #: tfrmmainfnt.label5.caption
 msgid "Mostrar char:"
-msgstr "Show char:"
+msgstr "Mostrar char:"
 
 #: tfrmmainfnt.lbnamefont.caption
 msgctxt "TFRMMAINFNT.LBNAMEFONT.CAPTION"
 msgid "No hay fuente"
-msgstr "No source"
+msgstr "No hay fuente"
 
 #: tfrmmainfnt.lbnamefontb.caption
 msgctxt "tfrmmainfnt.lbnamefontb.caption"
 msgid "No hay fuente"
-msgstr "No source"
+msgstr "No hay fuente"
 
 #: tfrmmainfnt.lbshadow.caption
 msgid "Posici"
-msgstr "Position"
+msgstr "Posici"
 
 #: tfrmmainfnt.lbsizeedge.caption
 msgctxt "TFRMMAINFNT.LBSIZEEDGE.CAPTION"
 msgid "Tamaño"
-msgstr "Size"
+msgstr "Tamaño"
 
 #: tfrmmainfnt.odimportfnt.title
 msgid "Importar una fuente de una imagen"
-msgstr "Import an image source"
+msgstr "Importar una fuente de una imagen"
 
 #: tfrmmainfnt.rbsedge.caption
 msgctxt "tfrmmainfnt.rbsedge.caption"
 msgid "Reborde"
-msgstr "Flange"
+msgstr "Reborde"
 
 #: tfrmmainfnt.rbsfont.caption
 msgid "Fuente"
-msgstr "Source"
+msgstr "Fuente"
 
 #: tfrmmainfnt.rbsshadow.caption
 msgctxt "tfrmmainfnt.rbsshadow.caption"
 msgid "Sombra"
-msgstr "Shadow"
+msgstr "Sombra"
 
 #: tfrmmainfnt.sbchangebgcolor.caption
 msgid "Color de fondo"
-msgstr "Background Color"
+msgstr "Color de fondo"
 
 #: tfrmmainfnt.sbchangebgcolor.hint
 msgid "Cambiar el color de fondo"
-msgstr "Change the background color"
+msgstr "Cambiar el color de fondo"
 
 #: tfrmmainfnt.sbexport.caption
 msgctxt "tfrmmainfnt.sbexport.caption"
 msgid "Exportar"
-msgstr "Export"
+msgstr "Exportar"
 
 #: tfrmmainfnt.sbexport.hint
 msgid "Exportar fuente de texto"
-msgstr "Export text font"
+msgstr "Exportar fuente de texto"
 
 #: tfrmmainfnt.sbimport.caption
 msgid "Importar"
-msgstr "Import"
+msgstr "Importar"
 
 #: tfrmmainfnt.sbimport.hint
 msgid "Importar fuente de texto"
-msgstr "Import text font"
+msgstr "Importar fuente de texto"
 
 #: tfrmmainfnt.sbloadfont.caption
 msgid "&Cargar Fuente"
-msgstr "Load Source"
+msgstr "Cargar Fuente"
 
 #: tfrmmainfnt.sbloadfont.hint
 msgid "Cambiar el tipo de letra"
-msgstr "Change the font"
+msgstr "Cambiar el tipo de letra"
 
 #: tfrmmainfnt.sbmakefont.caption
 msgid "Generar"
-msgstr "Generate"
+msgstr "Generar"
 
 #: tfrmmainfnt.sbmakefont.hint
 msgid "Generar fuente"
-msgstr "Generate Source"
+msgstr "Generar fuente"
 
 #: tfrmmainfnt.sbopen.hint
 msgid "Abrir fuente de texto"
-msgstr "Open source text"
+msgstr "Abrir fuente de texto"
 
 #: tfrmmainfnt.sboptions.caption
 msgid "Opciones"
-msgstr "Options"
+msgstr "Opciones"
 
 #: tfrmmainfnt.sboptions.hint
 msgid "Opciones generales"
-msgstr "General Options"
+msgstr "Opciones generales"
 
 #: tfrmmainfnt.sbsave.hint
 msgid "Guardar fuente de texto"
-msgstr "Save text font"
+msgstr "Guardar fuente de texto"
 
 #: tfrmmainfnt.sbsaveas.hint
 msgid "Guardar fuente de texto como"
-msgstr "Save as text font"
+msgstr "Guardar fuente de texto como"
 
 #: tfrmmainfnt.sbsavetext.caption
 msgctxt "tfrmmainfnt.sbsavetext.caption"
 msgid "Guardar texto"
-msgstr "Save text"
+msgstr "Guardar texto"
 
 #: tfrmmainfnt.sbsavetext.hint
 msgid "Guardar el texto escrito"
-msgstr "Save composed text"
+msgstr "Guardar el texto escrito"
 
 #: tfrmmainfnt.sbselectcolor.caption
 msgid "Color"
@@ -696,30 +696,30 @@ msgstr "Color"
 
 #: tfrmmainfnt.sbselectcolor.hint
 msgid "Establece un color"
-msgstr "Sets a color"
+msgstr "Establece un color"
 
 #: tfrmmainfnt.sbselectimage.caption
 msgid "Imagen"
-msgstr "Image"
+msgstr "Imagen"
 
 #: tfrmmainfnt.sbselectimage.hint
 msgid "Establece una imagen"
-msgstr "Sets an image"
+msgstr "Establece una imagen"
 
 #: tfrmmainfnt.sbshowfnt.caption
 msgctxt "TFRMMAINFNT.SBSHOWFNT.CAPTION"
 msgid "Ver FNT"
-msgstr "View FNT"
+msgstr "Ver FNT"
 
 #: tfrmmainfnt.sbshowfnt.hint
 msgctxt "tfrmmainfnt.sbshowfnt.hint"
 msgid "Ver FNT"
-msgstr "View FNT"
+msgstr "Ver FNT"
 
 #: tfrmmainfnt.sdsavetext.title
 msgctxt "TFRMMAINFNT.SDSAVETEXT.TITLE"
 msgid "Guardar texto"
-msgstr "Save text"
+msgstr "Guardar texto"
 
 #: tfrmmainfnt.toolbar1.caption
 msgid "ToolBar1"
