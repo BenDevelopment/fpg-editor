@@ -20,12 +20,12 @@ type
     { Protected declarations }
   public
     { Public declarations }
+    constructor Create(TheOwner: TComponent); override;
     procedure Load_Images(progressBar: TProgressBar);
     procedure Insert_Images(lImages: TStrings; progressBar: TProgressBar);
     procedure Insert_Imagescb(var progressBar: TProgressBar);
     procedure add_items(index: word);
     procedure replace_item(index: word);
-    procedure freeFPG;
     procedure DrawProportional( var bmp_src : TBitMap; var bmp_dst: TBitMap );
   published
     { Published declarations }
@@ -42,6 +42,14 @@ procedure Register;
 begin
   {$I uFPGListView_icon.lrs}
   RegisterComponents('FPG Editor', [TFPGListView]);
+end;
+
+constructor TFPGListView.Create(TheOwner: TComponent);
+begin
+  inherited Create(TheOwner);
+  ffpg:=TFpg.Create;
+  with ffpg do
+    SetSubComponent(True);
 end;
 
 procedure TFPGListView.Load_Images(progressBar: TProgressBar);
@@ -229,11 +237,6 @@ begin
 
 end;
 
-procedure TFPGListView.FreeFPG;
-begin
-  FreeAndNil(ffpg);
-end;
-
 procedure TFPGListView.DrawProportional( var bmp_src : TBitMap; var bmp_dst: TBitMap );
 var
  x, y, finalWidth, finalHeight : integer;
@@ -278,4 +281,4 @@ begin
 
 end;
 
-end.
+end.

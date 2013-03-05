@@ -234,7 +234,7 @@ begin
     end;
 
     //lvFPG.Fpg.images[j].bmp.SaveToFile(path + imagename + '.map');
-     lvFPG.Fpg.SaveMap(j,path + imagename + '.map');
+     lvFPG.Fpg.SaveToFile(j,path + imagename + '.map');
     break;
    end;
 
@@ -260,4 +260,4 @@ begin
  Save_JASP_pal(lvFPG.Fpg.palette, path + 'PSP4.pal' );
 end;
 
-end.
+end.
