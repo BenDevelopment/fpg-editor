@@ -27,7 +27,7 @@ interface
 uses
   LCLIntf, LCLType, SysUtils, Classes, Graphics, Controls, Forms, ComCtrls,
   StdCtrls, Buttons, FileCtrl, ExtCtrls, FileUtil, ShellCtrls, uFPG, uLanguage, uTools,
-  uFrmMessageBox, uMAP,uFNT ;
+  uFrmMessageBox, uFNT, uMAPGraphic ;
 
 type
 
@@ -137,7 +137,7 @@ begin
 
  uncompressed:=TFPG.Test(filename);
  if not uncompressed then
-   uncompressed:=MAP_Test(filename);
+   uncompressed:=TMAPGraphic.test(filename);
  if not uncompressed then
    uncompressed:=FNT_Test(filename);
 

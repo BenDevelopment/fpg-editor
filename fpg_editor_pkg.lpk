@@ -7,7 +7,7 @@
       <Version Value="11"/>
       <PathDelim Value="\"/>
       <SearchPaths>
-        <OtherUnitFiles Value="uFPGListView;uFPG;uLoadImage;uTools;uMessages\uFrmMessageBox;uLanguage;uIniFile;uColor16bits;uMap"/>
+        <OtherUnitFiles Value="uFPGListView;uFPG;uMap;uLoadImage;uTools"/>
         <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
       </SearchPaths>
       <Other>
@@ -17,7 +17,7 @@
         <CompilerPath Value="$(CompPath)"/>
       </Other>
     </CompilerOptions>
-    <Files Count="3">
+    <Files Count="5">
       <Item1>
         <Filename Value="uFPGListView\ufpglistview.pas"/>
         <HasRegisterProc Value="True"/>
@@ -31,6 +31,14 @@
         <Filename Value="uMap\umapgraphic.pas"/>
         <UnitName Value="uMAPGraphic"/>
       </Item3>
+      <Item4>
+        <Filename Value="uLoadImage\uLoadImage.pas"/>
+        <UnitName Value="uLoadImage"/>
+      </Item4>
+      <Item5>
+        <Filename Value="uTools\uTools.pas"/>
+        <UnitName Value="uTools"/>
+      </Item5>
     </Files>
     <Type Value="RunAndDesignTime"/>
     <RequiredPkgs Count="1">

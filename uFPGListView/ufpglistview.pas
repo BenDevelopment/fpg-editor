@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, LResources, Forms, Controls, Graphics, Dialogs, ComCtrls,
   ClipBrd, IntfGraphics,
-  uFPG, uLoadImage,uTools;
+  uFPG, uLoadImage, uMAPGraphic, utools;
 
 type
   TFPGListView = class(TListView)
@@ -84,13 +84,13 @@ procedure TFPGListView.Insert_Images(lImages: TStrings; progressBar: TProgressBa
 var
   i       : Integer;
   code    : Word;
-  bmp_src : TBitmap;
+  bmp_src : TMAPGraphic;
   ncpoints: Word;
   cpoints : array[0..high(Word)*2] of Word;
   filename: String;
 begin
   // Creamos el bitmap fuente y destino
-  bmp_src := TBitmap.Create;
+  bmp_src := TMAPGraphic.Create;
   // Se inializa la barra de progresión
   progressBar.Position := 0;
   progressBar.Show;
@@ -112,20 +112,20 @@ begin
 
     // Se carga la imagen
     ncpoints:=0;
-    loadImageFile(bmp_src,  lImages.Strings[i] ,ncpoints,cpoints);
+    loadImageFile(bmp_src,  lImages.Strings[i] );
 
     // ver como meter fpgeditor3.1
     if code <> 0 then
     begin
       fpg.replace_bitmap(code, ChangeFileExt(filename, ''),
-        ChangeFileExt(filename, ''), bmp_src,ncpoints,cpoints);
+        ChangeFileExt(filename, ''), bmp_src);
       replace_item(code);
     end
     else
     begin
       Fpg.Count := Fpg.Count + 1;
       fpg.add_bitmap(Fpg.Count, ChangeFileExt(filename, ''),
-        ChangeFileExt(filename, ''), bmp_src,ncpoints,cpoints);
+        ChangeFileExt(filename, ''), bmp_src);
       add_items(Fpg.Count);
     end;
     Fpg.lastcode := Fpg.lastcode + 1;
@@ -144,7 +144,7 @@ end;
 
 procedure TFPGListView.Insert_Imagescb(var progressBar: TProgressBar);
 var
-  bmp_src: TBitmap;
+  bmp_src: TMAPGraphic;
   ncpoints : Word;
   cpoints :   array[0..high(Word)*2] of Word;
 
@@ -154,7 +154,7 @@ begin
   progressBar.Show;
   progressBar.Repaint;
 
-  bmp_src := TBitmap.Create;
+  bmp_src := TMAPGraphic.Create;
   bmp_src.PixelFormat := pf32bit;
 
   try
@@ -175,7 +175,7 @@ begin
 
   // ver como meter fpgeditor3.1
   Fpg.Count := Fpg.Count + 1;
-  fpg.add_bitmap(Fpg.Count, 'ClipBoard', 'ClipBoard', bmp_src,ncpoints,cpoints);
+  fpg.add_bitmap(Fpg.Count, 'ClipBoard', 'ClipBoard', bmp_src);
   add_items(Fpg.Count);
 
 

@@ -25,7 +25,7 @@ interface
 
 uses
   LCLIntf, LCLType, SysUtils, Classes, Graphics, Controls, Forms,
-  ExtCtrls, uFPG, uLanguage;
+  ExtCtrls, uFPG;
 
 type
   TfrmPalette = class(TForm)
@@ -85,7 +85,7 @@ end;
 
 procedure TfrmPalette.FormActivate(Sender: TObject);
 begin
- frmPalette.Caption := LNG_STRINGS[121];
+// frmPalette.Caption := LNG_STRINGS[121];
 end;
 
 end.

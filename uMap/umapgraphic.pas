@@ -86,6 +86,7 @@ type
     property Name : String read getName write setName;
     property FPName : String read getFPName write setFPName;
     property Code : DWord read FCode write FCode default 1;
+    class function test(filename: string): boolean;static ;
   end;
 
 implementation
@@ -96,6 +97,81 @@ class function TMAPGraphic.GetFileExtensions: string;
 begin
   Result := 'map';
 end;
+
+class function TMAPGraphic.test(filename: string): boolean;
+var
+ Stream       : TStream;
+ tmpMagic: array [0 .. 2] of Char;
+ tmpMSDOSEnd: array [0 .. 3] of Byte;
+ tmpVersion: Byte;
+
+begin
+  Result := False;
+  if not FileExistsUTF8(filename) { *Converted from FileExists*  } then
+   Exit;
+  try
+   Stream := TFileStream.Create(filename, fmOpenRead);
+  except
+   Exit;
+  end;
+
+  try
+   Stream.Read(tmpMagic, 3);
+   Stream.Read(tmpMSDOSEnd , 4);
+   Stream.Read(tmpVersion, 1);
+  except
+   Stream.free;
+   Exit;
+  end;
+
+  // Ficheros de 1 bit
+  if (tmpMagic[0]         = 'm') and (tmpMagic[1]         = '0') and
+     (tmpMagic[2]         = '1') and (tmpMSDOSEnd [0]     = 26 ) and
+     (tmpMSDOSEnd [1]     = 13 ) and (tmpMSDOSEnd [2] = 10 ) and
+     (tmpMSDOSEnd [3] = 0) then begin
+      Result := True;
+  end;
+  // Ficheros de 8 bits para DIV2, FENIX y CDIV
+  if (tmpMagic[0]         = 'm') and (tmpMagic[1]         = 'a') and
+     (tmpMagic[2]         = 'p') and (tmpMSDOSEnd [0]     = 26 ) and
+     (tmpMSDOSEnd [1]     = 13 ) and (tmpMSDOSEnd [2] = 10 ) and
+     (tmpMSDOSEnd [3] = 0) then begin
+      Result := True;
+  end;
+  // Ficheros de 16 bits para FENIX
+  if (tmpMagic[0]         = 'm') and (tmpMagic[1]         = '1') and
+     (tmpMagic[2]         = '6') and (tmpMSDOSEnd [0]     = 26 ) and
+     (tmpMSDOSEnd [1]     = 13 ) and (tmpMSDOSEnd [2] = 10 ) and
+     (tmpMSDOSEnd [3] = 0) then begin
+      Result := True;
+  end;
+
+  // Ficheros de 16 bits para CDIV
+  if (tmpMagic[0]         = 'c') and (tmpMagic[1]         = '1') and
+     (tmpMagic[2]         = '6') and (tmpMSDOSEnd [0]     = 26 ) and
+     (tmpMSDOSEnd [1]     = 13 ) and (tmpMSDOSEnd [2] = 10 ) and
+     (tmpMSDOSEnd [3] = 0) then begin
+      Result := True;
+  end;
+
+  // Ficheros de 24 bits
+  if (tmpMagic[0]         = 'm') and (tmpMagic[1]         = '2') and
+     (tmpMagic[2]         = '4') and (tmpMSDOSEnd [0]     = 26 ) and
+     (tmpMSDOSEnd [1]     = 13 ) and (tmpMSDOSEnd [2] = 10 ) and
+     (tmpMSDOSEnd [3] = 0) then begin
+      Result := True;
+  end;
+
+     // Ficheros de 32 bits
+  if (tmpMagic[0]         = 'm') and (tmpMagic[1]         = '3') and
+     (tmpMagic[2]         = '2') and (tmpMSDOSEnd [0]     = 26 ) and
+     (tmpMSDOSEnd [1]     = 13 ) and (tmpMSDOSEnd [2] = 10 ) and
+     (tmpMSDOSEnd [3] = 0) then begin
+      Result := True;
+  end;
+  FreeAndNil(Stream);
+end;
+
 
 procedure TMAPGraphic.LoadFromFile(const Filename: string);
 var

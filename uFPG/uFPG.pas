@@ -84,8 +84,8 @@ type
     function LoadFromFile(str: string; gFPG: TProgressBar): boolean;
     procedure Create_table_16_to_8;
     procedure Sort_Palette;
-    procedure add_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TBitmap ; ncpoints:word;cpoints :PWord);
-    procedure replace_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TBitmap; ncpoints:word;cpoints :PWord );
+    procedure add_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TMapGraphic);
+    procedure replace_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TMapGraphic);
     function isKnownFormat: boolean;
     function loadHeaderFromFile(fileName : String): Boolean;
     procedure loadHeaderFromStream( stream : TStream );
@@ -638,7 +638,7 @@ begin
 end;
 
 // Añadir index
-procedure TFPG.add_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TBitmap ; ncpoints:word;cpoints :PWord);
+procedure TFPG.add_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TMapGraphic);
 var
   i: Word;
 begin
@@ -652,9 +652,8 @@ begin
   images[index].name:=GraphicName;
   images[index].width  := bmp_src.Width;
   images[index].height := bmp_src.Height;
-  images[index].CPointsCount := ncpoints;
-  for i:=0 to (ncpoints*2) -1 do
-     images[index].cpoints[i]:=cpoints[i];
+  images[index].CPointsCount := bmp_src.CPointsCount;
+  images[index].cpoints:=bmp_src.CPoints;
 
   // Se crea la imagen resultante
   images[index].bitsPerPixel:=getBPP;
@@ -665,7 +664,7 @@ begin
 end;
 
 // Añadir index
-procedure TFPG.replace_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TBitmap ; ncpoints:word;cpoints :PWord);
+procedure TFPG.replace_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TMapGraphic);
 var
   i : word;
 begin
@@ -677,11 +676,10 @@ begin
   images[index].name:=GraphicName;
   images[index].width  := bmp_src.Width;
   images[index].height := bmp_src.Height;
-  if ncpoints>0 then
+  if bmp_src.CPointsCount>0 then
   begin
-    images[index].CPointsCount:= ncpoints;
-    for i:=0 to (ncpoints*2) -1 do
-       images[index].cpoints[i]:=cpoints[i];
+    images[index].CPointsCount:= bmp_src.CPointsCount;
+    images[index].cpoints:=bmp_src.CPoints;
   end;
 
   // Se crea la imagen resultante

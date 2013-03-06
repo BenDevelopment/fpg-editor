@@ -4,7 +4,7 @@ program pfpgeditor;
 uses
   Forms, Dialogs, uFrmMain, ufrmView,
   ufrmFPGImages, ufrmNewFPG, ufrmAnimate, ufrmConfig, uFrmExport,
-  ufrmPalette, uinifile, uLanguage,
+  ufrmPalette, uinifile,
   uFrmBpp, uFrmCFG, uFrmMainFNT, uFrmAbout,
   uFrmInputBox, uFrmMessageBox, Interfaces, uFrmFNTView,
   uMAPGraphic, ufrmZipFenix, DefaultTranslator;

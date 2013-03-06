@@ -26,7 +26,7 @@ interface
 uses
   LCLIntf, LCLType, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, ExtCtrls, 
-  uLanguage, uIniFile, ShellCtrls;
+   uIniFile, ShellCtrls;
 
 type
 
@@ -66,11 +66,12 @@ begin
   Exit;
 
  _lng_str := inifile_language;
-
+(*
  Caption := LNG_STRINGS[142];
  rgResType.Caption := LNG_STRINGS[143];
  gbImages.Caption := LNG_STRINGS[144];
  bbExport.Caption := LNG_STRINGS[32];
+ *)
 end;
 
 procedure TfrmExport.FormCreate(Sender: TObject);
@@ -93,4 +94,4 @@ begin
  _set_lng;
 end;
 
-end.
+end.

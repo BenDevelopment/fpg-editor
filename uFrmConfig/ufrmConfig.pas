@@ -25,8 +25,8 @@ interface
 
 uses
   LCLIntf, LCLType, SysUtils, Classes, Graphics, Controls, Forms,
-  StdCtrls, Buttons, ComCtrls, {Tabnotbk,} uinifile, Dialogs, uLanguage, uFrmMessageBox,
-  ExtCtrls, Spin, ColorBox;
+  StdCtrls, Buttons, ComCtrls, {Tabnotbk,} uinifile, Dialogs, uFrmMessageBox,
+  ExtCtrls, Spin, ColorBox,DefaultTranslator,Translations, GetText, FileUtil , LResources;
 
 type
 
@@ -95,6 +95,59 @@ implementation
 
 {$R *.lfm}
 
+procedure SetDefaultLangByFile(Lang: string);
+
+var
+  Dot1: integer;
+  LCLPath: string;
+  LocalTranslator: TUpdateTranslator;
+  i: integer;
+  lcfn: string;
+
+begin
+  LocalTranslator := nil;
+  lcfn := lang;
+  // search first po translation resources
+   if (lcfn <> '') AND (ExtractFileExt(lcfn) = '.po') then
+   begin
+     Translations.TranslateResourceStrings(lcfn);
+     LCLPath := ExtractFileName(lcfn);
+     Dot1 := pos('.', LCLPath);
+     if Dot1 > 1 then
+     begin
+       Delete(LCLPath, 1, Dot1 - 1);
+       LCLPath := ExtractFilePath(lcfn) + 'lclstrconsts' + LCLPath;
+       Translations.TranslateUnitResourceStrings('LCLStrConsts', LCLPath);
+     end;
+     LocalTranslator := TPOTranslator.Create(lcfn);
+   end;
+
+   // search mo translation resources
+  if (lcfn<>'') and (ExtractFileExt(lcfn) = '.mo') then
+  begin
+      GetText.TranslateResourceStrings(UTF8ToSys(lcfn));
+      LCLPath := ExtractFileName(lcfn);
+      Dot1 := pos('.', LCLPath);
+      if Dot1 > 1 then
+      begin
+        Delete(LCLPath, 1, Dot1 - 1);
+        LCLPath := ExtractFilePath(lcfn) + 'lclstrconsts' + LCLPath;
+        if FileExistsUTF8(LCLPath) then
+          GetText.TranslateResourceStrings(UTF8ToSys(LCLPath));
+      end;
+      LocalTranslator := TDefaultTranslator.Create(lcfn);
+  end;
+
+  if LocalTranslator<>nil then
+  begin
+    if Assigned(LRSTranslator) then
+      LRSTranslator.Free;
+    LRSTranslator := LocalTranslator;
+    for i := 0 to Screen.CustomFormCount-1 do
+      LocalTranslator.UpdateTranslation(Screen.CustomForms[i]);
+  end;
+end;
+
 procedure TfrmConfig._set_lng;
 begin
  if _lng_str = inifile_language then
@@ -102,25 +155,8 @@ begin
 
  _lng_str := inifile_language;
 
- frmConfig.Caption := LNG_STRINGS[84];
- tsEnviroment.Caption := LNG_STRINGS[85];
- gbEnviroment.Caption := LNG_STRINGS[85];
+ SetDefaultLangByFile(_lng_str);
 
- lbSizeOfIcon.Caption := LNG_STRINGS[88];
- lbPixels.Caption := LNG_STRINGS[89];
- gbTimeAnimate.Caption := LNG_STRINGS[90];
- lbMiliseconds.Caption := LNG_STRINGS[91];
- bbAcept.Caption := LNG_STRINGS[93];
- bbCancel.Caption := LNG_STRINGS[94];
- gbImageEdit.Caption := LNG_STRINGS[86];
-// bbLocateFile.Caption := LNG_STRINGS[95];
- gbLanguaje.Caption := LNG_STRINGS[87];
-// bbLanguaje.Caption := LNG_STRINGS[96];
-
- cbAutoLoadImages.Caption := LNG_STRINGS[92];
- cbAutoLoadRemove.Caption := LNG_STRINGS[161];
- cbFlat.Caption := LNG_STRINGS[159];
- cbSplash.Caption := LNG_STRINGS[160];
 end;
 
 procedure TfrmConfig.edSizeIconKeyPress(Sender: TObject; var Key: Char);
@@ -147,7 +183,7 @@ begin
 
  write_inifile;
 
- load_language;
+ //load_language;
 
  frmConfig.ModalResult := mrYes;
 end;
@@ -164,24 +200,14 @@ procedure TfrmConfig.bbLanguajeClick(Sender: TObject);
 var
  temp : string;
 begin
- OpenDialog.Filter := 'INI|*.INI|(*.*)|*.*';
- OpenDialog.InitialDir := ExtractFileDir(Application.ExeName) + DirectorySeparator+'lng';
+ OpenDialog.Filter := 'PO|*.po|(*.*)|*.*';
+ OpenDialog.InitialDir := ExtractFileDir(Application.ExeName) + DirectorySeparator+'languages';
  
  if OpenDialog.Execute then
  begin
   temp := inifile_language;
 
   inifile_language := OpenDialog.FileName;
-  load_lnginfo;
-
-  if ((LNG_INF = 'NULL') or (LNG_DESCRIPTION = 'NULL')) then
-  begin
-   inifile_language := temp;
-   feMessageBox( LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_FILE_LANGUAGE_INCORRECT], 0, 0);
-   Exit;
-  end;
-
-  feMessageBox( LNG_STRINGS[LNG_INFO], LNG_DESCRIPTION + #13#10 + LNG_INF, 0, 0);
 
   edLanguage.Text := OpenDialog.FileName;
  end;
@@ -252,4 +278,4 @@ begin
  edLanguage.Color := clMedGray;
 end;
 
-end.
+end.

@@ -25,7 +25,7 @@ interface
 
 uses
   LCLIntf, LCLType, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, StdCtrls, Buttons, uLanguage;
+  Dialogs, ExtCtrls, StdCtrls, Buttons;
 
 type
   TfrmMessageBox = class(TForm)
@@ -114,43 +114,43 @@ begin
  case btType of
   0 : begin
        bbButton1.ModalResult := mrOK;
-       bbButton1.Caption     := '&' + LNG_STRINGS[93];
+//       bbButton1.Caption     := '&' + LNG_STRINGS[93];
       end;
   1 : begin
        bbButton1.ModalResult := mrOK;
        bbButton2.ModalResult := mrCancel;
-       bbButton1.Caption     := '&' + LNG_STRINGS[93];
-       bbButton2.Caption     := '&' + LNG_STRINGS[94];
+//       bbButton1.Caption     := '&' + LNG_STRINGS[93];
+//       bbButton2.Caption     := '&' + LNG_STRINGS[94];
       end;
   2 : begin
        bbButton0.ModalResult := mrAbort;
        bbButton1.ModalResult := mrRetry;
        bbButton2.ModalResult := mrIgnore;
-       bbButton0.Caption     := '&' + LNG_STRINGS[148];
-       bbButton1.Caption     := '&' + LNG_STRINGS[149];
-       bbButton2.Caption     := '&' + LNG_STRINGS[150];
+//       bbButton0.Caption     := '&' + LNG_STRINGS[148];
+//       bbButton1.Caption     := '&' + LNG_STRINGS[149];
+//       bbButton2.Caption     := '&' + LNG_STRINGS[150];
       end;
   3 : begin
        bbButton0.ModalResult := mrYes;
        bbButton1.ModalResult := mrNo;
        bbButton2.ModalResult := mrCancel;
-       bbButton0.Caption     := '&' + LNG_STRINGS[146];
-       bbButton1.Caption     := '&' + LNG_STRINGS[147];
-       bbButton2.Caption     := '&' + LNG_STRINGS[94];
+//       bbButton0.Caption     := '&' + LNG_STRINGS[146];
+//       bbButton1.Caption     := '&' + LNG_STRINGS[147];
+//       bbButton2.Caption     := '&' + LNG_STRINGS[94];
       end;
   4 : begin
        bbButton1.ModalResult := mrYes;
        bbButton2.ModalResult := mrNo;
-       bbButton1.Caption     := '&' + LNG_STRINGS[146];
-       bbButton2.Caption     := '&' + LNG_STRINGS[147];
+//       bbButton1.Caption     := '&' + LNG_STRINGS[146];
+//       bbButton2.Caption     := '&' + LNG_STRINGS[147];
       end;
   5 : begin
        bbButton1.ModalResult := mrRetry;
        bbButton2.ModalResult := mrCancel;
-       bbButton1.Caption     := '&' + LNG_STRINGS[149];
-       bbButton2.Caption     := '&' + LNG_STRINGS[94];
+//       bbButton1.Caption     := '&' + LNG_STRINGS[149];
+//       bbButton2.Caption     := '&' + LNG_STRINGS[94];
       end;
  end;
 end;
 
-end.
+end.
