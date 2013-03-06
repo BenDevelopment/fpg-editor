@@ -26,8 +26,7 @@ interface
 
 uses
   LCLIntf, LCLType, Graphics, Classes, SysUtils, Forms, Dialogs, FileUtil,
-  Process, IntfGraphics, FPimage, lazcanvas, GraphType,
-  uMap;
+  Process, IntfGraphics, FPimage, lazcanvas, GraphType;
 
  function RunExe(Cmd, WorkDir: String): string;overload;
  function RunExe(Cmd, WorkDir,outputfilename: String): string;overload;

@@ -26,7 +26,7 @@ interface
 
 uses
   LCLIntf, LCLType, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, ExtCtrls, uLanguage;
+  Dialogs, StdCtrls, Buttons, ExtCtrls;
 
 type
   TfrmInputBox = class(TForm)
@@ -87,4 +87,4 @@ begin
  InputType := 0;
 end;
 
-end.
+end.

@@ -25,10 +25,10 @@ interface
  uses
   LCLIntf, LCLType, SysUtils, Classes,  Graphics ,
   // Inserted by me
-   dialogs, uMap , IntfGraphics, GraphType, FPimage, Types, utools;
+   dialogs, IntfGraphics, GraphType, FPimage, Types, uMAPGraphic;
 
 
- function loadImageFile( var bmp_dst : TBitmap; filename : string ; var ncpoints:word; cpoints:PWord) : boolean;
+ function loadImageFile( var bmp_dst : TMAPGraphic; filename : string ) : boolean;
  procedure getProportionalSize( var bmp_src : TBitMap; var newWidth, newHeight: integer );
 
 implementation
@@ -135,17 +135,15 @@ begin
 
 end;
 
-function loadImageFile( var bmp_dst : TBitmap; filename : string ; var ncpoints:word; cpoints:PWord) : boolean;
+function loadImageFile( var bmp_dst : TMAPGraphic; filename : string ) : boolean;
 var
  temp_pic : TPicture;
- bmp_src : TBitmap;
  bpp_src :integer;
 begin
   result := false;
-  bmp_src:= TBitmap.Create;
   if AnsiLowerCase(ExtractFileExt(Filename)) = '.map' then
   begin
-    bmp_src:= MAP_load(Filename,ncpoints,cpoints);
+    bmp_dst.LoadFromFile(Filename);
   end else begin
     temp_pic:= TPicture.Create;
     try
@@ -158,28 +156,26 @@ begin
       temp_pic.Icon.Current:= temp_pic.Icon.GetBestIndexForSize(Size(600,600)) ;
       bpp_src:= PIXELFORMAT_BPP[temp_pic.Icon.PixelFormat];
       if bpp_src<32 then begin
-         bmp_src.PixelFormat:=pf32bit;
-         bmp_src.SetSize(temp_pic.Width,temp_pic.Height);
-         bmp_src.Canvas.Draw(0,0,temp_pic.Icon);
-         copyMaskToBitmap32(bmp_src,temp_pic.Icon);
+         bmp_dst.PixelFormat:=pf32bit;
+         bmp_dst.SetSize(temp_pic.Width,temp_pic.Height);
+         bmp_dst.Canvas.Draw(0,0,temp_pic.Icon);
+         copyMaskToBitmap32(TBitmap(bmp_dst),temp_pic.Icon);
       end else begin
-         bmp_src.LoadFromBitmapHandles(temp_pic.Icon.BitmapHandle,temp_pic.Icon.MaskHandle);
-         bmp_src.LoadFromIntfImage(bmp_src.CreateIntfImage);
+         bmp_dst.LoadFromBitmapHandles(temp_pic.Icon.BitmapHandle,temp_pic.Icon.MaskHandle);
+//         bmp_src.LoadFromIntfImage(bmp_src.CreateIntfImage);
       end;
 
     end
-    else begin bmp_src.Assign(temp_pic.bitmap); end;
+    else begin bmp_dst.Assign(temp_pic.bitmap); end;
 
     temp_pic.free;
   end;
 
   // Copiamos imagen
-  bmp_dst.Assign(bmp_src);
-  bmp_src.Free;
  if ((bmp_dst.Width <> 0) and (bmp_dst.Height <> 0)) then
  begin
   result := true;
  end
 end;
 
-end.
+end.

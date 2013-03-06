@@ -24,7 +24,7 @@ interface
 
 uses LCLIntf, LCLType, ComCtrls, Forms, {Gauges,} Graphics, Controls, SysUtils, Classes,
      ClipBrd, FileUtil,
-     uLanguage, uFPG, uPAL, uIniFile,
+      uFPG, uPAL, uIniFile,
      uFrmMessageBox,
      //inserted by me
      uFrmExport, uFPGListView;
@@ -70,7 +70,7 @@ begin
      AssignFile(f, path + lvFPG.Items.Item[i].Caption + '.cpt');
      Rewrite(f);
     except
-     feMessageBox(LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_NOT_OPEN_FILE], 0, 0 );
+//     feMessageBox(LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_NOT_OPEN_FILE], 0, 0 );
      Exit;
     end;
 
@@ -128,8 +128,8 @@ begin
     if FileExistsUTF8(path + imagename + '.bmp') { *Converted from FileExists*  } then
     begin
 
-     if feMessageBox(LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_EXISTS_FILE_OVERWRITE], 4, 2) <> mrYes then
-      break;
+//     if feMessageBox(LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_EXISTS_FILE_OVERWRITE], 4, 2) <> mrYes then
+//      break;
     end;
     bmp:=TBitmap.Create;
     bmp.Assign(lvFPG.Fpg.images[j]);
@@ -179,8 +179,8 @@ begin
     //Se comprueba si existe el fichero
     if FileExistsUTF8(path + imageName + '.png') { *Converted from FileExists*  } then
     begin
-     if feMessageBox(LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_EXISTS_FILE_OVERWRITE], 4, 2) <> mrYes then
-      break;
+//     if feMessageBox(LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_EXISTS_FILE_OVERWRITE], 4, 2) <> mrYes then
+//      break;
     end;
 
     image.Assign(lvFPG.Fpg.images[j]);
@@ -229,8 +229,8 @@ begin
     if FileExistsUTF8(path + imagename + '.map') { *Converted from FileExists*  } then
     begin
 
-     if feMessageBox(LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_EXISTS_FILE_OVERWRITE], 4, 2) <> mrYes then
-      break;
+//     if feMessageBox(LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_EXISTS_FILE_OVERWRITE], 4, 2) <> mrYes then
+//      break;
     end;
 
     //lvFPG.Fpg.images[j].bmp.SaveToFile(path + imagename + '.map');

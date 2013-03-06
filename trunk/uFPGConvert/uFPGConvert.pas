@@ -25,7 +25,7 @@ interface
 
 uses LCLIntf, LCLType, ComCtrls, Graphics, Controls, SysUtils, Classes,
      ClipBrd, Forms,
-     uLanguage, uFPG, uIniFile, uTools,
+     uFPG, uIniFile, uTools,
      uSort, uColor16bits, uFPGListView, uFrmMessageBox, IntfGraphics;
 
 const
@@ -225,9 +225,9 @@ begin
   convert_pixels := 100;
  end;
 
- feMessageBox( LNG_STRINGS[LNG_INFO], LNG_STRINGS[LNG_PALETTE_PRECISION] + ' [ '
-            + IntToStr(convert_pixels div total_pixels) + '% ]',
-            0, 0);
+// feMessageBox( LNG_STRINGS[LNG_INFO], LNG_STRINGS[LNG_PALETTE_PRECISION] + ' [ '
+//            + IntToStr(convert_pixels div total_pixels) + '% ]',
+//            0, 0);
 end;
 
 procedure Convert_to_FPG16_common( var lvFPG: TFPGListView;  var gFPG: TProgressBar);

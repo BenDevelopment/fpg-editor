@@ -26,7 +26,7 @@ interface
 uses
   LCLIntf, LCLType, SysUtils, Classes, Graphics, Controls, Forms,
   StdCtrls, ExtCtrls, ClipBrd, dialogs, Spin,
-  uinifile, uLanguage, uLoadImage, IntfGraphics, FPimage;
+  uinifile, uLanguage, uLoadImage, IntfGraphics, FPimage, uMAPGraphic;
 
 const
  MIN_CLIENT_WIDTH  = 269;
@@ -82,17 +82,14 @@ end;
 
 procedure TfrmView.FormShow(Sender: TObject);
 var
- bmp  : TBitmap;
- ncpoints : word;
- cpoints :   array[0..high(Word)*2] of Word;
+ bmp  : TMapGraphic;
 begin
  Caption := file_selected;
 
  if not FPG then
  begin
-  bmp := Image.Picture.Bitmap;
-  ncpoints := 0;
-  loadImageFile(bmp, file_selected,ncpoints,cpoints);
+  bmp.assign(Image.Picture.Bitmap);
+  loadImageFile(bmp, file_selected);
  end;
 
  lbAncho.Caption := IntToStr(Image.Picture.Bitmap.Width);
@@ -197,4 +194,4 @@ begin
   FreeAndNil(lazBMP);
 end;
 
-end.
+end.

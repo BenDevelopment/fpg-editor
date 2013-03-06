@@ -32,10 +32,10 @@ interface
 uses
   LCLIntf, LCLType, SysUtils, Classes, Graphics, Controls, Forms, ComCtrls,
   StdCtrls, ExtCtrls, Menus, Buttons, ClipBrd, uIniFile, ufrmView, uFPG,
-  ufrmPalette, ufrmFPGImages, uLanguage, Dialogs, uTools,
+  ufrmPalette, ufrmFPGImages, Dialogs, uTools,
   uFPGConvert, uLoadImage, uFrmExport, uFrmMessageBox,
   uExportToFiles, uFPGListView, FileUtil, ShellCtrls, ActnList, FileCtrl, Spin,
-  ExtDlgs, types, ufrmZipFenix, uFrmAbout, ufrmMainFNT, ufrmAnimate, ufrmConfig, uFrmSplahs;
+  ExtDlgs, types, ufrmZipFenix, uFrmAbout, ufrmMainFNT, ufrmAnimate, ufrmConfig, uFrmSplahs, uMAPGraphic;
 
 const
   DRAG_LVFPG    = 0;
@@ -343,14 +343,18 @@ begin
 
  load_inifile;
 
+ (*
  lvFPG.Fpg.msgInfo:=LNG_STRINGS[LNG_INFO];
  lvFPG.Fpg.msgError:=LNG_STRINGS[LNG_ERROR];
  lvFPG.Fpg.msgWrong:=LNG_STRINGS[LNG_WRONG_FPG];
  lvFPG.Fpg.msgCorrect:=LNG_STRINGS[LNG_CORRECT_SAVING];
  lvFPG.Fpg.appName:='FPG Editor';
  lvFPG.Fpg.appVersion:='r'+RevisionStr;
-
  load_language;
+ lvFPG.notClipboardImage:=LNG_STRINGS[LNG_NOT_CLIPBOARD_IMAGE];
+ *)
+
+ lvFPG.repaintNumber:=inifile_repaint_number;
 
  _lng_str := '';
 
@@ -359,8 +363,6 @@ begin
   ShellListView1.Mask:= EFilter.Text;
   lvImages.Color:=inifile_bg_color;
   lvFPG.Color:=inifile_bg_colorFPG;
-  lvFPG.notClipboardImage:=LNG_STRINGS[LNG_NOT_CLIPBOARD_IMAGE];
-  lvFPG.repaintNumber:=inifile_repaint_number;
   Update_Panels;
   EFilter.Filter:=OpenPictureDialog.Filter;
   Caption:=Caption +' r'+ RevisionStr;
@@ -375,6 +377,7 @@ begin
 
  _lng_str := inifile_language;
 
+ (*
  miFPG.Caption := LNG_STRINGS[0];
  miNew.Caption := LNG_STRINGS[4];
  aExit.Caption := LNG_STRINGS[162];
@@ -395,7 +398,6 @@ begin
  miFPGDetails.Caption := LNG_STRINGS[14];
  miFPGPal.Caption := LNG_STRINGS[15];
  miAnimImgs.Caption := LNG_STRINGS[16];
- (*
  miFPGCCInsertImages.Caption := LNG_STRINGS[17];
  mmAddImages.Caption := LNG_STRINGS[18];
  mmEditImages.Caption := LNG_STRINGS[19];
@@ -421,7 +423,6 @@ begin
  mmCopyImage.Caption := LNG_STRINGS[132];
  mmPasteImage.Caption := LNG_STRINGS[133];
  mmClearClipBoard.Caption := LNG_STRINGS[139];
- *)
 
  sbImagesEdit.Caption := LNG_STRINGS[29];
  sbImagesEdit.Hint := LNG_STRINGS[39];
@@ -483,6 +484,8 @@ begin
  pFPGCODE.Caption := LNG_STRINGS[153];
  edFPGCODE.Hint   := LNG_STRINGS[154];
 // edImagesFilter.Hint := LNG_STRINGS[155];
+*)
+
 end;
 
 
@@ -551,7 +554,7 @@ begin
  //Debe seleccionar más de una imagen para hacer la animación
  if lvFPG.SelCount <= 1 then
  begin
-  feMessageBox( LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_SELECT_MORE_IMAGES_FOR_ANIMATE], 0, 0);
+//  feMessageBox( LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_SELECT_MORE_IMAGES_FOR_ANIMATE], 0, 0);
   Exit;
  end;
 
@@ -601,14 +604,14 @@ var
   i, j : integer;
  filename,
  file_source : string;
- bmp_src : TBitmap;
+ bmp_src : TMaPGraphic;
  ncpoints : Word;
  cpoints :   array[0..high(Word)*2] of Word;
 
 begin
  if lvImages.SelCount <= 1 then
  begin
-  feMessageBox(LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_SELECT_MORE_IMAGES_FOR_ANIMATE], 0, 0);
+//  feMessageBox(LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_SELECT_MORE_IMAGES_FOR_ANIMATE], 0, 0);
   Exit;
  end;
 
@@ -616,7 +619,7 @@ begin
   for i := 0 to frmAnimate.num_of_images - 1 do
     FreeAndNil( frmAnimate.img_animate[i]);
 
- bmp_src := TBitmap.Create;
+ bmp_src := TMAPGraphic.Create;
  bmp_src.PixelFormat := pf32bit;
 
  frmAnimate.ClientWidth := 0;
@@ -638,7 +641,7 @@ begin
   file_source := prepare_file_source(ShellListView1.Root, filename);
   // Se carga la imagen
   ncpoints:=0;
-  loadImageFile(bmp_src, file_source,ncpoints,cpoints);
+  loadImageFile(bmp_src, file_source);
   if bmp_src.width > frmAnimate.ClientWidth then
      frmAnimate.ClientWidth := bmp_src.width;
   if bmp_src.height > frmAnimate.ClientHeight then
@@ -814,12 +817,12 @@ var
 begin
  if (lvImages.SelCount <= 0) then
  begin
-  feMessageBox( LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_WILL_BE_SELECT_IMAGE], 0, 0);
+//  feMessageBox( LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_WILL_BE_SELECT_IMAGE], 0, 0);
   Exit;
  end;
 
- if feMessageBox( LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_ARE_YOU_SURE_DELETE_IMAGES], 4, 2) <> mrYes then
-  Exit;
+// if feMessageBox( LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_ARE_YOU_SURE_DELETE_IMAGES], 4, 2) <> mrYes then
+//  Exit;
 
  path := ShellListView1.Root;
 
@@ -836,7 +839,7 @@ begin
 
  lvImages.Selected.Delete;
 
- feMessageBox( LNG_STRINGS[LNG_INFO], LNG_STRINGS[LNG_IMAGES_MOVED_RECICLEDBIN], 0, 0);
+// feMessageBox( LNG_STRINGS[LNG_INFO], LNG_STRINGS[LNG_IMAGES_MOVED_RECICLEDBIN], 0, 0);
 
  // Si esta activo el auto recargado al borrar imágenes
  if inifile_autoload_remove then
@@ -851,7 +854,7 @@ var
 begin
  if lvFPG.SelCount <> 1 then
  begin
-  feMessageBox( LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_FPG_SELECT_ONLY_ONE], 0, 0);
+//  feMessageBox( LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_FPG_SELECT_ONLY_ONE], 0, 0);
   Exit;
  end;
 
@@ -884,13 +887,13 @@ begin
 
  if (lvImages.SelCount <= 0) then
  begin
-  feMessageBox(LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_WILL_BE_SELECT_IMAGE], 0, 0);
+//  feMessageBox(LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_WILL_BE_SELECT_IMAGE], 0, 0);
   Exit;
  end;
 
  if (lvImages.SelCount > 1) then
  begin
-  feMessageBox(LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_ONLY_ONE_IMAGE_EDIT], 0, 0);
+//  feMessageBox(LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_ONLY_ONE_IMAGE_EDIT], 0, 0);
   Exit;
  end;
 
@@ -916,16 +919,19 @@ begin
 
   if lvFPG.SelCount > 0 then
   begin
-   rgResType.Items.Add(LNG_STRINGS[LNG_IMAGE_TO] + ' PNG');
+(*   rgResType.Items.Add(LNG_STRINGS[LNG_IMAGE_TO] + ' PNG');
    rgResType.Items.Add(LNG_STRINGS[LNG_IMAGE_TO] + ' BMP');
    rgResType.Items.Add(LNG_STRINGS[LNG_IMAGE_TO] + ' MAP');
+*)
   end;
 
   if lvFPG.Fpg.FPGFormat = FPG8_DIV2 then
   begin
+(*
    rgResType.Items.Add(LNG_STRINGS[LNG_PALETTE_TO] + ' PAL (DIV2)');
    rgResType.Items.Add(LNG_STRINGS[LNG_PALETTE_TO] + ' PAL (PSP4)');
    rgResType.Items.Add(LNG_STRINGS[LNG_PALETTE_TO] + ' PAL (Microsoft)');
+   *)
   end
   else
    if last_itemindex > 3 then

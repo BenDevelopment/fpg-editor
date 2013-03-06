@@ -7,7 +7,7 @@ unit fpg_editor_pkg;
 interface
 
 uses
-  uFPGListView, uFPG, uMAPGraphic, LazarusPackageIntf;
+  uFPGListView, uFPG, uMAPGraphic, uLoadImage, uTools, LazarusPackageIntf;
 
 implementation
 
