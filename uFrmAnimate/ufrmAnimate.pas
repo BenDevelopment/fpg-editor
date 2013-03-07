@@ -80,7 +80,7 @@ begin
 
  _lng_str := inifile_language;
 
- frmAnimate.Caption := LNG_STRINGS[82];
+
 end;
 
 procedure TfrmAnimate.Draw_Image;

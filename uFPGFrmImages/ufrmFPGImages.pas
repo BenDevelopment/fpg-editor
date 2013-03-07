@@ -25,7 +25,7 @@ interface
 uses
   LCLIntf, LCLType, SysUtils, Classes, Graphics, Controls, Forms,
   Buttons, ComCtrls, StdCtrls, uFPG, ExtCtrls, uinifile, Dialogs,
-  uFrmMessageBox;
+  uFrmMessageBox, ulanguage;
 
 type
 
@@ -140,34 +140,10 @@ begin
  _lng_str := inifile_language;
 
  (*
- frmFPGImages.Caption := LNG_STRINGS[99];
-
- lb_width.Caption := LNG_STRINGS[53] + ':';
- lb_heigth.Caption := LNG_STRINGS[54] + ':';
- lb_ctrl_points.Caption := LNG_STRINGS[57] + ':';
-
- gbCode.Caption := LNG_STRINGS[55];
- gbDescription.Caption := LNG_STRINGS[56];
- gbName.Caption := LNG_STRINGS[52];
-
- bbAceptChanges.Caption := LNG_STRINGS[93];
- bbCancelChanges.Caption := LNG_STRINGS[94];
-
- tsProperties.Caption   := LNG_STRINGS[100];
- tsControlPoints.Caption := LNG_STRINGS[57];
-
- lvControlPoints.Columns[0].Caption := LNG_STRINGS[101];
- sbDelete.Hint := LNG_STRINGS[102];
- sbEdit.Hint := LNG_STRINGS[104];
- sbAdd.Hint := LNG_STRINGS[103];
- sbImageSelect.Caption := LNG_STRINGS[105];
- sbRemoveAll.Caption := LNG_STRINGS[109];
- sbViewControlPoints.Caption := LNG_STRINGS[107];
- sbChangeColor.Caption := LNG_STRINGS[108];
- sbSetCenter.Caption := LNG_STRINGS[106];
- sbLoadCP.Caption := LNG_STRINGS[145];
- sbAddPoint.Caption := LNG_STRINGS[151];
- sbPutCenter.Caption := LNG_STRINGS[152];
+ lvControlPoints.Columns[0].Caption := LNG_PROPERTIES_;
+ sbDelete.Hint := LNG_NUMBER;
+ sbEdit.Hint := LNG_ADD_CONTROL_POINT;
+ sbAdd.Hint := LNG_DELETE_CONTROL_POINT;
  *)
 
 end;
@@ -188,7 +164,7 @@ begin
  if StrToInt(edCode.Text) <> Fpg.images[fpg_index].code then
   if Fpg.CodeExists(StrToInt(edCode.Text)) then
   begin
-//   feMessageBox(LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_EXIST_CODE], 0, 0);
+   feMessageBox(LNG_ERROR, LNG_EXIST_CODE, 0, 0);
    edCode.SetFocus;
    Exit;
   end;
@@ -201,7 +177,7 @@ begin
  if StrToInt(edCode.Text) <> Fpg.images[fpg_index].code then
   if Fpg.CodeExists(StrToInt(edCode.Text)) then
   begin
-//   feMessageBox(LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_EXIST_CODE], 0, 0);
+   feMessageBox(LNG_ERROR, LNG_EXIST_CODE, 0, 0);
    edCode.SetFocus;
    Exit;
   end;
@@ -255,14 +231,14 @@ var
 begin
  if Length(edCoordX.Text) = 0 then
  begin
-//  feMessageBox( LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_INSERT_COORD] + ' X.', 0, 0);
+  feMessageBox( LNG_WARNING, LNG_INSERT_COORD + ' X.', 0, 0);
   edCoordX.SetFocus;
   Exit;
  end;
  
  if Length(edCoordY.Text) = 0 then
  begin
-//  feMessageBox( LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_INSERT_COORD] + ' Y.', 0, 0);
+  feMessageBox( LNG_WARNING, LNG_INSERT_COORD + ' Y.', 0, 0);
   edCoordY.SetFocus;
   Exit;
  end;
@@ -469,8 +445,8 @@ end;
 procedure TfrmFPGImages.sbRemoveAllClick(Sender: TObject);
 begin
  if lvControlPoints.Items.Count > 0 then
-//  if( feMessageBox(LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_SURE_DELETE_ALLPOINTS], 4, 2) = mrYes )then
-//   lvControlPoints.Items.Clear;
+  if( feMessageBox(LNG_WARNING, LNG_SURE_DELETE_ALLPOINTS, 4, 2) = mrYes )then
+   lvControlPoints.Items.Clear;
 end;
 
 procedure TfrmFPGImages.sbChangeColorClick(Sender: TObject);
@@ -527,7 +503,7 @@ begin
     AssignFile(f, OpenDialog.FileName);
     Reset(f);
    except
-//    feMessageBox( LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_NOT_OPEN_FILE], 0, 0 );
+    feMessageBox( LNG_ERROR, LNG_NOT_OPEN_FILE, 0, 0 );
     Exit;
    end;
 

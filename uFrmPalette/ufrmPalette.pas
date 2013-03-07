@@ -32,7 +32,6 @@ type
     imgPalette: TImage;
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure FormActivate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -83,9 +82,5 @@ begin
  imgPalette.Picture.Bitmap.Height:= 320;
 end;
 
-procedure TfrmPalette.FormActivate(Sender: TObject);
-begin
-// frmPalette.Caption := LNG_STRINGS[121];
-end;
 
 end.

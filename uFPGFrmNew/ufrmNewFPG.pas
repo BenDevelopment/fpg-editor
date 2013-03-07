@@ -77,15 +77,6 @@ begin
 
  _lng_str := inifile_language;
 
- frmNewFPG.Caption := LNG_STRINGS[48] + ' ' + LNG_STRINGS[34];
-
- gbName.Caption := LNG_STRINGS[52];
- gbPalette.Caption := LNG_STRINGS[115];
- gbType.Caption := LNG_STRINGS[114];
- bbAceptar.Caption := LNG_STRINGS[93];
- bbCancelar.Caption := LNG_STRINGS[94];
- btLoadPal.Caption := LNG_STRINGS[116];
- btViewPal.Caption := LNG_STRINGS[117];
 end;
 
 
@@ -124,7 +115,7 @@ begin
  // Si no se cargo la paleta en un FPG de 8 bits
  if (cbTipoFPG.ItemIndex = 1) and (not FPG.loadpalette) then
  begin
-  feMessageBox(LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_NOTLOAD_PALETTE], 0, 0);
+  feMessageBox(LNG_ERROR, LNG_NOTLOAD_PALETTE, 0, 0);
   Exit;
  end;
 
@@ -138,7 +129,7 @@ begin
 
  if FileExistsUTF8(edNombre.Text) { *Converted from FileExists*  } then
  begin
-  feMessageBox( LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_FILE_EXIST], 0, 0);
+  feMessageBox( LNG_ERROR, LNG_FILE_EXIST, 0, 0);
   Exit;
  end;
 
@@ -158,7 +149,7 @@ begin
 
  if not FileExistsUTF8(odPalette.FileName) then
  begin
-  feMessageBox( LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_FILE_NOTEXIST], 0, 0);
+  feMessageBox( LNG_ERROR, LNG_FILE_NOTEXIST, 0, 0);
   Exit;
  end;
 

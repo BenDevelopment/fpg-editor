@@ -54,7 +54,6 @@ type
     procedure FormCreate(Sender: TObject);
     procedure ImageMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
-    procedure FormActivate(Sender: TObject);
     procedure seZoomChange(Sender: TObject);
   private
     { Private declarations }
@@ -142,13 +141,6 @@ begin
  end;
 end;
 
-procedure TfrmView.FormActivate(Sender: TObject);
-begin
- gbDetails.Caption := LNG_STRINGS[122];
-
- lbWidth.Caption  := LNG_STRINGS[53] + ' :';
- lbHeight.Caption := LNG_STRINGS[54] + ' :';
-end;
 
 
 procedure TfrmView.seZoomChange(Sender: TObject);

@@ -66,12 +66,6 @@ begin
   Exit;
 
  _lng_str := inifile_language;
-(*
- Caption := LNG_STRINGS[142];
- rgResType.Caption := LNG_STRINGS[143];
- gbImages.Caption := LNG_STRINGS[144];
- bbExport.Caption := LNG_STRINGS[32];
- *)
 end;
 
 procedure TfrmExport.FormCreate(Sender: TObject);

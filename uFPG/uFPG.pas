@@ -401,7 +401,7 @@ begin
   f.Free;
 
   MessageDlg(fmsgInfo,fmsgCorrect,mtInformation,[mbOK],0);
-  //feMessageBox(LNG_STRINGS[LNG_INFO],LNG_STRINGS[LNG_CORRECT_SAVING], 0, 0);
+
 end;
 
 //-----------------------------------------------------------------------------
@@ -455,7 +455,6 @@ begin
   if (FPGFormat = FPG_NULL) then
   begin
     MessageDlg(fmsgError,fmsgWrong,mtError,[mbOK],0);
-    //feMessageBox(LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_WRONG_FPG], 0, 0);
     f.Free;
     Exit;
   end;

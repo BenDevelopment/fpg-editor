@@ -1,7 +1,7 @@
 object frmPalette: TfrmPalette
-  Left = 203
+  Left = 540
   Height = 320
-  Top = 122
+  Top = 172
   Width = 320
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
@@ -12,7 +12,6 @@ object frmPalette: TfrmPalette
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
-  OnActivate = FormActivate
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter

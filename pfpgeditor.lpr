@@ -7,7 +7,7 @@ uses
   ufrmPalette, uinifile,
   uFrmBpp, uFrmCFG, uFrmMainFNT, uFrmAbout,
   uFrmInputBox, uFrmMessageBox, Interfaces, uFrmFNTView,
-  uMAPGraphic, ufrmZipFenix, DefaultTranslator;
+  uMAPGraphic, ufrmZipFenix, DefaultTranslator, ulanguage;
 
 {$R *.res}
 
