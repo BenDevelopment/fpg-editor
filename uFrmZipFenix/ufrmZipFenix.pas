@@ -141,7 +141,6 @@ begin
 
  if not uncompressed then
  begin
-  MessageBox();
   feMessageBox(LNG_ERROR, LNG_NOTFPG, 0, 0);
   Exit;
  end;

@@ -24,7 +24,7 @@ unit uPAL;
 
 interface
 
- uses LCLIntf, LCLType, classes, SysUtils, uFrmMessageBox, uBMP, uFPG, uPCX;
+ uses LCLIntf, LCLType, classes, SysUtils, uFrmMessageBox, uBMP, uFPG, uPCX, uLanguage;
 
  function Load_PAL     ( palette:PByte; name : string ) : boolean;
  function Load_JASP_pal( palette:PByte; name : string ) : boolean;

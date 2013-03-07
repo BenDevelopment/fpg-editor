@@ -66,9 +66,9 @@ object FrmAbout: TFrmAbout
       ImageIndex = 1
       object Memo1: TMemo
         Left = 0
-        Height = 352
+        Height = 341
         Top = 0
-        Width = 441
+        Width = 443
         Align = alClient
         Font.Height = -11
         Font.Name = 'Verdana'

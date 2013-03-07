@@ -183,7 +183,8 @@ begin
 
  write_inifile;
 
- //load_language;
+ SetDefaultLangByFile(inifile_language);
+
 
  frmConfig.ModalResult := mrYes;
 end;

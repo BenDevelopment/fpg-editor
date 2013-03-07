@@ -26,7 +26,7 @@ interface
 uses
   LCLIntf, LCLType, SysUtils, Classes, Graphics, Controls, Forms,
   StdCtrls, ExtCtrls, ClipBrd, dialogs, Spin,
-  uinifile, uLanguage, uLoadImage, IntfGraphics, FPimage, uMAPGraphic;
+  uinifile, ulanguage, uLoadImage, IntfGraphics, FPimage, uMAPGraphic;
 
 const
  MIN_CLIENT_WIDTH  = 269;
