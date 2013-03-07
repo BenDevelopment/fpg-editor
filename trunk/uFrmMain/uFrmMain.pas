@@ -353,6 +353,7 @@ begin
  load_language;
  lvFPG.notClipboardImage:=LNG_STRINGS[LNG_NOT_CLIPBOARD_IMAGE];
  *)
+ lvFPG.Fpg.appVersion:='r'+RevisionStr;
 
  lvFPG.repaintNumber:=inifile_repaint_number;
 
@@ -378,67 +379,15 @@ begin
  _lng_str := inifile_language;
 
  (*
- miFPG.Caption := LNG_STRINGS[0];
- miNew.Caption := LNG_STRINGS[4];
- aExit.Caption := LNG_STRINGS[162];
- miTools.Caption := LNG_STRINGS[2];
- miHelp.Caption := LNG_STRINGS[3];
- aConfig.Caption := LNG_STRINGS[26];
- aZipTool.Caption := LNG_STRINGS[27];
- aClose.Caption := LNG_STRINGS[6];
+ sbImagesEdit.Hint := LNG_DETAILS;
+ sbImagesUpdate.Hint := LNG_EDIT_IMAGE_WITH_EXTERNAL_PROGRAM;
+ sbImagesAnimate.Hint := LNG_ANIMATE;
+ sbImagesIcon.Hint := LNG_HIDE_SHOW_DIRECTORIES;
+ sbImagesList.Hint := LNG_IMAGES;
+ sbImagesReport.Hint := LNG_LIST;
+ sbImagesRemove.Hint := LNG_DELETE_IMAGES_SELECTEDS;
+ sbImagesViewDir.Hint :=LNG_HIDE_SHOW_DIRECTORIES;
 
- miOpen.Caption := LNG_STRINGS[5];
-// miSave.Caption := LNG_STRINGS[7];
-// miSaveAsFPG.Caption := LNG_STRINGS[8];
- miConvert.Caption := LNG_STRINGS[9];
- miShowHideUPPanel.Caption := LNG_STRINGS[10];
- miViewFPG.Caption := LNG_STRINGS[11];
- miFPGImages.Caption := LNG_STRINGS[12];
- miFPGList.Caption := LNG_STRINGS[13];
- miFPGDetails.Caption := LNG_STRINGS[14];
- miFPGPal.Caption := LNG_STRINGS[15];
- miAnimImgs.Caption := LNG_STRINGS[16];
- miFPGCCInsertImages.Caption := LNG_STRINGS[17];
- mmAddImages.Caption := LNG_STRINGS[18];
- mmEditImages.Caption := LNG_STRINGS[19];
- mmExportImages.Caption := LNG_STRINGS[20];
- mmRemoveImages.Caption := LNG_STRINGS[21];
- mmFPGSelectAll.Caption := LNG_STRINGS[22];
- mmFPGInvertSelect.Caption := LNG_STRINGS[23];
- mmImages.Caption := LNG_STRINGS[1];
- mmAnimateImg.Caption := LNG_STRINGS[16];
- mmAniImg.Caption := LNG_STRINGS[42];
- mmDeleteImages.Caption := LNG_STRINGS[21];
- mmImagesHideDir.Caption := LNG_STRINGS[24];
- mmViewImages.Caption := LNG_STRINGS[11];
- mmImagesViewIcon.Caption := LNG_STRINGS[12];
- mmImagesViewList.Caption := LNG_STRINGS[13];
- mmImagesViewReport.Caption := LNG_STRINGS[14];
- mmImagesEdit.Caption := LNG_STRINGS[19];
- mmImagesUpdate.Caption := LNG_STRINGS[25];
- mmImagesSelectAll.Caption := LNG_STRINGS[22];
- mmImagesInvertSelect.Caption := LNG_STRINGS[23];
-
- mmClipBoard.Caption := LNG_STRINGS[135];
- mmCopyImage.Caption := LNG_STRINGS[132];
- mmPasteImage.Caption := LNG_STRINGS[133];
- mmClearClipBoard.Caption := LNG_STRINGS[139];
-
- sbImagesEdit.Caption := LNG_STRINGS[29];
- sbImagesEdit.Hint := LNG_STRINGS[39];
- sbImagesUpdate.Caption := LNG_STRINGS[30];
- sbImagesUpdate.Hint := LNG_STRINGS[40];
- sbImagesAnimate.Caption := LNG_STRINGS[42];
- sbImagesAnimate.Hint := LNG_STRINGS[43];
- sbImagesIcon.Hint := LNG_STRINGS[36];
- sbImagesList.Hint := LNG_STRINGS[37];
- sbImagesReport.Hint := LNG_STRINGS[38];
- sbImagesRemove.Caption := LNG_STRINGS[33];
- sbImagesRemove.Hint := LNG_STRINGS[47];
- sbImagesViewDir.Hint := LNG_STRINGS[35];
-
- panelDirs.Caption := LNG_STRINGS[36];
- gbFPG.Caption := LNG_STRINGS[34];
 
  lvImages.Columns[0].Caption := LNG_STRINGS[52];
  lvImages.Columns[1].Caption := LNG_STRINGS[53];
@@ -451,15 +400,10 @@ begin
  lvFPG.Columns[4].Caption := LNG_STRINGS[54];
  lvFPG.Columns[5].Caption := LNG_STRINGS[57];
 
- sbFPGAdd.Caption := LNG_STRINGS[31];
  sbFPGAdd.Hint := LNG_STRINGS[44];
- sbFPGAnimate.Caption := LNG_STRINGS[42];
  sbFPGAnimate.Hint := LNG_STRINGS[43];
- sbFPGEditBMP.Caption := LNG_STRINGS[29];
  sbFPGEditBMP.Hint := LNG_STRINGS[45];
- sbFPGExport.Caption := LNG_STRINGS[32];
  sbFPGExport.Hint := LNG_STRINGS[46];
- sbFPGRemove.Caption := LNG_STRINGS[33];
  sbFPGRemove.Hint := LNG_STRINGS[47];
  sbFPGViewFrame.Hint := LNG_STRINGS[41];
 
@@ -471,17 +415,6 @@ begin
  sbFPGSave.Hint := LNG_STRINGS[50];
  sbFPGSaveAs.Hint := LNG_STRINGS[51];
 
- ppOpenImage.Caption := LNG_STRINGS[49];
- ppEditImage.Caption := LNG_STRINGS[29];
- ppFPGOpen.Caption := LNG_STRINGS[49];
- ppFPGAnimate.Caption := LNG_STRINGS[42];
- ppFPGEdit.Caption := LNG_STRINGS[29];
- ppFPGExport.Caption := LNG_STRINGS[32];
- ppFPGRemove.Caption := LNG_STRINGS[33];
- ppRemoveImages.Caption := LNG_STRINGS[33];
- ppCopyImage.Caption := LNG_STRINGS[136];
-
- pFPGCODE.Caption := LNG_STRINGS[153];
  edFPGCODE.Hint   := LNG_STRINGS[154];
 // edImagesFilter.Hint := LNG_STRINGS[155];
 *)

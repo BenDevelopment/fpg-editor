@@ -49,7 +49,7 @@ implementation
   begin
    if not Load_PCX_pal(palette, name) then
    begin
-//    feMessageBox( LNG_STRINGS[LNG_ERROR], 'PCX ' + LNG_STRINGS[LNG_NOT_FOUND_PALETTE], 0, 0);
+    feMessageBox( LNG_ERROR, 'PCX ' + LNG_NOT_FOUND_PALETTE, 0, 0);
    // FPG.loadPalette  := false;
     Exit;
    end;
@@ -63,7 +63,7 @@ implementation
   begin
    if not Load_BMP_pal(palette, name) then
    begin
-//    feMessageBox( LNG_STRINGS[LNG_ERROR],'BMP ' + LNG_STRINGS[LNG_NOT_FOUND_PALETTE], 0, 0);
+    feMessageBox( LNG_ERROR,'BMP ' + LNG_NOT_FOUND_PALETTE, 0, 0);
 //    fpg.loadPalette  := false;
     Exit;
    end;
@@ -77,7 +77,7 @@ implementation
   begin
    if not Load_DIV2_pal(palette, name) then
    begin
-//    feMessageBox(LNG_STRINGS[LNG_ERROR], 'FPG ' + LNG_STRINGS[LNG_NOT_FOUND_PALETTE], 0, 0);
+    feMessageBox(LNG_ERROR, 'FPG ' + LNG_NOT_FOUND_PALETTE, 0, 0);
 //    fpg.loadPalette  := false;
     Exit;
    end;
@@ -99,7 +99,7 @@ implementation
 
    if not result then
    begin
-//    feMessageBox(LNG_STRINGS[LNG_ERROR], 'PAL ' + LNG_STRINGS[LNG_NOT_FOUND_PALETTE], 0, 0);
+    feMessageBox(LNG_ERROR, 'PAL ' + LNG_NOT_FOUND_PALETTE, 0, 0);
 //    fpg.loadpalette  := false;
     Exit;
    end;
@@ -121,7 +121,7 @@ implementation
    AssignFile(f, name);
    Reset(f);
   except
-//   feMessageBox(LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_NOT_OPEN_FILE], 0, 0 );
+   feMessageBox(LNG_ERROR, LNG_NOT_OPEN_FILE, 0, 0 );
    Exit;
   end;
 
@@ -166,7 +166,7 @@ implementation
   try
    f := TFileStream.Create(name, fmOpenRead);
   except
-//   feMessageBox(LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_NOT_OPEN_FILE], 0, 0 );
+   feMessageBox(LNG_ERROR, LNG_NOT_OPEN_FILE, 0, 0 );
    Exit;
   end;
 
@@ -215,7 +215,7 @@ implementation
   try
    f := TFileStream.Create(name, fmOpenRead);
   except
-//   feMessageBox(LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_NOT_OPEN_FILE], 0, 0 );
+   feMessageBox(LNG_ERROR, LNG_NOT_OPEN_FILE, 0, 0 );
    Exit;
   end;
 
@@ -340,7 +340,7 @@ implementation
    AssignFile(f, name);
    ReWrite(f);
   except
-//   feMessageBox(LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_NOT_OPEN_FILE], 0, 0 );
+   feMessageBox(LNG_ERROR, LNG_NOT_OPEN_FILE, 0, 0 );
    Exit;
   end;
 
@@ -374,7 +374,7 @@ implementation
    AssignFile(f, name);
    ReWrite(f);
   except
-//   feMessageBox(LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_NOT_OPEN_FILE], 0, 0 );
+   feMessageBox(LNG_ERROR, LNG_NOT_OPEN_FILE, 0, 0 );
    Exit;
   end;
 
@@ -414,7 +414,7 @@ implementation
   try
    f := TFileStream.Create(name, fmCreate);
   except
-//   feMessageBox( LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_NOT_OPEN_FILE], 0, 0 );
+   feMessageBox( LNG_ERROR, LNG_NOT_OPEN_FILE, 0, 0 );
    Exit;
   end;
 

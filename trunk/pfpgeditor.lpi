@@ -80,7 +80,7 @@
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="37">
+    <Units Count="38">
       <Unit0>
         <Filename Value="pfpgeditor.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -154,9 +154,9 @@
         <UnitName Value="uPAL"/>
       </Unit11>
       <Unit12>
-        <Filename Value="uLanguage\uLanguage.pas"/>
+        <Filename Value="uLanguage\ulanguage_old.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uLanguage"/>
+        <UnitName Value="ulanguage_old"/>
       </Unit12>
       <Unit13>
         <Filename Value="uTools\uTools.pas"/>
@@ -319,6 +319,11 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
       </Unit36>
+      <Unit37>
+        <Filename Value="uLanguage\ulanguage.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ulanguage"/>
+      </Unit37>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

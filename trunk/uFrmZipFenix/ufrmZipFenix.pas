@@ -26,8 +26,8 @@ interface
 
 uses
   LCLIntf, LCLType, SysUtils, Classes, Graphics, Controls, Forms, ComCtrls,
-  StdCtrls, Buttons, FileCtrl, ExtCtrls, FileUtil, ShellCtrls, uFPG, uLanguage, uTools,
-  uFrmMessageBox, uFNT, uMAPGraphic ;
+  StdCtrls, Buttons, FileCtrl, ExtCtrls, FileUtil, ShellCtrls, uFPG, ulanguage, uTools,
+  uFrmMessageBox, uFNT, uMAPGraphic  ;
 
 type
 
@@ -50,9 +50,7 @@ type
     procedure flbChange(Sender: TObject; Item: TListItem; Change: TItemChange);
     procedure flbClick(Sender: TObject);
     procedure bbCompressClick(Sender: TObject);
-    procedure flbSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean
-      );
-    procedure FormActivate(Sender: TObject);
+    procedure flbSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
   private
     { Private declarations }
   public
@@ -143,7 +141,8 @@ begin
 
  if not uncompressed then
  begin
-  feMessageBox(LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_NOTFPG], 0, 0);
+  MessageBox();
+  feMessageBox(LNG_ERROR, LNG_NOTFPG, 0, 0);
   Exit;
  end;
 
@@ -182,12 +181,6 @@ begin
     bbCompress.Enabled:=(flb.Selected <> nil);
 end;
 
-procedure TfrmZipFenix.FormActivate(Sender: TObject);
-begin
- frmZipFenix.Caption := LNG_STRINGS[125];
- lbZipFile.Caption   := LNG_STRINGS[123];
- bbCompress.Caption  := LNG_STRINGS[124];
-end;
 
 end.
 

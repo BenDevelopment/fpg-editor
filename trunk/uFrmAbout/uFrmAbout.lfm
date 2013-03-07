@@ -6,7 +6,6 @@ object FrmAbout: TFrmAbout
   Caption = 'Acerca de ...'
   ClientHeight = 414
   ClientWidth = 449
-  OnActivate = FormActivate
   OnCreate = FormCreate
   Position = poMainFormCenter
   LCLVersion = '1.1'
@@ -21,13 +20,13 @@ object FrmAbout: TFrmAbout
     TabOrder = 0
     object tsDescription: TTabSheet
       Caption = 'Descripcion'
-      ClientHeight = 352
-      ClientWidth = 441
+      ClientHeight = 341
+      ClientWidth = 443
       object Memo2: TMemo
         Left = 0
-        Height = 352
+        Height = 341
         Top = 0
-        Width = 441
+        Width = 443
         Align = alClient
         Alignment = taCenter
         Font.Height = -11
@@ -62,8 +61,8 @@ object FrmAbout: TFrmAbout
     end
     object tsCharacteristic: TTabSheet
       Caption = 'Caracteristicas'
-      ClientHeight = 352
-      ClientWidth = 441
+      ClientHeight = 341
+      ClientWidth = 443
       ImageIndex = 1
       object Memo1: TMemo
         Left = 0
@@ -125,8 +124,8 @@ object FrmAbout: TFrmAbout
     end
     object tsCredits: TTabSheet
       Caption = 'Creditos'
-      ClientHeight = 352
-      ClientWidth = 441
+      ClientHeight = 341
+      ClientWidth = 443
       ImageIndex = 2
       object Memo3: TMemo
         Left = 0
@@ -183,4 +182,4 @@ object FrmAbout: TFrmAbout
       TabOrder = 0
     end
   end
-end
+end

@@ -13,18 +13,18 @@ object frmZipFenix: TfrmZipFenix
   LCLVersion = '1.1'
   object Panel1: TPanel
     Left = 176
-    Height = 328
+    Height = 326
     Top = 0
     Width = 357
     Align = alClient
     BevelInner = bvRaised
     BevelOuter = bvLowered
-    ClientHeight = 328
+    ClientHeight = 326
     ClientWidth = 357
     TabOrder = 0
     object fcb: TFilterComboBox
       Left = 2
-      Height = 21
+      Height = 27
       Top = 2
       Width = 353
       Align = alTop
@@ -35,8 +35,8 @@ object frmZipFenix: TfrmZipFenix
     end
     object flb: TShellListView
       Left = 2
-      Height = 303
-      Top = 23
+      Height = 295
+      Top = 29
       Width = 353
       Align = alClient
       Color = clDefault
@@ -46,13 +46,14 @@ object frmZipFenix: TfrmZipFenix
       OnChange = flbChange
       OnSelectItem = flbSelectItem
       ObjectTypes = [otNonFolders]
+      Root = '/'
       ShellTreeView = dlb
     end
   end
   object statusbar: TStatusBar
     Left = 0
-    Height = 23
-    Top = 362
+    Height = 25
+    Top = 360
     Width = 533
     Panels = <    
       item
@@ -66,16 +67,16 @@ object frmZipFenix: TfrmZipFenix
   end
   object Panel2: TPanel
     Left = 0
-    Height = 328
+    Height = 326
     Top = 0
     Width = 171
     Align = alLeft
-    ClientHeight = 328
+    ClientHeight = 326
     ClientWidth = 171
     TabOrder = 2
     object dlb: TShellTreeView
       Left = 1
-      Height = 326
+      Height = 324
       Top = 1
       Width = 169
       Align = alClient
@@ -101,8 +102,8 @@ object frmZipFenix: TfrmZipFenix
     Visible = False
     object lbZipFile: TLabel
       Left = 2
-      Height = 16
-      Top = 47
+      Height = 15
+      Top = 48
       Width = 245
       Align = alBottom
       Alignment = taCenter
@@ -241,14 +242,14 @@ object frmZipFenix: TfrmZipFenix
   end
   object Splitter1: TSplitter
     Left = 171
-    Height = 328
+    Height = 326
     Top = 0
     Width = 5
   end
   object Panel3: TPanel
     Left = 0
     Height = 34
-    Top = 328
+    Top = 326
     Width = 523
     Align = alBottom
     BorderSpacing.Right = 10
@@ -383,4 +384,4 @@ object frmZipFenix: TfrmZipFenix
       TabOrder = 0
     end
   end
-end
+end

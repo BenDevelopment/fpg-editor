@@ -58,9 +58,6 @@ implementation
   frmInputBox.edText.Text    := input;
   frmInputBox.Caption        := title;
 
-  frmInputBox.bbAcept.Caption  := '&' + LNG_STRINGS[93];
-  frmInputBox.bbCancel.Caption := '&' + LNG_STRINGS[94];
-
   frmInputBox.ShowModal;
 
   input  := frmInputBox.edText.Text;
