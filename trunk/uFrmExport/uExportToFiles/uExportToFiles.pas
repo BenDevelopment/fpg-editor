@@ -25,7 +25,7 @@ interface
 uses LCLIntf, LCLType, ComCtrls, Forms, {Gauges,} Graphics, Controls, SysUtils, Classes,
      ClipBrd, FileUtil,
       uFPG, uPAL, uIniFile,
-     uFrmMessageBox,
+     uFrmMessageBox, uLanguage,
      //inserted by me
      uFrmExport, uFPGListView;
 

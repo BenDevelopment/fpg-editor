@@ -25,7 +25,7 @@ interface
 
 uses LCLIntf, LCLType, ComCtrls, Graphics, Controls, SysUtils, Classes,
      ClipBrd, Forms,
-     uFPG, uIniFile, uTools,
+     uFPG, uIniFile, uTools, uLanguage,
      uSort, uColor16bits, uFPGListView, uFrmMessageBox, IntfGraphics;
 
 const

@@ -35,7 +35,7 @@ uses
   ufrmPalette, ufrmFPGImages, Dialogs, uTools,
   uFPGConvert, uLoadImage, uFrmExport, uFrmMessageBox,
   uExportToFiles, uFPGListView, FileUtil, ShellCtrls, ActnList, FileCtrl, Spin,
-  ExtDlgs, types, ufrmZipFenix, uFrmAbout, ufrmMainFNT, ufrmAnimate, ufrmConfig, uFrmSplahs, uMAPGraphic;
+  ExtDlgs, types, ufrmZipFenix, uFrmAbout, ufrmMainFNT, ufrmAnimate, ufrmConfig, uFrmSplahs, uMAPGraphic, uLanguage;
 
 const
   DRAG_LVFPG    = 0;
@@ -487,7 +487,7 @@ begin
  //Debe seleccionar más de una imagen para hacer la animación
  if lvFPG.SelCount <= 1 then
  begin
-//  feMessageBox( LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_SELECT_MORE_IMAGES_FOR_ANIMATE], 0, 0);
+  feMessageBox( LNG_WARNING, LNG_SELECT_MORE_IMAGES_FOR_ANIMATE, 0, 0);
   Exit;
  end;
 
@@ -544,7 +544,7 @@ var
 begin
  if lvImages.SelCount <= 1 then
  begin
-//  feMessageBox(LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_SELECT_MORE_IMAGES_FOR_ANIMATE], 0, 0);
+  feMessageBox(LNG_WARNING, LNG_SELECT_MORE_IMAGES_FOR_ANIMATE, 0, 0);
   Exit;
  end;
 
@@ -750,12 +750,12 @@ var
 begin
  if (lvImages.SelCount <= 0) then
  begin
-//  feMessageBox( LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_WILL_BE_SELECT_IMAGE], 0, 0);
+  feMessageBox( LNG_WARNING, LNG_WILL_BE_SELECT_IMAGE, 0, 0);
   Exit;
  end;
 
-// if feMessageBox( LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_ARE_YOU_SURE_DELETE_IMAGES], 4, 2) <> mrYes then
-//  Exit;
+ if feMessageBox( LNG_WARNING, LNG_ARE_YOU_SURE_DELETE_IMAGES, 4, 2) <> mrYes then
+  Exit;
 
  path := ShellListView1.Root;
 
@@ -772,7 +772,7 @@ begin
 
  lvImages.Selected.Delete;
 
-// feMessageBox( LNG_STRINGS[LNG_INFO], LNG_STRINGS[LNG_IMAGES_MOVED_RECICLEDBIN], 0, 0);
+ feMessageBox( LNG_INFO, LNG_IMAGES_MOVED_RECICLEDBIN, 0, 0);
 
  // Si esta activo el auto recargado al borrar imágenes
  if inifile_autoload_remove then
@@ -787,7 +787,7 @@ var
 begin
  if lvFPG.SelCount <> 1 then
  begin
-//  feMessageBox( LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_FPG_SELECT_ONLY_ONE], 0, 0);
+  feMessageBox( LNG_WARNING, LNG_FPG_SELECT_ONLY_ONE, 0, 0);
   Exit;
  end;
 
@@ -820,13 +820,13 @@ begin
 
  if (lvImages.SelCount <= 0) then
  begin
-//  feMessageBox(LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_WILL_BE_SELECT_IMAGE], 0, 0);
+  feMessageBox(LNG_WARNING, LNG_WILL_BE_SELECT_IMAGE, 0, 0);
   Exit;
  end;
 
  if (lvImages.SelCount > 1) then
  begin
-//  feMessageBox(LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_ONLY_ONE_IMAGE_EDIT], 0, 0);
+  feMessageBox(LNG_WARNING, LNG_ONLY_ONE_IMAGE_EDIT, 0, 0);
   Exit;
  end;
 
@@ -852,26 +852,26 @@ begin
 
   if lvFPG.SelCount > 0 then
   begin
-(*   rgResType.Items.Add(LNG_STRINGS[LNG_IMAGE_TO] + ' PNG');
-   rgResType.Items.Add(LNG_STRINGS[LNG_IMAGE_TO] + ' BMP');
-   rgResType.Items.Add(LNG_STRINGS[LNG_IMAGE_TO] + ' MAP');
-*)
+   rgResType.Items.Add(LNG_IMAGE_TO + ' PNG');
+   rgResType.Items.Add(LNG_IMAGE_TO + ' BMP');
+   rgResType.Items.Add(LNG_IMAGE_TO + ' MAP');
+
   end;
 
   if lvFPG.Fpg.FPGFormat = FPG8_DIV2 then
   begin
-(*
-   rgResType.Items.Add(LNG_STRINGS[LNG_PALETTE_TO] + ' PAL (DIV2)');
-   rgResType.Items.Add(LNG_STRINGS[LNG_PALETTE_TO] + ' PAL (PSP4)');
-   rgResType.Items.Add(LNG_STRINGS[LNG_PALETTE_TO] + ' PAL (Microsoft)');
-   *)
+
+   rgResType.Items.Add(LNG_PALETTE_TO + ' PAL (DIV2)');
+   rgResType.Items.Add(LNG_PALETTE_TO + ' PAL (PSP4)');
+   rgResType.Items.Add(LNG_PALETTE_TO + ' PAL (Microsoft)');
+
   end
   else
    if last_itemindex > 3 then
     last_itemindex := 0;
 
   if lvFPG.SelCount > 0 then
-   rgResType.Items.Add(LNG_STRINGS[57]);
+   rgResType.Items.Add(LNG_CONTROL_POINTS);
 
   rgResType.ItemIndex := last_itemindex;
  end;
@@ -1075,7 +1075,7 @@ begin
  if QueryResult = mrCancel then
   Exit;
 
- //lvFPG.Fpg.source := prepare_file_source(ShellListView1.Root, LNG_STRINGS[48] + '.fpg');
+ lvFPG.Fpg.source := prepare_file_source(ShellListView1.Root, LNG_NEW + '.fpg');
 
  //frmNewFPG.edNombre.Text := lvFPG.Fpg.source;
  //frmNewFPG.fpg:=lvFPG.Fpg;
@@ -1102,7 +1102,7 @@ begin
    Exit;
   end;
 
-  QueryResult := feMessageBox(LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_SAVE_CHANGES], 3, 1);
+  QueryResult := feMessageBox(LNG_WARNING, LNG_SAVE_CHANGES, 3, 1);
 
   //Si se cancela la operación
   if QueryResult = mrCancel then
@@ -1171,7 +1171,7 @@ begin
 
  //Sale si no se pulsa cancelar
  if lvfpg.fpg.source ='' then
-    SaveDialog.FileName:=LNG_STRINGS[48] + '.fpg'
+    SaveDialog.FileName:=LNG_NEW + '.fpg'
  else
     SaveDialog.FileName:=lvfpg.fpg.source;
  if not SaveDialog.Execute then
@@ -1181,7 +1181,7 @@ begin
  if FileExistsUTF8(SaveDialog.FileName) { *Converted from FileExists*  } then
  begin
 
-  if feMessageBox(LNG_STRINGS[LNG_WARNING], LNG_STRINGS[LNG_EXISTS_FILE_OVERWRITE], 4, 2) <> mrYes then
+  if feMessageBox(LNG_WARNING, LNG_EXISTS_FILE_OVERWRITE, 4, 2) <> mrYes then
    Exit;
  end;
 
@@ -1321,7 +1321,7 @@ end;
 procedure TfrmMain.lvBMP_add_icons;
 var
  bmp_dst,
- bmp_src  : TBitmap;
+ bmp_src  : TMAPGraphic;
  list_bmp : TListItem;
  i : Integer;
  FileCount : LongInt;
@@ -1356,18 +1356,18 @@ begin
  while (i <= FileCount) and not cancel_load_icons do
  begin
   // Creamos el bitmap de carga
-  bmp_src := TBitmap.Create;
+  bmp_src := TMAPGraphic.Create;
 
   filename := ShellListView1.Items[i-1].Caption;
   file_source := prepare_file_source( WorkDir, filename );
 
   ncpoints:=0;
-  if loadImageFile(bmp_src,file_source,ncpoints,cpoints ) then
+  if loadImageFile(bmp_src,file_source) then
    begin
 
     list_bmp := lvImages.Items.Add;
 
-    DrawProportional(bmp_src, bmp_dst, lvImages.Color,ilImages.Width,ilImages.Height);
+    DrawProportional(TBitmap(bmp_src), TBitmap(bmp_dst), lvImages.Color,ilImages.Width,ilImages.Height);
 
     list_bmp.ImageIndex := ilImages.add(bmp_dst, nil);
 
@@ -1569,7 +1569,7 @@ procedure TfrmMain.aFPG8Execute(Sender: TObject);
 begin
  if lvFPG.Items.Count <= 0 then
  begin
-  feMessageBox( LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_NOT_IMAGES_FOR_CONVERT], 0, 0);
+  feMessageBox( LNG_ERROR, LNG_NOT_IMAGES_FOR_CONVERT, 0, 0);
   Exit;
  end;
 
@@ -1648,17 +1648,10 @@ var
  j : integer;
  MyFormat : Word;
 begin
- (*
- if not lvFPG.visible then
- begin
-  feMessageBox( LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_NOT_EXIST_FPG], 0, 0);
-  Exit;
- end;
- *)
 
  if (lvFPG.SelCount <> 1) then
  begin
-  feMessageBox( LNG_STRINGS[LNG_ERROR], LNG_STRINGS[LNG_FPG_SELECT_ONLY_ONE], 0, 0);
+  feMessageBox( LNG_ERROR, LNG_FPG_SELECT_ONLY_ONE, 0, 0);
   Exit;
  end;
 
@@ -1670,7 +1663,7 @@ begin
     lvFPG.Fpg.images[j].SaveToClipboardFormat(MyFormat);
     {ClipBoard.SetFormat (MyFormat );}
 
-    feMessageBox( LNG_STRINGS[LNG_INFO], LNG_STRINGS[LNG_IMAGE_TO_CLIPBOARD], 0, 0);
+    feMessageBox( LNG_INFO, LNG_IMAGE_TO_CLIPBOARD, 0, 0);
     break;
    end;
 end;
