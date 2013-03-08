@@ -1,6 +1,85 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
+#: tform2.aabrir.caption
+msgctxt "TFORM2.AABRIR.CAPTION"
+msgid "Abrir"
+msgstr ""
+
+#: tform2.acopiar.caption
+msgctxt "tform2.acopiar.caption"
+msgid "Copiar"
+msgstr ""
+
+#: tform2.aguardar.caption
+msgctxt "TFORM2.AGUARDAR.CAPTION"
+msgid "Guardar"
+msgstr ""
+
+#: tform2.apegar.caption
+msgctxt "tform2.apegar.caption"
+msgid "Pegar"
+msgstr ""
+
+#: tform2.aunir.caption
+msgctxt "TFORM2.AUNIR.CAPTION"
+msgid "Unir"
+msgstr ""
+
+#: tform2.button1.caption
+msgctxt "TFORM2.BUTTON1.CAPTION"
+msgid "Ayuda"
+msgstr ""
+
+#: tform2.button2.caption
+msgctxt "tform2.button2.caption"
+msgid "Unir"
+msgstr ""
+
+#: tform2.button3.caption
+msgctxt "TFORM2.BUTTON3.CAPTION"
+msgid "Guardar"
+msgstr ""
+
+#: tform2.caption
+msgid "Form2"
+msgstr ""
+
+#: tform2.edit1.text
+msgctxt "tform2.edit1.text"
+msgid "en"
+msgstr ""
+
+#: tform2.groupbox1.caption
+msgctxt "tform2.groupbox1.caption"
+msgid "Archivo Original"
+msgstr ""
+
+#: tform2.groupbox2.caption
+msgctxt "tform2.groupbox2.caption"
+msgid "Archivo Traducido"
+msgstr ""
+
+#: tform2.label1.caption
+msgctxt "tform2.label1.caption"
+msgid "Siglas lng:"
+msgstr ""
+
+#: tform2.menuitem1.caption
+msgctxt "tform2.menuitem1.caption"
+msgid "Archivo"
+msgstr ""
+
+#: tform2.menuitem4.caption
+msgctxt "TFORM2.MENUITEM4.CAPTION"
+msgid "Salir"
+msgstr ""
+
+#: tform2.menuitem5.caption
+msgctxt "tform2.menuitem5.caption"
+msgid "Acciones"
+msgstr ""
+
 #: tfrmabout.button1.caption
 msgid "Ok"
 msgstr ""
@@ -141,6 +220,96 @@ msgstr ""
 #: tfrmconfig.tsenviroment.caption
 msgctxt "tfrmconfig.tsenviroment.caption"
 msgid "Entorno"
+msgstr ""
+
+#: tfrmlangtranslator.aabrir.caption
+msgctxt "TFRMLANGTRANSLATOR.AABRIR.CAPTION"
+msgid "Abrir"
+msgstr ""
+
+#: tfrmlangtranslator.acopiar.caption
+msgctxt "TFRMLANGTRANSLATOR.ACOPIAR.CAPTION"
+msgid "Copiar"
+msgstr ""
+
+#: tfrmlangtranslator.aguardar.caption
+msgctxt "TFRMLANGTRANSLATOR.AGUARDAR.CAPTION"
+msgid "Guardar"
+msgstr ""
+
+#: tfrmlangtranslator.apegar.caption
+msgctxt "TFRMLANGTRANSLATOR.APEGAR.CAPTION"
+msgid "Pegar"
+msgstr ""
+
+#: tfrmlangtranslator.aunir.caption
+msgctxt "TFRMLANGTRANSLATOR.AUNIR.CAPTION"
+msgid "Unir"
+msgstr ""
+
+#: tfrmlangtranslator.button1.caption
+msgctxt "TFRMLANGTRANSLATOR.BUTTON1.CAPTION"
+msgid "Ayuda"
+msgstr ""
+
+#: tfrmlangtranslator.button2.caption
+msgctxt "TFRMLANGTRANSLATOR.BUTTON2.CAPTION"
+msgid "Unir"
+msgstr ""
+
+#: tfrmlangtranslator.button3.caption
+msgctxt "TFRMLANGTRANSLATOR.BUTTON3.CAPTION"
+msgid "Guardar"
+msgstr ""
+
+#: tfrmlangtranslator.caption
+msgctxt "tfrmlangtranslator.caption"
+msgid "Traductor de Idiomas"
+msgstr ""
+
+#: tfrmlangtranslator.edit1.hint
+msgctxt "tfrmlangtranslator.edit1.hint"
+msgid "http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes"
+msgstr ""
+
+#: tfrmlangtranslator.edit1.text
+msgctxt "TFRMLANGTRANSLATOR.EDIT1.TEXT"
+msgid "en"
+msgstr ""
+
+#: tfrmlangtranslator.groupbox1.caption
+msgctxt "TFRMLANGTRANSLATOR.GROUPBOX1.CAPTION"
+msgid "Archivo Original"
+msgstr ""
+
+#: tfrmlangtranslator.groupbox2.caption
+msgctxt "TFRMLANGTRANSLATOR.GROUPBOX2.CAPTION"
+msgid "Archivo Traducido"
+msgstr ""
+
+#: tfrmlangtranslator.label1.caption
+msgctxt "TFRMLANGTRANSLATOR.LABEL1.CAPTION"
+msgid "Siglas lng:"
+msgstr ""
+
+#: tfrmlangtranslator.label1.hint
+msgctxt "TFRMLANGTRANSLATOR.LABEL1.HINT"
+msgid "http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes"
+msgstr ""
+
+#: tfrmlangtranslator.menuitem1.caption
+msgctxt "TFRMLANGTRANSLATOR.MENUITEM1.CAPTION"
+msgid "Archivo"
+msgstr ""
+
+#: tfrmlangtranslator.menuitem4.caption
+msgctxt "TFRMLANGTRANSLATOR.MENUITEM4.CAPTION"
+msgid "Salir"
+msgstr ""
+
+#: tfrmlangtranslator.menuitem5.caption
+msgctxt "TFRMLANGTRANSLATOR.MENUITEM5.CAPTION"
+msgid "Acciones"
 msgstr ""
 
 #: tfrmlanguageconverter.bcerrar.caption
@@ -480,6 +649,11 @@ msgstr ""
 #: tfrmmain.miimglist.caption
 msgctxt "TFRMMAIN.MIIMGLIST.CAPTION"
 msgid "Lista"
+msgstr ""
+
+#: tfrmmain.milangtranslator.caption
+msgctxt "tfrmmain.milangtranslator.caption"
+msgid "Traductor de Idiomas"
 msgstr ""
 
 #: tfrmmain.minew.caption
@@ -1389,6 +1563,7 @@ msgid "Reintentar"
 msgstr ""
 
 #: ulanguage.lng_save
+msgctxt "ulanguage.lng_save"
 msgid "Guardar"
 msgstr ""
 
@@ -1468,6 +1643,11 @@ msgctxt "ulanguage.lng_view"
 msgid "Ver"
 msgstr ""
 
+#: ulanguage.lng_view_icons
+msgctxt "ulanguage.lng_view_icons"
+msgid "Imágenes"
+msgstr ""
+
 #: ulanguage.lng_view_palette
 msgid "Visualizar Paleta"
 msgstr ""
@@ -1507,5 +1687,13 @@ msgstr ""
 
 #: ulngconverter.lng_file_reference_no_exist
 msgid "No existe el fichero de referencia:"
+msgstr ""
+
+#: ulngtranslator.lng_message_correct_join
+msgid "Archivo Juntado Correctamente"
+msgstr ""
+
+#: ulngtranslator.lng_message_help_translator
+msgid "Abre el archivo .po a traducir.\\nCopia el cotenido al portapapeles.\\nPégalo en tu traductor favorito y tradúcelo.\\nCopia el texto traducido y pégalo en el cuadro de abajo.\\nPulsa Unir.\\nEscribe las dos siglas del idioma destino.\\nFinalmente guarda el archivo."
 msgstr ""
 

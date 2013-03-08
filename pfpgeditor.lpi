@@ -80,7 +80,7 @@
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="38">
+    <Units Count="39">
       <Unit0>
         <Filename Value="pfpgeditor.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -327,6 +327,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ulngConverter"/>
       </Unit37>
+      <Unit38>
+        <Filename Value="uLanguage\ulngtranslator.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmLangTranslator"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ulngTranslator"/>
+      </Unit38>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

@@ -20,7 +20,12 @@
 
 unit uLanguage;
 
+
 interface
+
+uses Forms, SysUtils, DefaultTranslator,Translations, GetText, FileUtil , LResources;
+
+procedure SetDefaultLangByFile(Lang: string);
 
 resourcestring
   LNG_FPG	=	'FPG';
@@ -35,7 +40,7 @@ resourcestring
   LNG_CONVERT_TO	=	'Convertir a ...';
   LNG_HIDE_SHOW_UP_PANEL	=	'Ocultar/Mostrar panel superior';
   LNG_VIEW	=	'Ver';
-  //LNG_IMAGES	=	'Imágenes';
+  LNG_VIEW_ICONS      =	'Imágenes';
   LNG_LIST	=	'Lista';
   LNG_DETAILS	=	'Detalles';
   LNG_PALETTE_OF_256_COLORS	=	'Paleta de 256 colores';
@@ -188,5 +193,58 @@ resourcestring
   LNG_EXIT	=	'Salir';
 
 implementation
+
+procedure SetDefaultLangByFile(Lang: string);
+
+var
+  Dot1: integer;
+  LCLPath: string;
+  LocalTranslator: TUpdateTranslator;
+  i: integer;
+  lcfn: string;
+
+begin
+  LocalTranslator := nil;
+  lcfn := lang;
+  // search first po translation resources
+   if (lcfn <> '') AND (ExtractFileExt(lcfn) = '.po') then
+   begin
+     Translations.TranslateResourceStrings(lcfn);
+     LCLPath := ExtractFileName(lcfn);
+     Dot1 := pos('.', LCLPath);
+     if Dot1 > 1 then
+     begin
+       Delete(LCLPath, 1, Dot1 - 1);
+       LCLPath := ExtractFilePath(lcfn) + 'lclstrconsts' + LCLPath;
+       Translations.TranslateUnitResourceStrings('LCLStrConsts', LCLPath);
+     end;
+     LocalTranslator := TPOTranslator.Create(lcfn);
+   end;
+
+   // search mo translation resources
+  if (lcfn<>'') and (ExtractFileExt(lcfn) = '.mo') then
+  begin
+      GetText.TranslateResourceStrings(UTF8ToSys(lcfn));
+      LCLPath := ExtractFileName(lcfn);
+      Dot1 := pos('.', LCLPath);
+      if Dot1 > 1 then
+      begin
+        Delete(LCLPath, 1, Dot1 - 1);
+        LCLPath := ExtractFilePath(lcfn) + 'lclstrconsts' + LCLPath;
+        if FileExistsUTF8(LCLPath) then
+          GetText.TranslateResourceStrings(UTF8ToSys(LCLPath));
+      end;
+      LocalTranslator := TDefaultTranslator.Create(lcfn);
+  end;
+
+  if LocalTranslator<>nil then
+  begin
+    if Assigned(LRSTranslator) then
+      LRSTranslator.Free;
+    LRSTranslator := LocalTranslator;
+    for i := 0 to Screen.CustomFormCount-1 do
+      LocalTranslator.UpdateTranslation(Screen.CustomForms[i]);
+  end;
+end;
 
 end.
