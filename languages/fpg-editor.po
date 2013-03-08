@@ -143,6 +143,37 @@ msgctxt "tfrmconfig.tsenviroment.caption"
 msgid "Entorno"
 msgstr ""
 
+#: tfrmlanguageconverter.bcerrar.caption
+msgctxt "TFRMLANGUAGECONVERTER.BCERRAR.CAPTION"
+msgid "&Cerrar"
+msgstr ""
+
+#: tfrmlanguageconverter.bconvertir.caption
+msgid "C&onvertir"
+msgstr ""
+
+#: tfrmlanguageconverter.caption
+msgid "Conversor de ficheros de idioma"
+msgstr ""
+
+#: tfrmlanguageconverter.lblficheroantiguo.caption
+msgid "Archivo Antiguo:"
+msgstr ""
+
+#: tfrmlanguageconverter.lblficheronuevo.caption
+msgid "Archivo Nuevo:"
+msgstr ""
+
+#: tfrmlanguageconverter.sbficheroantiguo.caption
+msgctxt "tfrmlanguageconverter.sbficheroantiguo.caption"
+msgid ".."
+msgstr ""
+
+#: tfrmlanguageconverter.sbficheronuevo.caption
+msgctxt "TFRMLANGUAGECONVERTER.SBFICHERONUEVO.CAPTION"
+msgid ".."
+msgstr ""
+
 #: tfrmmain.aabout.caption
 msgctxt "tfrmmain.aabout.caption"
 msgid "Acerca de ..."
@@ -172,6 +203,7 @@ msgid "[ CDIV ] http://cdiv.sourceforge.net/"
 msgstr ""
 
 #: tfrmmain.aclose.caption
+msgctxt "tfrmmain.aclose.caption"
 msgid "&Cerrar"
 msgstr ""
 
@@ -263,7 +295,7 @@ msgid "Paleta de colores"
 msgstr ""
 
 #: tfrmmain.agemix.caption
-msgid "http://www.gemixstudio.com"
+msgid "[GEMIX] http://www.gemixstudio.com"
 msgstr ""
 
 #: tfrmmain.ainvertsel.caption
@@ -274,6 +306,10 @@ msgstr ""
 #: tfrmmain.ainvertselimgs.caption
 msgctxt "TFRMMAIN.AINVERTSELIMGS.CAPTION"
 msgid "Invertir selección"
+msgstr ""
+
+#: tfrmmain.alngconver.caption
+msgid "Convertidor de lng"
 msgstr ""
 
 #: tfrmmain.aopenimg.caption
@@ -321,20 +357,53 @@ msgstr ""
 msgid " Imagenes "
 msgstr ""
 
+#: tfrmmain.lvfpg.columns[0].caption
+msgctxt "TFRMMAIN.LVFPG.COLUMNS[0].CAPTION"
+msgid "Código"
+msgstr ""
+
+#: tfrmmain.lvfpg.columns[1].caption
+msgctxt "TFRMMAIN.LVFPG.COLUMNS[1].CAPTION"
+msgid "Nombre de Archivo"
+msgstr ""
+
+#: tfrmmain.lvfpg.columns[2].caption
+msgctxt "TFRMMAIN.LVFPG.COLUMNS[2].CAPTION"
+msgid "Nombre"
+msgstr ""
+
+#: tfrmmain.lvfpg.columns[3].caption
+msgctxt "TFRMMAIN.LVFPG.COLUMNS[3].CAPTION"
+msgid "Ancho"
+msgstr ""
+
+#: tfrmmain.lvfpg.columns[4].caption
+msgctxt "TFRMMAIN.LVFPG.COLUMNS[4].CAPTION"
+msgid "Alto"
+msgstr ""
+
+#: tfrmmain.lvfpg.columns[5].caption
+msgctxt "TFRMMAIN.LVFPG.COLUMNS[5].CAPTION"
+msgid "Puntos de control"
+msgstr ""
+
 #: tfrmmain.lvimages.columns[0].caption
-msgid "name"
+msgctxt "tfrmmain.lvimages.columns[0].caption"
+msgid "Nombre"
 msgstr ""
 
 #: tfrmmain.lvimages.columns[1].caption
-msgid "width"
+msgctxt "tfrmmain.lvimages.columns[1].caption"
+msgid "Ancho"
 msgstr ""
 
 #: tfrmmain.lvimages.columns[2].caption
-msgid "height"
+msgctxt "tfrmmain.lvimages.columns[2].caption"
+msgid "Alto"
 msgstr ""
 
 #: tfrmmain.lvimages.columns[3].caption
-msgid "bpp"
+msgid "Bits Por Pixel"
 msgstr ""
 
 #: tfrmmain.menuitem4.caption
@@ -383,13 +452,9 @@ msgctxt "tfrmmain.mifpglist.caption"
 msgid "Lista"
 msgstr ""
 
-#: tfrmmain.migemix.caption
-msgid "[Gemix] http://www.gemixstudio.com"
-msgstr ""
-
 #: tfrmmain.mihelp.caption
 msgctxt "tfrmmain.mihelp.caption"
-msgid "Help"
+msgid "Ayuda"
 msgstr ""
 
 #: tfrmmain.mihideshowdirs.caption
@@ -399,7 +464,7 @@ msgstr ""
 
 #: tfrmmain.miimages.caption
 msgctxt "tfrmmain.miimages.caption"
-msgid "Images"
+msgid "Imágenes"
 msgstr ""
 
 #: tfrmmain.miimgdetails.caption
@@ -488,7 +553,7 @@ msgstr ""
 
 #: tfrmmain.mitools.caption
 msgctxt "tfrmmain.mitools.caption"
-msgid "Tools"
+msgid "Herramientas"
 msgstr ""
 
 #: tfrmmain.miviewfpg.caption
@@ -916,6 +981,7 @@ msgid "Cerrar"
 msgstr ""
 
 #: ulanguage.lng_code
+msgctxt "ulanguage.lng_code"
 msgid "Código"
 msgstr ""
 
@@ -936,6 +1002,7 @@ msgid "Comprimir archivo"
 msgstr ""
 
 #: ulanguage.lng_control_points
+msgctxt "ulanguage.lng_control_points"
 msgid "Puntos de control"
 msgstr ""
 
@@ -1073,6 +1140,7 @@ msgid "Archivo de lenguaje incorrecto."
 msgstr ""
 
 #: ulanguage.lng_file_name
+msgctxt "ulanguage.lng_file_name"
 msgid "Nombre de Archivo"
 msgstr ""
 
@@ -1106,6 +1174,7 @@ msgid "Debe seleccionar solamente una imagen."
 msgstr ""
 
 #: ulanguage.lng_height
+msgctxt "ulanguage.lng_height"
 msgid "Alto"
 msgstr ""
 
@@ -1197,6 +1266,7 @@ msgid "Modificar punto de control"
 msgstr ""
 
 #: ulanguage.lng_name
+msgctxt "ulanguage.lng_name"
 msgid "Nombre"
 msgstr ""
 
@@ -1411,6 +1481,7 @@ msgid "Aviso"
 msgstr ""
 
 #: ulanguage.lng_width
+msgctxt "ulanguage.lng_width"
 msgid "Ancho"
 msgstr ""
 
@@ -1424,5 +1495,17 @@ msgstr ""
 
 #: ulanguage.lng_yes
 msgid "Si"
+msgstr ""
+
+#: ulngconverter.lng_correct
+msgid "Fichero creado correctamente"
+msgstr ""
+
+#: ulngconverter.lng_file_no_exist
+msgid "No existe el fichero:"
+msgstr ""
+
+#: ulngconverter.lng_file_reference_no_exist
+msgid "No existe el fichero de referencia:"
 msgstr ""
 

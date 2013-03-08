@@ -7,7 +7,7 @@ uses
   ufrmPalette, uinifile,
   uFrmBpp, uFrmCFG, uFrmMainFNT, uFrmAbout,
   uFrmInputBox, uFrmMessageBox, Interfaces, uFrmFNTView,
-  uMAPGraphic, ufrmZipFenix, uLanguage, DefaultTranslator;
+  uMAPGraphic, ufrmZipFenix, uLanguage, DefaultTranslator, ulngConverter;
 
 {$R *.res}
 
@@ -37,6 +37,7 @@ begin
   Application.CreateForm(TFrmAbout, FrmAbout);
   Application.CreateForm(TfrmFNTView, frmFNTView);
   Application.CreateForm(TfrmZipFenix, frmZipFenix);
+  Application.CreateForm(TfrmLanguageConverter, frmLanguageConverter);
   //Application.CreateForm(TfrmSplash, frmSplash);
   Application.Run;
 end.

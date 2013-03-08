@@ -35,7 +35,7 @@ uses
   ufrmPalette, ufrmFPGImages, Dialogs, uTools,
   uFPGConvert, uLoadImage, uFrmExport, uFrmMessageBox,
   uExportToFiles, uFPGListView, FileUtil, ShellCtrls, ActnList, FileCtrl, Spin,
-  ExtDlgs, types, ufrmZipFenix, uFrmAbout, ufrmMainFNT, ufrmAnimate, ufrmConfig, uFrmSplahs, uMAPGraphic, uLanguage;
+  ExtDlgs, types, ufrmZipFenix, uFrmAbout, ufrmMainFNT, ufrmAnimate, ufrmConfig, uFrmSplahs, uMAPGraphic, uLanguage, ulngConverter;
 
 const
   DRAG_LVFPG    = 0;
@@ -55,6 +55,7 @@ type
     aBennu: TAction;
     aCDiv: TAction;
     aAnimFPG: TAction;
+    aLngConver: TAction;
     aFPG1: TAction;
     aFPG32: TAction;
     aFPG24: TAction;
@@ -102,6 +103,7 @@ type
     lComments: TLabel;
     lblTransparentColor: TLabel;
     lblFilename: TLabel;
+    miLngConverter: TMenuItem;
     miFPG1: TMenuItem;
     miFPG32: TMenuItem;
     miFPG24: TMenuItem;
@@ -266,6 +268,7 @@ type
     procedure aImgListExecute(Sender: TObject);
     procedure aInvertSelExecute(Sender: TObject);
     procedure aInvertSelImgsExecute(Sender: TObject);
+    procedure aLngConverExecute(Sender: TObject);
     procedure aNewExecute(Sender: TObject);
     procedure aCloseExecute(Sender: TObject);
     procedure aOpenExecute(Sender: TObject);
@@ -367,6 +370,8 @@ begin
   Update_Panels;
   EFilter.Filter:=OpenPictureDialog.Filter;
   Caption:=Caption +' r'+ RevisionStr;
+
+  miLngConverter.Visible:= (inifile_admin_tools = 1);
 
 end;
 
@@ -1064,6 +1069,11 @@ begin
  for i := 0 to lvImages.Items.Count - 1 do
   lvImages.Items.Item[i].Selected := not lvImages.Items.Item[i].Selected;
 
+end;
+
+procedure TfrmMain.aLngConverExecute(Sender: TObject);
+begin
+  frmLanguageConverter.Show;
 end;
 
 procedure TfrmMain.aNewExecute(Sender: TObject);

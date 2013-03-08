@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
   Left = 338
   Height = 618
-  Top = 203
+  Top = 204
   Width = 818
   AllowDropFiles = True
   Caption = 'FPG Editor'
@@ -488,19 +488,19 @@ object frmMain: TfrmMain
         Align = alClient
         Columns = <        
           item
-            Caption = 'name'
+            Caption = 'Nombre'
             MinWidth = 50
           end        
           item
-            Caption = 'width'
+            Caption = 'Ancho'
             MinWidth = 50
           end        
           item
-            Caption = 'height'
+            Caption = 'Alto'
             MinWidth = 50
           end        
           item
-            Caption = 'bpp'
+            Caption = 'Bits Por Pixel'
             MinWidth = 50
           end>
         IconOptions.AutoArrange = True
@@ -1107,21 +1107,27 @@ object frmMain: TfrmMain
       Align = alClient
       Columns = <      
         item
+          Caption = 'Código'
           MinWidth = 50
         end      
         item
+          Caption = 'Nombre de Archivo'
           MinWidth = 50
         end      
         item
+          Caption = 'Nombre'
           MinWidth = 50
         end      
         item
+          Caption = 'Ancho'
           MinWidth = 50
         end      
         item
+          Caption = 'Alto'
           MinWidth = 50
         end      
         item
+          Caption = 'Puntos de control'
           MinWidth = 50
         end>
       IconOptions.AutoArrange = True
@@ -1961,7 +1967,7 @@ object frmMain: TfrmMain
       end
     end
     object miImages: TMenuItem
-      Caption = 'Images'
+      Caption = 'Imágenes'
       object miHideShowDirs: TMenuItem
         Action = aHideShowDirs
         Caption = 'Ocultar/Mostrar directorios'
@@ -2303,7 +2309,7 @@ object frmMain: TfrmMain
       end
     end
     object miTools: TMenuItem
-      Caption = 'Tools'
+      Caption = 'Herramientas'
       object miConfig: TMenuItem
         Action = aConfig
         Bitmap.Data = {
@@ -2385,15 +2391,17 @@ object frmMain: TfrmMain
           9230000000000000000000000000000000000000000000000000
         }
       end
+      object miLngConverter: TMenuItem
+        Action = aLngConver
+      end
     end
     object miHelp: TMenuItem
-      Caption = 'Help'
+      Caption = 'Ayuda'
       object miBennu: TMenuItem
         Action = aBennu
       end
       object miGemix: TMenuItem
         Action = aGemix
-        Caption = '[Gemix] http://www.gemixstudio.com'
       end
       object miFenix: TMenuItem
         Action = aFenix
@@ -2594,7 +2602,7 @@ object frmMain: TfrmMain
     end
     object aGemix: TAction
       Category = 'Help'
-      Caption = 'http://www.gemixstudio.com'
+      Caption = '[GEMIX] http://www.gemixstudio.com'
       OnExecute = aGemixExecute
     end
     object aFenix: TAction
@@ -2775,6 +2783,11 @@ object frmMain: TfrmMain
     end
     object aAddImg2: TAction
       Category = 'FPG'
+    end
+    object aLngConver: TAction
+      Category = 'Tools'
+      Caption = 'Convertidor de lng'
+      OnExecute = aLngConverExecute
     end
   end
   object OpenPictureDialog: TOpenPictureDialog

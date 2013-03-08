@@ -1,33 +1,24 @@
 msgid ""
-msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
-"Project-Id-Version: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"MIME-Version: 1.0\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+msgstr "Content-Type: text/plain; charset=UTF-8"
 
 #: tfrmabout.button1.caption
 msgid "Ok"
-msgstr "Ok"
+msgstr ""
 
 #: tfrmabout.caption
-msgctxt "tfrmabout.caption"
+msgctxt "TFRMABOUT.CAPTION"
 msgid "Acerca de ..."
-msgstr "Acerca de ..."
+msgstr "FPG EDIT 2005en inguruan ..."
 
 #: tfrmabout.tscharacteristic.caption
 msgctxt "tfrmabout.tscharacteristic.caption"
 msgid "Caracteristicas"
-msgstr "Caracteristicas"
+msgstr "Ezaugarriak"
 
 #: tfrmabout.tscredits.caption
 msgctxt "tfrmabout.tscredits.caption"
 msgid "Creditos"
-msgstr "Creditos"
+msgstr "Egilea"
 
 #: tfrmabout.tsdescription.caption
 msgid "Descripcion"
@@ -35,94 +26,94 @@ msgstr ""
 
 #: tfrmcfg.caption
 msgid "Configuración del generador de fuentes"
-msgstr "Configuración del generador de fuentes"
+msgstr ""
 
 #: tfrmcfg.gbpaleta.caption
 msgctxt "tfrmcfg.gbpaleta.caption"
 msgid "Paleta de 256 colores"
-msgstr "Paleta de 256 colores"
+msgstr "256 margotako paleta"
 
 #: tfrmcfg.rbfnt2pal.caption
 msgid "Calcular paleta optimizada a los colores de la fuente"
-msgstr "Calcular paleta optimizada a los colores de la fuente"
+msgstr ""
 
 #: tfrmcfg.rbpal2fnt.caption
 msgid "Adaptar fuente a la paleta cargada"
-msgstr "Adaptar fuente a la paleta cargada"
+msgstr ""
 
 #: tfrmcfg.sbaccept.caption
 msgctxt "tfrmcfg.sbaccept.caption"
 msgid "&Aceptar"
-msgstr "Aceptar"
+msgstr ""
 
 #: tfrmcfg.sbcancel.caption
 msgctxt "tfrmcfg.sbcancel.caption"
 msgid "&Cancelar"
-msgstr "Cancelar"
+msgstr ""
 
 #: tfrmcfg.sbloadpal.caption
 msgid "&Cargar paleta"
-msgstr "&Cargar paleta"
+msgstr ""
 
 #: tfrmcfg.sbviewpal.caption
 msgid "&Ver paleta"
-msgstr "&Ver paleta"
+msgstr ""
 
 #: tfrmconfig.bbacept.caption
 msgctxt "TFRMCONFIG.BBACEPT.CAPTION"
 msgid "&Aceptar"
-msgstr "Aceptar"
+msgstr ""
 
 #: tfrmconfig.bbcancel.caption
 msgctxt "TFRMCONFIG.BBCANCEL.CAPTION"
 msgid "&Cancelar"
-msgstr "Cancelar"
+msgstr ""
 
 #: tfrmconfig.caption
 msgid "Configuración de FPG EDIT"
-msgstr "Configuraci n de FPGEDIT"
+msgstr ""
 
 #: tfrmconfig.cbalfanegro.caption
 msgid "50% alfa a transparente"
-msgstr "50% alfa a transparente"
+msgstr ""
 
 #: tfrmconfig.cbautoloadimages.caption
 msgid "Auto carga de imágenes"
-msgstr "Auto carga de imágenes"
+msgstr ""
 
 #: tfrmconfig.cbautoloadremove.caption
 msgid "cbAutoloadRemove"
-msgstr "cb Autoload Remove"
+msgstr ""
 
 #: tfrmconfig.cbflat.caption
 msgid "Botones tipo \"flat\""
-msgstr "Botones tipo \"flat\""
+msgstr ""
 
 #: tfrmconfig.cbsplash.caption
 msgctxt "tfrmconfig.cbsplash.caption"
 msgid "Mostrar pantalla de inicio"
-msgstr "Mostrar pantalla de inicio"
+msgstr "Sarrerako leihoa erakutsi"
 
 #: tfrmconfig.gbenviroment.caption
 msgid "gbEnviroment"
-msgstr "gb Environment"
+msgstr ""
 
 #: tfrmconfig.gbimageedit.caption
 msgid " Editor de imágenes "
-msgstr "Editor de imágenes"
+msgstr ""
 
 #: tfrmconfig.gblanguaje.caption
 msgctxt "tfrmconfig.gblanguaje.caption"
 msgid "Lenguaje"
-msgstr "Lenguaje"
+msgstr "Hizkuntza"
 
 #: tfrmconfig.gbtimeanimate.caption
 msgid " Tiempo entre animación "
-msgstr "Tiempo entre animación"
+msgstr ""
 
 #: tfrmconfig.groupbox1.caption
 msgid "Viewer Background Colors"
-msgstr "Viewer Background Colors"
+msgstr ""
 
 #: tfrmconfig.label1.caption
 msgctxt "tfrmconfig.label1.caption"
@@ -131,31 +122,31 @@ msgstr "FPG"
 
 #: tfrmconfig.label2.caption
 msgid "Files"
-msgstr "Files"
+msgstr ""
 
 #: tfrmconfig.lbmiliseconds.caption
 msgctxt "tfrmconfig.lbmiliseconds.caption"
 msgid "Milisegundos"
-msgstr "Milisegundos"
+msgstr "seg. milaren"
 
 #: tfrmconfig.lbpixels.caption
 msgctxt "tfrmconfig.lbpixels.caption"
 msgid "Pixels"
-msgstr "Pixels"
+msgstr "piksel"
 
 #: tfrmconfig.lbsizeoficon.caption
 msgid "Tamaño de los iconos:"
-msgstr "Tamaño de los iconos:"
+msgstr ""
 
 #: tfrmconfig.tsenviroment.caption
 msgctxt "tfrmconfig.tsenviroment.caption"
 msgid "Entorno"
-msgstr "Entorno"
+msgstr "Ingurunea"
 
 #: tfrmlanguageconverter.bcerrar.caption
-msgctxt "tfrmlanguageconverter.bcerrar.caption"
+msgctxt "TFRMLANGUAGECONVERTER.BCERRAR.CAPTION"
 msgid "&Cerrar"
-msgstr "Cerrar"
+msgstr ""
 
 #: tfrmlanguageconverter.bconvertir.caption
 msgid "C&onvertir"
@@ -179,145 +170,143 @@ msgid ".."
 msgstr ""
 
 #: tfrmlanguageconverter.sbficheronuevo.caption
-msgctxt "tfrmlanguageconverter.sbficheronuevo.caption"
+msgctxt "TFRMLANGUAGECONVERTER.SBFICHERONUEVO.CAPTION"
 msgid ".."
 msgstr ""
 
 #: tfrmmain.aabout.caption
 msgctxt "tfrmmain.aabout.caption"
 msgid "Acerca de ..."
-msgstr "Acerca de ..."
+msgstr "FPG EDIT 2005en inguruan ..."
 
 #: tfrmmain.aaddimg.caption
 msgctxt "tfrmmain.aaddimg.caption"
 msgid "Añadir"
-msgstr "Añadir"
+msgstr "Gehitu"
 
 #: tfrmmain.aanimfpg.caption
 msgctxt "TFRMMAIN.AANIMFPG.CAPTION"
 msgid "Animar"
-msgstr "Animar"
+msgstr "Biziarazi"
 
 #: tfrmmain.aanimimgs.caption
 msgctxt "tfrmmain.aanimimgs.caption"
 msgid "Animar"
-msgstr "Animar"
+msgstr "Biziarazi"
 
 #: tfrmmain.abennu.caption
 msgid "[BennuGD] http://bennugd.org/"
-msgstr "[BennuGD] http://bennugd.org/"
+msgstr ""
 
 #: tfrmmain.acdiv.caption
 msgid "[ CDIV ] http://cdiv.sourceforge.net/"
-msgstr "[ CDIV ] http://cdiv.sourceforge.net/"
+msgstr ""
 
 #: tfrmmain.aclose.caption
 msgctxt "tfrmmain.aclose.caption"
 msgid "&Cerrar"
-msgstr "Cerrar"
+msgstr ""
 
 #: tfrmmain.aconfig.caption
 msgid "Configuración"
-msgstr "Configuración"
+msgstr ""
 
 #: tfrmmain.acopyimg.caption
 msgid "Copiar Imagen"
-msgstr "Copiar Imagen"
+msgstr ""
 
 #: tfrmmain.action2.caption
 msgid "Action2"
-msgstr "Action 2"
+msgstr ""
 
 #: tfrmmain.adelete.caption
 msgctxt "tfrmmain.adelete.caption"
 msgid "Eliminar"
-msgstr "Eliminar"
+msgstr "Ezabatu"
 
 #: tfrmmain.adeleteselimg.caption
 msgctxt "TFRMMAIN.ADELETESELIMG.CAPTION"
 msgid "Eliminar"
-msgstr "Eliminar"
+msgstr "Ezabatu"
 
 #: tfrmmain.adiv2.caption
 msgid "[ DIV2 ] http://www.div-arena.com/"
-msgstr "[ DIV2 ] http://www.div-arena.com/"
+msgstr ""
 
 #: tfrmmain.aeditsel.caption
 msgctxt "tfrmmain.aeditsel.caption"
 msgid "Editar"
-msgstr "Editar"
+msgstr "Eraldatu"
 
 #: tfrmmain.aeditselimg.caption
 msgctxt "TFRMMAIN.AEDITSELIMG.CAPTION"
 msgid "Editar"
-msgstr "Editar"
+msgstr "Eraldatu"
 
 #: tfrmmain.aempty.caption
 msgctxt "tfrmmain.aempty.caption"
 msgid "Vaciar portapapeles"
-msgstr "Vaciar portapapeles"
+msgstr "Paper-biltegia hustu"
 
 #: tfrmmain.aexit.caption
 msgctxt "tfrmmain.aexit.caption"
 msgid "Salir"
-msgstr "Salir"
+msgstr "Irten"
 
 #: tfrmmain.aexport.caption
 msgctxt "TFRMMAIN.AEXPORT.CAPTION"
 msgid "Exportar"
-msgstr "Exportar"
+msgstr "Igorri"
 
 #: tfrmmain.afenix.caption
 msgid "[ FENIX ] http://fenix.divsite.net/"
-msgstr "[ FENIX ] http://fenix.divsite.net/"
+msgstr ""
 
 #: tfrmmain.afntmaker.caption
 msgid "&Generador de Fuentes"
-msgstr "Generador de Fuentes"
+msgstr ""
 
 #: tfrmmain.afpg1.caption
 msgid "1 Bit"
-msgstr "1 Bit"
+msgstr ""
 
 #: tfrmmain.afpg16c.caption
 msgid "16bits CDIV"
-msgstr "16 bits CDIV"
+msgstr ""
 
 #: tfrmmain.afpg16f.caption
 msgid "16 bits Fenix"
-msgstr "16 bits Fenix"
+msgstr ""
 
 #: tfrmmain.afpg24.caption
 msgid "24 bits"
-msgstr "24 bits"
+msgstr ""
 
 #: tfrmmain.afpg32.caption
 msgid "32 bits"
-msgstr "32 bits"
+msgstr ""
 
 #: tfrmmain.afpg8.caption
 msgid "8 bits"
-msgstr "8 bits"
+msgstr ""
 
 #: tfrmmain.afpgpalette.caption
 msgid "Paleta de colores"
-msgstr "Paleta de colores"
+msgstr ""
 
 #: tfrmmain.agemix.caption
-#, fuzzy
-#| msgid "http://www.gemixstudio.com"
 msgid "[GEMIX] http://www.gemixstudio.com"
-msgstr "Error: Wrong language!"
+msgstr ""
 
 #: tfrmmain.ainvertsel.caption
 msgctxt "tfrmmain.ainvertsel.caption"
 msgid "Invertir selección"
-msgstr "Invertir selección"
+msgstr "Hautaketa alderantzi"
 
 #: tfrmmain.ainvertselimgs.caption
 msgctxt "TFRMMAIN.AINVERTSELIMGS.CAPTION"
 msgid "Invertir selección"
-msgstr "Invertir selección"
+msgstr "Hautaketa alderantzi"
 
 #: tfrmmain.alngconver.caption
 msgid "Convertidor de lng"
@@ -326,130 +315,122 @@ msgstr ""
 #: tfrmmain.aopenimg.caption
 msgctxt "TFRMMAIN.AOPENIMG.CAPTION"
 msgid "Abrir"
-msgstr "Abrir"
+msgstr "Ireki"
 
 #: tfrmmain.apasteimg.caption
 msgctxt "tfrmmain.apasteimg.caption"
 msgid "Pegar imagen"
-msgstr "Pegar imagen"
+msgstr "Irudia itsatsi"
 
 #: tfrmmain.areload.caption
 msgctxt "tfrmmain.areload.caption"
 msgid "Recargar"
-msgstr "Recargar"
+msgstr "Birkargatu"
 
 #: tfrmmain.aselectall.caption
 msgctxt "tfrmmain.aselectall.caption"
 msgid "Seleccionar todo"
-msgstr "Seleccionar todo"
+msgstr "Hautatu guztia"
 
 #: tfrmmain.aselectallimgs.caption
 msgctxt "TFRMMAIN.ASELECTALLIMGS.CAPTION"
 msgid "Seleccionar todo"
-msgstr "Seleccionar todo"
+msgstr "Hautatu guztia"
 
 #: tfrmmain.aziptool.caption
 msgid "&Herramienta de Compresión"
-msgstr "Herramienta de Compresi n"
+msgstr ""
 
 #: tfrmmain.caption
 msgid "FPG Editor"
-msgstr "FPG Editor"
+msgstr ""
 
 #: tfrmmain.cbtipofpg.text
 msgid "FPG 32 bits (BennuGD )"
-msgstr "FPG 32 bits (BennuGD )"
+msgstr ""
 
 #: tfrmmain.gbfpg.caption
 msgid " FPG (Ficheros de gráficos) "
-msgstr " FPG (Ficheros de gráficos) "
+msgstr ""
 
 #: tfrmmain.gbimages.caption
 msgid " Imagenes "
-msgstr "Imagenes"
+msgstr ""
 
 #: tfrmmain.lvfpg.columns[0].caption
 msgctxt "tfrmmain.lvfpg.columns[0].caption"
 msgid "Código"
-msgstr "Código"
+msgstr "Zenbakia"
 
 #: tfrmmain.lvfpg.columns[1].caption
 msgctxt "tfrmmain.lvfpg.columns[1].caption"
 msgid "Nombre de Archivo"
-msgstr "Nombre de Archivo"
+msgstr "Izena"
 
 #: tfrmmain.lvfpg.columns[2].caption
 msgctxt "tfrmmain.lvfpg.columns[2].caption"
 msgid "Nombre"
-msgstr "Nombre"
+msgstr "Azalpenak"
 
 #: tfrmmain.lvfpg.columns[3].caption
 msgctxt "tfrmmain.lvfpg.columns[3].caption"
 msgid "Ancho"
-msgstr "Ancho"
+msgstr "Zabal."
 
 #: tfrmmain.lvfpg.columns[4].caption
 msgctxt "tfrmmain.lvfpg.columns[4].caption"
 msgid "Alto"
-msgstr "Alto"
+msgstr "Garai."
 
 #: tfrmmain.lvfpg.columns[5].caption
 msgctxt "tfrmmain.lvfpg.columns[5].caption"
 msgid "Puntos de control"
-msgstr "Puntos de control"
+msgstr "Kontrol-guneak"
 
 #: tfrmmain.lvimages.columns[0].caption
-#, fuzzy
-#| msgid "name"
 msgctxt "tfrmmain.lvimages.columns[0].caption"
 msgid "Nombre"
-msgstr "name"
+msgstr "Azalpenak"
 
 #: tfrmmain.lvimages.columns[1].caption
-#, fuzzy
-#| msgid "width"
 msgctxt "tfrmmain.lvimages.columns[1].caption"
 msgid "Ancho"
-msgstr "width"
+msgstr "Zabal."
 
 #: tfrmmain.lvimages.columns[2].caption
-#, fuzzy
-#| msgid "height"
 msgctxt "tfrmmain.lvimages.columns[2].caption"
 msgid "Alto"
-msgstr "height"
+msgstr "Garai."
 
 #: tfrmmain.lvimages.columns[3].caption
-#, fuzzy
-#| msgid "bpp"
 msgid "Bits Por Pixel"
-msgstr "bpp"
+msgstr ""
 
 #: tfrmmain.menuitem4.caption
 msgctxt "TFRMMAIN.MENUITEM4.CAPTION"
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: tfrmmain.miaddimgs.caption
 msgid "Añadir selección"
-msgstr "Añadir selección"
+msgstr ""
 
 #: tfrmmain.miconvert.caption
 msgid "Convertir a"
-msgstr "Convertir a"
+msgstr ""
 
 #: tfrmmain.mideletesel.caption
 msgid "Eliminar selección"
-msgstr "Eliminar selección"
+msgstr ""
 
 #: tfrmmain.mieditsel.caption
 msgctxt "tfrmmain.mieditsel.caption"
 msgid "Editar selección"
-msgstr "Editar selección"
+msgstr "Hautatutako irudia eraldatu"
 
 #: tfrmmain.mieditselimg.caption
 msgid "Editar seleccion"
-msgstr "Editar seleccion"
+msgstr ""
 
 #: tfrmmain.mifpg.caption
 msgctxt "TFRMMAIN.MIFPG.CAPTION"
@@ -459,404 +440,398 @@ msgstr "FPG"
 #: tfrmmain.mifpgdetails.caption
 msgctxt "tfrmmain.mifpgdetails.caption"
 msgid "Detalles"
-msgstr "Detalles"
+msgstr "Xehetasunak"
 
 #: tfrmmain.mifpgimages.caption
 msgctxt "tfrmmain.mifpgimages.caption"
 msgid "Imágenes"
-msgstr "Imágenes"
+msgstr "Irudiak"
 
 #: tfrmmain.mifpglist.caption
 msgctxt "tfrmmain.mifpglist.caption"
 msgid "Lista"
-msgstr "Lista"
+msgstr "Zerrenda"
 
 #: tfrmmain.mihelp.caption
-#, fuzzy
-#| msgid "Help"
 msgctxt "tfrmmain.mihelp.caption"
 msgid "Ayuda"
-msgstr "Help"
+msgstr ""
 
 #: tfrmmain.mihideshowdirs.caption
 msgctxt "tfrmmain.mihideshowdirs.caption"
 msgid "Ocultar/Mostrar directorios"
-msgstr "Ocultar/Mostrar directorios"
+msgstr "Ezkutatu/Erakutsi helbideak"
 
 #: tfrmmain.miimages.caption
-#, fuzzy
-#| msgid "Images"
 msgctxt "tfrmmain.miimages.caption"
 msgid "Imágenes"
-msgstr "Images"
+msgstr "Irudiak"
 
 #: tfrmmain.miimgdetails.caption
 msgctxt "TFRMMAIN.MIIMGDETAILS.CAPTION"
 msgid "Detalles"
-msgstr "Detalles"
+msgstr "Xehetasunak"
 
 #: tfrmmain.miimgimages.caption
 msgctxt "TFRMMAIN.MIIMGIMAGES.CAPTION"
 msgid "Imágenes"
-msgstr "Imágenes"
+msgstr "Irudiak"
 
 #: tfrmmain.miimglist.caption
 msgctxt "TFRMMAIN.MIIMGLIST.CAPTION"
 msgid "Lista"
-msgstr "Lista"
+msgstr "Zerrenda"
 
 #: tfrmmain.minew.caption
 msgctxt "tfrmmain.minew.caption"
 msgid "Nuevo"
-msgstr "Nuevo"
+msgstr "Berria"
 
 #: tfrmmain.miopen.caption
 msgctxt "TFRMMAIN.MIOPEN.CAPTION"
 msgid "Abrir"
-msgstr "Abrir"
+msgstr "Ireki"
 
 #: tfrmmain.miseparator1.caption
 msgctxt "TFRMMAIN.MISEPARATOR1.CAPTION"
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: tfrmmain.miseparator10.caption
 msgctxt "TFRMMAIN.MISEPARATOR10.CAPTION"
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: tfrmmain.miseparator11.caption
 msgctxt "TFRMMAIN.MISEPARATOR11.CAPTION"
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: tfrmmain.miseparator2.caption
 msgctxt "TFRMMAIN.MISEPARATOR2.CAPTION"
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: tfrmmain.miseparator3.caption
 msgctxt "TFRMMAIN.MISEPARATOR3.CAPTION"
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: tfrmmain.miseparator4.caption
 msgctxt "TFRMMAIN.MISEPARATOR4.CAPTION"
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: tfrmmain.miseparator5.caption
 msgctxt "TFRMMAIN.MISEPARATOR5.CAPTION"
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: tfrmmain.miseparator6.caption
 msgctxt "TFRMMAIN.MISEPARATOR6.CAPTION"
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: tfrmmain.miseparator7.caption
 msgctxt "TFRMMAIN.MISEPARATOR7.CAPTION"
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: tfrmmain.miseparator8.caption
 msgctxt "TFRMMAIN.MISEPARATOR8.CAPTION"
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: tfrmmain.miseparator9.caption
 msgctxt "TFRMMAIN.MISEPARATOR9.CAPTION"
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: tfrmmain.mishowhideuppanel.caption
 msgid "Mostrar/Ocultar panel superior"
-msgstr "Mostrar/Ocultar panel superior"
+msgstr ""
 
 #: tfrmmain.mitools.caption
-#, fuzzy
-#| msgid "Tools"
 msgctxt "tfrmmain.mitools.caption"
 msgid "Herramientas"
-msgstr "Tools"
+msgstr ""
 
 #: tfrmmain.miviewfpg.caption
 msgid "&Ver"
-msgstr "&Ver"
+msgstr ""
 
 #: tfrmmain.miviewimg.caption
 msgctxt "tfrmmain.miviewimg.caption"
 msgid "Ver"
-msgstr "Ver"
+msgstr "Ikusi"
 
 #: tfrmmain.miwallpaper.caption
 msgctxt "tfrmmain.miwallpaper.caption"
 msgid "Portapapeles"
-msgstr "Portapapeles"
+msgstr "Paper-biltegia"
 
 #: tfrmmain.n15.caption
 msgctxt "TFRMMAIN.N15.CAPTION"
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: tfrmmain.n20.caption
 msgctxt "tfrmmain.n20.caption"
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: tfrmmain.pfpgcode.caption
 msgid "Código de FPG"
-msgstr "Código de FPG"
+msgstr ""
 
 #: tfrmmain.pimageslist.caption
 msgid "pImagesList"
-msgstr "pImagesList"
+msgstr ""
 
 #: tfrmmain.ppcopyimage.caption
 msgid "&Copiar al portapapeles"
-msgstr "Copiar al portapapeles"
+msgstr ""
 
 #: tfrmmain.ppfpgopen.caption
 msgctxt "tfrmmain.ppfpgopen.caption"
 msgid "Abrir"
-msgstr "Abrir"
+msgstr "Ireki"
 
 #: tfrmmainfnt.bgsize.caption
 msgctxt "tfrmmainfnt.bgsize.caption"
 msgid "Tamaño"
-msgstr "Tamaño"
+msgstr ""
 
 #: tfrmmainfnt.caption
 msgid "Generador de fuentes"
-msgstr "Generador de fuentes"
+msgstr ""
 
 #: tfrmmainfnt.cbcharset.text
 msgid "ISO8859_15"
-msgstr "ISO8859_15"
+msgstr ""
 
 #: tfrmmainfnt.cbextended.caption
 msgid "Extendido"
-msgstr "Extendido"
+msgstr ""
 
 #: tfrmmainfnt.cbminus.caption
 msgid "Minúsculas"
-msgstr "Minúsculas"
+msgstr ""
 
 #: tfrmmainfnt.cbnumbers.caption
 msgid "Números"
-msgstr "Números"
+msgstr ""
 
 #: tfrmmainfnt.cbsymbol.caption
 msgid "Símbolos"
-msgstr "Símbolos"
+msgstr ""
 
 #: tfrmmainfnt.cbupper.caption
 msgid "Mayúsculas"
-msgstr "Mayúsculas"
+msgstr ""
 
 #: tfrmmainfnt.edsizefont.text
 msgid "8"
-msgstr "8"
+msgstr ""
 
 #: tfrmmainfnt.gbcharset.caption
 msgid "Charset"
-msgstr "Charset"
+msgstr ""
 
 #: tfrmmainfnt.gbedge.caption
 msgctxt "TFRMMAINFNT.GBEDGE.CAPTION"
 msgid "Reborde"
-msgstr "Reborde"
+msgstr ""
 
 #: tfrmmainfnt.gbfont.caption
 msgid "Fuente en FNT"
-msgstr "Fuente en FNT"
+msgstr ""
 
 #: tfrmmainfnt.gbloadfont.caption
 msgid "Nombre de la fuente"
-msgstr "Nombre de la fuente"
+msgstr ""
 
 #: tfrmmainfnt.gbselectcolor.caption
 msgid "Selección de colores"
-msgstr "Selección de colores"
+msgstr ""
 
 #: tfrmmainfnt.gbshadow.caption
 msgctxt "TFRMMAINFNT.GBSHADOW.CAPTION"
 msgid "Sombra"
-msgstr "Sombra"
+msgstr ""
 
 #: tfrmmainfnt.gbstyle.caption
 msgid "Estilo"
-msgstr "Estilo"
+msgstr ""
 
 #: tfrmmainfnt.gbsymboltype.caption
 msgid "Contenido"
-msgstr "Contenido"
+msgstr ""
 
 #: tfrmmainfnt.label1.caption
 msgctxt "TFRMMAINFNT.LABEL1.CAPTION"
 msgid "Alfa"
-msgstr "Alfa"
+msgstr ""
 
 #: tfrmmainfnt.label2.caption
 msgctxt "TFRMMAINFNT.LABEL2.CAPTION"
 msgid "Alfa"
-msgstr "Alfa"
+msgstr ""
 
 #: tfrmmainfnt.label3.caption
 msgid "Mostrar texto:"
-msgstr "Mostrar texto:"
+msgstr ""
 
 #: tfrmmainfnt.label4.caption
 msgctxt "tfrmmainfnt.label4.caption"
 msgid "Alfa"
-msgstr "Alfa"
+msgstr ""
 
 #: tfrmmainfnt.label5.caption
 msgid "Mostrar char:"
-msgstr "Mostrar char:"
+msgstr ""
 
 #: tfrmmainfnt.lbnamefont.caption
 msgctxt "TFRMMAINFNT.LBNAMEFONT.CAPTION"
 msgid "No hay fuente"
-msgstr "No hay fuente"
+msgstr ""
 
 #: tfrmmainfnt.lbnamefontb.caption
 msgctxt "tfrmmainfnt.lbnamefontb.caption"
 msgid "No hay fuente"
-msgstr "No hay fuente"
+msgstr ""
 
 #: tfrmmainfnt.lbshadow.caption
 msgid "Posici"
-msgstr "Posici"
+msgstr ""
 
 #: tfrmmainfnt.lbsizeedge.caption
 msgctxt "TFRMMAINFNT.LBSIZEEDGE.CAPTION"
 msgid "Tamaño"
-msgstr "Tamaño"
+msgstr ""
 
 #: tfrmmainfnt.odimportfnt.title
 msgid "Importar una fuente de una imagen"
-msgstr "Importar una fuente de una imagen"
+msgstr ""
 
 #: tfrmmainfnt.rbsedge.caption
 msgctxt "tfrmmainfnt.rbsedge.caption"
 msgid "Reborde"
-msgstr "Reborde"
+msgstr ""
 
 #: tfrmmainfnt.rbsfont.caption
 msgid "Fuente"
-msgstr "Fuente"
+msgstr ""
 
 #: tfrmmainfnt.rbsshadow.caption
 msgctxt "tfrmmainfnt.rbsshadow.caption"
 msgid "Sombra"
-msgstr "Sombra"
+msgstr ""
 
 #: tfrmmainfnt.sbchangebgcolor.caption
 msgid "Color de fondo"
-msgstr "Color de fondo"
+msgstr ""
 
 #: tfrmmainfnt.sbchangebgcolor.hint
 msgid "Cambiar el color de fondo"
-msgstr "Cambiar el color de fondo"
+msgstr ""
 
 #: tfrmmainfnt.sbexport.caption
 msgctxt "tfrmmainfnt.sbexport.caption"
 msgid "Exportar"
-msgstr "Exportar"
+msgstr "Igorri"
 
 #: tfrmmainfnt.sbexport.hint
 msgid "Exportar fuente de texto"
-msgstr "Exportar fuente de texto"
+msgstr ""
 
 #: tfrmmainfnt.sbimport.caption
 msgid "Importar"
-msgstr "Importar"
+msgstr ""
 
 #: tfrmmainfnt.sbimport.hint
 msgid "Importar fuente de texto"
-msgstr "Importar fuente de texto"
+msgstr ""
 
 #: tfrmmainfnt.sbloadfont.caption
 msgid "&Cargar Fuente"
-msgstr "Cargar Fuente"
+msgstr ""
 
 #: tfrmmainfnt.sbloadfont.hint
 msgid "Cambiar el tipo de letra"
-msgstr "Cambiar el tipo de letra"
+msgstr ""
 
 #: tfrmmainfnt.sbmakefont.caption
 msgid "Generar"
-msgstr "Generar"
+msgstr ""
 
 #: tfrmmainfnt.sbmakefont.hint
 msgid "Generar fuente"
-msgstr "Generar fuente"
+msgstr ""
 
 #: tfrmmainfnt.sbopen.hint
 msgid "Abrir fuente de texto"
-msgstr "Abrir fuente de texto"
+msgstr ""
 
 #: tfrmmainfnt.sboptions.caption
 msgid "Opciones"
-msgstr "Opciones"
+msgstr ""
 
 #: tfrmmainfnt.sboptions.hint
 msgid "Opciones generales"
-msgstr "Opciones generales"
+msgstr ""
 
 #: tfrmmainfnt.sbsave.hint
 msgid "Guardar fuente de texto"
-msgstr "Guardar fuente de texto"
+msgstr ""
 
 #: tfrmmainfnt.sbsaveas.hint
 msgid "Guardar fuente de texto como"
-msgstr "Guardar fuente de texto como"
+msgstr ""
 
 #: tfrmmainfnt.sbsavetext.caption
 msgctxt "tfrmmainfnt.sbsavetext.caption"
 msgid "Guardar texto"
-msgstr "Guardar texto"
+msgstr ""
 
 #: tfrmmainfnt.sbsavetext.hint
 msgid "Guardar el texto escrito"
-msgstr "Guardar el texto escrito"
+msgstr ""
 
 #: tfrmmainfnt.sbselectcolor.caption
 msgid "Color"
-msgstr "Color"
+msgstr ""
 
 #: tfrmmainfnt.sbselectcolor.hint
 msgid "Establece un color"
-msgstr "Establece un color"
+msgstr ""
 
 #: tfrmmainfnt.sbselectimage.caption
 msgid "Imagen"
-msgstr "Imagen"
+msgstr ""
 
 #: tfrmmainfnt.sbselectimage.hint
 msgid "Establece una imagen"
-msgstr "Establece una imagen"
+msgstr ""
 
 #: tfrmmainfnt.sbshowfnt.caption
 msgctxt "TFRMMAINFNT.SBSHOWFNT.CAPTION"
 msgid "Ver FNT"
-msgstr "Ver FNT"
+msgstr ""
 
 #: tfrmmainfnt.sbshowfnt.hint
 msgctxt "tfrmmainfnt.sbshowfnt.hint"
 msgid "Ver FNT"
-msgstr "Ver FNT"
+msgstr ""
 
 #: tfrmmainfnt.sdsavetext.title
 msgctxt "TFRMMAINFNT.SDSAVETEXT.TITLE"
 msgid "Guardar texto"
-msgstr "Guardar texto"
+msgstr ""
 
 #: tfrmmainfnt.toolbar1.caption
 msgid "ToolBar1"
-msgstr "ToolBar1"
+msgstr ""
 
 #: tfrmview.caption
 msgid "frmView"
@@ -865,7 +840,7 @@ msgstr ""
 #: tfrmview.gbdetails.caption
 msgctxt "tfrmview.gbdetails.caption"
 msgid "Detalles de la imagen"
-msgstr "Detalles de la imagen"
+msgstr "Irudiaren xehetasunak"
 
 #: tfrmview.lbalto.caption
 msgid "lbAlto"
@@ -897,638 +872,630 @@ msgstr ""
 
 #: ulanguage.lng_abort
 msgid "Anular"
-msgstr "Anular"
+msgstr "Utzi"
 
 #: ulanguage.lng_about_as
 msgctxt "ulanguage.lng_about_as"
 msgid "Acerca de ..."
-msgstr "Acerca de ..."
+msgstr "FPG EDIT 2005en inguruan ..."
 
 #: ulanguage.lng_accept
 msgid "Aceptar"
-msgstr "Aceptar"
+msgstr "Ados"
 
 #: ulanguage.lng_adapt_images
 msgid "Adaptando imagen(es)"
-msgstr "Adaptando imagen(es)"
+msgstr "Irudia(k) egokitzen"
 
 #: ulanguage.lng_add
 msgctxt "ulanguage.lng_add"
 msgid "Añadir"
-msgstr "Añadir"
+msgstr "Gehitu"
 
 #: ulanguage.lng_add_control_point
 msgid "Añadir punto de control"
-msgstr "Añadir punto de control"
+msgstr "Kontrol-gune bat gehitu"
 
 #: ulanguage.lng_add_images
 msgid "Añadir imagen(es)"
-msgstr "Añadir imagen(es)"
+msgstr "Irudia(k) gehitu"
 
 #: ulanguage.lng_add_images_to_fpg
 msgid "Añadir imagen(es) al FPG"
-msgstr "Añadir imagen(es) al FPG"
+msgstr "FPGra irudia(k) gehitu"
 
 #: ulanguage.lng_add_point
 msgid "Añadir punto"
-msgstr "Añadir punto"
+msgstr "K.-gunea gehitu"
 
 #: ulanguage.lng_analising_images
 msgid "Analizando imagen(es)"
-msgstr "Analizando imagen(es)"
+msgstr "Irudia(k) aztertzen"
 
 #: ulanguage.lng_animate
 msgctxt "ulanguage.lng_animate"
 msgid "Animar"
-msgstr "Animar"
+msgstr "Biziarazi"
 
 #: ulanguage.lng_animate_images
 msgid "Animar imágenes"
-msgstr "Animar imágenes"
+msgstr "Irudiak biziarazi"
 
 #: ulanguage.lng_animate_selected_images
 msgid "Animar imágenes seleccionadas"
-msgstr "Animar imágenes seleccionadas"
+msgstr "Hautaturiko irudiak biziarazi"
 
 #: ulanguage.lng_animation
 msgid "Animación"
-msgstr "Animación"
+msgstr "Irudi bizidunak"
 
 #: ulanguage.lng_are_you_sure_delete_images
 msgid "¿Seguro que desea borrar esta(s) imagen(es)?"
-msgstr "¿Seguro que desea borrar esta(s) imagen(es)?"
+msgstr "Benetan ezabatu nahi al d(it)uzu irudi hau(ek)?"
 
 #: ulanguage.lng_autoload_images
 msgid "Auto-carga de imágenes"
-msgstr "Auto-carga de imágenes"
+msgstr "Irudien berezko irakurketa"
 
 #: ulanguage.lng_autoload_images_after_remove
 msgid "Auto-cargar al eliminar"
-msgstr "Auto-cargar al eliminar"
+msgstr "Ezabatzean berez birkargatu"
 
 #: ulanguage.lng_cancel
 msgid "Cancelar"
-msgstr "Cancelar"
+msgstr "Utzi"
 
 #: ulanguage.lng_change_code_of_image_insert
 msgid "Cambiar código de inserción de imagen"
-msgstr "Cambiar código de inserción de imagen"
+msgstr "Irudiaren ezartze-zenbakia aldatu"
 
 #: ulanguage.lng_change_color_of_points
 msgid "Cambiar color de puntos"
-msgstr "Cambiar color de puntos"
+msgstr "K. guneen margoa aldatu"
 
 #: ulanguage.lng_change_insert_code
 msgid "Cambiar código de inserción"
-msgstr "Cambiar código de inserción"
+msgstr "Ezartze-zenbakia aldatu"
 
 #: ulanguage.lng_change_language_of_program
 msgid "Cambiar lenguaje del programa"
-msgstr "Cambiar lenguaje del programa"
+msgstr "Gailuaren hizkuntza aldatu"
 
 #: ulanguage.lng_characteristic
 msgctxt "ulanguage.lng_characteristic"
 msgid "Caracteristicas"
-msgstr "Caracteristicas"
+msgstr "Ezaugarriak"
 
 #: ulanguage.lng_clear_clipboard
 msgctxt "ulanguage.lng_clear_clipboard"
 msgid "Vaciar portapapeles"
-msgstr "Vaciar portapapeles"
+msgstr "Paper-biltegia hustu"
 
 #: ulanguage.lng_clipboard
 msgctxt "ulanguage.lng_clipboard"
 msgid "Portapapeles"
-msgstr "Portapapeles"
+msgstr "Paper-biltegia"
 
 #: ulanguage.lng_close
 msgid "Cerrar"
-msgstr "Cerrar"
+msgstr "Itxi"
 
 #: ulanguage.lng_code
 msgctxt "ulanguage.lng_code"
 msgid "Código"
-msgstr "Código"
+msgstr "Zenbakia"
 
 #: ulanguage.lng_code_of_image_insertion
 msgid "Código de inserción de imagen"
-msgstr "Código de inserción de imagen"
+msgstr "Irudiaren ezartze-zenbakia"
 
 #: ulanguage.lng_compressing_file
 msgid "Comprimiendo archivo..."
-msgstr "Comprimiendo archivo..."
+msgstr "Fitxategia trinkotzen..."
 
 #: ulanguage.lng_compressor
 msgid "Compresor"
-msgstr "Compresor"
+msgstr "FENIXerako trinkogailua (zlib 1.1.4)"
 
 #: ulanguage.lng_compress_file
 msgid "Comprimir archivo"
-msgstr "Comprimir archivo"
+msgstr "Fitxategia trinkotu"
 
 #: ulanguage.lng_control_points
 msgctxt "ulanguage.lng_control_points"
 msgid "Puntos de control"
-msgstr "Puntos de control"
+msgstr "Kontrol-guneak"
 
 #: ulanguage.lng_convert_to
 msgid "Convertir a ..."
-msgstr "Convertir a ..."
+msgstr "Bihurtu ..."
 
 #: ulanguage.lng_copy_image
 msgid "Copiar imagen"
-msgstr "Copiar imagen"
+msgstr "Irudia kopiatu"
 
 #: ulanguage.lng_copy_image_to_clipboard
 msgid "Copiar imagen al portapapeles"
-msgstr "Copiar imagen al portapapeles"
+msgstr "Irudia paper-biltegian kopiatu"
 
 #: ulanguage.lng_correct_saving
 msgid "Archivo FPG guardado correctamente"
-msgstr "Archivo FPG guardado correctamente"
+msgstr "FPGa arazorik gabe gorde da"
 
 #: ulanguage.lng_creating_convert_table
 msgid "Creando tabla de conversión"
-msgstr "Creando tabla de conversión"
+msgstr "Bihurtze-taula sortzen"
 
 #: ulanguage.lng_credits
 msgctxt "ulanguage.lng_credits"
 msgid "Creditos"
-msgstr "Creditos"
+msgstr "Egilea"
 
 #: ulanguage.lng_delete
 msgctxt "ulanguage.lng_delete"
 msgid "Eliminar"
-msgstr "Eliminar"
+msgstr "Ezabatu"
 
 #: ulanguage.lng_delete_all_points
 msgid "Borrar todos los puntos"
-msgstr "Borrar todos los puntos"
+msgstr "Ezabatu kontrol-gune guztiak"
 
 #: ulanguage.lng_delete_control_point
 msgid "Eliminar punto de control"
-msgstr "Eliminar punto de control"
+msgstr "Kontrol-gunea ezabatu"
 
 #: ulanguage.lng_delete_images
 msgid "Eliminar imagen(es)"
-msgstr "Eliminar imagen(es)"
+msgstr "Irudia(k) ezabatu"
 
 #: ulanguage.lng_delete_images_selecteds
 msgid "Eliminar imagen(es) seleccionada(s)"
-msgstr "Eliminar imagen(es) seleccionada(s)"
+msgstr "Hautaturiko irudia(k) ezabatu"
 
 #: ulanguage.lng_details
 msgctxt "ulanguage.lng_details"
 msgid "Detalles"
-msgstr "Detalles"
+msgstr "Xehetasunak"
 
 #: ulanguage.lng_details_of_image
 msgctxt "ulanguage.lng_details_of_image"
 msgid "Detalles de la imagen"
-msgstr "Detalles de la imagen"
+msgstr "Irudiaren xehetasunak"
 
 #: ulanguage.lng_directory
 msgid "Directorio"
-msgstr "Directorio"
+msgstr "Helbidea"
 
 #: ulanguage.lng_disabled
 msgid "Inactivo"
-msgstr "Inactivo"
+msgstr "Itzalita"
 
 #: ulanguage.lng_edit
 msgctxt "ulanguage.lng_edit"
 msgid "Editar"
-msgstr "Editar"
+msgstr "Eraldatu"
 
 #: ulanguage.lng_edit_image
 msgid "Editar imagen"
-msgstr "Editar imagen"
+msgstr "Irudia eraldatu"
 
 #: ulanguage.lng_edit_image_with_external_program
 msgid "Editar imagen con un editor externo"
-msgstr "Editar imagen con un editor externo"
+msgstr "Irudia kanpoko gailu batekin eraldatu"
 
 #: ulanguage.lng_edit_properties_of_the_image
 msgid "Editar propiedades de la imagen"
-msgstr "Editar propiedades de la imagen"
+msgstr "Irudiaren ezaugarriak aldatu"
 
 #: ulanguage.lng_edit_selection
 msgctxt "ulanguage.lng_edit_selection"
 msgid "Editar selección"
-msgstr "Editar selección"
+msgstr "Hautatutako irudia eraldatu"
 
 #: ulanguage.lng_enabled
 msgid "Activo"
-msgstr "Activo"
+msgstr "Piztuta"
 
 #: ulanguage.lng_enviroment
 msgctxt "ulanguage.lng_enviroment"
 msgid "Entorno"
-msgstr "Entorno"
+msgstr "Ingurunea"
 
 #: ulanguage.lng_error
 msgid "Error"
-msgstr "Error"
+msgstr "Akatsa"
 
 #: ulanguage.lng_exists_file_overwrite
 msgid "El archivo existe, ¿Desea sobreescribirlo?"
-msgstr "El archivo existe, ¿Desea sobreescribirlo?"
+msgstr "Fitxategi hau lehendik ere bazegoen, berridazterik nahi?"
 
 #: ulanguage.lng_exist_code
 msgid "El código establecido ya existe."
-msgstr "El código establecido ya existe."
+msgstr "Zehazturiko zenbakia lehendik ere bazegoen."
 
 #: ulanguage.lng_exit
 msgctxt "ulanguage.lng_exit"
 msgid "Salir"
-msgstr "Salir"
+msgstr "Irten"
 
 #: ulanguage.lng_export
 msgctxt "ulanguage.lng_export"
 msgid "Exportar"
-msgstr "Exportar"
+msgstr "Igorri"
 
 #: ulanguage.lng_export_images_from_fpg_to_disk
 msgid "Exportar imagen(es) del FPG a disco"
-msgstr "Exportar imagen(es) del FPG a disco"
+msgstr "FPGtik diskara irudia(k) igorri"
 
 #: ulanguage.lng_export_resources_from_fpg
 msgid "Exportar recursos del FPG"
-msgstr "Exportar recursos del FPG"
+msgstr "FPGtik baliabideak igorri"
 
 #: ulanguage.lng_file_exist
 msgid "El archivo ya existe."
-msgstr "El archivo ya existe."
+msgstr "Fitxategi hau bazegoen lehen ere."
 
 #: ulanguage.lng_file_language_incorrect
 msgid "Archivo de lenguaje incorrecto."
-msgstr "Archivo de lenguaje incorrecto."
+msgstr "Okerreko hizkuntza fitxategia."
 
 #: ulanguage.lng_file_name
 msgctxt "ulanguage.lng_file_name"
 msgid "Nombre de Archivo"
-msgstr "Nombre de Archivo"
+msgstr "Izena"
 
 #: ulanguage.lng_file_notexist
 msgid "El archivo no existe."
-msgstr "El archivo no existe."
+msgstr "Fitxategi hau ez dago."
 
 #: ulanguage.lng_flat_buttons
 msgid "Botones tipo \"FLAT\""
 msgstr ""
 
 #: ulanguage.lng_fpg
-#, fuzzy
-#| msgid "FPG#9"
 msgctxt "ulanguage.lng_fpg"
 msgid "FPG"
 msgstr "FPG"
 
 #: ulanguage.lng_fpg_code
 msgid "Código de FPG:"
-msgstr "Código de FPG:"
+msgstr "FPGaren kodea:"
 
 #: ulanguage.lng_fpg_editor_cofiguration
 msgid "Configurar FPG Editor"
-msgstr "Configurar FPG Editor"
+msgstr "FPG EDITen ezarpenak"
 
 #: ulanguage.lng_fpg_file_of_graphics
 msgid "FPG (Archivo de gráficos)"
-msgstr "FPG (Archivo de gráficos)"
+msgstr "FPG (Irudien fitxategia)"
 
 #: ulanguage.lng_fpg_select_only_one
 msgid "Debe seleccionar solamente una imagen."
-msgstr "Debe seleccionar solamente una imagen."
+msgstr "Irudi bat soilik hautatu behar duzu."
 
 #: ulanguage.lng_height
 msgctxt "ulanguage.lng_height"
 msgid "Alto"
-msgstr "Alto"
+msgstr "Garai."
 
 #: ulanguage.lng_help
-#, fuzzy
-#| msgid "Help"
 msgctxt "ulanguage.lng_help"
 msgid "Ayuda"
-msgstr "Ayuda"
+msgstr "Honen inguruan"
 
 #: ulanguage.lng_hide_show_directories
 msgctxt "ulanguage.lng_hide_show_directories"
 msgid "Ocultar/Mostrar directorios"
-msgstr "Ocultar/Mostrar directorios"
+msgstr "Ezkutatu/Erakutsi helbideak"
 
 #: ulanguage.lng_hide_show_up_panel
 msgid "Ocultar/Mostrar panel superior"
-msgstr "Ocultar/Mostrar panel superior"
+msgstr "Ezkutatu/Erakutsi goiko leihoa"
 
 #: ulanguage.lng_ignore
 msgid "Ignorar"
-msgstr "Ignorar"
+msgstr "Ezikusi"
 
 #: ulanguage.lng_images
-#, fuzzy
-#| msgid "Images"
 msgctxt "ulanguage.lng_images"
 msgid "Imágenes"
-msgstr "Images"
+msgstr "Irudiak"
 
 #: ulanguage.lng_images_moved_recicledbin
 msgid "Imagen(es) movida(s) a la papelera de reciclaje"
-msgstr "Imagen(es) movida(s) a la papelera de reciclaje"
+msgstr "Irudia(k) zakarrontzira bota d(ir)a"
 
 #: ulanguage.lng_image_to
 msgid "Imagen(es) a"
-msgstr "Imagen(es) a"
+msgstr "Irudia(k) >>>"
 
 #: ulanguage.lng_image_to_clipboard
 msgid "Imagen copiada al portapapeles."
-msgstr "Imagen copiada al portapapeles."
+msgstr "Paper-biltegian kopiatu da irudia."
 
 #: ulanguage.lng_incorrect_sizeoficon
 msgid "El tamaño de los iconos de imagen es incorrecto."
-msgstr "El tamaño de los iconos de imagen es incorrecto."
+msgstr "Irudien ikurren neurria okerra da."
 
 #: ulanguage.lng_info
 msgid "Información"
-msgstr "Información"
+msgstr "Jakingarriak"
 
 #: ulanguage.lng_insert_coord
 msgid "Debe introducir la coordenada"
-msgstr "Debe introducir la coordenada"
+msgstr "Kokagunea sartu behar duzu"
 
 #: ulanguage.lng_invert_selection
 msgctxt "ulanguage.lng_invert_selection"
 msgid "Invertir selección"
-msgstr "Invertir selección"
+msgstr "Hautaketa alderantzi"
 
 #: ulanguage.lng_language
 msgctxt "ulanguage.lng_language"
 msgid "Lenguaje"
-msgstr "Lenguaje"
+msgstr "Hizkuntza"
 
 #: ulanguage.lng_list
 msgctxt "ulanguage.lng_list"
 msgid "Lista"
-msgstr "Lista"
+msgstr "Zerrenda"
 
 #: ulanguage.lng_loading_files
 msgid "Cargando imágenes"
-msgstr "Cargando imágenes"
+msgstr "Irudia(k) eskuratzen"
 
 #: ulanguage.lng_load_control_points
 msgid "Cargar puntos de control"
-msgstr "Cargar puntos de control"
+msgstr "Kontrol-guneak eskuratu"
 
 #: ulanguage.lng_load_palette
 msgid "Cargar Paleta"
-msgstr "Cargar Paleta"
+msgstr "Paleta ireki"
 
 #: ulanguage.lng_locate_program_for_edition_of_images
 msgid "Localizar programa para edición de imágenes"
-msgstr "Localizar programa para edición de imágenes"
+msgstr "Irudi sorgailua aurkitu"
 
 #: ulanguage.lng_milliseconds
 msgctxt "ulanguage.lng_milliseconds"
 msgid "Milisegundos"
-msgstr "Milisegundos"
+msgstr "seg. milaren"
 
 #: ulanguage.lng_modify_control_point
 msgid "Modificar punto de control"
-msgstr "Modificar punto de control"
+msgstr "Kontrol-gunea eraldatu"
 
 #: ulanguage.lng_name
 msgctxt "ulanguage.lng_name"
 msgid "Nombre"
-msgstr "Nombre"
+msgstr "Azalpenak"
 
 #: ulanguage.lng_new
 msgctxt "ulanguage.lng_new"
 msgid "Nuevo"
-msgstr "Nuevo"
+msgstr "Berria"
 
 #: ulanguage.lng_no
 msgid "No"
-msgstr "No"
+msgstr "Ez"
 
 #: ulanguage.lng_notfpg
 msgid "El fichero no es un archivo FPG o puede estar comprimido."
-msgstr "El fichero no es un archivo FPG o puede estar comprimido."
+msgstr "Fitxategia ez da FPG erakoa edo trinkotuta dago."
 
 #: ulanguage.lng_notload_palette
 msgid "No ha cargado una paleta gráfica, ( en 8 bits debe seleccionar una paleta gráfica de 256 colores )"
-msgstr "No ha cargado una paleta gráfica, ( en 8 bits debe seleccionar una paleta gráfica de 256 colores )"
+msgstr "Ez duzu paleta egoki bat hautatu, (8 bitekin 256 margotako paleta bat hautatu behar duzu)"
 
 #: ulanguage.lng_not_clipboard_image
 msgid "No encuentra imagen en el portapapeles."
-msgstr "No encuentra imagen en el portapapeles."
+msgstr "Ez dugu irudirik aurkitu paper-biltegian."
 
 #: ulanguage.lng_not_exist_fpg
 msgid "No existe FPG."
-msgstr "No existe FPG."
+msgstr "Ez dago FPGa."
 
 #: ulanguage.lng_not_found_palette
 msgid "no contiene paleta de 256 colores."
-msgstr "no contiene paleta de 256 colores."
+msgstr "ez dauka 256 margotako paleta."
 
 #: ulanguage.lng_not_images_for_convert
 msgid "No hay imagen(es) para convertir."
-msgstr "No hay imagen(es) para convertir."
+msgstr "Ez dago bihurtzeko irudirik."
 
 #: ulanguage.lng_not_open_file
 msgid "No se pudo abrir el archivo, compruebe que otro programa no este utilizando este archivo."
-msgstr "No se pudo abrir el archivo, compruebe que otro programa no este utilizando este archivo."
+msgstr "Ezin izan dugu fitxategia ireki, ziurtatu ez dela beste gailurik berau erabiltzen ari."
 
 #: ulanguage.lng_number
 msgid "Número"
-msgstr "Número"
+msgstr "Zkia."
 
 #: ulanguage.lng_only_one_image_edit
 msgid "Solo se puede editar una imagen."
-msgstr "Solo se puede editar una imagen."
+msgstr "Irudi bat soilik eraldatu daiteke."
 
 #: ulanguage.lng_open
 msgctxt "ulanguage.lng_open"
 msgid "Abrir"
-msgstr "Abrir"
+msgstr "Ireki"
 
 #: ulanguage.lng_palette_fpg_8_bits
 msgid "Paleta (FPG 8 bits)"
-msgstr "Paleta (FPG 8 bits)"
+msgstr "Paleta (8 bitetako FPGa)"
 
 #: ulanguage.lng_palette_of_256_colors
 msgctxt "ulanguage.lng_palette_of_256_colors"
 msgid "Paleta de 256 colores"
-msgstr "Paleta de 256 colores"
+msgstr "256 margotako paleta"
 
 #: ulanguage.lng_palette_precision
 msgid "La paleta generada tiene una precisión del"
-msgstr "La paleta generada tiene una precisión del"
+msgstr "Eraturiko paletaren zehaztasuna:"
 
 #: ulanguage.lng_palette_to
 msgid "Paleta a"
-msgstr "Paleta a"
+msgstr "Paleta >>>"
 
 #: ulanguage.lng_paste_image
 msgctxt "ulanguage.lng_paste_image"
 msgid "Pegar imagen"
-msgstr "Pegar imagen"
+msgstr "Irudia itsatsi"
 
 #: ulanguage.lng_pixels
 msgctxt "ulanguage.lng_pixels"
 msgid "Pixels"
-msgstr "Pixels"
+msgstr "piksel"
 
 #: ulanguage.lng_procesing_images
 msgid "Procesando imagen(es)"
-msgstr "Procesando imagen(es)"
+msgstr "Irudia(k) irekitzen"
 
 #: ulanguage.lng_properties_
 msgid "Propiedades"
-msgstr "Propiedades"
+msgstr "Ezaugarriak"
 
 #: ulanguage.lng_publisher_of_images
 msgid "Editor de imágenes"
-msgstr "Editor de imágenes"
+msgstr "Irudi sorgailua"
 
 #: ulanguage.lng_put_center
 msgid "Poner centro"
-msgstr "Poner centro"
+msgstr "Erdigunea jarri"
 
 #: ulanguage.lng_put_points_in_image
 msgid "Poner puntos en imagen"
-msgstr "Poner puntos en imagen"
+msgstr "Hautatu irudiaren k.-guneak"
 
 #: ulanguage.lng_put_real_center
 msgid "Poner centro real"
-msgstr "Poner centro real"
+msgstr "Irudiaren erdigunea zehaztu"
 
 #: ulanguage.lng_reload
 msgctxt "ulanguage.lng_reload"
 msgid "Recargar"
-msgstr "Recargar"
+msgstr "Birkargatu"
 
 #: ulanguage.lng_reload_images_from_directory
 msgid "Recargar imágenes de un directorio"
-msgstr "Recargar imágenes de un directorio"
+msgstr "Helbide batetik irudiak birkargatu"
 
 #: ulanguage.lng_reload_images_with_filter
 msgid "Recarga las imágenes con filtro"
-msgstr "Recarga las imágenes con filtro"
+msgstr "Irudiak iragazkiarekin birkargatzen ditu"
 
 #: ulanguage.lng_retry
 msgid "Reintentar"
-msgstr "Reintentar"
+msgstr "Berriz saiatu"
 
 #: ulanguage.lng_save
 msgid "Guardar"
-msgstr "Guardar"
+msgstr "Gorde"
 
 #: ulanguage.lng_save_as
 msgid "Guardar como ..."
-msgstr "Guardar como ..."
+msgstr "Gorde honela ..."
 
 #: ulanguage.lng_save_changes
 msgid "¿Guardar los cambios?"
-msgstr "¿Guardar los cambios?"
+msgstr "Aldaketak gorde nahi al dituzu?"
 
 #: ulanguage.lng_save_fpg
 msgid "Guardando FPG"
-msgstr "Guardando FPG"
+msgstr "FPGa gordetzen"
 
 #: ulanguage.lng_select_all
 msgctxt "ulanguage.lng_select_all"
 msgid "Seleccionar todo"
-msgstr "Seleccionar todo"
+msgstr "Hautatu guztia"
 
 #: ulanguage.lng_select_more_images_for_animate
 msgid "Debe seleccionar varias imágenes para hacer la animación"
-msgstr "Debe seleccionar varias imágenes para hacer la animación"
+msgstr "Irudiak biziarazteko bat baino gehiago aukeratu behar dituzu"
 
 #: ulanguage.lng_set_insertion_code_in_fpg
 msgid "Establece el código de insercción en el FPG"
-msgstr "Establece el código de insercción en el FPG"
+msgstr "FPGko ezartze-zenbakia zehaztu"
 
 #: ulanguage.lng_show_start_screen
 msgctxt "ulanguage.lng_show_start_screen"
 msgid "Mostrar pantalla de inicio"
-msgstr "Mostrar pantalla de inicio"
+msgstr "Sarrerako leihoa erakutsi"
 
 #: ulanguage.lng_size_of_icons
 msgid "Tamaño de iconos"
-msgstr "Tamaño de iconos"
+msgstr "Ikurren neurria"
 
 #: ulanguage.lng_sure_delete_allpoints
 msgid "¿Seguro que desea borrar todos los puntos de control?"
-msgstr "¿Seguro que desea borrar todos los puntos de control?"
+msgstr "Benetan nahi al duzu kontrol-gune guztiak ezabatzea?"
 
 #: ulanguage.lng_the_code_exists_or_not_its_valid
 msgid "El código ya existe o no es valido"
-msgstr "El código ya existe o no es valido"
+msgstr "Kodea lehen ere bazegoen, edo okerra da"
 
 #: ulanguage.lng_the_number_must_be_between_1_and_999_both_including
 msgid "El número debe estar entre 1 y 999 ambos incluidos"
-msgstr "El número debe estar entre 1 y 999 ambos incluidos"
+msgstr "Zenbakiak 1 eta 999 artekoa (biak barne) izan behar du"
 
 #: ulanguage.lng_time_between_image
 msgid "Tiempo entre imagen"
-msgstr "Tiempo entre imagen"
+msgstr "Irudi arteko tartea"
 
 #: ulanguage.lng_tools
-#, fuzzy
-#| msgid "Tools"
 msgctxt "ulanguage.lng_tools"
 msgid "Utilidades"
-msgstr "Utilidades"
+msgstr "Tresnak"
 
 #: ulanguage.lng_type_of_fpg
 msgid "Tipo de FPG"
-msgstr "Tipo de FPG"
+msgstr "FPG mota"
 
 #: ulanguage.lng_type_of_resource
 msgid "Tipo de recurso"
-msgstr "Tipo de recurso"
+msgstr "Baliabide mota"
 
 #: ulanguage.lng_unzip_fpg
 msgid "Descomprimiendo FPG"
-msgstr "Descomprimiendo FPG"
+msgstr "FPG trinkoa zabaltzen"
 
 #: ulanguage.lng_update_images
 msgid "Actualizando imagen(es)"
-msgstr "Actualizando imagen(es)"
+msgstr "Irudia(k) eguneratzen"
 
 #: ulanguage.lng_view
 msgctxt "ulanguage.lng_view"
 msgid "Ver"
-msgstr "Ver"
+msgstr "Ikusi"
 
 #: ulanguage.lng_view_palette
 msgid "Visualizar Paleta"
-msgstr "Visualizar Paleta"
+msgstr "Paleta erakutsi"
 
 #: ulanguage.lng_view_points_in_image
 msgid "Ver puntos de la imagen"
-msgstr "Ver puntos de la imagen"
+msgstr "Kontrol-gune guztiak erakutsi"
 
 #: ulanguage.lng_warning
 msgid "Aviso"
-msgstr "Aviso"
+msgstr "Oharra"
 
 #: ulanguage.lng_width
 msgctxt "ulanguage.lng_width"
 msgid "Ancho"
-msgstr "Ancho"
+msgstr "Zabal."
 
 #: ulanguage.lng_will_be_select_image
 msgid "Debe tener la imagen a editar seleccionada."
-msgstr "Debe tener la imagen a editar seleccionada."
+msgstr "Eraldatu nahi duzun irudia hautatuta egon behar da."
 
 #: ulanguage.lng_wrong_fpg
 msgid "Archivo FPG incorrecto"
-msgstr "Archivo FPG incorrecto"
+msgstr "FPG hau okerra da"
 
 #: ulanguage.lng_yes
 msgid "Si"
-msgstr "Si"
+msgstr "Bai"
 
 #: ulngconverter.lng_correct
 msgid "Fichero creado correctamente"
