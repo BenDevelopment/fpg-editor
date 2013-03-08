@@ -143,6 +143,37 @@ msgctxt "tfrmconfig.tsenviroment.caption"
 msgid "Entorno"
 msgstr "Ambiente"
 
+#: tfrmlanguageconverter.bcerrar.caption
+msgctxt "tfrmlanguageconverter.bcerrar.caption"
+msgid "&Cerrar"
+msgstr "Chiudere"
+
+#: tfrmlanguageconverter.bconvertir.caption
+msgid "C&onvertir"
+msgstr ""
+
+#: tfrmlanguageconverter.caption
+msgid "Conversor de ficheros de idioma"
+msgstr ""
+
+#: tfrmlanguageconverter.lblficheroantiguo.caption
+msgid "Archivo Antiguo:"
+msgstr ""
+
+#: tfrmlanguageconverter.lblficheronuevo.caption
+msgid "Archivo Nuevo:"
+msgstr ""
+
+#: tfrmlanguageconverter.sbficheroantiguo.caption
+msgctxt "tfrmlanguageconverter.sbficheroantiguo.caption"
+msgid ".."
+msgstr ""
+
+#: tfrmlanguageconverter.sbficheronuevo.caption
+msgctxt "tfrmlanguageconverter.sbficheronuevo.caption"
+msgid ".."
+msgstr ""
+
 #: tfrmmain.aabout.caption
 msgctxt "tfrmmain.aabout.caption"
 msgid "Acerca de ..."
@@ -172,6 +203,7 @@ msgid "[ CDIV ] http://cdiv.sourceforge.net/"
 msgstr "[ CDIV ] http://cdiv.sourceforge.net/"
 
 #: tfrmmain.aclose.caption
+msgctxt "tfrmmain.aclose.caption"
 msgid "&Cerrar"
 msgstr "Chiudere"
 
@@ -263,7 +295,9 @@ msgid "Paleta de colores"
 msgstr "Color Palette"
 
 #: tfrmmain.agemix.caption
-msgid "http://www.gemixstudio.com"
+#, fuzzy
+#| msgid "http://www.gemixstudio.com"
+msgid "[GEMIX] http://www.gemixstudio.com"
 msgstr "Error: Wrong language!"
 
 #: tfrmmain.ainvertsel.caption
@@ -275,6 +309,10 @@ msgstr "Inverte la selezione"
 msgctxt "TFRMMAIN.AINVERTSELIMGS.CAPTION"
 msgid "Invertir selección"
 msgstr "Inverte la selezione"
+
+#: tfrmmain.alngconver.caption
+msgid "Convertidor de lng"
+msgstr ""
 
 #: tfrmmain.aopenimg.caption
 msgctxt "TFRMMAIN.AOPENIMG.CAPTION"
@@ -321,20 +359,61 @@ msgstr " FPG (Ficheros de gráficos) "
 msgid " Imagenes "
 msgstr "Stock"
 
+#: tfrmmain.lvfpg.columns[0].caption
+msgctxt "tfrmmain.lvfpg.columns[0].caption"
+msgid "Código"
+msgstr ""
+
+#: tfrmmain.lvfpg.columns[1].caption
+msgctxt "tfrmmain.lvfpg.columns[1].caption"
+msgid "Nombre de Archivo"
+msgstr ""
+
+#: tfrmmain.lvfpg.columns[2].caption
+msgctxt "tfrmmain.lvfpg.columns[2].caption"
+msgid "Nombre"
+msgstr ""
+
+#: tfrmmain.lvfpg.columns[3].caption
+msgctxt "tfrmmain.lvfpg.columns[3].caption"
+msgid "Ancho"
+msgstr ""
+
+#: tfrmmain.lvfpg.columns[4].caption
+msgctxt "tfrmmain.lvfpg.columns[4].caption"
+msgid "Alto"
+msgstr ""
+
+#: tfrmmain.lvfpg.columns[5].caption
+msgctxt "tfrmmain.lvfpg.columns[5].caption"
+msgid "Puntos de control"
+msgstr ""
+
 #: tfrmmain.lvimages.columns[0].caption
-msgid "name"
+#, fuzzy
+#| msgid "name"
+msgctxt "tfrmmain.lvimages.columns[0].caption"
+msgid "Nombre"
 msgstr "nome"
 
 #: tfrmmain.lvimages.columns[1].caption
-msgid "width"
+#, fuzzy
+#| msgid "width"
+msgctxt "tfrmmain.lvimages.columns[1].caption"
+msgid "Ancho"
 msgstr "larghezza"
 
 #: tfrmmain.lvimages.columns[2].caption
-msgid "height"
+#, fuzzy
+#| msgid "height"
+msgctxt "tfrmmain.lvimages.columns[2].caption"
+msgid "Alto"
 msgstr "altezza"
 
 #: tfrmmain.lvimages.columns[3].caption
-msgid "bpp"
+#, fuzzy
+#| msgid "bpp"
+msgid "Bits Por Pixel"
 msgstr "BPP"
 
 #: tfrmmain.menuitem4.caption
@@ -383,13 +462,11 @@ msgctxt "tfrmmain.mifpglist.caption"
 msgid "Lista"
 msgstr "Elenco"
 
-#: tfrmmain.migemix.caption
-msgid "[Gemix] http://www.gemixstudio.com"
-msgstr "[Gemix] http://www.gemixstudio.com"
-
 #: tfrmmain.mihelp.caption
+#, fuzzy
+#| msgid "Help"
 msgctxt "tfrmmain.mihelp.caption"
-msgid "Help"
+msgid "Ayuda"
 msgstr "Aiuto"
 
 #: tfrmmain.mihideshowdirs.caption
@@ -398,8 +475,10 @@ msgid "Ocultar/Mostrar directorios"
 msgstr "Nascondi / Mostra le directory"
 
 #: tfrmmain.miimages.caption
+#, fuzzy
+#| msgid "Images"
 msgctxt "tfrmmain.miimages.caption"
-msgid "Images"
+msgid "Imágenes"
 msgstr "Immagini"
 
 #: tfrmmain.miimgdetails.caption
@@ -487,8 +566,10 @@ msgid "Mostrar/Ocultar panel superior"
 msgstr "Mostra / Nascondi pannello superiore"
 
 #: tfrmmain.mitools.caption
+#, fuzzy
+#| msgid "Tools"
 msgctxt "tfrmmain.mitools.caption"
-msgid "Tools"
+msgid "Herramientas"
 msgstr "Strumenti"
 
 #: tfrmmain.miviewfpg.caption
@@ -916,6 +997,7 @@ msgid "Cerrar"
 msgstr ""
 
 #: ulanguage.lng_code
+msgctxt "ulanguage.lng_code"
 msgid "Código"
 msgstr ""
 
@@ -936,6 +1018,7 @@ msgid "Comprimir archivo"
 msgstr ""
 
 #: ulanguage.lng_control_points
+msgctxt "ulanguage.lng_control_points"
 msgid "Puntos de control"
 msgstr ""
 
@@ -1073,6 +1156,7 @@ msgid "Archivo de lenguaje incorrecto."
 msgstr ""
 
 #: ulanguage.lng_file_name
+msgctxt "ulanguage.lng_file_name"
 msgid "Nombre de Archivo"
 msgstr ""
 
@@ -1108,6 +1192,7 @@ msgid "Debe seleccionar solamente una imagen."
 msgstr ""
 
 #: ulanguage.lng_height
+msgctxt "ulanguage.lng_height"
 msgid "Alto"
 msgstr ""
 
@@ -1203,6 +1288,7 @@ msgid "Modificar punto de control"
 msgstr ""
 
 #: ulanguage.lng_name
+msgctxt "ulanguage.lng_name"
 msgid "Nombre"
 msgstr ""
 
@@ -1419,8 +1505,9 @@ msgid "Aviso"
 msgstr ""
 
 #: ulanguage.lng_width
+msgctxt "ulanguage.lng_width"
 msgid "Ancho"
-msgstr ""
+msgstr "larghezza"
 
 #: ulanguage.lng_will_be_select_image
 msgid "Debe tener la imagen a editar seleccionada."
@@ -1432,5 +1519,17 @@ msgstr ""
 
 #: ulanguage.lng_yes
 msgid "Si"
+msgstr ""
+
+#: ulngconverter.lng_correct
+msgid "Fichero creado correctamente"
+msgstr ""
+
+#: ulngconverter.lng_file_no_exist
+msgid "No existe el fichero:"
+msgstr ""
+
+#: ulngconverter.lng_file_reference_no_exist
+msgid "No existe el fichero de referencia:"
 msgstr ""
 

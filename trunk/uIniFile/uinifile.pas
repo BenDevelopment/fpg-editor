@@ -77,6 +77,7 @@ var
  inifile_fnt_image,
  inifile_edge_image,
  inifile_shadow_image : string;
+ inifile_admin_tools: Integer;
  alpha_font, alpha_edge,alpha_shadow :integer;
 
  procedure load_inifile;
@@ -143,6 +144,7 @@ begin
   inifile_fnt_image    := '';
   inifile_edge_image   := '';
   inifile_shadow_image := '';
+  inifile_admin_tools := 0;
 
   write_inifile;
   
@@ -182,6 +184,7 @@ begin
   inifile_fnt_image     := inifile.ReadString (sFONT, 'FONT IMAGE'  , '');
   inifile_edge_image    := inifile.ReadString (sFONT, 'EDGE IMAGE'  , '');
   inifile_shadow_image  := inifile.ReadString (sFONT, 'SHADOW IMAGE', '');
+  inifile_admin_tools  := inifile.ReadInteger(sFONT, 'ADMIN TOOLS', 0);
 
   
   inifile.Destroy;
@@ -227,9 +230,10 @@ begin
   inifile.WriteString (sFONT, 'FONT IMAGE'  , inifile_fnt_image);
   inifile.WriteString (sFONT, 'EDGE IMAGE'  , inifile_edge_image);
   inifile.WriteString (sFONT, 'SHADOW IMAGE', inifile_shadow_image);
+  inifile.WriteInteger (sFONT, 'ADMIN TOOLS', inifile_admin_tools);
 
  
  inifile.Destroy;
 end;
 
-end.
+end.

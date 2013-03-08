@@ -1,5 +1,5 @@
 (*
- *  FPG EDIT : Edit FPG file from DIV2, FENIX and CDIV 
+ *  fpg-editor : Edit FPG file from DIV2, FENIX and CDIV
  *
  *
  *  This program is free software; you can redistribute it and/or modify
