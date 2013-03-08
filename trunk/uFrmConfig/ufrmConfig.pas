@@ -26,7 +26,7 @@ interface
 uses
   LCLIntf, LCLType, SysUtils, Classes, Graphics, Controls, Forms,
   StdCtrls, Buttons, ComCtrls, {Tabnotbk,} uinifile, Dialogs, uFrmMessageBox,
-  ExtCtrls, Spin, ColorBox,DefaultTranslator,Translations, GetText, FileUtil , LResources;
+  ExtCtrls, Spin, ColorBox, uLanguage;
 
 type
 
@@ -95,58 +95,6 @@ implementation
 
 {$R *.lfm}
 
-procedure SetDefaultLangByFile(Lang: string);
-
-var
-  Dot1: integer;
-  LCLPath: string;
-  LocalTranslator: TUpdateTranslator;
-  i: integer;
-  lcfn: string;
-
-begin
-  LocalTranslator := nil;
-  lcfn := lang;
-  // search first po translation resources
-   if (lcfn <> '') AND (ExtractFileExt(lcfn) = '.po') then
-   begin
-     Translations.TranslateResourceStrings(lcfn);
-     LCLPath := ExtractFileName(lcfn);
-     Dot1 := pos('.', LCLPath);
-     if Dot1 > 1 then
-     begin
-       Delete(LCLPath, 1, Dot1 - 1);
-       LCLPath := ExtractFilePath(lcfn) + 'lclstrconsts' + LCLPath;
-       Translations.TranslateUnitResourceStrings('LCLStrConsts', LCLPath);
-     end;
-     LocalTranslator := TPOTranslator.Create(lcfn);
-   end;
-
-   // search mo translation resources
-  if (lcfn<>'') and (ExtractFileExt(lcfn) = '.mo') then
-  begin
-      GetText.TranslateResourceStrings(UTF8ToSys(lcfn));
-      LCLPath := ExtractFileName(lcfn);
-      Dot1 := pos('.', LCLPath);
-      if Dot1 > 1 then
-      begin
-        Delete(LCLPath, 1, Dot1 - 1);
-        LCLPath := ExtractFilePath(lcfn) + 'lclstrconsts' + LCLPath;
-        if FileExistsUTF8(LCLPath) then
-          GetText.TranslateResourceStrings(UTF8ToSys(LCLPath));
-      end;
-      LocalTranslator := TDefaultTranslator.Create(lcfn);
-  end;
-
-  if LocalTranslator<>nil then
-  begin
-    if Assigned(LRSTranslator) then
-      LRSTranslator.Free;
-    LRSTranslator := LocalTranslator;
-    for i := 0 to Screen.CustomFormCount-1 do
-      LocalTranslator.UpdateTranslation(Screen.CustomForms[i]);
-  end;
-end;
 
 procedure TfrmConfig._set_lng;
 begin

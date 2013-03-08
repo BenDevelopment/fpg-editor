@@ -1,28 +1,20 @@
 msgid ""
-msgstr ""
-"PO-Revision-Date: 2013-03-08 13:01+0200\n"
-"Last-Translator: dcelso>\n"
-"Language-Team: debian wheezy\n"
-"Language: en\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
+msgstr "Content-Type: text/plain; charset=UTF-8"
 
 #: tform2.aabrir.caption
-msgctxt "tform2.aabrir.caption"
+msgctxt "TFORM2.AABRIR.CAPTION"
 msgid "Abrir"
-msgstr "Open"
+msgstr "Abrir"
 
 #: tform2.acopiar.caption
 msgctxt "tform2.acopiar.caption"
 msgid "Copiar"
-msgstr "Copy"
+msgstr "Copiar\""
 
 #: tform2.aguardar.caption
-msgctxt "tform2.aguardar.caption"
+msgctxt "TFORM2.AGUARDAR.CAPTION"
 msgid "Guardar"
-msgstr "Save"
+msgstr "Salvar"
 
 #: tform2.apegar.caption
 msgctxt "tform2.apegar.caption"
@@ -30,12 +22,12 @@ msgid "Pegar"
 msgstr "Paste"
 
 #: tform2.aunir.caption
-msgctxt "tform2.aunir.caption"
+msgctxt "TFORM2.AUNIR.CAPTION"
 msgid "Unir"
 msgstr "Merge"
 
 #: tform2.button1.caption
-msgctxt "tform2.button1.caption"
+msgctxt "TFORM2.BUTTON1.CAPTION"
 msgid "Ayuda"
 msgstr "Help"
 
@@ -45,9 +37,9 @@ msgid "Unir"
 msgstr "Merge"
 
 #: tform2.button3.caption
-msgctxt "tform2.button3.caption"
+msgctxt "TFORM2.BUTTON3.CAPTION"
 msgid "Guardar"
-msgstr "Save"
+msgstr "Salvar"
 
 #: tform2.caption
 msgid "Form2"
@@ -61,51 +53,51 @@ msgstr "in"
 #: tform2.groupbox1.caption
 msgctxt "tform2.groupbox1.caption"
 msgid "Archivo Original"
-msgstr "Original File"
+msgstr "Arquivo Original"
 
 #: tform2.groupbox2.caption
 msgctxt "tform2.groupbox2.caption"
 msgid "Archivo Traducido"
-msgstr "File Translated"
+msgstr "Arquivo Traduzido"
 
 #: tform2.label1.caption
 msgctxt "tform2.label1.caption"
 msgid "Siglas lng:"
-msgstr "lng Acronyms"
+msgstr "lng Siglas"
 
 #: tform2.menuitem1.caption
 msgctxt "tform2.menuitem1.caption"
 msgid "Archivo"
-msgstr "File"
+msgstr ""
 
 #: tform2.menuitem4.caption
-msgctxt "tform2.menuitem4.caption"
+msgctxt "TFORM2.MENUITEM4.CAPTION"
 msgid "Salir"
-msgstr "Leave"
+msgstr "Exit"
 
 #: tform2.menuitem5.caption
 msgctxt "tform2.menuitem5.caption"
 msgid "Acciones"
-msgstr "Actions"
+msgstr "Ações"
 
 #: tfrmabout.button1.caption
 msgid "Ok"
 msgstr "Ok"
 
 #: tfrmabout.caption
-msgctxt "tfrmabout.caption"
+msgctxt "TFRMABOUT.CAPTION"
 msgid "Acerca de ..."
-msgstr "About as ..."
+msgstr "Sobre ..."
 
 #: tfrmabout.tscharacteristic.caption
 msgctxt "tfrmabout.tscharacteristic.caption"
 msgid "Caracteristicas"
-msgstr "Characteristic"
+msgstr "Recursos"
 
 #: tfrmabout.tscredits.caption
 msgctxt "tfrmabout.tscredits.caption"
 msgid "Creditos"
-msgstr "Credits"
+msgstr "créditos"
 
 #: tfrmabout.tsdescription.caption
 msgid "Descripcion"
@@ -113,94 +105,94 @@ msgstr "Description"
 
 #: tfrmcfg.caption
 msgid "Configuración del generador de fuentes"
-msgstr "Font Generator Configuration"
+msgstr "Definir Gerador de Font"
 
 #: tfrmcfg.gbpaleta.caption
 msgctxt "tfrmcfg.gbpaleta.caption"
 msgid "Paleta de 256 colores"
-msgstr "Palette of 256 colors"
+msgstr "paleta de 256 cores"
 
 #: tfrmcfg.rbfnt2pal.caption
 msgid "Calcular paleta optimizada a los colores de la fuente"
-msgstr "Calculate optimized palette colors of the source"
+msgstr "Calcular paleta otimizada para as cores da fonte"
 
 #: tfrmcfg.rbpal2fnt.caption
 msgid "Adaptar fuente a la paleta cargada"
-msgstr "Adapt to the palette loaded source"
+msgstr "Ajustar paleta fonte carregado"
 
 #: tfrmcfg.sbaccept.caption
 msgctxt "tfrmcfg.sbaccept.caption"
 msgid "&Aceptar"
-msgstr "Accept"
+msgstr "& OK"
 
 #: tfrmcfg.sbcancel.caption
 msgctxt "tfrmcfg.sbcancel.caption"
 msgid "&Cancelar"
-msgstr "Cancel"
+msgstr "& Cancelar"
 
 #: tfrmcfg.sbloadpal.caption
 msgid "&Cargar paleta"
-msgstr "&Load Palette"
+msgstr "Load & Palette"
 
 #: tfrmcfg.sbviewpal.caption
 msgid "&Ver paleta"
-msgstr "&View palette"
+msgstr "View & paleta"
 
 #: tfrmconfig.bbacept.caption
 msgctxt "TFRMCONFIG.BBACEPT.CAPTION"
 msgid "&Aceptar"
-msgstr "Accept"
+msgstr "& OK"
 
 #: tfrmconfig.bbcancel.caption
 msgctxt "TFRMCONFIG.BBCANCEL.CAPTION"
 msgid "&Cancelar"
-msgstr "Cancel"
+msgstr "& Cancelar"
 
 #: tfrmconfig.caption
 msgid "Configuración de FPG EDIT"
-msgstr "Configuration of FPGEDIT"
+msgstr "Definir FPG EDIT"
 
 #: tfrmconfig.cbalfanegro.caption
 msgid "50% alfa a transparente"
-msgstr "50% alpha transparent"
+msgstr "alpha 50% transparente"
 
 #: tfrmconfig.cbautoloadimages.caption
 msgid "Auto carga de imágenes"
-msgstr "Auto load images"
+msgstr "Carregar Imagens Auto"
 
 #: tfrmconfig.cbautoloadremove.caption
 msgid "cbAutoloadRemove"
-msgstr "Remove Autoload cb"
+msgstr "cbAutoloadRemove"
 
 #: tfrmconfig.cbflat.caption
 msgid "Botones tipo \"flat\""
-msgstr "Botones tipo \"flat\""
+msgstr "tipo Botões \" plano  \""
 
 #: tfrmconfig.cbsplash.caption
 msgctxt "tfrmconfig.cbsplash.caption"
 msgid "Mostrar pantalla de inicio"
-msgstr "Show start screen"
+msgstr "tela Show"
 
 #: tfrmconfig.gbenviroment.caption
 msgid "gbEnviroment"
-msgstr "Environment gb"
+msgstr "gbEnviroment"
 
 #: tfrmconfig.gbimageedit.caption
 msgid " Editor de imágenes "
-msgstr "Image Editor"
+msgstr "Editor de Imagem"
 
 #: tfrmconfig.gblanguaje.caption
 msgctxt "tfrmconfig.gblanguaje.caption"
 msgid "Lenguaje"
-msgstr "Language"
+msgstr "Idioma"
 
 #: tfrmconfig.gbtimeanimate.caption
 msgid " Tiempo entre animación "
-msgstr "Time between animation"
+msgstr "Atraso entre animação"
 
 #: tfrmconfig.groupbox1.caption
 msgid "Viewer Background Colors"
-msgstr "Viewer Background Colors"
+msgstr "Visualizador de Cor de Fundo"
 
 #: tfrmconfig.label1.caption
 msgctxt "tfrmconfig.label1.caption"
@@ -209,12 +201,12 @@ msgstr "FPG"
 
 #: tfrmconfig.label2.caption
 msgid "Files"
-msgstr "Files"
+msgstr "Arquivos"
 
 #: tfrmconfig.lbmiliseconds.caption
 msgctxt "tfrmconfig.lbmiliseconds.caption"
 msgid "Milisegundos"
-msgstr "Milliseconds"
+msgstr "milissegundos"
 
 #: tfrmconfig.lbpixels.caption
 msgctxt "tfrmconfig.lbpixels.caption"
@@ -223,52 +215,52 @@ msgstr "Pixels"
 
 #: tfrmconfig.lbsizeoficon.caption
 msgid "Tamaño de los iconos:"
-msgstr "Size of the icons:"
+msgstr "Tamanho do ícone"
 
 #: tfrmconfig.tsenviroment.caption
 msgctxt "tfrmconfig.tsenviroment.caption"
 msgid "Entorno"
-msgstr "Enviroment"
+msgstr "Meio Ambiente"
 
 #: tfrmlangtranslator.aabrir.caption
-msgctxt "tfrmlangtranslator.aabrir.caption"
+msgctxt "TFRMLANGTRANSLATOR.AABRIR.CAPTION"
 msgid "Abrir"
-msgstr "Open"
+msgstr "Abrir"
 
 #: tfrmlangtranslator.acopiar.caption
-msgctxt "tfrmlangtranslator.acopiar.caption"
+msgctxt "TFRMLANGTRANSLATOR.ACOPIAR.CAPTION"
 msgid "Copiar"
-msgstr "Copy"
+msgstr "Copiar"
 
 #: tfrmlangtranslator.aguardar.caption
-msgctxt "tfrmlangtranslator.aguardar.caption"
+msgctxt "TFRMLANGTRANSLATOR.AGUARDAR.CAPTION"
 msgid "Guardar"
-msgstr "Save"
+msgstr "Salvar"
 
 #: tfrmlangtranslator.apegar.caption
-msgctxt "tfrmlangtranslator.apegar.caption"
+msgctxt "TFRMLANGTRANSLATOR.APEGAR.CAPTION"
 msgid "Pegar"
 msgstr "Paste"
 
 #: tfrmlangtranslator.aunir.caption
-msgctxt "tfrmlangtranslator.aunir.caption"
+msgctxt "TFRMLANGTRANSLATOR.AUNIR.CAPTION"
 msgid "Unir"
 msgstr "Merge"
 
 #: tfrmlangtranslator.button1.caption
-msgctxt "tfrmlangtranslator.button1.caption"
+msgctxt "TFRMLANGTRANSLATOR.BUTTON1.CAPTION"
 msgid "Ayuda"
 msgstr "Help"
 
 #: tfrmlangtranslator.button2.caption
-msgctxt "tfrmlangtranslator.button2.caption"
+msgctxt "TFRMLANGTRANSLATOR.BUTTON2.CAPTION"
 msgid "Unir"
 msgstr "Merge"
 
 #: tfrmlangtranslator.button3.caption
-msgctxt "tfrmlangtranslator.button3.caption"
+msgctxt "TFRMLANGTRANSLATOR.BUTTON3.CAPTION"
 msgid "Guardar"
-msgstr "Save"
+msgstr "Salvar"
 
 #: tfrmlangtranslator.caption
 msgctxt "tfrmlangtranslator.caption"
@@ -281,24 +273,24 @@ msgid "http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes"
 msgstr ""
 
 #: tfrmlangtranslator.edit1.text
-msgctxt "tfrmlangtranslator.edit1.text"
+msgctxt "TFRMLANGTRANSLATOR.EDIT1.TEXT"
 msgid "en"
 msgstr "in"
 
 #: tfrmlangtranslator.groupbox1.caption
-msgctxt "tfrmlangtranslator.groupbox1.caption"
+msgctxt "TFRMLANGTRANSLATOR.GROUPBOX1.CAPTION"
 msgid "Archivo Original"
-msgstr "Original File"
+msgstr "Arquivo Original"
 
 #: tfrmlangtranslator.groupbox2.caption
-msgctxt "tfrmlangtranslator.groupbox2.caption"
+msgctxt "TFRMLANGTRANSLATOR.GROUPBOX2.CAPTION"
 msgid "Archivo Traducido"
-msgstr "File Translated"
+msgstr "Arquivo Traduzido"
 
 #: tfrmlangtranslator.label1.caption
-msgctxt "tfrmlangtranslator.label1.caption"
+msgctxt "TFRMLANGTRANSLATOR.LABEL1.CAPTION"
 msgid "Siglas lng:"
-msgstr "lng Acronyms"
+msgstr "lng Siglas"
 
 #: tfrmlangtranslator.label1.hint
 msgctxt "tfrmlangtranslator.label1.hint"
@@ -306,24 +298,24 @@ msgid "http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes"
 msgstr ""
 
 #: tfrmlangtranslator.menuitem1.caption
-msgctxt "tfrmlangtranslator.menuitem1.caption"
+msgctxt "TFRMLANGTRANSLATOR.MENUITEM1.CAPTION"
 msgid "Archivo"
-msgstr "File"
+msgstr "Arquivo"
 
 #: tfrmlangtranslator.menuitem4.caption
-msgctxt "tfrmlangtranslator.menuitem4.caption"
+msgctxt "TFRMLANGTRANSLATOR.MENUITEM4.CAPTION"
 msgid "Salir"
-msgstr "Leave"
+msgstr "Exit"
 
 #: tfrmlangtranslator.menuitem5.caption
-msgctxt "tfrmlangtranslator.menuitem5.caption"
+msgctxt "TFRMLANGTRANSLATOR.MENUITEM5.CAPTION"
 msgid "Acciones"
-msgstr "Actions"
+msgstr "Ações"
 
 #: tfrmlanguageconverter.bcerrar.caption
-msgctxt "tfrmlanguageconverter.bcerrar.caption"
+msgctxt "TFRMLANGUAGECONVERTER.BCERRAR.CAPTION"
 msgid "&Cerrar"
-msgstr "Close"
+msgstr "Close &"
 
 #: tfrmlanguageconverter.bconvertir.caption
 msgid "C&onvertir"
@@ -331,15 +323,15 @@ msgstr "C & onvert"
 
 #: tfrmlanguageconverter.caption
 msgid "Conversor de ficheros de idioma"
-msgstr "Languages File Converter"
+msgstr "conversor de arquivos de idiomas"
 
 #: tfrmlanguageconverter.lblficheroantiguo.caption
 msgid "Archivo Antiguo:"
-msgstr "Old file:"
+msgstr ""
 
 #: tfrmlanguageconverter.lblficheronuevo.caption
 msgid "Archivo Nuevo:"
-msgstr "New file"
+msgstr "Novo Arquivo"
 
 #: tfrmlanguageconverter.sbficheroantiguo.caption
 msgctxt "tfrmlanguageconverter.sbficheroantiguo.caption"
@@ -347,29 +339,29 @@ msgid ".."
 msgstr ".."
 
 #: tfrmlanguageconverter.sbficheronuevo.caption
-msgctxt "tfrmlanguageconverter.sbficheronuevo.caption"
+msgctxt "TFRMLANGUAGECONVERTER.SBFICHERONUEVO.CAPTION"
 msgid ".."
 msgstr ".."
 
 #: tfrmmain.aabout.caption
 msgctxt "tfrmmain.aabout.caption"
 msgid "Acerca de ..."
-msgstr "About ..."
+msgstr "Sobre ..."
 
 #: tfrmmain.aaddimg.caption
 msgctxt "tfrmmain.aaddimg.caption"
 msgid "Añadir"
-msgstr "Add"
+msgstr "Adicionar"
 
 #: tfrmmain.aanimfpg.caption
 msgctxt "TFRMMAIN.AANIMFPG.CAPTION"
 msgid "Animar"
-msgstr "Animate"
+msgstr "Animar"
 
 #: tfrmmain.aanimimgs.caption
 msgctxt "tfrmmain.aanimimgs.caption"
 msgid "Animar"
-msgstr "Encourage"
+msgstr "Animar"
 
 #: tfrmmain.abennu.caption
 msgid "[BennuGD] http://bennugd.org/"
@@ -377,53 +369,53 @@ msgstr "[BennuGD] http://bennugd.org/"
 
 #: tfrmmain.acdiv.caption
 msgid "[ CDIV ] http://cdiv.sourceforge.net/"
-msgstr "[ CDIV ] http://cdiv.sourceforge.net/"
+msgstr "[CDIV] http://cdiv.sourceforge.net/"
 
 #: tfrmmain.aclose.caption
 msgctxt "tfrmmain.aclose.caption"
 msgid "&Cerrar"
-msgstr "Close"
+msgstr "Close &"
 
 #: tfrmmain.aconfig.caption
 msgid "Configuración"
-msgstr "Configuration"
+msgstr "Configurações"
 
 #: tfrmmain.acopyimg.caption
 msgid "Copiar Imagen"
-msgstr "Image Copy"
+msgstr "Copiar Imagem"
 
 #: tfrmmain.action2.caption
 msgid "Action2"
-msgstr "Action 2"
+msgstr "action2"
 
 #: tfrmmain.adelete.caption
 msgctxt "tfrmmain.adelete.caption"
 msgid "Eliminar"
-msgstr "Delete"
+msgstr "Excluir"
 
 #: tfrmmain.adeleteselimg.caption
 msgctxt "TFRMMAIN.ADELETESELIMG.CAPTION"
 msgid "Eliminar"
-msgstr "Remove"
+msgstr "Excluir"
 
 #: tfrmmain.adiv2.caption
 msgid "[ DIV2 ] http://www.div-arena.com/"
-msgstr "[ DIV2 ] http://www.div-arena.com/"
+msgstr "[DIV2] http://www.div-arena.com/"
 
 #: tfrmmain.aeditsel.caption
 msgctxt "tfrmmain.aeditsel.caption"
 msgid "Editar"
-msgstr "Edit"
+msgstr "Editar"
 
 #: tfrmmain.aeditselimg.caption
 msgctxt "TFRMMAIN.AEDITSELIMG.CAPTION"
 msgid "Editar"
-msgstr "Edit"
+msgstr "Editar"
 
 #: tfrmmain.aempty.caption
 msgctxt "tfrmmain.aempty.caption"
 msgid "Vaciar portapapeles"
-msgstr "Clear clipboard"
+msgstr "Área de Transferência Empty"
 
 #: tfrmmain.aexit.caption
 msgctxt "tfrmmain.aexit.caption"
@@ -437,11 +429,11 @@ msgstr "Export"
 
 #: tfrmmain.afenix.caption
 msgid "[ FENIX ] http://fenix.divsite.net/"
-msgstr "[ FENIX ] http://fenix.divsite.net/"
+msgstr "[Phoenix] http://fenix.divsite.net/"
 
 #: tfrmmain.afntmaker.caption
 msgid "&Generador de Fuentes"
-msgstr "Power Generator"
+msgstr "& Fontes gerador"
 
 #: tfrmmain.afpg1.caption
 msgid "1 Bit"
@@ -449,11 +441,11 @@ msgstr "1 Bit"
 
 #: tfrmmain.afpg16c.caption
 msgid "16bits CDIV"
-msgstr "16 bits CDIV"
+msgstr "16bits CDIV"
 
 #: tfrmmain.afpg16f.caption
 msgid "16 bits Fenix"
-msgstr "16 bits Fenix"
+msgstr "Fenix ​​16 bits"
 
 #: tfrmmain.afpg24.caption
 msgid "24 bits"
@@ -461,7 +453,7 @@ msgstr "24 bits"
 
 #: tfrmmain.afpg32.caption
 msgid "32 bits"
-msgstr "32 bits"
+msgstr "32-bit"
 
 #: tfrmmain.afpg8.caption
 msgid "8 bits"
@@ -469,36 +461,35 @@ msgstr "8 bits"
 
 #: tfrmmain.afpgpalette.caption
 msgid "Paleta de colores"
-msgstr "Color Palette"
+msgstr "Paleta de Cores"
 
 #: tfrmmain.agemix.caption
-#| msgid "http://www.gemixstudio.com"
 msgid "[GEMIX] http://www.gemixstudio.com"
-msgstr "[GEMIX] http://www.gemixstudio.com"
+msgstr "[Gemix] http://www.gemixstudio.com"
 
 #: tfrmmain.ainvertsel.caption
 msgctxt "tfrmmain.ainvertsel.caption"
 msgid "Invertir selección"
-msgstr "Invert selection"
+msgstr "Inverter Seleção"
 
 #: tfrmmain.ainvertselimgs.caption
 msgctxt "TFRMMAIN.AINVERTSELIMGS.CAPTION"
 msgid "Invertir selección"
-msgstr "Invert selection"
+msgstr "Inverter Seleção"
 
 #: tfrmmain.alngconver.caption
 msgid "Convertidor de lng"
-msgstr "Lng Converter"
+msgstr "lng Converter"
 
 #: tfrmmain.aopenimg.caption
 msgctxt "TFRMMAIN.AOPENIMG.CAPTION"
 msgid "Abrir"
-msgstr "Open"
+msgstr "Abrir"
 
 #: tfrmmain.apasteimg.caption
 msgctxt "tfrmmain.apasteimg.caption"
 msgid "Pegar imagen"
-msgstr "Paste image"
+msgstr "Imagem Paste"
 
 #: tfrmmain.areload.caption
 msgctxt "tfrmmain.areload.caption"
@@ -508,85 +499,81 @@ msgstr "Reload"
 #: tfrmmain.aselectall.caption
 msgctxt "tfrmmain.aselectall.caption"
 msgid "Seleccionar todo"
-msgstr "Select all"
+msgstr "Selecionar Tudo"
 
 #: tfrmmain.aselectallimgs.caption
 msgctxt "TFRMMAIN.ASELECTALLIMGS.CAPTION"
 msgid "Seleccionar todo"
-msgstr "Select All"
+msgstr "Selecionar Tudo"
 
 #: tfrmmain.aziptool.caption
 msgid "&Herramienta de Compresión"
-msgstr "Compression Tool"
+msgstr "Compressão de ferramentas"
 
 #: tfrmmain.caption
 msgid "FPG Editor"
-msgstr "FPG Editor"
+msgstr "Editor de FPG"
 
 #: tfrmmain.cbtipofpg.text
 msgid "FPG 32 bits (BennuGD )"
-msgstr "FPG 32 bits (BennuGD )"
+msgstr "FPG 32 bits (BennuGD)"
 
 #: tfrmmain.gbfpg.caption
 msgid " FPG (Ficheros de gráficos) "
-msgstr " FPG (Graphics File) "
+msgstr "FPG (arquivos gráficos)"
 
 #: tfrmmain.gbimages.caption
 msgid " Imagenes "
-msgstr "Images"
+msgstr "Imagens"
 
 #: tfrmmain.lvfpg.columns[0].caption
-msgctxt "tfrmmain.lvfpg.columns[0].caption"
+msgctxt "TFRMMAIN.LVFPG.COLUMNS[0].CAPTION"
 msgid "Código"
-msgstr "Code"
+msgstr "Código"
 
 #: tfrmmain.lvfpg.columns[1].caption
-msgctxt "tfrmmain.lvfpg.columns[1].caption"
+msgctxt "TFRMMAIN.LVFPG.COLUMNS[1].CAPTION"
 msgid "Nombre de Archivo"
-msgstr "File Name"
+msgstr ""
 
 #: tfrmmain.lvfpg.columns[2].caption
-msgctxt "tfrmmain.lvfpg.columns[2].caption"
+msgctxt "TFRMMAIN.LVFPG.COLUMNS[2].CAPTION"
 msgid "Nombre"
-msgstr "Name"
+msgstr ""
 
 #: tfrmmain.lvfpg.columns[3].caption
-msgctxt "tfrmmain.lvfpg.columns[3].caption"
+msgctxt "TFRMMAIN.LVFPG.COLUMNS[3].CAPTION"
 msgid "Ancho"
-msgstr "Width"
+msgstr "Largura"
 
 #: tfrmmain.lvfpg.columns[4].caption
-msgctxt "tfrmmain.lvfpg.columns[4].caption"
+msgctxt "TFRMMAIN.LVFPG.COLUMNS[4].CAPTION"
 msgid "Alto"
-msgstr "Height"
+msgstr "Alto"
 
 #: tfrmmain.lvfpg.columns[5].caption
-msgctxt "tfrmmain.lvfpg.columns[5].caption"
+msgctxt "TFRMMAIN.LVFPG.COLUMNS[5].CAPTION"
 msgid "Puntos de control"
-msgstr "Control points"
+msgstr "pontos de controle"
 
 #: tfrmmain.lvimages.columns[0].caption
-#| msgid "name"
 msgctxt "tfrmmain.lvimages.columns[0].caption"
 msgid "Nombre"
-msgstr "name"
+msgstr ""
 
 #: tfrmmain.lvimages.columns[1].caption
-#| msgid "width"
 msgctxt "tfrmmain.lvimages.columns[1].caption"
 msgid "Ancho"
-msgstr "width"
+msgstr "Largura"
 
 #: tfrmmain.lvimages.columns[2].caption
-#| msgid "height"
 msgctxt "tfrmmain.lvimages.columns[2].caption"
 msgid "Alto"
-msgstr "height"
+msgstr "Alto"
 
 #: tfrmmain.lvimages.columns[3].caption
-#| msgid "bpp"
 msgid "Bits Por Pixel"
-msgstr "bpp"
+msgstr "bits por pixel"
 
 #: tfrmmain.menuitem4.caption
 msgctxt "TFRMMAIN.MENUITEM4.CAPTION"
@@ -595,7 +582,7 @@ msgstr "-"
 
 #: tfrmmain.miaddimgs.caption
 msgid "Añadir selección"
-msgstr "Add selection"
+msgstr "Adicionar seleção"
 
 #: tfrmmain.miconvert.caption
 msgid "Convertir a"
@@ -603,16 +590,16 @@ msgstr "Convert to"
 
 #: tfrmmain.mideletesel.caption
 msgid "Eliminar selección"
-msgstr "Remove Selection"
+msgstr "Remover seleção"
 
 #: tfrmmain.mieditsel.caption
 msgctxt "tfrmmain.mieditsel.caption"
 msgid "Editar selección"
-msgstr "Edit selection"
+msgstr "Editar Seleção"
 
 #: tfrmmain.mieditselimg.caption
 msgid "Editar seleccion"
-msgstr "Edit selection"
+msgstr "Editar Seleção"
 
 #: tfrmmain.mifpg.caption
 msgctxt "TFRMMAIN.MIFPG.CAPTION"
@@ -622,20 +609,19 @@ msgstr "FPG"
 #: tfrmmain.mifpgdetails.caption
 msgctxt "tfrmmain.mifpgdetails.caption"
 msgid "Detalles"
-msgstr "Details"
+msgstr "Detalhes"
 
 #: tfrmmain.mifpgimages.caption
 msgctxt "tfrmmain.mifpgimages.caption"
 msgid "Imágenes"
-msgstr "Images"
+msgstr "Imagens"
 
 #: tfrmmain.mifpglist.caption
 msgctxt "tfrmmain.mifpglist.caption"
 msgid "Lista"
-msgstr "List"
+msgstr ""
 
 #: tfrmmain.mihelp.caption
-#| msgid "Help"
 msgctxt "tfrmmain.mihelp.caption"
 msgid "Ayuda"
 msgstr "Help"
@@ -643,43 +629,42 @@ msgstr "Help"
 #: tfrmmain.mihideshowdirs.caption
 msgctxt "tfrmmain.mihideshowdirs.caption"
 msgid "Ocultar/Mostrar directorios"
-msgstr "Hide/Show directories"
+msgstr "Ocultar / Mostrar diretórios"
 
 #: tfrmmain.miimages.caption
-#| msgid "Images"
 msgctxt "tfrmmain.miimages.caption"
 msgid "Imágenes"
-msgstr "Images"
+msgstr "Imagens"
 
 #: tfrmmain.miimgdetails.caption
 msgctxt "TFRMMAIN.MIIMGDETAILS.CAPTION"
 msgid "Detalles"
-msgstr "Details"
+msgstr "Detalhes"
 
 #: tfrmmain.miimgimages.caption
 msgctxt "TFRMMAIN.MIIMGIMAGES.CAPTION"
 msgid "Imágenes"
-msgstr "Imagery"
+msgstr "Imagens"
 
 #: tfrmmain.miimglist.caption
 msgctxt "TFRMMAIN.MIIMGLIST.CAPTION"
 msgid "Lista"
-msgstr "List"
+msgstr ""
 
 #: tfrmmain.milangtranslator.caption
 msgctxt "tfrmmain.milangtranslator.caption"
 msgid "Traductor de Idiomas"
-msgstr "Language Translator"
+msgstr ""
 
 #: tfrmmain.minew.caption
 msgctxt "tfrmmain.minew.caption"
 msgid "Nuevo"
-msgstr "New"
+msgstr "Novo"
 
 #: tfrmmain.miopen.caption
 msgctxt "TFRMMAIN.MIOPEN.CAPTION"
 msgid "Abrir"
-msgstr "Open"
+msgstr "Abrir"
 
 #: tfrmmain.miseparator1.caption
 msgctxt "TFRMMAIN.MISEPARATOR1.CAPTION"
@@ -738,17 +723,16 @@ msgstr "-"
 
 #: tfrmmain.mishowhideuppanel.caption
 msgid "Mostrar/Ocultar panel superior"
-msgstr "Show / Hide top panel"
+msgstr "Mostrar / Ocultar painel de topo"
 
 #: tfrmmain.mitools.caption
-#| msgid "Tools"
 msgctxt "tfrmmain.mitools.caption"
 msgid "Herramientas"
-msgstr "Tools"
+msgstr "Ferramentas"
 
 #: tfrmmain.miviewfpg.caption
 msgid "&Ver"
-msgstr "& See"
+msgstr "Ver &"
 
 #: tfrmmain.miviewimg.caption
 msgctxt "tfrmmain.miviewimg.caption"
@@ -772,7 +756,7 @@ msgstr "-"
 
 #: tfrmmain.pfpgcode.caption
 msgid "Código de FPG"
-msgstr "FPG Code"
+msgstr "Código FPG"
 
 #: tfrmmain.pimageslist.caption
 msgid "pImagesList"
@@ -780,21 +764,21 @@ msgstr "pImagesList"
 
 #: tfrmmain.ppcopyimage.caption
 msgid "&Copiar al portapapeles"
-msgstr "Copy to clipboard"
+msgstr "Copiar e para área de transferência"
 
 #: tfrmmain.ppfpgopen.caption
 msgctxt "tfrmmain.ppfpgopen.caption"
 msgid "Abrir"
-msgstr "Open"
+msgstr "Abrir"
 
 #: tfrmmainfnt.bgsize.caption
 msgctxt "tfrmmainfnt.bgsize.caption"
 msgid "Tamaño"
-msgstr "Size"
+msgstr "Tamanho"
 
 #: tfrmmainfnt.caption
 msgid "Generador de fuentes"
-msgstr "Font Generator"
+msgstr "Gerador de Font"
 
 #: tfrmmainfnt.cbcharset.text
 msgid "ISO8859_15"
@@ -806,15 +790,15 @@ msgstr "Extended"
 
 #: tfrmmainfnt.cbminus.caption
 msgid "Minúsculas"
-msgstr "Lowercase"
+msgstr "Tiny"
 
 #: tfrmmainfnt.cbnumbers.caption
 msgid "Números"
-msgstr "Numbers"
+msgstr "Números"
 
 #: tfrmmainfnt.cbsymbol.caption
 msgid "Símbolos"
-msgstr "Symbols"
+msgstr "Símbolos"
 
 #: tfrmmainfnt.cbupper.caption
 msgid "Mayúsculas"
@@ -831,83 +815,83 @@ msgstr "Charset"
 #: tfrmmainfnt.gbedge.caption
 msgctxt "TFRMMAINFNT.GBEDGE.CAPTION"
 msgid "Reborde"
-msgstr "Flange"
+msgstr "flange"
 
 #: tfrmmainfnt.gbfont.caption
 msgid "Fuente en FNT"
-msgstr "Source in FNT"
+msgstr "Fonte de FNT"
 
 #: tfrmmainfnt.gbloadfont.caption
 msgid "Nombre de la fuente"
-msgstr "Font name"
+msgstr ""
 
 #: tfrmmainfnt.gbselectcolor.caption
 msgid "Selección de colores"
-msgstr "Choosing colors"
+msgstr "Escolha de cores"
 
 #: tfrmmainfnt.gbshadow.caption
 msgctxt "TFRMMAINFNT.GBSHADOW.CAPTION"
 msgid "Sombra"
-msgstr "Shadow"
+msgstr "Sombra"
 
 #: tfrmmainfnt.gbstyle.caption
 msgid "Estilo"
-msgstr "Style"
+msgstr "Estilo"
 
 #: tfrmmainfnt.gbsymboltype.caption
 msgid "Contenido"
-msgstr "Content"
+msgstr "Conteúdo"
 
 #: tfrmmainfnt.label1.caption
 msgctxt "TFRMMAINFNT.LABEL1.CAPTION"
 msgid "Alfa"
-msgstr "Alpha"
+msgstr "Alfa"
 
 #: tfrmmainfnt.label2.caption
 msgctxt "TFRMMAINFNT.LABEL2.CAPTION"
 msgid "Alfa"
-msgstr "Alpha"
+msgstr "Alfa"
 
 #: tfrmmainfnt.label3.caption
 msgid "Mostrar texto:"
-msgstr "Display text:"
+msgstr "Mostrar texto"
 
 #: tfrmmainfnt.label4.caption
 msgctxt "tfrmmainfnt.label4.caption"
 msgid "Alfa"
-msgstr "Alpha"
+msgstr "Alfa"
 
 #: tfrmmainfnt.label5.caption
 msgid "Mostrar char:"
-msgstr "Show char:"
+msgstr "Show char"
 
 #: tfrmmainfnt.lbnamefont.caption
 msgctxt "TFRMMAINFNT.LBNAMEFONT.CAPTION"
 msgid "No hay fuente"
-msgstr "No source"
+msgstr "Nenhuma fonte"
 
 #: tfrmmainfnt.lbnamefontb.caption
 msgctxt "tfrmmainfnt.lbnamefontb.caption"
 msgid "No hay fuente"
-msgstr "No source"
+msgstr "Nenhuma fonte"
 
 #: tfrmmainfnt.lbshadow.caption
 msgid "Posici"
-msgstr "Position"
+msgstr "posição"
 
 #: tfrmmainfnt.lbsizeedge.caption
 msgctxt "TFRMMAINFNT.LBSIZEEDGE.CAPTION"
 msgid "Tamaño"
-msgstr "Size"
+msgstr ""
 
 #: tfrmmainfnt.odimportfnt.title
 msgid "Importar una fuente de una imagen"
-msgstr "Import an image source"
+msgstr "Importar uma fonte de imagem"
 
 #: tfrmmainfnt.rbsedge.caption
 msgctxt "tfrmmainfnt.rbsedge.caption"
 msgid "Reborde"
-msgstr "Flange"
+msgstr "flange"
 
 #: tfrmmainfnt.rbsfont.caption
 msgid "Fuente"
@@ -916,15 +900,15 @@ msgstr "Source"
 #: tfrmmainfnt.rbsshadow.caption
 msgctxt "tfrmmainfnt.rbsshadow.caption"
 msgid "Sombra"
-msgstr "Shadow"
+msgstr "Sombra"
 
 #: tfrmmainfnt.sbchangebgcolor.caption
 msgid "Color de fondo"
-msgstr "Background Color"
+msgstr ""
 
 #: tfrmmainfnt.sbchangebgcolor.hint
 msgid "Cambiar el color de fondo"
-msgstr "Change the background color"
+msgstr "Alterar a cor de fundo"
 
 #: tfrmmainfnt.sbexport.caption
 msgctxt "tfrmmainfnt.sbexport.caption"
@@ -933,60 +917,60 @@ msgstr "Export"
 
 #: tfrmmainfnt.sbexport.hint
 msgid "Exportar fuente de texto"
-msgstr "Export text font"
+msgstr "fonte de texto Export"
 
 #: tfrmmainfnt.sbimport.caption
 msgid "Importar"
-msgstr "Import"
+msgstr "Importar"
 
 #: tfrmmainfnt.sbimport.hint
 msgid "Importar fuente de texto"
-msgstr "Import text font"
+msgstr "fonte de texto Importar"
 
 #: tfrmmainfnt.sbloadfont.caption
 msgid "&Cargar Fuente"
-msgstr "Load Source"
+msgstr "Load & Fonte"
 
 #: tfrmmainfnt.sbloadfont.hint
 msgid "Cambiar el tipo de letra"
-msgstr "Change the font"
+msgstr "Mudar fonte"
 
 #: tfrmmainfnt.sbmakefont.caption
 msgid "Generar"
-msgstr "Generate"
+msgstr "Gerar"
 
 #: tfrmmainfnt.sbmakefont.hint
 msgid "Generar fuente"
-msgstr "Generate Source"
+msgstr "Gerar Source"
 
 #: tfrmmainfnt.sbopen.hint
 msgid "Abrir fuente de texto"
-msgstr "Open source text"
+msgstr "texto de código aberto"
 
 #: tfrmmainfnt.sboptions.caption
 msgid "Opciones"
-msgstr "Options"
+msgstr "Opções"
 
 #: tfrmmainfnt.sboptions.hint
 msgid "Opciones generales"
-msgstr "General Options"
+msgstr "Opções Gerais"
 
 #: tfrmmainfnt.sbsave.hint
 msgid "Guardar fuente de texto"
-msgstr "Save text font"
+msgstr "Salvar fonte de texto"
 
 #: tfrmmainfnt.sbsaveas.hint
 msgid "Guardar fuente de texto como"
-msgstr "Save as text font"
+msgstr "Salvar como fonte de texto"
 
 #: tfrmmainfnt.sbsavetext.caption
 msgctxt "tfrmmainfnt.sbsavetext.caption"
 msgid "Guardar texto"
-msgstr "Save text"
+msgstr "Salvar Texto"
 
 #: tfrmmainfnt.sbsavetext.hint
 msgid "Guardar el texto escrito"
-msgstr "Save composed text"
+msgstr "Salvar texto composto"
 
 #: tfrmmainfnt.sbselectcolor.caption
 msgid "Color"
@@ -994,7 +978,7 @@ msgstr "Color"
 
 #: tfrmmainfnt.sbselectcolor.hint
 msgid "Establece un color"
-msgstr "Sets a color"
+msgstr "Define uma cor"
 
 #: tfrmmainfnt.sbselectimage.caption
 msgid "Imagen"
@@ -1002,164 +986,164 @@ msgstr "Image"
 
 #: tfrmmainfnt.sbselectimage.hint
 msgid "Establece una imagen"
-msgstr "Sets an image"
+msgstr "Define uma imagem"
 
 #: tfrmmainfnt.sbshowfnt.caption
 msgctxt "TFRMMAINFNT.SBSHOWFNT.CAPTION"
 msgid "Ver FNT"
-msgstr "View FNT"
+msgstr "FNT View"
 
 #: tfrmmainfnt.sbshowfnt.hint
 msgctxt "tfrmmainfnt.sbshowfnt.hint"
 msgid "Ver FNT"
-msgstr "View FNT"
+msgstr "FNT View"
 
 #: tfrmmainfnt.sdsavetext.title
 msgctxt "TFRMMAINFNT.SDSAVETEXT.TITLE"
 msgid "Guardar texto"
-msgstr "Save text"
+msgstr "Salvar Texto"
 
 #: tfrmmainfnt.toolbar1.caption
 msgid "ToolBar1"
-msgstr "ToolBar1"
+msgstr "Toolbar1"
 
 #: tfrmview.caption
 msgid "frmView"
-msgstr "View Frame"
+msgstr "frmView"
 
 #: tfrmview.gbdetails.caption
 msgctxt "tfrmview.gbdetails.caption"
 msgid "Detalles de la imagen"
-msgstr "Image Details"
+msgstr "Detalhes da Imagem"
 
 #: tfrmview.lbalto.caption
 msgid "lbAlto"
-msgstr "Height"
+msgstr "lbAlto"
 
 #: tfrmview.lbancho.caption
 msgid "lbAncho"
-msgstr "Width"
+msgstr "lbAncho"
 
 #: tfrmview.lbbpp.caption
 msgid "lbBpp"
-msgstr "Bits per pixel"
+msgstr "lbBpp"
 
 #: tfrmview.lbheight.caption
 msgid "Alto :"
-msgstr "Height:"
+msgstr "Alto"
 
 #: tfrmview.lbpp.caption
 msgid "Bpp :"
-msgstr "Bpp :"
+msgstr "BPP"
 
 #: tfrmview.lbwidth.caption
 msgid "Ancho :"
-msgstr "Width:"
+msgstr "Largura:"
 
 #: tfrmview.lzoom.caption
 msgid "Zoom :"
-msgstr "Zoom 1:1"
+msgstr "Zoom"
 
 #: ulanguage.lng_abort
 msgid "Anular"
-msgstr "Abort"
+msgstr "Cancelar"
 
 #: ulanguage.lng_about_as
 msgctxt "ulanguage.lng_about_as"
 msgid "Acerca de ..."
-msgstr "About ..."
+msgstr "Sobre ..."
 
 #: ulanguage.lng_accept
 msgid "Aceptar"
-msgstr "Accept"
+msgstr "OK"
 
 #: ulanguage.lng_adapt_images
 msgid "Adaptando imagen(es)"
-msgstr "Adapting image(s)"
+msgstr "Adaptar imagem (s)"
 
 #: ulanguage.lng_add
 msgctxt "ulanguage.lng_add"
 msgid "Añadir"
-msgstr "Add"
+msgstr "Adicionar"
 
 #: ulanguage.lng_add_control_point
 msgid "Añadir punto de control"
-msgstr "Add control point"
+msgstr "Adicionar Ponto de Controle"
 
 #: ulanguage.lng_add_images
 msgid "Añadir imagen(es)"
-msgstr "Add image(s)"
+msgstr "Adicionar imagem (s)"
 
 #: ulanguage.lng_add_images_to_fpg
 msgid "Añadir imagen(es) al FPG"
-msgstr "Add image(s) to FPG"
+msgstr "Adicionar imagem (s) para FPG"
 
 #: ulanguage.lng_add_point
 msgid "Añadir punto"
-msgstr "Add point"
+msgstr "Adicionar ponto"
 
 #: ulanguage.lng_analising_images
 msgid "Analizando imagen(es)"
-msgstr "Analyzing image(s)"
+msgstr "Verificando a imagem (s)"
 
 #: ulanguage.lng_animate
 msgctxt "ulanguage.lng_animate"
 msgid "Animar"
-msgstr "Encourage"
+msgstr "Animar"
 
 #: ulanguage.lng_animate_images
 msgid "Animar imágenes"
-msgstr "Animate images"
+msgstr "imagens\" Anima"
 
 #: ulanguage.lng_animate_selected_images
 msgid "Animar imágenes seleccionadas"
-msgstr "Animate selected images"
+msgstr "Animar imagens selecionadas"
 
 #: ulanguage.lng_animation
 msgid "Animación"
-msgstr "Animation"
+msgstr "Animação"
 
 #: ulanguage.lng_are_you_sure_delete_images
 msgid "¿Seguro que desea borrar esta(s) imagen(es)?"
-msgstr "Surely that wishes to erase this image(s)?"
+msgstr "Você tem certeza que quer apagar esta imagem (s) (s)?"
 
 #: ulanguage.lng_autoload_images
 msgid "Auto-carga de imágenes"
-msgstr "Autoload images"
+msgstr "Auto-load imagens"
 
 #: ulanguage.lng_autoload_images_after_remove
 msgid "Auto-cargar al eliminar"
-msgstr "Autoload images after remove"
+msgstr "Auto-carga, eliminando a"
 
 #: ulanguage.lng_cancel
 msgid "Cancelar"
-msgstr "Cancel"
+msgstr "Cancelar"
 
 #: ulanguage.lng_change_code_of_image_insert
 msgid "Cambiar código de inserción de imagen"
-msgstr "Change code of image insert"
+msgstr "Alterar código de inserção de imagem"
 
 #: ulanguage.lng_change_color_of_points
 msgid "Cambiar color de puntos"
-msgstr "Change color of points"
+msgstr "Alterar cor de pontos"
 
 #: ulanguage.lng_change_insert_code
 msgid "Cambiar código de inserción"
-msgstr "Change insert code"
+msgstr "Alterar código embed"
 
 #: ulanguage.lng_change_language_of_program
 msgid "Cambiar lenguaje del programa"
-msgstr "Change language of program"
+msgstr "Programa Alterar idioma"
 
 #: ulanguage.lng_characteristic
 msgctxt "ulanguage.lng_characteristic"
 msgid "Caracteristicas"
-msgstr "Characteristic"
+msgstr "Recursos"
 
 #: ulanguage.lng_clear_clipboard
 msgctxt "ulanguage.lng_clear_clipboard"
 msgid "Vaciar portapapeles"
-msgstr "Empty clipboard"
+msgstr "Área de Transferência Empty"
 
 #: ulanguage.lng_clipboard
 msgctxt "ulanguage.lng_clipboard"
@@ -1168,20 +1152,20 @@ msgstr "Clipboard"
 
 #: ulanguage.lng_close
 msgid "Cerrar"
-msgstr "Close"
+msgstr "Fechar"
 
 #: ulanguage.lng_code
 msgctxt "ulanguage.lng_code"
 msgid "Código"
-msgstr "Code"
+msgstr "Código"
 
 #: ulanguage.lng_code_of_image_insertion
 msgid "Código de inserción de imagen"
-msgstr "Code of image insertion"
+msgstr "Imagem Código Embed"
 
 #: ulanguage.lng_compressing_file
 msgid "Comprimiendo archivo..."
-msgstr "Compressing file..."
+msgstr "A compactação de arquivo ..."
 
 #: ulanguage.lng_compressor
 msgid "Compresor"
@@ -1189,124 +1173,124 @@ msgstr "Compressor"
 
 #: ulanguage.lng_compress_file
 msgid "Comprimir archivo"
-msgstr "Compress file"
+msgstr "Compress File"
 
 #: ulanguage.lng_control_points
 msgctxt "ulanguage.lng_control_points"
 msgid "Puntos de control"
-msgstr "Control points"
+msgstr "pontos de controle"
 
 #: ulanguage.lng_convert_to
 msgid "Convertir a ..."
-msgstr "Convert to ..."
+msgstr "Converter para ..."
 
 #: ulanguage.lng_copy_image
 msgid "Copiar imagen"
-msgstr "Copy image"
+msgstr ""
 
 #: ulanguage.lng_copy_image_to_clipboard
 msgid "Copiar imagen al portapapeles"
-msgstr "Copy image to clipboard."
+msgstr "Copiar imagem para o clipboard"
 
 #: ulanguage.lng_correct_saving
 msgid "Archivo FPG guardado correctamente"
-msgstr "File FPG save correctly"
+msgstr "Arquivo salvo com sucesso FPG"
 
 #: ulanguage.lng_creating_convert_table
 msgid "Creando tabla de conversión"
-msgstr "Creating conversion table"
+msgstr "Criando tabela de conversão"
 
 #: ulanguage.lng_credits
 msgctxt "ulanguage.lng_credits"
 msgid "Creditos"
-msgstr "Credits"
+msgstr "créditos"
 
 #: ulanguage.lng_delete
 msgctxt "ulanguage.lng_delete"
 msgid "Eliminar"
-msgstr "Remove"
+msgstr "Excluir"
 
 #: ulanguage.lng_delete_all_points
 msgid "Borrar todos los puntos"
-msgstr "Delete all points"
+msgstr "Excluir todos os itens"
 
 #: ulanguage.lng_delete_control_point
 msgid "Eliminar punto de control"
-msgstr "Delete control point"
+msgstr "Excluir checkpoint"
 
 #: ulanguage.lng_delete_images
 msgid "Eliminar imagen(es)"
-msgstr "Delete image(s)"
+msgstr "Delete Image (s)"
 
 #: ulanguage.lng_delete_images_selecteds
 msgid "Eliminar imagen(es) seleccionada(s)"
-msgstr "Delete image(s) selected(s)"
+msgstr "Excluir imagem (s) selecionada (s)"
 
 #: ulanguage.lng_details
 msgctxt "ulanguage.lng_details"
 msgid "Detalles"
-msgstr "Details"
+msgstr "Detalhes"
 
 #: ulanguage.lng_details_of_image
 msgctxt "ulanguage.lng_details_of_image"
 msgid "Detalles de la imagen"
-msgstr "Details of image"
+msgstr "Detalhes da Imagem"
 
 #: ulanguage.lng_directory
 msgid "Directorio"
-msgstr "Directory"
+msgstr "Diretório"
 
 #: ulanguage.lng_disabled
 msgid "Inactivo"
-msgstr "Disabled"
+msgstr "Desligado"
 
 #: ulanguage.lng_edit
 msgctxt "ulanguage.lng_edit"
 msgid "Editar"
-msgstr "Edit"
+msgstr "Editar"
 
 #: ulanguage.lng_edit_image
 msgid "Editar imagen"
-msgstr "Edit image"
+msgstr "Editar imagem"
 
 #: ulanguage.lng_edit_image_with_external_program
 msgid "Editar imagen con un editor externo"
-msgstr "Edit image with external program"
+msgstr "Editar imagem com editor externo"
 
 #: ulanguage.lng_edit_properties_of_the_image
 msgid "Editar propiedades de la imagen"
-msgstr "Edit properties of the image"
+msgstr "Propriedades da Imagem Edit"
 
 #: ulanguage.lng_edit_selection
 msgctxt "ulanguage.lng_edit_selection"
 msgid "Editar selección"
-msgstr "Edit selection"
+msgstr "Editar Seleção"
 
 #: ulanguage.lng_enabled
 msgid "Activo"
-msgstr "Enabled"
+msgstr "Active"
 
 #: ulanguage.lng_enviroment
 msgctxt "ulanguage.lng_enviroment"
 msgid "Entorno"
-msgstr "Environment"
+msgstr "Meio Ambiente"
 
 #: ulanguage.lng_error
 msgid "Error"
-msgstr "Error"
+msgstr "Erro"
 
 #: ulanguage.lng_exists_file_overwrite
 msgid "El archivo existe, ¿Desea sobreescribirlo?"
-msgstr "The file exists, Wishes to overwrite it?"
+msgstr "O arquivo existe, substituir?"
 
 #: ulanguage.lng_exist_code
 msgid "El código establecido ya existe."
-msgstr "The code established already exists."
+msgstr "O conjunto de códigos já existe."
 
 #: ulanguage.lng_exit
 msgctxt "ulanguage.lng_exit"
 msgid "Salir"
-msgstr "Leave"
+msgstr "Exit"
 
 #: ulanguage.lng_export
 msgctxt "ulanguage.lng_export"
@@ -1315,62 +1299,60 @@ msgstr "Export"
 
 #: ulanguage.lng_export_images_from_fpg_to_disk
 msgid "Exportar imagen(es) del FPG a disco"
-msgstr "Export image(s) from FPG to disk"
+msgstr "Exportar Imagem (s) da FPG no disco"
 
 #: ulanguage.lng_export_resources_from_fpg
 msgid "Exportar recursos del FPG"
-msgstr "Export resources from FPG"
+msgstr "recursos de exportação GPF"
 
 #: ulanguage.lng_file_exist
 msgid "El archivo ya existe."
-msgstr "The file already exists."
+msgstr "O arquivo já existe."
 
 #: ulanguage.lng_file_language_incorrect
 msgid "Archivo de lenguaje incorrecto."
-msgstr "File of incorrect language."
+msgstr "Arquivo de linguagem chula."
 
 #: ulanguage.lng_file_name
 msgctxt "ulanguage.lng_file_name"
 msgid "Nombre de Archivo"
-msgstr "File Name"
+msgstr "Nome do arquivo"
 
 #: ulanguage.lng_file_notexist
 msgid "El archivo no existe."
-msgstr "The file does not exist."
+msgstr "O arquivo não existe."
 
 #: ulanguage.lng_flat_buttons
 msgid "Botones tipo \"FLAT\""
-msgstr "flat type buttons"
+msgstr "tipo Botões \" FLAT  \""
 
 #: ulanguage.lng_fpg
-#| msgid "FPG#9"
 msgctxt "ulanguage.lng_fpg"
 msgid "FPG"
 msgstr "FPG"
 
 #: ulanguage.lng_fpg_code
 msgid "Código de FPG:"
-msgstr "FPG Code:"
+msgstr "Código FPG"
 
 #: ulanguage.lng_fpg_editor_cofiguration
 msgid "Configurar FPG Editor"
-msgstr "FPG Editor Cofiguration"
+msgstr "Set Editor de FPG"
 
 #: ulanguage.lng_fpg_file_of_graphics
 msgid "FPG (Archivo de gráficos)"
-msgstr "FPG (File of graphics)"
+msgstr "FPG (arquivo gráfico)"
 
 #: ulanguage.lng_fpg_select_only_one
 msgid "Debe seleccionar solamente una imagen."
-msgstr "Must only select one image of the FPG."
+msgstr "Você deve selecionar apenas uma imagem."
 
 #: ulanguage.lng_height
 msgctxt "ulanguage.lng_height"
 msgid "Alto"
-msgstr "Height"
+msgstr "Alto"
 
 #: ulanguage.lng_help
-#| msgid "Help"
 msgctxt "ulanguage.lng_help"
 msgid "Ayuda"
 msgstr "Help"
@@ -1378,37 +1360,36 @@ msgstr "Help"
 #: ulanguage.lng_hide_show_directories
 msgctxt "ulanguage.lng_hide_show_directories"
 msgid "Ocultar/Mostrar directorios"
-msgstr "Hide / Show directories"
+msgstr "Ocultar / Mostrar diretórios"
 
 #: ulanguage.lng_hide_show_up_panel
 msgid "Ocultar/Mostrar panel superior"
-msgstr "Hide/Show up panel"
+msgstr "Ocultar / Mostrar painel superior"
 
 #: ulanguage.lng_ignore
 msgid "Ignorar"
-msgstr "Ignore"
+msgstr "Ignorar"
 
 #: ulanguage.lng_images
-#| msgid "Images"
 msgctxt "ulanguage.lng_images"
 msgid "Imágenes"
-msgstr "Images"
+msgstr "Imagens"
 
 #: ulanguage.lng_images_moved_recicledbin
 msgid "Imagen(es) movida(s) a la papelera de reciclaje"
-msgstr "Image(s) moved to the recycled bin"
+msgstr "Imagem movimento (s) (s) para a lixeira"
 
 #: ulanguage.lng_image_to
 msgid "Imagen(es) a"
-msgstr "Image(s) to"
+msgstr "Image (s) para"
 
 #: ulanguage.lng_image_to_clipboard
 msgid "Imagen copiada al portapapeles."
-msgstr "Image copied to the clipboard."
+msgstr "imagem copiados para o clipboard."
 
 #: ulanguage.lng_incorrect_sizeoficon
 msgid "El tamaño de los iconos de imagen es incorrecto."
-msgstr "The size of icons it's incorrect."
+msgstr "O tamanho do ícone é a imagem incorreta\""
 
 #: ulanguage.lng_info
 msgid "Información"
@@ -1416,124 +1397,124 @@ msgstr "Information"
 
 #: ulanguage.lng_insert_coord
 msgid "Debe introducir la coordenada"
-msgstr "Must introduce the coordinate"
+msgstr "Você deve digitar a coordenada"
 
 #: ulanguage.lng_invert_selection
 msgctxt "ulanguage.lng_invert_selection"
 msgid "Invertir selección"
-msgstr "Invert selection"
+msgstr "Inverter Seleção"
 
 #: ulanguage.lng_language
 msgctxt "ulanguage.lng_language"
 msgid "Lenguaje"
-msgstr "Language"
+msgstr "Idioma"
 
 #: ulanguage.lng_list
 msgctxt "ulanguage.lng_list"
 msgid "Lista"
-msgstr "List"
+msgstr ""
 
 #: ulanguage.lng_loading_files
 msgid "Cargando imágenes"
-msgstr "Loading image(s)"
+msgstr "Carregando imagens"
 
 #: ulanguage.lng_load_control_points
 msgid "Cargar puntos de control"
-msgstr "Load control points"
+msgstr "pontos de controle de carga"
 
 #: ulanguage.lng_load_palette
 msgid "Cargar Paleta"
-msgstr "Load Palette"
+msgstr "Paleta Load"
 
 #: ulanguage.lng_locate_program_for_edition_of_images
 msgid "Localizar programa para edición de imágenes"
-msgstr "Locate program for edition of images"
+msgstr "Localizar programa de edição de imagem"
 
 #: ulanguage.lng_milliseconds
 msgctxt "ulanguage.lng_milliseconds"
 msgid "Milisegundos"
-msgstr "Milliseconds"
+msgstr "milissegundos"
 
 #: ulanguage.lng_modify_control_point
 msgid "Modificar punto de control"
-msgstr "Modify control point"
+msgstr "Modificar checkpoint"
 
 #: ulanguage.lng_name
 msgctxt "ulanguage.lng_name"
 msgid "Nombre"
-msgstr "Name"
+msgstr "Nome"
 
 #: ulanguage.lng_new
 msgctxt "ulanguage.lng_new"
 msgid "Nuevo"
-msgstr "New"
+msgstr "Novo"
 
 #: ulanguage.lng_no
 msgid "No"
-msgstr "No"
+msgstr "Não"
 
 #: ulanguage.lng_notfpg
 msgid "El fichero no es un archivo FPG o puede estar comprimido."
-msgstr "The file is not a file FPG or can be tablet."
+msgstr "O arquivo não é um arquivo pode ser comprimido ou FPG."
 
 #: ulanguage.lng_notload_palette
 msgid "No ha cargado una paleta gráfica, ( en 8 bits debe seleccionar una paleta gráfica de 256 colores )"
-msgstr "Has not loaded a graphical palette, ( in 8 bits must select a graphical palette of 256 colors )"
+msgstr "Você não enviou uma paleta gráfica (8 bits gráficos deve selecionar uma paleta de 256 cores)"
 
 #: ulanguage.lng_not_clipboard_image
 msgid "No encuentra imagen en el portapapeles."
-msgstr "Not found image in clipboard."
+msgstr "Não é possível encontrar a imagem na área de transferência."
 
 #: ulanguage.lng_not_exist_fpg
 msgid "No existe FPG."
-msgstr "Not exists FPG."
+msgstr "Há FPG."
 
 #: ulanguage.lng_not_found_palette
 msgid "no contiene paleta de 256 colores."
-msgstr "not contine palette of 256 colors."
+msgstr "contém 256 paleta de cores."
 
 #: ulanguage.lng_not_images_for_convert
 msgid "No hay imagen(es) para convertir."
-msgstr "Don't have image(s) for convert."
+msgstr "Sem imagem (s) para converter\""
 
 #: ulanguage.lng_not_open_file
 msgid "No se pudo abrir el archivo, compruebe que otro programa no este utilizando este archivo."
-msgstr "The file could not be opened, verifies that another program this not using this file."
+msgstr "Não foi possível abrir o arquivo, certifique-se outro programa não está usando este arquivo."
 
 #: ulanguage.lng_number
 msgid "Número"
-msgstr "Number"
+msgstr ""
 
 #: ulanguage.lng_only_one_image_edit
 msgid "Solo se puede editar una imagen."
-msgstr "One image can be edit."
+msgstr "Você só pode editar uma imagem."
 
 #: ulanguage.lng_open
 msgctxt "ulanguage.lng_open"
 msgid "Abrir"
-msgstr "Open"
+msgstr "Abrir"
 
 #: ulanguage.lng_palette_fpg_8_bits
 msgid "Paleta (FPG 8 bits)"
-msgstr "Palette (FPG 8 bits)"
+msgstr "Paleta (FPG 8 bits)"
 
 #: ulanguage.lng_palette_of_256_colors
 msgctxt "ulanguage.lng_palette_of_256_colors"
 msgid "Paleta de 256 colores"
-msgstr "256 color palette"
+msgstr "paleta de 256 cores"
 
 #: ulanguage.lng_palette_precision
 msgid "La paleta generada tiene una precisión del"
-msgstr "The generated palette has a precision of"
+msgstr "O pallet tem gerado precisão"
 
 #: ulanguage.lng_palette_to
 msgid "Paleta a"
-msgstr "Palette to"
+msgstr "Paleta para"
 
 #: ulanguage.lng_paste_image
 msgctxt "ulanguage.lng_paste_image"
 msgid "Pegar imagen"
-msgstr "Paste Picture"
+msgstr "Imagem Paste"
 
 #: ulanguage.lng_pixels
 msgctxt "ulanguage.lng_pixels"
@@ -1542,27 +1523,27 @@ msgstr "Pixels"
 
 #: ulanguage.lng_procesing_images
 msgid "Procesando imagen(es)"
-msgstr "Processing image(s)"
+msgstr "Processamento de Imagem (s)"
 
 #: ulanguage.lng_properties_
 msgid "Propiedades"
-msgstr "Properties"
+msgstr "Propriedades"
 
 #: ulanguage.lng_publisher_of_images
 msgid "Editor de imágenes"
-msgstr "Publisher of images"
+msgstr ""
 
 #: ulanguage.lng_put_center
 msgid "Poner centro"
-msgstr "Put center"
+msgstr "Set centro"
 
 #: ulanguage.lng_put_points_in_image
 msgid "Poner puntos en imagen"
-msgstr "Put points in image"
+msgstr "A colocação de pontos"
 
 #: ulanguage.lng_put_real_center
 msgid "Poner centro real"
-msgstr "Put real center"
+msgstr "Coloque centro real"
 
 #: ulanguage.lng_reload
 msgctxt "ulanguage.lng_reload"
@@ -1571,111 +1552,109 @@ msgstr "Reload"
 
 #: ulanguage.lng_reload_images_from_directory
 msgid "Recargar imágenes de un directorio"
-msgstr "Reload image(s) from directory"
+msgstr "Reload imagens em um diretório"
 
 #: ulanguage.lng_reload_images_with_filter
 msgid "Recarga las imágenes con filtro"
-msgstr "Reload images with filter"
+msgstr "Atualizar imagens filtradas"
 
 #: ulanguage.lng_retry
 msgid "Reintentar"
-msgstr "Retry"
+msgstr "Repetir"
 
 #: ulanguage.lng_save
 msgctxt "ulanguage.lng_save"
 msgid "Guardar"
-msgstr "Save"
+msgstr "Salvar"
 
 #: ulanguage.lng_save_as
 msgid "Guardar como ..."
-msgstr "Save as ..."
+msgstr "Salvar Como ..."
 
 #: ulanguage.lng_save_changes
 msgid "¿Guardar los cambios?"
-msgstr "Save the changes?"
+msgstr "Salvar alterações?"
 
 #: ulanguage.lng_save_fpg
 msgid "Guardando FPG"
-msgstr "Saving FPG"
+msgstr "FPG Saving"
 
 #: ulanguage.lng_select_all
 msgctxt "ulanguage.lng_select_all"
 msgid "Seleccionar todo"
-msgstr "Select All"
+msgstr "Selecionar Tudo"
 
 #: ulanguage.lng_select_more_images_for_animate
 msgid "Debe seleccionar varias imágenes para hacer la animación"
-msgstr "Must select several images to make the animation"
+msgstr "Você deve selecionar várias imagens para fazer a animação"
 
 #: ulanguage.lng_set_insertion_code_in_fpg
 msgid "Establece el código de insercción en el FPG"
-msgstr "Set insertion code in FPG"
+msgstr "Define o código de inserção no FPG"
 
 #: ulanguage.lng_show_start_screen
 msgctxt "ulanguage.lng_show_start_screen"
 msgid "Mostrar pantalla de inicio"
-msgstr "Show home screen"
+msgstr "tela Show"
 
 #: ulanguage.lng_size_of_icons
 msgid "Tamaño de iconos"
-msgstr "Size of icons"
+msgstr "Tamanho do ícone"
 
 #: ulanguage.lng_sure_delete_allpoints
 msgid "¿Seguro que desea borrar todos los puntos de control?"
-msgstr "Surely that wishes to erase all the control points?"
+msgstr "Tem certeza de que deseja excluir todos os postos de controle?"
 
 #: ulanguage.lng_the_code_exists_or_not_its_valid
 msgid "El código ya existe o no es valido"
-msgstr "The code exists or not it's valid"
+msgstr "O código já existe ou é inválido"
 
 #: ulanguage.lng_the_number_must_be_between_1_and_999_both_including
 msgid "El número debe estar entre 1 y 999 ambos incluidos"
-msgstr "The number must be between 1 and 999 both including"
+msgstr "O número deve estar entre 1 e 999 inclusiva"
 
 #: ulanguage.lng_time_between_image
 msgid "Tiempo entre imagen"
-msgstr "Time between image"
+msgstr ""
 
 #: ulanguage.lng_tools
-#| msgid "Tools"
 msgctxt "ulanguage.lng_tools"
 msgid "Utilidades"
-msgstr "Tools"
+msgstr "Utilitários"
 
 #: ulanguage.lng_type_of_fpg
 msgid "Tipo de FPG"
-msgstr "Type of FPG"
+msgstr "FPG tipo"
 
 #: ulanguage.lng_type_of_resource
 msgid "Tipo de recurso"
-msgstr "Type of resource"
+msgstr "Tipo de Recurso"
 
 #: ulanguage.lng_unzip_fpg
 msgid "Descomprimiendo FPG"
-msgstr "Decompressing FPG"
+msgstr "Descompactando FPG"
 
 #: ulanguage.lng_update_images
 msgid "Actualizando imagen(es)"
-msgstr "Updating image(s)"
+msgstr "imagem Atualizando (s)"
 
 #: ulanguage.lng_view
 msgctxt "ulanguage.lng_view"
 msgid "Ver"
-msgstr "See"
+msgstr "View"
 
 #: ulanguage.lng_view_icons
-#| msgid "Images"
 msgctxt "ulanguage.lng_view_icons"
 msgid "Imágenes"
-msgstr "Images"
+msgstr "Imagens"
 
 #: ulanguage.lng_view_palette
 msgid "Visualizar Paleta"
-msgstr "View Palette"
+msgstr "Mostrar Paleta"
 
 #: ulanguage.lng_view_points_in_image
 msgid "Ver puntos de la imagen"
-msgstr "View points in image"
+msgstr "Ver pontos de imagem"
 
 #: ulanguage.lng_warning
 msgid "Aviso"
@@ -1684,37 +1663,37 @@ msgstr "Warning"
 #: ulanguage.lng_width
 msgctxt "ulanguage.lng_width"
 msgid "Ancho"
-msgstr "Width"
+msgstr "Largura"
 
 #: ulanguage.lng_will_be_select_image
 msgid "Debe tener la imagen a editar seleccionada."
-msgstr "Must have one image to edit selected."
+msgstr "Você deve ter selecionado uma imagem para editar."
 
 #: ulanguage.lng_wrong_fpg
 msgid "Archivo FPG incorrecto"
-msgstr "File FPG incorrect"
+msgstr "Arquivo FPG errado"
 
 #: ulanguage.lng_yes
 msgid "Si"
-msgstr "Yes"
+msgstr "Se"
 
 #: ulngconverter.lng_correct
 msgid "Fichero creado correctamente"
-msgstr "Archive created successfully"
+msgstr "Arquivo criado com sucesso"
 
 #: ulngconverter.lng_file_no_exist
 msgid "No existe el fichero:"
-msgstr "No such file"
+msgstr "Nenhum arquivo tal"
 
 #: ulngconverter.lng_file_reference_no_exist
 msgid "No existe el fichero de referencia:"
-msgstr "No such reference file:"
+msgstr "Nenhuma referência tal arquivo:"
 
 #: ulngtranslator.lng_message_correct_join
 msgid "Archivo Juntado Correctamente"
-msgstr "File Coupled Correctly"
+msgstr "Arquivo Juntamente corretamente"
 
 #: ulngtranslator.lng_message_help_translator
 msgid "Abre el archivo .po a traducir.\\nCopia el cotenido al portapapeles.\\nPégalo en tu traductor favorito y tradúcelo.\\nCopia el texto traducido y pégalo en el cuadro de abajo.\\nPulsa Unir.\\nEscribe las dos siglas del idioma destino.\\nFinalmente guarda el archivo."
-msgstr "Open the. po translate.   cotenido nCopia the clipboard.   nPégalo your favorite translator and translate it.   nCopia and paste the translated text in the box below.   nPress Join.   nEscribe two letters of the target language.   nFinalmente save the file. "
+msgstr "Abra a po. traduzir.   cotenido nCopia a área de transferência.   nPégalo tradutor seu favorito e traduzi-lo.  nCopia  e colar o texto traduzido na caixa abaixo.   nPressione Unir.   nEscribe duas cartas de língua-alvo.   nFinalmente salvar o arquivo. "
 

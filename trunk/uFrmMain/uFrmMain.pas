@@ -35,7 +35,8 @@ uses
   ufrmPalette, ufrmFPGImages, Dialogs, uTools,
   uFPGConvert, uLoadImage, uFrmExport, uFrmMessageBox,
   uExportToFiles, uFPGListView, FileUtil, ShellCtrls, ActnList, FileCtrl, Spin,
-  ExtDlgs, types, ufrmZipFenix, uFrmAbout, ufrmMainFNT, ufrmAnimate, ufrmConfig, uFrmSplahs, uMAPGraphic, uLanguage, ulngConverter;
+  ExtDlgs, types, ufrmZipFenix, uFrmAbout, ufrmMainFNT, ufrmAnimate, ufrmConfig,
+  uFrmSplahs, uMAPGraphic, uLanguage, ulngConverter, ulngTranslator;
 
 const
   DRAG_LVFPG    = 0;
@@ -103,6 +104,7 @@ type
     lComments: TLabel;
     lblTransparentColor: TLabel;
     lblFilename: TLabel;
+    miLangTranslator: TMenuItem;
     miLngConverter: TMenuItem;
     miFPG1: TMenuItem;
     miFPG32: TMenuItem;
@@ -284,6 +286,7 @@ type
     procedure edFPGCODEChange(Sender: TObject);
     procedure EFilterKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormResize(Sender: TObject);
+    procedure miLangTranslatorClick(Sender: TObject);
     procedure pbImagesContextPopup(Sender: TObject; MousePos: TPoint;
       var Handled: Boolean);
     procedure lvImagesDblClick(Sender: TObject);
@@ -355,12 +358,12 @@ begin
  lvFPG.Fpg.appVersion:='r'+RevisionStr;
  load_language;
  lvFPG.notClipboardImage:=LNG_STRINGS[LNG_NOT_CLIPBOARD_IMAGE];
- *)
  lvFPG.Fpg.appVersion:='r'+RevisionStr;
+ *)
 
  lvFPG.repaintNumber:=inifile_repaint_number;
 
- _lng_str := '';
+ _lng_str := inifile_language;
 
   ShellListView1.Root:= DirectorySeparator;
   EFilter.ItemIndex:=0;
@@ -372,6 +375,9 @@ begin
   Caption:=Caption +' r'+ RevisionStr;
 
   miLngConverter.Visible:= (inifile_admin_tools = 1);
+  miLangTranslator.Visible:= (inifile_admin_tools = 1);
+
+  SetDefaultLangByFile(_lng_str);
 
 end;
 
@@ -383,7 +389,7 @@ begin
 
  _lng_str := inifile_language;
 
- (*
+
  sbImagesEdit.Hint := LNG_DETAILS;
  sbImagesUpdate.Hint := LNG_EDIT_IMAGE_WITH_EXTERNAL_PROGRAM;
  sbImagesAnimate.Hint := LNG_ANIMATE;
@@ -394,35 +400,33 @@ begin
  sbImagesViewDir.Hint :=LNG_HIDE_SHOW_DIRECTORIES;
 
 
- lvImages.Columns[0].Caption := LNG_STRINGS[52];
- lvImages.Columns[1].Caption := LNG_STRINGS[53];
- lvImages.Columns[2].Caption := LNG_STRINGS[54];
+ lvImages.Columns[0].Caption := LNG_FILE_NAME;
+ lvImages.Columns[1].Caption := LNG_WIDTH;
+ lvImages.Columns[2].Caption := LNG_HEIGHT;
 
- lvFPG.Columns[0].Caption := LNG_STRINGS[55];
- lvFPG.Columns[1].Caption := LNG_STRINGS[52];
- lvFPG.Columns[2].Caption := LNG_STRINGS[56];
- lvFPG.Columns[3].Caption := LNG_STRINGS[53];
- lvFPG.Columns[4].Caption := LNG_STRINGS[54];
- lvFPG.Columns[5].Caption := LNG_STRINGS[57];
+ lvFPG.Columns[0].Caption := LNG_CODE;
+ lvFPG.Columns[1].Caption := LNG_FILE_NAME;
+ lvFPG.Columns[2].Caption := LNG_NAME;
+ lvFPG.Columns[3].Caption := LNG_WIDTH;
+ lvFPG.Columns[4].Caption := LNG_HEIGHT;
+ lvFPG.Columns[5].Caption := LNG_CONTROL_POINTS;
 
- sbFPGAdd.Hint := LNG_STRINGS[44];
- sbFPGAnimate.Hint := LNG_STRINGS[43];
- sbFPGEditBMP.Hint := LNG_STRINGS[45];
- sbFPGExport.Hint := LNG_STRINGS[46];
- sbFPGRemove.Hint := LNG_STRINGS[47];
- sbFPGViewFrame.Hint := LNG_STRINGS[41];
+ sbFPGAdd.Hint := LNG_ADD;
+ sbFPGAnimate.Hint := LNG_ANIMATE;
+ sbFPGEditBMP.Hint := LNG_EDIT_IMAGE;
+ sbFPGExport.Hint := LNG_EXPORT;
+ sbFPGRemove.Hint := LNG_DELETE;
+ sbFPGViewFrame.Hint := LNG_VIEW;
 
- sbFPGIcon.Hint := LNG_STRINGS[36];
- sbFPGList.Hint := LNG_STRINGS[37];
- sbFPGReport.Hint := LNG_STRINGS[38];
- sbFPGNew.Hint := LNG_STRINGS[48];
- sbFPGOpen.Hint := LNG_STRINGS[49];
- sbFPGSave.Hint := LNG_STRINGS[50];
- sbFPGSaveAs.Hint := LNG_STRINGS[51];
+ sbFPGIcon.Hint := LNG_VIEW_ICONS;
+ sbFPGList.Hint := LNG_LIST;
+ sbFPGReport.Hint := LNG_DETAILS;
+ sbFPGNew.Hint := LNG_NEW;
+ sbFPGOpen.Hint := LNG_OPEN;
+ sbFPGSave.Hint := LNG_SAVE;
+ sbFPGSaveAs.Hint := LNG_SAVE_AS;
 
- edFPGCODE.Hint   := LNG_STRINGS[154];
-// edImagesFilter.Hint := LNG_STRINGS[155];
-*)
+ edFPGCODE.Hint   := LNG_FPG_CODE;
 
 end;
 
@@ -466,6 +470,11 @@ procedure TfrmMain.FormResize(Sender: TObject);
 begin
  if width  < 640 then width  := 640;
  if height < 480 then height := 480;
+end;
+
+procedure TfrmMain.miLangTranslatorClick(Sender: TObject);
+begin
+  frmLangTranslator.Show;
 end;
 
 procedure TfrmMain.pbImagesContextPopup(Sender: TObject; MousePos: TPoint;

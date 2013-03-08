@@ -165,7 +165,8 @@ begin
   inifile_program_edit    := inifile.ReadString ( sMAIN, sEDIT_PROGRAM   , ExtractFileDir(ParamStr(0)) + DirectorySeparator+'myprogram.exe');
   inifile_bg_color        := inifile.ReadInteger( sMAIN, sBG_COLOR   , clWhite);
   inifile_bg_colorFPG        := inifile.ReadInteger( sMAIN, sBG_COLOR_FPG   , clWhite);
-  
+  inifile_admin_tools  := inifile.ReadInteger(sMAIN, 'ADMIN TOOLS', 0);
+
 
   inifile_fnt_charset   := inifile.ReadInteger(sFONT, 'CHARSET', DEFAULT_CHARSET);
   inifile_charset_to_gen:= inifile.ReadInteger(sFONT, 'CHARSET TO GEN', 0);
@@ -184,7 +185,6 @@ begin
   inifile_fnt_image     := inifile.ReadString (sFONT, 'FONT IMAGE'  , '');
   inifile_edge_image    := inifile.ReadString (sFONT, 'EDGE IMAGE'  , '');
   inifile_shadow_image  := inifile.ReadString (sFONT, 'SHADOW IMAGE', '');
-  inifile_admin_tools  := inifile.ReadInteger(sFONT, 'ADMIN TOOLS', 0);
 
   
   inifile.Destroy;
@@ -212,6 +212,7 @@ begin
  inifile.WriteString ( sMAIN, sEDIT_PROGRAM   , inifile_program_edit);
  inifile.WriteInteger( sMAIN, sBG_COLOR   , inifile_bg_color);
  inifile.WriteInteger( sMAIN, sBG_COLOR_FPG   , inifile_bg_colorFPG);
+ inifile.WriteInteger (sMAIN, 'ADMIN TOOLS', inifile_admin_tools);
 
   inifile.WriteInteger(sFONT, 'CHARSET', inifile_fnt_charset);
   inifile.WriteInteger(sFONT, 'CHARSET TO GEN', inifile_charset_to_gen);
@@ -230,7 +231,6 @@ begin
   inifile.WriteString (sFONT, 'FONT IMAGE'  , inifile_fnt_image);
   inifile.WriteString (sFONT, 'EDGE IMAGE'  , inifile_edge_image);
   inifile.WriteString (sFONT, 'SHADOW IMAGE', inifile_shadow_image);
-  inifile.WriteInteger (sFONT, 'ADMIN TOOLS', inifile_admin_tools);
 
  
  inifile.Destroy;

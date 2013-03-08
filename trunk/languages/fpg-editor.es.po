@@ -1,18 +1,100 @@
+ dcdsl <dcelso@gmail.com>, 2013.
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"PO-Revision-Date: 2013-03-08 15:08+0200\n"
+"Last-Translator: dcdsl <dcelso@gmail.com>\n"
+"Language-Team: debian wheezy\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+
+#: tform2.aabrir.caption
+msgctxt "tform2.aabrir.caption"
+msgid "Abrir"
+msgstr "Abrir"
+
+#: tform2.acopiar.caption
+msgctxt "tform2.acopiar.caption"
+msgid "Copiar"
+msgstr ""
+
+#: tform2.aguardar.caption
+msgctxt "tform2.aguardar.caption"
+msgid "Guardar"
+msgstr "Guardar"
+
+#: tform2.apegar.caption
+msgctxt "tform2.apegar.caption"
+msgid "Pegar"
+msgstr "Pegar"
+
+#: tform2.aunir.caption
+msgctxt "tform2.aunir.caption"
+msgid "Unir"
+msgstr "Unir"
+
+#: tform2.button1.caption
+msgctxt "tform2.button1.caption"
+msgid "Ayuda"
+msgstr "Ayuda"
+
+#: tform2.button2.caption
+msgctxt "tform2.button2.caption"
+msgid "Unir"
+msgstr "Unir"
+
+#: tform2.button3.caption
+msgctxt "tform2.button3.caption"
+msgid "Guardar"
+msgstr "Guardar"
+
+#: tform2.caption
+msgid "Form2"
+msgstr "Formulario 1"
+
+#: tform2.edit1.text
+msgctxt "tform2.edit1.text"
+msgid "en"
+msgstr "en"
+
+#: tform2.groupbox1.caption
+msgctxt "tform2.groupbox1.caption"
+msgid "Archivo Original"
+msgstr "Archivo Original"
+
+#: tform2.groupbox2.caption
+msgctxt "tform2.groupbox2.caption"
+msgid "Archivo Traducido"
+msgstr "Archivo Traducido"
+
+#: tform2.label1.caption
+msgctxt "tform2.label1.caption"
+msgid "Siglas lng:"
+msgstr "Siglas lng:"
+
+#: tform2.menuitem1.caption
+msgctxt "tform2.menuitem1.caption"
+msgid "Archivo"
+msgstr "Archivo"
+
+#: tform2.menuitem4.caption
+msgctxt "tform2.menuitem4.caption"
+msgid "Salir"
+msgstr "Salir"
+
+#: tform2.menuitem5.caption
+msgctxt "tform2.menuitem5.caption"
+msgid "Acciones"
+msgstr "Acciones"
 
 #: tfrmabout.button1.caption
 msgid "Ok"
-msgstr "Ok"
+msgstr "Aceptar"
 
 #: tfrmabout.caption
 msgctxt "tfrmabout.caption"
@@ -31,7 +113,7 @@ msgstr "Creditos"
 
 #: tfrmabout.tsdescription.caption
 msgid "Descripcion"
-msgstr ""
+msgstr "Descripción"
 
 #: tfrmcfg.caption
 msgid "Configuración del generador de fuentes"
@@ -152,36 +234,126 @@ msgctxt "tfrmconfig.tsenviroment.caption"
 msgid "Entorno"
 msgstr "Entorno"
 
+#: tfrmlangtranslator.aabrir.caption
+msgctxt "tfrmlangtranslator.aabrir.caption"
+msgid "Abrir"
+msgstr "Abrir"
+
+#: tfrmlangtranslator.acopiar.caption
+msgctxt "tfrmlangtranslator.acopiar.caption"
+msgid "Copiar"
+msgstr "Copiar"
+
+#: tfrmlangtranslator.aguardar.caption
+msgctxt "tfrmlangtranslator.aguardar.caption"
+msgid "Guardar"
+msgstr "Guardar"
+
+#: tfrmlangtranslator.apegar.caption
+msgctxt "tfrmlangtranslator.apegar.caption"
+msgid "Pegar"
+msgstr "Pegar"
+
+#: tfrmlangtranslator.aunir.caption
+msgctxt "tfrmlangtranslator.aunir.caption"
+msgid "Unir"
+msgstr "Unir"
+
+#: tfrmlangtranslator.button1.caption
+msgctxt "tfrmlangtranslator.button1.caption"
+msgid "Ayuda"
+msgstr "Ayuda"
+
+#: tfrmlangtranslator.button2.caption
+msgctxt "tfrmlangtranslator.button2.caption"
+msgid "Unir"
+msgstr "Unir"
+
+#: tfrmlangtranslator.button3.caption
+msgctxt "tfrmlangtranslator.button3.caption"
+msgid "Guardar"
+msgstr "Guardar"
+
+#: tfrmlangtranslator.caption
+msgctxt "tfrmlangtranslator.caption"
+msgid "Traductor de Idiomas"
+msgstr "Traductor de Idiomas"
+
+#: tfrmlangtranslator.edit1.hint
+msgctxt "tfrmlangtranslator.edit1.hint"
+msgid "http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes"
+msgstr ""
+
+#: tfrmlangtranslator.edit1.text
+msgctxt "tfrmlangtranslator.edit1.text"
+msgid "en"
+msgstr "en"
+
+#: tfrmlangtranslator.groupbox1.caption
+msgctxt "tfrmlangtranslator.groupbox1.caption"
+msgid "Archivo Original"
+msgstr "Archivo Original"
+
+#: tfrmlangtranslator.groupbox2.caption
+msgctxt "tfrmlangtranslator.groupbox2.caption"
+msgid "Archivo Traducido"
+msgstr "Archivo Traducido"
+
+#: tfrmlangtranslator.label1.caption
+msgctxt "tfrmlangtranslator.label1.caption"
+msgid "Siglas lng:"
+msgstr "Siglas lng:"
+
+#: tfrmlangtranslator.label1.hint
+msgctxt "tfrmlangtranslator.label1.hint"
+msgid "http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes"
+msgstr ""
+
+#: tfrmlangtranslator.menuitem1.caption
+msgctxt "tfrmlangtranslator.menuitem1.caption"
+msgid "Archivo"
+msgstr "Archivo"
+
+#: tfrmlangtranslator.menuitem4.caption
+msgctxt "tfrmlangtranslator.menuitem4.caption"
+msgid "Salir"
+msgstr "Salir"
+
+#: tfrmlangtranslator.menuitem5.caption
+msgctxt "tfrmlangtranslator.menuitem5.caption"
+msgid "Acciones"
+msgstr "Acciones"
+
 #: tfrmlanguageconverter.bcerrar.caption
 msgctxt "tfrmlanguageconverter.bcerrar.caption"
 msgid "&Cerrar"
-msgstr "Cerrar"
+msgstr "&Cerrar"
 
 #: tfrmlanguageconverter.bconvertir.caption
 msgid "C&onvertir"
-msgstr ""
+msgstr "C&onvertir"
 
 #: tfrmlanguageconverter.caption
 msgid "Conversor de ficheros de idioma"
-msgstr ""
+msgstr "Conversor de ficheros de idioma"
 
 #: tfrmlanguageconverter.lblficheroantiguo.caption
 msgid "Archivo Antiguo:"
-msgstr ""
+msgstr "Archivo Antiguo:"
 
 #: tfrmlanguageconverter.lblficheronuevo.caption
 msgid "Archivo Nuevo:"
-msgstr ""
+msgstr "Archivo Nuevo:"
 
 #: tfrmlanguageconverter.sbficheroantiguo.caption
 msgctxt "tfrmlanguageconverter.sbficheroantiguo.caption"
 msgid ".."
-msgstr ""
+msgstr ".."
 
 #: tfrmlanguageconverter.sbficheronuevo.caption
 msgctxt "tfrmlanguageconverter.sbficheronuevo.caption"
 msgid ".."
-msgstr ""
+msgstr ".."
 
 #: tfrmmain.aabout.caption
 msgctxt "tfrmmain.aabout.caption"
@@ -304,10 +476,9 @@ msgid "Paleta de colores"
 msgstr "Paleta de colores"
 
 #: tfrmmain.agemix.caption
-#, fuzzy
 #| msgid "http://www.gemixstudio.com"
 msgid "[GEMIX] http://www.gemixstudio.com"
-msgstr "Error: Wrong language!"
+msgstr "[GEMIX] http://www.gemixstudio.com"
 
 #: tfrmmain.ainvertsel.caption
 msgctxt "tfrmmain.ainvertsel.caption"
@@ -321,7 +492,7 @@ msgstr "Invertir selección"
 
 #: tfrmmain.alngconver.caption
 msgid "Convertidor de lng"
-msgstr ""
+msgstr "Convertidor de lng"
 
 #: tfrmmain.aopenimg.caption
 msgctxt "TFRMMAIN.AOPENIMG.CAPTION"
@@ -399,31 +570,27 @@ msgid "Puntos de control"
 msgstr "Puntos de control"
 
 #: tfrmmain.lvimages.columns[0].caption
-#, fuzzy
 #| msgid "name"
 msgctxt "tfrmmain.lvimages.columns[0].caption"
 msgid "Nombre"
-msgstr "name"
+msgstr "Nombre"
 
 #: tfrmmain.lvimages.columns[1].caption
-#, fuzzy
 #| msgid "width"
 msgctxt "tfrmmain.lvimages.columns[1].caption"
 msgid "Ancho"
-msgstr "width"
+msgstr "Ancho"
 
 #: tfrmmain.lvimages.columns[2].caption
-#, fuzzy
 #| msgid "height"
 msgctxt "tfrmmain.lvimages.columns[2].caption"
 msgid "Alto"
 msgstr "height"
 
 #: tfrmmain.lvimages.columns[3].caption
-#, fuzzy
 #| msgid "bpp"
 msgid "Bits Por Pixel"
-msgstr "bpp"
+msgstr "Bits Por Pixel"
 
 #: tfrmmain.menuitem4.caption
 msgctxt "TFRMMAIN.MENUITEM4.CAPTION"
@@ -472,11 +639,10 @@ msgid "Lista"
 msgstr "Lista"
 
 #: tfrmmain.mihelp.caption
-#, fuzzy
 #| msgid "Help"
 msgctxt "tfrmmain.mihelp.caption"
 msgid "Ayuda"
-msgstr "Help"
+msgstr "Ayuda"
 
 #: tfrmmain.mihideshowdirs.caption
 msgctxt "tfrmmain.mihideshowdirs.caption"
@@ -484,11 +650,10 @@ msgid "Ocultar/Mostrar directorios"
 msgstr "Ocultar/Mostrar directorios"
 
 #: tfrmmain.miimages.caption
-#, fuzzy
 #| msgid "Images"
 msgctxt "tfrmmain.miimages.caption"
 msgid "Imágenes"
-msgstr "Images"
+msgstr "Imágenes"
 
 #: tfrmmain.miimgdetails.caption
 msgctxt "TFRMMAIN.MIIMGDETAILS.CAPTION"
@@ -504,6 +669,11 @@ msgstr "Imágenes"
 msgctxt "TFRMMAIN.MIIMGLIST.CAPTION"
 msgid "Lista"
 msgstr "Lista"
+
+#: tfrmmain.milangtranslator.caption
+msgctxt "tfrmmain.milangtranslator.caption"
+msgid "Traductor de Idiomas"
+msgstr "Traductor de Idiomas"
 
 #: tfrmmain.minew.caption
 msgctxt "tfrmmain.minew.caption"
@@ -575,11 +745,10 @@ msgid "Mostrar/Ocultar panel superior"
 msgstr "Mostrar/Ocultar panel superior"
 
 #: tfrmmain.mitools.caption
-#, fuzzy
 #| msgid "Tools"
 msgctxt "tfrmmain.mitools.caption"
 msgid "Herramientas"
-msgstr "Tools"
+msgstr "Herramientas"
 
 #: tfrmmain.miviewfpg.caption
 msgid "&Ver"
@@ -860,7 +1029,7 @@ msgstr "ToolBar1"
 
 #: tfrmview.caption
 msgid "frmView"
-msgstr ""
+msgstr "Ver Archivo"
 
 #: tfrmview.gbdetails.caption
 msgctxt "tfrmview.gbdetails.caption"
@@ -869,31 +1038,31 @@ msgstr "Detalles de la imagen"
 
 #: tfrmview.lbalto.caption
 msgid "lbAlto"
-msgstr ""
+msgstr "Alto"
 
 #: tfrmview.lbancho.caption
 msgid "lbAncho"
-msgstr ""
+msgstr "Ancho"
 
 #: tfrmview.lbbpp.caption
 msgid "lbBpp"
-msgstr ""
+msgstr "Bits Por Pixel"
 
 #: tfrmview.lbheight.caption
 msgid "Alto :"
-msgstr ""
+msgstr "Alto :"
 
 #: tfrmview.lbpp.caption
 msgid "Bpp :"
-msgstr ""
+msgstr "Bpp :"
 
 #: tfrmview.lbwidth.caption
 msgid "Ancho :"
-msgstr ""
+msgstr "Ancho :"
 
 #: tfrmview.lzoom.caption
 msgid "Zoom :"
-msgstr ""
+msgstr "Zoom :"
 
 #: ulanguage.lng_abort
 msgid "Anular"
@@ -1175,10 +1344,9 @@ msgstr "El archivo no existe."
 
 #: ulanguage.lng_flat_buttons
 msgid "Botones tipo \"FLAT\""
-msgstr ""
+msgstr "Botones tipo \"FLAT\""
 
 #: ulanguage.lng_fpg
-#, fuzzy
 #| msgid "FPG#9"
 msgctxt "ulanguage.lng_fpg"
 msgid "FPG"
@@ -1206,7 +1374,6 @@ msgid "Alto"
 msgstr "Alto"
 
 #: ulanguage.lng_help
-#, fuzzy
 #| msgid "Help"
 msgctxt "ulanguage.lng_help"
 msgid "Ayuda"
@@ -1226,11 +1393,10 @@ msgid "Ignorar"
 msgstr "Ignorar"
 
 #: ulanguage.lng_images
-#, fuzzy
 #| msgid "Images"
 msgctxt "ulanguage.lng_images"
 msgid "Imágenes"
-msgstr "Images"
+msgstr "Imágenes"
 
 #: ulanguage.lng_images_moved_recicledbin
 msgid "Imagen(es) movida(s) a la papelera de reciclaje"
@@ -1420,6 +1586,7 @@ msgid "Reintentar"
 msgstr "Reintentar"
 
 #: ulanguage.lng_save
+msgctxt "ulanguage.lng_save"
 msgid "Guardar"
 msgstr "Guardar"
 
@@ -1474,7 +1641,6 @@ msgid "Tiempo entre imagen"
 msgstr "Tiempo entre imagen"
 
 #: ulanguage.lng_tools
-#, fuzzy
 #| msgid "Tools"
 msgctxt "ulanguage.lng_tools"
 msgid "Utilidades"
@@ -1500,6 +1666,11 @@ msgstr "Actualizando imagen(es)"
 msgctxt "ulanguage.lng_view"
 msgid "Ver"
 msgstr "Ver"
+
+#: ulanguage.lng_view_icons
+msgctxt "ulanguage.lng_view_icons"
+msgid "Imágenes"
+msgstr "Imágenes"
 
 #: ulanguage.lng_view_palette
 msgid "Visualizar Paleta"
@@ -1532,13 +1703,21 @@ msgstr "Si"
 
 #: ulngconverter.lng_correct
 msgid "Fichero creado correctamente"
-msgstr ""
+msgstr "Fichero creado correctamente"
 
 #: ulngconverter.lng_file_no_exist
 msgid "No existe el fichero:"
-msgstr ""
+msgstr "No existe el fichero:"
 
 #: ulngconverter.lng_file_reference_no_exist
 msgid "No existe el fichero de referencia:"
+msgstr "No existe el fichero de referencia:"
+
+#: ulngtranslator.lng_message_correct_join
+msgid "Archivo Juntado Correctamente"
 msgstr ""
+
+#: ulngtranslator.lng_message_help_translator
+msgid "Abre el archivo .po a traducir.\\nCopia el cotenido al portapapeles.\\nPégalo en tu traductor favorito y tradúcelo.\\nCopia el texto traducido y pégalo en el cuadro de abajo.\\nPulsa Unir.\\nEscribe las dos siglas del idioma destino.\\nFinalmente guarda el archivo."
+msgstr "Abre el archivo .po a traducir.\\nCopia el cotenido al portapapeles.\\nPégalo en tu traductor favorito y tradúcelo.\\nCopia el texto traducido y pégalo en el cuadro de abajo.\\nPulsa Unir.\\nEscribe las dos siglas del idioma destino.\\nFinalmente guarda el archivo."
 

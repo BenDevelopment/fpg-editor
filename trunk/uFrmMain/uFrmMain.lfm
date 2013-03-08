@@ -2394,6 +2394,10 @@ object frmMain: TfrmMain
       object miLngConverter: TMenuItem
         Action = aLngConver
       end
+      object miLangTranslator: TMenuItem
+        Caption = 'Traductor de Idiomas'
+        OnClick = miLangTranslatorClick
+      end
     end
     object miHelp: TMenuItem
       Caption = 'Ayuda'

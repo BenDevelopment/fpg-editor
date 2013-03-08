@@ -1,9 +1,89 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
+#: tform2.aabrir.caption
+msgctxt "tform2.aabrir.caption"
+msgid "Abrir"
+msgstr "Ireki"
+
+#: tform2.acopiar.caption
+msgctxt "tform2.acopiar.caption"
+msgid "Copiar"
+msgstr "Kopiatu"
+
+#: tform2.aguardar.caption
+msgctxt "tform2.aguardar.caption"
+msgid "Guardar"
+msgstr "Gorde"
+
+#: tform2.apegar.caption
+msgctxt "tform2.apegar.caption"
+msgid "Pegar"
+msgstr "Itsatsi"
+
+#: tform2.aunir.caption
+msgctxt "tform2.aunir.caption"
+msgid "Unir"
+msgstr "Batu"
+
+#: tform2.button1.caption
+msgctxt "tform2.button1.caption"
+msgid "Ayuda"
+msgstr "Laguntza"
+
+#: tform2.button2.caption
+msgctxt "tform2.button2.caption"
+msgid "Unir"
+msgstr "Batu"
+
+#: tform2.button3.caption
+msgctxt "tform2.button3.caption"
+msgid "Guardar"
+msgstr "Gorde"
+
+#: tform2.caption
+msgid "Form2"
+msgstr "Form2"
+
+#: tform2.edit1.text
+#, fuzzy
+msgctxt "tform2.edit1.text"
+msgid "en"
+msgstr "tform2.edit1.text"
+
+#: tform2.groupbox1.caption
+msgctxt "tform2.groupbox1.caption"
+msgid "Archivo Original"
+msgstr "Original File"
+
+#: tform2.groupbox2.caption
+msgctxt "tform2.groupbox2.caption"
+msgid "Archivo Traducido"
+msgstr "Itzultzailea"
+
+#: tform2.label1.caption
+msgctxt "tform2.label1.caption"
+msgid "Siglas lng:"
+msgstr "GNL Acronyms"
+
+#: tform2.menuitem1.caption
+msgctxt "tform2.menuitem1.caption"
+msgid "Archivo"
+msgstr "Fitxategia"
+
+#: tform2.menuitem4.caption
+msgctxt "tform2.menuitem4.caption"
+msgid "Salir"
+msgstr "Irten"
+
+#: tform2.menuitem5.caption
+msgctxt "tform2.menuitem5.caption"
+msgid "Acciones"
+msgstr "Ekintzak"
+
 #: tfrmabout.button1.caption
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: tfrmabout.caption
 msgctxt "TFRMABOUT.CAPTION"
@@ -22,11 +102,11 @@ msgstr "Egilea"
 
 #: tfrmabout.tsdescription.caption
 msgid "Descripcion"
-msgstr ""
+msgstr "Deskribapena"
 
 #: tfrmcfg.caption
 msgid "Configuración del generador de fuentes"
-msgstr ""
+msgstr "Font Generator ezartzea"
 
 #: tfrmcfg.gbpaleta.caption
 msgctxt "tfrmcfg.gbpaleta.caption"
@@ -35,59 +115,59 @@ msgstr "256 margotako paleta"
 
 #: tfrmcfg.rbfnt2pal.caption
 msgid "Calcular paleta optimizada a los colores de la fuente"
-msgstr ""
+msgstr "Kalkulatu optimized paleta kolore letra-tipoa"
 
 #: tfrmcfg.rbpal2fnt.caption
 msgid "Adaptar fuente a la paleta cargada"
-msgstr ""
+msgstr "Egokitu letra-tipo paleta kargatu"
 
 #: tfrmcfg.sbaccept.caption
 msgctxt "tfrmcfg.sbaccept.caption"
 msgid "&Aceptar"
-msgstr ""
+msgstr "& OK"
 
 #: tfrmcfg.sbcancel.caption
 msgctxt "tfrmcfg.sbcancel.caption"
 msgid "&Cancelar"
-msgstr ""
+msgstr "& Utzi"
 
 #: tfrmcfg.sbloadpal.caption
 msgid "&Cargar paleta"
-msgstr ""
+msgstr "& Kargatu paleta"
 
 #: tfrmcfg.sbviewpal.caption
 msgid "&Ver paleta"
-msgstr ""
+msgstr "& View paleta"
 
 #: tfrmconfig.bbacept.caption
 msgctxt "TFRMCONFIG.BBACEPT.CAPTION"
 msgid "&Aceptar"
-msgstr ""
+msgstr "& OK"
 
 #: tfrmconfig.bbcancel.caption
 msgctxt "TFRMCONFIG.BBCANCEL.CAPTION"
 msgid "&Cancelar"
-msgstr ""
+msgstr "& Utzi"
 
 #: tfrmconfig.caption
 msgid "Configuración de FPG EDIT"
-msgstr ""
+msgstr "FPG editatzeko ezartzea"
 
 #: tfrmconfig.cbalfanegro.caption
 msgid "50% alfa a transparente"
-msgstr ""
+msgstr "% 50 alfa gardenak"
 
 #: tfrmconfig.cbautoloadimages.caption
 msgid "Auto carga de imágenes"
-msgstr ""
+msgstr "Auto Kargatu irudiak"
 
 #: tfrmconfig.cbautoloadremove.caption
 msgid "cbAutoloadRemove"
-msgstr ""
+msgstr "cbAutoloadRemove"
 
 #: tfrmconfig.cbflat.caption
 msgid "Botones tipo \"flat\""
-msgstr ""
+msgstr "Botoiak mota \" laua  \""
 
 #: tfrmconfig.cbsplash.caption
 msgctxt "tfrmconfig.cbsplash.caption"
@@ -96,11 +176,11 @@ msgstr "Sarrerako leihoa erakutsi"
 
 #: tfrmconfig.gbenviroment.caption
 msgid "gbEnviroment"
-msgstr ""
+msgstr "gbEnviroment"
 
 #: tfrmconfig.gbimageedit.caption
 msgid " Editor de imágenes "
-msgstr ""
+msgstr "Irudi-editorea"
 
 #: tfrmconfig.gblanguaje.caption
 msgctxt "tfrmconfig.gblanguaje.caption"
@@ -109,11 +189,11 @@ msgstr "Hizkuntza"
 
 #: tfrmconfig.gbtimeanimate.caption
 msgid " Tiempo entre animación "
-msgstr ""
+msgstr "animazio arteko atzerapena"
 
 #: tfrmconfig.groupbox1.caption
 msgid "Viewer Background Colors"
-msgstr ""
+msgstr "Atzeko Kolorea Viewer"
 
 #: tfrmconfig.label1.caption
 msgctxt "tfrmconfig.label1.caption"
@@ -122,7 +202,7 @@ msgstr "FPG"
 
 #: tfrmconfig.label2.caption
 msgid "Files"
-msgstr ""
+msgstr "Fitxategiak"
 
 #: tfrmconfig.lbmiliseconds.caption
 msgctxt "tfrmconfig.lbmiliseconds.caption"
@@ -136,43 +216,134 @@ msgstr "piksel"
 
 #: tfrmconfig.lbsizeoficon.caption
 msgid "Tamaño de los iconos:"
-msgstr ""
+msgstr "Ikono tamaina"
 
 #: tfrmconfig.tsenviroment.caption
 msgctxt "tfrmconfig.tsenviroment.caption"
 msgid "Entorno"
 msgstr "Ingurunea"
 
+#: tfrmlangtranslator.aabrir.caption
+msgctxt "tfrmlangtranslator.aabrir.caption"
+msgid "Abrir"
+msgstr "Ireki"
+
+#: tfrmlangtranslator.acopiar.caption
+msgctxt "tfrmlangtranslator.acopiar.caption"
+msgid "Copiar"
+msgstr "Kopiatu"
+
+#: tfrmlangtranslator.aguardar.caption
+msgctxt "tfrmlangtranslator.aguardar.caption"
+msgid "Guardar"
+msgstr "Gorde"
+
+#: tfrmlangtranslator.apegar.caption
+msgctxt "tfrmlangtranslator.apegar.caption"
+msgid "Pegar"
+msgstr "Itsatsi"
+
+#: tfrmlangtranslator.aunir.caption
+msgctxt "tfrmlangtranslator.aunir.caption"
+msgid "Unir"
+msgstr "Batu"
+
+#: tfrmlangtranslator.button1.caption
+msgctxt "tfrmlangtranslator.button1.caption"
+msgid "Ayuda"
+msgstr "Honen inguruan"
+
+#: tfrmlangtranslator.button2.caption
+msgctxt "tfrmlangtranslator.button2.caption"
+msgid "Unir"
+msgstr "Batu"
+
+#: tfrmlangtranslator.button3.caption
+msgctxt "tfrmlangtranslator.button3.caption"
+msgid "Guardar"
+msgstr "Gorde"
+
+#: tfrmlangtranslator.caption
+msgctxt "tfrmlangtranslator.caption"
+msgid "Traductor de Idiomas"
+msgstr "Language Translator"
+
+#: tfrmlangtranslator.edit1.hint
+msgctxt "tfrmlangtranslator.edit1.hint"
+msgid "http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes"
+msgstr ""
+
+#: tfrmlangtranslator.edit1.text
+#, fuzzy
+msgctxt "tfrmlangtranslator.edit1.text"
+msgid "en"
+msgstr "tfrmlangtranslator.edit1.text"
+
+#: tfrmlangtranslator.groupbox1.caption
+msgctxt "tfrmlangtranslator.groupbox1.caption"
+msgid "Archivo Original"
+msgstr "Original File"
+
+#: tfrmlangtranslator.groupbox2.caption
+msgctxt "tfrmlangtranslator.groupbox2.caption"
+msgid "Archivo Traducido"
+msgstr "Itzultzailea"
+
+#: tfrmlangtranslator.label1.caption
+msgctxt "tfrmlangtranslator.label1.caption"
+msgid "Siglas lng:"
+msgstr "GNL Acronyms"
+
+#: tfrmlangtranslator.label1.hint
+msgctxt "tfrmlangtranslator.label1.hint"
+msgid "http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes"
+msgstr ""
+
+#: tfrmlangtranslator.menuitem1.caption
+msgctxt "tfrmlangtranslator.menuitem1.caption"
+msgid "Archivo"
+msgstr "Fitxategia"
+
+#: tfrmlangtranslator.menuitem4.caption
+msgctxt "tfrmlangtranslator.menuitem4.caption"
+msgid "Salir"
+msgstr "Irten"
+
+#: tfrmlangtranslator.menuitem5.caption
+msgctxt "tfrmlangtranslator.menuitem5.caption"
+msgid "Acciones"
+msgstr "Ekintzak"
+
 #: tfrmlanguageconverter.bcerrar.caption
 msgctxt "TFRMLANGUAGECONVERTER.BCERRAR.CAPTION"
 msgid "&Cerrar"
-msgstr ""
+msgstr "& Itxi"
 
 #: tfrmlanguageconverter.bconvertir.caption
 msgid "C&onvertir"
-msgstr ""
+msgstr "C & onvert"
 
 #: tfrmlanguageconverter.caption
 msgid "Conversor de ficheros de idioma"
-msgstr ""
+msgstr "Hizkuntza fitxategiak converter"
 
 #: tfrmlanguageconverter.lblficheroantiguo.caption
 msgid "Archivo Antiguo:"
-msgstr ""
+msgstr "Old file:"
 
 #: tfrmlanguageconverter.lblficheronuevo.caption
 msgid "Archivo Nuevo:"
-msgstr ""
+msgstr "Fitxategi berria"
 
 #: tfrmlanguageconverter.sbficheroantiguo.caption
 msgctxt "tfrmlanguageconverter.sbficheroantiguo.caption"
 msgid ".."
-msgstr ""
+msgstr ".."
 
 #: tfrmlanguageconverter.sbficheronuevo.caption
 msgctxt "TFRMLANGUAGECONVERTER.SBFICHERONUEVO.CAPTION"
 msgid ".."
-msgstr ""
+msgstr ".."
 
 #: tfrmmain.aabout.caption
 msgctxt "tfrmmain.aabout.caption"
@@ -196,28 +367,28 @@ msgstr "Biziarazi"
 
 #: tfrmmain.abennu.caption
 msgid "[BennuGD] http://bennugd.org/"
-msgstr ""
+msgstr "[BennuGD] http://bennugd.org/"
 
 #: tfrmmain.acdiv.caption
 msgid "[ CDIV ] http://cdiv.sourceforge.net/"
-msgstr ""
+msgstr "[CDIV] http://cdiv.sourceforge.net/"
 
 #: tfrmmain.aclose.caption
 msgctxt "tfrmmain.aclose.caption"
 msgid "&Cerrar"
-msgstr ""
+msgstr "& Itxi"
 
 #: tfrmmain.aconfig.caption
 msgid "Configuración"
-msgstr ""
+msgstr "Ezarpenak"
 
 #: tfrmmain.acopyimg.caption
 msgid "Copiar Imagen"
-msgstr ""
+msgstr "Kopiatu irudia"
 
 #: tfrmmain.action2.caption
 msgid "Action2"
-msgstr ""
+msgstr "action2"
 
 #: tfrmmain.adelete.caption
 msgctxt "tfrmmain.adelete.caption"
@@ -231,7 +402,7 @@ msgstr "Ezabatu"
 
 #: tfrmmain.adiv2.caption
 msgid "[ DIV2 ] http://www.div-arena.com/"
-msgstr ""
+msgstr "[DIV2] http://www.div-arena.com/"
 
 #: tfrmmain.aeditsel.caption
 msgctxt "tfrmmain.aeditsel.caption"
@@ -260,43 +431,43 @@ msgstr "Igorri"
 
 #: tfrmmain.afenix.caption
 msgid "[ FENIX ] http://fenix.divsite.net/"
-msgstr ""
+msgstr "[Phoenix] http://fenix.divsite.net/"
 
 #: tfrmmain.afntmaker.caption
 msgid "&Generador de Fuentes"
-msgstr ""
+msgstr "& Generator Sources"
 
 #: tfrmmain.afpg1.caption
 msgid "1 Bit"
-msgstr ""
+msgstr "1 Bit"
 
 #: tfrmmain.afpg16c.caption
 msgid "16bits CDIV"
-msgstr ""
+msgstr "16bits CDIV"
 
 #: tfrmmain.afpg16f.caption
 msgid "16 bits Fenix"
-msgstr ""
+msgstr "Fenix ​​16 bit"
 
 #: tfrmmain.afpg24.caption
 msgid "24 bits"
-msgstr ""
+msgstr "24 bit"
 
 #: tfrmmain.afpg32.caption
 msgid "32 bits"
-msgstr ""
+msgstr "32 bit"
 
 #: tfrmmain.afpg8.caption
 msgid "8 bits"
-msgstr ""
+msgstr "8 biteko"
 
 #: tfrmmain.afpgpalette.caption
 msgid "Paleta de colores"
-msgstr ""
+msgstr "Kolore-paleta"
 
 #: tfrmmain.agemix.caption
 msgid "[GEMIX] http://www.gemixstudio.com"
-msgstr ""
+msgstr "[Gemix] http://www.gemixstudio.com"
 
 #: tfrmmain.ainvertsel.caption
 msgctxt "tfrmmain.ainvertsel.caption"
@@ -339,23 +510,23 @@ msgstr "Hautatu guztia"
 
 #: tfrmmain.aziptool.caption
 msgid "&Herramienta de Compresión"
-msgstr ""
+msgstr "& Konpresio tresna"
 
 #: tfrmmain.caption
 msgid "FPG Editor"
-msgstr ""
+msgstr "FPG Editor"
 
 #: tfrmmain.cbtipofpg.text
 msgid "FPG 32 bits (BennuGD )"
-msgstr ""
+msgstr "32 bit (BennuGD) FPG"
 
 #: tfrmmain.gbfpg.caption
 msgid " FPG (Ficheros de gráficos) "
-msgstr ""
+msgstr "FPG (grafikoak fitxategiak)"
 
 #: tfrmmain.gbimages.caption
 msgid " Imagenes "
-msgstr ""
+msgstr "Irudiak"
 
 #: tfrmmain.lvfpg.columns[0].caption
 msgctxt "tfrmmain.lvfpg.columns[0].caption"
@@ -404,24 +575,24 @@ msgstr "Garai."
 
 #: tfrmmain.lvimages.columns[3].caption
 msgid "Bits Por Pixel"
-msgstr ""
+msgstr "bit pixel"
 
 #: tfrmmain.menuitem4.caption
 msgctxt "TFRMMAIN.MENUITEM4.CAPTION"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #: tfrmmain.miaddimgs.caption
 msgid "Añadir selección"
-msgstr ""
+msgstr "Gehitu hautapena"
 
 #: tfrmmain.miconvert.caption
 msgid "Convertir a"
-msgstr ""
+msgstr "Bihurtu"
 
 #: tfrmmain.mideletesel.caption
 msgid "Eliminar selección"
-msgstr ""
+msgstr "Kendu hautapena"
 
 #: tfrmmain.mieditsel.caption
 msgctxt "tfrmmain.mieditsel.caption"
@@ -430,7 +601,7 @@ msgstr "Hautatutako irudia eraldatu"
 
 #: tfrmmain.mieditselimg.caption
 msgid "Editar seleccion"
-msgstr ""
+msgstr "Editatu hautapena"
 
 #: tfrmmain.mifpg.caption
 msgctxt "TFRMMAIN.MIFPG.CAPTION"
@@ -455,7 +626,7 @@ msgstr "Zerrenda"
 #: tfrmmain.mihelp.caption
 msgctxt "tfrmmain.mihelp.caption"
 msgid "Ayuda"
-msgstr ""
+msgstr "Laguntza"
 
 #: tfrmmain.mihideshowdirs.caption
 msgctxt "tfrmmain.mihideshowdirs.caption"
@@ -482,6 +653,11 @@ msgctxt "TFRMMAIN.MIIMGLIST.CAPTION"
 msgid "Lista"
 msgstr "Zerrenda"
 
+#: tfrmmain.milangtranslator.caption
+msgctxt "tfrmmain.milangtranslator.caption"
+msgid "Traductor de Idiomas"
+msgstr "Language Translator"
+
 #: tfrmmain.minew.caption
 msgctxt "tfrmmain.minew.caption"
 msgid "Nuevo"
@@ -495,70 +671,70 @@ msgstr "Ireki"
 #: tfrmmain.miseparator1.caption
 msgctxt "TFRMMAIN.MISEPARATOR1.CAPTION"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #: tfrmmain.miseparator10.caption
 msgctxt "TFRMMAIN.MISEPARATOR10.CAPTION"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #: tfrmmain.miseparator11.caption
 msgctxt "TFRMMAIN.MISEPARATOR11.CAPTION"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #: tfrmmain.miseparator2.caption
 msgctxt "TFRMMAIN.MISEPARATOR2.CAPTION"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #: tfrmmain.miseparator3.caption
 msgctxt "TFRMMAIN.MISEPARATOR3.CAPTION"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #: tfrmmain.miseparator4.caption
 msgctxt "TFRMMAIN.MISEPARATOR4.CAPTION"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #: tfrmmain.miseparator5.caption
 msgctxt "TFRMMAIN.MISEPARATOR5.CAPTION"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #: tfrmmain.miseparator6.caption
 msgctxt "TFRMMAIN.MISEPARATOR6.CAPTION"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #: tfrmmain.miseparator7.caption
 msgctxt "TFRMMAIN.MISEPARATOR7.CAPTION"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #: tfrmmain.miseparator8.caption
 msgctxt "TFRMMAIN.MISEPARATOR8.CAPTION"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #: tfrmmain.miseparator9.caption
 msgctxt "TFRMMAIN.MISEPARATOR9.CAPTION"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #: tfrmmain.mishowhideuppanel.caption
 msgid "Mostrar/Ocultar panel superior"
-msgstr ""
+msgstr "Erakutsi / Ezkutatu top panel"
 
 #: tfrmmain.mitools.caption
 msgctxt "tfrmmain.mitools.caption"
 msgid "Herramientas"
-msgstr ""
+msgstr "Tresnak"
 
 #: tfrmmain.miviewfpg.caption
 msgid "&Ver"
-msgstr ""
+msgstr "& Ikusi"
 
 #: tfrmmain.miviewimg.caption
 msgctxt "tfrmmain.miviewimg.caption"
@@ -573,24 +749,24 @@ msgstr "Paper-biltegia"
 #: tfrmmain.n15.caption
 msgctxt "TFRMMAIN.N15.CAPTION"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #: tfrmmain.n20.caption
 msgctxt "tfrmmain.n20.caption"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #: tfrmmain.pfpgcode.caption
 msgid "Código de FPG"
-msgstr ""
+msgstr "Code FPG"
 
 #: tfrmmain.pimageslist.caption
 msgid "pImagesList"
-msgstr ""
+msgstr "pImagesList"
 
 #: tfrmmain.ppcopyimage.caption
 msgid "&Copiar al portapapeles"
-msgstr ""
+msgstr "& Copy to Clipboard"
 
 #: tfrmmain.ppfpgopen.caption
 msgctxt "tfrmmain.ppfpgopen.caption"
@@ -600,56 +776,56 @@ msgstr "Ireki"
 #: tfrmmainfnt.bgsize.caption
 msgctxt "tfrmmainfnt.bgsize.caption"
 msgid "Tamaño"
-msgstr ""
+msgstr "Tamaina"
 
 #: tfrmmainfnt.caption
 msgid "Generador de fuentes"
-msgstr ""
+msgstr "Font Generator"
 
 #: tfrmmainfnt.cbcharset.text
 msgid "ISO8859_15"
-msgstr ""
+msgstr "ISO8859_15"
 
 #: tfrmmainfnt.cbextended.caption
 msgid "Extendido"
-msgstr ""
+msgstr "Extended"
 
 #: tfrmmainfnt.cbminus.caption
 msgid "Minúsculas"
-msgstr ""
+msgstr "Tiny"
 
 #: tfrmmainfnt.cbnumbers.caption
 msgid "Números"
-msgstr ""
+msgstr "Zenbakiak"
 
 #: tfrmmainfnt.cbsymbol.caption
 msgid "Símbolos"
-msgstr ""
+msgstr "Sinboloak"
 
 #: tfrmmainfnt.cbupper.caption
 msgid "Mayúsculas"
-msgstr ""
+msgstr "Shift"
 
 #: tfrmmainfnt.edsizefont.text
 msgid "8"
-msgstr ""
+msgstr "8"
 
 #: tfrmmainfnt.gbcharset.caption
 msgid "Charset"
-msgstr ""
+msgstr "Charset"
 
 #: tfrmmainfnt.gbedge.caption
 msgctxt "TFRMMAINFNT.GBEDGE.CAPTION"
 msgid "Reborde"
-msgstr ""
+msgstr "Flange"
 
 #: tfrmmainfnt.gbfont.caption
 msgid "Fuente en FNT"
-msgstr ""
+msgstr "FNT Iturria"
 
 #: tfrmmainfnt.gbloadfont.caption
 msgid "Nombre de la fuente"
-msgstr ""
+msgstr "Font Name"
 
 #: tfrmmainfnt.gbselectcolor.caption
 msgid "Selección de colores"
@@ -658,83 +834,83 @@ msgstr ""
 #: tfrmmainfnt.gbshadow.caption
 msgctxt "TFRMMAINFNT.GBSHADOW.CAPTION"
 msgid "Sombra"
-msgstr ""
+msgstr "Itzala"
 
 #: tfrmmainfnt.gbstyle.caption
 msgid "Estilo"
-msgstr ""
+msgstr "Estiloa"
 
 #: tfrmmainfnt.gbsymboltype.caption
 msgid "Contenido"
-msgstr ""
+msgstr "Edukia"
 
 #: tfrmmainfnt.label1.caption
 msgctxt "TFRMMAINFNT.LABEL1.CAPTION"
 msgid "Alfa"
-msgstr ""
+msgstr "Alfa"
 
 #: tfrmmainfnt.label2.caption
 msgctxt "TFRMMAINFNT.LABEL2.CAPTION"
 msgid "Alfa"
-msgstr ""
+msgstr "Alfa"
 
 #: tfrmmainfnt.label3.caption
 msgid "Mostrar texto:"
-msgstr ""
+msgstr "Erakutsi testua"
 
 #: tfrmmainfnt.label4.caption
 msgctxt "tfrmmainfnt.label4.caption"
 msgid "Alfa"
-msgstr ""
+msgstr "Alfa"
 
 #: tfrmmainfnt.label5.caption
 msgid "Mostrar char:"
-msgstr ""
+msgstr "Erakutsi karaktererik gabe"
 
 #: tfrmmainfnt.lbnamefont.caption
 msgctxt "TFRMMAINFNT.LBNAMEFONT.CAPTION"
 msgid "No hay fuente"
-msgstr ""
+msgstr "source No"
 
 #: tfrmmainfnt.lbnamefontb.caption
 msgctxt "tfrmmainfnt.lbnamefontb.caption"
 msgid "No hay fuente"
-msgstr ""
+msgstr "source No"
 
 #: tfrmmainfnt.lbshadow.caption
 msgid "Posici"
-msgstr ""
+msgstr "posizioa"
 
 #: tfrmmainfnt.lbsizeedge.caption
 msgctxt "TFRMMAINFNT.LBSIZEEDGE.CAPTION"
 msgid "Tamaño"
-msgstr ""
+msgstr "Tamaina"
 
 #: tfrmmainfnt.odimportfnt.title
 msgid "Importar una fuente de una imagen"
-msgstr ""
+msgstr "Inportatu irudi-iturri bat"
 
 #: tfrmmainfnt.rbsedge.caption
 msgctxt "tfrmmainfnt.rbsedge.caption"
 msgid "Reborde"
-msgstr ""
+msgstr "Flange"
 
 #: tfrmmainfnt.rbsfont.caption
 msgid "Fuente"
-msgstr ""
+msgstr "Iturria"
 
 #: tfrmmainfnt.rbsshadow.caption
 msgctxt "tfrmmainfnt.rbsshadow.caption"
 msgid "Sombra"
-msgstr ""
+msgstr "Itzala"
 
 #: tfrmmainfnt.sbchangebgcolor.caption
 msgid "Color de fondo"
-msgstr ""
+msgstr "Atzeko Kolorea"
 
 #: tfrmmainfnt.sbchangebgcolor.hint
 msgid "Cambiar el color de fondo"
-msgstr ""
+msgstr "Aldatu atzeko planoaren kolorea"
 
 #: tfrmmainfnt.sbexport.caption
 msgctxt "tfrmmainfnt.sbexport.caption"
@@ -743,31 +919,31 @@ msgstr "Igorri"
 
 #: tfrmmainfnt.sbexport.hint
 msgid "Exportar fuente de texto"
-msgstr ""
+msgstr "Esportatu testua letra-tipoa"
 
 #: tfrmmainfnt.sbimport.caption
 msgid "Importar"
-msgstr ""
+msgstr "Inportatu"
 
 #: tfrmmainfnt.sbimport.hint
 msgid "Importar fuente de texto"
-msgstr ""
+msgstr "Inportatu testua letra-tipoa"
 
 #: tfrmmainfnt.sbloadfont.caption
 msgid "&Cargar Fuente"
-msgstr ""
+msgstr "& Load Iturria"
 
 #: tfrmmainfnt.sbloadfont.hint
 msgid "Cambiar el tipo de letra"
-msgstr ""
+msgstr "Aldatu letra-tipoa"
 
 #: tfrmmainfnt.sbmakefont.caption
 msgid "Generar"
-msgstr ""
+msgstr "Sortu"
 
 #: tfrmmainfnt.sbmakefont.hint
 msgid "Generar fuente"
-msgstr ""
+msgstr "Sortu Iturria"
 
 #: tfrmmainfnt.sbopen.hint
 msgid "Abrir fuente de texto"
@@ -775,44 +951,44 @@ msgstr ""
 
 #: tfrmmainfnt.sboptions.caption
 msgid "Opciones"
-msgstr ""
+msgstr "Aukerak"
 
 #: tfrmmainfnt.sboptions.hint
 msgid "Opciones generales"
-msgstr ""
+msgstr "Aukera orokorrak"
 
 #: tfrmmainfnt.sbsave.hint
 msgid "Guardar fuente de texto"
-msgstr ""
+msgstr "Gorde testua letra-tipoa"
 
 #: tfrmmainfnt.sbsaveas.hint
 msgid "Guardar fuente de texto como"
-msgstr ""
+msgstr "testua letra-tipo gisa gorde"
 
 #: tfrmmainfnt.sbsavetext.caption
 msgctxt "tfrmmainfnt.sbsavetext.caption"
 msgid "Guardar texto"
-msgstr ""
+msgstr "Save Text"
 
 #: tfrmmainfnt.sbsavetext.hint
 msgid "Guardar el texto escrito"
-msgstr ""
+msgstr "Gorde osatzen dute testua"
 
 #: tfrmmainfnt.sbselectcolor.caption
 msgid "Color"
-msgstr ""
+msgstr "kolorea"
 
 #: tfrmmainfnt.sbselectcolor.hint
 msgid "Establece un color"
-msgstr ""
+msgstr "kolorea ezartzen du"
 
 #: tfrmmainfnt.sbselectimage.caption
 msgid "Imagen"
-msgstr ""
+msgstr "irudia"
 
 #: tfrmmainfnt.sbselectimage.hint
 msgid "Establece una imagen"
-msgstr ""
+msgstr "Irudi bat ezartzen du"
 
 #: tfrmmainfnt.sbshowfnt.caption
 msgctxt "TFRMMAINFNT.SBSHOWFNT.CAPTION"
@@ -827,15 +1003,15 @@ msgstr ""
 #: tfrmmainfnt.sdsavetext.title
 msgctxt "TFRMMAINFNT.SDSAVETEXT.TITLE"
 msgid "Guardar texto"
-msgstr ""
+msgstr "Save Text"
 
 #: tfrmmainfnt.toolbar1.caption
 msgid "ToolBar1"
-msgstr ""
+msgstr "ToolBar1"
 
 #: tfrmview.caption
 msgid "frmView"
-msgstr ""
+msgstr "frmView"
 
 #: tfrmview.gbdetails.caption
 msgctxt "tfrmview.gbdetails.caption"
@@ -844,31 +1020,31 @@ msgstr "Irudiaren xehetasunak"
 
 #: tfrmview.lbalto.caption
 msgid "lbAlto"
-msgstr ""
+msgstr "lbAlto"
 
 #: tfrmview.lbancho.caption
 msgid "lbAncho"
-msgstr ""
+msgstr "lbAncho"
 
 #: tfrmview.lbbpp.caption
 msgid "lbBpp"
-msgstr ""
+msgstr "lbBpp"
 
 #: tfrmview.lbheight.caption
 msgid "Alto :"
-msgstr ""
+msgstr "High"
 
 #: tfrmview.lbpp.caption
 msgid "Bpp :"
-msgstr ""
+msgstr "bpp"
 
 #: tfrmview.lbwidth.caption
 msgid "Ancho :"
-msgstr ""
+msgstr "Zabalera:"
 
 #: tfrmview.lzoom.caption
 msgid "Zoom :"
-msgstr ""
+msgstr "Zoom"
 
 #: ulanguage.lng_abort
 msgid "Anular"
@@ -1150,7 +1326,7 @@ msgstr "Fitxategi hau ez dago."
 
 #: ulanguage.lng_flat_buttons
 msgid "Botones tipo \"FLAT\""
-msgstr ""
+msgstr "Botoiak mota \" FLAT  \""
 
 #: ulanguage.lng_fpg
 msgctxt "ulanguage.lng_fpg"
@@ -1389,6 +1565,7 @@ msgid "Reintentar"
 msgstr "Berriz saiatu"
 
 #: ulanguage.lng_save
+msgctxt "ulanguage.lng_save"
 msgid "Guardar"
 msgstr "Gorde"
 
@@ -1468,6 +1645,11 @@ msgctxt "ulanguage.lng_view"
 msgid "Ver"
 msgstr "Ikusi"
 
+#: ulanguage.lng_view_icons
+msgctxt "ulanguage.lng_view_icons"
+msgid "Imágenes"
+msgstr "Irudiak"
+
 #: ulanguage.lng_view_palette
 msgid "Visualizar Paleta"
 msgstr "Paleta erakutsi"
@@ -1499,13 +1681,21 @@ msgstr "Bai"
 
 #: ulngconverter.lng_correct
 msgid "Fichero creado correctamente"
-msgstr ""
+msgstr "Fitxategia behar bezala sortu da"
 
 #: ulngconverter.lng_file_no_exist
 msgid "No existe el fichero:"
-msgstr ""
+msgstr "Ez dago halako fitxategi"
 
 #: ulngconverter.lng_file_reference_no_exist
 msgid "No existe el fichero de referencia:"
-msgstr ""
+msgstr "Ez dago halako fitxategi erreferentzia:"
+
+#: ulngtranslator.lng_message_correct_join
+msgid "Archivo Juntado Correctamente"
+msgstr "Fitxategia behar bezala akoplatu"
+
+#: ulngtranslator.lng_message_help_translator
+msgid "Abre el archivo .po a traducir.\\nCopia el cotenido al portapapeles.\\nPégalo en tu traductor favorito y tradúcelo.\\nCopia el texto traducido y pégalo en el cuadro de abajo.\\nPulsa Unir.\\nEscribe las dos siglas del idioma destino.\\nFinalmente guarda el archivo."
+msgstr "Ireki. po itzultzeko.   cotenido nCopia arbelean.   nPégalo zure gogoko itzultzaile eta itzultzeko.   nCopia eta itzulitako testua itsatsi beheko koadroan.   nPress Erregistratu.   nEscribe atzerriko hizkuntza bi letrak.   nFinalmente fitxategia gorde. "
 
