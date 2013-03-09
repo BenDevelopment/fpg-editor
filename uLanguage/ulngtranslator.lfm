@@ -1,10 +1,10 @@
 object frmLangTranslator: TfrmLangTranslator
-  Left = 338
+  Left = 307
   Height = 649
-  Top = 204
+  Top = 74
   Width = 817
   Caption = 'Traductor de Idiomas'
-  ClientHeight = 620
+  ClientHeight = 629
   ClientWidth = 817
   Menu = MainMenu1
   OnCreate = FormCreate
@@ -12,7 +12,7 @@ object frmLangTranslator: TfrmLangTranslator
   object Panel1: TPanel
     Left = 0
     Height = 36
-    Top = 584
+    Top = 593
     Width = 817
     Align = alBottom
     ClientHeight = 36
@@ -29,7 +29,7 @@ object frmLangTranslator: TfrmLangTranslator
     end
     object Edit1: TEdit
       Left = 273
-      Height = 31
+      Height = 23
       Hint = 'http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes'
       Top = 0
       Width = 48
@@ -38,10 +38,10 @@ object frmLangTranslator: TfrmLangTranslator
     end
     object Label1: TLabel
       Left = 202
-      Height = 21
+      Height = 15
       Hint = 'http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes'
       Top = 4
-      Width = 68
+      Width = 53
       Caption = 'Siglas lng:'
       ParentColor = False
     end
@@ -66,17 +66,17 @@ object frmLangTranslator: TfrmLangTranslator
   end
   object GroupBox1: TGroupBox
     Left = 0
-    Height = 310
+    Height = 319
     Top = 0
     Width = 817
     Align = alClient
     Caption = 'Archivo Original'
-    ClientHeight = 287
+    ClientHeight = 301
     ClientWidth = 813
     TabOrder = 1
     object Memo1: TMemo
       Left = 0
-      Height = 287
+      Height = 301
       Top = 0
       Width = 813
       Align = alClient
@@ -89,16 +89,16 @@ object frmLangTranslator: TfrmLangTranslator
   object GroupBox2: TGroupBox
     Left = 0
     Height = 269
-    Top = 315
+    Top = 324
     Width = 817
     Align = alBottom
     Caption = 'Archivo Traducido'
-    ClientHeight = 246
+    ClientHeight = 251
     ClientWidth = 813
     TabOrder = 2
     object Memo2: TMemo
       Left = 0
-      Height = 246
+      Height = 251
       Top = 0
       Width = 813
       Align = alClient
@@ -111,7 +111,7 @@ object frmLangTranslator: TfrmLangTranslator
     Cursor = crVSplit
     Left = 0
     Height = 5
-    Top = 310
+    Top = 319
     Width = 817
     Align = alBottom
     ResizeAnchor = akBottom

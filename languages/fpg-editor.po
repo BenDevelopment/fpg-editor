@@ -222,6 +222,149 @@ msgctxt "tfrmconfig.tsenviroment.caption"
 msgid "Entorno"
 msgstr ""
 
+#: tfrmfpgimages.bbaceptchanges.caption
+msgctxt "TFRMFPGIMAGES.BBACEPTCHANGES.CAPTION"
+msgid "&Aceptar"
+msgstr ""
+
+#: tfrmfpgimages.bbcancelchanges.caption
+msgctxt "TFRMFPGIMAGES.BBCANCELCHANGES.CAPTION"
+msgid "&Cancelar"
+msgstr ""
+
+#: tfrmfpgimages.bmodify.caption
+msgid "Modificar datos de imagen"
+msgstr ""
+
+#: tfrmfpgimages.caption
+msgctxt "TFRMFPGIMAGES.CAPTION"
+msgid "Editar propiedades de la imagen"
+msgstr ""
+
+#: tfrmfpgimages.gbcode.caption
+msgid " Código "
+msgstr ""
+
+#: tfrmfpgimages.gbdescription.caption
+msgid " Descripción "
+msgstr ""
+
+#: tfrmfpgimages.gbname.caption
+msgid " Nombre "
+msgstr ""
+
+#: tfrmfpgimages.groupbox5.caption
+msgid " X "
+msgstr ""
+
+#: tfrmfpgimages.groupbox6.caption
+msgid " Y "
+msgstr ""
+
+#: tfrmfpgimages.lbheight.caption
+msgid "lbHeight"
+msgstr ""
+
+#: tfrmfpgimages.lbnumcp.caption
+msgid "lbNumCP"
+msgstr ""
+
+#: tfrmfpgimages.lbwidth.caption
+msgid "lbWidth"
+msgstr ""
+
+#: tfrmfpgimages.lb_ctrl_points.caption
+msgid "Puntos de control:"
+msgstr ""
+
+#: tfrmfpgimages.lb_heigth.caption
+msgid "Alto:"
+msgstr ""
+
+#: tfrmfpgimages.lb_width.caption
+msgctxt "tfrmfpgimages.lb_width.caption"
+msgid "Ancho:"
+msgstr ""
+
+#: tfrmfpgimages.lvcontrolpoints.columns[0].caption
+msgctxt "TFRMFPGIMAGES.LVCONTROLPOINTS.COLUMNS[0].CAPTION"
+msgid "Número"
+msgstr ""
+
+#: tfrmfpgimages.lvcontrolpoints.columns[1].caption
+msgid "X"
+msgstr ""
+
+#: tfrmfpgimages.lvcontrolpoints.columns[2].caption
+msgid "Y"
+msgstr ""
+
+#: tfrmfpgimages.sbadd.hint
+msgctxt "TFRMFPGIMAGES.SBADD.HINT"
+msgid "Añadir punto de control"
+msgstr ""
+
+#: tfrmfpgimages.sbaddpoint.caption
+msgctxt "TFRMFPGIMAGES.SBADDPOINT.CAPTION"
+msgid "Añadir punto"
+msgstr ""
+
+#: tfrmfpgimages.sbchangecolor.caption
+msgctxt "TFRMFPGIMAGES.SBCHANGECOLOR.CAPTION"
+msgid "Cambiar color de puntos"
+msgstr ""
+
+#: tfrmfpgimages.sbdelete.hint
+msgctxt "TFRMFPGIMAGES.SBDELETE.HINT"
+msgid "Eliminar punto de control"
+msgstr ""
+
+#: tfrmfpgimages.sbedit.hint
+msgid "Editar punto de control"
+msgstr ""
+
+#: tfrmfpgimages.sbimageselect.caption
+msgctxt "TFRMFPGIMAGES.SBIMAGESELECT.CAPTION"
+msgid "Poner puntos en imagen"
+msgstr ""
+
+#: tfrmfpgimages.sbloadcp.caption
+msgctxt "TFRMFPGIMAGES.SBLOADCP.CAPTION"
+msgid "Cargar puntos de control"
+msgstr ""
+
+#: tfrmfpgimages.sbputcenter.caption
+msgid "Poner Centro"
+msgstr ""
+
+#: tfrmfpgimages.sbremoveall.caption
+msgctxt "TFRMFPGIMAGES.SBREMOVEALL.CAPTION"
+msgid "Borrar todos los puntos"
+msgstr ""
+
+#: tfrmfpgimages.sbsetcenter.caption
+msgctxt "TFRMFPGIMAGES.SBSETCENTER.CAPTION"
+msgid "Poner centro real"
+msgstr ""
+
+#: tfrmfpgimages.sbsetcontrolpoint.caption
+msgctxt "TFRMFPGIMAGES.SBSETCONTROLPOINT.CAPTION"
+msgid "Añadir punto"
+msgstr ""
+
+#: tfrmfpgimages.sbviewcontrolpoints.caption
+msgctxt "TFRMFPGIMAGES.SBVIEWCONTROLPOINTS.CAPTION"
+msgid "Ver puntos de la imagen"
+msgstr ""
+
+#: tfrmfpgimages.tscontrolpoints.caption
+msgid "tsControlPoints"
+msgstr ""
+
+#: tfrmfpgimages.tsproperties.caption
+msgid "tsProperties"
+msgstr ""
+
 #: tfrmlangtranslator.aabrir.caption
 msgctxt "TFRMLANGTRANSLATOR.AABRIR.CAPTION"
 msgid "Abrir"
@@ -460,6 +603,7 @@ msgid "8 bits"
 msgstr ""
 
 #: tfrmmain.afpgpalette.caption
+msgctxt "tfrmmain.afpgpalette.caption"
 msgid "Paleta de colores"
 msgstr ""
 
@@ -1004,7 +1148,210 @@ msgid "Guardar texto"
 msgstr ""
 
 #: tfrmmainfnt.toolbar1.caption
+msgctxt "tfrmmainfnt.toolbar1.caption"
 msgid "ToolBar1"
+msgstr ""
+
+#: tfrmmapeditor.action1.caption
+msgctxt "TFRMMAPEDITOR.ACTION1.CAPTION"
+msgid "Abrir"
+msgstr ""
+
+#: tfrmmapeditor.action2.caption
+msgctxt "TFRMMAPEDITOR.ACTION2.CAPTION"
+msgid "Guardar"
+msgstr ""
+
+#: tfrmmapeditor.action3.caption
+msgid "Guardar como .."
+msgstr ""
+
+#: tfrmmapeditor.action4.caption
+msgctxt "TFRMMAPEDITOR.ACTION4.CAPTION"
+msgid "Salir"
+msgstr ""
+
+#: tfrmmapeditor.action5.caption
+msgctxt "TFRMMAPEDITOR.ACTION5.CAPTION"
+msgid "Lápiz"
+msgstr ""
+
+#: tfrmmapeditor.action6.caption
+msgctxt "TFRMMAPEDITOR.ACTION6.CAPTION"
+msgid "Línea"
+msgstr ""
+
+#: tfrmmapeditor.action7.caption
+msgid "Elipse"
+msgstr ""
+
+#: tfrmmapeditor.action8.caption
+msgid "Deshacer"
+msgstr ""
+
+#: tfrmmapeditor.caption
+msgid "Map Editor"
+msgstr ""
+
+#: tfrmmapeditor.figurecombo.text
+msgctxt "tfrmmapeditor.figurecombo.text"
+msgid "Lápiz"
+msgstr ""
+
+#: tfrmmapeditor.groupbox1.caption
+msgid "Contorno"
+msgstr ""
+
+#: tfrmmapeditor.groupbox2.caption
+msgid "Relleno"
+msgstr ""
+
+#: tfrmmapeditor.groupbox3.caption
+msgid "General"
+msgstr ""
+
+#: tfrmmapeditor.label1.caption
+msgid "Zoom"
+msgstr ""
+
+#: tfrmmapeditor.label10.caption
+msgid "Modo:"
+msgstr ""
+
+#: tfrmmapeditor.label11.caption
+msgid "Color de fondo:"
+msgstr ""
+
+#: tfrmmapeditor.label12.caption
+msgid "Herramienta:"
+msgstr ""
+
+#: tfrmmapeditor.label13.caption
+msgid "Rellleno:"
+msgstr ""
+
+#: tfrmmapeditor.label2.caption
+msgid "Contorno:"
+msgstr ""
+
+#: tfrmmapeditor.label3.caption
+msgctxt "TFRMMAPEDITOR.LABEL3.CAPTION"
+msgid "Ancho:"
+msgstr ""
+
+#: tfrmmapeditor.label4.caption
+msgctxt "tfrmmapeditor.label4.caption"
+msgid "Alfa:"
+msgstr ""
+
+#: tfrmmapeditor.label5.caption
+msgctxt "TFRMMAPEDITOR.LABEL5.CAPTION"
+msgid "Alfa:"
+msgstr ""
+
+#: tfrmmapeditor.label6.caption
+msgctxt "tfrmmapeditor.label6.caption"
+msgid "Color:"
+msgstr ""
+
+#: tfrmmapeditor.label7.caption
+msgctxt "tfrmmapeditor.label7.caption"
+msgid "Estilo:"
+msgstr ""
+
+#: tfrmmapeditor.label8.caption
+msgctxt "TFRMMAPEDITOR.LABEL8.CAPTION"
+msgid "Estilo:"
+msgstr ""
+
+#: tfrmmapeditor.label9.caption
+msgctxt "TFRMMAPEDITOR.LABEL9.CAPTION"
+msgid "Color:"
+msgstr ""
+
+#: tfrmmapeditor.menuitem1.caption
+msgctxt "TFRMMAPEDITOR.MENUITEM1.CAPTION"
+msgid "Archivo"
+msgstr ""
+
+#: tfrmmapeditor.menuitem10.caption
+msgctxt "TFRMMAPEDITOR.MENUITEM10.CAPTION"
+msgid "Editar"
+msgstr ""
+
+#: tfrmmapeditor.menuitem12.caption
+msgid "Triángulo"
+msgstr ""
+
+#: tfrmmapeditor.menuitem13.caption
+msgid "Rectángulo"
+msgstr ""
+
+#: tfrmmapeditor.menuitem14.caption
+msgid "Copiar Color"
+msgstr ""
+
+#: tfrmmapeditor.menuitem15.caption
+msgctxt "TFRMMAPEDITOR.MENUITEM15.CAPTION"
+msgid "Ver"
+msgstr ""
+
+#: tfrmmapeditor.menuitem16.caption
+msgid "Barra de propiedades"
+msgstr ""
+
+#: tfrmmapeditor.menuitem17.caption
+msgctxt "TFRMMAPEDITOR.MENUITEM17.CAPTION"
+msgid "Paleta de colores"
+msgstr ""
+
+#: tfrmmapeditor.menuitem18.caption
+msgctxt "TFRMMAPEDITOR.MENUITEM18.CAPTION"
+msgid "Ayuda"
+msgstr ""
+
+#: tfrmmapeditor.menuitem6.caption
+msgid "Herramienta"
+msgstr ""
+
+#: tfrmmapeditor.menuitem7.caption
+msgctxt "TFRMMAPEDITOR.MENUITEM7.CAPTION"
+msgid "Lápiz"
+msgstr ""
+
+#: tfrmmapeditor.menuitem8.caption
+msgctxt "tfrmmapeditor.menuitem8.caption"
+msgid "Línea"
+msgstr ""
+
+#: tfrmmapeditor.menuitem9.caption
+msgid "Círculo"
+msgstr ""
+
+#: tfrmmapeditor.panel3.caption
+msgid "Panel3"
+msgstr ""
+
+#: tfrmmapeditor.toolbar1.caption
+msgctxt "TFRMMAPEDITOR.TOOLBAR1.CAPTION"
+msgid "ToolBar1"
+msgstr ""
+
+#: tfrmmessagebox.bbbutton0.caption
+msgid "&Si"
+msgstr ""
+
+#: tfrmmessagebox.bbbutton1.caption
+msgid "&No"
+msgstr ""
+
+#: tfrmmessagebox.bbbutton2.caption
+msgctxt "TFRMMESSAGEBOX.BBBUTTON2.CAPTION"
+msgid "&Cancelar"
+msgstr ""
+
+#: tfrmmessagebox.caption
+msgid "frmMessageBox"
 msgstr ""
 
 #: tfrmview.caption
@@ -1067,6 +1414,7 @@ msgid "Añadir"
 msgstr ""
 
 #: ulanguage.lng_add_control_point
+msgctxt "ulanguage.lng_add_control_point"
 msgid "Añadir punto de control"
 msgstr ""
 
@@ -1079,6 +1427,7 @@ msgid "Añadir imagen(es) al FPG"
 msgstr ""
 
 #: ulanguage.lng_add_point
+msgctxt "ulanguage.lng_add_point"
 msgid "Añadir punto"
 msgstr ""
 
@@ -1124,6 +1473,7 @@ msgid "Cambiar código de inserción de imagen"
 msgstr ""
 
 #: ulanguage.lng_change_color_of_points
+msgctxt "ulanguage.lng_change_color_of_points"
 msgid "Cambiar color de puntos"
 msgstr ""
 
@@ -1211,10 +1561,12 @@ msgid "Eliminar"
 msgstr ""
 
 #: ulanguage.lng_delete_all_points
+msgctxt "ulanguage.lng_delete_all_points"
 msgid "Borrar todos los puntos"
 msgstr ""
 
 #: ulanguage.lng_delete_control_point
+msgctxt "ulanguage.lng_delete_control_point"
 msgid "Eliminar punto de control"
 msgstr ""
 
@@ -1258,6 +1610,7 @@ msgid "Editar imagen con un editor externo"
 msgstr ""
 
 #: ulanguage.lng_edit_properties_of_the_image
+msgctxt "ulanguage.lng_edit_properties_of_the_image"
 msgid "Editar propiedades de la imagen"
 msgstr ""
 
@@ -1419,6 +1772,7 @@ msgid "Cargando imágenes"
 msgstr ""
 
 #: ulanguage.lng_load_control_points
+msgctxt "ulanguage.lng_load_control_points"
 msgid "Cargar puntos de control"
 msgstr ""
 
@@ -1482,6 +1836,7 @@ msgid "No se pudo abrir el archivo, compruebe que otro programa no este utilizan
 msgstr ""
 
 #: ulanguage.lng_number
+msgctxt "ulanguage.lng_number"
 msgid "Número"
 msgstr ""
 
@@ -1538,10 +1893,12 @@ msgid "Poner centro"
 msgstr ""
 
 #: ulanguage.lng_put_points_in_image
+msgctxt "ulanguage.lng_put_points_in_image"
 msgid "Poner puntos en imagen"
 msgstr ""
 
 #: ulanguage.lng_put_real_center
+msgctxt "ulanguage.lng_put_real_center"
 msgid "Poner centro real"
 msgstr ""
 
@@ -1653,6 +2010,7 @@ msgid "Visualizar Paleta"
 msgstr ""
 
 #: ulanguage.lng_view_points_in_image
+msgctxt "ulanguage.lng_view_points_in_image"
 msgid "Ver puntos de la imagen"
 msgstr ""
 
@@ -1695,5 +2053,9 @@ msgstr ""
 
 #: ulngtranslator.lng_message_help_translator
 msgid "Abre el archivo .po a traducir.\\nCopia el cotenido al portapapeles.\\nPégalo en tu traductor favorito y tradúcelo.\\nCopia el texto traducido y pégalo en el cuadro de abajo.\\nPulsa Unir.\\nEscribe las dos siglas del idioma destino.\\nFinalmente guarda el archivo."
+msgstr ""
+
+#: umainmap.lng_mapedit_help
+msgid "Con control pulsado y haciendo clic, puedes cambiar los colores de la paleta."
 msgstr ""
 
