@@ -228,6 +228,7 @@ begin
   //list_bmp.ImageIndex :=
 
   // Se añaden los datos de la imagen a la lista
+  list_bmp.Caption := Format('%.3d',[Fpg.images[index].code]);
   list_bmp.SubItems.Strings[0] := Fpg.images[index].fpname;
   list_bmp.SubItems.Strings[1] := Fpg.images[index].Name;
 
@@ -281,4 +282,4 @@ begin
 
 end;
 
-end.
+end.

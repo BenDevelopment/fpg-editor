@@ -25,7 +25,7 @@ interface
 uses
   LCLIntf, LCLType, SysUtils, Classes, Graphics, Controls, Forms,
   Buttons, ComCtrls, StdCtrls, uFPG, ExtCtrls, uinifile, Dialogs,
-  uFrmMessageBox, ulanguage;
+  uFrmMessageBox, ulanguage,umainmap;
 
 type
 
@@ -34,6 +34,7 @@ type
   TfrmFPGImages = class(TForm)
     bbAceptChanges: TBitBtn;
     bbCancelChanges: TBitBtn;
+    bmodify: TButton;
     tAddControlPoints: TTimer;
     ColorDialog: TColorDialog;
     OpenDialog: TOpenDialog;
@@ -82,6 +83,7 @@ type
     sbSetControlPoint: TSpeedButton;
     sbAddPoint: TSpeedButton;
     sbPutCenter: TSpeedButton;
+    procedure bmodifyClick(Sender: TObject);
     procedure edCodeKeyPress(Sender: TObject; var Key: Char);
     procedure edCodeExit(Sender: TObject);
     procedure bbAceptChangesClick(Sender: TObject);
@@ -157,6 +159,20 @@ begin
  end;
 end;
 
+procedure TfrmFPGImages.bmodifyClick(Sender: TObject);
+begin
+ frmMapEditor.MenuItem2.Visible:=false;
+ frmMapEditor.MenuItem3.Visible:=false;
+ frmMapEditor.MenuItem4.Caption:= LNG_EXPORT;
+ frmMapEditor.imageSource:=imIcon.Picture;
+ frmMapEditor.Image1.Picture.assign(frmMapEditor.imageSource);
+ frmMapEditor.Image1.Width:=frmMapEditor.imageSource.Width;
+ frmMapEditor.Image1.Height:=frmMapEditor.imageSource.Height;
+ frmMapEditor.Panel1.Color:=panel1.Color;
+ frmMapEditor.cbBackground.ButtonColor:=panel1.Color;
+ frmMapEditor.Show;
+end;
+
 procedure TfrmFPGImages.edCodeExit(Sender: TObject);
 begin
  edCode.Color := clMedGray;
@@ -174,6 +190,7 @@ procedure TfrmFPGImages.bbAceptChangesClick(Sender: TObject);
 var
  j : word;
 begin
+ Fpg.images[fpg_index].Assign(imIcon.Picture);
  if StrToInt(edCode.Text) <> Fpg.images[fpg_index].code then
   if Fpg.CodeExists(StrToInt(edCode.Text)) then
   begin
@@ -634,4 +651,4 @@ begin
  edCoordY.Color := clWhite;
 end;
 
-end.
+end.

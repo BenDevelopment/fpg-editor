@@ -320,6 +320,7 @@ type
    old_sizeof_icon : longint;
    //DragOver : byte;
    QueryResult : longint;
+   appName,appVersion : String;
 
    procedure lvFPG_Load_Bitmaps;
    procedure OpenFPG( sfile: string );
@@ -348,14 +349,16 @@ begin
 // DragOver := 255;
 
  load_inifile;
+ appName:='FPG Editor';
+ appVersion:='r'+RevisionStr;
 
+ lvFPG.Fpg.msgInfo:=LNG_INFO;
+ lvFPG.Fpg.msgError:=LNG_ERROR;
+ lvFPG.Fpg.msgWrong:=LNG_WRONG_FPG;
+ lvFPG.Fpg.msgCorrect:=LNG_CORRECT_SAVING;
+ lvFPG.Fpg.appName:=appName;
+ lvFPG.Fpg.appVersion:=appVersion;
  (*
- lvFPG.Fpg.msgInfo:=LNG_STRINGS[LNG_INFO];
- lvFPG.Fpg.msgError:=LNG_STRINGS[LNG_ERROR];
- lvFPG.Fpg.msgWrong:=LNG_STRINGS[LNG_WRONG_FPG];
- lvFPG.Fpg.msgCorrect:=LNG_STRINGS[LNG_CORRECT_SAVING];
- lvFPG.Fpg.appName:='FPG Editor';
- lvFPG.Fpg.appVersion:='r'+RevisionStr;
  load_language;
  lvFPG.notClipboardImage:=LNG_STRINGS[LNG_NOT_CLIPBOARD_IMAGE];
  lvFPG.Fpg.appVersion:='r'+RevisionStr;
@@ -817,14 +820,7 @@ begin
  frmFPGImages.ShowModal;
 
  if frmFPGImages.ModalResult = mrYes then
- begin
-  lvFPG.Selected.Caption    := frmFPGImages.edCode.Text;
-  lvFPG.Selected.SubItems.Strings[0] := frmFPGImages.edName.Text;
-  lvFPG.Selected.SubItems.Strings[1] := frmFPGImages.edDescription.Text;
-  lvFPG.Selected.SubItems.Strings[4] := IntToStr(frmFPGImages.lvControlPoints.Items.Count);
-//  lvFPG.Repaint;
- end;
-
+  lvFPG.replace_item(frmFPGImages.fpg_index);
 
 end;
 
@@ -1121,15 +1117,16 @@ begin
    Exit;
   end;
 
-  QueryResult := feMessageBox(LNG_WARNING, LNG_SAVE_CHANGES, 3, 1);
+  QueryResult := MessageDlg(LNG_WARNING,LNG_SAVE_CHANGES,mtWarning,[mbyes,mbno,mbcancel],0);
+  //feMessageBox(LNG_WARNING, LNG_SAVE_CHANGES, 3, 1);
 
   //Si se cancela la operación
   if QueryResult = mrCancel then
    Exit;
 
   //Si se acepta guardar
-  if QueryResult = mrOK then
-   aSaveAsExecute(Sender);
+  if QueryResult = mrYes then
+   aSave.Execute;
 
   lvFPG.Items.Clear;
   lblFilename.Caption := '';
@@ -1221,6 +1218,8 @@ end;
 
 procedure TfrmMain.aSaveExecute(Sender: TObject);
 begin
+ lvfpg.fpg.appName:= appName;
+ lvfpg.fpg.appVersion:= appVersion;
  if lvFPG.Fpg.source = '' then
     aSaveAsExecute(Sender)
  else begin
@@ -1803,4 +1802,4 @@ begin
 
 end;
 
-end.
+end.

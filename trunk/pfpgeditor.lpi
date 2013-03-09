@@ -19,13 +19,13 @@
       <StringTable ProductVersion=""/>
     </VersionInfo>
     <MacroValues Count="1">
-      <Macro1 Name="LCLWidgetType" Value="qt"/>
+      <Macro1 Name="LCLWidgetType" Value="win32"/>
     </MacroValues>
     <BuildModes Count="2">
       <Item1 Name="Default" Default="True"/>
       <Item2 Name="Debug">
         <MacroValues Count="1">
-          <Macro1 Name="LCLWidgetType" Value="qt"/>
+          <Macro1 Name="LCLWidgetType" Value="win32"/>
         </MacroValues>
         <CompilerOptions>
           <Version Value="11"/>
@@ -35,7 +35,7 @@
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
-            <OtherUnitFiles Value="uFrmMain;uBMP;uMap;uTools;uSort;uPCX;uFrmView;uLoadImage;uPAL;uColor16bits;uFPGConvert;uFPGFrmImages;uFPGFrmNew;uFrmAnimate;uFrmConfig;uFrmExport;uFrmPalette;uFrmSplash;uIniFile;uLanguage;uMessages\uFrmInputBox;uMessages\uFrmMessageBox;uFrmExport\uExportToFiles;uAAtext;uColorTable;uFNT;uFrmBpp;uFrmCFG;uFrmMainFNT;uFrmAbout;uFrmFPGView;uFrmFNTView;uFPG;uFPGListView;uFrmZipFenix"/>
+            <OtherUnitFiles Value="uFrmMain;uBMP;uMap;uTools;uSort;uPCX;uFrmView;uLoadImage;uPAL;uColor16bits;uFPGConvert;uFPGFrmImages;uFPGFrmNew;uFrmAnimate;uFrmConfig;uFrmExport;uFrmPalette;uFrmSplash;uIniFile;uLanguage;uMessages\uFrmInputBox;uMessages\uFrmMessageBox;uFrmExport\uExportToFiles;uAAtext;uColorTable;uFNT;uFrmBpp;uFrmCFG;uFrmMainFNT;uFrmAbout;uFrmFPGView;uFrmFNTView;uFPG;uFPGListView;uFrmZipFenix;umainmap"/>
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <CodeGeneration>
@@ -54,7 +54,7 @@
             </CompilerMessages>
             <CompilerPath Value="$(CompPath)"/>
           </Other>
-          <LCLWidgetType Value="qt"/>
+          <LCLWidgetType Value="win32"/>
         </CompilerOptions>
       </Item2>
     </BuildModes>
@@ -80,7 +80,7 @@
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="39">
+    <Units Count="40">
       <Unit0>
         <Filename Value="pfpgeditor.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -335,6 +335,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ulngTranslator"/>
       </Unit38>
+      <Unit39>
+        <Filename Value="umainmap\umainmap.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmMapEditor"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="umainmap"/>
+      </Unit39>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -370,7 +378,7 @@
       </CompilerMessages>
       <CompilerPath Value="$(CompPath)"/>
     </Other>
-    <LCLWidgetType Value="qt"/>
+    <LCLWidgetType Value="win32"/>
   </CompilerOptions>
   <Debugging>
     <Exceptions Count="5">

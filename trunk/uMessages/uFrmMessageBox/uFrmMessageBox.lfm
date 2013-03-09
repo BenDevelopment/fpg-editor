@@ -1,7 +1,7 @@
 object frmMessageBox: TfrmMessageBox
-  Left = 444
+  Left = 617
   Height = 86
-  Top = 454
+  Top = 385
   Width = 298
   Caption = 'frmMessageBox'
   ClientHeight = 86
@@ -23,7 +23,7 @@ object frmMessageBox: TfrmMessageBox
     Height = 25
     Top = 56
     Width = 89
-    Caption = '&Aceptar'
+    Caption = '&No'
     TabOrder = 0
   end
   object bbButton2: TBitBtn
@@ -39,7 +39,7 @@ object frmMessageBox: TfrmMessageBox
     Height = 25
     Top = 56
     Width = 89
-    Caption = '&Cancelar'
+    Caption = '&Si'
     TabOrder = 2
   end
   object reText: TMemo
@@ -50,4 +50,4 @@ object frmMessageBox: TfrmMessageBox
     Alignment = taCenter
     TabOrder = 3
   end
-end
+end
