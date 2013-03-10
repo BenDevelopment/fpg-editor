@@ -381,6 +381,7 @@ begin
   begin
     images[i].bitsPerPixel:=bits_per_pixel;
     images[i].CDIVFormat:= (FPGFormat= FPG16_CDIV);
+    images[i].bPalette:=Palette;
     images[i].SaveToStream(f,true);
     gFPG.Position := (i * 100) div Count;
     gFPG.Repaint;
@@ -480,6 +481,7 @@ begin
       fpgGraphic:= TMAPGraphic.Create;
       fpgGraphic.bitsPerPixel:= getBPP;
       fpgGraphic.CDIVFormat:= (FPGFormat = FPG16_CDIV);
+      fpgGraphic.bpalette:=palette;
       fpgGraphic.LoadFromStream(f,true);
 
       if fpgGraphic.code=1001 then
@@ -717,4 +719,4 @@ begin
 end;
 
 
-end.
+end.

@@ -101,6 +101,7 @@ object frmMapEditor: TfrmMapEditor
       ClientHeight = 432
       ClientWidth = 393
       TabOrder = 0
+      OnMouseWheel = ScrollBox1MouseWheel
       object Image1: TImage
         Left = -2
         Height = 230
@@ -110,6 +111,7 @@ object frmMapEditor: TfrmMapEditor
         OnMouseLeave = Image1MouseLeave
         OnMouseMove = Image1MouseMove
         OnMouseUp = Image1MouseUp
+        OnMouseWheel = Image1MouseWheel
         Stretch = True
       end
     end
@@ -436,7 +438,6 @@ object frmMapEditor: TfrmMapEditor
           Height = 16
           Top = 2
           Width = 16
-          Color = clCream
           ParentColor = False
           TabOrder = 0
           OnMouseDown = PColor1MouseDown
@@ -454,8 +455,8 @@ object frmMapEditor: TfrmMapEditor
     end
   end
   object MainMenu1: TMainMenu
-    left = 280
-    top = 40
+    left = 272
+    top = 32
     object MenuItem1: TMenuItem
       Caption = 'Archivo'
       object MenuItem2: TMenuItem
@@ -480,58 +481,64 @@ object frmMapEditor: TfrmMapEditor
     end
     object MenuItem15: TMenuItem
       Caption = 'Ver'
-      object MenuItem16: TMenuItem
-        Caption = 'Barra de propiedades'
-        OnClick = MenuItem16Click
-      end
       object MenuItem17: TMenuItem
         Caption = 'Paleta de colores'
         OnClick = MenuItem17Click
+      end
+      object MenuItem16: TMenuItem
+        Caption = 'Barra de propiedades'
+        OnClick = MenuItem16Click
       end
     end
     object MenuItem6: TMenuItem
       Caption = 'Herramienta'
       object MenuItem7: TMenuItem
         AutoCheck = True
-        Caption = 'Lápiz'
+        Caption = '&Lápiz'
         Checked = True
         GroupIndex = 1
         RadioItem = True
+        ShortCut = 16460
         OnClick = MenuItem7Click
       end
       object MenuItem8: TMenuItem
         AutoCheck = True
-        Caption = 'Línea'
+        Caption = 'L&ínea'
         GroupIndex = 1
         RadioItem = True
+        ShortCut = 16457
         OnClick = MenuItem8Click
       end
       object MenuItem12: TMenuItem
         AutoCheck = True
-        Caption = 'Triángulo'
+        Caption = '&Triángulo'
         GroupIndex = 1
         RadioItem = True
+        ShortCut = 16468
         OnClick = MenuItem12Click
       end
       object MenuItem13: TMenuItem
         AutoCheck = True
-        Caption = 'Rectángulo'
+        Caption = '&Rectángulo'
         GroupIndex = 1
         RadioItem = True
+        ShortCut = 16466
         OnClick = MenuItem13Click
       end
       object MenuItem9: TMenuItem
         AutoCheck = True
-        Caption = 'Círculo'
+        Caption = '&Elipse'
         GroupIndex = 1
         RadioItem = True
+        ShortCut = 16453
         OnClick = MenuItem9Click
       end
       object MenuItem14: TMenuItem
         AutoCheck = True
-        Caption = 'Copiar Color'
+        Caption = '&Copiar Color'
         GroupIndex = 1
         RadioItem = True
+        ShortCut = 16451
         OnClick = MenuItem14Click
       end
     end
@@ -541,8 +548,8 @@ object frmMapEditor: TfrmMapEditor
     end
   end
   object ActionList1: TActionList
-    left = 320
-    top = 40
+    left = 344
+    top = 32
     object Action1: TAction
       Category = 'Archivo'
       Caption = 'Abrir'
@@ -582,12 +589,12 @@ object frmMapEditor: TfrmMapEditor
     end
   end
   object OpenPictureDialog1: TOpenPictureDialog
-    left = 48
-    top = 40
+    left = 80
+    top = 32
   end
   object SavePictureDialog1: TSavePictureDialog
-    left = 160
-    top = 40
+    left = 184
+    top = 32
   end
   object ColorDialog1: TColorDialog
     Color = clBlack
@@ -614,6 +621,6 @@ object frmMapEditor: TfrmMapEditor
       'ColorT=A4A0A0'
     )
     left = 413
-    top = 51
+    top = 32
   end
 end
