@@ -817,6 +817,7 @@ begin
 
  frmFPGImages.fpg:=lvFPG.Fpg;
  frmFPGImages.panel1.Color:=lvFPG.Color;
+
  frmFPGImages.ShowModal;
 
  if frmFPGImages.ModalResult = mrYes then
@@ -1590,6 +1591,7 @@ begin
   feMessageBox( LNG_ERROR, LNG_NOT_IMAGES_FOR_CONVERT, 0, 0);
   Exit;
  end;
+
 
  Convert_to_FPG8_DIV2(lvFPG, pbFPG);
 

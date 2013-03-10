@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Menus,
   ActnList, ExtCtrls, ExtDlgs, Spin, StdCtrls, Buttons, ColorBox,
-  IntfGraphics, FPimage, lazcanvas, ComCtrls, FPCanvas, typinfo ,math, uLanguage;
+  IntfGraphics, FPimage, lazcanvas, ComCtrls, FPCanvas, typinfo ,math, uLanguage, types;
 
 type
 
@@ -95,7 +95,6 @@ type
     procedure cbBackgroundColorChanged(Sender: TObject);
     procedure cbPen1ColorChanged(Sender: TObject);
     procedure cbPenColorChanged(Sender: TObject);
-    procedure ColorButton27Click(Sender: TObject);
     procedure FigureComboChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
@@ -108,6 +107,8 @@ type
       );
     procedure Image1MouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure Image1MouseWheel(Sender: TObject; Shift: TShiftState;
+      WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
     procedure MenuItem12Click(Sender: TObject);
     procedure MenuItem13Click(Sender: TObject);
     procedure MenuItem14Click(Sender: TObject);
@@ -122,6 +123,8 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure PenModeComboChange(Sender: TObject);
     procedure PenStyleComboChange(Sender: TObject);
+    procedure ScrollBox1MouseWheel(Sender: TObject; Shift: TShiftState;
+      WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
     procedure seBrushAlphaChange(Sender: TObject);
     procedure sePenAlphaChange(Sender: TObject);
     procedure sePenChange(Sender: TObject);
@@ -129,9 +132,9 @@ type
     procedure SpeedButton1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure SpinEdit1Change(Sender: TObject);
-    procedure pencil(X,Y: integer);
-    procedure copyColor(X,Y: integer);
-    procedure line(X,Y: integer; X2,Y2:Integer);
+    procedure pencil(X,Y: integer; pen: boolean);
+    procedure copyColor(X,Y: integer; pen: boolean);
+    procedure line(X,Y: integer; X2,Y2:Integer; pen: boolean);
     procedure Splitter1CanOffset(Sender: TObject; var NewOffset: Integer;
       var Accept: Boolean);
     procedure triangle(X,Y: integer; X2,Y2:Integer);
@@ -141,12 +144,16 @@ type
 //    procedure paintBrushImage;
     procedure updatePen;
     procedure updateBrush;
+    procedure fillPalette(palette : Pbyte);
   private
+    PColor: array[1..255] of TPanel;
+    lastShift : TShiftState;
     x1,y1 : Integer;
     FPen : TFPCustomPen;
     FBrush : TFPCustomBrush;
     undoImage : TPicture;
     primeraVez : Boolean;
+    usePalette : Boolean;
    { private declarations }
   public
     { public declarations }
@@ -210,10 +217,6 @@ begin
   updatePen;
 end;
 
-procedure TfrmMapEditor.ColorButton27Click(Sender: TObject);
-begin
-  ShowMessage('a');
-end;
 
 
 procedure TfrmMapEditor.FigureComboChange(Sender: TObject);
@@ -316,7 +319,6 @@ var
   ps: TFPPenStyle;
   bs: TFPBrushStyle;
   pm: TFPPenMode;
-  tmpPanel : TPanel;
   i : Integer;
 begin
   FPen := TFPCustomPen.Create;
@@ -334,20 +336,21 @@ begin
   for pm := Low(pm) to High(pm) do
     PenModeCombo.Items.Add(GetEnumName(TypeInfo(TFPPenMode), Ord(pm)));
   PenModeCombo.Items.EndUpdate;
-  PenModeCombo.ItemIndex := 1;
+  PenModeCombo.ItemIndex := 0;
 
 
   BrushStyleCombo.Items.BeginUpdate;
   for bs := Low(bs) to High(bs) do
     BrushStyleCombo.Items.Add(GetEnumName(TypeInfo(TFPBrushStyle), Ord(bs)));
   BrushStyleCombo.Items.EndUpdate;
-  BrushStyleCombo.ItemIndex := 0;
+  BrushStyleCombo.ItemIndex := 1;
 
   updatePen;
   updateBrush;
 
   cbBackground.ButtonColor:=ScrollBox1.Color;
   primeraVez:=true;
+  usePalette:=true;
 end;
 
 procedure TfrmMapEditor.FormShow(Sender: TObject);
@@ -364,6 +367,7 @@ begin
       tmpPanel.OnMouseDown:= @PColor1MouseDown;
       tmpPanel.Width:=ToolBar1.ButtonHeight;
       tmpPanel.Parent:=ToolBar1;
+      PColor[i]:=tmpPanel;
     end;
     primeraVez:=false;
   end;
@@ -371,38 +375,46 @@ begin
 
 end;
 
-procedure TfrmMapEditor.pencil(X,Y: integer);
+procedure TfrmMapEditor.fillPalette(palette : Pbyte);
+var
+  i : Integer;
+begin
+   for i:=0 to 254 do
+   begin
+      PColor[i+1].color:=RGBToColor (palette[i*3],palette[i*3+1],palette[i*3+2]);
+   end;
+   i:=255;
+   PColor1.color:=RGBToColor(palette[i*3],palette[i*3+1],palette[i*3+2]);
+   usePalette:=true;
+end;
+
+procedure TfrmMapEditor.pencil(X,Y: integer; pen: boolean);
+begin
+  line(x,y,x,y,pen);
+end;
+
+
+procedure TfrmMapEditor.copyColor(X,Y: integer; pen: boolean);
 var
   lazBMP : TLazIntfImage;
 begin
   lazBMP := image1.Picture.Bitmap.CreateIntfImage;
-
-  lazBMP.Colors[x,y]:=FPen.FPColor;
-
-  image1.Picture.Bitmap.LoadFromIntfImage(lazBMP);
+  if pen then
+  begin
+    FPen.FPColor:=lazBMP.Colors[x,y];
+    cbPen.ButtonColor:=FPColorToTColor(FPen.FPColor);
+    cbPen1.ButtonColor:=cbPen.ButtonColor;
+    sePenAlpha.Value:= (FPen.FPColor.alpha * 100) div high(Word) ;
+  end else begin
+    FBrush.FPColor:=lazBMP.Colors[x,y];
+    cbBrush.ButtonColor:=FPColorToTColor(FBrush.FPColor);
+    cbBrush1.ButtonColor:=cbBrush.ButtonColor;
+    seBrushAlpha.Value:= (FBrush.FPColor.alpha * 100) div high(Word) ;
+  end;
   FreeAndNil(lazBMP);
 end;
 
-procedure TfrmMapEditor.copyColor(X,Y: integer);
-var
-  lazBMP : TLazIntfImage;
-begin
-  lazBMP := image1.Picture.Bitmap.CreateIntfImage;
-
-  FPen.FPColor:=lazBMP.Colors[x,y];
-
-  image1.Picture.Bitmap.LoadFromIntfImage(lazBMP);
-  FreeAndNil(lazBMP);
-
-  cbPen.ButtonColor:=FPColorToTColor(FPen.FPColor);
-  cbPen1.ButtonColor:=cbPen.ButtonColor;
-
-  sePenAlpha.Value:= (FPen.FPColor.alpha * 100) div high(Word) ;
-
-
-end;
-
-procedure TfrmMapEditor.line(X,Y: integer; X2,Y2:Integer);
+procedure TfrmMapEditor.line(X,Y: integer; X2,Y2:Integer; pen: boolean);
 var
   lazBMP : TLazIntfImage;
   imgCanvas : TLazCanvas;
@@ -412,9 +424,13 @@ begin
   imgCanvas := TLazCanvas.create(lazBMP);
 
   imgCanvas.Pen.Width:=FPen.Width;
-  imgCanvas.Pen.FPColor:=FPen.FPColor;
   imgCanvas.Pen.Style:=FPen.Style;
   imgCanvas.Pen.Mode:=FPen.Mode;
+  if pen then
+     imgCanvas.Pen.FPColor:=FPen.FPColor
+  else
+   imgCanvas.Pen.FPColor:=FBrush.FPColor;
+
   imgCanvas.Line(x,y,x2,y2);
 
   //lazBMP imgCanvas.Image;
@@ -515,11 +531,17 @@ end;
 procedure TfrmMapEditor.Image1MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
+  lastShift :=Shift;
   X1 := (X * 100 )div SpinEdit1.Value;
   Y1 := (Y * 100 )div SpinEdit1.Value;
-  undoImage.Assign(Image1.Picture);
   if FigureCombo.ItemIndex = 5 then
-     copyColor(x1,y1);
+  begin
+    if ssLeft in Shift then
+     copyColor(x1,y1,true);
+    if ssRight in Shift then
+     copyColor(x1,y1,false);
+  end else
+    undoImage.Assign(Image1.Picture);
 
 end;
 
@@ -538,20 +560,38 @@ procedure TfrmMapEditor.Image1MouseMove(Sender: TObject; Shift: TShiftState; X,
 var
   X2,Y2: integer;
 begin
-  if   ssLeft in  Shift then
+  if   ssRight in  Shift then
   begin
     if FigureCombo.ItemIndex = 0 then
     begin
        X1 := (X * 100 )div SpinEdit1.Value;
        Y1 := (Y * 100 )div SpinEdit1.Value;
-       pencil(x1,y1);
+       pencil(x1,y1,false);
     end;
     if FigureCombo.ItemIndex = 1 then
     begin
        X2 := (X * 100 )div SpinEdit1.Value;
        Y2 := (Y * 100 )div SpinEdit1.Value;
        image1.Picture.assign(undoImage);
-       line(x1,y1,x2,y2);
+       line(x1,y1,x2,y2,false);
+    end;
+
+  end;
+
+  if   ssLeft in  Shift then
+  begin
+    if FigureCombo.ItemIndex = 0 then
+    begin
+       X1 := (X * 100 )div SpinEdit1.Value;
+       Y1 := (Y * 100 )div SpinEdit1.Value;
+       pencil(x1,y1,true);
+    end;
+    if FigureCombo.ItemIndex = 1 then
+    begin
+       X2 := (X * 100 )div SpinEdit1.Value;
+       Y2 := (Y * 100 )div SpinEdit1.Value;
+       image1.Picture.assign(undoImage);
+       line(x1,y1,x2,y2,true);
     end;
     if FigureCombo.ItemIndex = 2 then
     begin
@@ -583,18 +623,24 @@ procedure TfrmMapEditor.Image1MouseUp(Sender: TObject; Button: TMouseButton;
 var
   x2,y2: Integer;
 begin
-  X2 := (X * 100 )div SpinEdit1.Value;
-  Y2 := (Y * 100 )div SpinEdit1.Value;
-  if FigureCombo.ItemIndex = 0 then
-     pencil(x1,y1);
-  if FigureCombo.ItemIndex = 1 then
-     line(x1,y1,x2,y2);
-  if FigureCombo.ItemIndex = 2 then
-     triangle(x1,y1,x2,y2);
-  if FigureCombo.ItemIndex = 3 then
-     rectangle(x1,y1,x2,y2);
-  if FigureCombo.ItemIndex = 4 then
-     circle(x1,y1,x2,y2);
+   if FigureCombo.ItemIndex = 0 then
+   begin
+      X1 := (X * 100 )div SpinEdit1.Value;
+      Y1 := (Y * 100 )div SpinEdit1.Value;
+      if  ssLeft in  lastShift then
+       pencil(x1,y1,true);
+      if  ssRight in  lastShift then
+       pencil(x1,y1,false);
+   end;
+end;
+
+procedure TfrmMapEditor.Image1MouseWheel(Sender: TObject; Shift: TShiftState;
+  WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
+begin
+  if WheelDelta > 0 then
+     SpinEdit1.Value:=SpinEdit1.Value+SpinEdit1.Increment
+  else
+      SpinEdit1.Value:=SpinEdit1.Value-SpinEdit1.Increment;
 end;
 
 procedure TfrmMapEditor.MenuItem12Click(Sender: TObject);
@@ -681,6 +727,16 @@ end;
 procedure TfrmMapEditor.PenStyleComboChange(Sender: TObject);
 begin
     updatePen;
+end;
+
+procedure TfrmMapEditor.ScrollBox1MouseWheel(Sender: TObject;
+  Shift: TShiftState; WheelDelta: Integer; MousePos: TPoint;
+  var Handled: Boolean);
+begin
+  if WheelDelta > 0 then
+     SpinEdit1.Value:=SpinEdit1.Value+SpinEdit1.Increment
+  else
+      SpinEdit1.Value:=SpinEdit1.Value-SpinEdit1.Increment;
 end;
 
 procedure TfrmMapEditor.seBrushAlphaChange(Sender: TObject);

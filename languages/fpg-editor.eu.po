@@ -1282,15 +1282,15 @@ msgid "Editar"
 msgstr "Eraldatu"
 
 #: tfrmmapeditor.menuitem12.caption
-msgid "Triángulo"
+msgid "&Triángulo"
 msgstr ""
 
 #: tfrmmapeditor.menuitem13.caption
-msgid "Rectángulo"
+msgid "&Rectángulo"
 msgstr ""
 
 #: tfrmmapeditor.menuitem14.caption
-msgid "Copiar Color"
+msgid "&Copiar Color"
 msgstr ""
 
 #: tfrmmapeditor.menuitem15.caption
@@ -1318,16 +1318,16 @@ msgstr ""
 
 #: tfrmmapeditor.menuitem7.caption
 msgctxt "tfrmmapeditor.menuitem7.caption"
-msgid "Lápiz"
+msgid "&Lápiz"
 msgstr ""
 
 #: tfrmmapeditor.menuitem8.caption
 msgctxt "tfrmmapeditor.menuitem8.caption"
-msgid "Línea"
+msgid "L&ínea"
 msgstr ""
 
 #: tfrmmapeditor.menuitem9.caption
-msgid "Círculo"
+msgid "&Elipse"
 msgstr ""
 
 #: tfrmmapeditor.panel3.caption
@@ -1392,6 +1392,14 @@ msgstr "Zabalera:"
 #: tfrmview.lzoom.caption
 msgid "Zoom :"
 msgstr "Zoom"
+
+#: ufpgconvert.lng_lostcolors
+msgid "perdidos"
+msgstr ""
+
+#: ufpgconvert.lng_savedcolors
+msgid "colores"
+msgstr ""
 
 #: ulanguage.lng_abort
 msgid "Anular"

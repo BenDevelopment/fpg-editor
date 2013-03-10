@@ -25,7 +25,7 @@ interface
 uses
   LCLIntf, LCLType, SysUtils, Classes, Graphics, Controls, Forms,
   Buttons, ComCtrls, StdCtrls, uFPG, ExtCtrls, uinifile, Dialogs,
-  uFrmMessageBox, ulanguage,umainmap;
+  uFrmMessageBox, ulanguage,umainmap, uMAPGraphic, uFrmPalette;
 
 type
 
@@ -171,6 +171,7 @@ begin
  frmMapEditor.Panel1.Color:=panel1.Color;
  frmMapEditor.cbBackground.ButtonColor:=panel1.Color;
  frmMapEditor.Show;
+ frmMapEditor.fillPalette(fpg.Palette);
 end;
 
 procedure TfrmFPGImages.edCodeExit(Sender: TObject);
@@ -332,6 +333,8 @@ begin
  for i := 2 to 17 do
    for j := 2 to 17 do
     sbChangecolor.Glyph.Canvas.Pixels[i,j] :=  inifile_color_points;
+
+
 end;
 
 procedure TfrmFPGImages.lvControlPointsDblClick(Sender: TObject);

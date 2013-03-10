@@ -34,16 +34,16 @@ Begin
     id32=load_fpg("32bits.fpg");
     
     write(0,150,100,0,"1bit"); 
-    showimage(id1,150,100,4); 
+    showimage(id1,150,100,2); 
     
     write(0,450,100,0,"8bits"); 
-    showimage(id8,450,100,4); 
+    showimage(id8,450,100,2); 
     
     write(0,150,300,0,"16bits"); 
-    showimage(id16,150,300,4); 
+    showimage(id16,150,300,2); 
     
     write(0,450,300,0,"32bits"); 
-    showimage(id32,450,300,4); 
+    showimage(id32,450,300,2); 
     while (!key(_esc)) 
 		if (key(_f))
             if (full_screen==true)
