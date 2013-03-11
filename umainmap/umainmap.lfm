@@ -335,6 +335,7 @@ object frmMapEditor: TfrmMapEditor
             'Rectangulo'
             'Elipse'
             'Copiar Color'
+            'Rellenar'
           )
           OnChange = FigureComboChange
           Style = csDropDownList
@@ -636,6 +637,10 @@ object frmMapEditor: TfrmMapEditor
         RadioItem = True
         ShortCut = 16451
         OnClick = MenuItem14Click
+      end
+      object MenuItem20: TMenuItem
+        Caption = 'Relle&nar'
+        OnClick = MenuItem20Click
       end
     end
     object MenuItem18: TMenuItem

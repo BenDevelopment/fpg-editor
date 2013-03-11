@@ -65,6 +65,7 @@ type
     MenuItem18: TMenuItem;
     MenuItem19: TMenuItem;
     MenuItem2: TMenuItem;
+    MenuItem20: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
@@ -126,6 +127,7 @@ type
     procedure MenuItem17Click(Sender: TObject);
     procedure MenuItem18Click(Sender: TObject);
     procedure MenuItem19Click(Sender: TObject);
+    procedure MenuItem20Click(Sender: TObject);
     procedure MenuItem5Click(Sender: TObject);
     procedure MenuItem7Click(Sender: TObject);
     procedure MenuItem8Click(Sender: TObject);
@@ -146,6 +148,8 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure seZoomChange(Sender: TObject);
     procedure pencil(X,Y: integer; pen: boolean);
+    procedure fill(X,Y: integer; pen: boolean);
+    procedure fill(X,Y: integer; pen: boolean; var lazBMP : TLazIntfImage);
     procedure copyColor(X,Y: integer; pen: boolean);
     procedure line(X,Y: integer; X2,Y2:Integer; pen: boolean);
     procedure triangle(X,Y: integer; X2,Y2:Integer);
@@ -326,7 +330,6 @@ var
   ps: TFPPenStyle;
   bs: TFPBrushStyle;
   pm: TFPPenMode;
-  i : Integer;
 begin
   FPen := TFPCustomPen.Create;
   FBrush := TFPCustomBrush.Create;
@@ -449,6 +452,54 @@ end;
 procedure TfrmMapEditor.pencil(X,Y: integer; pen: boolean);
 begin
   line(x,y,x,y,pen);
+end;
+
+procedure TfrmMapEditor.fill(X,Y: integer; pen: boolean; var lazBMP : TLazIntfImage);
+var
+  currColor : TFPColor;
+  newColor : TFPColor;
+begin
+   if (x < 0) or (x>Image1.Picture.width -1) then
+    exit;
+   if (y < 0) or (y>Image1.Picture.height -1) then
+    exit;
+
+   currColor:=lazBMP.Colors[x,y];
+   if pen then
+     newColor:=FPen.FPColor
+   else
+    newColor:=FBrush.FPColor;
+
+   if newColor = currColor then
+      exit;
+
+   lazBMP.Colors[x,y]:=newColor;
+
+   if x <Image1.Picture.Width-1 then
+     if (lazBMP.Colors[x+1,y]= currColor) then
+      fill(x+1,y,pen,lazbmp);
+   if (x>1) then
+     if(lazBMP.Colors[x-1,y]= currColor) then
+      fill(x-1,y,pen,lazbmp);
+   if (y <Image1.Picture.height-1) then
+     if(lazBMP.Colors[x,y+1]= currColor) then
+      fill(x,y+1,pen,lazbmp);
+   if (y>1) then
+     if(lazBMP.Colors[x,y-1]= currColor) then
+      fill(x,y-1,pen,lazbmp);
+
+end;
+
+procedure TfrmMapEditor.fill(X,Y: integer; pen: boolean);
+var
+  lazBMP : TLazIntfImage;
+begin
+  lazBMP := image1.Picture.Bitmap.CreateIntfImage;
+
+  fill(x,y,pen,lazBMP);
+
+  image1.Picture.Bitmap.LoadFromIntfImage(lazBMP);
+  FreeAndNil(lazBMP);
 end;
 
 
@@ -673,8 +724,6 @@ end;
 
 procedure TfrmMapEditor.Image1MouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
-var
-  x2,y2: Integer;
 begin
    if FigureCombo.ItemIndex = 0 then
    begin
@@ -684,6 +733,16 @@ begin
        pencil(x1,y1,true);
       if  ssRight in  lastShift then
        pencil(x1,y1,false);
+   end;
+   if FigureCombo.ItemIndex = 6 then
+   begin
+    X1 := (X * 100 )div seZoom.Value;
+    Y1 := (Y * 100 )div seZoom.Value;
+    if  ssLeft in  lastShift then
+     fill(x1,y1,true);
+    if  ssRight in  lastShift then
+     fill(x1,y1,false);
+
    end;
 end;
 
@@ -754,6 +813,11 @@ begin
   else
     gbGamuts.Align:=alClient;
   pPalettes.Visible:= (gbPalette.Visible OR gbGamuts.Visible);
+end;
+
+procedure TfrmMapEditor.MenuItem20Click(Sender: TObject);
+begin
+  FigureCombo.ItemIndex := 6;
 end;
 
 procedure TfrmMapEditor.MenuItem5Click(Sender: TObject);
