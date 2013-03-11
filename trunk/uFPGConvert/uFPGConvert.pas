@@ -156,7 +156,7 @@ begin
  i := 65535;
  count := 1;
 
- FillChar(lvFPG.Fpg.palette,256,0); // todo a 0, por tanto primer color es negro
+ FillChar(lvFPG.Fpg.palette,767,0); // todo a 0, por tanto primer color es negro
 
 
  while count < 256 do
@@ -420,4 +420,4 @@ begin
 end;
 
 
-end.
+end.
