@@ -1,7 +1,7 @@
 object frmMapEditor: TfrmMapEditor
-  Left = 405
+  Left = 412
   Height = 550
-  Top = 142
+  Top = 146
   Width = 645
   Caption = 'Map Editor'
   ClientHeight = 530
@@ -13,95 +13,29 @@ object frmMapEditor: TfrmMapEditor
   OnShow = FormShow
   Position = poMainFormCenter
   LCLVersion = '1.1'
-  object Panel1: TPanel
-    Left = 0
-    Height = 27
-    Top = 503
-    Width = 645
-    Align = alBottom
-    ClientHeight = 27
-    ClientWidth = 645
-    TabOrder = 0
-    object SpinEdit1: TSpinEdit
-      Left = 48
-      Height = 23
-      Top = -1
-      Width = 50
-      Increment = 10
-      MaxValue = 10000
-      MinValue = 1
-      OnChange = SpinEdit1Change
-      TabOrder = 0
-      Value = 100
-    end
-    object Label1: TLabel
-      Left = 8
-      Height = 15
-      Top = 4
-      Width = 32
-      Caption = 'Zoom'
-      ParentColor = False
-    end
-    object Label2: TLabel
-      Left = 104
-      Height = 15
-      Top = 4
-      Width = 54
-      Caption = 'Contorno:'
-      ParentColor = False
-    end
-    object Label13: TLabel
-      Left = 192
-      Height = 15
-      Top = 4
-      Width = 45
-      Caption = 'Rellleno:'
-      ParentColor = False
-    end
-    object cbPen1: TColorButton
-      Left = 161
-      Height = 25
-      Top = -1
-      Width = 27
-      BorderWidth = 2
-      ButtonColorSize = 16
-      ButtonColor = clBlack
-      OnColorChanged = cbPen1ColorChanged
-    end
-    object cbBrush1: TColorButton
-      Left = 240
-      Height = 25
-      Top = 0
-      Width = 27
-      BorderWidth = 2
-      ButtonColorSize = 16
-      ButtonColor = clBlack
-      OnColorChanged = cbBrush1ColorChanged
-    end
-  end
-  object Panel3: TPanel
+  object pClient: TPanel
     Left = 0
     Height = 503
     Top = 0
     Width = 645
     Align = alClient
     BevelOuter = bvNone
-    Caption = 'Panel3'
+    Caption = 'pClient'
     ClientHeight = 503
     ClientWidth = 645
     TabOrder = 1
-    object ScrollBox1: TScrollBox
+    object scrlbxImage: TScrollBox
       Left = 0
-      Height = 436
-      Top = 67
+      Height = 398
+      Top = 105
       Width = 397
       HorzScrollBar.Page = 393
-      VertScrollBar.Page = 432
+      VertScrollBar.Page = 394
       Align = alClient
-      ClientHeight = 432
+      ClientHeight = 394
       ClientWidth = 393
       TabOrder = 0
-      OnMouseWheel = ScrollBox1MouseWheel
+      OnMouseWheel = scrlbxImageMouseWheel
       object Image1: TImage
         Left = -2
         Height = 230
@@ -115,22 +49,22 @@ object frmMapEditor: TfrmMapEditor
         Stretch = True
       end
     end
-    object Splitter1: TSplitter
+    object SplitterProperties: TSplitter
       Left = 397
-      Height = 436
-      Top = 67
+      Height = 398
+      Top = 105
       Width = 3
       Align = alRight
-      OnCanOffset = Splitter1CanOffset
+      OnCanOffset = SplitterPropertiesCanOffset
       ResizeAnchor = akRight
     end
-    object Panel2: TPanel
+    object pnlProperties: TPanel
       Left = 400
-      Height = 436
-      Top = 67
+      Height = 398
+      Top = 105
       Width = 245
       Align = alRight
-      ClientHeight = 436
+      ClientHeight = 398
       ClientWidth = 245
       TabOrder = 2
       Visible = False
@@ -265,12 +199,12 @@ object frmMapEditor: TfrmMapEditor
       end
       object GroupBox2: TGroupBox
         Left = 1
-        Height = 186
+        Height = 148
         Top = 249
         Width = 243
         Align = alClient
         Caption = 'Relleno'
-        ClientHeight = 168
+        ClientHeight = 130
         ClientWidth = 239
         TabOrder = 1
         object Label8: TLabel
@@ -411,47 +345,207 @@ object frmMapEditor: TfrmMapEditor
         end
       end
     end
-    object ScrollBox2: TScrollBox
-      Left = 0
-      Height = 62
-      Top = 0
-      Width = 645
-      HorzScrollBar.Page = 641
-      VertScrollBar.Page = 58
-      Align = alTop
-      ClientHeight = 58
-      ClientWidth = 641
-      TabOrder = 3
-      Visible = False
-      object ToolBar1: TToolBar
-        Left = 0
-        Height = 58
-        Top = 0
-        Width = 641
-        Align = alClient
-        ButtonHeight = 16
-        ButtonWidth = 16
-        Caption = 'ToolBar1'
-        TabOrder = 0
-        object PColor1: TPanel
-          Left = 1
-          Height = 16
-          Top = 2
-          Width = 16
-          ParentColor = False
-          TabOrder = 0
-          OnMouseDown = PColor1MouseDown
-        end
-      end
-    end
-    object Splitter2: TSplitter
+    object splitterPalette: TSplitter
       Cursor = crVSplit
       Left = 0
       Height = 5
-      Top = 62
+      Top = 100
       Width = 645
       Align = alTop
       ResizeAnchor = akTop
+    end
+    object pPalettes: TPanel
+      Left = 0
+      Height = 100
+      Top = 0
+      Width = 645
+      Align = alTop
+      BevelOuter = bvNone
+      ClientHeight = 100
+      ClientWidth = 645
+      TabOrder = 4
+      Visible = False
+      object Splitter1: TSplitter
+        Cursor = crVSplit
+        Left = 0
+        Height = 5
+        Top = 45
+        Width = 645
+        Align = alBottom
+        ResizeAnchor = akBottom
+      end
+      object gbPalette: TGroupBox
+        Left = 0
+        Height = 45
+        Top = 0
+        Width = 645
+        Align = alClient
+        Caption = 'Paleta de colores'
+        ClientHeight = 27
+        ClientWidth = 641
+        TabOrder = 1
+        object scrlbxPalette: TScrollBox
+          Left = 0
+          Height = 27
+          Top = 0
+          Width = 641
+          HorzScrollBar.Page = 637
+          VertScrollBar.Page = 23
+          Align = alClient
+          ClientHeight = 23
+          ClientWidth = 637
+          TabOrder = 0
+          OnClick = scrlbxPaletteClick
+          object PPaletteReference: TPanel
+            Left = 0
+            Height = 16
+            Top = 7
+            Width = 637
+            Align = alBottom
+            BevelOuter = bvNone
+            ClientHeight = 16
+            ClientWidth = 637
+            TabOrder = 0
+            Visible = False
+            object PColorReference: TPanel
+              Left = 0
+              Height = 16
+              Top = 0
+              Width = 16
+              Align = alLeft
+              ParentColor = False
+              TabOrder = 0
+              Visible = False
+              OnMouseDown = PColorReferenceMouseDown
+            end
+          end
+        end
+      end
+      object gbGamuts: TGroupBox
+        Left = 0
+        Height = 50
+        Top = 50
+        Width = 645
+        Align = alBottom
+        Caption = 'Gamas de colores'
+        ClientHeight = 32
+        ClientWidth = 641
+        TabOrder = 2
+        Visible = False
+        OnClick = gbGamutsClick
+        object scrlbxGamuts: TScrollBox
+          Left = 0
+          Height = 32
+          Top = 0
+          Width = 641
+          HorzScrollBar.Page = 637
+          VertScrollBar.Page = 28
+          Align = alClient
+          ClientHeight = 28
+          ClientWidth = 637
+          TabOrder = 0
+          object pGamutReference: TPanel
+            Left = 0
+            Height = 16
+            Top = 12
+            Width = 637
+            Align = alBottom
+            BevelOuter = bvNone
+            ClientHeight = 16
+            ClientWidth = 637
+            TabOrder = 0
+            Visible = False
+            object PGamutColorReference: TPanel
+              Left = 15
+              Height = 16
+              Top = 0
+              Width = 16
+              Align = alLeft
+              ParentColor = False
+              TabOrder = 0
+              Visible = False
+              OnMouseDown = PGamutColorReferenceMouseDown
+            end
+            object lblGamutReference: TLabel
+              Left = 0
+              Height = 16
+              Top = 0
+              Width = 15
+              Align = alLeft
+              AutoSize = False
+              Caption = '16:'
+              ParentColor = False
+              Visible = False
+            end
+          end
+        end
+      end
+    end
+  end
+  object pnlStatus: TPanel
+    Left = 0
+    Height = 27
+    Top = 503
+    Width = 645
+    Align = alBottom
+    ClientHeight = 27
+    ClientWidth = 645
+    TabOrder = 0
+    object seZoom: TSpinEdit
+      Left = 48
+      Height = 23
+      Top = -1
+      Width = 50
+      Increment = 10
+      MaxValue = 10000
+      MinValue = 1
+      OnChange = seZoomChange
+      TabOrder = 0
+      Value = 100
+    end
+    object Label1: TLabel
+      Left = 8
+      Height = 15
+      Top = 4
+      Width = 32
+      Caption = 'Zoom'
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 104
+      Height = 15
+      Top = 4
+      Width = 54
+      Caption = 'Contorno:'
+      ParentColor = False
+    end
+    object Label13: TLabel
+      Left = 192
+      Height = 15
+      Top = 4
+      Width = 45
+      Caption = 'Rellleno:'
+      ParentColor = False
+    end
+    object cbPen1: TColorButton
+      Left = 161
+      Height = 25
+      Top = -1
+      Width = 27
+      BorderWidth = 2
+      ButtonColorSize = 16
+      ButtonColor = clBlack
+      OnColorChanged = cbPen1ColorChanged
+    end
+    object cbBrush1: TColorButton
+      Left = 240
+      Height = 25
+      Top = 0
+      Width = 27
+      BorderWidth = 2
+      ButtonColorSize = 16
+      ButtonColor = clBlack
+      OnColorChanged = cbBrush1ColorChanged
     end
   end
   object MainMenu1: TMainMenu
@@ -484,6 +578,10 @@ object frmMapEditor: TfrmMapEditor
       object MenuItem17: TMenuItem
         Caption = 'Paleta de colores'
         OnClick = MenuItem17Click
+      end
+      object MenuItem19: TMenuItem
+        Caption = 'Gamas de colores'
+        OnClick = MenuItem19Click
       end
       object MenuItem16: TMenuItem
         Caption = 'Barra de propiedades'
