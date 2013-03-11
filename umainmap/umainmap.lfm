@@ -1,13 +1,12 @@
 object frmMapEditor: TfrmMapEditor
-  Left = 412
+  Left = 384
   Height = 550
-  Top = 146
+  Top = 150
   Width = 645
   Caption = 'Map Editor'
   ClientHeight = 530
   ClientWidth = 645
   Menu = MainMenu1
-  OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnShow = FormShow
@@ -55,7 +54,6 @@ object frmMapEditor: TfrmMapEditor
       Top = 105
       Width = 3
       Align = alRight
-      OnCanOffset = SplitterPropertiesCanOffset
       ResizeAnchor = akRight
     end
     object pnlProperties: TPanel
@@ -384,6 +382,7 @@ object frmMapEditor: TfrmMapEditor
         ClientHeight = 27
         ClientWidth = 641
         TabOrder = 1
+        Visible = False
         object scrlbxPalette: TScrollBox
           Left = 0
           Height = 27
@@ -395,7 +394,6 @@ object frmMapEditor: TfrmMapEditor
           ClientHeight = 23
           ClientWidth = 637
           TabOrder = 0
-          OnClick = scrlbxPaletteClick
           object PPaletteReference: TPanel
             Left = 0
             Height = 16
@@ -432,7 +430,6 @@ object frmMapEditor: TfrmMapEditor
         ClientWidth = 641
         TabOrder = 2
         Visible = False
-        OnClick = gbGamutsClick
         object scrlbxGamuts: TScrollBox
           Left = 0
           Height = 32
@@ -476,6 +473,7 @@ object frmMapEditor: TfrmMapEditor
               Caption = '16:'
               ParentColor = False
               Visible = False
+              OnClick = lblGamutReferenceClick
             end
           end
         end

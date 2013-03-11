@@ -106,11 +106,9 @@ type
     procedure cbPen1ColorChanged(Sender: TObject);
     procedure cbPenColorChanged(Sender: TObject);
     procedure FigureComboChange(Sender: TObject);
-    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure gbGamutsClick(Sender: TObject);
     procedure Image1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure Image1MouseLeave(Sender: TObject);
@@ -120,6 +118,7 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure Image1MouseWheel(Sender: TObject; Shift: TShiftState;
       WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
+    procedure lblGamutReferenceClick(Sender: TObject);
     procedure MenuItem12Click(Sender: TObject);
     procedure MenuItem13Click(Sender: TObject);
     procedure MenuItem14Click(Sender: TObject);
@@ -139,7 +138,6 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure scrlbxImageMouseWheel(Sender: TObject; Shift: TShiftState;
       WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
-    procedure scrlbxPaletteClick(Sender: TObject);
     procedure seBrushAlphaChange(Sender: TObject);
     procedure sePenAlphaChange(Sender: TObject);
     procedure sePenChange(Sender: TObject);
@@ -150,8 +148,6 @@ type
     procedure pencil(X,Y: integer; pen: boolean);
     procedure copyColor(X,Y: integer; pen: boolean);
     procedure line(X,Y: integer; X2,Y2:Integer; pen: boolean);
-    procedure SplitterPropertiesCanOffset(Sender: TObject; var NewOffset: Integer;
-      var Accept: Boolean);
     procedure triangle(X,Y: integer; X2,Y2:Integer);
     procedure rectangle(X,Y: integer; X2,Y2:Integer);
     procedure circle(X,Y: integer; X2,Y2:Integer);
@@ -235,8 +231,6 @@ begin
   updatePen;
 end;
 
-
-
 procedure TfrmMapEditor.FigureComboChange(Sender: TObject);
 begin
   case FigureCombo.ItemIndex of
@@ -249,11 +243,6 @@ begin
   end;
 end;
 
-procedure TfrmMapEditor.FormClose(Sender: TObject; var CloseAction: TCloseAction
-  );
-begin
-
-end;
 
 procedure TfrmMapEditor.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin
@@ -429,10 +418,6 @@ begin
 
 end;
 
-procedure TfrmMapEditor.gbGamutsClick(Sender: TObject);
-begin
-
-end;
 
 procedure TfrmMapEditor.fillPalette(palette : Pbyte);
 var
@@ -512,11 +497,6 @@ begin
   FreeAndNil(lazBMP);
 end;
 
-procedure TfrmMapEditor.SplitterPropertiesCanOffset(Sender: TObject;
-  var NewOffset: Integer; var Accept: Boolean);
-begin
-
-end;
 
 procedure TfrmMapEditor.circle(X,Y: integer; X2,Y2:Integer);
 var
@@ -716,6 +696,11 @@ begin
       seZoom.Value:=seZoom.Value-seZoom.Increment;
 end;
 
+procedure TfrmMapEditor.lblGamutReferenceClick(Sender: TObject);
+begin
+
+end;
+
 procedure TfrmMapEditor.MenuItem12Click(Sender: TObject);
 begin
   FigureCombo.ItemIndex := 2;
@@ -742,9 +727,9 @@ begin
 
   if gbPalette.Visible then
   begin
-   gbGamuts.Align:=alClient;
-     Splitter1.Align:=alBottom;
+     gbGamuts.Align:=alClient;
      gbGamuts.Align:=alBottom;
+     Splitter1.Align:=alBottom;
   end
   else
     gbGamuts.Align:=alClient;
@@ -762,9 +747,9 @@ begin
   gbGamuts.Visible:= not gbGamuts.Visible;
   if gbPalette.Visible then
   begin
-      gbGamuts.Align:=alClient;
-     Splitter1.Align:=alBottom;
+     gbGamuts.Align:=alClient;
      gbGamuts.Align:=alBottom;
+     Splitter1.Align:=alBottom;
   end
   else
     gbGamuts.Align:=alClient;
@@ -796,6 +781,7 @@ procedure TfrmMapEditor.PColorReferenceMouseDown(Sender: TObject; Button: TMouse
 begin
   if ssCtrl in Shift then
   begin
+    ColorDialog1.Color:=TPanel(Sender).Color;
     if ColorDialog1.Execute then
       TPanel(Sender).Color:=ColorDialog1.Color;
     exit;
@@ -827,11 +813,13 @@ begin
     updatePen;
 end;
 
+
 procedure TfrmMapEditor.PGamutColorReferenceMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   if ssCtrl in Shift then
   begin
+    ColorDialog1.Color:=TPanel(Sender).Color;
     if ColorDialog1.Execute then
       TPanel(Sender).Color:=ColorDialog1.Color;
     exit;
@@ -859,11 +847,6 @@ begin
      seZoom.Value:=seZoom.Value+seZoom.Increment
   else
       seZoom.Value:=seZoom.Value-seZoom.Increment;
-end;
-
-procedure TfrmMapEditor.scrlbxPaletteClick(Sender: TObject);
-begin
-
 end;
 
 procedure TfrmMapEditor.seBrushAlphaChange(Sender: TObject);

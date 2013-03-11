@@ -56,6 +56,7 @@ type
     GraphSize: LongInt;               // Needed for FPG Graphics
     FbitsPerPixel: Word;            // to get faster this attribute.
     FCDIVFormat: Boolean;            // to get faster this attribute.
+    data8bits: array of Byte;
     procedure loadDataBitmap(Stream: TStream);
     procedure writeDataBitmap(Stream: TStream);
     procedure RGB24toBGR16(var byte0, byte1: Byte; red, green, blue: Byte);
@@ -349,6 +350,9 @@ begin
       lenLineBits := lenLineBits + 1;
   end;
 
+  if FbitsPerPixel = 8 then
+    SetLength(data8bits,Width*Height);
+
   lazBMP := CreateIntfImage;
   for k := 0 to Height - 1 do
   begin
@@ -390,6 +394,7 @@ begin
         Stream.Read(byte_line, Width * bytesPerPixel);
         for j := 0 to Width - 1 do
         begin
+          data8bits[k*Width+j]:=byte_line[j];
           p_bytearray^[j * 4] := bPalette[byte_line[j] * 3 + 2];
           p_bytearray^[j * 4 + 1] := bPalette[byte_line[j] * 3 + 1];
           p_bytearray^[j * 4 + 2] := bPalette[byte_line[j] * 3];
@@ -545,6 +550,7 @@ var
   p_bytearray: PByteArray;
   j, k: word;
   bytes_per_pixel : word;
+  index8bit : byte;
 begin
   lazBMP := CreateIntfImage;
   bytes_per_pixel:= FbitsPerPixel div 8;
@@ -583,9 +589,19 @@ begin
         for j := 0 to Width - 1 do
         begin
           byte_line[j] := 0;
+          index8bit:=0;
+          if index8bit >0 then
+             index8bit:= data8bits[k*Width+j];
           if p_bytearray^[j * 4 + 3] <> 0 then
-            byte_line[j] := FindColor(0, p_bytearray^[j * 4 + 2],
-              p_bytearray^[j * 4 + 1], p_bytearray^[j * 4]);
+          begin
+            if (p_bytearray^[j * 4] = bPalette[index8bit]) and
+               (p_bytearray^[j * 4 + 1] = bPalette[index8bit +1]) and
+               (p_bytearray^[j * 4 + 2] = bPalette[index8bit +2 ] ) then
+               byte_line[j]:= index8bit
+            else
+              byte_line[j] := FindColor(0, p_bytearray^[j * 4 + 2],
+                p_bytearray^[j * 4 + 1], p_bytearray^[j * 4]);
+          end;
         end;
         Stream.Write(byte_line, Width);
       end;
