@@ -168,10 +168,11 @@ begin
  frmMapEditor.Image1.Picture.assign(frmMapEditor.imageSource);
  frmMapEditor.Image1.Width:=frmMapEditor.imageSource.Width;
  frmMapEditor.Image1.Height:=frmMapEditor.imageSource.Height;
- frmMapEditor.Panel1.Color:=panel1.Color;
+ frmMapEditor.scrlbxImage.Color:=panel1.Color;
  frmMapEditor.cbBackground.ButtonColor:=panel1.Color;
  frmMapEditor.Show;
  frmMapEditor.fillPalette(fpg.Palette);
+ frmMapEditor.fillGamuts(fpg.Gamuts,fpg.Palette);
 end;
 
 procedure TfrmFPGImages.edCodeExit(Sender: TObject);

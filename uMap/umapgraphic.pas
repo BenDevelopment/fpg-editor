@@ -29,7 +29,6 @@ uses
   IntfGraphics, FileUtil,LCLIntf, LCLType;
 
 type
-
   MAPGamut = record
      numcolors : Byte;
      mode : Byte;
@@ -37,6 +36,7 @@ type
      unused: Byte;
      colors :array[0..31] of Byte;
   end;
+  PMAPGamut = ^MAPGamut;
 
   { TMAPGraphic }
   TMAPGraphic = class(TBitmap)
@@ -957,4 +957,4 @@ end;
 initialization
   TPicture.RegisterFileFormat('map','DIV MAP Images', TMAPGraphic);
 
-end.
+end.

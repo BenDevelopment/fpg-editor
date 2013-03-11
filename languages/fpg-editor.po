@@ -1198,6 +1198,16 @@ msgctxt "tfrmmapeditor.figurecombo.text"
 msgid "Lápiz"
 msgstr ""
 
+#: tfrmmapeditor.gbgamuts.caption
+msgctxt "TFRMMAPEDITOR.GBGAMUTS.CAPTION"
+msgid "Gamas de colores"
+msgstr ""
+
+#: tfrmmapeditor.gbpalette.caption
+msgctxt "TFRMMAPEDITOR.GBPALETTE.CAPTION"
+msgid "Paleta de colores"
+msgstr ""
+
 #: tfrmmapeditor.groupbox1.caption
 msgid "Contorno"
 msgstr ""
@@ -1269,6 +1279,11 @@ msgctxt "TFRMMAPEDITOR.LABEL9.CAPTION"
 msgid "Color:"
 msgstr ""
 
+#: tfrmmapeditor.lblgamutreference.caption
+msgctxt "TFRMMAPEDITOR.LBLGAMUTREFERENCE.CAPTION"
+msgid "16:"
+msgstr ""
+
 #: tfrmmapeditor.menuitem1.caption
 msgctxt "TFRMMAPEDITOR.MENUITEM1.CAPTION"
 msgid "Archivo"
@@ -1310,6 +1325,11 @@ msgctxt "TFRMMAPEDITOR.MENUITEM18.CAPTION"
 msgid "Ayuda"
 msgstr ""
 
+#: tfrmmapeditor.menuitem19.caption
+msgctxt "tfrmmapeditor.menuitem19.caption"
+msgid "Gamas de colores"
+msgstr ""
+
 #: tfrmmapeditor.menuitem6.caption
 msgid "Herramienta"
 msgstr ""
@@ -1328,13 +1348,8 @@ msgstr ""
 msgid "&Elipse"
 msgstr ""
 
-#: tfrmmapeditor.panel3.caption
-msgid "Panel3"
-msgstr ""
-
-#: tfrmmapeditor.toolbar1.caption
-msgctxt "TFRMMAPEDITOR.TOOLBAR1.CAPTION"
-msgid "ToolBar1"
+#: tfrmmapeditor.pclient.caption
+msgid "pClient"
 msgstr ""
 
 #: tfrmmessagebox.bbbutton0.caption

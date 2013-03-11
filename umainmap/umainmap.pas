@@ -7,7 +7,8 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Menus,
   ActnList, ExtCtrls, ExtDlgs, Spin, StdCtrls, Buttons, ColorBox,
-  IntfGraphics, FPimage, lazcanvas, ComCtrls, FPCanvas, typinfo ,math, uLanguage, types;
+  IntfGraphics, FPimage, lazcanvas, ComCtrls, FPCanvas, typinfo ,math, uLanguage
+  , types, uMAPGraphic;
 
 type
 
@@ -34,12 +35,15 @@ type
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     GroupBox3: TGroupBox;
+    gbPalette: TGroupBox;
+    gbGamuts: TGroupBox;
     Image1: TImage;
     Label1: TLabel;
     Label10: TLabel;
     Label11: TLabel;
     Label12: TLabel;
     Label13: TLabel;
+    lblGamutReference: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
@@ -59,6 +63,7 @@ type
     MenuItem16: TMenuItem;
     MenuItem17: TMenuItem;
     MenuItem18: TMenuItem;
+    MenuItem19: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
@@ -68,22 +73,27 @@ type
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
     OpenPictureDialog1: TOpenPictureDialog;
-    Panel1: TPanel;
-    Panel2: TPanel;
-    Panel3: TPanel;
-    PColor1: TPanel;
+    PColorReference: TPanel;
+    pPalettes: TPanel;
+    PGamutColorReference: TPanel;
+    pnlStatus: TPanel;
+    pnlProperties: TPanel;
+    pClient: TPanel;
     PenStyleCombo: TComboBox;
     PenModeCombo: TComboBox;
     SavePictureDialog1: TSavePictureDialog;
-    ScrollBox1: TScrollBox;
-    ScrollBox2: TScrollBox;
+    scrlbxImage: TScrollBox;
+    scrlbxPalette: TScrollBox;
+    scrlbxGamuts: TScrollBox;
     sePenAlpha: TSpinEdit;
     seBrushAlpha: TSpinEdit;
-    SpinEdit1: TSpinEdit;
+    seZoom: TSpinEdit;
     sePen: TSpinEdit;
     Splitter1: TSplitter;
-    Splitter2: TSplitter;
-    ToolBar1: TToolBar;
+    SplitterProperties: TSplitter;
+    splitterPalette: TSplitter;
+    pGamutReference: TPanel;
+    PPaletteReference: TPanel;
     procedure Action1Execute(Sender: TObject);
     procedure Action2Execute(Sender: TObject);
     procedure Action3Execute(Sender: TObject);
@@ -100,6 +110,7 @@ type
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure gbGamutsClick(Sender: TObject);
     procedure Image1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure Image1MouseLeave(Sender: TObject);
@@ -115,27 +126,31 @@ type
     procedure MenuItem16Click(Sender: TObject);
     procedure MenuItem17Click(Sender: TObject);
     procedure MenuItem18Click(Sender: TObject);
+    procedure MenuItem19Click(Sender: TObject);
     procedure MenuItem5Click(Sender: TObject);
     procedure MenuItem7Click(Sender: TObject);
     procedure MenuItem8Click(Sender: TObject);
     procedure MenuItem9Click(Sender: TObject);
-    procedure PColor1MouseDown(Sender: TObject; Button: TMouseButton;
+    procedure PColorReferenceMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure PenModeComboChange(Sender: TObject);
     procedure PenStyleComboChange(Sender: TObject);
-    procedure ScrollBox1MouseWheel(Sender: TObject; Shift: TShiftState;
+    procedure PGamutColorReferenceMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure scrlbxImageMouseWheel(Sender: TObject; Shift: TShiftState;
       WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
+    procedure scrlbxPaletteClick(Sender: TObject);
     procedure seBrushAlphaChange(Sender: TObject);
     procedure sePenAlphaChange(Sender: TObject);
     procedure sePenChange(Sender: TObject);
     procedure SpeedButton1DblClick(Sender: TObject);
     procedure SpeedButton1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
-    procedure SpinEdit1Change(Sender: TObject);
+    procedure seZoomChange(Sender: TObject);
     procedure pencil(X,Y: integer; pen: boolean);
     procedure copyColor(X,Y: integer; pen: boolean);
     procedure line(X,Y: integer; X2,Y2:Integer; pen: boolean);
-    procedure Splitter1CanOffset(Sender: TObject; var NewOffset: Integer;
+    procedure SplitterPropertiesCanOffset(Sender: TObject; var NewOffset: Integer;
       var Accept: Boolean);
     procedure triangle(X,Y: integer; X2,Y2:Integer);
     procedure rectangle(X,Y: integer; X2,Y2:Integer);
@@ -145,8 +160,10 @@ type
     procedure updatePen;
     procedure updateBrush;
     procedure fillPalette(palette : Pbyte);
+    procedure fillGamuts(gamuts : PMAPGamut;palette : Pbyte);
   private
-    PColor: array[1..255] of TPanel;
+    PColor: array[0..255] of TPanel;
+    PGamutColor: array[0..15] of array [0..31] of TPanel;
     lastShift : TShiftState;
     x1,y1 : Integer;
     FPen : TFPCustomPen;
@@ -154,7 +171,8 @@ type
     undoImage : TPicture;
     primeraVez : Boolean;
     usePalette : Boolean;
-   { private declarations }
+    useGamuts : Boolean;
+    { private declarations }
   public
     { public declarations }
     imageSource : TPicture;
@@ -202,7 +220,7 @@ end;
 
 procedure TfrmMapEditor.cbBackgroundColorChanged(Sender: TObject);
 begin
-  ScrollBox1.Color:=cbBackground.ButtonColor;
+  scrlbxImage.Color:=cbBackground.ButtonColor;
 end;
 
 procedure TfrmMapEditor.cbPen1ColorChanged(Sender: TObject);
@@ -348,30 +366,71 @@ begin
   updatePen;
   updateBrush;
 
-  cbBackground.ButtonColor:=ScrollBox1.Color;
+  cbBackground.ButtonColor:=scrlbxImage.Color;
   primeraVez:=true;
   usePalette:=true;
+  useGamuts:=true;
 end;
 
 procedure TfrmMapEditor.FormShow(Sender: TObject);
 var
-  i : Integer;
+  i,j : Integer;
   tmpPanel : TPanel;
+  parentPanel : TPanel;
+  tmplabel : TLabel;
 begin
   BeginFormUpdate;
   if primeraVez then
   begin
-    for i:=1 to 255 do
+    for i:=0 to 7 do
     begin
-      tmpPanel:= TPanel.Create(Owner);
-      tmpPanel.OnMouseDown:= @PColor1MouseDown;
-      tmpPanel.Width:=ToolBar1.ButtonHeight;
-      tmpPanel.Parent:=ToolBar1;
-      PColor[i]:=tmpPanel;
+      parentPanel:= TPanel.Create(Owner);
+      parentPanel.Parent:=scrlbxPalette;
+      parentPanel.height:=PPaletteReference.height;
+      parentPanel.Align:=PPaletteReference.Align;
+      for j:=31 downto 0 do
+      begin
+        tmpPanel:= TPanel.Create(Owner);
+        tmpPanel.OnMouseDown:= @PColorReferenceMouseDown;
+        tmpPanel.Parent:=parentPanel;
+        tmpPanel.Width:=PColorReference.Width;
+        tmpPanel.Align:=PColorReference.Align;
+        PColor[i*32+j]:=tmpPanel;
+      end;
     end;
+
+    for i:=0 to 15 do
+    begin
+        parentPanel:= TPanel.Create(Owner);
+        parentPanel.Parent:=scrlbxGamuts;
+        parentPanel.height:=pGamutReference.height;
+        parentPanel.Align:=pGamutReference.Align;
+
+      for j:=31 downto 0 do
+      begin
+        tmpPanel:= TPanel.Create(Owner);
+        tmpPanel.OnMouseDown:= @PGamutColorReferenceMouseDown;
+        tmpPanel.Parent:=parentPanel;
+        tmpPanel.Width:=PGamutColorReference.Width;
+        tmpPanel.Align:=PGamutColorReference.Align;
+        PGamutColor[i,j]:=tmpPanel;
+      end;
+      tmplabel:= TLabel.Create(Owner);
+      tmplabel.AutoSize:=lblGamutReference.AutoSize;
+      tmplabel.Width:=lblGamutReference.Width;
+      tmplabel.Parent:=parentPanel;
+      tmplabel.Caption:=inttostr(i+1)+':';
+      tmplabel.Align:=lblGamutReference.Align;
+    end;
+
     primeraVez:=false;
   end;
   EndFormUpdate;
+
+end;
+
+procedure TfrmMapEditor.gbGamutsClick(Sender: TObject);
+begin
 
 end;
 
@@ -379,14 +438,28 @@ procedure TfrmMapEditor.fillPalette(palette : Pbyte);
 var
   i : Integer;
 begin
-   for i:=0 to 254 do
+   for i:=0 to 255 do
    begin
-      PColor[i+1].color:=RGBToColor (palette[i*3],palette[i*3+1],palette[i*3+2]);
+      PColor[i].color:=RGBToColor (palette[i*3],palette[i*3+1],palette[i*3+2]);
    end;
-   i:=255;
-   PColor1.color:=RGBToColor(palette[i*3],palette[i*3+1],palette[i*3+2]);
    usePalette:=true;
 end;
+
+procedure TfrmMapEditor.fillGamuts(gamuts : PMAPGamut;palette : Pbyte);
+var
+  i,j : Integer;
+  index : Integer;
+begin
+   for i:=0 to 15 do
+    for j:=0 to 31 do
+    begin
+      index := gamuts[i].colors[j];
+      PGamutColor[i][j].color:=RGBToColor (palette[index*3],palette[index*3+1],palette[index*3+2]);
+    end;
+
+   useGamuts:=true;
+end;
+
 
 procedure TfrmMapEditor.pencil(X,Y: integer; pen: boolean);
 begin
@@ -439,7 +512,7 @@ begin
   FreeAndNil(lazBMP);
 end;
 
-procedure TfrmMapEditor.Splitter1CanOffset(Sender: TObject;
+procedure TfrmMapEditor.SplitterPropertiesCanOffset(Sender: TObject;
   var NewOffset: Integer; var Accept: Boolean);
 begin
 
@@ -532,8 +605,8 @@ procedure TfrmMapEditor.Image1MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   lastShift :=Shift;
-  X1 := (X * 100 )div SpinEdit1.Value;
-  Y1 := (Y * 100 )div SpinEdit1.Value;
+  X1 := (X * 100 )div seZoom.Value;
+  Y1 := (Y * 100 )div seZoom.Value;
   if FigureCombo.ItemIndex = 5 then
   begin
     if ssLeft in Shift then
@@ -564,14 +637,14 @@ begin
   begin
     if FigureCombo.ItemIndex = 0 then
     begin
-       X1 := (X * 100 )div SpinEdit1.Value;
-       Y1 := (Y * 100 )div SpinEdit1.Value;
+       X1 := (X * 100 )div seZoom.Value;
+       Y1 := (Y * 100 )div seZoom.Value;
        pencil(x1,y1,false);
     end;
     if FigureCombo.ItemIndex = 1 then
     begin
-       X2 := (X * 100 )div SpinEdit1.Value;
-       Y2 := (Y * 100 )div SpinEdit1.Value;
+       X2 := (X * 100 )div seZoom.Value;
+       Y2 := (Y * 100 )div seZoom.Value;
        image1.Picture.assign(undoImage);
        line(x1,y1,x2,y2,false);
     end;
@@ -582,35 +655,35 @@ begin
   begin
     if FigureCombo.ItemIndex = 0 then
     begin
-       X1 := (X * 100 )div SpinEdit1.Value;
-       Y1 := (Y * 100 )div SpinEdit1.Value;
+       X1 := (X * 100 )div seZoom.Value;
+       Y1 := (Y * 100 )div seZoom.Value;
        pencil(x1,y1,true);
     end;
     if FigureCombo.ItemIndex = 1 then
     begin
-       X2 := (X * 100 )div SpinEdit1.Value;
-       Y2 := (Y * 100 )div SpinEdit1.Value;
+       X2 := (X * 100 )div seZoom.Value;
+       Y2 := (Y * 100 )div seZoom.Value;
        image1.Picture.assign(undoImage);
        line(x1,y1,x2,y2,true);
     end;
     if FigureCombo.ItemIndex = 2 then
     begin
-       X2 := (X * 100 )div SpinEdit1.Value;
-       Y2 := (Y * 100 )div SpinEdit1.Value;
+       X2 := (X * 100 )div seZoom.Value;
+       Y2 := (Y * 100 )div seZoom.Value;
        image1.Picture.assign(undoImage);
        triangle(x1,y1,x2,y2);
     end;
     if FigureCombo.ItemIndex = 3 then
     begin
-       X2 := (X * 100 )div SpinEdit1.Value;
-       Y2 := (Y * 100 )div SpinEdit1.Value;
+       X2 := (X * 100 )div seZoom.Value;
+       Y2 := (Y * 100 )div seZoom.Value;
        image1.Picture.assign(undoImage);
        rectangle(x1,y1,x2,y2);
     end;
     if FigureCombo.ItemIndex = 4 then
     begin
-       X2 := (X * 100 )div SpinEdit1.Value;
-       Y2 := (Y * 100 )div SpinEdit1.Value;
+       X2 := (X * 100 )div seZoom.Value;
+       Y2 := (Y * 100 )div seZoom.Value;
        image1.Picture.assign(undoImage);
        circle(x1,y1,x2,y2);
     end;
@@ -625,8 +698,8 @@ var
 begin
    if FigureCombo.ItemIndex = 0 then
    begin
-      X1 := (X * 100 )div SpinEdit1.Value;
-      Y1 := (Y * 100 )div SpinEdit1.Value;
+      X1 := (X * 100 )div seZoom.Value;
+      Y1 := (Y * 100 )div seZoom.Value;
       if  ssLeft in  lastShift then
        pencil(x1,y1,true);
       if  ssRight in  lastShift then
@@ -638,9 +711,9 @@ procedure TfrmMapEditor.Image1MouseWheel(Sender: TObject; Shift: TShiftState;
   WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
 begin
   if WheelDelta > 0 then
-     SpinEdit1.Value:=SpinEdit1.Value+SpinEdit1.Increment
+     seZoom.Value:=seZoom.Value+seZoom.Increment
   else
-      SpinEdit1.Value:=SpinEdit1.Value-SpinEdit1.Increment;
+      seZoom.Value:=seZoom.Value-seZoom.Increment;
 end;
 
 procedure TfrmMapEditor.MenuItem12Click(Sender: TObject);
@@ -660,17 +733,42 @@ end;
 
 procedure TfrmMapEditor.MenuItem16Click(Sender: TObject);
 begin
-  panel2.Visible:= not panel2.Visible;
+  pnlProperties.Visible:= not pnlProperties.Visible;
 end;
 
 procedure TfrmMapEditor.MenuItem17Click(Sender: TObject);
 begin
-  ScrollBox2.Visible:= not ScrollBox2.Visible;
+  gbPalette.Visible:= not gbPalette.Visible;
+
+  if gbPalette.Visible then
+  begin
+   gbGamuts.Align:=alClient;
+     Splitter1.Align:=alBottom;
+     gbGamuts.Align:=alBottom;
+  end
+  else
+    gbGamuts.Align:=alClient;
+
+  pPalettes.Visible:= (gbPalette.Visible OR gbGamuts.Visible);
 end;
 
 procedure TfrmMapEditor.MenuItem18Click(Sender: TObject);
 begin
   ShowMessage(LNG_MAPEDIT_HELP);
+end;
+
+procedure TfrmMapEditor.MenuItem19Click(Sender: TObject);
+begin
+  gbGamuts.Visible:= not gbGamuts.Visible;
+  if gbPalette.Visible then
+  begin
+      gbGamuts.Align:=alClient;
+     Splitter1.Align:=alBottom;
+     gbGamuts.Align:=alBottom;
+  end
+  else
+    gbGamuts.Align:=alClient;
+  pPalettes.Visible:= (gbPalette.Visible OR gbGamuts.Visible);
 end;
 
 procedure TfrmMapEditor.MenuItem5Click(Sender: TObject);
@@ -693,7 +791,7 @@ begin
   FigureCombo.ItemIndex := 4;
 end;
 
-procedure TfrmMapEditor.PColor1MouseDown(Sender: TObject; Button: TMouseButton;
+procedure TfrmMapEditor.PColorReferenceMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   if ssCtrl in Shift then
@@ -729,14 +827,43 @@ begin
     updatePen;
 end;
 
-procedure TfrmMapEditor.ScrollBox1MouseWheel(Sender: TObject;
+procedure TfrmMapEditor.PGamutColorReferenceMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  if ssCtrl in Shift then
+  begin
+    if ColorDialog1.Execute then
+      TPanel(Sender).Color:=ColorDialog1.Color;
+    exit;
+  end;
+  if ssLeft in Shift then
+  begin
+    cbPen.ButtonColor:= TPanel(Sender).Color;
+    cbPen1.ButtonColor:= cbPen.ButtonColor;
+    updatePen;
+  end;
+  if ssRight in Shift then
+  begin
+    cbBrush.ButtonColor:= TPanel(Sender).Color;
+    cbBrush1.ButtonColor:= cbBrush.ButtonColor;
+    updateBrush;
+  end;
+end;
+
+
+procedure TfrmMapEditor.scrlbxImageMouseWheel(Sender: TObject;
   Shift: TShiftState; WheelDelta: Integer; MousePos: TPoint;
   var Handled: Boolean);
 begin
   if WheelDelta > 0 then
-     SpinEdit1.Value:=SpinEdit1.Value+SpinEdit1.Increment
+     seZoom.Value:=seZoom.Value+seZoom.Increment
   else
-      SpinEdit1.Value:=SpinEdit1.Value-SpinEdit1.Increment;
+      seZoom.Value:=seZoom.Value-seZoom.Increment;
+end;
+
+procedure TfrmMapEditor.scrlbxPaletteClick(Sender: TObject);
+begin
+
 end;
 
 procedure TfrmMapEditor.seBrushAlphaChange(Sender: TObject);
@@ -764,10 +891,10 @@ begin
 end;
 
 
-procedure TfrmMapEditor.SpinEdit1Change(Sender: TObject);
+procedure TfrmMapEditor.seZoomChange(Sender: TObject);
 begin
-  Image1.Width:= Image1.Picture.Width * SpinEdit1.Value div 100;;
-  Image1.Height:= Image1.Picture.Height * SpinEdit1.Value div 100;;
+  Image1.Width:= Image1.Picture.Width * seZoom.Value div 100;;
+  Image1.Height:= Image1.Picture.Height * seZoom.Value div 100;;
   image1.Refresh;
 end;
 
@@ -783,8 +910,8 @@ begin
   if OpenPictureDialog1.Execute then
   begin
    Image1.Picture.LoadFromFile(OpenPictureDialog1.FileName);
-   Image1.Width:= Image1.Picture.Width * SpinEdit1.Value div 100;;
-   Image1.Height:= Image1.Picture.Height * SpinEdit1.Value div 100;;
+   Image1.Width:= Image1.Picture.Width * seZoom.Value div 100;;
+   Image1.Height:= Image1.Picture.Height * seZoom.Value div 100;;
   end;
 end;
 
