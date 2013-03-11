@@ -1346,6 +1346,10 @@ msgctxt "tfrmmapeditor.menuitem19.caption"
 msgid "Gamas de colores"
 msgstr ""
 
+#: tfrmmapeditor.menuitem20.caption
+msgid "Relle&nar"
+msgstr ""
+
 #: tfrmmapeditor.menuitem6.caption
 msgid "Herramienta"
 msgstr ""
