@@ -107,7 +107,7 @@ end;
 
 procedure TFrmFNTView.RefreshData;
 var
-  stringmemo: String;
+//  stringmemo: String;
   i : integer;
   listItem : TListItem;
 begin
@@ -121,15 +121,17 @@ begin
   cbCharset.ItemIndex := fnt_container.header.charset;
   label5.Caption := IntToStr(fnt_container.header.charset);
 
+  (*
   stringmemo := '';
   if (fnt_container.header.file_type[2] = 't') or (fnt_container.header.version = 8) then
     for i := 0 to 575 do
     begin
-      stringmemo := stringmemo + inttohex(fnt_container.header.gamma[i], 2);
+      stringmemo := stringmemo + inttohex(fnt_container.header.gamuts[i], 2);
       if i <> 575 then
         stringmemo := stringmemo + ' ';
     end;
   memo1.Text := stringmemo;
+  *)
 
 
   listview1.Items.Clear;

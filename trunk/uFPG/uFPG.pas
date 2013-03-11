@@ -45,6 +45,7 @@ const
 
 type
 
+
   TFpg = class(TPersistent)
   private
     { Private declarations }
@@ -53,7 +54,7 @@ type
     Magic: array [0 .. 2] of char; {fpg, f16, c16}
     MSDOSEnd: array [0 .. 3] of byte;
     Version: byte;
-    Gamma: array [0 .. 575] of byte;
+    Gamuts: array [0 .. 15] of MAPGamut;
     FPGFormat: byte;
     Palette: array [0 .. 767] of byte;
     images: array [1 .. MAX_NUM_IMAGES] of TMAPGraphic;
@@ -95,6 +96,7 @@ type
     function findColor(index, rc, gc, bc: integer): integer;
 
     class function test(str: string): boolean;static ;
+    procedure setDefaultGamut;
   published
     property msgInfo: String read fmsgInfo write fmsgInfo;
     property msgError: String read fmsgError write fmsgError;
@@ -371,7 +373,7 @@ begin
       Palette[i] := Palette[i] shr 2;
 
     f.Write(Palette, 768);
-    f.Write(gamma, 576);
+    f.Write(Gamuts, 576);
 
     for i := 0 to 767 do
       Palette[i] := Palette[i] shl 2;
@@ -415,6 +417,7 @@ var
   byte_size: Word;
   i : Integer;
   fpgGraphic    :TMAPGraphic;
+  //tmpArr : array [0..575] of byte;
 begin
   FPGFormat := FPG_NULL;
 
@@ -465,7 +468,8 @@ begin
     if FPGFormat = FPG8_DIV2 then
     begin
       f.Read(palette, 768);
-      f.Read(gamma, 576);
+      f.Read(Gamuts, 576);
+      //f.Read(tmpArr, 576);
 
       for i := 0 to 767 do
         palette[i] := palette[i] shl 2;
@@ -718,5 +722,19 @@ begin
 
 end;
 
+procedure TFPG.setDefaultGamut;
+var
+ i,j : Byte;
+begin
+  FillByte(Gamuts,576,0);
+  for i:=0 to 15 do
+  begin
+      gamuts[i].numcolors:=16;
+      for j:=0 to gamuts[i].numcolors -1 do
+      begin
+        gamuts[i].colors[j]:=(i*gamuts[i].numcolors)+j;
+      end;
+  end;
+end;
 
-end.
+end.

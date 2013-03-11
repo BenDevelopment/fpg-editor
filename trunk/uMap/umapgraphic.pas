@@ -29,8 +29,16 @@ uses
   IntfGraphics, FileUtil,LCLIntf, LCLType;
 
 type
-  { TMAPGraphic }
 
+  MAPGamut = record
+     numcolors : Byte;
+     mode : Byte;
+     editable: Byte;
+     unused: Byte;
+     colors :array[0..31] of Byte;
+  end;
+
+  { TMAPGraphic }
   TMAPGraphic = class(TBitmap)
   private
     Magic: array [0 .. 2] of Char;
@@ -41,7 +49,7 @@ type
     FCode: DWord;
     FFPName: array [0 .. 11] of Char; // Needed for FPG Graphics
     FName: array [0 .. 31] of Char;
-    Gamma: array [0 .. 575] of Byte;
+    Gamuts: array [0 .. 15] of MAPGamut;
     (*BPalette must be public*)
     NCPoints: LongInt;
     (*CPoints must be public*)
@@ -291,7 +299,7 @@ begin
   if (not onFPG) and (FbitsPerPixel = 8) then
   begin
     Stream.Read(bPalette, 768);
-    Stream.Read(Gamma, 576);
+    Stream.Read(Gamuts, 576);
 
     for i := 0 to 767 do
       bPalette[i] := bPalette[i] shl 2;
@@ -508,7 +516,7 @@ begin
       bPalette[i] := bPalette[i] shr 2;
 
     Stream.Write(bPalette, 768);
-    Stream.Write(Gamma, 576);
+    Stream.Write(Gamuts, 576);
 
     for i := 0 to 767 do
       bPalette[i] := bPalette[i] shl 2;
