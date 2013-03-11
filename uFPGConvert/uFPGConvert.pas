@@ -260,6 +260,8 @@ begin
   total_pixels := convert_pixels;
  end;
 
+ lvFPG.Fpg.setDefaultGamut;
+
  MessageDlg( LNG_INFO, LNG_PALETTE_PRECISION + ' [ '
             + IntToStr( ( convert_pixels * 100) div total_pixels ) + '% ] ('+inttostr(colorsSaved)+' '+LNG_SAVEDCOLORS+'/'+inttostr(colorsLost)+' '+LNG_LOSTCOLORS+')',
             mtInformation,[mbOk],0);
@@ -418,4 +420,4 @@ begin
 end;
 
 
-end.
+end.

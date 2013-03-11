@@ -5,7 +5,7 @@ unit uFNT;
 interface
 
 uses LCLIntf, LCLType, SysUtils, classes, graphics, Dialogs,
-     IntfGraphics, uIniFile,FileUtil;
+     IntfGraphics, uIniFile,FileUtil,uMAPGraphic;
 
 type
  // Estructura datos de una letra
@@ -33,7 +33,7 @@ type
    code  : array [0 .. 3] of byte;
    version : byte;    // Versión ,0
    palette : Array [0 .. 767] of byte; // Paleta
-   gamma   : Array [0 .. 575] of byte; // Gamma
+   Gamuts: array [0 .. 15] of MAPGamut;
    types   : longint; // Tipos
    char_info: Array [0 .. 255] of FNT_CHAR_INFO_R; // Datos de las letras
  end;
@@ -43,7 +43,7 @@ type
    code  : array [0 .. 3] of byte;
    version : byte;    // Versión 1,8,16,24,32
    palette : Array [0 .. 767] of byte; // Paleta
-   gamma   : Array [0 .. 575] of byte; // Gamma
+   Gamuts: array [0 .. 15] of MAPGamut;
    charset   : longint; // Tipos
    char_info: Array [0 .. 255] of FNX_CHAR_INFO_R; // Datos de las letras
  end;
@@ -219,14 +219,14 @@ begin
 
    if (fnt_container.HEADER.file_type[2] = 't') or ( fnt_container.HEADER.version = 8 ) then begin
      f.Read(fnt_container.HEADER.palette  , 768);
-     f.Read(fnt_container.HEADER.gamma    , 576);
+     f.Read(fnt_container.HEADER.gamuts    , 576);
      // pasamos a 8 bits por color la paleta
      for i := 0 to 767 do
       fnt_container.HEADER.palette[i] := fnt_container.HEADER.palette[i] shl 2;
 
    end else begin
        FillByte(fnt_container.HEADER.palette , 768, 0);
-       FillByte(fnt_container.HEADER.gamma , 576, 0);
+       FillByte(fnt_container.HEADER.gamuts , 576, 0);
 
    end;
 
@@ -439,7 +439,7 @@ end;
   if fnt_container.HEADER.version = 8 then
   begin
     f.Write(fnt_container.HEADER.palette  , 768);
-    f.Write(fnt_container.HEADER.gamma    , 576);
+    f.Write(fnt_container.HEADER.gamuts    , 576);
   end;
   f.Write(fnt_container.HEADER.charset    , 4);
 
@@ -578,7 +578,7 @@ end;
   fnt_container.header.code[3]:=0;
 
   FillByte(fnt_container.HEADER.palette , 768, 0);
-  FillByte(fnt_container.HEADER.gamma , 576, 0);
+  FillByte(fnt_container.HEADER.gamuts , 576, 0);
   fnt_container.HEADER.charset:=0;
   fnt_container.HEADER.version:=32;
 
@@ -647,7 +647,7 @@ begin
   if  fnt_container.HEADER.version = 8 then
   begin
       Result := Result + SizeOf(fnt_container.HEADER.palette);
-      Result := Result + SizeOf(fnt_container.HEADER.gamma);
+      Result := Result + SizeOf(fnt_container.HEADER.gamuts);
   end;
   Result := Result + SizeOf(fnt_container.HEADER.charset);
   Result := Result + SizeOf(fnt_container.HEADER.char_info);
