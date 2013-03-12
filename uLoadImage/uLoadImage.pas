@@ -101,7 +101,6 @@ var
   lazBmp : TLazIntfImage;
   lazMask: TLazIntfImage;
   ico_mask: TBitmap;
-  ico_info: TIconInfo;
   k,j : integer;
   curColor : TFPColor;
   maskPtr : PRGBTriple;

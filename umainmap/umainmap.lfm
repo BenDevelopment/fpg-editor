@@ -4,7 +4,7 @@ object frmMapEditor: TfrmMapEditor
   Top = 150
   Width = 645
   Caption = 'Map Editor'
-  ClientHeight = 530
+  ClientHeight = 521
   ClientWidth = 645
   Menu = MainMenu1
   OnCloseQuery = FormCloseQuery
@@ -14,25 +14,24 @@ object frmMapEditor: TfrmMapEditor
   LCLVersion = '1.1'
   object pClient: TPanel
     Left = 0
-    Height = 503
+    Height = 494
     Top = 0
     Width = 645
     Align = alClient
     BevelOuter = bvNone
-    Caption = 'pClient'
-    ClientHeight = 503
+    ClientHeight = 494
     ClientWidth = 645
     TabOrder = 1
     object scrlbxImage: TScrollBox
       Left = 0
-      Height = 398
+      Height = 389
       Top = 105
       Width = 397
-      HorzScrollBar.Page = 393
-      VertScrollBar.Page = 394
+      HorzScrollBar.Page = 395
+      VertScrollBar.Page = 387
       Align = alClient
-      ClientHeight = 394
-      ClientWidth = 393
+      ClientHeight = 387
+      ClientWidth = 395
       TabOrder = 0
       OnMouseWheel = scrlbxImageMouseWheel
       object Image1: TImage
@@ -50,7 +49,7 @@ object frmMapEditor: TfrmMapEditor
     end
     object SplitterProperties: TSplitter
       Left = 397
-      Height = 398
+      Height = 389
       Top = 105
       Width = 3
       Align = alRight
@@ -58,11 +57,11 @@ object frmMapEditor: TfrmMapEditor
     end
     object pnlProperties: TPanel
       Left = 400
-      Height = 398
+      Height = 389
       Top = 105
       Width = 245
       Align = alRight
-      ClientHeight = 398
+      ClientHeight = 389
       ClientWidth = 245
       TabOrder = 2
       Visible = False
@@ -73,7 +72,7 @@ object frmMapEditor: TfrmMapEditor
         Width = 243
         Align = alTop
         Caption = 'Contorno'
-        ClientHeight = 154
+        ClientHeight = 149
         ClientWidth = 239
         TabOrder = 0
         object Label7: TLabel
@@ -81,9 +80,9 @@ object frmMapEditor: TfrmMapEditor
           AnchorSideTop.Control = PenStyleCombo
           AnchorSideTop.Side = asrCenter
           Left = 8
-          Height = 15
-          Top = 11
-          Width = 31
+          Height = 21
+          Top = 14
+          Width = 41
           BorderSpacing.Left = 7
           Caption = 'Estilo:'
           ParentColor = False
@@ -93,13 +92,13 @@ object frmMapEditor: TfrmMapEditor
           AnchorSideTop.Control = Label1
           AnchorSideTop.Side = asrBottom
           Left = 90
-          Height = 23
+          Height = 35
           Top = 7
           Width = 140
           AutoSelect = False
           BorderSpacing.Left = 100
           BorderSpacing.Top = 7
-          ItemHeight = 15
+          ItemHeight = 0
           OnChange = PenStyleComboChange
           Style = csDropDownList
           TabOrder = 0
@@ -108,9 +107,9 @@ object frmMapEditor: TfrmMapEditor
           AnchorSideLeft.Control = Label1
           AnchorSideTop.Side = asrCenter
           Left = 8
-          Height = 15
+          Height = 21
           Top = 72
-          Width = 38
+          Width = 45
           BorderSpacing.Left = 7
           Caption = 'Ancho:'
           ParentColor = False
@@ -119,16 +118,16 @@ object frmMapEditor: TfrmMapEditor
           AnchorSideLeft.Control = Label1
           AnchorSideTop.Side = asrCenter
           Left = 8
-          Height = 15
+          Height = 21
           Top = 102
-          Width = 32
+          Width = 41
           BorderSpacing.Left = 7
           Caption = 'Color:'
           ParentColor = False
         end
         object sePen: TSpinEdit
           Left = 90
-          Height = 23
+          Height = 31
           Top = 64
           Width = 50
           MinValue = 1
@@ -150,16 +149,16 @@ object frmMapEditor: TfrmMapEditor
           AnchorSideLeft.Control = Label1
           AnchorSideTop.Side = asrCenter
           Left = 8
-          Height = 15
+          Height = 21
           Top = 134
-          Width = 24
+          Width = 31
           BorderSpacing.Left = 7
           Caption = 'Alfa:'
           ParentColor = False
         end
         object sePenAlpha: TSpinEdit
           Left = 90
-          Height = 23
+          Height = 31
           Top = 126
           Width = 50
           OnChange = sePenAlphaChange
@@ -171,9 +170,9 @@ object frmMapEditor: TfrmMapEditor
           AnchorSideTop.Control = PenModeCombo
           AnchorSideTop.Side = asrCenter
           Left = 9
-          Height = 15
-          Top = 39
-          Width = 35
+          Height = 21
+          Top = 42
+          Width = 41
           BorderSpacing.Left = 7
           Caption = 'Modo:'
           ParentColor = False
@@ -183,13 +182,13 @@ object frmMapEditor: TfrmMapEditor
           AnchorSideTop.Control = Label1
           AnchorSideTop.Side = asrBottom
           Left = 90
-          Height = 23
+          Height = 35
           Top = 35
           Width = 140
           AutoSelect = False
           BorderSpacing.Left = 100
           BorderSpacing.Top = 7
-          ItemHeight = 15
+          ItemHeight = 0
           OnChange = PenModeComboChange
           Style = csDropDownList
           TabOrder = 3
@@ -197,21 +196,21 @@ object frmMapEditor: TfrmMapEditor
       end
       object GroupBox2: TGroupBox
         Left = 1
-        Height = 148
+        Height = 139
         Top = 249
         Width = 243
         Align = alClient
         Caption = 'Relleno'
-        ClientHeight = 130
+        ClientHeight = 116
         ClientWidth = 239
         TabOrder = 1
         object Label8: TLabel
           AnchorSideTop.Control = BrushStyleCombo
           AnchorSideTop.Side = asrCenter
           Left = 9
-          Height = 15
-          Top = 20
-          Width = 31
+          Height = 21
+          Top = 23
+          Width = 41
           BorderSpacing.Left = 7
           Caption = 'Estilo:'
           ParentColor = False
@@ -220,13 +219,13 @@ object frmMapEditor: TfrmMapEditor
           AnchorSideLeft.Control = Owner
           AnchorSideTop.Side = asrBottom
           Left = 90
-          Height = 23
+          Height = 35
           Top = 16
           Width = 140
           AutoSelect = False
           BorderSpacing.Left = 100
           BorderSpacing.Top = 7
-          ItemHeight = 15
+          ItemHeight = 0
           OnChange = BrushStyleComboChange
           Style = csDropDownList
           TabOrder = 0
@@ -235,9 +234,9 @@ object frmMapEditor: TfrmMapEditor
           AnchorSideLeft.Control = Label1
           AnchorSideTop.Side = asrCenter
           Left = 8
-          Height = 15
+          Height = 21
           Top = 56
-          Width = 32
+          Width = 41
           BorderSpacing.Left = 7
           Caption = 'Color:'
           ParentColor = False
@@ -256,16 +255,16 @@ object frmMapEditor: TfrmMapEditor
           AnchorSideLeft.Control = Label1
           AnchorSideTop.Side = asrCenter
           Left = 9
-          Height = 15
+          Height = 21
           Top = 88
-          Width = 24
+          Width = 31
           BorderSpacing.Left = 7
           Caption = 'Alfa:'
           ParentColor = False
         end
         object seBrushAlpha: TSpinEdit
           Left = 93
-          Height = 23
+          Height = 31
           Top = 80
           Width = 50
           OnChange = seBrushAlphaChange
@@ -280,16 +279,16 @@ object frmMapEditor: TfrmMapEditor
         Width = 243
         Align = alTop
         Caption = 'General'
-        ClientHeight = 58
+        ClientHeight = 53
         ClientWidth = 239
         TabOrder = 2
         object Label11: TLabel
           AnchorSideLeft.Control = Label1
           AnchorSideTop.Side = asrCenter
           Left = 8
-          Height = 15
+          Height = 21
           Top = 4
-          Width = 83
+          Width = 102
           BorderSpacing.Left = 7
           Caption = 'Color de fondo:'
           ParentColor = False
@@ -309,9 +308,9 @@ object frmMapEditor: TfrmMapEditor
           AnchorSideTop.Control = FigureCombo
           AnchorSideTop.Side = asrCenter
           Left = 9
-          Height = 15
-          Top = 32
-          Width = 69
+          Height = 21
+          Top = 33
+          Width = 85
           BorderSpacing.Left = 7
           Caption = 'Herramienta:'
           ParentColor = False
@@ -320,13 +319,13 @@ object frmMapEditor: TfrmMapEditor
           AnchorSideLeft.Control = Owner
           AnchorSideTop.Side = asrBottom
           Left = 90
-          Height = 23
+          Height = 31
           Top = 28
           Width = 140
           AutoSelect = False
           BorderSpacing.Left = 100
           BorderSpacing.Top = 7
-          ItemHeight = 15
+          ItemHeight = 0
           ItemIndex = 0
           Items.Strings = (
             'Lápiz'
@@ -380,30 +379,30 @@ object frmMapEditor: TfrmMapEditor
         Width = 645
         Align = alClient
         Caption = 'Paleta de colores'
-        ClientHeight = 27
+        ClientHeight = 22
         ClientWidth = 641
         TabOrder = 1
         Visible = False
         object scrlbxPalette: TScrollBox
           Left = 0
-          Height = 27
+          Height = 22
           Top = 0
           Width = 641
-          HorzScrollBar.Page = 637
-          VertScrollBar.Page = 23
+          HorzScrollBar.Page = 639
+          VertScrollBar.Page = 20
           Align = alClient
-          ClientHeight = 23
-          ClientWidth = 637
+          ClientHeight = 20
+          ClientWidth = 639
           TabOrder = 0
           object PPaletteReference: TPanel
             Left = 0
             Height = 16
-            Top = 7
-            Width = 637
+            Top = 4
+            Width = 639
             Align = alBottom
             BevelOuter = bvNone
             ClientHeight = 16
-            ClientWidth = 637
+            ClientWidth = 639
             TabOrder = 0
             Visible = False
             object PColorReference: TPanel
@@ -427,30 +426,30 @@ object frmMapEditor: TfrmMapEditor
         Width = 645
         Align = alBottom
         Caption = 'Gamas de colores'
-        ClientHeight = 32
+        ClientHeight = 27
         ClientWidth = 641
         TabOrder = 2
         Visible = False
         object scrlbxGamuts: TScrollBox
           Left = 0
-          Height = 32
+          Height = 27
           Top = 0
           Width = 641
-          HorzScrollBar.Page = 637
-          VertScrollBar.Page = 28
+          HorzScrollBar.Page = 639
+          VertScrollBar.Page = 25
           Align = alClient
-          ClientHeight = 28
-          ClientWidth = 637
+          ClientHeight = 25
+          ClientWidth = 639
           TabOrder = 0
           object pGamutReference: TPanel
             Left = 0
             Height = 16
-            Top = 12
-            Width = 637
+            Top = 9
+            Width = 639
             Align = alBottom
             BevelOuter = bvNone
             ClientHeight = 16
-            ClientWidth = 637
+            ClientWidth = 639
             TabOrder = 0
             Visible = False
             object PGamutColorReference: TPanel
@@ -484,7 +483,7 @@ object frmMapEditor: TfrmMapEditor
   object pnlStatus: TPanel
     Left = 0
     Height = 27
-    Top = 503
+    Top = 494
     Width = 645
     Align = alBottom
     ClientHeight = 27
@@ -492,7 +491,7 @@ object frmMapEditor: TfrmMapEditor
     TabOrder = 0
     object seZoom: TSpinEdit
       Left = 48
-      Height = 23
+      Height = 31
       Top = -1
       Width = 50
       Increment = 10
@@ -504,25 +503,25 @@ object frmMapEditor: TfrmMapEditor
     end
     object Label1: TLabel
       Left = 8
-      Height = 15
+      Height = 21
       Top = 4
-      Width = 32
+      Width = 37
       Caption = 'Zoom'
       ParentColor = False
     end
     object Label2: TLabel
       Left = 104
-      Height = 15
+      Height = 21
       Top = 4
-      Width = 54
+      Width = 66
       Caption = 'Contorno:'
       ParentColor = False
     end
     object Label13: TLabel
       Left = 192
-      Height = 15
+      Height = 21
       Top = 4
-      Width = 45
+      Width = 60
       Caption = 'Rellleno:'
       ParentColor = False
     end
@@ -724,4 +723,4 @@ object frmMapEditor: TfrmMapEditor
     left = 413
     top = 32
   end
-end
+end

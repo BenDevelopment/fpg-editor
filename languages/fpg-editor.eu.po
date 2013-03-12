@@ -359,11 +359,12 @@ msgid "Ver puntos de la imagen"
 msgstr "Kontrol-gune guztiak erakutsi"
 
 #: tfrmfpgimages.tscontrolpoints.caption
-msgid "tsControlPoints"
+msgid "Puntos de Control"
 msgstr ""
 
 #: tfrmfpgimages.tsproperties.caption
-msgid "tsProperties"
+msgctxt "tfrmfpgimages.tsproperties.caption"
+msgid "Propiedades"
 msgstr ""
 
 #: tfrmlangtranslator.aabrir.caption
@@ -1354,10 +1355,6 @@ msgstr ""
 msgid "&Elipse"
 msgstr ""
 
-#: tfrmmapeditor.pclient.caption
-msgid "pClient"
-msgstr ""
-
 #: tfrmmessagebox.bbbutton0.caption
 msgid "&Si"
 msgstr ""
@@ -1374,6 +1371,25 @@ msgstr "& Utzi"
 #: tfrmmessagebox.caption
 msgid "frmMessageBox"
 msgstr ""
+
+#: tfrmselectcolor.baceptar.caption
+msgctxt "tfrmselectcolor.baceptar.caption"
+msgid "Aceptar"
+msgstr "Ados"
+
+#: tfrmselectcolor.bcancelar.caption
+msgctxt "tfrmselectcolor.bcancelar.caption"
+msgid "Cancelar"
+msgstr "Utzi"
+
+#: tfrmselectcolor.caption
+msgid "Seleccionar Color"
+msgstr ""
+
+#: tfrmselectcolor.gbpalette.caption
+msgctxt "tfrmselectcolor.gbpalette.caption"
+msgid "Paleta de colores"
+msgstr "Kolore-paleta"
 
 #: tfrmview.caption
 msgid "frmView"
@@ -1430,6 +1446,7 @@ msgid "Acerca de ..."
 msgstr "FPG EDIT 2005en inguruan ..."
 
 #: ulanguage.lng_accept
+msgctxt "ulanguage.lng_accept"
 msgid "Aceptar"
 msgstr "Ados"
 
@@ -1494,6 +1511,7 @@ msgid "Auto-cargar al eliminar"
 msgstr "Ezabatzean berez birkargatu"
 
 #: ulanguage.lng_cancel
+msgctxt "ulanguage.lng_cancel"
 msgid "Cancelar"
 msgstr "Utzi"
 
@@ -1910,6 +1928,7 @@ msgid "Procesando imagen(es)"
 msgstr "Irudia(k) irekitzen"
 
 #: ulanguage.lng_properties_
+msgctxt "ulanguage.lng_properties_"
 msgid "Propiedades"
 msgstr "Ezaugarriak"
 

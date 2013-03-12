@@ -87,6 +87,7 @@ begin
 
  if not FPG then
  begin
+  bmp:= TMAPGraphic.Create;
   bmp.assign(Image.Picture.Bitmap);
   loadImageFile(bmp, file_selected);
  end;

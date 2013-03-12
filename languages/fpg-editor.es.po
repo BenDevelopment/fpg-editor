@@ -369,11 +369,12 @@ msgid "Ver puntos de la imagen"
 msgstr "Ver puntos de la imagen"
 
 #: tfrmfpgimages.tscontrolpoints.caption
-msgid "tsControlPoints"
+msgid "Puntos de Control"
 msgstr ""
 
 #: tfrmfpgimages.tsproperties.caption
-msgid "tsProperties"
+msgctxt "tfrmfpgimages.tsproperties.caption"
+msgid "Propiedades"
 msgstr ""
 
 #: tfrmlangtranslator.aabrir.caption
@@ -1371,10 +1372,6 @@ msgstr ""
 msgid "&Elipse"
 msgstr ""
 
-#: tfrmmapeditor.pclient.caption
-msgid "pClient"
-msgstr ""
-
 #: tfrmmessagebox.bbbutton0.caption
 msgid "&Si"
 msgstr ""
@@ -1391,6 +1388,25 @@ msgstr "Cancelar"
 #: tfrmmessagebox.caption
 msgid "frmMessageBox"
 msgstr ""
+
+#: tfrmselectcolor.baceptar.caption
+msgctxt "tfrmselectcolor.baceptar.caption"
+msgid "Aceptar"
+msgstr "Aceptar"
+
+#: tfrmselectcolor.bcancelar.caption
+msgctxt "tfrmselectcolor.bcancelar.caption"
+msgid "Cancelar"
+msgstr "Cancelar"
+
+#: tfrmselectcolor.caption
+msgid "Seleccionar Color"
+msgstr ""
+
+#: tfrmselectcolor.gbpalette.caption
+msgctxt "tfrmselectcolor.gbpalette.caption"
+msgid "Paleta de colores"
+msgstr "Paleta de colores"
 
 #: tfrmview.caption
 msgid "frmView"
@@ -1447,6 +1463,7 @@ msgid "Acerca de ..."
 msgstr "Acerca de ..."
 
 #: ulanguage.lng_accept
+msgctxt "ulanguage.lng_accept"
 msgid "Aceptar"
 msgstr "Aceptar"
 
@@ -1511,6 +1528,7 @@ msgid "Auto-cargar al eliminar"
 msgstr "Auto-cargar al eliminar"
 
 #: ulanguage.lng_cancel
+msgctxt "ulanguage.lng_cancel"
 msgid "Cancelar"
 msgstr "Cancelar"
 
@@ -1930,6 +1948,7 @@ msgid "Procesando imagen(es)"
 msgstr "Procesando imagen(es)"
 
 #: ulanguage.lng_properties_
+msgctxt "ulanguage.lng_properties_"
 msgid "Propiedades"
 msgstr "Propiedades"
 

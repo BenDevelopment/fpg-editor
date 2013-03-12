@@ -22,7 +22,7 @@ unit uBMP;
 
 interface
 
-uses LCLIntf, LCLType, Forms,  SysUtils, Classes, Dialogs, uFPG, graphics,
+uses LCLIntf, LCLType, Forms,  SysUtils, Classes, Dialogs, graphics,
   FileUtil,  ComCtrls;
 
 type
@@ -183,4 +183,4 @@ implementation
   f.free;
  end;
 
-end.
+end.

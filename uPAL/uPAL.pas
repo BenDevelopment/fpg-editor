@@ -39,8 +39,6 @@ interface
 implementation
 
  function Load_PAL(palette:PByte;  name : string ) : boolean;
- var
-  tmp: Integer;
  begin
   result := false;
 

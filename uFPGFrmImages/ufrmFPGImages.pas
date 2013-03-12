@@ -164,15 +164,14 @@ begin
  frmMapEditor.MenuItem2.Visible:=false;
  frmMapEditor.MenuItem3.Visible:=false;
  frmMapEditor.MenuItem4.Caption:= LNG_EXPORT;
- frmMapEditor.imageSource:=imIcon.Picture;
- frmMapEditor.Image1.Picture.assign(frmMapEditor.imageSource);
- frmMapEditor.Image1.Width:=frmMapEditor.imageSource.Width;
- frmMapEditor.Image1.Height:=frmMapEditor.imageSource.Height;
+ fpg.images[fpg_index].bPalette:=fpg.Palette;
+ fpg.images[fpg_index].Gamuts:=fpg.Gamuts;
+ frmMapEditor.imageSource:=fpg.images[fpg_index];
  frmMapEditor.scrlbxImage.Color:=panel1.Color;
  frmMapEditor.cbBackground.ButtonColor:=panel1.Color;
- frmMapEditor.Show;
- frmMapEditor.fillPalette(fpg.Palette);
- frmMapEditor.fillGamuts(fpg.Gamuts,fpg.Palette);
+ frmMapEditor.ShowModal;
+ fpg.Palette:=fpg.images[fpg_index].bPalette;
+ fpg.Gamuts:=fpg.images[fpg_index].Gamuts;
 end;
 
 procedure TfrmFPGImages.edCodeExit(Sender: TObject);
@@ -655,4 +654,4 @@ begin
  edCoordY.Color := clWhite;
 end;
 
-end.
+end.
