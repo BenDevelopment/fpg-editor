@@ -656,7 +656,6 @@ end;
 procedure SetFNTSetup;
 var
  i, min_vertical_offset : LongInt;
- sizeof_header : longint;
 begin
   min_vertical_offset := High(LongInt);
   fnt_container.width:=0;

@@ -23,7 +23,7 @@ unit uPCX;
 
 interface
 
-uses SysUtils, uFPG, FileUtil, classes;
+uses SysUtils, FileUtil, classes;
 
 type
  uPCX_header = record
@@ -85,4 +85,4 @@ implementation
 
 
 
-end.
+end.

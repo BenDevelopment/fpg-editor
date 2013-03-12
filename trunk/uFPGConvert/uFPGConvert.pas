@@ -25,7 +25,7 @@ interface
 
 uses LCLIntf, LCLType, ComCtrls, Graphics, Controls, SysUtils, Classes,
      ClipBrd, Forms,
-     uFPG, uIniFile, uTools, uLanguage,
+     uFPG, uIniFile, uLanguage,
      uSort, uColor16bits, uFPGListView, IntfGraphics, Dialogs ;
      // uFrmPalette
 const
@@ -69,9 +69,10 @@ implementation
 
 procedure Convert_to_FPG8_DIV2( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
 var
- i, j, count,
+ count,
  byte0, byte1  : Word;
  R16, G16, B16 : Byte;
+ i, j : Integer;
  sort_pixels : TList;
  sort_pixel  : Table_Sort;
  table_pixel  : array [0..65535] of Table_Sort;
@@ -80,7 +81,6 @@ var
  rgbLine : PRGBAQuad;
 
   lazBMP: TLazIntfImage;
-  tmpBMP : TBitmap;
   colorsSaved: Integer;
   colorsLost: Integer;
 
@@ -270,7 +270,6 @@ end;
 procedure Convert_to_FPG16_common( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
 var
  count   : LongInt;
- tmpBMP : TBitmap;
 begin
  lvFPG.LargeImages.Clear;
  lvFPG.Items.Clear;
@@ -336,7 +335,6 @@ end;
 procedure Convert_to_FPG24( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
 var
  count   : LongInt;
- tmpBMP  : TBitmap;
 begin
  New_type := FPG24;
 
@@ -384,7 +382,6 @@ end;
 procedure Convert_to_FPG1( var lvFPG: TFPGListView;  var gFPG: TProgressBar);
 var
  count   : LongInt;
- tmpBMP : TBitmap;
 
 begin
  New_type := FPG1;
@@ -420,4 +417,4 @@ begin
 end;
 
 
-end.
+end.

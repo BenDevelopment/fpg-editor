@@ -745,7 +745,6 @@ end;
 function TfrmMainFNT.GetDownOffset( bmpsrc : TBitMap ) : LongInt;
 var
  i, j : LongInt;
- pSrc : PByteArray;
  lazBMP : TLazIntfImage;
 begin
  result := bmpsrc.Height;
@@ -791,7 +790,6 @@ end;
 procedure TfrmMainFNT.ExtractFNT( index : LongInt );
 var
  x, y : LongInt;
- pSrc, pDst : TFPColor;
  bmp_src : TBitmap;
  lazBMPsrc : TLazIntfImage;
  lazBMPdst : TLazIntfImage;
@@ -920,7 +918,6 @@ var
  bmp_dst    : TBitmap;
  lazBMPsrc, lazBMPdst  : TLazIntfImage;
  lazBMPedge  : TLazIntfImage;
- fontColor : TFPColor;
  edgeColor : TFPColor;
 begin
  bmp_edge := TBitmap.Create;
@@ -947,9 +944,6 @@ begin
  lazBMPdst:= bmp_dst.CreateIntfImage ;
 
  lazBMPdst.CopyPixels(lazBMPsrc, font_edge,font_edge);
-
- fontColor:=TColorToFPColor(inifile_fnt_color);
- fontColor.alpha:= (MulDiv (high(word) , alpha_font , 100)) and $FF00;
 
  // Pintamos el reborde
  lazBMPedge:= bmp_edge.CreateIntfImage ;
@@ -1145,20 +1139,15 @@ end;
 
 procedure TfrmMainFNT.RenderFNT( index : LongInt );
 var
- j, k,  R16, G16, B16 : LongInt;
+ j, k : LongInt;
  lazBMP,lazBMPfnt,lazBMPedge,lazBMPshadow : TLazIntfImage;
  ncolor : TColor;
- alphaFont, alphaEdge,alphaShadow: integer;
 begin
 
  lazBMP:= fnt_container.char_data[index].Bitmap.CreateIntfImage;
  lazBMPfnt:= img_font.CreateIntfImage;
  lazBMPedge:= img_edge.CreateIntfImage;
  lazBMPshadow:= img_shadow.CreateIntfImage;
- alphaFont:= (MulDiv (high(word) , alpha_font , 100) ) and $FF00;
- alphaEdge:= (MulDiv (high(word) , alpha_edge , 100) ) and $FF00;
- alphaShadow:= (MulDiv (high(word) , alpha_shadow , 100) ) and $FF00;
-
 
 
  for k := 0 to lazBMP.Height - 1 do
@@ -2414,7 +2403,6 @@ var
  bExit      : Boolean;
  i, j, k, x, y : LongInt;
  tWidth, tHeight, tVOffset, tDOffset : Integer;
- pal : Array[0..255] of TPaletteEntry;
  lazBMPbuffer,lazBMPtmp : TLazIntfImage;
 begin
  if not FileExistsUTF8(str) { *Converted from FileExists*  } then

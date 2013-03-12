@@ -85,8 +85,6 @@ var
   i       : Integer;
   code    : Word;
   bmp_src : TMAPGraphic;
-  ncpoints: Word;
-  cpoints : array[0..high(Word)*2] of Word;
   filename: String;
 begin
   // Creamos el bitmap fuente y destino
@@ -111,7 +109,6 @@ begin
     filename :=  ExtractFileName(lImages.Strings[i]);;
 
     // Se carga la imagen
-    ncpoints:=0;
     loadImageFile(bmp_src,  lImages.Strings[i] );
 
     // ver como meter fpgeditor3.1
@@ -145,8 +142,6 @@ end;
 procedure TFPGListView.Insert_Imagescb(var progressBar: TProgressBar);
 var
   bmp_src: TMAPGraphic;
-  ncpoints : Word;
-  cpoints :   array[0..high(Word)*2] of Word;
 
 begin
   // Se inializa la barra de progresión
@@ -282,4 +277,4 @@ begin
 
 end;
 
-end.
+end.

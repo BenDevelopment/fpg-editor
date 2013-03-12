@@ -8,12 +8,16 @@ uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Menus,
   ActnList, ExtCtrls, ExtDlgs, Spin, StdCtrls, Buttons, ColorBox,
   IntfGraphics, FPimage, lazcanvas, ComCtrls, FPCanvas, typinfo ,math, uLanguage
-  , types, uMAPGraphic;
+  , types, uMAPGraphic, uselectcolor;
 
 type
+  (* TODO:
+   * Grabar Cambios Gamut color en fpg, desde el otro formulario acceder
+   * Copiar siempre paleta y gamut
+   * Tratar MAPS como fpgs de una imagen, extender fpg de tbitmap
+   *)
 
   { TfrmMapEditor }
-
   TfrmMapEditor = class(TForm)
     Action1: TAction;
     Action2: TAction;
@@ -159,8 +163,11 @@ type
 //    procedure paintBrushImage;
     procedure updatePen;
     procedure updateBrush;
-    procedure fillPalette(palette : Pbyte);
-    procedure fillGamuts(gamuts : PMAPGamut;palette : Pbyte);
+    procedure fillPalette;
+    procedure fillGamuts;
+    procedure replaceColor(index : Integer; inColor: TFPColor  );
+    procedure RefreshForm;
+    procedure copyPalettes;
   private
     PColor: array[0..255] of TPanel;
     PGamutColor: array[0..15] of array [0..31] of TPanel;
@@ -170,12 +177,10 @@ type
     FBrush : TFPCustomBrush;
     undoImage : TPicture;
     primeraVez : Boolean;
-    usePalette : Boolean;
-    useGamuts : Boolean;
     { private declarations }
   public
     { public declarations }
-    imageSource : TPicture;
+    imageSource : TMAPGraphic;
   end;
 
 var
@@ -248,11 +253,37 @@ begin
 end;
 
 
+procedure TfrmMapEditor.copyPalettes;
+var
+  i,j,z: integer;
+  tmpColor : TColor;
+begin
+   for i:=0 to 15 do
+     for j:=0 to 32 do
+     begin
+       imageSource.Gamuts[i].editable:=1;
+       imageSource.Gamuts[i].mode:=1;
+       imageSource.Gamuts[i].colors[j] :=PGamutColor[i][j].Tag;
+     end;
+
+   for i:=0 to 7 do
+      for j:=31 downto 0 do
+      begin
+          z:=i*32+j;
+          tmpColor:=PColor[z].Color;
+          imageSource.bPalette[z*3]:=Red(tmpColor);
+          imageSource.bPalette[z*3+1]:=green(tmpColor);
+          imageSource.bPalette[z*3+2]:=blue(tmpColor);
+      end;
+
+end;
+
 procedure TfrmMapEditor.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin
   if MessageDlg(LNG_WARNING,LNG_SAVE_CHANGES,mtWarning,mbYesNo,0) = mrYes  then
   begin
      imageSource.Assign(Image1.Picture);
+     copyPalettes;
   end;
 end;
 
@@ -360,8 +391,22 @@ begin
 
   cbBackground.ButtonColor:=scrlbxImage.Color;
   primeraVez:=true;
-  usePalette:=true;
-  useGamuts:=true;
+  imageSource := nil;
+end;
+
+procedure TfrmMapEditor.RefreshForm;
+begin
+  if imageSource <> nil then
+  begin
+    if imageSource.bitsPerPixel = 8 then
+    begin
+      fillPalette;
+      fillGamuts;
+    end;
+    Image1.Picture.Assign(imageSource);
+    Image1.Width:=imageSource.Width;
+    Image1.Height:=imageSource.Height;
+  end;
 end;
 
 procedure TfrmMapEditor.FormShow(Sender: TObject);
@@ -372,6 +417,7 @@ var
   tmplabel : TLabel;
 begin
   BeginFormUpdate;
+
   if primeraVez then
   begin
     for i:=0 to 7 do
@@ -387,6 +433,7 @@ begin
         tmpPanel.Parent:=parentPanel;
         tmpPanel.Width:=PColorReference.Width;
         tmpPanel.Align:=PColorReference.Align;
+        tmpPanel.Tag:=i*32+j;
         PColor[i*32+j]:=tmpPanel;
       end;
     end;
@@ -417,23 +464,25 @@ begin
 
     primeraVez:=false;
   end;
+
+  RefreshForm;
+
   EndFormUpdate;
 
 end;
 
 
-procedure TfrmMapEditor.fillPalette(palette : Pbyte);
+procedure TfrmMapEditor.fillPalette;
 var
   i : Integer;
 begin
    for i:=0 to 255 do
    begin
-      PColor[i].color:=RGBToColor (palette[i*3],palette[i*3+1],palette[i*3+2]);
+      PColor[i].color:=RGBToColor (imageSource.bpalette[i*3],imageSource.bpalette[i*3+1],imageSource.bpalette[i*3+2]);
    end;
-   usePalette:=true;
 end;
 
-procedure TfrmMapEditor.fillGamuts(gamuts : PMAPGamut;palette : Pbyte);
+procedure TfrmMapEditor.fillGamuts;
 var
   i,j : Integer;
   index : Integer;
@@ -441,11 +490,9 @@ begin
    for i:=0 to 15 do
     for j:=0 to 31 do
     begin
-      index := gamuts[i].colors[j];
-      PGamutColor[i][j].color:=RGBToColor (palette[index*3],palette[index*3+1],palette[index*3+2]);
+      index := imageSource.Gamuts[i].colors[j];
+      PGamutColor[i][j].color:=RGBToColor (imageSource.bpalette[index*3],imageSource.bpalette[index*3+1],imageSource.bpalette[index*3+2]);
     end;
-
-   useGamuts:=true;
 end;
 
 
@@ -786,7 +833,8 @@ begin
 
   if gbPalette.Visible then
   begin
-     gbGamuts.Align:=alClient;
+     gbGamuts.Align:=alNone;
+     Splitter1.Align:=alNone;
      gbGamuts.Align:=alBottom;
      Splitter1.Align:=alBottom;
   end
@@ -806,9 +854,10 @@ begin
   gbGamuts.Visible:= not gbGamuts.Visible;
   if gbPalette.Visible then
   begin
-     gbGamuts.Align:=alClient;
-     gbGamuts.Align:=alBottom;
-     Splitter1.Align:=alBottom;
+   gbGamuts.Align:=alNone;
+   Splitter1.Align:=alNone;
+   gbGamuts.Align:=alBottom;
+   Splitter1.Align:=alBottom;
   end
   else
     gbGamuts.Align:=alClient;
@@ -840,6 +889,31 @@ begin
   FigureCombo.ItemIndex := 4;
 end;
 
+procedure TfrmMapEditor.replaceColor(index : Integer; inColor: TFPColor  );
+var
+  mapGraphic : TMAPGraphic;
+  lazBMP : TLazIntfImage;
+  i,j : Integer;
+begin
+  if Image1.Picture.Graphic.ClassType <> TMAPGraphic.ClassType then
+    exit;
+    mapGraphic:= TMAPGraphic(Image1.Picture);
+  lazBMP:= Image1.Picture.Bitmap.CreateIntfImage;
+  if mapGraphic.bitsPerPixel = 8  then
+  begin
+   for j:=0 to lazBMP.Height-1 do
+     for i:=0 to lazBMP.Width-1 do
+     begin
+        if mapGraphic.data8bits[i*Height+j] = index then
+           lazBMP.Colors[i,j]:= inColor;
+     end;
+
+  end;
+  Image1.Picture.Bitmap.LoadFromIntfImage(lazBMP);
+  FreeAndNil(lazBMP);
+
+end;
+
 procedure TfrmMapEditor.PColorReferenceMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -847,7 +921,11 @@ begin
   begin
     ColorDialog1.Color:=TPanel(Sender).Color;
     if ColorDialog1.Execute then
+    begin
       TPanel(Sender).Color:=ColorDialog1.Color;
+      //if usePalette then
+      //   replaceColor(TPanel(Sender).Tag,TColorToFPColor(TPanel(Sender).Color));
+    end;
     exit;
   end;
   if ssLeft in Shift then
@@ -883,9 +961,25 @@ procedure TfrmMapEditor.PGamutColorReferenceMouseDown(Sender: TObject;
 begin
   if ssCtrl in Shift then
   begin
-    ColorDialog1.Color:=TPanel(Sender).Color;
-    if ColorDialog1.Execute then
-      TPanel(Sender).Color:=ColorDialog1.Color;
+    if imageSource.bitsPerPixel = 8 then
+    begin
+      frmselectcolor.palette:=imageSource.bPalette;
+      frmselectcolor.fillPalette;
+      frmselectcolor.setSelected(TPanel(Sender).tag);
+      if frmSelectColor.ShowModal = mrOK then
+      begin
+        if frmSelectColor.selectedIndex > -1 then
+        begin
+         TPanel(Sender).Color:=frmSelectColor.selectedColor;
+        end;
+      end;
+    end else begin
+      ColorDialog1.Color:=TPanel(Sender).Color;
+      if ColorDialog1.Execute then
+      begin
+        TPanel(Sender).Color:=ColorDialog1.Color;
+      end;
+    end;
     exit;
   end;
   if ssLeft in Shift then
@@ -971,4 +1065,4 @@ begin
 end;
 
 end.
-
+

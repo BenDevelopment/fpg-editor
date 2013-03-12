@@ -84,8 +84,6 @@ begin
 end;
 
 procedure TfrmAnimate.Draw_Image;
-var
- CenterX, CenterY : word;
 begin
  case source of
   sFPG :

@@ -644,8 +644,6 @@ end;
 
 // Añadir index
 procedure TFPG.add_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TMapGraphic);
-var
-  i: Word;
 begin
   // Establece el código
   FreeAndNil( images[index]);
@@ -670,8 +668,6 @@ end;
 
 // Añadir index
 procedure TFPG.replace_bitmap( index : LongInt; FileName, GraphicName : String; var bmp_src: TMapGraphic);
-var
-  i : word;
 begin
   // Establece el código
   images[index].code  := lastcode;

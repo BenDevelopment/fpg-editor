@@ -49,14 +49,12 @@ type
     FCode: DWord;
     FFPName: array [0 .. 11] of Char; // Needed for FPG Graphics
     FName: array [0 .. 31] of Char;
-    Gamuts: array [0 .. 15] of MAPGamut;
     (*BPalette must be public*)
     NCPoints: LongInt;
     (*CPoints must be public*)
     GraphSize: LongInt;               // Needed for FPG Graphics
     FbitsPerPixel: Word;            // to get faster this attribute.
     FCDIVFormat: Boolean;            // to get faster this attribute.
-    data8bits: array of Byte;
     procedure loadDataBitmap(Stream: TStream);
     procedure writeDataBitmap(Stream: TStream);
     procedure RGB24toBGR16(var byte0, byte1: Byte; red, green, blue: Byte);
@@ -75,7 +73,9 @@ type
     procedure setAlpha( value: Byte; in_rect : TRect );
     procedure stringToArray(var inarray: array of char; str: string; len: integer);
   public
+    data8bits: array of Byte;
     bPalette: array [0 .. 767] of Byte;
+    Gamuts: array [0 .. 15] of MAPGamut;
     CPoints :   array[0..high(Word)*2] of Word;
     procedure LoadFromFile(const Filename: string); override;
     procedure LoadFromStream(Stream: TStream); override;
@@ -210,9 +210,6 @@ end;
 
 procedure TMAPGraphic.LoadFromStream(Stream: TStream; onFPG: boolean);
 var
-  frames: word;
-  length: word;
-  speed: word;
   tmpWidth: word;
   tmpHeight: word;
   intWidth: LongInt;
@@ -463,7 +460,6 @@ procedure TMAPGraphic.SaveToStream(Stream: TStream; onFPG: boolean);
 var
   i: word;
   aWidth, aHeight: word;
-  Frames: word;
   wordNCPoints: Word;
   widthForFPG1: integer;
 begin
@@ -973,4 +969,4 @@ end;
 initialization
   TPicture.RegisterFileFormat('map','DIV MAP Images', TMAPGraphic);
 
-end.
+end.
