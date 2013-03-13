@@ -8,7 +8,7 @@ uses
   uFrmBpp, uFrmCFG, uFrmMainFNT, uFrmAbout,
   uFrmInputBox, uFrmMessageBox, Interfaces, uFrmFNTView,
   uMAPGraphic, ufrmZipFenix, uLanguage, DefaultTranslator, ulngConverter, 
-ulngTranslator, umainmap, uselectcolor;
+ulngTranslator, umainmap, uselectcolor, uFPGcompare;
 
 {$R *.res}
 
@@ -42,6 +42,7 @@ begin
   Application.CreateForm(TfrmLangTranslator, frmLangTranslator);
   Application.CreateForm(TfrmMapEditor, frmMapEditor);
   Application.CreateForm(TfrmSelectColor, frmSelectColor);
+  Application.CreateForm(TfrmFPGCompare, frmFPGCompare);
   //Application.CreateForm(TfrmSplash, frmSplash);
   Application.Run;
 end.

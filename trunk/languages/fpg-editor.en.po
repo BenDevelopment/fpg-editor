@@ -230,6 +230,32 @@ msgctxt "tfrmconfig.tsenviroment.caption"
 msgid "Entorno"
 msgstr "Enviroment"
 
+#: tfrmfpgcompare.button1.caption
+msgctxt "tfrmfpgcompare.button1.caption"
+msgid ".."
+msgstr ".."
+
+#: tfrmfpgcompare.button2.caption
+msgctxt "tfrmfpgcompare.button2.caption"
+msgid ".."
+msgstr ".."
+
+#: tfrmfpgcompare.button3.caption
+msgid "Comparar"
+msgstr ""
+
+#: tfrmfpgcompare.caption
+msgid "Comparar FPGs"
+msgstr ""
+
+#: tfrmfpgcompare.edit1.text
+msgid "Edit1"
+msgstr ""
+
+#: tfrmfpgcompare.edit2.text
+msgid "Edit2"
+msgstr ""
+
 #: tfrmfpgimages.bbaceptchanges.caption
 msgctxt "tfrmfpgimages.bbaceptchanges.caption"
 msgid "&Aceptar"
