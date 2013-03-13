@@ -259,7 +259,7 @@ var
   tmpColor : TColor;
 begin
    for i:=0 to 15 do
-     for j:=0 to 32 do
+     for j:=0 to 31 do
      begin
        imageSource.Gamuts[i].editable:=1;
        imageSource.Gamuts[i].mode:=1;
@@ -492,6 +492,7 @@ begin
     begin
       index := imageSource.Gamuts[i].colors[j];
       PGamutColor[i][j].color:=RGBToColor (imageSource.bpalette[index*3],imageSource.bpalette[index*3+1],imageSource.bpalette[index*3+2]);
+      PGamutColor[i][j].tag:=index;
     end;
 end;
 
@@ -971,6 +972,7 @@ begin
         if frmSelectColor.selectedIndex > -1 then
         begin
          TPanel(Sender).Color:=frmSelectColor.selectedColor;
+         TPanel(Sender).Tag:=frmSelectColor.selectedIndex;
         end;
       end;
     end else begin

@@ -3,8 +3,8 @@
   <ProjectSession>
     <PathDelim Value="\"/>
     <Version Value="9"/>
-    <BuildModes Active="DefaultQT"/>
-    <Units Count="151">
+    <BuildModes Active="DebugQT"/>
+    <Units Count="152">
       <Unit0>
         <Filename Value="pfpgeditor.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -21,10 +21,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmMain"/>
+        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1369"/>
         <CursorPos X="55" Y="1383"/>
         <UsageCount Value="473"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="uFrmView\ufrmView.pas"/>
@@ -42,16 +45,19 @@
         <Filename Value="uFPG\uFPG.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uFPG"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="48"/>
-        <CursorPos X="29" Y="59"/>
+        <TopLine Value="370"/>
+        <CursorPos X="7" Y="377"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
           <WindowIndex Value="0"/>
-          <TopLine Value="658"/>
-          <CursorPos X="1" Y="671"/>
+          <TopLine Value="371"/>
+          <CursorPos X="7" Y="377"/>
         </ExtraEditor1>
         <UsageCount Value="473"/>
+        <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="uPCX\uPCX.pas"/>
@@ -222,13 +228,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmFPGImages"/>
-        <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
         <TopLine Value="147"/>
         <CursorPos X="14" Y="174"/>
         <UsageCount Value="473"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit20>
       <Unit21>
         <Filename Value="uFPGFrmNew\ufrmNewFPG.pas"/>
@@ -369,17 +372,17 @@
         <WindowIndex Value="0"/>
         <TopLine Value="98"/>
         <CursorPos X="1" Y="112"/>
-        <UsageCount Value="189"/>
+        <UsageCount Value="191"/>
       </Unit33>
       <Unit34>
         <Filename Value="uMap\umapgraphic.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uMAPGraphic"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="52"/>
-        <CursorPos X="1" Y="79"/>
-        <UsageCount Value="189"/>
+        <TopLine Value="593"/>
+        <CursorPos X="3" Y="466"/>
+        <UsageCount Value="191"/>
         <Loaded Value="True"/>
       </Unit34>
       <Unit35>
@@ -388,7 +391,7 @@
         <ComponentName Value="Form1"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <UsageCount Value="124"/>
+        <UsageCount Value="126"/>
       </Unit35>
       <Unit36>
         <Filename Value="uLanguage\uLanguage.pas"/>
@@ -397,7 +400,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="3"/>
-        <UsageCount Value="89"/>
+        <UsageCount Value="91"/>
       </Unit36>
       <Unit37>
         <Filename Value="uLanguage\ulngconverter.pas"/>
@@ -409,7 +412,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="124"/>
         <CursorPos X="26" Y="68"/>
-        <UsageCount Value="98"/>
+        <UsageCount Value="100"/>
       </Unit37>
       <Unit38>
         <Filename Value="uLanguage\ulngtranslator.pas"/>
@@ -421,7 +424,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="121"/>
         <CursorPos X="57" Y="145"/>
-        <UsageCount Value="90"/>
+        <UsageCount Value="92"/>
       </Unit38>
       <Unit39>
         <Filename Value="umainmap\umainmap.pas"/>
@@ -430,12 +433,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="umainmap"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="10"/>
-        <UsageCount Value="84"/>
+        <TopLine Value="957"/>
+        <CursorPos X="17" Y="964"/>
+        <UsageCount Value="86"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit39>
@@ -446,13 +448,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uselectcolor"/>
-        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="86"/>
+        <TopLine Value="77"/>
         <CursorPos X="4" Y="105"/>
-        <UsageCount Value="23"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="25"/>
       </Unit40>
       <Unit41>
         <Filename Value="uLanguage\ulanguage_old.pas"/>
@@ -1288,148 +1287,113 @@
       <Unit149>
         <Filename Value="..\..\..\src\lazarus\lcl\dialogs.pp"/>
         <UnitName Value="Dialogs"/>
-        <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
         <TopLine Value="221"/>
         <CursorPos X="37" Y="237"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit149>
       <Unit150>
-        <Filename Value="..\..\..\..\..\usr\share\fpcsrc\2.6.0\packages\fcl-image\src\fpimage.pp"/>
+        <Filename Value="..\..\..\..\usr\share\fpcsrc\2.6.0\packages\fcl-image\src\fpimage.pp"/>
         <UnitName Value="FPimage"/>
-        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="17"/>
         <CursorPos X="5" Y="31"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit150>
+      <Unit151>
+        <Filename Value="..\..\..\..\usr\share\fpcsrc\2.6.0\rtl\inc\systemh.inc"/>
+        <EditorIndex Value="4"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="500"/>
+        <CursorPos X="11" Y="518"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit151>
     </Units>
     <General>
       <ActiveWindowIndexAtStart Value="0"/>
     </General>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="20" HistoryIndex="17">
       <Position1>
-        <Filename Value="umainmap\uselectcolor.pas"/>
-        <Caret Line="84" Column="15" TopLine="51"/>
+        <Filename Value="umainmap\umainmap.pas"/>
+        <Caret Line="83" Column="16" TopLine="54"/>
       </Position1>
       <Position2>
         <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="941" Column="50" TopLine="925"/>
+        <Caret Line="143" Column="26" TopLine="114"/>
       </Position2>
       <Position3>
-        <Filename Value="umainmap\uselectcolor.pas"/>
-        <Caret Line="1" Column="18" TopLine="1"/>
+        <Filename Value="umainmap\umainmap.pas"/>
+        <Caret Line="173" Column="16" TopLine="144"/>
       </Position3>
       <Position4>
-        <Filename Value="umainmap\uselectcolor.pas"/>
-        <Caret Line="32" Column="18" TopLine="8"/>
+        <Filename Value="umainmap\umainmap.pas"/>
+        <Caret Line="266" Column="53" TopLine="236"/>
       </Position4>
       <Position5>
-        <Filename Value="umainmap\uselectcolor.pas"/>
-        <Caret Line="96" Column="10" TopLine="73"/>
+        <Filename Value="umainmap\umainmap.pas"/>
+        <Caret Line="451" Column="44" TopLine="422"/>
       </Position5>
       <Position6>
-        <Filename Value="umainmap\uselectcolor.pas"/>
-        <Caret Line="105" Column="4" TopLine="87"/>
+        <Filename Value="umainmap\umainmap.pas"/>
+        <Caret Line="453" Column="36" TopLine="424"/>
       </Position6>
       <Position7>
         <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="938" Column="41" TopLine="925"/>
+        <Caret Line="454" Column="36" TopLine="425"/>
       </Position7>
       <Position8>
         <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="936" Column="1" TopLine="925"/>
+        <Caret Line="455" Column="20" TopLine="426"/>
       </Position8>
       <Position9>
         <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="526" Column="82" TopLine="512"/>
+        <Caret Line="495" Column="49" TopLine="464"/>
       </Position9>
       <Position10>
         <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="896" Column="43" TopLine="872"/>
+        <Caret Line="975" Column="44" TopLine="960"/>
       </Position10>
       <Position11>
-        <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="937" Column="52" TopLine="913"/>
+        <Filename Value="uFPG\uFPG.pas"/>
+        <Caret Line="671" Column="1" TopLine="658"/>
       </Position11>
       <Position12>
-        <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="405" Column="21" TopLine="405"/>
+        <Filename Value="uFPG\uFPG.pas"/>
+        <Caret Line="83" Column="25" TopLine="66"/>
       </Position12>
       <Position13>
-        <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="896" Column="43" TopLine="872"/>
+        <Filename Value="uFPG\uFPG.pas"/>
+        <Caret Line="84" Column="25" TopLine="66"/>
       </Position13>
       <Position14>
-        <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="937" Column="52" TopLine="913"/>
+        <Filename Value="uFPG\uFPG.pas"/>
+        <Caret Line="354" Column="26" TopLine="324"/>
       </Position14>
       <Position15>
-        <Filename Value="uFPGFrmImages\ufrmFPGImages.pas"/>
-        <Caret Line="167" Column="2" TopLine="146"/>
+        <Filename Value="uFPG\uFPG.pas"/>
+        <Caret Line="566" Column="26" TopLine="536"/>
       </Position15>
       <Position16>
-        <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="9" Column="25" TopLine="1"/>
+        <Filename Value="uFPG\uFPG.pas"/>
+        <Caret Line="83" Column="25" TopLine="66"/>
       </Position16>
       <Position17>
-        <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="113" Column="59" TopLine="90"/>
+        <Filename Value="uFPG\uFPG.pas"/>
+        <Caret Line="84" Column="25" TopLine="66"/>
       </Position17>
       <Position18>
-        <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="198" Column="8" TopLine="174"/>
+        <Filename Value="uFPG\uFPG.pas"/>
+        <Caret Line="405" Column="5" TopLine="370"/>
       </Position18>
       <Position19>
-        <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="963" Column="42" TopLine="952"/>
+        <Filename Value="uFPG\uFPG.pas"/>
+        <Caret Line="389" Column="19" TopLine="370"/>
       </Position19>
       <Position20>
-        <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="169" Column="27" TopLine="155"/>
+        <Filename Value="uMap\umapgraphic.pas"/>
+        <Caret Line="466" Column="3" TopLine="593"/>
       </Position20>
-      <Position21>
-        <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="255" Column="37" TopLine="231"/>
-      </Position21>
-      <Position22>
-        <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="413" Column="73" TopLine="403"/>
-      </Position22>
-      <Position23>
-        <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="169" Column="27" TopLine="155"/>
-      </Position23>
-      <Position24>
-        <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="201" Column="44" TopLine="193"/>
-      </Position24>
-      <Position25>
-        <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="1010" Column="86" TopLine="994"/>
-      </Position25>
-      <Position26>
-        <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="169" Column="27" TopLine="155"/>
-      </Position26>
-      <Position27>
-        <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="273" Column="49" TopLine="261"/>
-      </Position27>
-      <Position28>
-        <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="255" Column="37" TopLine="257"/>
-      </Position28>
-      <Position29>
-        <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="285" Column="18" TopLine="261"/>
-      </Position29>
-      <Position30>
-        <Filename Value="umainmap\umainmap.pas"/>
-        <Caret Line="265" Column="63" TopLine="250"/>
-      </Position30>
     </JumpHistory>
   </ProjectSession>
   <Debugging>

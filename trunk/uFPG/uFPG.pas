@@ -373,6 +373,8 @@ begin
       Palette[i] := Palette[i] shr 2;
 
     f.Write(Palette, 768);
+    //temporal
+    //FillByte(Gamuts,576,0);
     f.Write(Gamuts, 576);
 
     for i := 0 to 767 do
@@ -389,6 +391,8 @@ begin
     gFPG.Repaint;
   end;
 
+
+
   comments := TMAPGraphic.Create;
   comments.bitsPerPixel:=bits_per_pixel;
   comments.CDIVFormat:= (FPGFormat= FPG16_CDIV);
@@ -398,6 +402,7 @@ begin
   comments.fpname:=appName;
   comments.SaveToStream(f,true);
   FreeAndNil(comments);
+
 
   gFPG.Hide;
 
@@ -480,6 +485,8 @@ begin
 
     Count := 0;
 
+    appVersion:='';
+    appName:='';
     while f.Position < f.Size do
     begin
       fpgGraphic:= TMAPGraphic.Create;
