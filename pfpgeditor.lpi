@@ -382,48 +382,48 @@
         <UnitName Value="uMAPGraphic"/>
       </Unit34>
       <Unit35>
-        <Filename Value="unit1.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form1"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="Unit1"/>
-      </Unit35>
-      <Unit36>
         <Filename Value="uLanguage\uLanguage.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uLanguage"/>
-      </Unit36>
-      <Unit37>
+      </Unit35>
+      <Unit36>
         <Filename Value="uLanguage\ulngconverter.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmLanguageConverter"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ulngConverter"/>
-      </Unit37>
-      <Unit38>
+      </Unit36>
+      <Unit37>
         <Filename Value="uLanguage\ulngtranslator.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmLangTranslator"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ulngTranslator"/>
-      </Unit38>
-      <Unit39>
+      </Unit37>
+      <Unit38>
         <Filename Value="umainmap\umainmap.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmMapEditor"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="umainmap"/>
-      </Unit39>
-      <Unit40>
+      </Unit38>
+      <Unit39>
         <Filename Value="umainmap\uselectcolor.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmSelectColor"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uselectcolor"/>
+      </Unit39>
+      <Unit40>
+        <Filename Value="uFPG\ufpgcompare.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmFPGCompare"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uFPGcompare"/>
       </Unit40>
     </Units>
   </ProjectOptions>

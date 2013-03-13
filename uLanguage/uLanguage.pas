@@ -204,6 +204,8 @@ var
   lcfn: string;
 
 begin
+  if not FileExistsUTF8(Lang) then
+     exit;
   LocalTranslator := nil;
   lcfn := lang;
   // search first po translation resources
@@ -218,7 +220,7 @@ begin
        LCLPath := ExtractFilePath(lcfn) + 'lclstrconsts' + LCLPath;
        Translations.TranslateUnitResourceStrings('LCLStrConsts', LCLPath);
      end;
-     LocalTranslator := TPOTranslator.Create(lcfn);
+          LocalTranslator := TPOTranslator.Create(lcfn);
    end;
 
    // search mo translation resources

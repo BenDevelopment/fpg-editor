@@ -22,7 +22,8 @@
  * TODO LIST:
  * * Exportar/importar imagen con xml con información adicional.
  * * Comprimir de forma transparente al usuario
- * * Internationalization
+ * * Tratar MAPS como fpgs de una imagen, extender fpg de tbitmap
+ * * Insertar icono fpgeditor en mapa comentario
 *)
 
 unit uFrmMain;
@@ -1195,6 +1196,8 @@ begin
  if FileExistsUTF8(SaveDialog.FileName) { *Converted from FileExists*  } then
  begin
 
+  frmMessageBox.bbButton1.Caption:=LNG_YES;
+  frmMessageBox.bbButton2.Caption:=LNG_NO;
   if feMessageBox(LNG_WARNING, LNG_EXISTS_FILE_OVERWRITE, 4, 2) <> mrYes then
    Exit;
  end;
@@ -1798,4 +1801,4 @@ begin
 
 end;
 
-end.
+end.

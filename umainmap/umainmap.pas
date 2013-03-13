@@ -11,11 +11,6 @@ uses
   , types, uMAPGraphic, uselectcolor;
 
 type
-  (* TODO:
-   * Grabar Cambios Gamut color en fpg, desde el otro formulario acceder
-   * Copiar siempre paleta y gamut
-   * Tratar MAPS como fpgs de una imagen, extender fpg de tbitmap
-   *)
 
   { TfrmMapEditor }
   TfrmMapEditor = class(TForm)

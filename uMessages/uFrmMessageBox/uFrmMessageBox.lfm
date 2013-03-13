@@ -50,4 +50,4 @@ object frmMessageBox: TfrmMessageBox
     Alignment = taCenter
     TabOrder = 3
   end
-end
+end

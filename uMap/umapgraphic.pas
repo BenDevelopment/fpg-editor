@@ -47,12 +47,6 @@ type
     //      width          : word;  // Not needed, stored in TBitmap
     //      height         : word;  // Not needed, stored in TBitmap
     FCode: DWord;
-    FFPName: array [0 .. 11] of Char; // Needed for FPG Graphics
-    FName: array [0 .. 31] of Char;
-    (*BPalette must be public*)
-    NCPoints: LongInt;
-    (*CPoints must be public*)
-    GraphSize: LongInt;               // Needed for FPG Graphics
     FbitsPerPixel: Word;            // to get faster this attribute.
     FCDIVFormat: Boolean;            // to get faster this attribute.
     procedure loadDataBitmap(Stream: TStream);
@@ -76,6 +70,12 @@ type
     data8bits: array of Byte;
     bPalette: array [0 .. 767] of Byte;
     Gamuts: array [0 .. 15] of MAPGamut;
+    (*Temporalmente publicas*)
+    GraphSize: LongInt;               // Needed for FPG Graphics
+    FName: array [0 .. 31] of Char;
+    FFPName: array [0 .. 11] of Char; // Needed for FPG Graphics
+    NCPoints: LongInt;
+    (* fin Temporalmente publicas*)
     CPoints :   array[0..high(Word)*2] of Word;
     procedure LoadFromFile(const Filename: string); override;
     procedure LoadFromStream(Stream: TStream); override;
@@ -491,15 +491,14 @@ begin
       if (Width mod 8) <> 0 then
         widthForFPG1 := widthForFPG1 + 8 - (Width mod 8);
       graphSize := (widthForFPG1 div 8) * Height + 64;
-      if ((ncpoints > 0) and (ncpoints <> 4096)) then
-        graphSize := graphSize + (ncpoints * 4);
-      if (ncpoints = 4096) then
-        graphSize := graphSize + 6;
     end
     else
     begin
       graphSize := (Width * Height * (FbitsPerPixel div 8)) + 64;
     end;
+    if (ncpoints > 0) then
+      graphSize := graphSize + (ncpoints * 4);
+
     Stream.Write(graphSize, 4);
   end;
 
@@ -584,15 +583,20 @@ begin
       begin
         for j := 0 to Width - 1 do
         begin
+          if Code = 101 then
+          begin
+            index8bit:=0;
+          end;
+
           byte_line[j] := 0;
           index8bit:=0;
-          if index8bit >0 then
+          if length(data8bits) >0 then
              index8bit:= data8bits[k*Width+j];
           if p_bytearray^[j * 4 + 3] <> 0 then
           begin
-            if (p_bytearray^[j * 4] = bPalette[index8bit]) and
-               (p_bytearray^[j * 4 + 1] = bPalette[index8bit +1]) and
-               (p_bytearray^[j * 4 + 2] = bPalette[index8bit +2 ] ) then
+            if (p_bytearray^[j * 4] = bPalette[index8bit*3]) and
+               (p_bytearray^[j * 4 + 1] = bPalette[index8bit*3 +1]) and
+               (p_bytearray^[j * 4 + 2] = bPalette[index8bit*3 +2 ] ) then
                byte_line[j]:= index8bit
             else
               byte_line[j] := FindColor(0, p_bytearray^[j * 4 + 2],

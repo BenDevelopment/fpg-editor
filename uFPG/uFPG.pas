@@ -54,9 +54,9 @@ type
     Magic: array [0 .. 2] of char; {fpg, f16, c16}
     MSDOSEnd: array [0 .. 3] of byte;
     Version: byte;
+    Palette: array [0 .. 767] of byte;
     Gamuts: array [0 .. 15] of MAPGamut;
     FPGFormat: byte;
-    Palette: array [0 .. 767] of byte;
     images: array [1 .. MAX_NUM_IMAGES] of TMAPGraphic;
     active, update: boolean;
     source: String;
@@ -733,10 +733,12 @@ begin
   for i:=0 to 15 do
   begin
       gamuts[i].numcolors:=16;
-      for j:=0 to gamuts[i].numcolors -1 do
+      gamuts[i].colors[0]:=(i*16);
+(*      for j:=0 to gamuts[i].numcolors -1 do
       begin
         gamuts[i].colors[j]:=(i*gamuts[i].numcolors)+j;
       end;
+*)
   end;
 end;
 
