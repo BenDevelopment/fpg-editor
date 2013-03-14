@@ -25,7 +25,7 @@ unit uFPG;
 interface
 
 uses SysUtils, Classes, Graphics, FileUtil, ComCtrls,
-     uMAPGraphic, Dialogs;
+     uMAPGraphic, Dialogs, LConvEncoding;
 
 const
   MAX_NUM_IMAGES = 999;
@@ -36,15 +36,15 @@ const
   FPG16_CDIV = 3;
   FPG24 = 4;
   FPG32 = 5;
-  STRFPG1 = 'FPG 1 bit (All)';
-  STRFPG8 = 'FPG 8 bits (All)';
-  STRFPG16 = 'FPG 16 bits (Fenix/BennuGD)';
-  STRFPGCDIV16 = 'FPG 16 bits (CDIV)';
-  STRFPG24 = 'FPG 24 bits ';
-  STRFPG32 = 'FPG 32 bits (BennuGD)';
+
+  FNX1 = 16;
+  FNT8 = 17;
+  FNX8 = 18;
+  FNX16 = 19;
+  FNX24 = 20;
+  FNX32 = 21;
 
 type
-
 
   TFpg = class(TPersistent)
   private
@@ -56,7 +56,7 @@ type
     Version: byte;
     Palette: array [0 .. 767] of byte;
     Gamuts: array [0 .. 15] of MAPGamut;
-    FPGFormat: byte;
+    FileFormat: byte;
     images: array [1 .. MAX_NUM_IMAGES] of TMAPGraphic;
     active, update: boolean;
     source: String;
@@ -73,6 +73,9 @@ type
     fmsgError   : String;
     fmsgCorrect : String;
     fmsgWrong   : String;
+    (* Para soporte de Fuentes *)
+    charset   : longint; // Tipos
+
     constructor Create;
     destructor Destroy; override;
     function CodeExists(code: word): boolean;
@@ -91,12 +94,15 @@ type
     function loadHeaderFromFile(fileName : String): Boolean;
     procedure loadHeaderFromStream( stream : TStream );
     procedure saveHeaderToStream(stream : TStream);
+    function getFPGFormat(var byte_size : Word) :Integer;
+    function getFontFormat(var byte_size : Word) :Integer;
     function getFormat(var byte_size : Word): Integer ;
     function getBPP : Word;
     function findColor(index, rc, gc, bc: integer): integer;
 
     class function test(str: string): boolean;static ;
     procedure setDefaultGamut;
+    function isFont: boolean;
   published
     property msgInfo: String read fmsgInfo write fmsgInfo;
     property msgError: String read fmsgError write fmsgError;
@@ -104,6 +110,22 @@ type
     property msgWrong: String read fmsgWrong write fmsgWrong;
 
   end;
+
+resourcestring
+  STRFPG1 = 'FPG 1 bit (Fenix/BennuGD)';
+  STRFPG8 = 'FPG 8 bits (All)';
+  STRFPG16 = 'FPG 16 bits (Fenix/BennuGD)';
+  STRFPGCDIV16 = 'FPG 16 bits (CDIV)';
+  STRFPG24 = 'FPG 24 bits ';
+  STRFPG32 = 'FPG 32 bits (BennuGD)';
+
+  STRFNX1 = 'FNT 1 bit (Fenix/BennuGD)';
+  STRFNT = 'FNT 8 bits (All)';
+  STRFNX8 = 'FNT 8 bits (Fenix/BennuGD)';
+  STRFNX16 = 'FNT 16 bits (Fenix/BennuGD)';
+  STRFNX24 = 'FNT 24 bits ';
+  STRFNX32 = 'FNT 32 bits (BennuGD)';
+
 
 procedure stringToArray(var inarray: array of char; str: string; len: integer);
 
@@ -120,90 +142,150 @@ implementation
 function TFpg.getBPP:Word;
 begin
   result:=0;
-  case FPGFormat of
+  case FileFormat of
     FPG1:
     begin
       result:=1;
     end;
-    FPG8_DIV2:
+    FPG8_DIV2, FNT8,FNX8:
     begin
       result:=8;
     end;
-    FPG16, FPG16_CDIV:
+    FPG16, FPG16_CDIV,FNX16:
     begin
       result:=16;
     end;
-    FPG24:
+    FPG24,FNX24:
     begin
       result:=24;
     end;
-    FPG32:
+    FPG32,FNX32:
     begin
       result:=32;
     end;
   end;
 end;
 
-function TFpg.getFormat(var byte_size : Word) :Integer;
+function TFpg.getFontFormat(var byte_size : Word) :Integer;
+begin
+  Result := FPG_NULL;
+  // Ficheros FNT
+  if (Magic[0] = 'f') and (Magic[1] = 'n') and
+   (Magic[2] = 't') then
+  begin
+   Result := FNT8;
+   byte_size := 8;
+   Exit;
+  end;
+  // Ficheros FNX
+  if (Magic[0] = 'f') and (Magic[1] = 'n') and
+   (Magic[2] = 'x')  then
+  begin
+   byte_size := Version;
+  end;
+
+  // Ficheros de 8 bits
+  if version = 8  then
+  begin
+   Result := FNX8;
+   Exit;
+  end;
+
+  // Ficheros de 16 bits
+  if version = 16  then
+  begin
+    Result := FNX16;
+    Exit;
+  end;
+
+  // Ficheros de 24 bits
+  if version = 24  then
+  begin
+   Result := FNX24;
+   Exit;
+  end;
+
+  // Ficheros de 32 bits
+  if version = 32  then
+  begin
+    Result := FNX32;
+    Exit;
+  end;
+
+end;
+
+function TFpg.getFPGFormat(var byte_size : Word) :Integer;
 begin
  Result := FPG_NULL;
  // Ficheros de 1 bit
  if (Magic[0] = 'f') and (Magic[1] = '0') and
-   (Magic[2] = '1') and (MSDOSEnd[0] = 26) and
-   (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
-   (MSDOSEnd[3] = 0) then
+   (Magic[2] = '1') then
  begin
    Result := FPG1;
    byte_size := 0;
+   Exit;
  end;
  // Ficheros de 8 bits para DIV2, FENIX y CDIV
  if (Magic[0] = 'f') and (Magic[1] = 'p') and
-   (Magic[2] = 'g') and (MSDOSEnd[0] = 26) and
-   (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
-   (MSDOSEnd[3] = 0) then
+   (Magic[2] = 'g')  then
  begin
    Result := FPG8_DIV2;
    byte_size := 1;
+   Exit;
  end;
  // Ficheros de 16 bits para FENIX
  if (Magic[0] = 'f') and (Magic[1] = '1') and
-   (Magic[2] = '6') and (MSDOSEnd[0] = 26) and
-   (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
-   (MSDOSEnd[3] = 0) then
+   (Magic[2] = '6')  then
  begin
    Result := FPG16;
    byte_size := 2;
+   Exit;
  end;
 
  // Ficheros de 16 bits para CDIV
  if (Magic[0] = 'c') and (Magic[1] = '1') and
-   (Magic[2] = '6') and (MSDOSEnd[0] = 26) and
-   (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
-   (MSDOSEnd[3] = 0) then
+   (Magic[2] = '6') then
  begin
    Result := FPG16_CDIV;
    byte_size := 2;
+   Exit;
  end;
 
  // Ficheros de 24 bits
  if (Magic[0] = 'f') and (Magic[1] = '2') and
-   (Magic[2] = '4') and (MSDOSEnd[0] = 26) and
-   (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
-   (MSDOSEnd[3] = 0) then
+   (Magic[2] = '4')  then
  begin
    Result := FPG24;
    byte_size := 3;
+   Exit;
  end;
 
  // Ficheros de 32 bits
  if (Magic[0] = 'f') and (Magic[1] = '3') and
-   (Magic[2] = '2') and (MSDOSEnd[0] = 26) and
-   (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
-   (MSDOSEnd[3] = 0) then
+   (Magic[2] = '2')  then
  begin
    Result := FPG32;
    byte_size := 4;
+   Exit;
  end;
+
+end;
+
+function TFpg.getFormat(var byte_size : Word) :Integer;
+begin
+ Result := FPG_NULL;
+
+ // Si no es correcta la terminación salimos.
+ if not ((MSDOSEnd[0] = 26) and
+   (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
+   (MSDOSEnd[3] = 0)) then
+   Exit;
+
+ Result:= getFPGFormat(byte_size);
+ if result <> FPG_NULL then
+   Exit;
+
+ Result:= getFontFormat(byte_size);
 
 end;
 
@@ -361,6 +443,7 @@ begin
 
   bits_per_pixel:=getBPP;
   f := TFileStream.Create(source, fmCreate);
+  setMagic;
   saveHeaderToStream(f);
 
   gFPG.Position := 0;
@@ -373,8 +456,6 @@ begin
       Palette[i] := Palette[i] shr 2;
 
     f.Write(Palette, 768);
-    //temporal
-    //FillByte(Gamuts,576,0);
     f.Write(Gamuts, 576);
 
     for i := 0 to 767 do
@@ -384,7 +465,7 @@ begin
   for i := 1 to Count do
   begin
     images[i].bitsPerPixel:=bits_per_pixel;
-    images[i].CDIVFormat:= (FPGFormat= FPG16_CDIV);
+    images[i].CDIVFormat:= (FileFormat= FPG16_CDIV);
     images[i].bPalette:=Palette;
     images[i].SaveToStream(f,true);
     gFPG.Position := (i * 100) div Count;
@@ -395,7 +476,7 @@ begin
 
   comments := TMAPGraphic.Create;
   comments.bitsPerPixel:=bits_per_pixel;
-  comments.CDIVFormat:= (FPGFormat= FPG16_CDIV);
+  comments.CDIVFormat:= (FileFormat= FPG16_CDIV);
   comments.code:=1001;
   comments.SetSize(1,1);
   comments.name:=appVersion;
@@ -412,6 +493,13 @@ begin
 
 end;
 
+function TFpg.isFont: boolean;
+begin
+  result:=false;
+  if (Magic[2] ='t') Or (Magic[2] ='x') then
+     result:= true;
+end;
+
 //-----------------------------------------------------------------------------
 // LoadFPG: Carga un FPG a memoria.
 //-----------------------------------------------------------------------------
@@ -422,9 +510,11 @@ var
   byte_size: Word;
   i : Integer;
   fpgGraphic    :TMAPGraphic;
+  tmpInt : integer;
+  tmpInt64 : Int64;
   //tmpArr : array [0..575] of byte;
 begin
-  FPGFormat := FPG_NULL;
+  FileFormat := FPG_NULL;
 
   Result := False;
 
@@ -459,9 +549,9 @@ begin
   gFPG.Repaint;
   byte_size := 0;
 
-  FPGFormat := getFormat(byte_size);
+  FileFormat := getFormat(byte_size);
 
-  if (FPGFormat = FPG_NULL) then
+  if (FileFormat = FPG_NULL) then
   begin
     MessageDlg(fmsgError,fmsgWrong,mtError,[mbOK],0);
     f.Free;
@@ -470,7 +560,8 @@ begin
 
 
   try
-    if FPGFormat = FPG8_DIV2 then
+    if (FileFormat = FPG8_DIV2) OR  (FileFormat = FNT8)
+      OR  (FileFormat = FNX8) then
     begin
       f.Read(palette, 768);
       f.Read(Gamuts, 576);
@@ -484,31 +575,94 @@ begin
     end;
 
     Count := 0;
-
     appVersion:='';
     appName:='';
-    while f.Position < f.Size do
-    begin
-      fpgGraphic:= TMAPGraphic.Create;
-      fpgGraphic.bitsPerPixel:= getBPP;
-      fpgGraphic.CDIVFormat:= (FPGFormat = FPG16_CDIV);
-      fpgGraphic.bpalette:=palette;
-      fpgGraphic.LoadFromStream(f,true);
 
-      if fpgGraphic.code=1001 then
+    if isFont then
+    begin
+      f.Read(charset,4);
+      for i :=0 to 255 do
       begin
-        appVersion:=fpgGraphic.name;
-        appName:=fpgGraphic.fpname;
-        FreeAndNil(fpgGraphic);
-      end else begin
-        Count := Count + 1;
+        f.Read(tmpInt,4);
+        if tmpInt = 0 then
+           continue;
+        fpgGraphic:= TMAPGraphic.Create;
+        fpgGraphic.bitsPerPixel:= getBPP;
+        fpgGraphic.CDIVFormat:= (FileFormat = FPG16_CDIV);
+        fpgGraphic.bpalette:=palette;
+        fpgGraphic.Code:=i+1;
+        fpgGraphic.fpname:=inttostr(i);
+        if charset = 1 then
+          fpgGraphic.Name:=''+CP850ToUTF8(chr(i))
+        else
+          fpgGraphic.Name:=''+ISO_8859_1ToUTF8(chr(i));
+
+        // asignamos primerd read.
+        fpgGraphic.Width:=tmpInt;
+        f.Read(tmpInt,4);
+        fpgGraphic.Height:=tmpInt;
+        if Magic[2]='x' then
+        begin
+          f.Read(fpgGraphic.Width_Offset,4);
+          f.Read(fpgGraphic.Height_Offset,4);
+          f.Read(fpgGraphic.Horizontal_Offset,4);
+        end;
+        f.Read(fpgGraphic.Vertical_Offset,4);
+        f.Read(fpgGraphic.file_Offset,4);
+
+        Count := Count +1;
+
         images[Count] := fpgGraphic;
+
+        gFPG.Position := (f.Position * 100) div f.Size;
+        gFPG.Repaint;
       end;
 
-      gFPG.Position := (f.Position * 100) div f.Size;
-      gFPG.Repaint;
+      tmpInt64:=f.Position;
+      images[Count+1] := nil;
 
-    end; // end wile
+      for i :=1 to 256 do
+      begin
+        if images[i] = nil then
+           break;
+        if( (images[i].file_Offset = 0) or
+    	(images[i].width  = 0     ) or
+    	(images[i].height = 0) ) then continue ;
+
+        f.seek(images[i].file_Offset, soFromBeginning);
+        images[i].LoadFromStream(f,lmFont);
+
+        tmpInt64:=tmpInt64+images[i].width*images[i].Height * images[i].bitsPerPixel;
+
+        gFPG.Position := (tmpInt64 * 100) div f.Size;
+        gFPG.Repaint;
+      end;
+
+    end else begin
+      while f.Position < f.Size do
+      begin
+        fpgGraphic:= TMAPGraphic.Create;
+        fpgGraphic.bitsPerPixel:= getBPP;
+        fpgGraphic.CDIVFormat:= (FileFormat = FPG16_CDIV);
+        fpgGraphic.bpalette:=palette;
+        fpgGraphic.LoadFromStream(f,lmFPG);
+
+        if fpgGraphic.code=1001 then
+        begin
+          appVersion:=fpgGraphic.name;
+          appName:=fpgGraphic.fpname;
+          FreeAndNil(fpgGraphic);
+        end else begin
+          Count := Count + 1;
+          images[Count] := fpgGraphic;
+        end;
+
+        gFPG.Position := (f.Position * 100) div f.Size;
+        gFPG.Repaint;
+
+      end; // end wile
+    end;
+
     gFPG.Hide;
     Result := True;
 
@@ -572,7 +726,7 @@ begin
   f := TFileStream.Create(filename, fmCreate);
 
   images[index].bitsPerPixel:=getBPP;
-  images[index].CDIVFormat:= (FPGFormat = FPG16_CDIV);
+  images[index].CDIVFormat:= (FileFormat = FPG16_CDIV);
   images[index].bPalette:=Palette;
   images[index].SaveToStream(f);
 
@@ -581,7 +735,21 @@ end;
 
 Procedure TFpg.setMagic;
 begin
- case FPGFormat of
+ version:= 0;
+ case FileFormat of
+   FPG1,FNX1:
+     Magic := 'f01';
+   FPG8_DIV2,FNX8,FNT8:
+     Magic := 'fpg';
+   FPG16,FNX16:
+     Magic := 'f16';
+   FPG16_CDIV:
+     Magic := 'c16';
+   FPG24,FNX24:
+     Magic := 'f24';
+   FPG32,FNX32:
+     Magic := 'f32';
+  (*
   FPG1:
     Magic := 'f01';
   FPG8_DIV2:
@@ -594,6 +762,37 @@ begin
     Magic := 'f24';
   FPG32:
     Magic := 'f32';
+
+  FNX1:
+  begin
+    Magic := 'fnx';
+    version:= 1;
+  end;
+  FNT8:
+  begin
+    Magic := 'fnt';
+  end;
+  FNX8:
+  begin
+    Magic := 'fnx';
+    version:= 8;
+  end;
+  FNX16:
+  begin
+    Magic := 'fnx';
+    version:= 16;
+  end;
+  FNX24:
+  begin
+    Magic := 'fnx';
+    version:= 24;
+  end;
+  FNX32:
+  begin
+    Magic := 'fnx';
+    version:= 32;
+  end;
+  *)
  end;
 end;
 
@@ -609,7 +808,7 @@ begin
  needTable:= false;
 
  source:='';
- FPGFormat:=FPG32;
+ FileFormat:=FPG32;
  Magic:='f32';
  MSDOSEnd[0] := 26;
  MSDOSEnd[1] := 13;
@@ -667,7 +866,7 @@ begin
 
   // Se crea la imagen resultante
   images[index].bitsPerPixel:=getBPP;
-  images[index].CDIVFormat:= (FPGFormat= FPG16_CDIV);
+  images[index].CDIVFormat:= (FileFormat= FPG16_CDIV);
   images[index].bPalette:=Palette;
   images[index].CreateBitmap(bmp_src);
 
@@ -692,7 +891,7 @@ begin
 
   // Se crea la imagen resultante
   images[index].bitsPerPixel:=getBPP;
-  images[index].CDIVFormat:= (FPGFormat= FPG16_CDIV);
+  images[index].CDIVFormat:= (FileFormat= FPG16_CDIV);
   images[index].bPalette:=Palette;
   images[index].CreateBitmap(bmp_src);
 
@@ -733,12 +932,11 @@ begin
   for i:=0 to 15 do
   begin
       gamuts[i].numcolors:=16;
-      gamuts[i].colors[0]:=(i*16);
-(*      for j:=0 to gamuts[i].numcolors -1 do
+      //gamuts[i].colors[0]:=(i*16);
+      for j:=0 to gamuts[i].numcolors -1 do
       begin
         gamuts[i].colors[j]:=(i*gamuts[i].numcolors)+j;
       end;
-*)
   end;
 end;
 

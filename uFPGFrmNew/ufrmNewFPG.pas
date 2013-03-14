@@ -135,7 +135,7 @@ begin
 
  FPG.Initialize;
  FPG.source   := edNombre.Text;
- FPG.FPGFormat  := cbTipoFPG.ItemIndex;
+ FPG.FileFormat  := cbTipoFPG.ItemIndex;
  FPG.setMagic;
 
  ModalResult := mrOK;

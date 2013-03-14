@@ -210,7 +210,7 @@ begin
 
  //FPG_Create_hpal;
 
- lvFPG.Fpg.FPGFormat             := FPG8_DIV2;
+ lvFPG.Fpg.FileFormat             := FPG8_DIV2;
  lvFPG.Fpg.Magic := 'fpg';
  //lvFPG.Fpg.loadpalette     := true;
  lvFPG.Fpg.update := true;
@@ -286,7 +286,7 @@ begin
 
   lvFPG.Fpg.images[count].bitsPerPixel:=16;
 
-  if lvFPG.Fpg.FPGFormat = FPG16_CDIV then
+  if lvFPG.Fpg.FileFormat = FPG16_CDIV then
   begin
     lvFPG.Fpg.images[count].CDIVFormat:=true;
     lvFPG.Fpg.images[count].colorToTransparent(clPurple,true);
@@ -310,7 +310,7 @@ procedure Convert_to_FPG16_FENIX( var lvFPG: TFPGListView;  var gFPG: TProgressB
 begin
  New_type := FPG16;
  // Actualizamos los datos del FPG
- lvFPG.Fpg.FPGFormat             := FPG16;
+ lvFPG.Fpg.FileFormat             := FPG16;
  lvFPG.Fpg.Magic := 'f16';
  lvFPG.Fpg.loadPalette     := false;
  lvFPG.Fpg.update := true;
@@ -323,7 +323,7 @@ procedure Convert_to_FPG16_CDIV( var lvFPG: TFPGListView;  var gFPG: TProgressBa
 begin
  New_type := FPG16_CDIV;
  // Actualizamos los datos del FPG
- lvFPG.Fpg.FPGFormat             := FPG16_CDIV;
+ lvFPG.Fpg.FileFormat             := FPG16_CDIV;
  lvFPG.Fpg.Magic := 'c16';
  lvFPG.Fpg.loadPalette     := false;
  lvFPG.Fpg.update := true;
@@ -345,7 +345,7 @@ begin
  lvFPG.LargeImages.Height := inifile_sizeof_icon;
 
  // Actualizamos los datos del FPG
- lvFPG.Fpg.FPGFormat             := FPG24;
+ lvFPG.Fpg.FileFormat             := FPG24;
  lvFPG.Fpg.Magic := 'f24';
  lvFPG.Fpg.loadPalette     := false;
  lvFPG.Fpg.update := true;
@@ -373,7 +373,7 @@ begin
  New_type := FPG32;
 
  // Actualizamos los datos del FPG
- lvFPG.Fpg.FPGFormat             := FPG32;
+ lvFPG.Fpg.FileFormat             := FPG32;
  lvFPG.Fpg.Magic := 'f32';
  lvFPG.Fpg.loadPalette     := false;
  lvFPG.Fpg.update := true;
@@ -394,7 +394,7 @@ begin
  lvFPG.LargeImages.Height := inifile_sizeof_icon;
 
   // Actualizamos los datos del FPG
- lvFPG.Fpg.FPGFormat             := FPG1;
+ lvFPG.Fpg.FileFormat             := FPG1;
  lvFPG.Fpg.Magic := 'f01';
  lvFPG.Fpg.loadPalette     := false;
  lvFPG.Fpg.update := true;
