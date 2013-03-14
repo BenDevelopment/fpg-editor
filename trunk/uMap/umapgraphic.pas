@@ -28,6 +28,11 @@ uses
   Classes, SysUtils, Graphics, Dialogs,
   IntfGraphics, FileUtil,LCLIntf, LCLType;
 
+const
+  lmMap = 0;
+  lmFPG = 1;
+  lmFont = 2;
+
 type
   MAPGamut = record
      numcolors : Byte;
@@ -77,9 +82,16 @@ type
     NCPoints: LongInt;
     (* fin Temporalmente publicas*)
     CPoints :   array[0..high(Word)*2] of Word;
+    (*Para soporte de Fuentes*)
+    Width_Offset  : longint; // Ancho
+    Height_Offset : longint; // Alto
+    Horizontal_Offset: longint; // Desplazamiento vertical
+    Vertical_Offset: longint; // Desplazamiento vertical
+    file_Offset : longint; // Desplazamiento en el archivo
+
     procedure LoadFromFile(const Filename: string); override;
     procedure LoadFromStream(Stream: TStream); override;
-    procedure LoadFromStream(Stream: TStream; onFPG: Boolean );
+    procedure LoadFromStream(Stream: TStream; loadmode: byte );
     procedure SaveToFile(const Filename: string); override;
     procedure SaveToStream(Stream: TStream); override;
     procedure SaveToStream(Stream: TStream; onFPG: Boolean);
@@ -205,10 +217,10 @@ end;
 
 procedure TMAPGraphic.LoadFromStream(Stream: TStream);
 begin
-  LoadFromStream(Stream,false);
+  LoadFromStream(Stream,lmMap);
 end;
 
-procedure TMAPGraphic.LoadFromStream(Stream: TStream; onFPG: boolean);
+procedure TMAPGraphic.LoadFromStream(Stream: TStream; loadmode: byte );
 var
   tmpWidth: word;
   tmpHeight: word;
@@ -217,106 +229,109 @@ var
   i: integer;
   tmpNCPoints :word;
 begin
-  if not onFPG then
+  if (loadmode = lmMap) OR (loadmode = lmFPG) then
   begin
-    Stream.Read(Magic, 3);
-    Stream.Read(MSDOSEnd, 4);
-    Stream.Read(Version, 1);
-    FbitsPerPixel := 0;
-    FCDIVFormat := False;
-    // Ficheros de 1 bit
-    if (Magic[0] = 'm') and (Magic[1] = '0') and (Magic[2] = '1') and
-      (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
-      (MSDOSEnd[3] = 0) then
+    if loadmode = lmMap then
     begin
+      Stream.Read(Magic, 3);
+      Stream.Read(MSDOSEnd, 4);
+      Stream.Read(Version, 1);
       FbitsPerPixel := 0;
+      FCDIVFormat := False;
+      // Ficheros de 1 bit
+      if (Magic[0] = 'm') and (Magic[1] = '0') and (Magic[2] = '1') and
+        (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
+        (MSDOSEnd[3] = 0) then
+      begin
+        FbitsPerPixel := 0;
+      end;
+      // Ficheros de 8 bits para DIV2, FENIX y CDIV
+      if (Magic[0] = 'm') and (Magic[1] = 'a') and (Magic[2] = 'p') and
+        (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
+        (MSDOSEnd[3] = 0) then
+      begin
+        FbitsPerPixel := 8;
+      end;
+      // Ficheros de 16 bits para FENIX
+      if (Magic[0] = 'm') and (Magic[1] = '1') and (Magic[2] = '6') and
+        (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
+        (MSDOSEnd[3] = 0) then
+      begin
+        FbitsPerPixel := 16;
+      end;
+
+      // Ficheros de 16 bits para CDIV
+      if (Magic[0] = 'c') and (Magic[1] = '1') and (Magic[2] = '6') and
+        (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
+        (MSDOSEnd[3] = 0) then
+      begin
+        FbitsPerPixel := 16;
+      end;
+
+      // Ficheros de 24 bits
+      if (Magic[0] = 'm') and (Magic[1] = '2') and (Magic[2] = '4') and
+        (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
+        (MSDOSEnd[3] = 0) then
+      begin
+        FbitsPerPixel := 24;
+      end;
+
+      // Ficheros de 32 bits
+      if (Magic[0] = 'm') and (Magic[1] = '3') and (Magic[2] = '2') and
+        (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
+        (MSDOSEnd[3] = 0) then
+      begin
+        FbitsPerPixel := 32;
+      end;
+
+      Stream.Read(tmpWidth, 2);
+      Stream.Read(tmpHeight, 2);
+      Width := tmpWidth;
+      Height := tmpHeight;
     end;
-    // Ficheros de 8 bits para DIV2, FENIX y CDIV
-    if (Magic[0] = 'm') and (Magic[1] = 'a') and (Magic[2] = 'p') and
-      (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
-      (MSDOSEnd[3] = 0) then
+
+    Stream.Read(FCode, 4);
+
+    if loadmode = lmFPG then
     begin
-      FbitsPerPixel := 8;
+       Stream.Read(GraphSize,4);
     end;
-    // Ficheros de 16 bits para FENIX
-    if (Magic[0] = 'm') and (Magic[1] = '1') and (Magic[2] = '6') and
-      (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
-      (MSDOSEnd[3] = 0) then
+
+    Stream.Read(FName, 32);
+
+    if loadmode = lmFPG then
     begin
-      FbitsPerPixel := 16;
+      Stream.Read(FFPName, 12);
+      Stream.Read(intWidth, 4);
+      Stream.Read(intHeight, 4);
+      Width := intWidth;
+      Height := intHeight;
     end;
 
-    // Ficheros de 16 bits para CDIV
-    if (Magic[0] = 'c') and (Magic[1] = '1') and (Magic[2] = '6') and
-      (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
-      (MSDOSEnd[3] = 0) then
+    if (loadmode = lmMap) and (FbitsPerPixel = 8) then
     begin
-      FbitsPerPixel := 16;
+      Stream.Read(bPalette, 768);
+      Stream.Read(Gamuts, 576);
+
+      for i := 0 to 767 do
+        bPalette[i] := bPalette[i] shl 2;
+
     end;
 
-    // Ficheros de 24 bits
-    if (Magic[0] = 'm') and (Magic[1] = '2') and (Magic[2] = '4') and
-      (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
-      (MSDOSEnd[3] = 0) then
+    if loadmode = lmFPG then
+        Stream.Read(ncpoints, 4)
+    else begin
+      Stream.Read(tmpNCPoints, 2);
+      ncpoints:= tmpNCPoints;
+    end;
+
+    // Leemos los puntos de control del bitmap
+    if ncpoints > 0  then
     begin
-      FbitsPerPixel := 24;
+      Stream.Read(CPoints, ncpoints * 4);
     end;
 
-    // Ficheros de 32 bits
-    if (Magic[0] = 'm') and (Magic[1] = '3') and (Magic[2] = '2') and
-      (MSDOSEnd[0] = 26) and (MSDOSEnd[1] = 13) and (MSDOSEnd[2] = 10) and
-      (MSDOSEnd[3] = 0) then
-    begin
-      FbitsPerPixel := 32;
-    end;
-
-    Stream.Read(tmpWidth, 2);
-    Stream.Read(tmpHeight, 2);
-    Width := tmpWidth;
-    Height := tmpHeight;
   end;
-
-  Stream.Read(FCode, 4);
-
-  if onFPG then
-  begin
-     Stream.Read(GraphSize,4);
-  end;
-
-  Stream.Read(FName, 32);
-
-  if onFPG then
-  begin
-    Stream.Read(FFPName, 12);
-    Stream.Read(intWidth, 4);
-    Stream.Read(intHeight, 4);
-    Width := intWidth;
-    Height := intHeight;
-  end;
-
-  if (not onFPG) and (FbitsPerPixel = 8) then
-  begin
-    Stream.Read(bPalette, 768);
-    Stream.Read(Gamuts, 576);
-
-    for i := 0 to 767 do
-      bPalette[i] := bPalette[i] shl 2;
-
-  end;
-
-  if onFPG then
-      Stream.Read(ncpoints, 4)
-  else begin
-    Stream.Read(tmpNCPoints, 2);
-    ncpoints:= tmpNCPoints;
-  end;
-
-  // Leemos los puntos de control del bitmap
-  if ncpoints > 0  then
-  begin
-    Stream.Read(CPoints, ncpoints * 4);
-  end;
-
   // Se carga la imagen resultante
   loadDataBitmap(Stream);
 

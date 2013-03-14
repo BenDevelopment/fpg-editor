@@ -439,17 +439,17 @@ procedure TfrmMain.Update_Panels;
 begin
   lblFilename.Caption := lvFPG.Fpg.source;
 
-  cbTipoFPG.ItemIndex := lvFPG.Fpg.FPGFormat;
-  case lvFPG.Fpg.FPGFormat of
-   FPG1:
+  cbTipoFPG.ItemIndex := lvFPG.Fpg.FileFormat;
+  case lvFPG.Fpg.FileFormat of
+   FPG1,FNX1:
     begin
      lblTransparentColor.caption := 'RGB(0, 0, 0)';
     end;
-   FPG8_DIV2:
+   FPG8_DIV2,FNX8,FNT8:
     begin
      lblTransparentColor.caption := 'RGB('+intTostr(lvFPG.Fpg.palette[0])+', '+intTostr(lvFPG.Fpg.palette[1])+', '+intTostr(lvFPG.Fpg.palette[2])+')';
     end;
-   FPG16:
+   FPG16,FNX16:
     begin
      lblTransparentColor.caption := 'RGB(0, 0, 0)';
     end;
@@ -457,11 +457,11 @@ begin
     begin
      lblTransparentColor.caption := 'RGB(248, 0, 248)';
     end;
-   FPG24:
+   FPG24,FNX24:
     begin
      lblTransparentColor.caption := 'RGB(0, 0, 0)';
     end;
-   FPG32:
+   FPG32,FNX32:
     begin
      lblTransparentColor.caption := 'Alpha Channel';
     end;
@@ -852,7 +852,7 @@ var
  path : string;
 begin
 
- if ((lvFPG.SelCount <= 0) and (lvFPG.Fpg.FPGFormat <> FPG8_DIV2)) then
+ if ((lvFPG.SelCount <= 0) and (lvFPG.Fpg.FileFormat <> FPG8_DIV2)) then
   Exit;
 
  with frmExport do
@@ -867,7 +867,7 @@ begin
 
   end;
 
-  if lvFPG.Fpg.FPGFormat = FPG8_DIV2 then
+  if lvFPG.Fpg.FileFormat = FPG8_DIV2 then
   begin
 
    rgResType.Items.Add(LNG_PALETTE_TO + ' PAL (DIV2)');
@@ -915,7 +915,7 @@ begin
   2: export_to_MAP(lvFPG, path, TForm(frmMain), pbFPG);
  end;
 
- if lvFPG.Fpg.FPGFormat = FPG8_DIV2 then
+ if lvFPG.Fpg.FileFormat = FPG8_DIV2 then
   case frmExport.rgResType.ItemIndex of
    3: export_DIV2_PAL(lvFPG,path);
    4: export_PSP_PAL(lvFPG,path);

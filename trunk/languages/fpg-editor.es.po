@@ -1471,6 +1471,54 @@ msgstr "Ancho :"
 msgid "Zoom :"
 msgstr "Zoom :"
 
+#: ufpg.strfnt
+msgid "FNT 8 bits (All)"
+msgstr ""
+
+#: ufpg.strfnx1
+msgid "FNT 1 bit (Fenix/BennuGD)"
+msgstr ""
+
+#: ufpg.strfnx16
+msgid "FNT 16 bits (Fenix/BennuGD)"
+msgstr ""
+
+#: ufpg.strfnx24
+msgid "FNT 24 bits "
+msgstr ""
+
+#: ufpg.strfnx32
+msgid "FNT 32 bits (BennuGD)"
+msgstr ""
+
+#: ufpg.strfnx8
+msgid "FNT 8 bits (Fenix/BennuGD)"
+msgstr ""
+
+#: ufpg.strfpg1
+msgid "FPG 1 bit (Fenix/BennuGD)"
+msgstr ""
+
+#: ufpg.strfpg16
+msgid "FPG 16 bits (Fenix/BennuGD)"
+msgstr ""
+
+#: ufpg.strfpg24
+msgid "FPG 24 bits "
+msgstr ""
+
+#: ufpg.strfpg32
+msgid "FPG 32 bits (BennuGD)"
+msgstr ""
+
+#: ufpg.strfpg8
+msgid "FPG 8 bits (All)"
+msgstr ""
+
+#: ufpg.strfpgcdiv16
+msgid "FPG 16 bits (CDIV)"
+msgstr ""
+
 #: ufpgconvert.lng_lostcolors
 msgid "perdidos"
 msgstr ""
