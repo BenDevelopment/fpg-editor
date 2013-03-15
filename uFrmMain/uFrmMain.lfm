@@ -83,7 +83,6 @@ object frmMain: TfrmMain
       Top = 0
       Width = 576
       Align = alClient
-      Caption = 'pImagesList'
       ClientHeight = 236
       ClientWidth = 576
       TabOrder = 1
