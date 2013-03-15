@@ -1,13 +1,16 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2013-03-08 13:01+0200\n"
-"Last-Translator: dcelso>\n"
+"PO-Revision-Date: 2013-03-15 17:15+0100\n"
+"Last-Translator: Pieter Kuperus <dyko.kuperus1@home.nl>\n"
 "Language-Team: debian wheezy\n"
 "Language: en\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
+"X-Generator: Poedit 1.5.5\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"MIME-Version: 1.0\n"
 
 #: tform2.aabrir.caption
 msgctxt "tform2.aabrir.caption"
@@ -81,7 +84,7 @@ msgstr "File"
 #: tform2.menuitem4.caption
 msgctxt "tform2.menuitem4.caption"
 msgid "Salir"
-msgstr "Leave"
+msgstr "Quit"
 
 #: tform2.menuitem5.caption
 msgctxt "tform2.menuitem5.caption"
@@ -95,12 +98,12 @@ msgstr "Ok"
 #: tfrmabout.caption
 msgctxt "tfrmabout.caption"
 msgid "Acerca de ..."
-msgstr "About as ..."
+msgstr "About ..."
 
 #: tfrmabout.tscharacteristic.caption
 msgctxt "tfrmabout.tscharacteristic.caption"
 msgid "Caracteristicas"
-msgstr "Characteristic"
+msgstr "Characteristics"
 
 #: tfrmabout.tscredits.caption
 msgctxt "tfrmabout.tscredits.caption"
@@ -118,25 +121,25 @@ msgstr "Font Generator Configuration"
 #: tfrmcfg.gbpaleta.caption
 msgctxt "tfrmcfg.gbpaleta.caption"
 msgid "Paleta de 256 colores"
-msgstr "Palette of 256 colors"
+msgstr "256 Color palette"
 
 #: tfrmcfg.rbfnt2pal.caption
 msgid "Calcular paleta optimizada a los colores de la fuente"
-msgstr "Calculate optimized palette colors of the source"
+msgstr "Calculate optimized color palette for the font"
 
 #: tfrmcfg.rbpal2fnt.caption
 msgid "Adaptar fuente a la paleta cargada"
-msgstr "Adapt to the palette loaded source"
+msgstr "Adapt font to loaded palette"
 
 #: tfrmcfg.sbaccept.caption
 msgctxt "tfrmcfg.sbaccept.caption"
 msgid "&Aceptar"
-msgstr "Accept"
+msgstr "&Accept"
 
 #: tfrmcfg.sbcancel.caption
 msgctxt "tfrmcfg.sbcancel.caption"
 msgid "&Cancelar"
-msgstr "Cancel"
+msgstr "&Cancel"
 
 #: tfrmcfg.sbloadpal.caption
 msgid "&Cargar paleta"
@@ -149,16 +152,16 @@ msgstr "&View palette"
 #: tfrmconfig.bbacept.caption
 msgctxt "TFRMCONFIG.BBACEPT.CAPTION"
 msgid "&Aceptar"
-msgstr "Accept"
+msgstr "&Accept"
 
 #: tfrmconfig.bbcancel.caption
 msgctxt "TFRMCONFIG.BBCANCEL.CAPTION"
 msgid "&Cancelar"
-msgstr "Cancel"
+msgstr "&Cancel"
 
 #: tfrmconfig.caption
 msgid "Configuración de FPG EDIT"
-msgstr "Configuration of FPGEDIT"
+msgstr "Configure FPGEDIT"
 
 #: tfrmconfig.cbalfanegro.caption
 msgid "50% alfa a transparente"
@@ -174,7 +177,7 @@ msgstr "Remove Autoload cb"
 
 #: tfrmconfig.cbflat.caption
 msgid "Botones tipo \"flat\""
-msgstr "Botones tipo \"flat\""
+msgstr "Button type \"flat\""
 
 #: tfrmconfig.cbsplash.caption
 msgctxt "tfrmconfig.cbsplash.caption"
@@ -242,11 +245,11 @@ msgstr ".."
 
 #: tfrmfpgcompare.button3.caption
 msgid "Comparar"
-msgstr ""
+msgstr "Compare"
 
 #: tfrmfpgcompare.caption
 msgid "Comparar FPGs"
-msgstr ""
+msgstr "Compare FPG contents"
 
 #: tfrmfpgcompare.edit1.text
 msgid "Edit1"
@@ -268,7 +271,7 @@ msgstr "Cancel"
 
 #: tfrmfpgimages.bmodify.caption
 msgid "Modificar datos de imagen"
-msgstr ""
+msgstr "Modify image properties"
 
 #: tfrmfpgimages.caption
 msgctxt "tfrmfpgimages.caption"
@@ -277,15 +280,15 @@ msgstr "Edit properties of the image"
 
 #: tfrmfpgimages.gbcode.caption
 msgid " Código "
-msgstr ""
+msgstr "Code"
 
 #: tfrmfpgimages.gbdescription.caption
 msgid " Descripción "
-msgstr ""
+msgstr "Description"
 
 #: tfrmfpgimages.gbname.caption
 msgid " Nombre "
-msgstr ""
+msgstr "Name"
 
 #: tfrmfpgimages.groupbox5.caption
 msgid " X "
@@ -309,16 +312,16 @@ msgstr ""
 
 #: tfrmfpgimages.lb_ctrl_points.caption
 msgid "Puntos de control:"
-msgstr ""
+msgstr "Control points"
 
 #: tfrmfpgimages.lb_heigth.caption
 msgid "Alto:"
-msgstr ""
+msgstr "Width"
 
 #: tfrmfpgimages.lb_width.caption
 msgctxt "tfrmfpgimages.lb_width.caption"
 msgid "Ancho:"
-msgstr ""
+msgstr "Height"
 
 #: tfrmfpgimages.lvcontrolpoints.columns[0].caption
 msgctxt "tfrmfpgimages.lvcontrolpoints.columns[0].caption"
@@ -355,7 +358,7 @@ msgstr "Delete control point"
 
 #: tfrmfpgimages.sbedit.hint
 msgid "Editar punto de control"
-msgstr ""
+msgstr "Modify controlpoints"
 
 #: tfrmfpgimages.sbimageselect.caption
 msgctxt "tfrmfpgimages.sbimageselect.caption"
@@ -369,7 +372,7 @@ msgstr "Load control points"
 
 #: tfrmfpgimages.sbputcenter.caption
 msgid "Poner Centro"
-msgstr ""
+msgstr "Set Center"
 
 #: tfrmfpgimages.sbremoveall.caption
 msgctxt "tfrmfpgimages.sbremoveall.caption"
@@ -393,12 +396,12 @@ msgstr "View points in image"
 
 #: tfrmfpgimages.tscontrolpoints.caption
 msgid "Puntos de Control"
-msgstr ""
+msgstr "Control points"
 
 #: tfrmfpgimages.tsproperties.caption
 msgctxt "tfrmfpgimages.tsproperties.caption"
 msgid "Propiedades"
-msgstr ""
+msgstr "Properties"
 
 #: tfrmlangtranslator.aabrir.caption
 msgctxt "tfrmlangtranslator.aabrir.caption"
@@ -560,7 +563,7 @@ msgstr "Configuration"
 
 #: tfrmmain.acopyimg.caption
 msgid "Copiar Imagen"
-msgstr "Image Copy"
+msgstr "Copy image"
 
 #: tfrmmain.action2.caption
 msgid "Action2"
@@ -611,7 +614,7 @@ msgstr "[ FENIX ] http://fenix.divsite.net/"
 
 #: tfrmmain.afntmaker.caption
 msgid "&Generador de Fuentes"
-msgstr "Power Generator"
+msgstr "Font Generator"
 
 #: tfrmmain.afpg1.caption
 msgid "1 Bit"
@@ -1014,7 +1017,7 @@ msgstr "Font name"
 
 #: tfrmmainfnt.gbselectcolor.caption
 msgid "Selección de colores"
-msgstr "Choosing colors"
+msgstr "Choose colors"
 
 #: tfrmmainfnt.gbshadow.caption
 msgctxt "TFRMMAINFNT.GBSHADOW.CAPTION"
@@ -1055,12 +1058,12 @@ msgstr "Show char:"
 #: tfrmmainfnt.lbnamefont.caption
 msgctxt "TFRMMAINFNT.LBNAMEFONT.CAPTION"
 msgid "No hay fuente"
-msgstr "No source"
+msgstr "There is not font"
 
 #: tfrmmainfnt.lbnamefontb.caption
 msgctxt "tfrmmainfnt.lbnamefontb.caption"
 msgid "No hay fuente"
-msgstr "No source"
+msgstr "There is not font"
 
 #: tfrmmainfnt.lbshadow.caption
 msgid "Posici"
@@ -1073,7 +1076,7 @@ msgstr "Size"
 
 #: tfrmmainfnt.odimportfnt.title
 msgid "Importar una fuente de una imagen"
-msgstr "Import an image source"
+msgstr "Import a font from an image"
 
 #: tfrmmainfnt.rbsedge.caption
 msgctxt "tfrmmainfnt.rbsedge.caption"
@@ -1082,7 +1085,7 @@ msgstr "Flange"
 
 #: tfrmmainfnt.rbsfont.caption
 msgid "Fuente"
-msgstr "Source"
+msgstr "Font"
 
 #: tfrmmainfnt.rbsshadow.caption
 msgctxt "tfrmmainfnt.rbsshadow.caption"
@@ -1116,7 +1119,7 @@ msgstr "Import text font"
 
 #: tfrmmainfnt.sbloadfont.caption
 msgid "&Cargar Fuente"
-msgstr "Load Source"
+msgstr "&Load Font"
 
 #: tfrmmainfnt.sbloadfont.hint
 msgid "Cambiar el tipo de letra"
@@ -1128,11 +1131,11 @@ msgstr "Generate"
 
 #: tfrmmainfnt.sbmakefont.hint
 msgid "Generar fuente"
-msgstr "Generate Source"
+msgstr "Generate Font"
 
 #: tfrmmainfnt.sbopen.hint
 msgid "Abrir fuente de texto"
-msgstr "Open source text"
+msgstr "Open Font text"
 
 #: tfrmmainfnt.sboptions.caption
 msgid "Opciones"
@@ -1173,7 +1176,7 @@ msgstr "Image"
 
 #: tfrmmainfnt.sbselectimage.hint
 msgid "Establece una imagen"
-msgstr "Sets an image"
+msgstr "Set image"
 
 #: tfrmmainfnt.sbshowfnt.caption
 msgctxt "TFRMMAINFNT.SBSHOWFNT.CAPTION"
@@ -1207,44 +1210,44 @@ msgstr "Save"
 
 #: tfrmmapeditor.action3.caption
 msgid "Guardar como .."
-msgstr ""
+msgstr "Save as.."
 
 #: tfrmmapeditor.action4.caption
 msgctxt "tfrmmapeditor.action4.caption"
 msgid "Salir"
-msgstr "Leave"
+msgstr "Quit"
 
 #: tfrmmapeditor.action5.caption
 msgctxt "tfrmmapeditor.action5.caption"
 msgid "Lápiz"
-msgstr ""
+msgstr "Pen (dots)"
 
 #: tfrmmapeditor.action6.caption
 msgctxt "tfrmmapeditor.action6.caption"
 msgid "Línea"
-msgstr ""
+msgstr "Line"
 
 #: tfrmmapeditor.action7.caption
 msgid "Elipse"
-msgstr ""
+msgstr "Elipse"
 
 #: tfrmmapeditor.action8.caption
 msgid "Deshacer"
-msgstr ""
+msgstr "Undo"
 
 #: tfrmmapeditor.caption
 msgid "Map Editor"
-msgstr ""
+msgstr "Map Editor"
 
 #: tfrmmapeditor.figurecombo.text
 msgctxt "tfrmmapeditor.figurecombo.text"
 msgid "Lápiz"
-msgstr ""
+msgstr "Pen (dots)"
 
 #: tfrmmapeditor.gbgamuts.caption
 msgctxt "tfrmmapeditor.gbgamuts.caption"
 msgid "Gamas de colores"
-msgstr ""
+msgstr "Color ranges"
 
 #: tfrmmapeditor.gbpalette.caption
 msgctxt "tfrmmapeditor.gbpalette.caption"
@@ -1253,74 +1256,74 @@ msgstr "Color Palette"
 
 #: tfrmmapeditor.groupbox1.caption
 msgid "Contorno"
-msgstr ""
+msgstr "Contour"
 
 #: tfrmmapeditor.groupbox2.caption
 msgid "Relleno"
-msgstr ""
+msgstr "Fill"
 
 #: tfrmmapeditor.groupbox3.caption
 msgid "General"
-msgstr ""
+msgstr "General"
 
 #: tfrmmapeditor.label1.caption
 msgid "Zoom"
-msgstr ""
+msgstr "Zoom"
 
 #: tfrmmapeditor.label10.caption
 msgid "Modo:"
-msgstr ""
+msgstr "Mode:"
 
 #: tfrmmapeditor.label11.caption
 msgid "Color de fondo:"
-msgstr ""
+msgstr "Background color:"
 
 #: tfrmmapeditor.label12.caption
 msgid "Herramienta:"
-msgstr ""
+msgstr "Tool:"
 
 #: tfrmmapeditor.label13.caption
 msgid "Rellleno:"
-msgstr ""
+msgstr "Fill style:"
 
 #: tfrmmapeditor.label2.caption
 msgid "Contorno:"
-msgstr ""
+msgstr "Border style:"
 
 #: tfrmmapeditor.label3.caption
 msgctxt "tfrmmapeditor.label3.caption"
 msgid "Ancho:"
-msgstr ""
+msgstr "Width:"
 
 #: tfrmmapeditor.label4.caption
 msgctxt "tfrmmapeditor.label4.caption"
 msgid "Alfa:"
-msgstr ""
+msgstr "Alpha:"
 
 #: tfrmmapeditor.label5.caption
 msgctxt "tfrmmapeditor.label5.caption"
 msgid "Alfa:"
-msgstr ""
+msgstr "Alpha:"
 
 #: tfrmmapeditor.label6.caption
 msgctxt "tfrmmapeditor.label6.caption"
 msgid "Color:"
-msgstr ""
+msgstr "Color:"
 
 #: tfrmmapeditor.label7.caption
 msgctxt "tfrmmapeditor.label7.caption"
 msgid "Estilo:"
-msgstr ""
+msgstr "Style:"
 
 #: tfrmmapeditor.label8.caption
 msgctxt "tfrmmapeditor.label8.caption"
 msgid "Estilo:"
-msgstr ""
+msgstr "Style:"
 
 #: tfrmmapeditor.label9.caption
 msgctxt "tfrmmapeditor.label9.caption"
 msgid "Color:"
-msgstr ""
+msgstr "Color:"
 
 #: tfrmmapeditor.lblgamutreference.caption
 msgctxt "tfrmmapeditor.lblgamutreference.caption"
@@ -1339,15 +1342,15 @@ msgstr "Edit"
 
 #: tfrmmapeditor.menuitem12.caption
 msgid "&Triángulo"
-msgstr ""
+msgstr "&Triangle"
 
 #: tfrmmapeditor.menuitem13.caption
 msgid "&Rectángulo"
-msgstr ""
+msgstr "&Rectangle"
 
 #: tfrmmapeditor.menuitem14.caption
 msgid "&Copiar Color"
-msgstr ""
+msgstr "&Pick Color"
 
 #: tfrmmapeditor.menuitem15.caption
 msgctxt "tfrmmapeditor.menuitem15.caption"
@@ -1356,7 +1359,7 @@ msgstr "View"
 
 #: tfrmmapeditor.menuitem16.caption
 msgid "Barra de propiedades"
-msgstr ""
+msgstr "Poperties panel"
 
 #: tfrmmapeditor.menuitem17.caption
 msgctxt "tfrmmapeditor.menuitem17.caption"
@@ -1371,7 +1374,7 @@ msgstr "Help"
 #: tfrmmapeditor.menuitem19.caption
 msgctxt "tfrmmapeditor.menuitem19.caption"
 msgid "Gamas de colores"
-msgstr ""
+msgstr "Color ranges"
 
 #: tfrmmapeditor.menuitem20.caption
 msgid "Relle&nar"
@@ -1379,29 +1382,29 @@ msgstr ""
 
 #: tfrmmapeditor.menuitem6.caption
 msgid "Herramienta"
-msgstr ""
+msgstr "Tool"
 
 #: tfrmmapeditor.menuitem7.caption
 msgctxt "tfrmmapeditor.menuitem7.caption"
 msgid "&Lápiz"
-msgstr ""
+msgstr "&Pen (dots)"
 
 #: tfrmmapeditor.menuitem8.caption
 msgctxt "tfrmmapeditor.menuitem8.caption"
 msgid "L&ínea"
-msgstr ""
+msgstr "&Line"
 
 #: tfrmmapeditor.menuitem9.caption
 msgid "&Elipse"
-msgstr ""
+msgstr "&Elipse"
 
 #: tfrmmessagebox.bbbutton0.caption
 msgid "&Si"
-msgstr ""
+msgstr "&Yes"
 
 #: tfrmmessagebox.bbbutton1.caption
 msgid "&No"
-msgstr ""
+msgstr "&No"
 
 #: tfrmmessagebox.bbbutton2.caption
 msgctxt "tfrmmessagebox.bbbutton2.caption"
@@ -1424,7 +1427,7 @@ msgstr "Cancel"
 
 #: tfrmselectcolor.caption
 msgid "Seleccionar Color"
-msgstr ""
+msgstr "Select color"
 
 #: tfrmselectcolor.gbpalette.caption
 msgctxt "tfrmselectcolor.gbpalette.caption"
@@ -1468,61 +1471,13 @@ msgstr "Width:"
 msgid "Zoom :"
 msgstr "Zoom 1:1"
 
-#: ufpg.strfnt
-msgid "FNT 8 bits (All)"
-msgstr ""
-
-#: ufpg.strfnx1
-msgid "FNT 1 bit (Fenix/BennuGD)"
-msgstr ""
-
-#: ufpg.strfnx16
-msgid "FNT 16 bits (Fenix/BennuGD)"
-msgstr ""
-
-#: ufpg.strfnx24
-msgid "FNT 24 bits "
-msgstr ""
-
-#: ufpg.strfnx32
-msgid "FNT 32 bits (BennuGD)"
-msgstr ""
-
-#: ufpg.strfnx8
-msgid "FNT 8 bits (Fenix/BennuGD)"
-msgstr ""
-
-#: ufpg.strfpg1
-msgid "FPG 1 bit (Fenix/BennuGD)"
-msgstr ""
-
-#: ufpg.strfpg16
-msgid "FPG 16 bits (Fenix/BennuGD)"
-msgstr ""
-
-#: ufpg.strfpg24
-msgid "FPG 24 bits "
-msgstr ""
-
-#: ufpg.strfpg32
-msgid "FPG 32 bits (BennuGD)"
-msgstr ""
-
-#: ufpg.strfpg8
-msgid "FPG 8 bits (All)"
-msgstr ""
-
-#: ufpg.strfpgcdiv16
-msgid "FPG 16 bits (CDIV)"
-msgstr ""
-
 #: ufpgconvert.lng_lostcolors
 msgid "perdidos"
-msgstr ""
+msgstr "lost"
 
 #: ufpgconvert.lng_savedcolors
 msgid "colores"
-msgstr ""
+msgstr "colors"
 
 #: ulanguage.lng_abort
 msgid "Anular"
@@ -1572,7 +1527,7 @@ msgstr "Analyzing image(s)"
 #: ulanguage.lng_animate
 msgctxt "ulanguage.lng_animate"
 msgid "Animar"
-msgstr "Encourage"
+msgstr "Animate"
 
 #: ulanguage.lng_animate_images
 msgid "Animar imágenes"
@@ -1588,7 +1543,7 @@ msgstr "Animation"
 
 #: ulanguage.lng_are_you_sure_delete_images
 msgid "¿Seguro que desea borrar esta(s) imagen(es)?"
-msgstr "Surely that wishes to erase this image(s)?"
+msgstr "Are you sure to erase the selected image(s)?"
 
 #: ulanguage.lng_autoload_images
 msgid "Auto-carga de imágenes"
@@ -1623,12 +1578,12 @@ msgstr "Change language of program"
 #: ulanguage.lng_characteristic
 msgctxt "ulanguage.lng_characteristic"
 msgid "Caracteristicas"
-msgstr "Characteristic"
+msgstr "Characteristics"
 
 #: ulanguage.lng_clear_clipboard
 msgctxt "ulanguage.lng_clear_clipboard"
 msgid "Vaciar portapapeles"
-msgstr "Empty clipboard"
+msgstr "Clear clipboard"
 
 #: ulanguage.lng_clipboard
 msgctxt "ulanguage.lng_clipboard"
@@ -1646,7 +1601,7 @@ msgstr "Code"
 
 #: ulanguage.lng_code_of_image_insertion
 msgid "Código de inserción de imagen"
-msgstr "Code of image insertion"
+msgstr "Image insertion code"
 
 #: ulanguage.lng_compressing_file
 msgid "Comprimiendo archivo..."
@@ -1711,7 +1666,7 @@ msgstr "Delete image(s)"
 
 #: ulanguage.lng_delete_images_selecteds
 msgid "Eliminar imagen(es) seleccionada(s)"
-msgstr "Delete image(s) selected(s)"
+msgstr "Delete selected image(s)"
 
 #: ulanguage.lng_details
 msgctxt "ulanguage.lng_details"
@@ -1721,7 +1676,7 @@ msgstr "Details"
 #: ulanguage.lng_details_of_image
 msgctxt "ulanguage.lng_details_of_image"
 msgid "Detalles de la imagen"
-msgstr "Details of image"
+msgstr "Image details"
 
 #: ulanguage.lng_directory
 msgid "Directorio"
@@ -1769,16 +1724,16 @@ msgstr "Error"
 
 #: ulanguage.lng_exists_file_overwrite
 msgid "El archivo existe, ¿Desea sobreescribirlo?"
-msgstr "The file exists, Wishes to overwrite it?"
+msgstr "The file exists, are you really sure to overwrite it?"
 
 #: ulanguage.lng_exist_code
 msgid "El código establecido ya existe."
-msgstr "The code established already exists."
+msgstr "This map code already exists"
 
 #: ulanguage.lng_exit
 msgctxt "ulanguage.lng_exit"
 msgid "Salir"
-msgstr "Leave"
+msgstr "Quit"
 
 #: ulanguage.lng_export
 msgctxt "ulanguage.lng_export"
@@ -1834,7 +1789,7 @@ msgstr "FPG (File of graphics)"
 
 #: ulanguage.lng_fpg_select_only_one
 msgid "Debe seleccionar solamente una imagen."
-msgstr "Must only select one image of the FPG."
+msgstr "You must select one image in the FPG."
 
 #: ulanguage.lng_height
 msgctxt "ulanguage.lng_height"
@@ -1888,7 +1843,7 @@ msgstr "Information"
 
 #: ulanguage.lng_insert_coord
 msgid "Debe introducir la coordenada"
-msgstr "Must introduce the coordinate"
+msgstr "You must specify a coordinate."
 
 #: ulanguage.lng_invert_selection
 msgctxt "ulanguage.lng_invert_selection"
@@ -1920,7 +1875,7 @@ msgstr "Load Palette"
 
 #: ulanguage.lng_locate_program_for_edition_of_images
 msgid "Localizar programa para edición de imágenes"
-msgstr "Locate program for edition of images"
+msgstr "Location of external image editor"
 
 #: ulanguage.lng_milliseconds
 msgctxt "ulanguage.lng_milliseconds"
@@ -1947,31 +1902,39 @@ msgstr "No"
 
 #: ulanguage.lng_notfpg
 msgid "El fichero no es un archivo FPG o puede estar comprimido."
-msgstr "The file is not a file FPG or can be tablet."
+msgstr "This is not an FPG file and can't be compressed."
 
 #: ulanguage.lng_notload_palette
-msgid "No ha cargado una paleta gráfica, ( en 8 bits debe seleccionar una paleta gráfica de 256 colores )"
-msgstr "Has not loaded a graphical palette, ( in 8 bits must select a graphical palette of 256 colors )"
+msgid ""
+"No ha cargado una paleta gráfica, ( en 8 bits debe seleccionar una paleta "
+"gráfica de 256 colores )"
+msgstr ""
+"The image palette has not been loaded, in 8 bit mode you must load a 256 "
+"color palette first."
 
 #: ulanguage.lng_not_clipboard_image
 msgid "No encuentra imagen en el portapapeles."
-msgstr "Not found image in clipboard."
+msgstr "There is no image in the clipboard."
 
 #: ulanguage.lng_not_exist_fpg
 msgid "No existe FPG."
-msgstr "Not exists FPG."
+msgstr "The FPG does not exist."
 
 #: ulanguage.lng_not_found_palette
 msgid "no contiene paleta de 256 colores."
-msgstr "not contine palette of 256 colors."
+msgstr "does not contain a palette of 256 colors."
 
 #: ulanguage.lng_not_images_for_convert
 msgid "No hay imagen(es) para convertir."
-msgstr "Don't have image(s) for convert."
+msgstr "No images for conversion have been specified."
 
 #: ulanguage.lng_not_open_file
-msgid "No se pudo abrir el archivo, compruebe que otro programa no este utilizando este archivo."
-msgstr "The file could not be opened, verifies that another program this not using this file."
+msgid ""
+"No se pudo abrir el archivo, compruebe que otro programa no este utilizando "
+"este archivo."
+msgstr ""
+"The file could not be opened, make sure that another program is not using "
+"the file at the same time."
 
 #: ulanguage.lng_number
 msgctxt "ulanguage.lng_number"
@@ -1980,7 +1943,7 @@ msgstr "Number"
 
 #: ulanguage.lng_only_one_image_edit
 msgid "Solo se puede editar una imagen."
-msgstr "One image can be edit."
+msgstr "One image can be edited."
 
 #: ulanguage.lng_open
 msgctxt "ulanguage.lng_open"
@@ -2025,7 +1988,7 @@ msgstr "Properties"
 
 #: ulanguage.lng_publisher_of_images
 msgid "Editor de imágenes"
-msgstr "Publisher of images"
+msgstr "Image editor"
 
 #: ulanguage.lng_put_center
 msgid "Poner centro"
@@ -2082,7 +2045,7 @@ msgstr "Select All"
 
 #: ulanguage.lng_select_more_images_for_animate
 msgid "Debe seleccionar varias imágenes para hacer la animación"
-msgstr "Must select several images to make the animation"
+msgstr "You must select a couple of images to make an animation."
 
 #: ulanguage.lng_set_insertion_code_in_fpg
 msgid "Establece el código de insercción en el FPG"
@@ -2099,15 +2062,15 @@ msgstr "Size of icons"
 
 #: ulanguage.lng_sure_delete_allpoints
 msgid "¿Seguro que desea borrar todos los puntos de control?"
-msgstr "Surely that wishes to erase all the control points?"
+msgstr "Are you sure to erase all the control points?"
 
 #: ulanguage.lng_the_code_exists_or_not_its_valid
 msgid "El código ya existe o no es valido"
-msgstr "The code exists or not it's valid"
+msgstr "The code already exists or is not valid."
 
 #: ulanguage.lng_the_number_must_be_between_1_and_999_both_including
 msgid "El número debe estar entre 1 y 999 ambos incluidos"
-msgstr "The number must be between 1 and 999 both including"
+msgstr "The number must be between 1 and 999"
 
 #: ulanguage.lng_time_between_image
 msgid "Tiempo entre imagen"
@@ -2166,11 +2129,11 @@ msgstr "Width"
 
 #: ulanguage.lng_will_be_select_image
 msgid "Debe tener la imagen a editar seleccionada."
-msgstr "Must have one image to edit selected."
+msgstr "You must select one image to edit."
 
 #: ulanguage.lng_wrong_fpg
 msgid "Archivo FPG incorrecto"
-msgstr "File FPG incorrect"
+msgstr "FPG file is incorrect"
 
 #: ulanguage.lng_yes
 msgid "Si"
@@ -2178,7 +2141,7 @@ msgstr "Yes"
 
 #: ulngconverter.lng_correct
 msgid "Fichero creado correctamente"
-msgstr "Archive created successfully"
+msgstr "File created successfully"
 
 #: ulngconverter.lng_file_no_exist
 msgid "No existe el fichero:"
@@ -2190,13 +2153,21 @@ msgstr "No such reference file:"
 
 #: ulngtranslator.lng_message_correct_join
 msgid "Archivo Juntado Correctamente"
-msgstr "File Coupled Correctly"
+msgstr "File Joined Correctly"
 
 #: ulngtranslator.lng_message_help_translator
-msgid "Abre el archivo .po a traducir.\\nCopia el cotenido al portapapeles.\\nPégalo en tu traductor favorito y tradúcelo.\\nCopia el texto traducido y pégalo en el cuadro de abajo.\\nPulsa Unir.\\nEscribe las dos siglas del idioma destino.\\nFinalmente guarda el archivo."
-msgstr "Open the. po translate.   cotenido nCopia the clipboard.   nPégalo your favorite translator and translate it.   nCopia and paste the translated text in the box below.   nPress Join.   nEscribe two letters of the target language.   nFinalmente save the file. "
+msgid ""
+"Abre el archivo .po a traducir.\\nCopia el cotenido al portapapeles."
+"\\nPégalo en tu traductor favorito y tradúcelo.\\nCopia el texto traducido y "
+"pégalo en el cuadro de abajo.\\nPulsa Unir.\\nEscribe las dos siglas del "
+"idioma destino.\\nFinalmente guarda el archivo."
+msgstr ""
+"Open the .po to translate.\\nCopy the content to the clipboard.\\nPaste it into your "
+"favorite translator and translate it.\\Copy and paste the translated text "
+"in the box below.\\nPress Join.\\nWrite two letters of the target "
+"language.\\n And finaly save the file. "
 
 #: umainmap.lng_mapedit_help
-msgid "Con control pulsado y haciendo clic, puedes cambiar los colores de la paleta."
-msgstr ""
-
+msgid ""
+"Con control pulsado y haciendo clic, puedes cambiar los colores de la paleta."
+msgstr "Hold down the button, and you can change the colors of the palette."
