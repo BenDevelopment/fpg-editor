@@ -75,8 +75,8 @@ object frmView: TfrmView
       Left = 54
       Height = 13
       Top = 2
-      Width = 51
-      Caption = 'lbAncho'
+      Width = 39
+      Caption = 'Ancho'
       Color = clBtnFace
       Font.Color = clBlue
       Font.Height = -11
@@ -90,8 +90,8 @@ object frmView: TfrmView
       Left = 54
       Height = 13
       Top = 18
-      Width = 37
-      Caption = 'lbAlto'
+      Width = 25
+      Caption = 'Alto'
       Font.Color = clBlue
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
@@ -141,8 +141,8 @@ object frmView: TfrmView
       Left = 54
       Height = 13
       Top = 35
-      Width = 37
-      Caption = 'lbBpp'
+      Width = 25
+      Caption = 'Bpp'
       Font.Color = clBlue
       Font.Height = -11
       Font.Name = 'MS Sans Serif'

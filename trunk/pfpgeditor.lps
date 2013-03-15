@@ -4,7 +4,7 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="DefaultQT"/>
-    <Units Count="135">
+    <Units Count="137">
       <Unit0>
         <Filename Value="pfpgeditor.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -21,11 +21,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmMain"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="427"/>
-        <CursorPos X="126" Y="429"/>
+        <TopLine Value="769"/>
+        <CursorPos X="28" Y="798"/>
         <UsageCount Value="473"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -37,10 +36,14 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmView"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
         <TopLine Value="77"/>
         <CursorPos X="3" Y="91"/>
         <UsageCount Value="473"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="uFPG\uFPG.pas"/>
@@ -112,10 +115,12 @@
         <Filename Value="uFPGConvert\uFPGConvert.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uFPGConvert"/>
+        <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
         <TopLine Value="14"/>
         <CursorPos X="28" Y="28"/>
         <UsageCount Value="473"/>
+        <Loaded Value="True"/>
       </Unit9>
       <Unit10>
         <Filename Value="uSort\uSort.pas"/>
@@ -214,10 +219,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmConfig"/>
+        <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="38" Y="29"/>
+        <TopLine Value="194"/>
+        <CursorPos X="42" Y="208"/>
         <UsageCount Value="473"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit19>
       <Unit20>
         <Filename Value="uFPGFrmImages\ufrmFPGImages.pas"/>
@@ -226,10 +234,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmFPGImages"/>
+        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
         <TopLine Value="147"/>
         <CursorPos X="14" Y="174"/>
         <UsageCount Value="473"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit20>
       <Unit21>
         <Filename Value="uFPGFrmNew\ufrmNewFPG.pas"/>
@@ -372,7 +383,7 @@
         <Filename Value="uFPGListView\ufpglistview.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uFPGListView"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="11"/>
         <WindowIndex Value="0"/>
         <TopLine Value="177"/>
         <CursorPos X="43" Y="197"/>
@@ -383,7 +394,7 @@
         <Filename Value="uMap\umapgraphic.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uMAPGraphic"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="9"/>
         <WindowIndex Value="0"/>
         <TopLine Value="62"/>
         <CursorPos X="5" Y="84"/>
@@ -397,7 +408,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="187"/>
         <CursorPos X="32" Y="212"/>
-        <UsageCount Value="129"/>
+        <UsageCount Value="131"/>
       </Unit35>
       <Unit36>
         <Filename Value="uLanguage\ulngconverter.pas"/>
@@ -406,10 +417,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ulngConverter"/>
+        <EditorIndex Value="8"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="124"/>
+        <TopLine Value="68"/>
         <CursorPos X="26" Y="68"/>
-        <UsageCount Value="138"/>
+        <UsageCount Value="140"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit36>
       <Unit37>
         <Filename Value="uLanguage\ulngtranslator.pas"/>
@@ -418,10 +432,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ulngTranslator"/>
+        <EditorIndex Value="6"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="121"/>
+        <TopLine Value="112"/>
         <CursorPos X="57" Y="145"/>
-        <UsageCount Value="130"/>
+        <UsageCount Value="132"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit37>
       <Unit38>
         <Filename Value="umainmap\umainmap.pas"/>
@@ -433,7 +450,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="876"/>
         <CursorPos X="18" Y="896"/>
-        <UsageCount Value="124"/>
+        <UsageCount Value="126"/>
       </Unit38>
       <Unit39>
         <Filename Value="umainmap\uselectcolor.pas"/>
@@ -445,18 +462,22 @@
         <WindowIndex Value="0"/>
         <TopLine Value="77"/>
         <CursorPos X="4" Y="105"/>
-        <UsageCount Value="63"/>
+        <UsageCount Value="65"/>
       </Unit39>
       <Unit40>
         <Filename Value="uFPG\ufpgcompare.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmFPGCompare"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFPGcompare"/>
+        <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
         <TopLine Value="157"/>
         <CursorPos X="25" Y="171"/>
-        <UsageCount Value="57"/>
+        <UsageCount Value="59"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit40>
       <Unit41>
         <Filename Value="unit1.pas"/>
@@ -1158,11 +1179,11 @@
       <Unit132>
         <Filename Value="..\..\src\lazarus\lcl\graphics.pp"/>
         <UnitName Value="Graphics"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="10"/>
         <WindowIndex Value="0"/>
         <TopLine Value="870"/>
         <CursorPos X="14" Y="889"/>
-        <UsageCount Value="17"/>
+        <UsageCount Value="18"/>
         <Loaded Value="True"/>
       </Unit132>
       <Unit133>
@@ -1177,53 +1198,32 @@
         <UnitName Value="LResources"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
+        <TopLine Value="5249"/>
         <CursorPos X="43" Y="5285"/>
-        <UsageCount Value="14"/>
+        <UsageCount Value="15"/>
         <Loaded Value="True"/>
       </Unit134>
+      <Unit135>
+        <Filename Value="languages\fpg-editor.en.po"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="687"/>
+        <CursorPos X="14" Y="717"/>
+        <UsageCount Value="11"/>
+        <DefaultSyntaxHighlighter Value="PO"/>
+      </Unit135>
+      <Unit136>
+        <Filename Value="languages\fpg-editor.po"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="4"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="PO"/>
+      </Unit136>
     </Units>
     <General>
       <ActiveWindowIndexAtStart Value="0"/>
     </General>
-    <JumpHistory Count="9" HistoryIndex="8">
-      <Position1>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="19" Column="97" TopLine="5"/>
-      </Position1>
-      <Position2>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="1222" Column="2" TopLine="1220"/>
-      </Position2>
-      <Position3>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="1186" Column="6" TopLine="1171"/>
-      </Position3>
-      <Position4>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="1241" Column="17" TopLine="1196"/>
-      </Position4>
-      <Position5>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="1241" Column="17" TopLine="1196"/>
-      </Position5>
-      <Position6>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="1213" Column="43" TopLine="1203"/>
-      </Position6>
-      <Position7>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="8" Column="111" TopLine="1"/>
-      </Position7>
-      <Position8>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="284" Column="30" TopLine="240"/>
-      </Position8>
-      <Position9>
-        <Filename Value="uFrmMain\uFrmMain.pas"/>
-        <Caret Line="285" Column="25" TopLine="240"/>
-      </Position9>
-    </JumpHistory>
+    <JumpHistory Count="0" HistoryIndex="-1"/>
   </ProjectSession>
   <Debugging>
     <BreakPoints Count="1">

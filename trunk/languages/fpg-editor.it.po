@@ -9,87 +9,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Virtaal 0.7.1\n"
 
-#: tform2.aabrir.caption
-msgctxt "tform2.aabrir.caption"
-msgid "Abrir"
-msgstr "Aperto"
-
-#: tform2.acopiar.caption
-msgctxt "tform2.acopiar.caption"
-msgid "Copiar"
-msgstr ""
-
-#: tform2.aguardar.caption
-msgctxt "tform2.aguardar.caption"
-msgid "Guardar"
-msgstr ""
-
-#: tform2.apegar.caption
-msgctxt "tform2.apegar.caption"
-msgid "Pegar"
-msgstr ""
-
-#: tform2.aunir.caption
-msgctxt "tform2.aunir.caption"
-msgid "Unir"
-msgstr ""
-
-#: tform2.button1.caption
-#, fuzzy
-#| msgid "Help"
-msgctxt "tform2.button1.caption"
-msgid "Ayuda"
-msgstr "Aiuto"
-
-#: tform2.button2.caption
-msgctxt "tform2.button2.caption"
-msgid "Unir"
-msgstr ""
-
-#: tform2.button3.caption
-msgctxt "tform2.button3.caption"
-msgid "Guardar"
-msgstr ""
-
-#: tform2.caption
-msgid "Form2"
-msgstr ""
-
-#: tform2.edit1.text
-msgctxt "tform2.edit1.text"
-msgid "en"
-msgstr ""
-
-#: tform2.groupbox1.caption
-msgctxt "tform2.groupbox1.caption"
-msgid "Archivo Original"
-msgstr ""
-
-#: tform2.groupbox2.caption
-msgctxt "tform2.groupbox2.caption"
-msgid "Archivo Traducido"
-msgstr ""
-
-#: tform2.label1.caption
-msgctxt "tform2.label1.caption"
-msgid "Siglas lng:"
-msgstr ""
-
-#: tform2.menuitem1.caption
-msgctxt "tform2.menuitem1.caption"
-msgid "Archivo"
-msgstr ""
-
-#: tform2.menuitem4.caption
-msgctxt "tform2.menuitem4.caption"
-msgid "Salir"
-msgstr "Lasciare"
-
-#: tform2.menuitem5.caption
-msgctxt "tform2.menuitem5.caption"
-msgid "Acciones"
-msgstr ""
-
 #: tfrmabout.button1.caption
 msgid "Ok"
 msgstr "Ok"
@@ -171,7 +90,9 @@ msgid "Auto carga de imágenes"
 msgstr "Auto caricare le immagini"
 
 #: tfrmconfig.cbautoloadremove.caption
-msgid "cbAutoloadRemove"
+#, fuzzy
+#| msgid "cbAutoloadRemove"
+msgid "Auto carga al borrar"
 msgstr "Rimuovere Autoload cb"
 
 #: tfrmconfig.cbflat.caption
@@ -184,7 +105,9 @@ msgid "Mostrar pantalla de inicio"
 msgstr "Mostra schermata iniziale"
 
 #: tfrmconfig.gbenviroment.caption
-msgid "gbEnviroment"
+#, fuzzy
+#| msgid "gbEnviroment"
+msgid "Global"
 msgstr "Ambiente gb"
 
 #: tfrmconfig.gbimageedit.caption
@@ -201,7 +124,9 @@ msgid " Tiempo entre animación "
 msgstr "Tempo tra animazione"
 
 #: tfrmconfig.groupbox1.caption
-msgid "Viewer Background Colors"
+#, fuzzy
+#| msgid "Viewer Background Colors"
+msgid "Colores de fondo"
 msgstr "Viewer colori di sfondo"
 
 #: tfrmconfig.label1.caption
@@ -250,14 +175,6 @@ msgstr ""
 msgid "Comparar FPGs"
 msgstr ""
 
-#: tfrmfpgcompare.edit1.text
-msgid "Edit1"
-msgstr ""
-
-#: tfrmfpgcompare.edit2.text
-msgid "Edit2"
-msgstr ""
-
 #: tfrmfpgimages.bbaceptchanges.caption
 msgctxt "tfrmfpgimages.bbaceptchanges.caption"
 msgid "&Aceptar"
@@ -298,15 +215,15 @@ msgid " Y "
 msgstr ""
 
 #: tfrmfpgimages.lbheight.caption
-msgid "lbHeight"
+msgid "Alto"
 msgstr ""
 
 #: tfrmfpgimages.lbnumcp.caption
-msgid "lbNumCP"
+msgid "Puntos Ctrl"
 msgstr ""
 
 #: tfrmfpgimages.lbwidth.caption
-msgid "lbWidth"
+msgid "Ancho"
 msgstr ""
 
 #: tfrmfpgimages.lb_ctrl_points.caption
@@ -955,10 +872,6 @@ msgstr "-"
 msgid "Código de FPG"
 msgstr "FPG Codice"
 
-#: tfrmmain.pimageslist.caption
-msgid "pImagesList"
-msgstr "pImagesList"
-
 #: tfrmmain.ppcopyimage.caption
 msgid "&Copiar al portapapeles"
 msgstr "Copia nella clipboard"
@@ -1453,15 +1366,21 @@ msgid "Detalles de la imagen"
 msgstr ""
 
 #: tfrmview.lbalto.caption
-msgid "lbAlto"
+#, fuzzy
+#| msgid "lbAlto"
+msgid "Alto"
 msgstr "Alto"
 
 #: tfrmview.lbancho.caption
-msgid "lbAncho"
+#, fuzzy
+#| msgid "lbAncho"
+msgid "Ancho"
 msgstr "Larghezza"
 
 #: tfrmview.lbbpp.caption
-msgid "lbBpp"
+#, fuzzy
+#| msgid "lbBpp"
+msgid "Bpp"
 msgstr "bit per pixel"
 
 #: tfrmview.lbheight.caption

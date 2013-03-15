@@ -1,86 +1,6 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
-#: tform2.aabrir.caption
-msgctxt "tform2.aabrir.caption"
-msgid "Abrir"
-msgstr "Ireki"
-
-#: tform2.acopiar.caption
-msgctxt "tform2.acopiar.caption"
-msgid "Copiar"
-msgstr "Kopiatu"
-
-#: tform2.aguardar.caption
-msgctxt "tform2.aguardar.caption"
-msgid "Guardar"
-msgstr "Gorde"
-
-#: tform2.apegar.caption
-msgctxt "tform2.apegar.caption"
-msgid "Pegar"
-msgstr "Itsatsi"
-
-#: tform2.aunir.caption
-msgctxt "tform2.aunir.caption"
-msgid "Unir"
-msgstr "Batu"
-
-#: tform2.button1.caption
-msgctxt "tform2.button1.caption"
-msgid "Ayuda"
-msgstr "Laguntza"
-
-#: tform2.button2.caption
-msgctxt "tform2.button2.caption"
-msgid "Unir"
-msgstr "Batu"
-
-#: tform2.button3.caption
-msgctxt "tform2.button3.caption"
-msgid "Guardar"
-msgstr "Gorde"
-
-#: tform2.caption
-msgid "Form2"
-msgstr "Form2"
-
-#: tform2.edit1.text
-#, fuzzy
-msgctxt "tform2.edit1.text"
-msgid "en"
-msgstr "tform2.edit1.text"
-
-#: tform2.groupbox1.caption
-msgctxt "tform2.groupbox1.caption"
-msgid "Archivo Original"
-msgstr "Original File"
-
-#: tform2.groupbox2.caption
-msgctxt "tform2.groupbox2.caption"
-msgid "Archivo Traducido"
-msgstr "Itzultzailea"
-
-#: tform2.label1.caption
-msgctxt "tform2.label1.caption"
-msgid "Siglas lng:"
-msgstr "GNL Acronyms"
-
-#: tform2.menuitem1.caption
-msgctxt "tform2.menuitem1.caption"
-msgid "Archivo"
-msgstr "Fitxategia"
-
-#: tform2.menuitem4.caption
-msgctxt "tform2.menuitem4.caption"
-msgid "Salir"
-msgstr "Irten"
-
-#: tform2.menuitem5.caption
-msgctxt "tform2.menuitem5.caption"
-msgid "Acciones"
-msgstr "Ekintzak"
-
 #: tfrmabout.button1.caption
 msgid "Ok"
 msgstr "Ok"
@@ -162,7 +82,9 @@ msgid "Auto carga de imágenes"
 msgstr "Auto Kargatu irudiak"
 
 #: tfrmconfig.cbautoloadremove.caption
-msgid "cbAutoloadRemove"
+#, fuzzy
+#| msgid "cbAutoloadRemove"
+msgid "Auto carga al borrar"
 msgstr "cbAutoloadRemove"
 
 #: tfrmconfig.cbflat.caption
@@ -175,7 +97,9 @@ msgid "Mostrar pantalla de inicio"
 msgstr "Sarrerako leihoa erakutsi"
 
 #: tfrmconfig.gbenviroment.caption
-msgid "gbEnviroment"
+#, fuzzy
+#| msgid "gbEnviroment"
+msgid "Global"
 msgstr "gbEnviroment"
 
 #: tfrmconfig.gbimageedit.caption
@@ -192,7 +116,9 @@ msgid " Tiempo entre animación "
 msgstr "animazio arteko atzerapena"
 
 #: tfrmconfig.groupbox1.caption
-msgid "Viewer Background Colors"
+#, fuzzy
+#| msgid "Viewer Background Colors"
+msgid "Colores de fondo"
 msgstr "Atzeko Kolorea Viewer"
 
 #: tfrmconfig.label1.caption
@@ -241,14 +167,6 @@ msgstr ""
 msgid "Comparar FPGs"
 msgstr ""
 
-#: tfrmfpgcompare.edit1.text
-msgid "Edit1"
-msgstr ""
-
-#: tfrmfpgcompare.edit2.text
-msgid "Edit2"
-msgstr ""
-
 #: tfrmfpgimages.bbaceptchanges.caption
 msgctxt "tfrmfpgimages.bbaceptchanges.caption"
 msgid "&Aceptar"
@@ -289,15 +207,15 @@ msgid " Y "
 msgstr ""
 
 #: tfrmfpgimages.lbheight.caption
-msgid "lbHeight"
+msgid "Alto"
 msgstr ""
 
 #: tfrmfpgimages.lbnumcp.caption
-msgid "lbNumCP"
+msgid "Puntos Ctrl"
 msgstr ""
 
 #: tfrmfpgimages.lbwidth.caption
-msgid "lbWidth"
+msgid "Ancho"
 msgstr ""
 
 #: tfrmfpgimages.lb_ctrl_points.caption
@@ -931,10 +849,6 @@ msgstr "-"
 msgid "Código de FPG"
 msgstr "Code FPG"
 
-#: tfrmmain.pimageslist.caption
-msgid "pImagesList"
-msgstr "pImagesList"
-
 #: tfrmmain.ppcopyimage.caption
 msgid "&Copiar al portapapeles"
 msgstr "& Copy to Clipboard"
@@ -1427,15 +1341,21 @@ msgid "Detalles de la imagen"
 msgstr "Irudiaren xehetasunak"
 
 #: tfrmview.lbalto.caption
-msgid "lbAlto"
+#, fuzzy
+#| msgid "lbAlto"
+msgid "Alto"
 msgstr "lbAlto"
 
 #: tfrmview.lbancho.caption
-msgid "lbAncho"
+#, fuzzy
+#| msgid "lbAncho"
+msgid "Ancho"
 msgstr "lbAncho"
 
 #: tfrmview.lbbpp.caption
-msgid "lbBpp"
+#, fuzzy
+#| msgid "lbBpp"
+msgid "Bpp"
 msgstr "lbBpp"
 
 #: tfrmview.lbheight.caption

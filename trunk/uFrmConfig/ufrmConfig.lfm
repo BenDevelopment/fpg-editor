@@ -135,7 +135,7 @@ object frmConfig: TfrmConfig
         Height = 160
         Top = 2
         Width = 361
-        Caption = 'gbEnviroment'
+        Caption = 'Global'
         ClientHeight = 145
         ClientWidth = 357
         TabOrder = 2
@@ -224,10 +224,10 @@ object frmConfig: TfrmConfig
         end
         object cbAutoloadRemove: TCheckBox
           Left = 6
-          Height = 25
+          Height = 22
           Top = 2
-          Width = 150
-          Caption = 'cbAutoloadRemove'
+          Width = 139
+          Caption = 'Auto carga al borrar'
           TabOrder = 5
         end
         object cbAlfaNegro: TCheckBox
@@ -245,7 +245,7 @@ object frmConfig: TfrmConfig
           Height = 51
           Top = 88
           Width = 345
-          Caption = 'Viewer Background Colors'
+          Caption = 'Colores de fondo'
           ClientHeight = 36
           ClientWidth = 341
           TabOrder = 7

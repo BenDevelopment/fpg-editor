@@ -40,7 +40,6 @@ object frmFPGCompare: TfrmFPGCompare
       Top = 0
       Width = 232
       TabOrder = 1
-      Text = 'Edit1'
     end
     object Edit2: TEdit
       Left = 8
@@ -48,7 +47,6 @@ object frmFPGCompare: TfrmFPGCompare
       Top = 40
       Width = 232
       TabOrder = 2
-      Text = 'Edit2'
     end
     object Button2: TButton
       Left = 248

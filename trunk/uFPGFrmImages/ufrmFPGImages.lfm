@@ -93,16 +93,16 @@ object frmFPGImages: TfrmFPGImages
           Left = 115
           Height = 13
           Top = 6
-          Width = 40
-          Caption = 'lbWidth'
+          Width = 34
+          Caption = 'Ancho'
           ParentColor = False
         end
         object lbHeight: TLabel
           Left = 115
           Height = 13
           Top = 22
-          Width = 46
-          Caption = 'lbHeight'
+          Width = 21
+          Caption = 'Alto'
           ParentColor = False
         end
         object lb_ctrl_points: TLabel
@@ -122,8 +122,8 @@ object frmFPGImages: TfrmFPGImages
           Left = 115
           Height = 13
           Top = 38
-          Width = 51
-          Caption = 'lbNumCP'
+          Width = 63
+          Caption = 'Puntos Ctrl'
           ParentColor = False
         end
         object bmodify: TButton
