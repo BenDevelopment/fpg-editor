@@ -439,31 +439,36 @@ procedure TfrmMain.Update_Panels;
 begin
   lblFilename.Caption := lvFPG.Fpg.source;
 
-  cbTipoFPG.ItemIndex := lvFPG.Fpg.FileFormat;
   case lvFPG.Fpg.FileFormat of
    FPG1,FNX1:
     begin
      lblTransparentColor.caption := 'RGB(0, 0, 0)';
+     cbTipoFPG.ItemIndex := FPG1;
     end;
    FPG8_DIV2,FNX8,FNT8:
     begin
      lblTransparentColor.caption := 'RGB('+intTostr(lvFPG.Fpg.palette[0])+', '+intTostr(lvFPG.Fpg.palette[1])+', '+intTostr(lvFPG.Fpg.palette[2])+')';
+     cbTipoFPG.ItemIndex := FPG8_DIV2;
     end;
    FPG16,FNX16:
     begin
      lblTransparentColor.caption := 'RGB(0, 0, 0)';
+     cbTipoFPG.ItemIndex := FPG16;
     end;
    FPG16_CDIV:
     begin
      lblTransparentColor.caption := 'RGB(248, 0, 248)';
+     cbTipoFPG.ItemIndex := FPG16_CDIV;
     end;
    FPG24,FNX24:
     begin
      lblTransparentColor.caption := 'RGB(0, 0, 0)';
+     cbTipoFPG.ItemIndex := FPG24;
     end;
    FPG32,FNX32:
     begin
      lblTransparentColor.caption := 'Alpha Channel';
+     cbTipoFPG.ItemIndex := FPG32;
     end;
   end;
   lComments.Caption:=lvFPG.Fpg.appName +' '+ lvFPG.Fpg.appVersion;
@@ -1182,6 +1187,8 @@ end;
 
 
 procedure TfrmMain.aSaveAsExecute(Sender: TObject);
+var
+ pos,tipo :Integer;
 begin
 
  //Sale si no se pulsa cancelar
@@ -1206,8 +1213,31 @@ begin
  lvFPG.Fpg.source := SaveDialog.FileName;
 
  //Comprobamos que se indicó el tipo de fichero
- if( AnsiPos( '.fpg',AnsiLowerCase(SaveDialog.FileName)) <= 0 ) then
-  lvFPG.Fpg.source := lvFPG.Fpg.source + '.fpg';
+ case lvFPG.Fpg.FileFormat of
+   FNT8: lvFPG.Fpg.FileFormat:= FPG8_DIV2;
+   FNX1: lvFPG.Fpg.FileFormat:= FPG1;
+   FNX8: lvFPG.Fpg.FileFormat:= FPG8_DIV2;
+   FNX16: lvFPG.Fpg.FileFormat:= FPG16; (*Ver como distinguir con FPG16_CDIV*)
+   FNX24: lvFPG.Fpg.FileFormat:= FPG24;
+   FNX32: lvFPG.Fpg.FileFormat:= FPG32;
+ end;
+
+ pos := AnsiPos( '.fpg',AnsiLowerCase(SaveDialog.FileName));
+ if ( pos  <= 0 ) then
+ begin
+  if ( AnsiPos( '.fnt',AnsiLowerCase(SaveDialog.FileName))  <= 0 ) then
+    lvFPG.Fpg.source := lvFPG.Fpg.source + '.fpg'
+  else begin
+    case lvFPG.Fpg.FileFormat of
+     FPG1: lvFPG.Fpg.FileFormat:= FNX1;
+     FPG8_DIV2: lvFPG.Fpg.FileFormat:= FNX8; (*Ver como distinguir con FNT8*)
+     FPG16: lvFPG.Fpg.FileFormat:= FNX16;
+     FPG16_CDIV: lvFPG.Fpg.FileFormat:= FNX16;
+     FPG24: lvFPG.Fpg.FileFormat:= FNX24;
+     FPG32: lvFPG.Fpg.FileFormat:= FNX32;
+    end;
+  end;
+ end;
 
  //Mensaje en Panel inferior
  lblFilename.Caption := lvFPG.Fpg.source;

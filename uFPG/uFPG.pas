@@ -437,6 +437,10 @@ procedure TFpg.SaveToFile( gFPG: TProgressBar);
 var
   f: TFileStream;
   i : Word;
+  index : Integer;
+  fileOffset : Integer;
+  widthForFPG1: integer;
+  W,H,WO,HO,HOO,VO,FO : Integer;
   bits_per_pixel: Word;
   comments : TMAPGraphic;
 begin
@@ -462,27 +466,99 @@ begin
       Palette[i] := Palette[i] shl 2;
   end;
 
-  for i := 1 to Count do
+  if isFont then
   begin
-    images[i].bitsPerPixel:=bits_per_pixel;
-    images[i].CDIVFormat:= (FileFormat= FPG16_CDIV);
-    images[i].bPalette:=Palette;
-    images[i].SaveToStream(f,true);
-    gFPG.Position := (i * 100) div Count;
-    gFPG.Repaint;
+     f.Write(charset,4);
+
+     fileOffset:=3+4+1+4;
+     if bits_per_pixel =8 then
+        fileOffset:=fileOffset+768+576;
+
+     if Magic[2] ='x' then
+       fileOffset:=fileOffset+ 7*4*256
+     else
+       fileOffset:=fileOffset+ 4*4*256;
+
+     for i:=1 to 256 do
+     begin
+       W := 0;
+       H := 0;
+       WO := 0;
+       HO := 0;
+       HOO := 0;
+       VO := 0;
+       FO := 0;
+       index := indexOfCode(i);
+       if  index > 0 then
+       begin
+         W := images[index].Width;
+         H := images[index].Height;
+         if images[index].NCPoints > 1 then
+         begin
+            WO := images[index].CPoints[0];
+            HO := images[index].CPoints[1];
+            HOO := images[index].CPoints[2];
+            VO := images[index].CPoints[3];
+         end else
+         begin
+            WO:= W;
+            HO:= H;
+         end;
+         FO:=fileOffset;
+         if (bits_per_pixel = 1) then begin
+           widthForFPG1:= images[index].width div 8;
+           if (images[index].width mod 8) <>0 then
+              widthForFPG1:= widthForFPG1 +1;
+           fileOffset:= fileOffset+ (widthForFPG1 * images[index].height);
+         end else begin
+           fileOffset:=fileOffset + images[index].width* images[index].height * (bits_per_pixel div 8) ;
+         end;
+       end;
+       f.Write(W,4);
+       f.Write(H,4);
+       if Magic[2] ='x' then
+       begin
+         f.Write(WO,4);
+         f.Write(HO,4);
+         f.Write(HOO,4);
+       end;
+       f.Write(VO,4);
+       f.Write(FO,4);
+     end;
+
+     for i := 1 to 256 do
+     begin
+       index := indexOfCode(i);
+       if  index > 0 then
+       begin
+         images[index].bitsPerPixel:=bits_per_pixel;
+         images[index].CDIVFormat:= (FileFormat= FPG16_CDIV);
+         images[index].bPalette:=Palette;
+         images[index].SaveToStream(f,lmFont);
+         gFPG.Position := (index * 100) div Count;
+         gFPG.Repaint;
+       end;
+     end;
+  end else begin
+    for i := 1 to Count do
+    begin
+      images[i].bitsPerPixel:=bits_per_pixel;
+      images[i].CDIVFormat:= (FileFormat= FPG16_CDIV);
+      images[i].bPalette:=Palette;
+      images[i].SaveToStream(f,lmFPG);
+      gFPG.Position := (i * 100) div Count;
+      gFPG.Repaint;
+    end;
+    comments := TMAPGraphic.Create;
+    comments.bitsPerPixel:=bits_per_pixel;
+    comments.CDIVFormat:= (FileFormat= FPG16_CDIV);
+    comments.code:=1001;
+    comments.SetSize(1,1);
+    comments.name:=appVersion;
+    comments.fpname:=appName;
+    comments.SaveToStream(f,lmFPG);
+    FreeAndNil(comments);
   end;
-
-
-
-  comments := TMAPGraphic.Create;
-  comments.bitsPerPixel:=bits_per_pixel;
-  comments.CDIVFormat:= (FileFormat= FPG16_CDIV);
-  comments.code:=1001;
-  comments.SetSize(1,1);
-  comments.name:=appVersion;
-  comments.fpname:=appName;
-  comments.SaveToStream(f,true);
-  FreeAndNil(comments);
 
 
   gFPG.Hide;
@@ -583,9 +659,20 @@ begin
       f.Read(charset,4);
       for i :=0 to 255 do
       begin
-        f.Read(tmpInt,4);
+        f.Read(tmpInt,4); //width
         if tmpInt = 0 then
+        begin
+           f.Read(tmpInt,4); // height
+           if Magic[2]='x' then
+           begin
+             f.Read(tmpInt,4); // widthOffset
+             f.Read(tmpInt,4); // hegithOffset
+             f.Read(tmpInt,4); // horizontalOffset
+           end;
+           f.Read(tmpInt,4); // verticalOffset
+           f.Read(tmpInt,4); // fileOffset
            continue;
+        end;
         fpgGraphic:= TMAPGraphic.Create;
         fpgGraphic.bitsPerPixel:= getBPP;
         fpgGraphic.CDIVFormat:= (FileFormat = FPG16_CDIV);
@@ -597,7 +684,7 @@ begin
         else
           fpgGraphic.Name:=''+ISO_8859_1ToUTF8(chr(i));
 
-        // asignamos primerd read.
+        // asignamos primer read.
         fpgGraphic.Width:=tmpInt;
         f.Read(tmpInt,4);
         fpgGraphic.Height:=tmpInt;
@@ -609,10 +696,15 @@ begin
         end;
         f.Read(fpgGraphic.Vertical_Offset,4);
         f.Read(fpgGraphic.file_Offset,4);
+        fpgGraphic.CPoints[0]:=fpgGraphic.Width_Offset;
+        fpgGraphic.CPoints[1]:=fpgGraphic.Height_Offset;
+        fpgGraphic.CPoints[2]:=fpgGraphic.Horizontal_Offset;
+        fpgGraphic.CPoints[3]:=fpgGraphic.Vertical_Offset;
+        fpgGraphic.NCPoints:=2;
 
         Count := Count +1;
-
         images[Count] := fpgGraphic;
+
 
         gFPG.Position := (f.Position * 100) div f.Size;
         gFPG.Repaint;
@@ -632,7 +724,7 @@ begin
         f.seek(images[i].file_Offset, soFromBeginning);
         images[i].LoadFromStream(f,lmFont);
 
-        tmpInt64:=tmpInt64+images[i].width*images[i].Height * images[i].bitsPerPixel;
+        tmpInt64:=tmpInt64+Int64(images[i].width)*images[i].Height * images[i].bitsPerPixel;
 
         gFPG.Position := (tmpInt64 * 100) div f.Size;
         gFPG.Repaint;
@@ -737,19 +829,6 @@ Procedure TFpg.setMagic;
 begin
  version:= 0;
  case FileFormat of
-   FPG1,FNX1:
-     Magic := 'f01';
-   FPG8_DIV2,FNX8,FNT8:
-     Magic := 'fpg';
-   FPG16,FNX16:
-     Magic := 'f16';
-   FPG16_CDIV:
-     Magic := 'c16';
-   FPG24,FNX24:
-     Magic := 'f24';
-   FPG32,FNX32:
-     Magic := 'f32';
-  (*
   FPG1:
     Magic := 'f01';
   FPG8_DIV2:
@@ -762,7 +841,6 @@ begin
     Magic := 'f24';
   FPG32:
     Magic := 'f32';
-
   FNX1:
   begin
     Magic := 'fnx';
@@ -792,7 +870,6 @@ begin
     Magic := 'fnx';
     version:= 32;
   end;
-  *)
  end;
 end;
 
@@ -939,5 +1016,8 @@ begin
       end;
   end;
 end;
+
+//initialization
+//  {$I fpgres.lrs}
 
 end.

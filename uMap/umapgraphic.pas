@@ -94,7 +94,7 @@ type
     procedure LoadFromStream(Stream: TStream; loadmode: byte );
     procedure SaveToFile(const Filename: string); override;
     procedure SaveToStream(Stream: TStream); override;
-    procedure SaveToStream(Stream: TStream; onFPG: Boolean);
+    procedure SaveToStream(Stream: TStream; savemode: byte);
     procedure CreateBitmap(bmp_src : TBitmap);
     procedure simulate1bppIn32bpp;
     procedure simulate8bppIn32bpp;
@@ -468,10 +468,10 @@ end;
 
 procedure TMAPGraphic.SaveToStream(Stream: TStream);
 begin
-  saveToStream(Stream, False);
+  saveToStream(Stream, lmMap);
 end;
 
-procedure TMAPGraphic.SaveToStream(Stream: TStream; onFPG: boolean);
+procedure TMAPGraphic.SaveToStream(Stream: TStream; savemode: byte);
 var
   i: word;
   aWidth, aHeight: word;
@@ -479,7 +479,7 @@ var
   widthForFPG1: integer;
 begin
 
-  if not onFPG then
+  if savemode=lmMap then
   begin
     MSDOSEnd[0] := 26;
     MSDOSEnd[1] := 13;
@@ -496,9 +496,10 @@ begin
     Stream.Write(aHeight, 2);
   end;
 
-  Stream.Write(FCode, 4);
+  if (savemode=lmFPG) OR (savemode=lmMap) then
+    Stream.Write(FCode, 4);
 
-  if onFPG then
+  if savemode=lmFPG then
   begin
     if FbitsPerPixel = 1 then
     begin
@@ -517,15 +518,17 @@ begin
     Stream.Write(graphSize, 4);
   end;
 
-  Stream.Write(FName, 32);
-  if onFPG then
+  if (savemode=lmFPG) OR (savemode=lmMap) then
+    Stream.Write(FName, 32);
+
+  if savemode=lmFPG then
   begin
     Stream.Write(FFPName, 12);
     Stream.Write(Width, 4);
     Stream.Write(Height, 4);
   end;
 
-  if (not onFPG) and (FbitsPerPixel = 8) then
+  if (savemode=lmMap) and (FbitsPerPixel = 8) then
   begin
     for i := 0 to 767 do
       bPalette[i] := bPalette[i] shr 2;
@@ -537,15 +540,18 @@ begin
       bPalette[i] := bPalette[i] shl 2;
   end;
 
-  if onFPG then
-      Stream.Write(ncpoints, 4)
-  else begin
+  if savemode=lmFPG then
+      Stream.Write(ncpoints, 4);
+
+  if savemode=lmMap then
+  begin
     wordNCPoints := ncpoints;
     Stream.Write(wordNCPoints, 2);
   end;
 
-  if ncpoints > 0  then
-    Stream.Write(CPoints, ncpoints * 4);
+  if (savemode=lmFPG) OR (savemode=lmMap) then
+    if ncpoints > 0  then
+      Stream.Write(CPoints, ncpoints * 4);
 
   writeDataBitmap(Stream);
 
