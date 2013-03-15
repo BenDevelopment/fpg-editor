@@ -1,5 +1,5 @@
 object frmMain: TfrmMain
-  Left = 332
+  Left = 333
   Height = 618
   Top = 185
   Width = 818
@@ -1234,7 +1234,7 @@ object frmMain: TfrmMain
     top = 80
   end
   object SaveDialog: TSaveDialog
-    Filter = 'FPG|*.fpg|(*.*)|*.*'
+    Filter = 'Ficheros conocidos|*.fpg;*fnt|Ficheros para Fuentes |*.fnt|Ficheros Para Gráficos |*.fpg|Todos los Archivos|*.*'
     Options = []
     left = 384
     top = 136
