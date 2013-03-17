@@ -21,13 +21,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFrmMain"/>
-        <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="769"/>
-        <CursorPos X="28" Y="798"/>
+        <TopLine Value="1166"/>
+        <CursorPos X="23" Y="1172"/>
         <UsageCount Value="473"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="uFrmView\ufrmView.pas"/>
@@ -36,14 +33,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmView"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="77"/>
-        <CursorPos X="3" Y="91"/>
+        <TopLine Value="68"/>
+        <CursorPos X="17" Y="93"/>
         <UsageCount Value="473"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="uFPG\uFPG.pas"/>
@@ -115,12 +108,10 @@
         <Filename Value="uFPGConvert\uFPGConvert.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uFPGConvert"/>
-        <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
         <TopLine Value="14"/>
         <CursorPos X="28" Y="28"/>
         <UsageCount Value="473"/>
-        <Loaded Value="True"/>
       </Unit9>
       <Unit10>
         <Filename Value="uSort\uSort.pas"/>
@@ -166,8 +157,8 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="uLoadImage"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="146"/>
-        <CursorPos X="5" Y="153"/>
+        <TopLine Value="132"/>
+        <CursorPos X="23" Y="137"/>
         <UsageCount Value="473"/>
       </Unit14>
       <Unit15>
@@ -219,13 +210,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmConfig"/>
-        <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="194"/>
+        <TopLine Value="192"/>
         <CursorPos X="42" Y="208"/>
         <UsageCount Value="473"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit19>
       <Unit20>
         <Filename Value="uFPGFrmImages\ufrmFPGImages.pas"/>
@@ -234,13 +222,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmFPGImages"/>
-        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="147"/>
-        <CursorPos X="14" Y="174"/>
+        <TopLine Value="1"/>
+        <CursorPos X="27" Y="1"/>
         <UsageCount Value="473"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit20>
       <Unit21>
         <Filename Value="uFPGFrmNew\ufrmNewFPG.pas"/>
@@ -383,23 +368,19 @@
         <Filename Value="uFPGListView\ufpglistview.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uFPGListView"/>
-        <EditorIndex Value="11"/>
         <WindowIndex Value="0"/>
         <TopLine Value="177"/>
         <CursorPos X="43" Y="197"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
       </Unit33>
       <Unit34>
         <Filename Value="uMap\umapgraphic.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uMAPGraphic"/>
-        <EditorIndex Value="9"/>
         <WindowIndex Value="0"/>
         <TopLine Value="62"/>
         <CursorPos X="5" Y="84"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
       </Unit34>
       <Unit35>
         <Filename Value="uLanguage\uLanguage.pas"/>
@@ -408,7 +389,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="187"/>
         <CursorPos X="32" Y="212"/>
-        <UsageCount Value="131"/>
+        <UsageCount Value="136"/>
       </Unit35>
       <Unit36>
         <Filename Value="uLanguage\ulngconverter.pas"/>
@@ -417,13 +398,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ulngConverter"/>
-        <EditorIndex Value="8"/>
         <WindowIndex Value="0"/>
         <TopLine Value="68"/>
         <CursorPos X="26" Y="68"/>
-        <UsageCount Value="140"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="145"/>
       </Unit36>
       <Unit37>
         <Filename Value="uLanguage\ulngtranslator.pas"/>
@@ -432,13 +410,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ulngTranslator"/>
-        <EditorIndex Value="6"/>
+        <IsVisibleTab Value="True"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="112"/>
-        <CursorPos X="57" Y="145"/>
-        <UsageCount Value="132"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <TopLine Value="41"/>
+        <CursorPos X="40" Y="67"/>
+        <UsageCount Value="137"/>
       </Unit37>
       <Unit38>
         <Filename Value="umainmap\umainmap.pas"/>
@@ -450,7 +426,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="876"/>
         <CursorPos X="18" Y="896"/>
-        <UsageCount Value="126"/>
+        <UsageCount Value="131"/>
       </Unit38>
       <Unit39>
         <Filename Value="umainmap\uselectcolor.pas"/>
@@ -462,7 +438,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="77"/>
         <CursorPos X="4" Y="105"/>
-        <UsageCount Value="65"/>
+        <UsageCount Value="70"/>
       </Unit39>
       <Unit40>
         <Filename Value="uFPG\ufpgcompare.pas"/>
@@ -471,13 +447,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFPGcompare"/>
-        <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
         <TopLine Value="157"/>
         <CursorPos X="25" Y="171"/>
-        <UsageCount Value="59"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="64"/>
       </Unit40>
       <Unit41>
         <Filename Value="unit1.pas"/>
@@ -1179,12 +1152,10 @@
       <Unit132>
         <Filename Value="..\..\src\lazarus\lcl\graphics.pp"/>
         <UnitName Value="Graphics"/>
-        <EditorIndex Value="10"/>
         <WindowIndex Value="0"/>
         <TopLine Value="870"/>
         <CursorPos X="14" Y="889"/>
         <UsageCount Value="18"/>
-        <Loaded Value="True"/>
       </Unit132>
       <Unit133>
         <Filename Value="uFPG\fpgres.lrs"/>
@@ -1196,18 +1167,16 @@
       <Unit134>
         <Filename Value="..\..\src\lazarus\lcl\lresources.pp"/>
         <UnitName Value="LResources"/>
-        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="5249"/>
         <CursorPos X="43" Y="5285"/>
         <UsageCount Value="15"/>
-        <Loaded Value="True"/>
       </Unit134>
       <Unit135>
         <Filename Value="languages\fpg-editor.en.po"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="687"/>
-        <CursorPos X="14" Y="717"/>
+        <TopLine Value="2092"/>
+        <CursorPos X="19" Y="2123"/>
         <UsageCount Value="11"/>
         <DefaultSyntaxHighlighter Value="PO"/>
       </Unit135>
@@ -1220,9 +1189,6 @@
         <DefaultSyntaxHighlighter Value="PO"/>
       </Unit136>
     </Units>
-    <General>
-      <ActiveWindowIndexAtStart Value="0"/>
-    </General>
     <JumpHistory Count="0" HistoryIndex="-1"/>
   </ProjectSession>
   <Debugging>

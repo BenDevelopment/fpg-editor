@@ -192,16 +192,22 @@ msgid "Editar propiedades de la imagen"
 msgstr "Edit properties of the image"
 
 #: tfrmfpgimages.gbcode.caption
-msgid " Código "
+#, fuzzy
+#| msgid " Código "
+msgctxt "tfrmfpgimages.gbcode.caption"
+msgid "Código"
 msgstr "Code"
 
-#: tfrmfpgimages.gbdescription.caption
-msgid " Descripción "
-msgstr "Description"
+#: tfrmfpgimages.gbfname.caption
+msgid "Nombre Archivo"
+msgstr ""
 
 #: tfrmfpgimages.gbname.caption
-msgid " Nombre "
-msgstr "Name"
+#, fuzzy
+#| msgid " Nombre "
+msgctxt "tfrmfpgimages.gbname.caption"
+msgid "Nombre"
+msgstr "File Name"
 
 #: tfrmfpgimages.groupbox5.caption
 msgid " X "
@@ -1595,7 +1601,7 @@ msgstr "Copy image to clipboard."
 
 #: ulanguage.lng_correct_saving
 msgid "Archivo FPG guardado correctamente"
-msgstr "File FPG save correctly"
+msgstr "File FPG saved correctly"
 
 #: ulanguage.lng_creating_convert_table
 msgid "Creando tabla de conversión"
@@ -2111,6 +2117,10 @@ msgstr "File Joined Correctly"
 #: ulngtranslator.lng_message_help_translator
 msgid "Abre el archivo .po a traducir.\\nCopia el cotenido al portapapeles.\\nPégalo en tu traductor favorito y tradúcelo.\\nCopia el texto traducido y pégalo en el cuadro de abajo.\\nPulsa Unir.\\nEscribe las dos siglas del idioma destino.\\nFinalmente guarda el archivo."
 msgstr "Open the .po to translate.\\nCopy the content to the clipboard.\\nPaste it into your favorite translator and translate it.\\Copy and paste the translated text in the box below.\\nPress Join.\\nWrite two letters of the target language.\\n And finaly save the file. "
+
+#: ulngtranslator.lng_message_saved
+msgid "Archivo Guardado Correctamente"
+msgstr "File saved correctly"
 
 #: umainmap.lng_mapedit_help
 msgid "Con control pulsado y haciendo clic, puedes cambiar los colores de la paleta."

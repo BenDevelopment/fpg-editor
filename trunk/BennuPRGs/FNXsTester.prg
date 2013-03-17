@@ -48,4 +48,5 @@ Begin
         frame;
 	end
 	let_me_alone();
+        fnt_save(id_fnt8,"8bits2.fnt");
 end

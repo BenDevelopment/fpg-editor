@@ -64,6 +64,7 @@ resourcestring
   'Pégalo en tu traductor favorito y tradúcelo.\nCopia el texto traducido y pégalo en el cuadro de abajo.\n'+
   'Pulsa Unir.\nEscribe las dos siglas del idioma destino.\nFinalmente guarda el archivo.';
   LNG_MESSAGE_CORRECT_JOIN = 'Archivo Juntado Correctamente';
+  LNG_MESSAGE_SAVED = 'Archivo Guardado Correctamente';
 
 implementation
 
@@ -114,10 +115,14 @@ procedure TfrmLangTranslator.aguardarExecute(Sender: TObject);
 var
   filename : String;
 begin
-  filename := 'languages'+DirectorySeparator+'fpg-editor.' + Edit1.Text + '.po';
+  //'languages'+DirectorySeparator+
+  filename := 'fpg-editor.' + Edit1.Text + '.po';
   SaveDialog1.FileName:=filename;
   if SaveDialog1.Execute then
+  begin
      Memo1.Lines.SaveToFile(SaveDialog1.FileName);
+     ShowMessage(LNG_MESSAGE_SAVED);
+  end;
 
 end;
 
