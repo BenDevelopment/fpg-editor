@@ -460,9 +460,9 @@ begin
     primeraVez:=false;
   end;
 
-  RefreshForm;
-
   EndFormUpdate;
+
+  RefreshForm;
 
 end;
 

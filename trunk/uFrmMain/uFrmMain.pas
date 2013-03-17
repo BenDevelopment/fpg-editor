@@ -28,17 +28,22 @@
 
 unit uFrmMain;
 
+{$mode objfpc}{$H+}
+
 interface
 
 uses
-  LCLIntf, LCLType, SysUtils, Classes, Graphics, Controls, Forms, ComCtrls,
-  StdCtrls, ExtCtrls, Menus, Buttons, ClipBrd, uIniFile, ufrmView, uFPG,
-  ufrmPalette, ufrmFPGImages, Dialogs, uTools,
-  uFPGConvert, uLoadImage, uFrmExport, uFrmMessageBox,
-  uExportToFiles, uFPGListView, FileUtil, ShellCtrls, ActnList, FileCtrl, Spin,
-  ExtDlgs, types, ufrmZipFenix, uFrmAbout, ufrmMainFNT, ufrmAnimate, ufrmConfig,
-  uFrmSplahs, uMAPGraphic, uLanguage, ulngConverter, ulngTranslator;
+    Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs
+    , StdCtrls, ActnList, ExtCtrls, ExtDlgs,FileCtrl, Menus,Spin, ComCtrls
+    , ShellCtrls, Buttons, LCLType, Clipbrd, LCLIntf
+    (* Custom units *)
+    , uFPGListView
+    , uinifile, uLanguage, uFrmSplahs, uFPG, ulngTranslator, uFrmMessageBox
+    , ufrmAnimate, uMAPGraphic,uLoadImage,uTools,uFrmAbout,ufrmConfig
+    , ufrmFPGImages, uFrmExport,uExportToFiles,uFrmMainFNT,uFrmPalette
+    , ulngConverter, ufrmView,ufrmZipFenix, uFPGConvert, ufrmprgeditor
 
+    ;
 const
   DRAG_LVFPG    = 0;
   DRAG_LVIMAGES = 1;
@@ -57,6 +62,7 @@ type
     aBennu: TAction;
     aCDiv: TAction;
     aAnimFPG: TAction;
+    aPrgEditor: TAction;
     aLngConver: TAction;
     aFPG1: TAction;
     aFPG32: TAction;
@@ -105,6 +111,7 @@ type
     lComments: TLabel;
     lblTransparentColor: TLabel;
     lblFilename: TLabel;
+    miPRGEditor: TMenuItem;
     miLangTranslator: TMenuItem;
     miLngConverter: TMenuItem;
     miFPG1: TMenuItem;
@@ -276,6 +283,7 @@ type
     procedure aCloseExecute(Sender: TObject);
     procedure aOpenExecute(Sender: TObject);
     procedure aOpenImgExecute(Sender: TObject);
+    procedure aPrgEditorExecute(Sender: TObject);
     procedure aReloadExecute(Sender: TObject);
     procedure aSaveAsExecute(Sender: TObject);
     procedure aSaveExecute(Sender: TObject);
@@ -1174,6 +1182,11 @@ begin
 
  frmView.Color:=lvImages.Color;
  frmView.Show;
+end;
+
+procedure TfrmMain.aPrgEditorExecute(Sender: TObject);
+begin
+  frmPRGEditor.Show;
 end;
 
 procedure TfrmMain.aReloadExecute(Sender: TObject);

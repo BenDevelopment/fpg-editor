@@ -2390,6 +2390,9 @@ object frmMain: TfrmMain
           9230000000000000000000000000000000000000000000000000
         }
       end
+      object miPRGEditor: TMenuItem
+        Action = aPrgEditor
+      end
       object miLngConverter: TMenuItem
         Action = aLngConver
       end
@@ -2791,6 +2794,11 @@ object frmMain: TfrmMain
       Category = 'Tools'
       Caption = 'Convertidor de lng'
       OnExecute = aLngConverExecute
+    end
+    object aPrgEditor: TAction
+      Category = 'Tools'
+      Caption = 'Editor de Archivos de Programa'
+      OnExecute = aPrgEditorExecute
     end
   end
   object OpenPictureDialog: TOpenPictureDialog

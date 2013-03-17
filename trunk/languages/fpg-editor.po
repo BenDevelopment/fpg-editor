@@ -1,6 +1,10 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
+#: pfpgeditor.lng_no_enough_memory
+msgid "Error, no se encuentran suficientes recursos para iniciar el programa. Salga de uno o más programas si desea ejecutar este programa."
+msgstr ""
+
 #: tfrmabout.button1.caption
 msgid "Ok"
 msgstr ""
@@ -579,6 +583,11 @@ msgctxt "tfrmmain.apasteimg.caption"
 msgid "Pegar imagen"
 msgstr ""
 
+#: tfrmmain.aprgeditor.caption
+msgctxt "tfrmmain.aprgeditor.caption"
+msgid "Editor de Archivos de Programa"
+msgstr ""
+
 #: tfrmmain.areload.caption
 msgctxt "tfrmmain.areload.caption"
 msgid "Recargar"
@@ -1126,6 +1135,7 @@ msgid "Elipse"
 msgstr ""
 
 #: tfrmmapeditor.action8.caption
+msgctxt "tfrmmapeditor.action8.caption"
 msgid "Deshacer"
 msgstr ""
 
@@ -1309,6 +1319,127 @@ msgstr ""
 msgid "frmMessageBox"
 msgstr ""
 
+#: tfrmprgeditor.acompile.caption
+msgid "Compilar"
+msgstr ""
+
+#: tfrmprgeditor.aexecute.caption
+msgctxt "TFRMPRGEDITOR.AEXECUTE.CAPTION"
+msgid "Ejecutar"
+msgstr ""
+
+#: tfrmprgeditor.aexit.caption
+msgctxt "TFRMPRGEDITOR.AEXIT.CAPTION"
+msgid "Salir"
+msgstr ""
+
+#: tfrmprgeditor.asave.caption
+msgid "&Guardar"
+msgstr ""
+
+#: tfrmprgeditor.editcopy1.caption
+msgid "&Copiar"
+msgstr ""
+
+#: tfrmprgeditor.editcopy1.hint
+msgctxt "TFRMPRGEDITOR.EDITCOPY1.HINT"
+msgid "Copiar"
+msgstr ""
+
+#: tfrmprgeditor.editcut1.caption
+msgid "Cor&tar"
+msgstr ""
+
+#: tfrmprgeditor.editcut1.hint
+msgid "Cortar"
+msgstr ""
+
+#: tfrmprgeditor.editdelete1.caption
+msgid "&Suprimir"
+msgstr ""
+
+#: tfrmprgeditor.editdelete1.hint
+msgid "Suprimir"
+msgstr ""
+
+#: tfrmprgeditor.editpaste1.caption
+msgid "&Pegar"
+msgstr ""
+
+#: tfrmprgeditor.editpaste1.hint
+msgctxt "TFRMPRGEDITOR.EDITPASTE1.HINT"
+msgid "Pegar"
+msgstr ""
+
+#: tfrmprgeditor.editselectall1.caption
+msgid "Seleccion&ar todo"
+msgstr ""
+
+#: tfrmprgeditor.editselectall1.hint
+msgid "Seleccionar Todo"
+msgstr ""
+
+#: tfrmprgeditor.editundo1.caption
+msgid "&Deshacer"
+msgstr ""
+
+#: tfrmprgeditor.editundo1.hint
+msgctxt "TFRMPRGEDITOR.EDITUNDO1.HINT"
+msgid "Deshacer"
+msgstr ""
+
+#: tfrmprgeditor.fileopen1.caption
+msgid "&Abrir..."
+msgstr ""
+
+#: tfrmprgeditor.fileopen1.hint
+msgctxt "TFRMPRGEDITOR.FILEOPEN1.HINT"
+msgid "Abrir"
+msgstr ""
+
+#: tfrmprgeditor.filesaveas1.caption
+msgid "Gu&ardar Como..."
+msgstr ""
+
+#: tfrmprgeditor.filesaveas1.hint
+msgid "Guardar Como"
+msgstr ""
+
+#: tfrmprgeditor.menuitem1.caption
+msgctxt "TFRMPRGEDITOR.MENUITEM1.CAPTION"
+msgid "Archivo"
+msgstr ""
+
+#: tfrmprgeditor.menuitem12.caption
+msgid "Buscar"
+msgstr ""
+
+#: tfrmprgeditor.menuitem18.caption
+msgctxt "tfrmprgeditor.menuitem18.caption"
+msgid "Ejecutar"
+msgstr ""
+
+#: tfrmprgeditor.menuitem5.caption
+msgctxt "TFRMPRGEDITOR.MENUITEM5.CAPTION"
+msgid "Editar"
+msgstr ""
+
+#: tfrmprgeditor.searchfind1.caption
+msgid "&Buscar..."
+msgstr ""
+
+#: tfrmprgeditor.searchfindfirst1.caption
+msgid "Buscar Pr&imero"
+msgstr ""
+
+#: tfrmprgeditor.searchfindnext1.caption
+msgid "Buscar Siguiente"
+msgstr ""
+
+#: tfrmprgeditor.searchreplace1.caption
+msgid "&Reemplazar"
+msgstr ""
+
 #: tfrmselectcolor.baceptar.caption
 msgctxt "TFRMSELECTCOLOR.BACEPTAR.CAPTION"
 msgid "Aceptar"
@@ -1421,6 +1552,11 @@ msgstr ""
 
 #: ufpgconvert.lng_savedcolors
 msgid "colores"
+msgstr ""
+
+#: ufrmprgeditor.lng_prg_editor
+msgctxt "ufrmprgeditor.lng_prg_editor"
+msgid "Editor de Archivos de Programa"
 msgstr ""
 
 #: ulanguage.lng_abort

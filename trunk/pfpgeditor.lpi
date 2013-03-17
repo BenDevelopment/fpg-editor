@@ -69,7 +69,7 @@
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
-            <OtherUnitFiles Value="uFrmMain;uBMP;uMap;uTools;uSort;uPCX;uFrmView;uLoadImage;uPAL;uColor16bits;uFPGConvert;uFPGFrmImages;uFPGFrmNew;uFrmAnimate;uFrmConfig;uFrmExport;uFrmPalette;uFrmSplash;uIniFile;uMessages\uFrmInputBox;uMessages\uFrmMessageBox;uFrmExport\uExportToFiles;uAAtext;uColorTable;uFNT;uFrmBpp;uFrmCFG;uFrmMainFNT;uFrmAbout;uFrmFPGView;uFrmFNTView;uFPG;uFPGListView;uFrmZipFenix;uLanguage;umainmap"/>
+            <OtherUnitFiles Value="uFrmMain;uBMP;uMap;uTools;uSort;uPCX;uFrmView;uLoadImage;uPAL;uColor16bits;uFPGConvert;uFPGFrmImages;uFPGFrmNew;uFrmAnimate;uFrmConfig;uFrmExport;uFrmPalette;uFrmSplash;uIniFile;uMessages\uFrmInputBox;uMessages\uFrmMessageBox;uFrmExport\uExportToFiles;uAAtext;uColorTable;uFNT;uFrmBpp;uFrmCFG;uFrmMainFNT;uFrmAbout;uFrmFPGView;uFrmFNTView;uFPG;uFPGListView;uFrmZipFenix;uLanguage;umainmap;ufrmPRGEditor"/>
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <CodeGeneration>
@@ -109,7 +109,7 @@
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
-            <OtherUnitFiles Value="uFrmMain;uBMP;uMap;uTools;uSort;uPCX;uFrmView;uLoadImage;uPAL;uColor16bits;uFPGConvert;uFPGFrmImages;uFPGFrmNew;uFrmAnimate;uFrmConfig;uFrmExport;uFrmPalette;uFrmSplash;uIniFile;uLanguage;uMessages\uFrmInputBox;uMessages\uFrmMessageBox;uFrmExport\uExportToFiles;uAAtext;uColorTable;uFNT;uFrmBpp;uFrmCFG;uFrmMainFNT;uFrmAbout;uFrmFPGView;uFrmFNTView;uFPG;uFPGListView;uFrmZipFenix;umainmap"/>
+            <OtherUnitFiles Value="uFrmMain;uBMP;uMap;uTools;uSort;uPCX;uFrmView;uLoadImage;uPAL;uColor16bits;uFPGConvert;uFPGFrmImages;uFPGFrmNew;uFrmAnimate;uFrmConfig;uFrmExport;uFrmPalette;uFrmSplash;uIniFile;uLanguage;uMessages\uFrmInputBox;uMessages\uFrmMessageBox;uFrmExport\uExportToFiles;uAAtext;uColorTable;uFNT;uFrmBpp;uFrmCFG;uFrmMainFNT;uFrmAbout;uFrmFPGView;uFrmFNTView;uFPG;uFPGListView;uFrmZipFenix;umainmap;uprgeditor"/>
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <CodeGeneration>
@@ -143,18 +143,21 @@
         <LaunchingApplication PathPlusParams="\usr\bin\xterm -T 'Lazarus Run Output' -e $(LazarusDir)\tools\runwait.sh $(TargetCmdLine)"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="3">
+    <RequiredPackages Count="4">
       <Item1>
-        <PackageName Value="fpg_editor_pkg"/>
+        <PackageName Value="SynEdit"/>
       </Item1>
       <Item2>
-        <PackageName Value="LCLBase"/>
+        <PackageName Value="fpg_editor_pkg"/>
       </Item2>
       <Item3>
-        <PackageName Value="LCL"/>
+        <PackageName Value="LCLBase"/>
       </Item3>
+      <Item4>
+        <PackageName Value="LCL"/>
+      </Item4>
     </RequiredPackages>
-    <Units Count="41">
+    <Units Count="43">
       <Unit0>
         <Filename Value="pfpgeditor.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -426,6 +429,19 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFPGcompare"/>
       </Unit40>
+      <Unit41>
+        <Filename Value="uprgeditor\ufrmprgeditor.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmPRGEditor"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ufrmprgeditor"/>
+      </Unit41>
+      <Unit42>
+        <Filename Value="uprgeditor\usynprghl.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="usynprghl"/>
+      </Unit42>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
