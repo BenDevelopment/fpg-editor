@@ -59,4 +59,5 @@ Begin
         frame;
 	end
 	let_me_alone();
+  save_fpg(id8,"8bits2.fpg");
 end

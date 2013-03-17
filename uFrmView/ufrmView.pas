@@ -26,7 +26,7 @@ interface
 uses
   LCLIntf, LCLType, SysUtils, Classes, Graphics, Controls, Forms,
   StdCtrls, ExtCtrls, ClipBrd, dialogs, Spin,
-  uinifile, ulanguage, uLoadImage, IntfGraphics, FPimage, uMAPGraphic;
+  uinifile, uLanguage, uLoadImage, IntfGraphics, FPimage, uMAPGraphic;
 
 const
  MIN_CLIENT_WIDTH  = 269;
@@ -88,8 +88,9 @@ begin
  if not FPG then
  begin
   bmp:= TMAPGraphic.Create;
-  bmp.assign(Image.Picture.Bitmap);
   loadImageFile(bmp, file_selected);
+  Image.Picture.Assign(bmp);
+  FreeAndNil(bmp);
  end;
 
  lbAncho.Caption := IntToStr(Image.Picture.Bitmap.Width);

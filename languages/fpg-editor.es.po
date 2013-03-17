@@ -198,15 +198,17 @@ msgid "Editar propiedades de la imagen"
 msgstr "Editar propiedades de la imagen"
 
 #: tfrmfpgimages.gbcode.caption
-msgid " Código "
+msgctxt "tfrmfpgimages.gbcode.caption"
+msgid "Código"
 msgstr ""
 
-#: tfrmfpgimages.gbdescription.caption
-msgid " Descripción "
+#: tfrmfpgimages.gbfname.caption
+msgid "Nombre Archivo"
 msgstr ""
 
 #: tfrmfpgimages.gbname.caption
-msgid " Nombre "
+msgctxt "tfrmfpgimages.gbname.caption"
+msgid "Nombre"
 msgstr ""
 
 #: tfrmfpgimages.groupbox5.caption
@@ -218,6 +220,7 @@ msgid " Y "
 msgstr ""
 
 #: tfrmfpgimages.lbheight.caption
+msgctxt "tfrmfpgimages.lbheight.caption"
 msgid "Alto"
 msgstr ""
 
@@ -226,6 +229,7 @@ msgid "Puntos Ctrl"
 msgstr ""
 
 #: tfrmfpgimages.lbwidth.caption
+msgctxt "tfrmfpgimages.lbwidth.caption"
 msgid "Ancho"
 msgstr ""
 
@@ -1361,12 +1365,14 @@ msgstr "Detalles de la imagen"
 #: tfrmview.lbalto.caption
 #, fuzzy
 #| msgid "lbAlto"
+msgctxt "tfrmview.lbalto.caption"
 msgid "Alto"
 msgstr "Alto"
 
 #: tfrmview.lbancho.caption
 #, fuzzy
 #| msgid "lbAncho"
+msgctxt "tfrmview.lbancho.caption"
 msgid "Ancho"
 msgstr "Ancho"
 
@@ -2118,6 +2124,10 @@ msgstr ""
 #: ulngtranslator.lng_message_help_translator
 msgid "Abre el archivo .po a traducir.\\nCopia el cotenido al portapapeles.\\nPégalo en tu traductor favorito y tradúcelo.\\nCopia el texto traducido y pégalo en el cuadro de abajo.\\nPulsa Unir.\\nEscribe las dos siglas del idioma destino.\\nFinalmente guarda el archivo."
 msgstr "Abre el archivo .po a traducir.\\nCopia el cotenido al portapapeles.\\nPégalo en tu traductor favorito y tradúcelo.\\nCopia el texto traducido y pégalo en el cuadro de abajo.\\nPulsa Unir.\\nEscribe las dos siglas del idioma destino.\\nFinalmente guarda el archivo."
+
+#: ulngtranslator.lng_message_saved
+msgid "Archivo Guardado Correctamente"
+msgstr ""
 
 #: umainmap.lng_mapedit_help
 msgid "Con control pulsado y haciendo clic, puedes cambiar los colores de la paleta."

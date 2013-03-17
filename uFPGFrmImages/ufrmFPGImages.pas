@@ -51,10 +51,10 @@ type
     imIcon: TImage;
     gbCode: TGroupBox;
     edCode: TEdit;
+    gbFName: TGroupBox;
+    edFName: TEdit;
     gbName: TGroupBox;
     edName: TEdit;
-    gbDescription: TGroupBox;
-    edDescription: TEdit;
     tsControlPoints: TTabSheet;
     lvControlPoints: TListView;
     GroupBox5: TGroupBox;
@@ -105,10 +105,10 @@ type
     procedure sbAddPointClick(Sender: TObject);
     procedure sbPutCenterClick(Sender: TObject);
     procedure edCodeEnter(Sender: TObject);
+    procedure edFNameEnter(Sender: TObject);
+    procedure edFNameExit(Sender: TObject);
     procedure edNameEnter(Sender: TObject);
     procedure edNameExit(Sender: TObject);
-    procedure edDescriptionEnter(Sender: TObject);
-    procedure edDescriptionExit(Sender: TObject);
     procedure edCoordXEnter(Sender: TObject);
     procedure edCoordYEnter(Sender: TObject);
   private
@@ -207,10 +207,10 @@ begin
  else if StrToInt(edCode.Text) < 100 then
   edCode.Text := '0'  + edCode.Text;
 
- Fpg.images[fpg_index].code  := StrToInt(frmFPGImages.edCode.Text);
+ Fpg.images[fpg_index].code  := StrToInt(edCode.Text);
 
- Fpg.images[fpg_index].fpname:=frmFPGImages.edName.Text;
- Fpg.images[fpg_index].name:=frmFPGImages.edDescription.Text;
+ Fpg.images[fpg_index].fpname:=edFName.Text;
+ Fpg.images[fpg_index].name:=edName.Text;
 
  Fpg.images[fpg_index].CPointsCount := lvControlPoints.Items.Count;
 
@@ -301,8 +301,8 @@ begin
  lbNumCP.Caption  := IntToStr(Fpg.images[fpg_index].CPointsCount);
  imIcon.Picture.Assign( Fpg.images[fpg_index]);;
  edCode.Text := IntToStr(Fpg.images[fpg_index].code);
- edName.Text := Fpg.images[fpg_index].fpname;
- edDescription.Text := Fpg.images[fpg_index].name;
+ edFName.Text := Fpg.images[fpg_index].fpname;
+ edName.Text := Fpg.images[fpg_index].name;
 
  lvControlPoints.Items.Clear;
 
@@ -624,6 +624,16 @@ begin
  edCode.Color := clWhite;
 end;
 
+procedure TfrmFPGImages.edFNameEnter(Sender: TObject);
+begin
+ edFName.Color := clWhite;
+end;
+
+procedure TfrmFPGImages.edFNameExit(Sender: TObject);
+begin
+ edFName.Color := clMedGray;
+end;
+
 procedure TfrmFPGImages.edNameEnter(Sender: TObject);
 begin
  edName.Color := clWhite;
@@ -632,16 +642,6 @@ end;
 procedure TfrmFPGImages.edNameExit(Sender: TObject);
 begin
  edName.Color := clMedGray;
-end;
-
-procedure TfrmFPGImages.edDescriptionEnter(Sender: TObject);
-begin
- edDescription.Color := clWhite;
-end;
-
-procedure TfrmFPGImages.edDescriptionExit(Sender: TObject);
-begin
- edDescription.Color := clMedGray;
 end;
 
 procedure TfrmFPGImages.edCoordXEnter(Sender: TObject);

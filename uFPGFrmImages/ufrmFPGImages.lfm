@@ -162,7 +162,7 @@ object frmFPGImages: TfrmFPGImages
         Height = 49
         Top = 184
         Width = 57
-        Caption = ' Código '
+        Caption = 'Código'
         ClientHeight = 34
         ClientWidth = 53
         Font.Height = -11
@@ -181,49 +181,49 @@ object frmFPGImages: TfrmFPGImages
           TabOrder = 0
         end
       end
-      object gbName: TGroupBox
+      object gbFName: TGroupBox
         Left = 64
         Height = 49
         Top = 184
         Width = 313
-        Caption = ' Nombre '
+        Caption = 'Nombre Archivo'
         ClientHeight = 34
         ClientWidth = 309
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
         ParentFont = False
         TabOrder = 3
-        object edName: TEdit
+        object edFName: TEdit
           Left = 6
           Height = 23
           Top = 2
           Width = 297
           MaxLength = 8
-          OnEnter = edNameEnter
-          OnExit = edNameExit
+          OnEnter = edFNameEnter
+          OnExit = edFNameExit
           TabOrder = 0
         end
       end
-      object gbDescription: TGroupBox
+      object gbName: TGroupBox
         Left = 0
         Height = 49
         Top = 240
         Width = 377
-        Caption = ' Descripción '
+        Caption = 'Nombre'
         ClientHeight = 34
         ClientWidth = 373
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
         ParentFont = False
         TabOrder = 4
-        object edDescription: TEdit
+        object edName: TEdit
           Left = 6
           Height = 23
           Top = 2
           Width = 361
           MaxLength = 32
-          OnEnter = edDescriptionEnter
-          OnExit = edDescriptionExit
+          OnEnter = edNameEnter
+          OnExit = edNameExit
           TabOrder = 0
         end
       end
