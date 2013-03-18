@@ -1,7 +1,7 @@
 object frmFNTView: TfrmFNTView
-  Left = 330
+  Left = 335
   Height = 579
-  Top = 286
+  Top = 275
   Width = 788
   Caption = 'Visor de datos FNT'
   ClientHeight = 579
@@ -47,7 +47,7 @@ object frmFNTView: TfrmFNTView
       Height = 121
       Top = 8
       Width = 161
-      Caption = 'Header'
+      Caption = 'Cabecera'
       ClientHeight = 106
       ClientWidth = 157
       Font.Color = clWindowText
@@ -128,7 +128,7 @@ object frmFNTView: TfrmFNTView
       Height = 201
       Top = 8
       Width = 401
-      Caption = 'Colors'
+      Caption = 'Colores'
       ClientHeight = 186
       ClientWidth = 397
       Font.Color = clWindowText
@@ -142,7 +142,7 @@ object frmFNTView: TfrmFNTView
         Height = 177
         Top = 2
         Width = 185
-        Caption = 'Palette'
+        Caption = 'Paleta'
         ClientHeight = 162
         ClientWidth = 181
         TabOrder = 0
@@ -173,7 +173,7 @@ object frmFNTView: TfrmFNTView
         Height = 177
         Top = 2
         Width = 193
-        Caption = 'Gamma'
+        Caption = 'Gamas'
         ClientHeight = 162
         ClientWidth = 189
         TabOrder = 1
@@ -208,7 +208,7 @@ object frmFNTView: TfrmFNTView
       Height = 201
       Top = 6
       Width = 193
-      Caption = 'Preview'
+      Caption = 'Imagen'
       ClientHeight = 186
       ClientWidth = 189
       Font.Color = clWindowText
@@ -235,7 +235,7 @@ object frmFNTView: TfrmFNTView
     Top = 217
     Width = 788
     Align = alClient
-    Caption = 'Descriptors'
+    Caption = 'Descriptores'
     ClientHeight = 347
     ClientWidth = 784
     Font.Color = clWindowText

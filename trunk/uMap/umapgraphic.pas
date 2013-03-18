@@ -990,8 +990,26 @@ begin
       inarray[i] := str[i + 1];
   end;
 end;
+(*
+procedure TMAPGraphic.Assign(Source: TPersistent);
+var
+  bmpIntf : TLazIntfImage;
+  bmpIntf2 : TLazIntfImage;
+begin
+  if Source is TBitmap then
+  begin
+   bmpIntf:=CreateIntfImage;
+   bmpIntf2:=TBitmap(Source).CreateIntfImage;
 
+   bmpIntf.CopyPixels(bmpIntf2,0,0);
 
+   LoadFromIntfImage(bmpIntf);
+   FreeAndNil(bmpIntf);
+   FreeAndNil(bmpIntf2);
+  end else
+    inherited Assign(Source);
+end;
+*)
 
 initialization
   TPicture.RegisterFileFormat('map','DIV MAP Images', TMAPGraphic);
