@@ -183,6 +183,14 @@ var
 
 resourcestring
   LNG_MAPEDIT_HELP = 'Con control pulsado y haciendo clic, puedes cambiar los colores de la paleta.';
+  LNG_PEN = 'Lápiz';
+  LNG_LINE = 'Linea';
+  LNG_TRIANGLE = 'Triangulo';
+  LNG_RECTANGLE = 'Rectangulo';
+  LNG_ELLIPSE = 'Elipse';
+  LNG_COPYCOLOR = 'Copiar Color';
+  LNG_FILL = 'Rellenar';
+
 
 implementation
 
@@ -357,6 +365,16 @@ var
   bs: TFPBrushStyle;
   pm: TFPPenMode;
 begin
+
+  FigureCombo.Items.Clear;
+  FigureCombo.Items.Add(LNG_PEN);
+  FigureCombo.Items.Add(LNG_LINE);
+  FigureCombo.Items.Add(LNG_TRIANGLE);
+  FigureCombo.Items.Add(LNG_RECTANGLE);
+  FigureCombo.Items.Add(LNG_ELLIPSE);
+  FigureCombo.Items.Add(LNG_COPYCOLOR);
+  FigureCombo.Items.Add(LNG_FILL);
+
   FPen := TFPCustomPen.Create;
   FBrush := TFPCustomBrush.Create;
 

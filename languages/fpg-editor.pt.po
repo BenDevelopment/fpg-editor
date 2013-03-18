@@ -153,6 +153,88 @@ msgctxt "tfrmconfig.tsenviroment.caption"
 msgid "Entorno"
 msgstr "Meio Ambiente"
 
+#: tfrmfntview.caption
+msgid "Visor de datos FNT"
+msgstr ""
+
+#: tfrmfntview.groupbox1.caption
+msgid "Cabecera"
+msgstr ""
+
+#: tfrmfntview.groupbox2.caption
+msgid "Colores"
+msgstr ""
+
+#: tfrmfntview.groupbox3.caption
+msgid "Paleta"
+msgstr ""
+
+#: tfrmfntview.groupbox4.caption
+msgid "Gamas"
+msgstr ""
+
+#: tfrmfntview.groupbox5.caption
+msgid "Descriptores"
+msgstr ""
+
+#: tfrmfntview.groupbox6.caption
+msgctxt "tfrmfntview.groupbox6.caption"
+msgid "Imagen"
+msgstr "Image"
+
+#: tfrmfntview.label1.caption
+msgid "Magic"
+msgstr ""
+
+#: tfrmfntview.label2.caption
+msgid "MSDOS End"
+msgstr ""
+
+#: tfrmfntview.label3.caption
+msgid "Bits Per Pixel"
+msgstr ""
+
+#: tfrmfntview.label4.caption
+msgctxt "tfrmfntview.label4.caption"
+msgid "Charset"
+msgstr "Charset"
+
+#: tfrmfntview.listview1.columns[0].caption
+msgid "Index"
+msgstr ""
+
+#: tfrmfntview.listview1.columns[1].caption
+msgid "ASCII"
+msgstr ""
+
+#: tfrmfntview.listview1.columns[2].caption
+msgid "Width"
+msgstr ""
+
+#: tfrmfntview.listview1.columns[3].caption
+msgid "Height"
+msgstr ""
+
+#: tfrmfntview.listview1.columns[4].caption
+msgid "Width Offset"
+msgstr ""
+
+#: tfrmfntview.listview1.columns[5].caption
+msgid "Heigh Offset"
+msgstr ""
+
+#: tfrmfntview.listview1.columns[6].caption
+msgid "Horizontal Offset"
+msgstr ""
+
+#: tfrmfntview.listview1.columns[7].caption
+msgid "Vertical Offset"
+msgstr ""
+
+#: tfrmfntview.listview1.columns[8].caption
+msgid "File Offset"
+msgstr ""
+
 #: tfrmfpgcompare.button1.caption
 msgctxt "tfrmfpgcompare.button1.caption"
 msgid ".."
@@ -908,6 +990,7 @@ msgid "8"
 msgstr "8"
 
 #: tfrmmainfnt.gbcharset.caption
+msgctxt "tfrmmainfnt.gbcharset.caption"
 msgid "Charset"
 msgstr "Charset"
 
@@ -1080,6 +1163,7 @@ msgid "Establece un color"
 msgstr "Define uma cor"
 
 #: tfrmmainfnt.sbselectimage.caption
+msgctxt "tfrmmainfnt.sbselectimage.caption"
 msgid "Imagen"
 msgstr "Image"
 
@@ -1137,6 +1221,7 @@ msgid "Línea"
 msgstr ""
 
 #: tfrmmapeditor.action7.caption
+msgctxt "tfrmmapeditor.action7.caption"
 msgid "Elipse"
 msgstr ""
 
@@ -1509,6 +1594,18 @@ msgstr "Largura:"
 #: tfrmview.lzoom.caption
 msgid "Zoom :"
 msgstr "Zoom"
+
+#: tfrmzipfenix.bbcompress.caption
+msgid "&Comprimir fichero"
+msgstr ""
+
+#: tfrmzipfenix.caption
+msgid "Compresor de ficheros"
+msgstr ""
+
+#: tfrmzipfenix.lbzipfile.caption
+msgid "Comprimiendo fichero..."
+msgstr ""
 
 #: ufpg.strfnt
 msgid "FNT 8 bits (All)"
@@ -2242,7 +2339,37 @@ msgstr "Abra a po. traduzir.   cotenido nCopia a área de transferência.   nPé
 msgid "Archivo Guardado Correctamente"
 msgstr ""
 
+#: umainmap.lng_copycolor
+msgid "Copiar Color"
+msgstr ""
+
+#: umainmap.lng_ellipse
+msgctxt "umainmap.lng_ellipse"
+msgid "Elipse"
+msgstr ""
+
+#: umainmap.lng_fill
+msgid "Rellenar"
+msgstr ""
+
+#: umainmap.lng_line
+msgid "Linea"
+msgstr ""
+
 #: umainmap.lng_mapedit_help
 msgid "Con control pulsado y haciendo clic, puedes cambiar los colores de la paleta."
+msgstr ""
+
+#: umainmap.lng_pen
+msgctxt "umainmap.lng_pen"
+msgid "Lápiz"
+msgstr ""
+
+#: umainmap.lng_rectangle
+msgid "Rectangulo"
+msgstr ""
+
+#: umainmap.lng_triangle
+msgid "Triangulo"
 msgstr ""
 

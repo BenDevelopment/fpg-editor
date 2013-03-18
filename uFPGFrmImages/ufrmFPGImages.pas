@@ -25,7 +25,7 @@ interface
 uses
   LCLIntf, LCLType, SysUtils, Classes, Graphics, Controls, Forms,
   Buttons, ComCtrls, StdCtrls, uFPG, ExtCtrls, uinifile, Dialogs,
-  uFrmMessageBox, ulanguage,umainmap, uMAPGraphic, uFrmPalette;
+  uFrmMessageBox, uLanguage,umainmap, uMAPGraphic, uFrmPalette;
 
 type
 
@@ -170,6 +170,7 @@ begin
  frmMapEditor.scrlbxImage.Color:=panel1.Color;
  frmMapEditor.cbBackground.ButtonColor:=panel1.Color;
  frmMapEditor.ShowModal;
+ imIcon.Picture.Assign(fpg.images[fpg_index]);
  fpg.Palette:=fpg.images[fpg_index].bPalette;
  fpg.Gamuts:=fpg.images[fpg_index].Gamuts;
 end;
@@ -191,7 +192,7 @@ procedure TfrmFPGImages.bbAceptChangesClick(Sender: TObject);
 var
  j : word;
 begin
- Fpg.images[fpg_index].Assign(imIcon.Picture);
+// Fpg.images[fpg_index].Assign(imIcon.Picture.Bitmap);
  if StrToInt(edCode.Text) <> Fpg.images[fpg_index].code then
   if Fpg.CodeExists(StrToInt(edCode.Text)) then
   begin
@@ -465,8 +466,10 @@ end;
 procedure TfrmFPGImages.sbRemoveAllClick(Sender: TObject);
 begin
  if lvControlPoints.Items.Count > 0 then
+ begin
   if( feMessageBox(LNG_WARNING, LNG_SURE_DELETE_ALLPOINTS, 4, 2) = mrYes )then
    lvControlPoints.Items.Clear;
+ end;
 end;
 
 procedure TfrmFPGImages.sbChangeColorClick(Sender: TObject);

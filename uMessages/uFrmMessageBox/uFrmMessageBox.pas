@@ -25,7 +25,7 @@ interface
 
 uses
   LCLIntf, LCLType, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, StdCtrls, Buttons;
+  Dialogs, ExtCtrls, StdCtrls, Buttons ,uLanguage;
 
 type
   TfrmMessageBox = class(TForm)
@@ -83,9 +83,8 @@ begin
 
  case btType of
   0 : begin
-       bbButton1.Show;
-
-       bbButton1.Default := true;
+       bbButton2.Show;
+       bbButton2.Default := true;
       end;
   2, 3 :
       begin
@@ -103,7 +102,6 @@ begin
       begin
        bbButton1.Show;
        bbButton2.Show;
-
        case btDefault of
         1 : bbButton1.Default := true;
         2 : bbButton2.Default := true;
@@ -113,29 +111,42 @@ begin
 
  case btType of
   0 : begin
-       bbButton1.ModalResult := mrOK;
+       bbButton2.ModalResult := mrOK;
+       bbButton2.Caption:=LNG_ACCEPT;
       end;
   1 : begin
        bbButton1.ModalResult := mrOK;
        bbButton2.ModalResult := mrCancel;
+       bbButton1.Caption:= LNG_ACCEPT;
+       bbButton2.Caption:=LNG_CANCEL;
       end;
   2 : begin
        bbButton0.ModalResult := mrAbort;
        bbButton1.ModalResult := mrRetry;
        bbButton2.ModalResult := mrIgnore;
+       bbButton0.Caption:=LNG_ABORT;
+       bbButton1.Caption:=LNG_RETRY;
+       bbButton2.Caption:=LNG_IGNORE;
       end;
   3 : begin
        bbButton0.ModalResult := mrYes;
        bbButton1.ModalResult := mrNo;
        bbButton2.ModalResult := mrCancel;
+       bbButton0.Caption:=LNG_YES;
+       bbButton1.Caption:=LNG_NO;
+       bbButton2.Caption:=LNG_CANCEL;
       end;
   4 : begin
        bbButton1.ModalResult := mrYes;
        bbButton2.ModalResult := mrNo;
+       bbButton1.Caption:=LNG_YES;
+       bbButton2.Caption:=LNG_NO;
       end;
   5 : begin
        bbButton1.ModalResult := mrRetry;
        bbButton2.ModalResult := mrCancel;
+       bbButton1.Caption:=LNG_RETRY;
+       bbButton2.Caption:=LNG_CANCEL;
       end;
  end;
 end;

@@ -1216,8 +1216,6 @@ begin
  if FileExistsUTF8(SaveDialog.FileName) { *Converted from FileExists*  } then
  begin
 
-  frmMessageBox.bbButton1.Caption:=LNG_YES;
-  frmMessageBox.bbButton2.Caption:=LNG_NO;
   if feMessageBox(LNG_WARNING, LNG_EXISTS_FILE_OVERWRITE, 4, 2) <> mrYes then
    Exit;
  end;

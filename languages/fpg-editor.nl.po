@@ -1,5 +1,16 @@
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8"
+msgstr ""
+"PO-Revision-Date: 2013-03-17 17:12+0100\n"
+"Last-Translator: Pieter Kuperus <dyko.kuperus1@home.nl>\n"
+"Language-Team: debian wheezy\n"
+"Language: nl\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.5\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"MIME-Version: 1.0\n"
 
 #: pfpgeditor.lng_no_enough_memory
 msgid "Error, no se encuentran suficientes recursos para iniciar el programa. Salga de uno o más programas si desea ejecutar este programa."
@@ -10,114 +21,120 @@ msgid "Ok"
 msgstr "Ok"
 
 #: tfrmabout.caption
-msgctxt "TFRMABOUT.CAPTION"
+msgctxt "tfrmabout.caption"
 msgid "Acerca de ..."
-msgstr "Informazioni su ..."
+msgstr "Over..."
 
 #: tfrmabout.tscharacteristic.caption
 msgctxt "tfrmabout.tscharacteristic.caption"
 msgid "Caracteristicas"
-msgstr "Caratteristiche"
+msgstr "Karakteristieken"
 
 #: tfrmabout.tscredits.caption
 msgctxt "tfrmabout.tscredits.caption"
 msgid "Creditos"
-msgstr "crediti"
+msgstr "Credits"
 
 #: tfrmabout.tsdescription.caption
 msgid "Descripcion"
-msgstr "Descrizione"
+msgstr "Omschrijving"
 
 #: tfrmcfg.caption
 msgid "Configuración del generador de fuentes"
-msgstr "Impostazione Font Generator"
+msgstr "Font Generator Configuratie"
 
 #: tfrmcfg.gbpaleta.caption
 msgctxt "tfrmcfg.gbpaleta.caption"
 msgid "Paleta de 256 colores"
-msgstr "tavolozza di 256 colori"
+msgstr "256 Kleuren palet"
 
 #: tfrmcfg.rbfnt2pal.caption
 msgid "Calcular paleta optimizada a los colores de la fuente"
-msgstr "Calcola tavolozza ottimizzata per i colori dei caratteri"
+msgstr "Genereer optimaal palet voor de bron"
 
 #: tfrmcfg.rbpal2fnt.caption
 msgid "Adaptar fuente a la paleta cargada"
-msgstr "Regola palette carattere caricato"
+msgstr "Pas het palet aan het geladen bestand"
 
 #: tfrmcfg.sbaccept.caption
 msgctxt "tfrmcfg.sbaccept.caption"
 msgid "&Aceptar"
-msgstr "&OK"
+msgstr "Akkoord"
 
 #: tfrmcfg.sbcancel.caption
 msgctxt "tfrmcfg.sbcancel.caption"
 msgid "&Cancelar"
-msgstr "&Annulla"
+msgstr "Annuleren"
 
 #: tfrmcfg.sbloadpal.caption
 msgid "&Cargar paleta"
-msgstr "&Load Palette"
+msgstr "&Palet Laden"
 
 #: tfrmcfg.sbviewpal.caption
 msgid "&Ver paleta"
-msgstr "&Visualizza tavolozza"
+msgstr "&Palet Weergeven"
 
 #: tfrmconfig.bbacept.caption
 msgctxt "TFRMCONFIG.BBACEPT.CAPTION"
 msgid "&Aceptar"
-msgstr "&OK"
+msgstr "Akkoord"
 
 #: tfrmconfig.bbcancel.caption
 msgctxt "TFRMCONFIG.BBCANCEL.CAPTION"
 msgid "&Cancelar"
-msgstr "&Annulla"
+msgstr "Annuleren"
 
 #: tfrmconfig.caption
 msgid "Configuración de FPG EDIT"
-msgstr "Impostazione FPG EDIT"
+msgstr "FPGEDIT Configuren"
 
 #: tfrmconfig.cbalfanegro.caption
 msgid "50% alfa a transparente"
-msgstr "50% alfa trasparente"
+msgstr "50% alpha transparantie"
 
 #: tfrmconfig.cbautoloadimages.caption
 msgid "Auto carga de imágenes"
-msgstr "Auto Load Images"
+msgstr "Afbeeldingen automatisch laden"
 
 #: tfrmconfig.cbautoloadremove.caption
+#, fuzzy
+#| msgid "cbAutoloadRemove"
 msgid "Auto carga al borrar"
-msgstr "Carico Auto eliminando"
+msgstr "Verwijder Autoload cb"
 
 #: tfrmconfig.cbflat.caption
 msgid "Botones tipo \"flat\""
-msgstr "Tipo di tasti \" flat  \""
+msgstr "Button type \"flat\""
 
 #: tfrmconfig.cbsplash.caption
 msgctxt "tfrmconfig.cbsplash.caption"
 msgid "Mostrar pantalla de inicio"
-msgstr "Mostra la schermata iniziale"
+msgstr "Start scherm weergeven"
 
 #: tfrmconfig.gbenviroment.caption
+#, fuzzy
+#| msgid "gbEnviroment"
 msgid "Global"
-msgstr "globale"
+msgstr "Omgeving gb"
 
 #: tfrmconfig.gbimageedit.caption
 msgid " Editor de imágenes "
-msgstr "Image Editor"
+msgstr "Afbeeldings Editor"
 
 #: tfrmconfig.gblanguaje.caption
 msgctxt "tfrmconfig.gblanguaje.caption"
 msgid "Lenguaje"
-msgstr "Lingua"
+msgstr "Taal voorkeuren"
 
 #: tfrmconfig.gbtimeanimate.caption
 msgid " Tiempo entre animación "
-msgstr "Ritardo tra animazione"
+msgstr "Tijd tussen animaties frames"
 
 #: tfrmconfig.groupbox1.caption
+#, fuzzy
+#| msgid "Viewer Background Colors"
 msgid "Colores de fondo"
-msgstr "Sfondo colori"
+msgstr "Weergave achtergrond kleuren"
 
 #: tfrmconfig.label1.caption
 msgctxt "tfrmconfig.label1.caption"
@@ -126,26 +143,26 @@ msgstr "FPG"
 
 #: tfrmconfig.label2.caption
 msgid "Files"
-msgstr "File"
+msgstr "Bestanden"
 
 #: tfrmconfig.lbmiliseconds.caption
 msgctxt "tfrmconfig.lbmiliseconds.caption"
 msgid "Milisegundos"
-msgstr "millisecondi"
+msgstr "Milliseconds"
 
 #: tfrmconfig.lbpixels.caption
 msgctxt "tfrmconfig.lbpixels.caption"
 msgid "Pixels"
-msgstr "Pixel"
+msgstr "Pixels"
 
 #: tfrmconfig.lbsizeoficon.caption
 msgid "Tamaño de los iconos:"
-msgstr "Icona Size"
+msgstr "Icoon grootte:"
 
 #: tfrmconfig.tsenviroment.caption
 msgctxt "tfrmconfig.tsenviroment.caption"
 msgid "Entorno"
-msgstr "Ambiente"
+msgstr "Omgeving"
 
 #: tfrmfntview.caption
 msgid "Visor de datos FNT"
@@ -174,7 +191,7 @@ msgstr ""
 #: tfrmfntview.groupbox6.caption
 msgctxt "tfrmfntview.groupbox6.caption"
 msgid "Imagen"
-msgstr "Immagine"
+msgstr "Afbeelding"
 
 #: tfrmfntview.label1.caption
 msgid "Magic"
@@ -230,281 +247,285 @@ msgid "File Offset"
 msgstr ""
 
 #: tfrmfpgcompare.button1.caption
-msgctxt "TFRMFPGCOMPARE.BUTTON1.CAPTION"
+msgctxt "tfrmfpgcompare.button1.caption"
 msgid ".."
 msgstr ".."
 
 #: tfrmfpgcompare.button2.caption
-msgctxt "TFRMFPGCOMPARE.BUTTON2.CAPTION"
+msgctxt "tfrmfpgcompare.button2.caption"
 msgid ".."
 msgstr ".."
 
 #: tfrmfpgcompare.button3.caption
 msgid "Comparar"
-msgstr "Confronta"
+msgstr "Vergelijk"
 
 #: tfrmfpgcompare.caption
 msgid "Comparar FPGs"
-msgstr "Confronta FPGS"
+msgstr "Vergelijk FPG inhoud"
 
 #: tfrmfpgimages.bbaceptchanges.caption
-msgctxt "TFRMFPGIMAGES.BBACEPTCHANGES.CAPTION"
+msgctxt "tfrmfpgimages.bbaceptchanges.caption"
 msgid "&Aceptar"
-msgstr "&OK"
+msgstr "Akkoord"
 
 #: tfrmfpgimages.bbcancelchanges.caption
-msgctxt "TFRMFPGIMAGES.BBCANCELCHANGES.CAPTION"
+msgctxt "tfrmfpgimages.bbcancelchanges.caption"
 msgid "&Cancelar"
-msgstr "&Annulla"
+msgstr "Annuleren"
 
 #: tfrmfpgimages.bmodify.caption
 msgid "Modificar datos de imagen"
-msgstr "Modifica i dati di immagine"
+msgstr "Bewerk afbeeldingseigenschappen"
 
 #: tfrmfpgimages.caption
-msgctxt "TFRMFPGIMAGES.CAPTION"
+msgctxt "tfrmfpgimages.caption"
 msgid "Editar propiedades de la imagen"
-msgstr "Modifica Proprietà immagine"
+msgstr "Bewerk eigenschappen van de afbeelding"
 
 #: tfrmfpgimages.gbcode.caption
+#, fuzzy
+#| msgid " Código "
 msgctxt "tfrmfpgimages.gbcode.caption"
 msgid "Código"
-msgstr "Codice"
+msgstr "Code"
 
 #: tfrmfpgimages.gbfname.caption
 msgid "Nombre Archivo"
-msgstr "Nome del file"
+msgstr ""
 
 #: tfrmfpgimages.gbname.caption
+#, fuzzy
+#| msgid " Nombre "
 msgctxt "tfrmfpgimages.gbname.caption"
 msgid "Nombre"
-msgstr "Nome"
+msgstr "Naam"
 
 #: tfrmfpgimages.groupbox5.caption
 msgid " X "
-msgstr "X"
+msgstr ""
 
 #: tfrmfpgimages.groupbox6.caption
 msgid " Y "
-msgstr "Y"
+msgstr ""
 
 #: tfrmfpgimages.lbheight.caption
 msgctxt "tfrmfpgimages.lbheight.caption"
 msgid "Alto"
-msgstr "Alto"
+msgstr ""
 
 #: tfrmfpgimages.lbnumcp.caption
 msgid "Puntos Ctrl"
-msgstr "Punti Ctrl"
+msgstr ""
 
 #: tfrmfpgimages.lbwidth.caption
 msgctxt "tfrmfpgimages.lbwidth.caption"
 msgid "Ancho"
-msgstr "Larghezza"
+msgstr ""
 
 #: tfrmfpgimages.lb_ctrl_points.caption
 msgid "Puntos de control:"
-msgstr "Punti di controllo"
+msgstr "Controlepunten"
 
 #: tfrmfpgimages.lb_heigth.caption
 msgid "Alto:"
-msgstr "Alto"
+msgstr "Breedte"
 
 #: tfrmfpgimages.lb_width.caption
 msgctxt "tfrmfpgimages.lb_width.caption"
 msgid "Ancho:"
-msgstr "Larghezza:"
+msgstr "Hoogte"
 
 #: tfrmfpgimages.lvcontrolpoints.columns[0].caption
-msgctxt "TFRMFPGIMAGES.LVCONTROLPOINTS.COLUMNS[0].CAPTION"
+msgctxt "tfrmfpgimages.lvcontrolpoints.columns[0].caption"
 msgid "Número"
-msgstr "Numero"
+msgstr "Nummer"
 
 #: tfrmfpgimages.lvcontrolpoints.columns[1].caption
 msgid "X"
-msgstr "X"
+msgstr ""
 
 #: tfrmfpgimages.lvcontrolpoints.columns[2].caption
 msgid "Y"
-msgstr "Y"
+msgstr ""
 
 #: tfrmfpgimages.sbadd.hint
-msgctxt "TFRMFPGIMAGES.SBADD.HINT"
+msgctxt "tfrmfpgimages.sbadd.hint"
 msgid "Añadir punto de control"
-msgstr "Aggiungi punto di controllo"
+msgstr "Controlepunt toevoegen"
 
 #: tfrmfpgimages.sbaddpoint.caption
-msgctxt "TFRMFPGIMAGES.SBADDPOINT.CAPTION"
+msgctxt "tfrmfpgimages.sbaddpoint.caption"
 msgid "Añadir punto"
-msgstr "Aggiungi punto"
+msgstr "Voeg punt toe"
 
 #: tfrmfpgimages.sbchangecolor.caption
-msgctxt "TFRMFPGIMAGES.SBCHANGECOLOR.CAPTION"
+msgctxt "tfrmfpgimages.sbchangecolor.caption"
 msgid "Cambiar color de puntos"
-msgstr "Cambia colore di punti"
+msgstr "Verander kleur van het controlepunt"
 
 #: tfrmfpgimages.sbdelete.hint
-msgctxt "TFRMFPGIMAGES.SBDELETE.HINT"
+msgctxt "tfrmfpgimages.sbdelete.hint"
 msgid "Eliminar punto de control"
-msgstr "Elimina punto di controllo"
+msgstr "Verwijder controlepunt"
 
 #: tfrmfpgimages.sbedit.hint
 msgid "Editar punto de control"
-msgstr "Modifica checkpoint"
+msgstr "Bewerk controlepunten"
 
 #: tfrmfpgimages.sbimageselect.caption
-msgctxt "TFRMFPGIMAGES.SBIMAGESELECT.CAPTION"
+msgctxt "tfrmfpgimages.sbimageselect.caption"
 msgid "Poner puntos en imagen"
-msgstr "Mettere i punti"
+msgstr "Plaats punt in afbeelding"
 
 #: tfrmfpgimages.sbloadcp.caption
-msgctxt "TFRMFPGIMAGES.SBLOADCP.CAPTION"
+msgctxt "tfrmfpgimages.sbloadcp.caption"
 msgid "Cargar puntos de control"
-msgstr "punti di controllo di carico"
+msgstr "Controle punten laden"
 
 #: tfrmfpgimages.sbputcenter.caption
 msgid "Poner Centro"
-msgstr "Imposta Center"
+msgstr "Plaats middelpunt"
 
 #: tfrmfpgimages.sbremoveall.caption
-msgctxt "TFRMFPGIMAGES.SBREMOVEALL.CAPTION"
+msgctxt "tfrmfpgimages.sbremoveall.caption"
 msgid "Borrar todos los puntos"
-msgstr "Cancella tutti gli elementi"
+msgstr "Verwijder alle punten"
 
 #: tfrmfpgimages.sbsetcenter.caption
-msgctxt "TFRMFPGIMAGES.SBSETCENTER.CAPTION"
+msgctxt "tfrmfpgimages.sbsetcenter.caption"
 msgid "Poner centro real"
-msgstr "Metti vero e proprio centro"
+msgstr "Put real center"
 
 #: tfrmfpgimages.sbsetcontrolpoint.caption
-msgctxt "TFRMFPGIMAGES.SBSETCONTROLPOINT.CAPTION"
+msgctxt "tfrmfpgimages.sbsetcontrolpoint.caption"
 msgid "Añadir punto"
-msgstr "Aggiungi punto"
+msgstr "Voeg punt toe"
 
 #: tfrmfpgimages.sbviewcontrolpoints.caption
-msgctxt "TFRMFPGIMAGES.SBVIEWCONTROLPOINTS.CAPTION"
+msgctxt "tfrmfpgimages.sbviewcontrolpoints.caption"
 msgid "Ver puntos de la imagen"
-msgstr "Visualizza punti immagine"
+msgstr "Punten in afbeelding weergeven"
 
 #: tfrmfpgimages.tscontrolpoints.caption
 msgid "Puntos de Control"
-msgstr "Punti di controllo"
+msgstr "Controlepunten"
 
 #: tfrmfpgimages.tsproperties.caption
 msgctxt "tfrmfpgimages.tsproperties.caption"
 msgid "Propiedades"
-msgstr "Proprietà"
+msgstr "Eigenschappen"
 
 #: tfrmlangtranslator.aabrir.caption
-msgctxt "TFRMLANGTRANSLATOR.AABRIR.CAPTION"
+msgctxt "tfrmlangtranslator.aabrir.caption"
 msgid "Abrir"
-msgstr "Apri"
+msgstr "Openen"
 
 #: tfrmlangtranslator.acopiar.caption
-msgctxt "TFRMLANGTRANSLATOR.ACOPIAR.CAPTION"
+msgctxt "tfrmlangtranslator.acopiar.caption"
 msgid "Copiar"
-msgstr "Copia"
+msgstr "Kopiëren"
 
 #: tfrmlangtranslator.aguardar.caption
-msgctxt "TFRMLANGTRANSLATOR.AGUARDAR.CAPTION"
+msgctxt "tfrmlangtranslator.aguardar.caption"
 msgid "Guardar"
-msgstr "Salva"
+msgstr "Opslaan"
 
 #: tfrmlangtranslator.apegar.caption
-msgctxt "TFRMLANGTRANSLATOR.APEGAR.CAPTION"
+msgctxt "tfrmlangtranslator.apegar.caption"
 msgid "Pegar"
-msgstr "Incolla"
+msgstr "Plakken"
 
 #: tfrmlangtranslator.aunir.caption
-msgctxt "TFRMLANGTRANSLATOR.AUNIR.CAPTION"
+msgctxt "tfrmlangtranslator.aunir.caption"
 msgid "Unir"
-msgstr "Merge"
+msgstr "Samenvoegen"
 
 #: tfrmlangtranslator.button1.caption
-msgctxt "TFRMLANGTRANSLATOR.BUTTON1.CAPTION"
+msgctxt "tfrmlangtranslator.button1.caption"
 msgid "Ayuda"
-msgstr "Aiuto"
+msgstr "Help"
 
 #: tfrmlangtranslator.button2.caption
-msgctxt "TFRMLANGTRANSLATOR.BUTTON2.CAPTION"
+msgctxt "tfrmlangtranslator.button2.caption"
 msgid "Unir"
-msgstr "Merge"
+msgstr "Samenvoegen"
 
 #: tfrmlangtranslator.button3.caption
-msgctxt "TFRMLANGTRANSLATOR.BUTTON3.CAPTION"
+msgctxt "tfrmlangtranslator.button3.caption"
 msgid "Guardar"
-msgstr "Salva"
+msgstr "Opslaan"
 
 #: tfrmlangtranslator.caption
 msgctxt "tfrmlangtranslator.caption"
 msgid "Traductor de Idiomas"
-msgstr "Traduttore lingua"
+msgstr "Vertaler"
 
 #: tfrmlangtranslator.edit1.hint
 msgctxt "tfrmlangtranslator.edit1.hint"
 msgid "http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes"
-msgstr "http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes"
+msgstr ""
 
 #: tfrmlangtranslator.edit1.text
-msgctxt "TFRMLANGTRANSLATOR.EDIT1.TEXT"
+msgctxt "tfrmlangtranslator.edit1.text"
 msgid "en"
 msgstr "in"
 
 #: tfrmlangtranslator.groupbox1.caption
-msgctxt "TFRMLANGTRANSLATOR.GROUPBOX1.CAPTION"
+msgctxt "tfrmlangtranslator.groupbox1.caption"
 msgid "Archivo Original"
-msgstr "file originale"
+msgstr "Oorspronkelijk bestand"
 
 #: tfrmlangtranslator.groupbox2.caption
-msgctxt "TFRMLANGTRANSLATOR.GROUPBOX2.CAPTION"
+msgctxt "tfrmlangtranslator.groupbox2.caption"
 msgid "Archivo Traducido"
-msgstr "Il file tradotto"
+msgstr "Bestand vertaald"
 
 #: tfrmlangtranslator.label1.caption
-msgctxt "TFRMLANGTRANSLATOR.LABEL1.CAPTION"
+msgctxt "tfrmlangtranslator.label1.caption"
 msgid "Siglas lng:"
-msgstr "lng\" Acronim"
+msgstr "lng Acronyms"
 
 #: tfrmlangtranslator.label1.hint
-msgctxt "TFRMLANGTRANSLATOR.LABEL1.HINT"
+msgctxt "tfrmlangtranslator.label1.hint"
 msgid "http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes"
-msgstr "http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes"
+msgstr ""
 
 #: tfrmlangtranslator.menuitem1.caption
-msgctxt "TFRMLANGTRANSLATOR.MENUITEM1.CAPTION"
+msgctxt "tfrmlangtranslator.menuitem1.caption"
 msgid "Archivo"
-msgstr "File"
+msgstr "Bestand"
 
 #: tfrmlangtranslator.menuitem4.caption
-msgctxt "TFRMLANGTRANSLATOR.MENUITEM4.CAPTION"
+msgctxt "tfrmlangtranslator.menuitem4.caption"
 msgid "Salir"
-msgstr "Esci"
+msgstr "Afsluiten"
 
 #: tfrmlangtranslator.menuitem5.caption
-msgctxt "TFRMLANGTRANSLATOR.MENUITEM5.CAPTION"
+msgctxt "tfrmlangtranslator.menuitem5.caption"
 msgid "Acciones"
-msgstr "Azioni"
+msgstr "Acties"
 
 #: tfrmlanguageconverter.bcerrar.caption
-msgctxt "TFRMLANGUAGECONVERTER.BCERRAR.CAPTION"
+msgctxt "tfrmlanguageconverter.bcerrar.caption"
 msgid "&Cerrar"
-msgstr "&Chiudi"
+msgstr "Sluiten"
 
 #: tfrmlanguageconverter.bconvertir.caption
 msgid "C&onvertir"
-msgstr "C &onvert"
+msgstr "C & onverteer"
 
 #: tfrmlanguageconverter.caption
 msgid "Conversor de ficheros de idioma"
-msgstr "convertitore di file di lingua"
+msgstr "Taal bestanden Converter"
 
 #: tfrmlanguageconverter.lblficheroantiguo.caption
 msgid "Archivo Antiguo:"
-msgstr "Old file:"
+msgstr "Oud bestand:"
 
 #: tfrmlanguageconverter.lblficheronuevo.caption
 msgid "Archivo Nuevo:"
-msgstr "Nuovo file"
+msgstr "Nieuw bestand:"
 
 #: tfrmlanguageconverter.sbficheroantiguo.caption
 msgctxt "tfrmlanguageconverter.sbficheroantiguo.caption"
@@ -512,29 +533,29 @@ msgid ".."
 msgstr ".."
 
 #: tfrmlanguageconverter.sbficheronuevo.caption
-msgctxt "TFRMLANGUAGECONVERTER.SBFICHERONUEVO.CAPTION"
+msgctxt "tfrmlanguageconverter.sbficheronuevo.caption"
 msgid ".."
 msgstr ".."
 
 #: tfrmmain.aabout.caption
 msgctxt "tfrmmain.aabout.caption"
 msgid "Acerca de ..."
-msgstr "Informazioni su ..."
+msgstr "Over ..."
 
 #: tfrmmain.aaddimg.caption
 msgctxt "tfrmmain.aaddimg.caption"
 msgid "Añadir"
-msgstr "Aggiungi"
+msgstr "Toevoegen"
 
 #: tfrmmain.aanimfpg.caption
 msgctxt "TFRMMAIN.AANIMFPG.CAPTION"
 msgid "Animar"
-msgstr "Anima"
+msgstr "Animeer"
 
 #: tfrmmain.aanimimgs.caption
 msgctxt "tfrmmain.aanimimgs.caption"
 msgid "Animar"
-msgstr "Anima"
+msgstr "Animeer"
 
 #: tfrmmain.abennu.caption
 msgid "[BennuGD] http://bennugd.org/"
@@ -542,128 +563,129 @@ msgstr "[BennuGD] http://bennugd.org/"
 
 #: tfrmmain.acdiv.caption
 msgid "[ CDIV ] http://cdiv.sourceforge.net/"
-msgstr "[CDIV] http://cdiv.sourceforge.net/"
+msgstr "[ CDIV ] http://cdiv.sourceforge.net/"
 
 #: tfrmmain.aclose.caption
 msgctxt "tfrmmain.aclose.caption"
 msgid "&Cerrar"
-msgstr "&Chiudi"
+msgstr "Sluiten"
 
 #: tfrmmain.aconfig.caption
 msgid "Configuración"
-msgstr "Impostazioni"
+msgstr "Configuratie"
 
 #: tfrmmain.acopyimg.caption
 msgid "Copiar Imagen"
-msgstr "Copia immagine"
+msgstr "Afbeelding kopiëren"
 
 #: tfrmmain.action2.caption
 msgid "Action2"
-msgstr "azione2"
+msgstr "Action 2"
 
 #: tfrmmain.adelete.caption
 msgctxt "tfrmmain.adelete.caption"
 msgid "Eliminar"
-msgstr "Elimina"
+msgstr "Verwijder"
 
 #: tfrmmain.adeleteselimg.caption
 msgctxt "TFRMMAIN.ADELETESELIMG.CAPTION"
 msgid "Eliminar"
-msgstr "Elimina"
+msgstr "Verwijder"
 
 #: tfrmmain.adiv2.caption
 msgid "[ DIV2 ] http://www.div-arena.com/"
-msgstr "[DIV2] http://www.div-arena.com/"
+msgstr "[ DIV2 ] http://www.div-arena.com/"
 
 #: tfrmmain.aeditsel.caption
 msgctxt "tfrmmain.aeditsel.caption"
 msgid "Editar"
-msgstr "Modifica"
+msgstr "Bewerk"
 
 #: tfrmmain.aeditselimg.caption
 msgctxt "TFRMMAIN.AEDITSELIMG.CAPTION"
 msgid "Editar"
-msgstr "Modifica"
+msgstr "Bewerk"
 
 #: tfrmmain.aempty.caption
 msgctxt "tfrmmain.aempty.caption"
 msgid "Vaciar portapapeles"
-msgstr "Appunti vuoto"
+msgstr "Klembord leegmaken"
 
 #: tfrmmain.aexit.caption
 msgctxt "tfrmmain.aexit.caption"
 msgid "Salir"
-msgstr "Esci"
+msgstr "Einde"
 
 #: tfrmmain.aexport.caption
 msgctxt "TFRMMAIN.AEXPORT.CAPTION"
 msgid "Exportar"
-msgstr "Esporta"
+msgstr "Exporteren"
 
 #: tfrmmain.afenix.caption
 msgid "[ FENIX ] http://fenix.divsite.net/"
-msgstr "[Phoenix] http://fenix.divsite.net/"
+msgstr "[ FENIX ] http://fenix.divsite.net/"
 
 #: tfrmmain.afntmaker.caption
 msgid "&Generador de Fuentes"
-msgstr "&Generator Fonti"
+msgstr "Font Generator"
 
 #: tfrmmain.afpg1.caption
 msgid "1 Bit"
-msgstr "1 bit"
+msgstr "1 Bit"
 
 #: tfrmmain.afpg16c.caption
 msgid "16bits CDIV"
-msgstr "16bits CDIV"
+msgstr "16 bits CDIV"
 
 #: tfrmmain.afpg16f.caption
 msgid "16 bits Fenix"
-msgstr "Fenix ​​16 bit"
+msgstr "16 bits Fenix"
 
 #: tfrmmain.afpg24.caption
 msgid "24 bits"
-msgstr "24 bit"
+msgstr "24 bits"
 
 #: tfrmmain.afpg32.caption
 msgid "32 bits"
-msgstr "32 bit"
+msgstr "32 bits"
 
 #: tfrmmain.afpg8.caption
 msgid "8 bits"
-msgstr "8 bit"
+msgstr "8 bits"
 
 #: tfrmmain.afpgpalette.caption
 msgctxt "tfrmmain.afpgpalette.caption"
 msgid "Paleta de colores"
-msgstr "Tavolozza dei colori"
+msgstr "Kleuren palet"
 
 #: tfrmmain.agemix.caption
+#| msgid "http://www.gemixstudio.com"
 msgid "[GEMIX] http://www.gemixstudio.com"
-msgstr "[Gemix] http://www.gemixstudio.com"
+msgstr "[GEMIX] http://www.gemixstudio.com"
 
 #: tfrmmain.ainvertsel.caption
 msgctxt "tfrmmain.ainvertsel.caption"
 msgid "Invertir selección"
-msgstr "Inverti selezione"
+msgstr "Selectie omkeren"
 
 #: tfrmmain.ainvertselimgs.caption
 msgctxt "TFRMMAIN.AINVERTSELIMGS.CAPTION"
 msgid "Invertir selección"
-msgstr "Inverti selezione"
+msgstr "Selectie omkeren"
 
 #: tfrmmain.alngconver.caption
 msgid "Convertidor de lng"
-msgstr "lng Converter"
+msgstr "Vertaler"
 
 #: tfrmmain.aopenimg.caption
 msgctxt "TFRMMAIN.AOPENIMG.CAPTION"
 msgid "Abrir"
-msgstr "Apri"
+msgstr "Open"
 
 #: tfrmmain.apasteimg.caption
 msgctxt "tfrmmain.apasteimg.caption"
 msgid "Pegar imagen"
-msgstr "Incolla Immagine"
+msgstr "Afbeelding plakken"
 
 #: tfrmmain.aprgeditor.caption
 msgctxt "tfrmmain.aprgeditor.caption"
@@ -673,21 +695,21 @@ msgstr ""
 #: tfrmmain.areload.caption
 msgctxt "tfrmmain.areload.caption"
 msgid "Recargar"
-msgstr "Ricarica"
+msgstr "Herladen"
 
 #: tfrmmain.aselectall.caption
 msgctxt "tfrmmain.aselectall.caption"
 msgid "Seleccionar todo"
-msgstr "Seleziona tutto"
+msgstr "Alles selecteren"
 
 #: tfrmmain.aselectallimgs.caption
 msgctxt "TFRMMAIN.ASELECTALLIMGS.CAPTION"
 msgid "Seleccionar todo"
-msgstr "Seleziona tutto"
+msgstr "Alles selecteren"
 
 #: tfrmmain.aziptool.caption
 msgid "&Herramienta de Compresión"
-msgstr "&strumento di compressione"
+msgstr "Compressie hulpgereedschap"
 
 #: tfrmmain.caption
 msgid "FPG Editor"
@@ -695,64 +717,68 @@ msgstr "FPG Editor"
 
 #: tfrmmain.cbtipofpg.text
 msgid "FPG 32 bits (BennuGD )"
-msgstr "FPG 32 bit (BennuGD)"
+msgstr "FPG 32 bits (BennuGD )"
 
 #: tfrmmain.gbfpg.caption
 msgid " FPG (Ficheros de gráficos) "
-msgstr "FPG (file grafici)"
+msgstr " FPG (Graphics File) "
 
 #: tfrmmain.gbimages.caption
 msgid " Imagenes "
-msgstr "Immagini"
+msgstr "Afbeeldingen"
 
 #: tfrmmain.lvfpg.columns[0].caption
-msgctxt "TFRMMAIN.LVFPG.COLUMNS[0].CAPTION"
+msgctxt "tfrmmain.lvfpg.columns[0].caption"
 msgid "Código"
-msgstr "Codice"
+msgstr "Code"
 
 #: tfrmmain.lvfpg.columns[1].caption
-msgctxt "TFRMMAIN.LVFPG.COLUMNS[1].CAPTION"
+msgctxt "tfrmmain.lvfpg.columns[1].caption"
 msgid "Nombre de Archivo"
-msgstr "Nome del file"
+msgstr "Bestandsnaam"
 
 #: tfrmmain.lvfpg.columns[2].caption
-msgctxt "TFRMMAIN.LVFPG.COLUMNS[2].CAPTION"
+msgctxt "tfrmmain.lvfpg.columns[2].caption"
 msgid "Nombre"
-msgstr "Nome"
+msgstr "Naam"
 
 #: tfrmmain.lvfpg.columns[3].caption
-msgctxt "TFRMMAIN.LVFPG.COLUMNS[3].CAPTION"
+msgctxt "tfrmmain.lvfpg.columns[3].caption"
 msgid "Ancho"
-msgstr "Larghezza"
+msgstr "Breedte"
 
 #: tfrmmain.lvfpg.columns[4].caption
-msgctxt "TFRMMAIN.LVFPG.COLUMNS[4].CAPTION"
+msgctxt "tfrmmain.lvfpg.columns[4].caption"
 msgid "Alto"
-msgstr "Alto"
+msgstr "Hoogte"
 
 #: tfrmmain.lvfpg.columns[5].caption
-msgctxt "TFRMMAIN.LVFPG.COLUMNS[5].CAPTION"
+msgctxt "tfrmmain.lvfpg.columns[5].caption"
 msgid "Puntos de control"
-msgstr "Punti di controllo"
+msgstr "Controlepunten"
 
 #: tfrmmain.lvimages.columns[0].caption
+#| msgid "name"
 msgctxt "tfrmmain.lvimages.columns[0].caption"
 msgid "Nombre"
-msgstr "Nome"
+msgstr "naam"
 
 #: tfrmmain.lvimages.columns[1].caption
+#| msgid "width"
 msgctxt "tfrmmain.lvimages.columns[1].caption"
 msgid "Ancho"
-msgstr "Larghezza"
+msgstr "breedte"
 
 #: tfrmmain.lvimages.columns[2].caption
+#| msgid "height"
 msgctxt "tfrmmain.lvimages.columns[2].caption"
 msgid "Alto"
-msgstr "Alto"
+msgstr "hoogte"
 
 #: tfrmmain.lvimages.columns[3].caption
+#| msgid "bpp"
 msgid "Bits Por Pixel"
-msgstr "bit per pixel"
+msgstr "bpp"
 
 #: tfrmmain.menuitem4.caption
 msgctxt "TFRMMAIN.MENUITEM4.CAPTION"
@@ -761,24 +787,24 @@ msgstr "-"
 
 #: tfrmmain.miaddimgs.caption
 msgid "Añadir selección"
-msgstr "Aggiungi selezione"
+msgstr "Toevoegen aan selectie"
 
 #: tfrmmain.miconvert.caption
 msgid "Convertir a"
-msgstr "Converti"
+msgstr "Omzetten naar"
 
 #: tfrmmain.mideletesel.caption
 msgid "Eliminar selección"
-msgstr "Rimuovi selezione"
+msgstr "Van selectie verwijderen"
 
 #: tfrmmain.mieditsel.caption
 msgctxt "tfrmmain.mieditsel.caption"
 msgid "Editar selección"
-msgstr "Modifica selezione"
+msgstr "Selectie bewerken"
 
 #: tfrmmain.mieditselimg.caption
 msgid "Editar seleccion"
-msgstr "Modifica selezione"
+msgstr "Selectie bewerken"
 
 #: tfrmmain.mifpg.caption
 msgctxt "TFRMMAIN.MIFPG.CAPTION"
@@ -788,62 +814,64 @@ msgstr "FPG"
 #: tfrmmain.mifpgdetails.caption
 msgctxt "tfrmmain.mifpgdetails.caption"
 msgid "Detalles"
-msgstr "Dettagli"
+msgstr "Details"
 
 #: tfrmmain.mifpgimages.caption
 msgctxt "tfrmmain.mifpgimages.caption"
 msgid "Imágenes"
-msgstr "Immagini"
+msgstr "Afbeeldingen"
 
 #: tfrmmain.mifpglist.caption
 msgctxt "tfrmmain.mifpglist.caption"
 msgid "Lista"
-msgstr "Lista"
+msgstr "Lijst"
 
 #: tfrmmain.mihelp.caption
+#| msgid "Help"
 msgctxt "tfrmmain.mihelp.caption"
 msgid "Ayuda"
-msgstr "Aiuto"
+msgstr "Help"
 
 #: tfrmmain.mihideshowdirs.caption
 msgctxt "tfrmmain.mihideshowdirs.caption"
 msgid "Ocultar/Mostrar directorios"
-msgstr "Mostra / Nascondi le directory"
+msgstr "Mappen Verbergen / Weergeven"
 
 #: tfrmmain.miimages.caption
+#| msgid "Images"
 msgctxt "tfrmmain.miimages.caption"
 msgid "Imágenes"
-msgstr "Immagini"
+msgstr "Afbeeldingen"
 
 #: tfrmmain.miimgdetails.caption
 msgctxt "TFRMMAIN.MIIMGDETAILS.CAPTION"
 msgid "Detalles"
-msgstr "Dettagli"
+msgstr "Details"
 
 #: tfrmmain.miimgimages.caption
 msgctxt "TFRMMAIN.MIIMGIMAGES.CAPTION"
 msgid "Imágenes"
-msgstr "Immagini"
+msgstr "Afbeeldingen"
 
 #: tfrmmain.miimglist.caption
 msgctxt "TFRMMAIN.MIIMGLIST.CAPTION"
 msgid "Lista"
-msgstr "Lista"
+msgstr "Lijst"
 
 #: tfrmmain.milangtranslator.caption
 msgctxt "tfrmmain.milangtranslator.caption"
 msgid "Traductor de Idiomas"
-msgstr "Traduttore lingua"
+msgstr "Vertaler"
 
 #: tfrmmain.minew.caption
 msgctxt "tfrmmain.minew.caption"
 msgid "Nuevo"
-msgstr "Nuovo"
+msgstr "Nieuw"
 
 #: tfrmmain.miopen.caption
 msgctxt "TFRMMAIN.MIOPEN.CAPTION"
 msgid "Abrir"
-msgstr "Apri"
+msgstr "Openen"
 
 #: tfrmmain.miseparator1.caption
 msgctxt "TFRMMAIN.MISEPARATOR1.CAPTION"
@@ -902,26 +930,27 @@ msgstr "-"
 
 #: tfrmmain.mishowhideuppanel.caption
 msgid "Mostrar/Ocultar panel superior"
-msgstr "Mostra / Nascondi pannello superiore"
+msgstr "Bovenpaneel Weergeven / Verbergen"
 
 #: tfrmmain.mitools.caption
+#| msgid "Tools"
 msgctxt "tfrmmain.mitools.caption"
 msgid "Herramientas"
-msgstr "Strumenti"
+msgstr "Gereedschappen"
 
 #: tfrmmain.miviewfpg.caption
 msgid "&Ver"
-msgstr "&Visualizza"
+msgstr "& Weergeven"
 
 #: tfrmmain.miviewimg.caption
 msgctxt "tfrmmain.miviewimg.caption"
 msgid "Ver"
-msgstr "Visualizza"
+msgstr "Bekijk"
 
 #: tfrmmain.miwallpaper.caption
 msgctxt "tfrmmain.miwallpaper.caption"
 msgid "Portapapeles"
-msgstr "Appunti"
+msgstr "Klembord"
 
 #: tfrmmain.n15.caption
 msgctxt "TFRMMAIN.N15.CAPTION"
@@ -935,21 +964,21 @@ msgstr "-"
 
 #: tfrmmain.pfpgcode.caption
 msgid "Código de FPG"
-msgstr "Codice FPG"
+msgstr "FPG Code"
 
 #: tfrmmain.ppcopyimage.caption
 msgid "&Copiar al portapapeles"
-msgstr "&Copia negli Appunti"
+msgstr "Naar klembord kopiëren"
 
 #: tfrmmain.ppfpgopen.caption
 msgctxt "tfrmmain.ppfpgopen.caption"
 msgid "Abrir"
-msgstr "Apri"
+msgstr "Openen"
 
 #: tfrmmainfnt.bgsize.caption
 msgctxt "tfrmmainfnt.bgsize.caption"
 msgid "Tamaño"
-msgstr "Dimensione"
+msgstr "Grootte"
 
 #: tfrmmainfnt.caption
 msgid "Generador de fuentes"
@@ -961,19 +990,19 @@ msgstr "ISO8859_15"
 
 #: tfrmmainfnt.cbextended.caption
 msgid "Extendido"
-msgstr "Avanzate"
+msgstr "Uitgebreid"
 
 #: tfrmmainfnt.cbminus.caption
 msgid "Minúsculas"
-msgstr "Tiny"
+msgstr "Kleine letters"
 
 #: tfrmmainfnt.cbnumbers.caption
 msgid "Números"
-msgstr "Numeri"
+msgstr "Nummers"
 
 #: tfrmmainfnt.cbsymbol.caption
 msgid "Símbolos"
-msgstr "Simboli"
+msgstr "Symbolen"
 
 #: tfrmmainfnt.cbupper.caption
 msgid "Mayúsculas"
@@ -991,194 +1020,194 @@ msgstr "Charset"
 #: tfrmmainfnt.gbedge.caption
 msgctxt "TFRMMAINFNT.GBEDGE.CAPTION"
 msgid "Reborde"
-msgstr "flangia"
+msgstr "Rand"
 
 #: tfrmmainfnt.gbfont.caption
 msgid "Fuente en FNT"
-msgstr "Sorgente in FNT"
+msgstr "FNT bron"
 
 #: tfrmmainfnt.gbloadfont.caption
 msgid "Nombre de la fuente"
-msgstr "Nome del carattere"
+msgstr "Font naam"
 
 #: tfrmmainfnt.gbselectcolor.caption
 msgid "Selección de colores"
-msgstr "Scelta dei colori"
+msgstr "Kies kleuren"
 
 #: tfrmmainfnt.gbshadow.caption
 msgctxt "TFRMMAINFNT.GBSHADOW.CAPTION"
 msgid "Sombra"
-msgstr "Shadow"
+msgstr "Schaduw"
 
 #: tfrmmainfnt.gbstyle.caption
 msgid "Estilo"
-msgstr "Stile"
+msgstr "Stijl"
 
 #: tfrmmainfnt.gbsymboltype.caption
 msgid "Contenido"
-msgstr "Contenuto"
+msgstr "Inhoud"
 
 #: tfrmmainfnt.label1.caption
 msgctxt "TFRMMAINFNT.LABEL1.CAPTION"
 msgid "Alfa"
-msgstr "Alfa"
+msgstr "Alpha"
 
 #: tfrmmainfnt.label2.caption
 msgctxt "TFRMMAINFNT.LABEL2.CAPTION"
 msgid "Alfa"
-msgstr "Alfa"
+msgstr "Alpha"
 
 #: tfrmmainfnt.label3.caption
 msgid "Mostrar texto:"
-msgstr "Mostra testo"
+msgstr "Tekst weergave:"
 
 #: tfrmmainfnt.label4.caption
 msgctxt "tfrmmainfnt.label4.caption"
 msgid "Alfa"
-msgstr "Alfa"
+msgstr "Alpha"
 
 #: tfrmmainfnt.label5.caption
 msgid "Mostrar char:"
-msgstr "Mostra char"
+msgstr "Karakter weergeven:"
 
 #: tfrmmainfnt.lbnamefont.caption
 msgctxt "TFRMMAINFNT.LBNAMEFONT.CAPTION"
 msgid "No hay fuente"
-msgstr "Nessuna fonte"
+msgstr "Geen bron"
 
 #: tfrmmainfnt.lbnamefontb.caption
 msgctxt "tfrmmainfnt.lbnamefontb.caption"
 msgid "No hay fuente"
-msgstr "Nessuna fonte"
+msgstr "Geen bron"
 
 #: tfrmmainfnt.lbshadow.caption
 msgid "Posici"
-msgstr "posizione"
+msgstr "Positie"
 
 #: tfrmmainfnt.lbsizeedge.caption
 msgctxt "TFRMMAINFNT.LBSIZEEDGE.CAPTION"
 msgid "Tamaño"
-msgstr "Dimensione"
+msgstr "Grootte"
 
 #: tfrmmainfnt.odimportfnt.title
 msgid "Importar una fuente de una imagen"
-msgstr "Importa una sorgente di immagine"
+msgstr "Importeer een bronafbeelding"
 
 #: tfrmmainfnt.rbsedge.caption
 msgctxt "tfrmmainfnt.rbsedge.caption"
 msgid "Reborde"
-msgstr "flangia"
+msgstr "Rand"
 
 #: tfrmmainfnt.rbsfont.caption
 msgid "Fuente"
-msgstr "Sorgente"
+msgstr "Bron"
 
 #: tfrmmainfnt.rbsshadow.caption
 msgctxt "tfrmmainfnt.rbsshadow.caption"
 msgid "Sombra"
-msgstr "Shadow"
+msgstr "Schaduw"
 
 #: tfrmmainfnt.sbchangebgcolor.caption
 msgid "Color de fondo"
-msgstr "Colore di sfondo"
+msgstr "Achtergrond kleur"
 
 #: tfrmmainfnt.sbchangebgcolor.hint
 msgid "Cambiar el color de fondo"
-msgstr "Cambia il colore di sfondo"
+msgstr "Verander achtergrond kleur"
 
 #: tfrmmainfnt.sbexport.caption
 msgctxt "tfrmmainfnt.sbexport.caption"
 msgid "Exportar"
-msgstr "Esporta"
+msgstr "Exporteren"
 
 #: tfrmmainfnt.sbexport.hint
 msgid "Exportar fuente de texto"
-msgstr "carattere del testo Export"
+msgstr "Exporteer tekst font"
 
 #: tfrmmainfnt.sbimport.caption
 msgid "Importar"
-msgstr "Importa"
+msgstr "Importeren"
 
 #: tfrmmainfnt.sbimport.hint
 msgid "Importar fuente de texto"
-msgstr "Importa carattere del testo"
+msgstr "Import tekst font"
 
 #: tfrmmainfnt.sbloadfont.caption
 msgid "&Cargar Fuente"
-msgstr "&Load Source"
+msgstr "Bron laden"
 
 #: tfrmmainfnt.sbloadfont.hint
 msgid "Cambiar el tipo de letra"
-msgstr "Passa"
+msgstr "Verander het font"
 
 #: tfrmmainfnt.sbmakefont.caption
 msgid "Generar"
-msgstr "Genera"
+msgstr "Genereren"
 
 #: tfrmmainfnt.sbmakefont.hint
 msgid "Generar fuente"
-msgstr "Genera sorgente"
+msgstr "Bron genereren"
 
 #: tfrmmainfnt.sbopen.hint
 msgid "Abrir fuente de texto"
-msgstr "testo open source"
+msgstr "Bron tekst openen"
 
 #: tfrmmainfnt.sboptions.caption
 msgid "Opciones"
-msgstr "Opzioni"
+msgstr "Opties"
 
 #: tfrmmainfnt.sboptions.hint
 msgid "Opciones generales"
-msgstr "Opzioni generali"
+msgstr "Globale opties"
 
 #: tfrmmainfnt.sbsave.hint
 msgid "Guardar fuente de texto"
-msgstr "Salva il font del testo"
+msgstr "Tekst font opslaan"
 
 #: tfrmmainfnt.sbsaveas.hint
 msgid "Guardar fuente de texto como"
-msgstr "Salva come tipo di carattere del testo"
+msgstr "Tekst font opslaan als"
 
 #: tfrmmainfnt.sbsavetext.caption
 msgctxt "tfrmmainfnt.sbsavetext.caption"
 msgid "Guardar texto"
-msgstr "Salva il testo"
+msgstr "Bewaar tekst"
 
 #: tfrmmainfnt.sbsavetext.hint
 msgid "Guardar el texto escrito"
-msgstr "Salva il testo composto"
+msgstr "Gecreëerde tekst opslaan"
 
 #: tfrmmainfnt.sbselectcolor.caption
 msgid "Color"
-msgstr "Colore"
+msgstr "Kleur"
 
 #: tfrmmainfnt.sbselectcolor.hint
 msgid "Establece un color"
-msgstr "Imposta un colore"
+msgstr "Pikt een kleur"
 
 #: tfrmmainfnt.sbselectimage.caption
 msgctxt "tfrmmainfnt.sbselectimage.caption"
 msgid "Imagen"
-msgstr "Immagine"
+msgstr "Afbeelding"
 
 #: tfrmmainfnt.sbselectimage.hint
 msgid "Establece una imagen"
-msgstr "Imposta l'immagine"
+msgstr "Plaats afbeelding"
 
 #: tfrmmainfnt.sbshowfnt.caption
 msgctxt "TFRMMAINFNT.SBSHOWFNT.CAPTION"
 msgid "Ver FNT"
-msgstr "Visualizza FNT"
+msgstr "FNT weergeven"
 
 #: tfrmmainfnt.sbshowfnt.hint
 msgctxt "tfrmmainfnt.sbshowfnt.hint"
 msgid "Ver FNT"
-msgstr "Visualizza FNT"
+msgstr "FNT weergeven"
 
 #: tfrmmainfnt.sdsavetext.title
 msgctxt "TFRMMAINFNT.SDSAVETEXT.TITLE"
 msgid "Guardar texto"
-msgstr "Salva il testo"
+msgstr "Teskt opslaan"
 
 #: tfrmmainfnt.toolbar1.caption
 msgctxt "tfrmmainfnt.toolbar1.caption"
@@ -1186,43 +1215,43 @@ msgid "ToolBar1"
 msgstr "ToolBar1"
 
 #: tfrmmapeditor.action1.caption
-msgctxt "TFRMMAPEDITOR.ACTION1.CAPTION"
+msgctxt "tfrmmapeditor.action1.caption"
 msgid "Abrir"
-msgstr "Apri"
+msgstr "Openen"
 
 #: tfrmmapeditor.action2.caption
-msgctxt "TFRMMAPEDITOR.ACTION2.CAPTION"
+msgctxt "tfrmmapeditor.action2.caption"
 msgid "Guardar"
-msgstr "Salva"
+msgstr "Opslaan"
 
 #: tfrmmapeditor.action3.caption
 msgid "Guardar como .."
-msgstr "Salva con nome .."
+msgstr "Oplsaan als.."
 
 #: tfrmmapeditor.action4.caption
-msgctxt "TFRMMAPEDITOR.ACTION4.CAPTION"
+msgctxt "tfrmmapeditor.action4.caption"
 msgid "Salir"
-msgstr "Esci"
+msgstr "Afsluiten"
 
 #: tfrmmapeditor.action5.caption
-msgctxt "TFRMMAPEDITOR.ACTION5.CAPTION"
+msgctxt "tfrmmapeditor.action5.caption"
 msgid "Lápiz"
-msgstr "Matita"
+msgstr "Pen (stippen)"
 
 #: tfrmmapeditor.action6.caption
-msgctxt "TFRMMAPEDITOR.ACTION6.CAPTION"
+msgctxt "tfrmmapeditor.action6.caption"
 msgid "Línea"
-msgstr "Linea"
+msgstr "Lijn"
 
 #: tfrmmapeditor.action7.caption
 msgctxt "tfrmmapeditor.action7.caption"
 msgid "Elipse"
-msgstr "Ellisse"
+msgstr "Elipse"
 
 #: tfrmmapeditor.action8.caption
 msgctxt "tfrmmapeditor.action8.caption"
 msgid "Deshacer"
-msgstr "Annulla"
+msgstr "Ongedaan maken"
 
 #: tfrmmapeditor.caption
 msgid "Map Editor"
@@ -1231,29 +1260,29 @@ msgstr "Map Editor"
 #: tfrmmapeditor.figurecombo.text
 msgctxt "tfrmmapeditor.figurecombo.text"
 msgid "Lápiz"
-msgstr "Matita"
+msgstr "Pen (stippen)"
 
 #: tfrmmapeditor.gbgamuts.caption
-msgctxt "TFRMMAPEDITOR.GBGAMUTS.CAPTION"
+msgctxt "tfrmmapeditor.gbgamuts.caption"
 msgid "Gamas de colores"
-msgstr "tavolozze"
+msgstr "Kleuren bereik"
 
 #: tfrmmapeditor.gbpalette.caption
-msgctxt "TFRMMAPEDITOR.GBPALETTE.CAPTION"
+msgctxt "tfrmmapeditor.gbpalette.caption"
 msgid "Paleta de colores"
-msgstr "Tavolozza dei colori"
+msgstr "Kleuren palet"
 
 #: tfrmmapeditor.groupbox1.caption
 msgid "Contorno"
-msgstr "Profilo"
+msgstr "Contour"
 
 #: tfrmmapeditor.groupbox2.caption
 msgid "Relleno"
-msgstr "Fill"
+msgstr "Opvulling"
 
 #: tfrmmapeditor.groupbox3.caption
 msgid "General"
-msgstr "Generale"
+msgstr "Generaal"
 
 #: tfrmmapeditor.label1.caption
 msgid "Zoom"
@@ -1261,148 +1290,148 @@ msgstr "Zoom"
 
 #: tfrmmapeditor.label10.caption
 msgid "Modo:"
-msgstr "Mode"
+msgstr "Mode:"
 
 #: tfrmmapeditor.label11.caption
 msgid "Color de fondo:"
-msgstr "Colore di sfondo"
+msgstr "Achtergrond kleur:"
 
 #: tfrmmapeditor.label12.caption
 msgid "Herramienta:"
-msgstr "Strumento"
+msgstr "Gereedschap:"
 
 #: tfrmmapeditor.label13.caption
 msgid "Rellleno:"
-msgstr "Rellleno"
+msgstr "Opvul stijl:"
 
 #: tfrmmapeditor.label2.caption
 msgid "Contorno:"
-msgstr "Profilo"
+msgstr "Rand stijl:"
 
 #: tfrmmapeditor.label3.caption
-msgctxt "TFRMMAPEDITOR.LABEL3.CAPTION"
+msgctxt "tfrmmapeditor.label3.caption"
 msgid "Ancho:"
-msgstr "Larghezza:"
+msgstr "Breedte:"
 
 #: tfrmmapeditor.label4.caption
 msgctxt "tfrmmapeditor.label4.caption"
 msgid "Alfa:"
-msgstr "Alfa"
+msgstr "Alpha:"
 
 #: tfrmmapeditor.label5.caption
-msgctxt "TFRMMAPEDITOR.LABEL5.CAPTION"
+msgctxt "tfrmmapeditor.label5.caption"
 msgid "Alfa:"
-msgstr "Alfa"
+msgstr "Alpha:"
 
 #: tfrmmapeditor.label6.caption
 msgctxt "tfrmmapeditor.label6.caption"
 msgid "Color:"
-msgstr "Colore"
+msgstr "Kleur:"
 
 #: tfrmmapeditor.label7.caption
 msgctxt "tfrmmapeditor.label7.caption"
 msgid "Estilo:"
-msgstr "Stile"
+msgstr "Stijl:"
 
 #: tfrmmapeditor.label8.caption
-msgctxt "TFRMMAPEDITOR.LABEL8.CAPTION"
+msgctxt "tfrmmapeditor.label8.caption"
 msgid "Estilo:"
-msgstr "Stile"
+msgstr "Stijl:"
 
 #: tfrmmapeditor.label9.caption
-msgctxt "TFRMMAPEDITOR.LABEL9.CAPTION"
+msgctxt "tfrmmapeditor.label9.caption"
 msgid "Color:"
-msgstr "Colore"
+msgstr "Kleur:"
 
 #: tfrmmapeditor.lblgamutreference.caption
-msgctxt "TFRMMAPEDITOR.LBLGAMUTREFERENCE.CAPTION"
+msgctxt "tfrmmapeditor.lblgamutreference.caption"
 msgid "16:"
-msgstr "16:"
+msgstr ""
 
 #: tfrmmapeditor.menuitem1.caption
-msgctxt "TFRMMAPEDITOR.MENUITEM1.CAPTION"
+msgctxt "tfrmmapeditor.menuitem1.caption"
 msgid "Archivo"
-msgstr "File"
+msgstr "Bestand"
 
 #: tfrmmapeditor.menuitem10.caption
-msgctxt "TFRMMAPEDITOR.MENUITEM10.CAPTION"
+msgctxt "tfrmmapeditor.menuitem10.caption"
 msgid "Editar"
-msgstr "Modifica"
+msgstr "Bewerken"
 
 #: tfrmmapeditor.menuitem12.caption
 msgid "&Triángulo"
-msgstr "&Triangle"
+msgstr "&Driehoek"
 
 #: tfrmmapeditor.menuitem13.caption
 msgid "&Rectángulo"
-msgstr "&Rettangolo"
+msgstr "&Rechthoek"
 
 #: tfrmmapeditor.menuitem14.caption
 msgid "&Copiar Color"
-msgstr "&Copia a colori"
+msgstr "&Kleur pikken"
 
 #: tfrmmapeditor.menuitem15.caption
-msgctxt "TFRMMAPEDITOR.MENUITEM15.CAPTION"
+msgctxt "tfrmmapeditor.menuitem15.caption"
 msgid "Ver"
-msgstr "Visualizza"
+msgstr "Bekijk"
 
 #: tfrmmapeditor.menuitem16.caption
 msgid "Barra de propiedades"
-msgstr "Proprietà Bar"
+msgstr "Eigenschappen paneel"
 
 #: tfrmmapeditor.menuitem17.caption
-msgctxt "TFRMMAPEDITOR.MENUITEM17.CAPTION"
+msgctxt "tfrmmapeditor.menuitem17.caption"
 msgid "Paleta de colores"
-msgstr "Tavolozza dei colori"
+msgstr "Kleuren palet"
 
 #: tfrmmapeditor.menuitem18.caption
-msgctxt "TFRMMAPEDITOR.MENUITEM18.CAPTION"
+msgctxt "tfrmmapeditor.menuitem18.caption"
 msgid "Ayuda"
-msgstr "Aiuto"
+msgstr "Help"
 
 #: tfrmmapeditor.menuitem19.caption
 msgctxt "tfrmmapeditor.menuitem19.caption"
 msgid "Gamas de colores"
-msgstr "tavolozze"
+msgstr "Kleuren bereik"
 
 #: tfrmmapeditor.menuitem20.caption
 msgid "Relle&nar"
-msgstr "Relle &nar"
+msgstr ""
 
 #: tfrmmapeditor.menuitem6.caption
 msgid "Herramienta"
-msgstr "Strumento"
+msgstr "Gereedschap"
 
 #: tfrmmapeditor.menuitem7.caption
-msgctxt "TFRMMAPEDITOR.MENUITEM7.CAPTION"
+msgctxt "tfrmmapeditor.menuitem7.caption"
 msgid "&Lápiz"
-msgstr "&Matita"
+msgstr "&Pen (stippen)"
 
 #: tfrmmapeditor.menuitem8.caption
 msgctxt "tfrmmapeditor.menuitem8.caption"
 msgid "L&ínea"
-msgstr "L &INEA"
+msgstr "&Lijn"
 
 #: tfrmmapeditor.menuitem9.caption
 msgid "&Elipse"
-msgstr "&Ellisse"
+msgstr "&Elipse"
 
 #: tfrmmessagebox.bbbutton0.caption
 msgid "&Si"
-msgstr "&Sì"
+msgstr "&Ja"
 
 #: tfrmmessagebox.bbbutton1.caption
 msgid "&No"
-msgstr "&No"
+msgstr "&Nee"
 
 #: tfrmmessagebox.bbbutton2.caption
-msgctxt "TFRMMESSAGEBOX.BBBUTTON2.CAPTION"
+msgctxt "tfrmmessagebox.bbbutton2.caption"
 msgid "&Cancelar"
-msgstr "&Annulla"
+msgstr "Annuleren"
 
 #: tfrmmessagebox.caption
 msgid "frmMessageBox"
-msgstr "frmMessageBox"
+msgstr ""
 
 #: tfrmprgeditor.acompile.caption
 msgid "Compilar"
@@ -1416,7 +1445,7 @@ msgstr ""
 #: tfrmprgeditor.aexit.caption
 msgctxt "tfrmprgeditor.aexit.caption"
 msgid "Salir"
-msgstr "Esci"
+msgstr "Afsluiten"
 
 #: tfrmprgeditor.asave.caption
 msgid "&Guardar"
@@ -1429,7 +1458,7 @@ msgstr ""
 #: tfrmprgeditor.editcopy1.hint
 msgctxt "tfrmprgeditor.editcopy1.hint"
 msgid "Copiar"
-msgstr "Copia"
+msgstr "Kopiëren"
 
 #: tfrmprgeditor.editcut1.caption
 msgid "Cor&tar"
@@ -1454,7 +1483,7 @@ msgstr ""
 #: tfrmprgeditor.editpaste1.hint
 msgctxt "tfrmprgeditor.editpaste1.hint"
 msgid "Pegar"
-msgstr "Incolla"
+msgstr "Plakken"
 
 #: tfrmprgeditor.editselectall1.caption
 msgid "Seleccion&ar todo"
@@ -1471,7 +1500,7 @@ msgstr ""
 #: tfrmprgeditor.editundo1.hint
 msgctxt "tfrmprgeditor.editundo1.hint"
 msgid "Deshacer"
-msgstr "Annulla"
+msgstr "Ongedaan maken"
 
 #: tfrmprgeditor.fileopen1.caption
 msgid "&Abrir..."
@@ -1480,7 +1509,7 @@ msgstr ""
 #: tfrmprgeditor.fileopen1.hint
 msgctxt "tfrmprgeditor.fileopen1.hint"
 msgid "Abrir"
-msgstr "Apri"
+msgstr "Open"
 
 #: tfrmprgeditor.filesaveas1.caption
 msgid "Gu&ardar Como..."
@@ -1493,7 +1522,7 @@ msgstr ""
 #: tfrmprgeditor.menuitem1.caption
 msgctxt "tfrmprgeditor.menuitem1.caption"
 msgid "Archivo"
-msgstr "File"
+msgstr "Bestand"
 
 #: tfrmprgeditor.menuitem12.caption
 msgid "Buscar"
@@ -1507,7 +1536,7 @@ msgstr ""
 #: tfrmprgeditor.menuitem5.caption
 msgctxt "tfrmprgeditor.menuitem5.caption"
 msgid "Editar"
-msgstr "Modifica"
+msgstr "Bewerk"
 
 #: tfrmprgeditor.searchfind1.caption
 msgid "&Buscar..."
@@ -1526,62 +1555,68 @@ msgid "&Reemplazar"
 msgstr ""
 
 #: tfrmselectcolor.baceptar.caption
-msgctxt "TFRMSELECTCOLOR.BACEPTAR.CAPTION"
+msgctxt "tfrmselectcolor.baceptar.caption"
 msgid "Aceptar"
-msgstr "OK"
+msgstr "Akkoord"
 
 #: tfrmselectcolor.bcancelar.caption
-msgctxt "TFRMSELECTCOLOR.BCANCELAR.CAPTION"
+msgctxt "tfrmselectcolor.bcancelar.caption"
 msgid "Cancelar"
-msgstr "Annulla"
+msgstr "Annuleren"
 
 #: tfrmselectcolor.caption
 msgid "Seleccionar Color"
-msgstr "Seleziona colore"
+msgstr "Kleur selecteren"
 
 #: tfrmselectcolor.gbpalette.caption
-msgctxt "TFRMSELECTCOLOR.GBPALETTE.CAPTION"
+msgctxt "tfrmselectcolor.gbpalette.caption"
 msgid "Paleta de colores"
-msgstr "Tavolozza dei colori"
+msgstr "Kleuren palet"
 
 #: tfrmview.caption
 msgid "frmView"
-msgstr "frmView"
+msgstr "Frame weergeven"
 
 #: tfrmview.gbdetails.caption
 msgctxt "tfrmview.gbdetails.caption"
 msgid "Detalles de la imagen"
-msgstr "Immagine Dettagli"
+msgstr "Afbeeldingsdetails"
 
 #: tfrmview.lbalto.caption
+#, fuzzy
+#| msgid "lbAlto"
 msgctxt "tfrmview.lbalto.caption"
 msgid "Alto"
-msgstr "Alto"
+msgstr "Hoogte"
 
 #: tfrmview.lbancho.caption
+#, fuzzy
+#| msgid "lbAncho"
 msgctxt "tfrmview.lbancho.caption"
 msgid "Ancho"
-msgstr "Larghezza"
+msgstr "Breedte"
 
 #: tfrmview.lbbpp.caption
+#, fuzzy
+#| msgid "lbBpp"
 msgid "Bpp"
-msgstr "BPP"
+msgstr "Bits per pixel"
 
 #: tfrmview.lbheight.caption
 msgid "Alto :"
-msgstr "Alto"
+msgstr "Hoogte:"
 
 #: tfrmview.lbpp.caption
 msgid "Bpp :"
-msgstr "BPP"
+msgstr "Bpp :"
 
 #: tfrmview.lbwidth.caption
 msgid "Ancho :"
-msgstr "Larghezza:"
+msgstr "Breedte:"
 
 #: tfrmview.lzoom.caption
 msgid "Zoom :"
-msgstr "Zoom"
+msgstr "Zoom 1:1"
 
 #: tfrmzipfenix.bbcompress.caption
 msgid "&Comprimir fichero"
@@ -1597,59 +1632,59 @@ msgstr ""
 
 #: ufpg.strfnt
 msgid "FNT 8 bits (All)"
-msgstr "TNF 8 bit (Tutti)"
+msgstr ""
 
 #: ufpg.strfnx1
 msgid "FNT 1 bit (Fenix/BennuGD)"
-msgstr "FNT 1 bit (Fenix ​​/ BennuGD)"
+msgstr ""
 
 #: ufpg.strfnx16
 msgid "FNT 16 bits (Fenix/BennuGD)"
-msgstr "FNT 16 bit (Fenix ​​/ BennuGD)"
+msgstr ""
 
 #: ufpg.strfnx24
 msgid "FNT 24 bits "
-msgstr "FNT 24 bit"
+msgstr ""
 
 #: ufpg.strfnx32
 msgid "FNT 32 bits (BennuGD)"
-msgstr "FNT 32 bit (BennuGD)"
+msgstr ""
 
 #: ufpg.strfnx8
 msgid "FNT 8 bits (Fenix/BennuGD)"
-msgstr "FNT 8 bit (Fenix ​​/ BennuGD)"
+msgstr ""
 
 #: ufpg.strfpg1
 msgid "FPG 1 bit (Fenix/BennuGD)"
-msgstr "FPG 1 bit (Fenix ​​/ BennuGD)"
+msgstr ""
 
 #: ufpg.strfpg16
 msgid "FPG 16 bits (Fenix/BennuGD)"
-msgstr "FPG 16 bit (Fenix ​​/ BennuGD)"
+msgstr ""
 
 #: ufpg.strfpg24
 msgid "FPG 24 bits "
-msgstr "FPG 24 bit"
+msgstr ""
 
 #: ufpg.strfpg32
 msgid "FPG 32 bits (BennuGD)"
-msgstr "FPG 32 bit (BennuGD)"
+msgstr ""
 
 #: ufpg.strfpg8
 msgid "FPG 8 bits (All)"
-msgstr "FPG 8 bit (Tutti)"
+msgstr ""
 
 #: ufpg.strfpgcdiv16
 msgid "FPG 16 bits (CDIV)"
-msgstr "FPG 16 bit (CDIV)"
+msgstr ""
 
 #: ufpgconvert.lng_lostcolors
 msgid "perdidos"
-msgstr "perso"
+msgstr "kwijt"
 
 #: ufpgconvert.lng_savedcolors
 msgid "colores"
-msgstr "colori"
+msgstr "kleuren"
 
 #: ufrmprgeditor.lng_prg_editor
 msgctxt "ufrmprgeditor.lng_prg_editor"
@@ -1658,131 +1693,131 @@ msgstr ""
 
 #: ulanguage.lng_abort
 msgid "Anular"
-msgstr "Annulla"
+msgstr "Afbreken"
 
 #: ulanguage.lng_about_as
 msgctxt "ulanguage.lng_about_as"
 msgid "Acerca de ..."
-msgstr "Informazioni su ..."
+msgstr "Over ..."
 
 #: ulanguage.lng_accept
 msgctxt "ulanguage.lng_accept"
 msgid "Aceptar"
-msgstr "OK"
+msgstr "Akkoord"
 
 #: ulanguage.lng_adapt_images
 msgid "Adaptando imagen(es)"
-msgstr "immagine Adattamento (s)"
+msgstr "Afbeelding(en) aanpassen"
 
 #: ulanguage.lng_add
 msgctxt "ulanguage.lng_add"
 msgid "Añadir"
-msgstr "Aggiungi"
+msgstr "Toevoegen"
 
 #: ulanguage.lng_add_control_point
 msgctxt "ulanguage.lng_add_control_point"
 msgid "Añadir punto de control"
-msgstr "Aggiungi punto di controllo"
+msgstr "Controlepunt toevoegen"
 
 #: ulanguage.lng_add_images
 msgid "Añadir imagen(es)"
-msgstr "Aggiungi immagine (s)"
+msgstr "Afbeelding(en) toevoegen"
 
 #: ulanguage.lng_add_images_to_fpg
 msgid "Añadir imagen(es) al FPG"
-msgstr "Aggiungi immagine (s) a FPG"
+msgstr "Afbeelding(en) toevoegen aan FPG"
 
 #: ulanguage.lng_add_point
 msgctxt "ulanguage.lng_add_point"
 msgid "Añadir punto"
-msgstr "Aggiungi punto"
+msgstr "Punt toevoegen"
 
 #: ulanguage.lng_analising_images
 msgid "Analizando imagen(es)"
-msgstr "Analizzare immagini (s)"
+msgstr "Afbeelding(en) analyseren"
 
 #: ulanguage.lng_animate
 msgctxt "ulanguage.lng_animate"
 msgid "Animar"
-msgstr "Anima"
+msgstr "Animeren"
 
 #: ulanguage.lng_animate_images
 msgid "Animar imágenes"
-msgstr "immagini animate"
+msgstr "Afbeeldingen animeren"
 
 #: ulanguage.lng_animate_selected_images
 msgid "Animar imágenes seleccionadas"
-msgstr "Animare immagini selezionate"
+msgstr "Geselecteerde afbeeldingen animeren"
 
 #: ulanguage.lng_animation
 msgid "Animación"
-msgstr "Animazione"
+msgstr "Animatie"
 
 #: ulanguage.lng_are_you_sure_delete_images
 msgid "¿Seguro que desea borrar esta(s) imagen(es)?"
-msgstr "Sei sicuro di voler eliminare questo (s) immagine (s)?"
+msgstr "Weet je zeker dat je de geselecteerde afbeelding(en) wilt wissen?"
 
 #: ulanguage.lng_autoload_images
 msgid "Auto-carga de imágenes"
-msgstr "Auto-caricamento immagini"
+msgstr "Afbeeldingen automatisch laden"
 
 #: ulanguage.lng_autoload_images_after_remove
 msgid "Auto-cargar al eliminar"
-msgstr "Auto-load eliminando"
+msgstr "Afbeeldingen automatisch laden na verwijdering"
 
 #: ulanguage.lng_cancel
 msgctxt "ulanguage.lng_cancel"
 msgid "Cancelar"
-msgstr "Annulla"
+msgstr "Annuleren"
 
 #: ulanguage.lng_change_code_of_image_insert
 msgid "Cambiar código de inserción de imagen"
-msgstr "Cambia immagine codice di inserimento"
+msgstr "Verander code van ge-inserteerde afbeelding"
 
 #: ulanguage.lng_change_color_of_points
 msgctxt "ulanguage.lng_change_color_of_points"
 msgid "Cambiar color de puntos"
-msgstr "Cambia colore di punti"
+msgstr "Verander kleur van controlepunten"
 
 #: ulanguage.lng_change_insert_code
 msgid "Cambiar código de inserción"
-msgstr "Cambia il codice embed"
+msgstr "Wijzig inserteringscode"
 
 #: ulanguage.lng_change_language_of_program
 msgid "Cambiar lenguaje del programa"
-msgstr "Program Change Language"
+msgstr "Verander programma taal"
 
 #: ulanguage.lng_characteristic
 msgctxt "ulanguage.lng_characteristic"
 msgid "Caracteristicas"
-msgstr "Caratteristiche"
+msgstr "Karakteristieken"
 
 #: ulanguage.lng_clear_clipboard
 msgctxt "ulanguage.lng_clear_clipboard"
 msgid "Vaciar portapapeles"
-msgstr "Appunti vuoto"
+msgstr "Klembord opschonen"
 
 #: ulanguage.lng_clipboard
 msgctxt "ulanguage.lng_clipboard"
 msgid "Portapapeles"
-msgstr "Appunti"
+msgstr "Klembord"
 
 #: ulanguage.lng_close
 msgid "Cerrar"
-msgstr "Chiudi"
+msgstr "Sluiten"
 
 #: ulanguage.lng_code
 msgctxt "ulanguage.lng_code"
 msgid "Código"
-msgstr "Codice"
+msgstr "Code"
 
 #: ulanguage.lng_code_of_image_insertion
 msgid "Código de inserción de imagen"
-msgstr "Immagine Codice Embed"
+msgstr "Afbeelding inserteringscode"
 
 #: ulanguage.lng_compressing_file
 msgid "Comprimiendo archivo..."
-msgstr "Compressione file ..."
+msgstr "Compireer bestand..."
 
 #: ulanguage.lng_compressor
 msgid "Compresor"
@@ -1790,538 +1825,543 @@ msgstr "Compressor"
 
 #: ulanguage.lng_compress_file
 msgid "Comprimir archivo"
-msgstr "Comprimi file"
+msgstr "Comprimeer bestand"
 
 #: ulanguage.lng_control_points
 msgctxt "ulanguage.lng_control_points"
 msgid "Puntos de control"
-msgstr "Punti di controllo"
+msgstr "Controlepunten"
 
 #: ulanguage.lng_convert_to
 msgid "Convertir a ..."
-msgstr "Converti in ..."
+msgstr "Omzetten naar ..."
 
 #: ulanguage.lng_copy_image
 msgid "Copiar imagen"
-msgstr "Copia immagine"
+msgstr "Kopieer afbeelding"
 
 #: ulanguage.lng_copy_image_to_clipboard
 msgid "Copiar imagen al portapapeles"
-msgstr "Copia immagine negli appunti"
+msgstr "Kopieer afbeelding naar het klembord."
 
 #: ulanguage.lng_correct_saving
 msgid "Archivo FPG guardado correctamente"
-msgstr "File salvato con successo FPG"
+msgstr "FPG bestand correct opgeslagen"
 
 #: ulanguage.lng_creating_convert_table
 msgid "Creando tabla de conversión"
-msgstr "Creazione tabella di conversione"
+msgstr "Creeer conversie tabel"
 
 #: ulanguage.lng_credits
 msgctxt "ulanguage.lng_credits"
 msgid "Creditos"
-msgstr "crediti"
+msgstr "Credits"
 
 #: ulanguage.lng_delete
 msgctxt "ulanguage.lng_delete"
 msgid "Eliminar"
-msgstr "Elimina"
+msgstr "Verwijder"
 
 #: ulanguage.lng_delete_all_points
 msgctxt "ulanguage.lng_delete_all_points"
 msgid "Borrar todos los puntos"
-msgstr "Cancella tutti gli elementi"
+msgstr "Verwijder alle punten"
 
 #: ulanguage.lng_delete_control_point
 msgctxt "ulanguage.lng_delete_control_point"
 msgid "Eliminar punto de control"
-msgstr "Elimina punto di controllo"
+msgstr "Verwijder controlepunt"
 
 #: ulanguage.lng_delete_images
 msgid "Eliminar imagen(es)"
-msgstr "Elimina immagine (s)"
+msgstr "Verwijder afbeelding(en)"
 
 #: ulanguage.lng_delete_images_selecteds
 msgid "Eliminar imagen(es) seleccionada(s)"
-msgstr "Elimina immagine (s) selezionato (s)"
+msgstr "Verwijder geselecteerde afbeelding(en)"
 
 #: ulanguage.lng_details
 msgctxt "ulanguage.lng_details"
 msgid "Detalles"
-msgstr "Dettagli"
+msgstr "Details"
 
 #: ulanguage.lng_details_of_image
 msgctxt "ulanguage.lng_details_of_image"
 msgid "Detalles de la imagen"
-msgstr "Immagine Dettagli"
+msgstr "Afbeeldingsdetails"
 
 #: ulanguage.lng_directory
 msgid "Directorio"
-msgstr "Directory"
+msgstr "Mappen"
 
 #: ulanguage.lng_disabled
 msgid "Inactivo"
-msgstr "Off"
+msgstr "Uitgeschakeld"
 
 #: ulanguage.lng_edit
 msgctxt "ulanguage.lng_edit"
 msgid "Editar"
-msgstr "Modifica"
+msgstr "Bewerk"
 
 #: ulanguage.lng_edit_image
 msgid "Editar imagen"
-msgstr "Modifica immagine"
+msgstr "Bewerk afbeelding"
 
 #: ulanguage.lng_edit_image_with_external_program
 msgid "Editar imagen con un editor externo"
-msgstr "Modifica immagine con editor esterno"
+msgstr "Bewerk afbeelding met een extern programma"
 
 #: ulanguage.lng_edit_properties_of_the_image
 msgctxt "ulanguage.lng_edit_properties_of_the_image"
 msgid "Editar propiedades de la imagen"
-msgstr "Modifica Proprietà immagine"
+msgstr "Bewerk de eigenschappen van de afbeelding"
 
 #: ulanguage.lng_edit_selection
 msgctxt "ulanguage.lng_edit_selection"
 msgid "Editar selección"
-msgstr "Modifica selezione"
+msgstr "Bewerk selectie"
 
 #: ulanguage.lng_enabled
 msgid "Activo"
-msgstr "Attivo"
+msgstr "Ingeschakeld"
 
 #: ulanguage.lng_enviroment
 msgctxt "ulanguage.lng_enviroment"
 msgid "Entorno"
-msgstr "Ambiente"
+msgstr "Omgeving"
 
 #: ulanguage.lng_error
 msgid "Error"
-msgstr "Errore"
+msgstr "Fout"
 
 #: ulanguage.lng_exists_file_overwrite
 msgid "El archivo existe, ¿Desea sobreescribirlo?"
-msgstr "Il file esiste, sostituire?"
+msgstr "Het bestand bestaat reeds, weet je zeker dat je het wilt overschrijven?"
 
 #: ulanguage.lng_exist_code
 msgid "El código establecido ya existe."
-msgstr "Il set di codice esiste già."
+msgstr "Deze map code bestaat reeds"
 
 #: ulanguage.lng_exit
 msgctxt "ulanguage.lng_exit"
 msgid "Salir"
-msgstr "Esci"
+msgstr "Afsluiten"
 
 #: ulanguage.lng_export
 msgctxt "ulanguage.lng_export"
 msgid "Exportar"
-msgstr "Esporta"
+msgstr "Exporteren"
 
 #: ulanguage.lng_export_images_from_fpg_to_disk
 msgid "Exportar imagen(es) del FPG a disco"
-msgstr "Esporta immagine (s) di FPG su disco"
+msgstr "Exporteer afbeelding(en) naar disk"
 
 #: ulanguage.lng_export_resources_from_fpg
 msgid "Exportar recursos del FPG"
-msgstr "Esporta risorse FPG"
+msgstr "Exporteer bronnen uit de FPG"
 
 #: ulanguage.lng_file_exist
 msgid "El archivo ya existe."
-msgstr "Il file esiste già."
+msgstr "Het bestand bestaat reeds."
 
 #: ulanguage.lng_file_language_incorrect
 msgid "Archivo de lenguaje incorrecto."
-msgstr "Il file di linguaggio volgare."
+msgstr "Ongeldig taal bestand."
 
 #: ulanguage.lng_file_name
 msgctxt "ulanguage.lng_file_name"
 msgid "Nombre de Archivo"
-msgstr "Nome del file"
+msgstr "Bestandsnaam"
 
 #: ulanguage.lng_file_notexist
 msgid "El archivo no existe."
-msgstr "Il file non esiste."
+msgstr "Het bestaat niet."
 
 #: ulanguage.lng_flat_buttons
 msgid "Botones tipo \"FLAT\""
-msgstr "Tipo di tasti \" FLAT  \""
+msgstr "platte knoppen"
 
 #: ulanguage.lng_fpg
+#| msgid "FPG#9"
 msgctxt "ulanguage.lng_fpg"
 msgid "FPG"
 msgstr "FPG"
 
 #: ulanguage.lng_fpg_code
 msgid "Código de FPG:"
-msgstr "FPG Codice"
+msgstr "FPG Code:"
 
 #: ulanguage.lng_fpg_editor_cofiguration
 msgid "Configurar FPG Editor"
-msgstr "Set Editor FPG"
+msgstr "FPG Editor Configuratie"
 
 #: ulanguage.lng_fpg_file_of_graphics
 msgid "FPG (Archivo de gráficos)"
-msgstr "FPG (file grafico)"
+msgstr "FPG (File of graphics)"
 
 #: ulanguage.lng_fpg_select_only_one
 msgid "Debe seleccionar solamente una imagen."
-msgstr "È necessario selezionare una sola immagine."
+msgstr "Je moet minstens een afbeelding selecteren in de FPG."
 
 #: ulanguage.lng_height
 msgctxt "ulanguage.lng_height"
 msgid "Alto"
-msgstr "Alto"
+msgstr "Hoogte"
 
 #: ulanguage.lng_help
+#| msgid "Help"
 msgctxt "ulanguage.lng_help"
 msgid "Ayuda"
-msgstr "Aiuto"
+msgstr "Help"
 
 #: ulanguage.lng_hide_show_directories
 msgctxt "ulanguage.lng_hide_show_directories"
 msgid "Ocultar/Mostrar directorios"
-msgstr "Mostra / Nascondi le directory"
+msgstr "Mappen Verbergen / Weergeven"
 
 #: ulanguage.lng_hide_show_up_panel
 msgid "Ocultar/Mostrar panel superior"
-msgstr "Mostra / Nascondi Pannello superiore"
+msgstr "Paneel Verbergen/Weergeven"
 
 #: ulanguage.lng_ignore
 msgid "Ignorar"
-msgstr "Ignora"
+msgstr "Negeren"
 
 #: ulanguage.lng_images
+#| msgid "Images"
 msgctxt "ulanguage.lng_images"
 msgid "Imágenes"
-msgstr "Immagini"
+msgstr "Afbeeldingen"
 
 #: ulanguage.lng_images_moved_recicledbin
 msgid "Imagen(es) movida(s) a la papelera de reciclaje"
-msgstr "Immagine (s) mossa (s) nel cestino"
+msgstr "Afbeelding(en) naar de prullenbak verplaatst"
 
 #: ulanguage.lng_image_to
 msgid "Imagen(es) a"
-msgstr "Immagine (s) a"
+msgstr "Afbeelding(en) naar"
 
 #: ulanguage.lng_image_to_clipboard
 msgid "Imagen copiada al portapapeles."
-msgstr "immagine copiata negli appunti."
+msgstr "Afbeelding is naar het klembord gekopieerd."
 
 #: ulanguage.lng_incorrect_sizeoficon
 msgid "El tamaño de los iconos de imagen es incorrecto."
-msgstr "La dimensione icona è un'immagine corretta."
+msgstr "De grootte van de iconen is incorrect."
 
 #: ulanguage.lng_info
 msgid "Información"
-msgstr "Informazioni"
+msgstr "Informatie"
 
 #: ulanguage.lng_insert_coord
 msgid "Debe introducir la coordenada"
-msgstr "È necessario inserire la coordinata"
+msgstr "Je moet een coordinaat specificeren."
 
 #: ulanguage.lng_invert_selection
 msgctxt "ulanguage.lng_invert_selection"
 msgid "Invertir selección"
-msgstr "Inverti selezione"
+msgstr "Selectie omkeren"
 
 #: ulanguage.lng_language
 msgctxt "ulanguage.lng_language"
 msgid "Lenguaje"
-msgstr "Lingua"
+msgstr "Taal"
 
 #: ulanguage.lng_list
 msgctxt "ulanguage.lng_list"
 msgid "Lista"
-msgstr "Lista"
+msgstr "Lijst"
 
 #: ulanguage.lng_loading_files
 msgid "Cargando imágenes"
-msgstr "Caricamento di immagini"
+msgstr "Afbeelding(en) inlezen"
 
 #: ulanguage.lng_load_control_points
 msgctxt "ulanguage.lng_load_control_points"
 msgid "Cargar puntos de control"
-msgstr "punti di controllo di carico"
+msgstr "Laad controlepunten"
 
 #: ulanguage.lng_load_palette
 msgid "Cargar Paleta"
-msgstr "Carica Palette"
+msgstr "Laad Palet"
 
 #: ulanguage.lng_locate_program_for_edition_of_images
 msgid "Localizar programa para edición de imágenes"
-msgstr "Individuare programma di modifica immagine"
+msgstr "Locatie van extern beeldbewerkingsprogramma"
 
 #: ulanguage.lng_milliseconds
 msgctxt "ulanguage.lng_milliseconds"
 msgid "Milisegundos"
-msgstr "millisecondi"
+msgstr "Milliseconden"
 
 #: ulanguage.lng_modify_control_point
 msgid "Modificar punto de control"
-msgstr "Modifica checkpoint"
+msgstr "Controle punt modificeren"
 
 #: ulanguage.lng_name
 msgctxt "ulanguage.lng_name"
 msgid "Nombre"
-msgstr "Nome"
+msgstr "Naam"
 
 #: ulanguage.lng_new
 msgctxt "ulanguage.lng_new"
 msgid "Nuevo"
-msgstr "Nuovo"
+msgstr "Nieuw"
 
 #: ulanguage.lng_no
 msgid "No"
-msgstr "No"
+msgstr "Nee"
 
 #: ulanguage.lng_notfpg
 msgid "El fichero no es un archivo FPG o puede estar comprimido."
-msgstr "Il file non è un file può essere compresso o glicemia a digiuno."
+msgstr "Dit is geen FPG bestand en het kan niet gecomprimeerd worden."
 
 #: ulanguage.lng_notload_palette
 msgid "No ha cargado una paleta gráfica, ( en 8 bits debe seleccionar una paleta gráfica de 256 colores )"
-msgstr "Non hai ancora caricato una tavolozza grafica (8-bit grafica deve selezionare una tavolozza di 256 colori)"
+msgstr "Het kleurenpalet van de afbeelding is niet geladen, in 8 bit mode moet je eerst een 256 kleurenpalet laden."
 
 #: ulanguage.lng_not_clipboard_image
 msgid "No encuentra imagen en el portapapeles."
-msgstr "Impossibile trovare l'immagine negli appunti."
+msgstr "Er is geen afbeelding op het klembord aanwezig."
 
 #: ulanguage.lng_not_exist_fpg
 msgid "No existe FPG."
-msgstr "Ci FPG\""
+msgstr "De FPG bestaat niet."
 
 #: ulanguage.lng_not_found_palette
 msgid "no contiene paleta de 256 colores."
-msgstr "contiene tavolozza di 256 colori."
+msgstr "bevat geen 256 kleurenpalet."
 
 #: ulanguage.lng_not_images_for_convert
 msgid "No hay imagen(es) para convertir."
-msgstr "Nessuna immagine (s) da convertire."
+msgstr "Geen afbeeldingen voor conversie gespecificeerd."
 
 #: ulanguage.lng_not_open_file
 msgid "No se pudo abrir el archivo, compruebe que otro programa no este utilizando este archivo."
-msgstr "Impossibile aprire il file, assicurarsi che un altro programma non sta utilizzando questo file."
+msgstr "Het bestand kon niet geopend worden, vergewis jezelf dat het niet al reeds door een ander programma geopend is."
 
 #: ulanguage.lng_number
 msgctxt "ulanguage.lng_number"
 msgid "Número"
-msgstr "Numero"
+msgstr "Nummer"
 
 #: ulanguage.lng_only_one_image_edit
 msgid "Solo se puede editar una imagen."
-msgstr "È possibile modificare solo una foto."
+msgstr "Slechts een afbeelding kan bewerkt worden."
 
 #: ulanguage.lng_open
 msgctxt "ulanguage.lng_open"
 msgid "Abrir"
-msgstr "Apri"
+msgstr "Openen"
 
 #: ulanguage.lng_palette_fpg_8_bits
 msgid "Paleta (FPG 8 bits)"
-msgstr "Tavolozza (FPG 8 bit)"
+msgstr "Palet (FPG 8 bits)"
 
 #: ulanguage.lng_palette_of_256_colors
 msgctxt "ulanguage.lng_palette_of_256_colors"
 msgid "Paleta de 256 colores"
-msgstr "tavolozza di 256 colori"
+msgstr "256 kleuren palet"
 
 #: ulanguage.lng_palette_precision
 msgid "La paleta generada tiene una precisión del"
-msgstr "Il pallet ha generato precisione"
+msgstr "Het gegenereerde palet heeft een precisie van"
 
 #: ulanguage.lng_palette_to
 msgid "Paleta a"
-msgstr "Tavolozza a"
+msgstr "Palet naar"
 
 #: ulanguage.lng_paste_image
 msgctxt "ulanguage.lng_paste_image"
 msgid "Pegar imagen"
-msgstr "Incolla Immagine"
+msgstr "Afbeelding plakken"
 
 #: ulanguage.lng_pixels
 msgctxt "ulanguage.lng_pixels"
 msgid "Pixels"
-msgstr "Pixel"
+msgstr "Pixels"
 
 #: ulanguage.lng_procesing_images
 msgid "Procesando imagen(es)"
-msgstr "Elaborazione immagine (s)"
+msgstr "Afbeelding(en) verwerken"
 
 #: ulanguage.lng_properties_
 msgctxt "ulanguage.lng_properties_"
 msgid "Propiedades"
-msgstr "Proprietà"
+msgstr "Eigenschappen"
 
 #: ulanguage.lng_publisher_of_images
 msgid "Editor de imágenes"
-msgstr "Image Editor"
+msgstr "Beeldbewerker"
 
 #: ulanguage.lng_put_center
 msgid "Poner centro"
-msgstr "Imposta centro"
+msgstr "Plaats middelpunt"
 
 #: ulanguage.lng_put_points_in_image
 msgctxt "ulanguage.lng_put_points_in_image"
 msgid "Poner puntos en imagen"
-msgstr "Mettere i punti"
+msgstr "Plaats punten in afbeelding"
 
 #: ulanguage.lng_put_real_center
 msgctxt "ulanguage.lng_put_real_center"
 msgid "Poner centro real"
-msgstr "Metti vero e proprio centro"
+msgstr "Plaats het ware middelpunt"
 
 #: ulanguage.lng_reload
 msgctxt "ulanguage.lng_reload"
 msgid "Recargar"
-msgstr "Ricarica"
+msgstr "Herladen"
 
 #: ulanguage.lng_reload_images_from_directory
 msgid "Recargar imágenes de un directorio"
-msgstr "Ricaricare le immagini in una directory"
+msgstr "Herlaad afbeelding(en) uit map"
 
 #: ulanguage.lng_reload_images_with_filter
 msgid "Recarga las imágenes con filtro"
-msgstr "Ricarica immagini filtrate"
+msgstr "Herlaad afbeelding met filter"
 
 #: ulanguage.lng_retry
 msgid "Reintentar"
-msgstr "Riprova"
+msgstr "Opnieuw proberen"
 
 #: ulanguage.lng_save
 msgctxt "ulanguage.lng_save"
 msgid "Guardar"
-msgstr "Salva"
+msgstr "Opslaan"
 
 #: ulanguage.lng_save_as
 msgid "Guardar como ..."
-msgstr "Salva con nome ..."
+msgstr "Opslaan als ..."
 
 #: ulanguage.lng_save_changes
 msgid "¿Guardar los cambios?"
-msgstr "Salvare le modifiche?"
+msgstr "Wijzigingen opslaan?"
 
 #: ulanguage.lng_save_fpg
 msgid "Guardando FPG"
-msgstr "Salvataggio FPG"
+msgstr "bezig met het opslaan van de FPG "
 
 #: ulanguage.lng_select_all
 msgctxt "ulanguage.lng_select_all"
 msgid "Seleccionar todo"
-msgstr "Seleziona tutto"
+msgstr "Alles selecteren"
 
 #: ulanguage.lng_select_more_images_for_animate
 msgid "Debe seleccionar varias imágenes para hacer la animación"
-msgstr "È necessario selezionare più immagini per rendere l'animazione"
+msgstr "Je moet een paar afbeeldingen selecteren om een animatie te kunnen maken."
 
 #: ulanguage.lng_set_insertion_code_in_fpg
 msgid "Establece el código de insercción en el FPG"
-msgstr "Imposta il codice di inserimento in FPG"
+msgstr "Zet de insertiecode in de FPG"
 
 #: ulanguage.lng_show_start_screen
 msgctxt "ulanguage.lng_show_start_screen"
 msgid "Mostrar pantalla de inicio"
-msgstr "Mostra la schermata iniziale"
+msgstr "Geef het home screen weer"
 
 #: ulanguage.lng_size_of_icons
 msgid "Tamaño de iconos"
-msgstr "Icona Size"
+msgstr "Grootte van de iconen"
 
 #: ulanguage.lng_sure_delete_allpoints
 msgid "¿Seguro que desea borrar todos los puntos de control?"
-msgstr "Sei sicuro di voler cancellare tutti i punti di controllo?"
+msgstr "Weet je zeker dat je alle controlepunten wilt wissen?"
 
 #: ulanguage.lng_the_code_exists_or_not_its_valid
 msgid "El código ya existe o no es valido"
-msgstr "Il codice esiste già o non è valido"
+msgstr "De code bestaat al of is ongeldig."
 
 #: ulanguage.lng_the_number_must_be_between_1_and_999_both_including
 msgid "El número debe estar entre 1 y 999 ambos incluidos"
-msgstr "Il numero deve essere compreso tra 1 e 999 inclusiva"
+msgstr "Het nummer moet tussen 1 en 999 zijn"
 
 #: ulanguage.lng_time_between_image
 msgid "Tiempo entre imagen"
-msgstr "Tempo tra immagine "
+msgstr "Tijd tussen de afbeeldingen"
 
 #: ulanguage.lng_tools
+#| msgid "Tools"
 msgctxt "ulanguage.lng_tools"
 msgid "Utilidades"
-msgstr "Utilità"
+msgstr "Gereedschappen"
 
 #: ulanguage.lng_type_of_fpg
 msgid "Tipo de FPG"
-msgstr "Tipo di FPG"
+msgstr "FPG type"
 
 #: ulanguage.lng_type_of_resource
 msgid "Tipo de recurso"
-msgstr "Tipo di risorsa"
+msgstr "Resource type"
 
 #: ulanguage.lng_unzip_fpg
 msgid "Descomprimiendo FPG"
-msgstr "Decompressione FPG"
+msgstr "Bezig met het decomprimeren van de FPG"
 
 #: ulanguage.lng_update_images
 msgid "Actualizando imagen(es)"
-msgstr "Aggiornamento immagine (s)"
+msgstr "Afbeelding(en) vernieuwen"
 
 #: ulanguage.lng_view
 msgctxt "ulanguage.lng_view"
 msgid "Ver"
-msgstr "Visualizza"
+msgstr "Bekijk"
 
 #: ulanguage.lng_view_icons
+#| msgid "Images"
 msgctxt "ulanguage.lng_view_icons"
 msgid "Imágenes"
-msgstr "Immagini"
+msgstr "Afbeeldingen"
 
 #: ulanguage.lng_view_palette
 msgid "Visualizar Paleta"
-msgstr "Mostra Palette"
+msgstr "Palet weergeven"
 
 #: ulanguage.lng_view_points_in_image
 msgctxt "ulanguage.lng_view_points_in_image"
 msgid "Ver puntos de la imagen"
-msgstr "Visualizza punti immagine"
+msgstr "Punten in afbeelding weergeven"
 
 #: ulanguage.lng_warning
 msgid "Aviso"
-msgstr "Attenzione"
+msgstr "Waarschuwing"
 
 #: ulanguage.lng_width
 msgctxt "ulanguage.lng_width"
 msgid "Ancho"
-msgstr "Larghezza"
+msgstr "Breedte"
 
 #: ulanguage.lng_will_be_select_image
 msgid "Debe tener la imagen a editar seleccionada."
-msgstr "È necessario selezionare l'immagine da modificare."
+msgstr "Je moet een afbeelding selecteren om het te kunnen bewerken."
 
 #: ulanguage.lng_wrong_fpg
 msgid "Archivo FPG incorrecto"
-msgstr "File FPG sbagliato"
+msgstr "FPG bestand is incorrect"
 
 #: ulanguage.lng_yes
 msgid "Si"
-msgstr "Se"
+msgstr "Ja"
 
 #: ulngconverter.lng_correct
 msgid "Fichero creado correctamente"
-msgstr "File creato con successo"
+msgstr "Archief successvol aangemaakt"
 
 #: ulngconverter.lng_file_no_exist
 msgid "No existe el fichero:"
-msgstr "Nessun file"
+msgstr "Geen bestand"
 
 #: ulngconverter.lng_file_reference_no_exist
 msgid "No existe el fichero de referencia:"
-msgstr "Nessun riferimento, quali file:"
+msgstr "Geen referentiebestand:"
 
 #: ulngtranslator.lng_message_correct_join
 msgid "Archivo Juntado Correctamente"
-msgstr "File Accoppiato correttamente"
+msgstr "Bestand correct samengevoegd"
 
 #: ulngtranslator.lng_message_help_translator
 msgid "Abre el archivo .po a traducir.\\nCopia el cotenido al portapapeles.\\nPégalo en tu traductor favorito y tradúcelo.\\nCopia el texto traducido y pégalo en el cuadro de abajo.\\nPulsa Unir.\\nEscribe las dos siglas del idioma destino.\\nFinalmente guarda el archivo."
-msgstr "Aprire il file. po tradurre.   cotenido nCopia appunti.   nPégalo vostro traduttore preferito e tradurlo.   nCopia e incollare il testo tradotto nella casella qui sotto.   nPremere registrazione.   nEscribe due lettere della lingua di destinazione.   nFinalmente salvare il file. "
+msgstr "Open the. po translate.   cotenido nCopia the clipboard.   nPégalo your favorite translator and translate it.   nCopia and paste the translated text in the box below.   nPress Join.   nEscribe two letters of the target language.   nFinalmente save the file. "
 
 #: ulngtranslator.lng_message_saved
 msgid "Archivo Guardado Correctamente"
@@ -2334,7 +2374,7 @@ msgstr ""
 #: umainmap.lng_ellipse
 msgctxt "umainmap.lng_ellipse"
 msgid "Elipse"
-msgstr "Ellisse"
+msgstr "Elipse"
 
 #: umainmap.lng_fill
 msgid "Rellenar"
@@ -2346,12 +2386,12 @@ msgstr ""
 
 #: umainmap.lng_mapedit_help
 msgid "Con control pulsado y haciendo clic, puedes cambiar los colores de la paleta."
-msgstr "Con premere Control e facendo clic, è possibile modificare i colori della tavolozza."
+msgstr "Hou de knop ingedrukt, dan kan je de kleuren van palet bewerken."
 
 #: umainmap.lng_pen
 msgctxt "umainmap.lng_pen"
 msgid "Lápiz"
-msgstr "Matita"
+msgstr "Pen (stippen)"
 
 #: umainmap.lng_rectangle
 msgid "Rectangulo"

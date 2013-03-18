@@ -46,8 +46,8 @@ object frmFPGImages: TfrmFPGImages
     Height = 321
     Top = 8
     Width = 393
-    ActivePage = tsProperties
-    TabIndex = 0
+    ActivePage = tsControlPoints
+    TabIndex = 1
     TabOrder = 2
     object tsProperties: TTabSheet
       Caption = 'Propiedades'
