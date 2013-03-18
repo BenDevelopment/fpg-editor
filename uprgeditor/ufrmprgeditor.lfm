@@ -19,7 +19,7 @@ object frmPRGEditor: TfrmPRGEditor
   inline SynMemo1: TSynMemo
     Cursor = crIBeam
     Left = 0
-    Height = 605
+    Height = 520
     Top = 0
     Width = 829
     Align = alClient
@@ -32,6 +32,7 @@ object frmPRGEditor: TfrmPRGEditor
     TabOrder = 1
     Gutter.Width = 57
     Gutter.MouseActions = <>
+    Highlighter = SynPrgHl1
     Keystrokes = <    
       item
         Command = ecUp
@@ -455,6 +456,7 @@ object frmPRGEditor: TfrmPRGEditor
       end>
     MouseActions = <>
     MouseSelActions = <>
+    ScrollBars = ssAutoBoth
     SelectedColor.BackPriority = 50
     SelectedColor.ForePriority = 50
     SelectedColor.FramePriority = 50
@@ -496,6 +498,27 @@ object frmPRGEditor: TfrmPRGEditor
         MouseActionsCollapsed = <>
       end
     end
+  end
+  object ListBox1: TListBox
+    Left = 0
+    Height = 80
+    Top = 525
+    Width = 829
+    Align = alBottom
+    ItemHeight = 0
+    ScrollWidth = 827
+    TabOrder = 2
+    TopIndex = -1
+    Visible = False
+  end
+  object Splitter1: TSplitter
+    Cursor = crVSplit
+    Left = 0
+    Height = 5
+    Top = 520
+    Width = 829
+    Align = alBottom
+    ResizeAnchor = akBottom
   end
   object MainMenu: TMainMenu
     left = 48
@@ -557,6 +580,12 @@ object frmPRGEditor: TfrmPRGEditor
         Action = aExecute
       end
     end
+    object MenuItem14: TMenuItem
+      Caption = 'Herramientas'
+      object MenuItem21: TMenuItem
+        Action = aOptions
+      end
+    end
   end
   object ActionList: TActionList
     left = 112
@@ -615,7 +644,8 @@ object frmPRGEditor: TfrmPRGEditor
       Category = 'Search'
       Caption = '&Reemplazar'
       Dialog.Options = [frDown, frReplace, frReplaceAll, frHidePromptOnReplace]
-      Dialog.OnFind = TFindDialogFind
+      Dialog.OnFind = TReplaceDialogFind
+      Dialog.OnReplace = TReplaceDialogReplace
     end
     object SearchFindFirst1: TSearchFindFirst
       Category = 'Search'
@@ -643,11 +673,13 @@ object frmPRGEditor: TfrmPRGEditor
     object aExecute: TAction
       Category = 'Execute'
       Caption = 'Ejecutar'
+      OnExecute = aExecuteExecute
       ShortCut = 120
     end
     object aCompile: TAction
       Category = 'Execute'
       Caption = 'Compilar'
+      OnExecute = aCompileExecute
       ShortCut = 16504
     end
     object aExit: TAction
@@ -655,5 +687,19 @@ object frmPRGEditor: TfrmPRGEditor
       Caption = 'Salir'
       OnExecute = aExitExecute
     end
+    object aOptions: TAction
+      Category = 'Tools'
+      Caption = 'Opciones...'
+      OnExecute = aOptionsExecute
+    end
+  end
+  object SynPrgHl1: TSynPrgHl
+    Enabled = False
+    RWordsAttri.Foreground = clNavy
+    RWordsAttri.FrameEdges = sfeAround
+    NWordsAttri.Foreground = clBlack
+    NWordsAttri.FrameEdges = sfeAround
+    left = 237
+    top = 124
   end
 end

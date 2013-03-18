@@ -11,7 +11,7 @@ uses
   ufrmConfig, uFrmExport, ufrmPalette, uinifile, uFrmBpp, uFrmCFG, uFrmMainFNT,
   uFrmAbout, uFrmInputBox, uFrmMessageBox, uFrmFNTView, uMAPGraphic,
   ufrmZipFenix, uLanguage, DefaultTranslator, ulngConverter, ulngTranslator,
-  umainmap, uselectcolor, uFPGcompare, ufrmprgeditor, usynprghl;
+  umainmap, uselectcolor, uFPGcompare, ufrmprgeditor, ufrmprgoptions;
 
 {$R *.res}
 resourcestring
@@ -51,5 +51,6 @@ Application.CreateForm(TfrmPRGEditor, frmPRGEditor);
    showmessage(LNG_NO_ENOUGH_MEMORY);
    Exit;
   end;
+  Application.CreateForm(Tfrmprgoptions, frmprgoptions);
   Application.Run;
 end.

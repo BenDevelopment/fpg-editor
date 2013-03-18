@@ -69,7 +69,7 @@
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
-            <OtherUnitFiles Value="uFrmMain;uBMP;uMap;uTools;uSort;uPCX;uFrmView;uLoadImage;uPAL;uColor16bits;uFPGConvert;uFPGFrmImages;uFPGFrmNew;uFrmAnimate;uFrmConfig;uFrmExport;uFrmPalette;uFrmSplash;uIniFile;uMessages\uFrmInputBox;uMessages\uFrmMessageBox;uFrmExport\uExportToFiles;uAAtext;uColorTable;uFNT;uFrmBpp;uFrmCFG;uFrmMainFNT;uFrmAbout;uFrmFPGView;uFrmFNTView;uFPG;uFPGListView;uFrmZipFenix;uLanguage;umainmap;ufrmPRGEditor"/>
+            <OtherUnitFiles Value="uFrmMain;uBMP;uMap;uTools;uSort;uPCX;uFrmView;uLoadImage;uPAL;uColor16bits;uFPGConvert;uFPGFrmImages;uFPGFrmNew;uFrmAnimate;uFrmConfig;uFrmExport;uFrmPalette;uFrmSplash;uIniFile;uLanguage;uMessages\uFrmInputBox;uMessages\uFrmMessageBox;uFrmExport\uExportToFiles;uAAtext;uColorTable;uFNT;uFrmBpp;uFrmCFG;uFrmMainFNT;uFrmAbout;uFrmFPGView;uFrmFNTView;uFPG;uFPGListView;uFrmZipFenix;umainmap;uprgeditor"/>
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <CodeGeneration>
@@ -438,9 +438,12 @@
         <UnitName Value="ufrmprgeditor"/>
       </Unit41>
       <Unit42>
-        <Filename Value="uprgeditor\usynprghl.pas"/>
+        <Filename Value="uprgeditor\ufrmprgoptions.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="usynprghl"/>
+        <ComponentName Value="frmprgoptions"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ufrmprgoptions"/>
       </Unit42>
     </Units>
   </ProjectOptions>

@@ -100,7 +100,14 @@ const
     'yield');
 
 
+procedure Register;
+
 implementation
+
+procedure Register;
+begin
+  RegisterComponents('FPG Editor', [TSynPrgHl]);
+end;
 
 constructor TSynPrgHl.Create(AOwner: TComponent);
 var

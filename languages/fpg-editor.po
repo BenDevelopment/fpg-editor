@@ -5,6 +5,31 @@ msgstr "Content-Type: text/plain; charset=UTF-8"
 msgid "Error, no se encuentran suficientes recursos para iniciar el programa. Salga de uno o más programas si desea ejecutar este programa."
 msgstr ""
 
+#: tform1.btnaceptar.caption
+msgctxt "TFORM1.BTNACEPTAR.CAPTION"
+msgid "Aceptar"
+msgstr ""
+
+#: tform1.btncancelar.caption
+msgctxt "TFORM1.BTNCANCELAR.CAPTION"
+msgid "Cancelar"
+msgstr ""
+
+#: tform1.caption
+msgctxt "tform1.caption"
+msgid "Opciones del editor de Archivos de programa"
+msgstr ""
+
+#: tform1.lblcompilador.caption
+msgctxt "tform1.lblcompilador.caption"
+msgid "Compilador:"
+msgstr ""
+
+#: tform1.lblinterprete.caption
+msgctxt "tform1.lblinterprete.caption"
+msgid "Intérprete:"
+msgstr ""
+
 #: tfrmabout.button1.caption
 msgid "Ok"
 msgstr ""
@@ -1124,6 +1149,7 @@ msgid "Abrir fuente de texto"
 msgstr ""
 
 #: tfrmmainfnt.sboptions.caption
+msgctxt "tfrmmainfnt.sboptions.caption"
 msgid "Opciones"
 msgstr ""
 
@@ -1418,6 +1444,11 @@ msgctxt "TFRMPRGEDITOR.AEXIT.CAPTION"
 msgid "Salir"
 msgstr ""
 
+#: tfrmprgeditor.aoptions.caption
+msgctxt "TFRMPRGEDITOR.AOPTIONS.CAPTION"
+msgid "Opciones..."
+msgstr ""
+
 #: tfrmprgeditor.asave.caption
 msgid "&Guardar"
 msgstr ""
@@ -1499,6 +1530,11 @@ msgstr ""
 msgid "Buscar"
 msgstr ""
 
+#: tfrmprgeditor.menuitem14.caption
+msgctxt "TFRMPRGEDITOR.MENUITEM14.CAPTION"
+msgid "Herramientas"
+msgstr ""
+
 #: tfrmprgeditor.menuitem18.caption
 msgctxt "tfrmprgeditor.menuitem18.caption"
 msgid "Ejecutar"
@@ -1523,6 +1559,31 @@ msgstr ""
 
 #: tfrmprgeditor.searchreplace1.caption
 msgid "&Reemplazar"
+msgstr ""
+
+#: tfrmprgoptions.btnaceptar.caption
+msgctxt "TFRMPRGOPTIONS.BTNACEPTAR.CAPTION"
+msgid "Aceptar"
+msgstr ""
+
+#: tfrmprgoptions.btncancelar.caption
+msgctxt "TFRMPRGOPTIONS.BTNCANCELAR.CAPTION"
+msgid "Cancelar"
+msgstr ""
+
+#: tfrmprgoptions.caption
+msgctxt "TFRMPRGOPTIONS.CAPTION"
+msgid "Opciones del editor de Archivos de programa"
+msgstr ""
+
+#: tfrmprgoptions.lblcompilador.caption
+msgctxt "TFRMPRGOPTIONS.LBLCOMPILADOR.CAPTION"
+msgid "Compilador:"
+msgstr ""
+
+#: tfrmprgoptions.lblinterprete.caption
+msgctxt "TFRMPRGOPTIONS.LBLINTERPRETE.CAPTION"
+msgid "Intérprete:"
 msgstr ""
 
 #: tfrmselectcolor.baceptar.caption

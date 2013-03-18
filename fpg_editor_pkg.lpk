@@ -7,7 +7,7 @@
       <Version Value="11"/>
       <PathDelim Value="\"/>
       <SearchPaths>
-        <OtherUnitFiles Value="uFPGListView;uFPG;uMap;uLoadImage;uTools"/>
+        <OtherUnitFiles Value="uFPGListView;uFPG;uMap;uLoadImage;uTools;uprgeditor"/>
         <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
       </SearchPaths>
       <Other>
@@ -17,7 +17,7 @@
         <CompilerPath Value="$(CompPath)"/>
       </Other>
     </CompilerOptions>
-    <Files Count="5">
+    <Files Count="6">
       <Item1>
         <Filename Value="uFPGListView\ufpglistview.pas"/>
         <HasRegisterProc Value="True"/>
@@ -39,12 +39,20 @@
         <Filename Value="uTools\uTools.pas"/>
         <UnitName Value="uTools"/>
       </Item5>
+      <Item6>
+        <Filename Value="uprgeditor\usynprghl.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="usynprghl"/>
+      </Item6>
     </Files>
     <Type Value="RunAndDesignTime"/>
-    <RequiredPkgs Count="1">
+    <RequiredPkgs Count="2">
       <Item1>
-        <PackageName Value="IDEIntf"/>
+        <PackageName Value="SynEdit"/>
       </Item1>
+      <Item2>
+        <PackageName Value="IDEIntf"/>
+      </Item2>
     </RequiredPkgs>
     <UsageOptions>
       <UnitPath Value="$(PkgOutDir)"/>
