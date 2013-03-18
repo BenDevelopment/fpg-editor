@@ -7,6 +7,7 @@ object frmPRGEditor: TfrmPRGEditor
   ClientWidth = 829
   Menu = MainMenu
   OnCreate = FormCreate
+  Position = poMainFormCenter
   LCLVersion = '1.1'
   object StatusBar: TStatusBar
     Left = 0
@@ -540,9 +541,6 @@ object frmPRGEditor: TfrmPRGEditor
       object MenuItem13: TMenuItem
         Action = SearchFind1
       end
-      object MenuItem14: TMenuItem
-        Action = SearchFindFirst1
-      end
       object MenuItem15: TMenuItem
         Action = SearchFindNext1
       end
@@ -617,6 +615,7 @@ object frmPRGEditor: TfrmPRGEditor
       Category = 'Search'
       Caption = '&Reemplazar'
       Dialog.Options = [frDown, frReplace, frReplaceAll, frHidePromptOnReplace]
+      Dialog.OnFind = TFindDialogFind
     end
     object SearchFindFirst1: TSearchFindFirst
       Category = 'Search'
@@ -625,6 +624,7 @@ object frmPRGEditor: TfrmPRGEditor
     object SearchFindNext1: TSearchFindNext
       Category = 'Search'
       Caption = 'Buscar Siguiente'
+      SearchFind = SearchFind1
       ShortCut = 114
     end
     object FileSaveAs1: TFileSaveAs
