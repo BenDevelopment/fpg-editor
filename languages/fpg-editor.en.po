@@ -1674,6 +1674,22 @@ msgstr "lost"
 msgid "colores"
 msgstr "colors"
 
+#: ufrmmainfnt.lng_bold
+msgid "Negrita"
+msgstr ""
+
+#: ufrmmainfnt.lng_labeled
+msgid "Tachado"
+msgstr ""
+
+#: ufrmmainfnt.lng_normal
+msgid "Normal"
+msgstr ""
+
+#: ufrmmainfnt.lng_underline
+msgid "Subrayado"
+msgstr ""
+
 #: ufrmprgeditor.lng_prg_editor
 msgctxt "ufrmprgeditor.lng_prg_editor"
 msgid "Editor de Archivos de Programa"

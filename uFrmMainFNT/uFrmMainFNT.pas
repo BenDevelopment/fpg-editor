@@ -8,7 +8,7 @@ uses
   LCLIntf, LCLType, SysUtils, Forms, Classes, Graphics, Controls,
   Dialogs, ExtCtrls, StdCtrls, Buttons, ComCtrls, ExtDlgs, Spin,
   IntfGraphics, uFNT, uIniFile,  uFrmBpp, FileUtil, FPimage, uColorTable
-  , uSort, uTools, ufrmFNTView, LConvEncoding, uFrmCFG, uFrmPalette;
+  , uSort, uTools, ufrmFNTView, LConvEncoding, uFrmCFG, ufrmPalette;
 
 const
  FONT_COLOR   = 1;
@@ -461,6 +461,11 @@ ArrayISO_8859_15ToUTF8: TCharToUTF8Table = (
   #195#191            // #255
 );
 
+resourcestring
+  LNG_NORMAL  ='Normal';
+  LNG_BOLD ='Negrita';
+  LNG_UNDERLINE ='Subrayado';
+  LNG_LABELED ='Tachado';
 
 implementation
 
@@ -1609,7 +1614,13 @@ begin
 end;
 
 procedure TfrmMainFNT.FormCreate(Sender: TObject);
+
 begin
+ cbStyle.Items.Clear;
+ cbStyle.Items.Add(LNG_NORMAL);
+ cbStyle.Items.Add(LNG_BOLD);
+ cbStyle.Items.Add(LNG_UNDERLINE);
+ cbStyle.Items.Add(LNG_LABELED);
  // Carga la configuración de inicio
  load_inifile;
  alpha_edge:= seRealfa.value;

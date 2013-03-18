@@ -154,7 +154,7 @@ object frmMainFNT: TfrmMainFNT
       object cbStyle: TComboBox
         Left = 6
         Height = 22
-        Top = -2
+        Top = -1
         Width = 89
         Constraints.MaxHeight = 22
         ItemHeight = 13

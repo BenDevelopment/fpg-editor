@@ -36,7 +36,6 @@ type
     MenuItem11: TMenuItem;
     MenuItem12: TMenuItem;
     MenuItem13: TMenuItem;
-    MenuItem14: TMenuItem;
     MenuItem15: TMenuItem;
     MenuItem16: TMenuItem;
     MenuItem17: TMenuItem;
@@ -105,6 +104,7 @@ begin
   SynMemo1.Highlighter:= highlr;
 end;
 
+
 procedure TfrmPRGEditor.SearchFind1Accept(Sender: TObject);
 begin
 end;
@@ -117,12 +117,12 @@ var
 begin
   {FPos is global}
   Found:= False;
-  FLen := Length(SearchFind1.Dialog.FindText);
+  FLen := Length(TFindDialog(Sender).FindText);
   SLen := Length(SynMemo1.Lines.Text);
-  FindS := SearchFind1.Dialog.FindText;
+  FindS := TFindDialog(Sender).FindText;
 
  //following 'if' added by mike
-  if frMatchcase in SearchFind1.Dialog.Options then
+  if frMatchcase in TFindDialog(Sender).Options then
      IPos := Pos(FindS, Copy(SynMemo1.Lines.Text,FPos+1,SLen-FPos))
   else
      IPos := Pos(AnsiUpperCase(FindS),AnsiUpperCase( Copy(SynMemo1.Lines.Text,FPos+1,SLen-FPos)));
