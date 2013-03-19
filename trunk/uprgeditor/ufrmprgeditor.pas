@@ -5,9 +5,9 @@ unit ufrmprgeditor;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, SynEdit, SynMemo, Forms, Controls, Graphics,
-  Dialogs, Menus, ActnList, ComCtrls, StdActns, StdCtrls, ExtCtrls,
-  usynprghl,uTools, ufrmprgoptions
+  Classes, SysUtils, FileUtil, SynEdit, SynMemo, SynHighlighterCpp, Forms,
+  Controls, Graphics, Dialogs, Menus, ActnList, ComCtrls, StdActns, StdCtrls,
+  ExtCtrls, usynprghl, uTools, ufrmprgoptions
   ;
 
 
@@ -61,7 +61,7 @@ type
     Splitter1: TSplitter;
     StatusBar: TStatusBar;
     SynMemo1: TSynMemo;
-    SynPrgHl1: TSynPrgHl;
+    SynPrgHl1 :TSynPrgHl;
     procedure aCompileExecute(Sender: TObject);
     procedure aExecuteExecute(Sender: TObject);
     procedure aExitExecute(Sender: TObject);
@@ -109,6 +109,8 @@ end;
 procedure TfrmPRGEditor.FormCreate(Sender: TObject);
 begin
   Caption:=LNG_PRG_EDITOR;
+  SynPrgHl1:= TSynPrgHl.Create(Owner);
+  SynMemo1.Highlighter:=SynPrgHl1;
 end;
 
 

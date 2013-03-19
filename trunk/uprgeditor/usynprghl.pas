@@ -5,7 +5,7 @@ unit usynprghl;
 interface
 
 uses
-  Classes, SysUtils, Graphics, SynEditTypes, SynEditHighlighter;
+  Classes, SysUtils, Graphics, SynEditTypes, SynEditHighlighter, SynEditStrConst;
 
 type
 
@@ -14,13 +14,13 @@ type
 
   TSynPrgHl = class(TSynCustomHighlighter)
   private
-    FRWordsAttri: TSynHighlighterAttributes;
-    FNWordsAttri: TSynHighlighterAttributes;
     FTokenPos, FTokenEnd: Integer;
     FLineText: String;
-    procedure SetRWordsAttri(AValue: TSynHighlighterAttributes);
-    procedure SetNWordsAttri(AValue: TSynHighlighterAttributes);
-
+    fCommentAttri: TSynHighlighterAttributes;
+    fIdentifierAttri: TSynHighlighterAttributes;
+    fKeyAttri: TSynHighlighterAttributes;
+    fStringAttri: TSynHighlighterAttributes;
+    fSpaceAttri: TSynHighlighterAttributes;
   public
     procedure SetLine(const NewValue: String; LineNumber: Integer); override;
     procedure Next; override;
@@ -34,10 +34,16 @@ type
     constructor Create(AOwner: TComponent); override;
 
   published
-    property RWordsAttri: TSynHighlighterAttributes read FRWordsAttri
-      write SetRWordsAttri;
-    property NWordsAttri: TSynHighlighterAttributes read FNWordsAttri
-      write SetNWordsAttri;
+    property CommentAttri: TSynHighlighterAttributes read fCommentAttri
+      write fCommentAttri;
+    property IdentifierAttri: TSynHighlighterAttributes read fIdentifierAttri
+      write fIdentifierAttri;
+    property KeyAttri: TSynHighlighterAttributes read fKeyAttri
+      write fKeyAttri;
+    property StringAttri: TSynHighlighterAttributes read fStringAttri
+      write fStringAttri;
+    property SpaceAttri: TSynHighlighterAttributes read fSpaceAttri
+      write fSpaceAttri;
 
   end;
 
@@ -115,25 +121,27 @@ var
 begin
   inherited Create(AOwner);
 
-  FRWordsAttri := TSynHighlighterAttributes.Create('reserved', 'reserved');
-  AddAttribute(FRWordsAttri);
-  FRWordsAttri.Foreground:=clRed;
 
-  FNWordsAttri := TSynHighlighterAttributes.Create('normal', 'normal');
-  AddAttribute(FNWordsAttri);
-  FNWordsAttri.Foreground:=clBlack;
+  fCommentAttri := TSynHighlighterAttributes.Create(SYNS_AttrComment, SYNS_XML_AttrComment);
+  fCommentAttri.Style:= [fsItalic];
+  AddAttribute(fCommentAttri);
 
+  fIdentifierAttri := TSynHighlighterAttributes.Create(SYNS_AttrIdentifier, SYNS_XML_AttrIdentifier);
+  fIdentifierAttri.Foreground:=clBlack;
+  AddAttribute(fIdentifierAttri);
 
-end;
+  fKeyAttri := TSynHighlighterAttributes.Create(SYNS_AttrKey, SYNS_XML_AttrKey);
+  fKeyAttri.Foreground:=clRed;
+  AddAttribute(fKeyAttri);
 
-procedure TSynPrgHl.SetRWordsAttri(AValue: TSynHighlighterAttributes);
-begin
-  FRWordsAttri.Assign(AValue);
-end;
+  fStringAttri := TSynHighlighterAttributes.Create(SYNS_AttrString, SYNS_XML_AttrString);
+  fStringAttri.Foreground:=clBlack;
+  AddAttribute(fStringAttri);
 
-procedure TSynPrgHl.SetNWordsAttri(AValue: TSynHighlighterAttributes);
-begin
-  FNWordsAttri.Assign(AValue);
+  fSpaceAttri := TSynHighlighterAttributes.Create(SYNS_AttrSpace, SYNS_XML_AttrSpace);
+  fSpaceAttri.Foreground:=clBlack;
+  AddAttribute(fSpaceAttri);
+
 end;
 
 
@@ -178,11 +186,11 @@ var
   i: Integer;
 begin
   // Match the text, specified by FTokenPos and FTokenEnd
-  Result := FNWordsAttri;
+  Result := fSpaceAttri;
   for i:=1 to length(PRG_RESERVED_WORDS) do
-    if LowerCase(copy(FLineText, FTokenPos, FTokenEnd - FTokenPos)) = PRG_RESERVED_WORDS[i] then
+    if LowerCase(GetToken) = PRG_RESERVED_WORDS[i] then
     begin
-      Result := FRWordsAttri;
+      Result := fKeyAttri;
       break;
     end;
 
@@ -201,9 +209,11 @@ end;
 function TSynPrgHl.GetDefaultAttribute(Index: integer): TSynHighlighterAttributes;
 begin
   case Index of
-    SYN_ATTR_COMMENT: Result := FRWordsAttri;
-    SYN_ATTR_IDENTIFIER: Result := FNWordsAttri;
-    SYN_ATTR_WHITESPACE: Result := FNWordsAttri;
+    SYN_ATTR_COMMENT: Result := fCommentAttri;
+    SYN_ATTR_IDENTIFIER: Result := fIdentifierAttri;
+    SYN_ATTR_KEYWORD: Result := fKeyAttri;
+    SYN_ATTR_STRING: Result := fStringAttri;
+    SYN_ATTR_WHITESPACE: Result := fSpaceAttri;
     else Result := nil;
   end;
 end;
@@ -215,8 +225,8 @@ begin
   // Map Attribute into a unique number
   a := GetTokenAttribute;
   Result := 0;
-  if a = FRWordsAttri then Result := 1;
-  if a = FNWordsAttri then Result := 2;
+  if a = fKeyAttri then Result := 1;
+  if a = fSpaceAttri then Result := 2;
 end;
 
 

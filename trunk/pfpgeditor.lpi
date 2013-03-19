@@ -157,7 +157,7 @@
         <PackageName Value="LCL"/>
       </Item4>
     </RequiredPackages>
-    <Units Count="43">
+    <Units Count="44">
       <Unit0>
         <Filename Value="pfpgeditor.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -445,6 +445,11 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ufrmprgoptions"/>
       </Unit42>
+      <Unit43>
+        <Filename Value="uprgeditor\usynprghl.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="usynprghl"/>
+      </Unit43>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

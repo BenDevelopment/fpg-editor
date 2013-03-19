@@ -32,7 +32,6 @@ object frmPRGEditor: TfrmPRGEditor
     TabOrder = 1
     Gutter.Width = 57
     Gutter.MouseActions = <>
-    Highlighter = SynPrgHl1
     Keystrokes = <    
       item
         Command = ecUp
@@ -692,14 +691,5 @@ object frmPRGEditor: TfrmPRGEditor
       Caption = 'Opciones...'
       OnExecute = aOptionsExecute
     end
-  end
-  object SynPrgHl1: TSynPrgHl
-    Enabled = False
-    RWordsAttri.Foreground = clNavy
-    RWordsAttri.FrameEdges = sfeAround
-    NWordsAttri.Foreground = clBlack
-    NWordsAttri.FrameEdges = sfeAround
-    left = 237
-    top = 124
   end
 end

@@ -11,7 +11,7 @@ uses
   ufrmConfig, uFrmExport, ufrmPalette, uinifile, uFrmBpp, uFrmCFG, uFrmMainFNT,
   uFrmAbout, uFrmInputBox, uFrmMessageBox, uFrmFNTView, uMAPGraphic,
   ufrmZipFenix, uLanguage, DefaultTranslator, ulngConverter, ulngTranslator,
-  umainmap, uselectcolor, uFPGcompare, ufrmprgeditor, ufrmprgoptions;
+  umainmap, uselectcolor, uFPGcompare, ufrmprgeditor, ufrmprgoptions, usynprghl;
 
 {$R *.res}
 resourcestring
