@@ -24,6 +24,7 @@ type
     aSave: TAction;
     ActionList: TActionList;
     cbCharset: TComboBox;
+    cbConvert: TComboBox;
     EditCopy1: TEditCopy;
     EditCut1: TEditCut;
     EditDelete1: TEditDelete;
@@ -32,6 +33,8 @@ type
     EditUndo1: TEditUndo;
     FileOpen1: TFileOpen;
     FileSaveAs1: TFileSaveAs;
+    lblCharset: TLabel;
+    lblConvert: TLabel;
     ListBox1: TListBox;
     MainMenu: TMainMenu;
     MenuItem1: TMenuItem;
@@ -69,6 +72,7 @@ type
     procedure aOptionsExecute(Sender: TObject);
     procedure aSaveExecute(Sender: TObject);
     procedure cbCharsetChange(Sender: TObject);
+    procedure cbConvertChange(Sender: TObject);
     procedure FileOpen1Accept(Sender: TObject);
     procedure FileSaveAs1Accept(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -78,7 +82,7 @@ type
     procedure TReplaceDialogReplace(Sender: TObject);
   private
     { private declarations }
-    originalData : TStrings;
+    lastEncoding : String;
   public
     found : boolean;
     fpos : integer;
@@ -99,17 +103,16 @@ implementation
 
 procedure TfrmPRGEditor.FileOpen1Accept(Sender: TObject);
 begin
-  originalData.LoadFromFile(FileOpen1.Dialog.FileName);
-
-  SynMemo1.Lines.Text:= ConvertEncoding(originalData.Text,cbCharset.Text, 'utf8');;
+  SynMemo1.Lines.LoadFromFile(FileOpen1.Dialog.FileName);
+  SynMemo1.Lines.Text:= ConvertEncoding(SynMemo1.Lines.Text,cbCharset.Text, 'utf8');;
 
   Caption:=LNG_PRG_EDITOR + ' - ' + ExtractFileNameOnly(  FileOpen1.Dialog.FileName);
 end;
 
 procedure TfrmPRGEditor.FileSaveAs1Accept(Sender: TObject);
 begin
-  originalData.Text:= ConvertEncoding(SynMemo1.Lines.text, 'utf8',cbCharset.Text);;
-  originalData.SaveToFile(FileSaveAs1.Dialog.FileName);
+  SynMemo1.Lines.Text:= ConvertEncoding(SynMemo1.Lines.text, 'utf8',cbCharset.Text);;
+  SynMemo1.Lines.SaveToFile(FileSaveAs1.Dialog.FileName);
 
   FileOpen1.Dialog.FileName:=FileSaveAs1.Dialog.FileName;
   Caption:=LNG_PRG_EDITOR + ' - ' + ExtractFileNameOnly(  FileOpen1.Dialog.FileName);
@@ -120,12 +123,12 @@ begin
   Caption:=LNG_PRG_EDITOR;
   SynPrgHl1:= TSynPrgHl.Create(Owner);
   SynMemo1.Highlighter:=SynPrgHl1;
-  originalData:= TStringList.Create;
+  lastEncoding:=cbCharset.Text;
 end;
 
 procedure TfrmPRGEditor.FormDestroy(Sender: TObject);
 begin
-  FreeAndNil(originalData);
+
 end;
 
 
@@ -272,7 +275,17 @@ end;
 
 procedure TfrmPRGEditor.cbCharsetChange(Sender: TObject);
 begin
-    SynMemo1.Lines.Text:= ConvertEncoding(originalData.Text,cbCharset.Text, 'utf8');;
+    SynMemo1.Lines.Text:= ConvertEncoding(SynMemo1.Lines.Text,'utf8',lastEncoding);
+    SynMemo1.Lines.Text:= ConvertEncoding(SynMemo1.Lines.Text,cbCharset.Text, 'utf8');
+    lastEncoding := cbCharset.Text;
+end;
+
+procedure TfrmPRGEditor.cbConvertChange(Sender: TObject);
+begin
+    SynMemo1.Lines.Text:= ConvertEncoding(SynMemo1.Lines.Text,'utf8',cbConvert.Text);
+    SynMemo1.Lines.Text:= ConvertEncoding(SynMemo1.Lines.Text,cbConvert.Text, 'utf8');
+    lastEncoding:=cbConvert.Text;
+    cbCharset.itemindex:=cbConvert.itemindex;
 end;
 
 procedure TfrmPRGEditor.aExitExecute(Sender: TObject);

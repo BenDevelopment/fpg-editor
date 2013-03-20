@@ -809,6 +809,7 @@ msgid "Añadir selección"
 msgstr "Add selection"
 
 #: tfrmmain.miconvert.caption
+msgctxt "tfrmmain.miconvert.caption"
 msgid "Convertir a"
 msgstr "Convert to"
 
@@ -1479,6 +1480,12 @@ msgid "&Guardar"
 msgstr ""
 
 #: tfrmprgeditor.cbcharset.text
+msgctxt "tfrmprgeditor.cbcharset.text"
+msgid "cp850"
+msgstr ""
+
+#: tfrmprgeditor.cbconvert.text
+msgctxt "tfrmprgeditor.cbconvert.text"
 msgid "cp850"
 msgstr ""
 
@@ -1549,6 +1556,15 @@ msgstr ""
 #: tfrmprgeditor.filesaveas1.hint
 msgid "Guardar Como"
 msgstr ""
+
+#: tfrmprgeditor.lblcharset.caption
+msgid "Ver como"
+msgstr ""
+
+#: tfrmprgeditor.lblconvert.caption
+msgctxt "tfrmprgeditor.lblconvert.caption"
+msgid "Convertir a"
+msgstr "Convert to"
 
 #: tfrmprgeditor.menuitem1.caption
 msgctxt "tfrmprgeditor.menuitem1.caption"

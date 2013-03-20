@@ -1,9 +1,9 @@
 object frmPRGEditor: TfrmPRGEditor
-  Left = 378
+  Left = 338
   Height = 659
-  Top = 222
+  Top = 146
   Width = 829
-  ClientHeight = 630
+  ClientHeight = 639
   ClientWidth = 829
   Menu = MainMenu
   OnCreate = FormCreate
@@ -13,7 +13,7 @@ object frmPRGEditor: TfrmPRGEditor
   inline SynMemo1: TSynMemo
     Cursor = crIBeam
     Left = 0
-    Height = 515
+    Height = 524
     Top = 0
     Width = 829
     Align = alClient
@@ -24,7 +24,7 @@ object frmPRGEditor: TfrmPRGEditor
     ParentColor = False
     ParentFont = False
     TabOrder = 0
-    Gutter.Width = 57
+    Gutter.Width = 55
     Gutter.MouseActions = <>
     Keystrokes = <    
       item
@@ -462,7 +462,7 @@ object frmPRGEditor: TfrmPRGEditor
         MouseActions = <>
       end
       object SynGutterLineNumber1: TSynGutterLineNumber
-        Width = 17
+        Width = 15
         MouseActions = <>
         MarkupInfo.Background = clBtnFace
         MarkupInfo.Foreground = clNone
@@ -495,20 +495,19 @@ object frmPRGEditor: TfrmPRGEditor
   object ListBox1: TListBox
     Left = 0
     Height = 80
-    Top = 520
+    Top = 529
     Width = 829
     Align = alBottom
     ItemHeight = 0
     ScrollWidth = 827
     TabOrder = 1
-    TopIndex = -1
     Visible = False
   end
   object Splitter1: TSplitter
     Cursor = crVSplit
     Left = 0
     Height = 5
-    Top = 515
+    Top = 524
     Width = 829
     Align = alBottom
     ResizeAnchor = akBottom
@@ -516,22 +515,22 @@ object frmPRGEditor: TfrmPRGEditor
   object Panel1: TPanel
     Left = 0
     Height = 30
-    Top = 600
+    Top = 609
     Width = 829
     Align = alBottom
     ClientHeight = 30
     ClientWidth = 829
     TabOrder = 3
     object cbCharset: TComboBox
-      Left = 667
-      Height = 22
+      Left = 443
+      Height = 23
       Top = 4
       Width = 156
       Align = alRight
       BorderSpacing.Top = 3
       BorderSpacing.Right = 5
       BorderSpacing.Bottom = 3
-      ItemHeight = 0
+      ItemHeight = 15
       ItemIndex = 0
       Items.Strings = (
         'cp850'
@@ -542,6 +541,50 @@ object frmPRGEditor: TfrmPRGEditor
       OnChange = cbCharsetChange
       Style = csDropDownList
       TabOrder = 0
+      Text = 'cp850'
+    end
+    object lblCharset: TLabel
+      Left = 387
+      Height = 20
+      Top = 9
+      Width = 51
+      Align = alRight
+      BorderSpacing.Top = 8
+      BorderSpacing.Right = 5
+      Caption = 'Ver como'
+      ParentColor = False
+    end
+    object lblConvert: TLabel
+      Left = 604
+      Height = 20
+      Top = 9
+      Width = 58
+      Align = alRight
+      BorderSpacing.Top = 8
+      BorderSpacing.Right = 5
+      Caption = 'Convertir a'
+      ParentColor = False
+    end
+    object cbConvert: TComboBox
+      Left = 667
+      Height = 23
+      Top = 4
+      Width = 156
+      Align = alRight
+      BorderSpacing.Top = 3
+      BorderSpacing.Right = 5
+      BorderSpacing.Bottom = 3
+      OnChange = cbConvertChange
+      ItemHeight = 15
+      ItemIndex = 0
+      Items.Strings = (
+        'cp850'
+        'iso88591'
+        'iso885915'
+        'utf8'
+      )
+      Style = csDropDownList
+      TabOrder = 1
       Text = 'cp850'
     end
   end
