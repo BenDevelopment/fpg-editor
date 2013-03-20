@@ -135,11 +135,11 @@ begin
   AddAttribute(fKeyAttri);
 
   fStringAttri := TSynHighlighterAttributes.Create(SYNS_AttrString, SYNS_XML_AttrString);
-  fStringAttri.Foreground:=clBlack;
+  fStringAttri.Foreground:=clBlue;
   AddAttribute(fStringAttri);
 
   fSpaceAttri := TSynHighlighterAttributes.Create(SYNS_AttrSpace, SYNS_XML_AttrSpace);
-  fSpaceAttri.Foreground:=clBlack;
+  fIdentifierAttri.Foreground:=clBlack;
   AddAttribute(fSpaceAttri);
 
 end;
@@ -158,16 +158,45 @@ var
   l: Integer;
 begin
   FTokenPos := FTokenEnd;
-  FTokenEnd := FTokenPos;
 
   l := length(FLineText);
+
   If FTokenPos > l then
-    exit
-  else
-  if FLineText[FTokenEnd] in [#9, ' '] then
-    while (FTokenEnd <= l) and (FLineText[FTokenEnd] in [#0..#32]) do inc (FTokenEnd)
-  else
-    while (FTokenEnd <= l) and not(FLineText[FTokenEnd] in [#9, ' ']) do inc (FTokenEnd)
+    exit;
+
+  if FLineText[FTokenEnd] in [#9,' '] then
+    while (FTokenEnd+1 <= l ) do
+    begin
+          inc (FTokenEnd);
+          if not (FLineText[FTokenEnd] in [#9,' ']) then
+             exit;
+    end;
+
+  If FTokenEnd > l then
+    exit;
+
+  if FLineText[FTokenEnd] in ['"'] then
+    while (FTokenEnd+1 <= l ) do
+    begin
+          inc (FTokenEnd);
+          if (FLineText[FTokenEnd] in ['"']) then
+          begin
+             inc (FTokenEnd);
+             exit;
+          end;
+    end;
+
+  If FTokenEnd > l then
+     exit;
+
+  while (FTokenEnd+1 <= l ) do
+  begin
+        inc (FTokenEnd);
+        if (FLineText[FTokenEnd] in [#9,' ','"']) then
+           exit;
+  end;
+  inc (FTokenEnd);
+
 end;
 
 function TSynPrgHl.GetEol: Boolean;
@@ -186,7 +215,19 @@ var
   i: Integer;
 begin
   // Match the text, specified by FTokenPos and FTokenEnd
-  Result := fSpaceAttri;
+  Result := fIdentifierAttri;
+  if GetToken[1] ='"' then
+  begin
+    Result := fStringAttri;
+    exit;
+  end;
+
+  if (GetToken[1] in [#9,' ']) then
+  begin
+    Result := fSpaceAttri;
+    exit;
+  end;
+
   for i:=1 to length(PRG_RESERVED_WORDS) do
     if LowerCase(GetToken) = PRG_RESERVED_WORDS[i] then
     begin

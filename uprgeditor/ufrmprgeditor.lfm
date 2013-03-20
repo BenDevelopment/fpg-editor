@@ -7,19 +7,13 @@ object frmPRGEditor: TfrmPRGEditor
   ClientWidth = 829
   Menu = MainMenu
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   Position = poMainFormCenter
   LCLVersion = '1.1'
-  object StatusBar: TStatusBar
-    Left = 0
-    Height = 25
-    Top = 605
-    Width = 829
-    Panels = <>
-  end
   inline SynMemo1: TSynMemo
     Cursor = crIBeam
     Left = 0
-    Height = 520
+    Height = 515
     Top = 0
     Width = 829
     Align = alClient
@@ -29,7 +23,7 @@ object frmPRGEditor: TfrmPRGEditor
     Font.Quality = fqNonAntialiased
     ParentColor = False
     ParentFont = False
-    TabOrder = 1
+    TabOrder = 0
     Gutter.Width = 57
     Gutter.MouseActions = <>
     Keystrokes = <    
@@ -501,12 +495,12 @@ object frmPRGEditor: TfrmPRGEditor
   object ListBox1: TListBox
     Left = 0
     Height = 80
-    Top = 525
+    Top = 520
     Width = 829
     Align = alBottom
     ItemHeight = 0
     ScrollWidth = 827
-    TabOrder = 2
+    TabOrder = 1
     TopIndex = -1
     Visible = False
   end
@@ -514,10 +508,42 @@ object frmPRGEditor: TfrmPRGEditor
     Cursor = crVSplit
     Left = 0
     Height = 5
-    Top = 520
+    Top = 515
     Width = 829
     Align = alBottom
     ResizeAnchor = akBottom
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 30
+    Top = 600
+    Width = 829
+    Align = alBottom
+    ClientHeight = 30
+    ClientWidth = 829
+    TabOrder = 3
+    object cbCharset: TComboBox
+      Left = 667
+      Height = 22
+      Top = 4
+      Width = 156
+      Align = alRight
+      BorderSpacing.Top = 3
+      BorderSpacing.Right = 5
+      BorderSpacing.Bottom = 3
+      ItemHeight = 0
+      ItemIndex = 0
+      Items.Strings = (
+        'cp850'
+        'iso88591'
+        'iso885915'
+        'utf8'
+      )
+      OnChange = cbCharsetChange
+      Style = csDropDownList
+      TabOrder = 0
+      Text = 'cp850'
+    end
   end
   object MainMenu: TMainMenu
     left = 48
