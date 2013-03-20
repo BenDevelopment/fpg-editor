@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, SynEdit, SynMemo, SynHighlighterCpp, Forms,
   Controls, Graphics, Dialogs, Menus, ActnList, ComCtrls, StdActns, StdCtrls,
-  ExtCtrls, usynprghl, uTools, ufrmprgoptions
+  ExtCtrls, usynprghl, uTools, ufrmprgoptions, LConvEncoding
   ;
 
 
@@ -23,6 +23,7 @@ type
     aExecute: TAction;
     aSave: TAction;
     ActionList: TActionList;
+    cbCharset: TComboBox;
     EditCopy1: TEditCopy;
     EditCut1: TEditCut;
     EditDelete1: TEditDelete;
@@ -54,12 +55,12 @@ type
     MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
+    Panel1: TPanel;
     SearchFind1: TSearchFind;
     SearchFindFirst1: TSearchFindFirst;
     SearchFindNext1: TSearchFindNext;
     SearchReplace1: TSearchReplace;
     Splitter1: TSplitter;
-    StatusBar: TStatusBar;
     SynMemo1: TSynMemo;
     SynPrgHl1 :TSynPrgHl;
     procedure aCompileExecute(Sender: TObject);
@@ -67,14 +68,17 @@ type
     procedure aExitExecute(Sender: TObject);
     procedure aOptionsExecute(Sender: TObject);
     procedure aSaveExecute(Sender: TObject);
+    procedure cbCharsetChange(Sender: TObject);
     procedure FileOpen1Accept(Sender: TObject);
     procedure FileSaveAs1Accept(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
     procedure TFindDialogFind(Sender: TObject);
     procedure TReplaceDialogFind(Sender: TObject);
     procedure TReplaceDialogReplace(Sender: TObject);
   private
     { private declarations }
+    originalData : TStrings;
   public
     found : boolean;
     fpos : integer;
@@ -95,13 +99,18 @@ implementation
 
 procedure TfrmPRGEditor.FileOpen1Accept(Sender: TObject);
 begin
-  SynMemo1.Lines.LoadFromFile( FileOpen1.Dialog.FileName);;
+  originalData.LoadFromFile(FileOpen1.Dialog.FileName);
+
+  SynMemo1.Lines.Text:= ConvertEncoding(originalData.Text,cbCharset.Text, 'utf8');;
+
   Caption:=LNG_PRG_EDITOR + ' - ' + ExtractFileNameOnly(  FileOpen1.Dialog.FileName);
 end;
 
 procedure TfrmPRGEditor.FileSaveAs1Accept(Sender: TObject);
 begin
-  SynMemo1.Lines.SaveToFile(FileSaveAs1.Dialog.FileName);
+  originalData.Text:= ConvertEncoding(SynMemo1.Lines.text, 'utf8',cbCharset.Text);;
+  originalData.SaveToFile(FileSaveAs1.Dialog.FileName);
+
   FileOpen1.Dialog.FileName:=FileSaveAs1.Dialog.FileName;
   Caption:=LNG_PRG_EDITOR + ' - ' + ExtractFileNameOnly(  FileOpen1.Dialog.FileName);
 end;
@@ -111,6 +120,12 @@ begin
   Caption:=LNG_PRG_EDITOR;
   SynPrgHl1:= TSynPrgHl.Create(Owner);
   SynMemo1.Highlighter:=SynPrgHl1;
+  originalData:= TStringList.Create;
+end;
+
+procedure TfrmPRGEditor.FormDestroy(Sender: TObject);
+begin
+  FreeAndNil(originalData);
 end;
 
 
@@ -253,6 +268,11 @@ begin
      FileSaveAs1.Execute
   else
      SynMemo1.Lines.SaveToFile(FileOpen1.Dialog.FileName);
+end;
+
+procedure TfrmPRGEditor.cbCharsetChange(Sender: TObject);
+begin
+    SynMemo1.Lines.Text:= ConvertEncoding(originalData.Text,cbCharset.Text, 'utf8');;
 end;
 
 procedure TfrmPRGEditor.aExitExecute(Sender: TObject);

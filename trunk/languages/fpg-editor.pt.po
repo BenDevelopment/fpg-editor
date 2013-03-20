@@ -1461,6 +1461,10 @@ msgstr "Opções"
 msgid "&Guardar"
 msgstr ""
 
+#: tfrmprgeditor.cbcharset.text
+msgid "cp850"
+msgstr ""
+
 #: tfrmprgeditor.editcopy1.caption
 msgid "&Copiar"
 msgstr ""
