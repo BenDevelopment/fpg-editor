@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, SynEdit, SynMemo, SynHighlighterCpp, Forms,
   Controls, Graphics, Dialogs, Menus, ActnList, ComCtrls, StdActns, StdCtrls,
-  ExtCtrls, usynprghl, uTools, ufrmprgoptions, LConvEncoding
+  ExtCtrls, usynprghl, uTools, ufrmprgoptions, LConvEncoding,strutils
   ;
 
 
@@ -37,6 +37,7 @@ type
     lblConvert: TLabel;
     ListBox1: TListBox;
     MainMenu: TMainMenu;
+    Memo1: TMemo;
     MenuItem1: TMenuItem;
     MenuItem10: TMenuItem;
     MenuItem11: TMenuItem;
@@ -86,8 +87,6 @@ type
   public
     { public declarations }
     found : boolean;
-    fpos : integer;
-
   end;
 
 var
@@ -140,42 +139,75 @@ end;
 
 procedure TfrmPRGEditor.TFindDialogFind(Sender: TObject);
 var
-  FindS: String;
+  FindS,sourceStr: String;
   IPos, FLen, SLen: Integer; {Internpos, Lengde søkestreng, lengde memotekst}
   Res : integer;
   findDialog1 : TFindDialog;
-  Memo1 : TSynMemo;
+  tmpMemo : TSynMemo;
+  fpos : integer;
+  (*Added backward search, loop search, and search from the curren position by DCelso*)
 begin
   findDialog1:= TFindDialog(Sender);
-  Memo1 := SynMemo1;
-  {FPos is global}
-  Found:= False;
+  tmpMemo := SynMemo1;
   FLen := Length(findDialog1.FindText);
-  SLen := Length(Memo1.Text);
-  FindS := findDialog1.FindText;
+  SLen := Length(tmpMemo.Text);
+
+
+  // INI DCelso
+  if frDown in findDialog1.Options then
+  begin
+    FPOS := tmpMemo.SelEnd;
+    SourceStr:=Copy(tmpMemo.Text,FPos+1,SLen-FPos);
+    FindS := findDialog1.FindText;
+  end
+  else
+  begin
+    FPOS := tmpMemo.SelStart;
+    SourceStr:=ReverseString(Copy(tmpMemo.Text,1,FPos-1));
+    FindS := ReverseString(findDialog1.FindText);
+  end;
+  // END DCelso
 
  //following 'if' added by mike
   if frMatchcase in findDialog1.Options then
-     IPos := Pos(FindS, Copy(Memo1.Text,FPos+1,SLen-FPos))
+     IPos := Pos(FindS, SourceStr)
   else
-     IPos := Pos(AnsiUpperCase(FindS),AnsiUpperCase( Copy(Memo1.Text,FPos+1,SLen-FPos)));
+     IPos := Pos(AnsiUpperCase(FindS),AnsiUpperCase(SourceStr));
 
   If IPos > 0 then begin
-    FPos := FPos + IPos;
+   if frDown in findDialog1.Options then     // DCelso
+      FPos := FPos + IPos
+   else
+      FPos := FPos - IPos - FLen +1;
  //   Hoved.BringToFront;       {Edit control must have focus in }
-    Memo1.SetFocus;
-    Self.ActiveControl := Memo1;
-    Memo1.SelStart:= FPos;  // -1;   mike   {Select the string found by POS}
-    setSelLength(memo1, FLen);     //Memo1.SelLength := FLen;
-    Found := True;
-    FPos:=FPos+FLen-1;   //mike - move just past end of found item
+//    tmpMemo.SetFocus;
+//    Self.ActiveControl := tmpMemo;
+    tmpMemo.SelStart:= FPos;  // -1;   mike   {Select the string found by POS}
+    setSelLength(tmpMemo, FLen);     //tmpMemo.SelLength := FLen;
+   if frDown in findDialog1.Options then     // DCelso
+       FPos:=FPos+FLen-1   //mike - move just past end of found item
+   else
+      FPos:=FPos-FLen+1   // move just past end of found item in reverestring
 
   end
   Else
   begin
-    Res := MessageDlg('Find','Text was not found!'
-           , mtInformation ,  [mbOK],0);
-    FPos := 0;
+    // DCelso
+    if (MessageDlg('Find','Text was not found! Continue from the begginin?'
+           , mtInformation ,  [mbYes,mbNo],0)) = mrYes then
+    begin
+      if frDown in findDialog1.Options then
+      begin
+          tmpMemo.SelStart:=0;
+          tmpMemo.SelEnd:=0;
+      end
+      else
+      begin
+        tmpMemo.SelStart:= SLen;
+        tmpMemo.SelEnd:= SLen;
+      end;
+      TFindDialogFind(Sender);
+    end;
   end;             //   - also do it before exec of dialog.
 
 end;
@@ -186,31 +218,30 @@ var
   FindS: String;
   IPos, FLen, SLen: Integer; {Internpos, Lengde søkestreng, lengde memotekst}
   Res : integer;
-  Memo1 : TSynMemo;
+  tmpMemo : TSynMemo;
   ReplaceDialog1 : TFindDialog ;
+  FPos : Integer;
 begin
-  Memo1:=SynMemo1;
+  tmpMemo:=SynMemo1;
   ReplaceDialog1:= TFindDialog(Sender);
   {FPos is global}
-  Found:= False;
   FLen := Length(ReplaceDialog1.FindText);
-  SLen := Length(Memo1.Text);
+  SLen := Length(tmpMemo.Text);
   FindS := ReplaceDialog1.FindText;
 
  //following 'if' added by mike
   if frMatchcase in ReplaceDialog1.Options then
-     IPos := Pos(FindS, Copy(Memo1.Text,FPos+1,SLen-FPos))
+     IPos := Pos(FindS, Copy(tmpMemo.Text,FPos+1,SLen-FPos))
   else
-     IPos := Pos(AnsiUpperCase(FindS),AnsiUpperCase( Copy(Memo1.Text,FPos+1,SLen-FPos)));
+     IPos := Pos(AnsiUpperCase(FindS),AnsiUpperCase( Copy(tmpMemo.Text,FPos+1,SLen-FPos)));
 
   If IPos > 0 then begin
     FPos := FPos + IPos;
  //   Hoved.BringToFront;       {Edit control must have focus in } - what is this? mike
-    Memo1.SetFocus;
-    Self.ActiveControl := Memo1;
-    Memo1.SelStart:= FPos;  // removed -1;   mike   {Select the string found by POS}
-    setSelLength(memo1, FLen);     //Memo1.SelLength := FLen;
-    Found := True;
+    tmpMemo.SetFocus;
+    Self.ActiveControl := tmpMemo;
+    tmpMemo.SelStart:= FPos;  // removed -1;   mike   {Select the string found by POS}
+    setSelLength(tmpMemo, FLen);     //tmpMemo.SelLength := FLen;
     FPos:=FPos+FLen-1;   //mike - move just past end of found item
   end
   Else
@@ -228,31 +259,31 @@ procedure TfrmPRGEditor.TReplaceDialogReplace(Sender: TObject);
 var
     Res, replaceCount:integer;   //added by mike
     countInfo:string;
-    Memo1 : TSynMemo;
+    tmpMemo : TSynMemo;
     ReplaceDialog1 : TReplaceDialog ;
  begin
-  Memo1:=SynMemo1;
+  tmpMemo:=SynMemo1;
   ReplaceDialog1:= TReplaceDialog(Sender);
   If Found = False then       {If no search for string took place}
   begin
     TReplaceDialogFind(Sender); {Search for string, replace if found}
-    If Length(Memo1.SelText) > 0 then
-        Memo1.SelText :=  ReplaceDialog1.ReplaceText;
+    If Length(tmpMemo.SelText) > 0 then
+        tmpMemo.SelText :=  ReplaceDialog1.ReplaceText;
   end
   Else                          {If search ran, replace string}
   begin
-    If Length(Memo1.SelText) > 0 then
-        Memo1.SelText := ReplaceDialog1.ReplaceText;
+    If Length(tmpMemo.SelText) > 0 then
+        tmpMemo.SelText := ReplaceDialog1.ReplaceText;
   end;
   Found := False;
-  setSelLength(memo1, 0);    //Memo1.SelLength := 0;
+  setSelLength(tmpMemo, 0);    //tmpMemo.SelLength := 0;
   {Hvis Erstatt alle...}
   If (ReplaceDialog1.Options*[frReplaceAll] = [frReplaceAll]) then begin
       replaceCount:=0;
       Repeat
         TReplaceDialogFind(Sender); {Search for string, replace if found}
-        If Length(Memo1.SelText) > 0 then begin
-            Memo1.SelText := ReplaceDialog1.ReplaceText;
+        If Length(tmpMemo.SelText) > 0 then begin
+            tmpMemo.SelText := ReplaceDialog1.ReplaceText;
             replaceCount:=replaceCount+1;
         end;                                   //laz, syn
       until Found = False;
