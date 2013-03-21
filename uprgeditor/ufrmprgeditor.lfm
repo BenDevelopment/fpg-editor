@@ -1,7 +1,7 @@
 object frmPRGEditor: TfrmPRGEditor
-  Left = 338
+  Left = 336
   Height = 659
-  Top = 146
+  Top = 148
   Width = 829
   ClientHeight = 630
   ClientWidth = 829
@@ -10,6 +10,16 @@ object frmPRGEditor: TfrmPRGEditor
   OnDestroy = FormDestroy
   Position = poMainFormCenter
   LCLVersion = '1.1'
+  object Memo1: TMemo
+    Left = 165
+    Height = 90
+    Top = 193
+    Width = 150
+    Lines.Strings = (
+      'ds'
+    )
+    TabOrder = 4
+  end
   inline SynMemo1: TSynMemo
     Cursor = crIBeam
     Left = 0

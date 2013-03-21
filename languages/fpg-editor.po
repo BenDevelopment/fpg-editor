@@ -989,7 +989,7 @@ msgstr ""
 
 #: tfrmmain.caption
 msgctxt "tfrmmain.caption"
-msgid "FPG Editor v4.0"
+msgid "FPG Editor"
 msgstr ""
 
 #: tfrmmain.menuitem1.caption
@@ -1007,7 +1007,6 @@ msgid "Ayuda"
 msgstr ""
 
 #: tfrmmain.menuitem4.caption
-msgctxt "TFRMMAIN.MENUITEM4.CAPTION"
 msgid "Ficheros"
 msgstr ""
 

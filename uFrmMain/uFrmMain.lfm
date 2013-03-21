@@ -1,11 +1,11 @@
 object frmMain: TfrmMain
   Left = 451
-  Height = 188
+  Height = 185
   Top = 353
-  Width = 422
-  Caption = 'FPG Editor v4.0'
-  ClientHeight = 159
-  ClientWidth = 422
+  Width = 416
+  Caption = 'FPG Editor'
+  ClientHeight = 156
+  ClientWidth = 416
   Menu = MainMenu1
   OnCreate = FormCreate
   OnShow = FormShow
@@ -13,9 +13,9 @@ object frmMain: TfrmMain
   LCLVersion = '1.1'
   object Image1: TImage
     Left = 0
-    Height = 159
+    Height = 156
     Top = 0
-    Width = 422
+    Width = 416
     Align = alClient
     Center = True
     Picture.Data = {
@@ -161,8 +161,8 @@ object frmMain: TfrmMain
     }
   end
   object MainMenu1: TMainMenu
-    left = 392
-    top = 160
+    left = 64
+    top = 8
     object MenuItem1: TMenuItem
       Caption = 'Programas'
       object MenuItem2: TMenuItem
@@ -175,7 +175,7 @@ object frmMain: TfrmMain
     object MenuItem4: TMenuItem
       Caption = 'Ficheros'
       object MenuItem5: TMenuItem
-        Action = aPrgNew
+        Action = aFpgNew
       end
       object MenuItem6: TMenuItem
         Action = aFpgOpen
@@ -228,8 +228,8 @@ object frmMain: TfrmMain
     end
   end
   object ActionList1: TActionList
-    left = 336
-    top = 160
+    left = 8
+    top = 8
     object aPrgNew: TAction
       Category = 'Programas'
       Caption = 'Nuevo...'

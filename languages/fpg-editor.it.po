@@ -1014,10 +1014,8 @@ msgid "Compresor..."
 msgstr ""
 
 #: tfrmmain.caption
-#, fuzzy
-#| msgid "FPG Editor"
 msgctxt "tfrmmain.caption"
-msgid "FPG Editor v4.0"
+msgid "FPG Editor"
 msgstr "FPG Editor"
 
 #: tfrmmain.menuitem1.caption
@@ -1035,11 +1033,8 @@ msgid "Ayuda"
 msgstr "Aiuto"
 
 #: tfrmmain.menuitem4.caption
-#, fuzzy
-#| msgid "-"
-msgctxt "TFRMMAIN.MENUITEM4.CAPTION"
 msgid "Ficheros"
-msgstr "-"
+msgstr ""
 
 #: tfrmmain.menuitem7.caption
 msgid "Tipografías"

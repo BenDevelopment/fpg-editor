@@ -124,6 +124,7 @@ begin
 
   fCommentAttri := TSynHighlighterAttributes.Create(SYNS_AttrComment, SYNS_XML_AttrComment);
   fCommentAttri.Style:= [fsItalic];
+  fCommentAttri.Foreground:=clGray;
   AddAttribute(fCommentAttri);
 
   fIdentifierAttri := TSynHighlighterAttributes.Create(SYNS_AttrIdentifier, SYNS_XML_AttrIdentifier);
@@ -164,6 +165,13 @@ begin
   If FTokenPos > l then
     exit;
 
+  if FLineText[FTokenEnd] in ['/'] then
+   if FLineText[FTokenEnd+1] in ['/'] then
+    while (FTokenEnd <= l ) do
+    begin
+          inc (FTokenEnd);
+    end;
+
   if FLineText[FTokenEnd] in [#9,' '] then
     while (FTokenEnd+1 <= l ) do
     begin
@@ -192,7 +200,7 @@ begin
   while (FTokenEnd+1 <= l ) do
   begin
         inc (FTokenEnd);
-        if (FLineText[FTokenEnd] in [#9,' ','"']) then
+        if (FLineText[FTokenEnd] in [#9,' ','"',';']) then
            exit;
   end;
   inc (FTokenEnd);
@@ -216,6 +224,13 @@ var
 begin
   // Match the text, specified by FTokenPos and FTokenEnd
   Result := fIdentifierAttri;
+
+  if (GetToken[1] ='/') and (GetToken[2] ='/') then
+  begin
+    Result := fCommentAttri;
+    exit;
+  end;
+
   if GetToken[1] ='"' then
   begin
     Result := fStringAttri;
