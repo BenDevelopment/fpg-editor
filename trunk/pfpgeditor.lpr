@@ -7,11 +7,12 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, Dialogs, uFrmMain, ufrmView, ufrmFPGImages, ufrmNewFPG, ufrmAnimate,
-  ufrmConfig, uFrmExport, ufrmPalette, uinifile, uFrmBpp, uFrmCFG, uFrmMainFNT,
-  uFrmAbout, uFrmInputBox, uFrmMessageBox, uFrmFNTView, uMAPGraphic,
-  ufrmZipFenix, uLanguage, DefaultTranslator, ulngConverter, ulngTranslator,
-  umainmap, uselectcolor, uFPGcompare, usynprghl, ufrmprgeditor, ufrmprgoptions;
+  Forms, Dialogs, ufrmfpgeditor, ufrmView, ufrmFPGImages, ufrmNewFPG,
+  ufrmAnimate, ufrmConfig, uFrmExport, ufrmPalette, uinifile, uFrmBpp, uFrmCFG,
+  uFrmMainFNT, uFrmAbout, uFrmInputBox, uFrmMessageBox, uFrmFNTView,
+  uMAPGraphic, ufrmZipFenix, uLanguage, DefaultTranslator, ulngConverter,
+  ulngTranslator, umainmap, uselectcolor, uFPGcompare, usynprghl, ufrmprgeditor,
+  ufrmprgoptions, uFrmMain;
 
 {$R *.res}
 resourcestring
@@ -24,6 +25,7 @@ begin
   Application.Initialize;
   try
   Application.CreateForm(TfrmMain, frmMain);
+  Application.CreateForm(TfrmFPGEditor, frmFPGEditor);
   Application.CreateForm(TfrmAnimate, frmAnimate);
   Application.CreateForm(TfrmConfig, frmConfig);
   Application.CreateForm(TfrmExport, frmExport);

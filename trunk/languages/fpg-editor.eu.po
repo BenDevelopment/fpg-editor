@@ -278,6 +278,408 @@ msgstr ""
 msgid "Comparar FPGs"
 msgstr ""
 
+#: tfrmfpgeditor.aaddimg.caption
+msgctxt "tfrmfpgeditor.aaddimg.caption"
+msgid "Añadir"
+msgstr "Gehitu"
+
+#: tfrmfpgeditor.aanimfpg.caption
+msgctxt "tfrmfpgeditor.aanimfpg.caption"
+msgid "Animar"
+msgstr "Biziarazi"
+
+#: tfrmfpgeditor.aanimimgs.caption
+msgctxt "tfrmfpgeditor.aanimimgs.caption"
+msgid "Animar"
+msgstr "Biziarazi"
+
+#: tfrmfpgeditor.aclose.caption
+msgctxt "tfrmfpgeditor.aclose.caption"
+msgid "&Cerrar"
+msgstr "& Itxi"
+
+#: tfrmfpgeditor.aconfig.caption
+msgctxt "tfrmfpgeditor.aconfig.caption"
+msgid "Configuración"
+msgstr "Ezarpenak"
+
+#: tfrmfpgeditor.acopyimg.caption
+msgctxt "tfrmfpgeditor.acopyimg.caption"
+msgid "Copiar Imagen"
+msgstr "Kopiatu irudia"
+
+#: tfrmfpgeditor.action2.caption
+msgctxt "tfrmfpgeditor.action2.caption"
+msgid "Action2"
+msgstr "action2"
+
+#: tfrmfpgeditor.adelete.caption
+msgctxt "tfrmfpgeditor.adelete.caption"
+msgid "Eliminar"
+msgstr "Ezabatu"
+
+#: tfrmfpgeditor.adeleteselimg.caption
+msgctxt "tfrmfpgeditor.adeleteselimg.caption"
+msgid "Eliminar"
+msgstr "Ezabatu"
+
+#: tfrmfpgeditor.aeditsel.caption
+msgctxt "tfrmfpgeditor.aeditsel.caption"
+msgid "Editar"
+msgstr "Eraldatu"
+
+#: tfrmfpgeditor.aeditselimg.caption
+msgctxt "tfrmfpgeditor.aeditselimg.caption"
+msgid "Editar"
+msgstr "Eraldatu"
+
+#: tfrmfpgeditor.aempty.caption
+msgctxt "tfrmfpgeditor.aempty.caption"
+msgid "Vaciar portapapeles"
+msgstr "Paper-biltegia hustu"
+
+#: tfrmfpgeditor.aexit.caption
+msgctxt "tfrmfpgeditor.aexit.caption"
+msgid "Salir"
+msgstr "Irten"
+
+#: tfrmfpgeditor.aexport.caption
+msgctxt "tfrmfpgeditor.aexport.caption"
+msgid "Exportar"
+msgstr "Igorri"
+
+#: tfrmfpgeditor.afpg1.caption
+msgctxt "tfrmfpgeditor.afpg1.caption"
+msgid "1 Bit"
+msgstr "1 Bit"
+
+#: tfrmfpgeditor.afpg16c.caption
+msgctxt "tfrmfpgeditor.afpg16c.caption"
+msgid "16bits CDIV"
+msgstr "16bits CDIV"
+
+#: tfrmfpgeditor.afpg16f.caption
+msgctxt "tfrmfpgeditor.afpg16f.caption"
+msgid "16 bits Fenix"
+msgstr "Fenix ​​16 bit"
+
+#: tfrmfpgeditor.afpg24.caption
+msgctxt "tfrmfpgeditor.afpg24.caption"
+msgid "24 bits"
+msgstr "24 bit"
+
+#: tfrmfpgeditor.afpg32.caption
+msgctxt "tfrmfpgeditor.afpg32.caption"
+msgid "32 bits"
+msgstr "32 bit"
+
+#: tfrmfpgeditor.afpg8.caption
+msgctxt "tfrmfpgeditor.afpg8.caption"
+msgid "8 bits"
+msgstr "8 biteko"
+
+#: tfrmfpgeditor.afpgpalette.caption
+msgctxt "tfrmfpgeditor.afpgpalette.caption"
+msgid "Paleta de colores"
+msgstr "Kolore-paleta"
+
+#: tfrmfpgeditor.ainvertsel.caption
+msgctxt "tfrmfpgeditor.ainvertsel.caption"
+msgid "Invertir selección"
+msgstr "Hautaketa alderantzi"
+
+#: tfrmfpgeditor.ainvertselimgs.caption
+msgctxt "tfrmfpgeditor.ainvertselimgs.caption"
+msgid "Invertir selección"
+msgstr "Hautaketa alderantzi"
+
+#: tfrmfpgeditor.aopenimg.caption
+msgctxt "tfrmfpgeditor.aopenimg.caption"
+msgid "Abrir"
+msgstr "Ireki"
+
+#: tfrmfpgeditor.apasteimg.caption
+msgctxt "tfrmfpgeditor.apasteimg.caption"
+msgid "Pegar imagen"
+msgstr "Irudia itsatsi"
+
+#: tfrmfpgeditor.areload.caption
+msgctxt "tfrmfpgeditor.areload.caption"
+msgid "Recargar"
+msgstr "Birkargatu"
+
+#: tfrmfpgeditor.aselectall.caption
+msgctxt "tfrmfpgeditor.aselectall.caption"
+msgid "Seleccionar todo"
+msgstr "Hautatu guztia"
+
+#: tfrmfpgeditor.aselectallimgs.caption
+msgctxt "tfrmfpgeditor.aselectallimgs.caption"
+msgid "Seleccionar todo"
+msgstr "Hautatu guztia"
+
+#: tfrmfpgeditor.caption
+msgctxt "tfrmfpgeditor.caption"
+msgid "FPG Editor"
+msgstr "FPG Editor"
+
+#: tfrmfpgeditor.cbtipofpg.text
+msgctxt "tfrmfpgeditor.cbtipofpg.text"
+msgid "FPG 32 bits (BennuGD )"
+msgstr "32 bit (BennuGD) FPG"
+
+#: tfrmfpgeditor.gbfpg.caption
+msgctxt "tfrmfpgeditor.gbfpg.caption"
+msgid " FPG (Ficheros de gráficos) "
+msgstr "FPG (grafikoak fitxategiak)"
+
+#: tfrmfpgeditor.gbimages.caption
+msgctxt "tfrmfpgeditor.gbimages.caption"
+msgid " Imagenes "
+msgstr "Irudiak"
+
+#: tfrmfpgeditor.lvfpg.columns[0].caption
+msgctxt "tfrmfpgeditor.lvfpg.columns[0].caption"
+msgid "Código"
+msgstr "Zenbakia"
+
+#: tfrmfpgeditor.lvfpg.columns[1].caption
+msgctxt "tfrmfpgeditor.lvfpg.columns[1].caption"
+msgid "Nombre de Archivo"
+msgstr "Izena"
+
+#: tfrmfpgeditor.lvfpg.columns[2].caption
+msgctxt "tfrmfpgeditor.lvfpg.columns[2].caption"
+msgid "Nombre"
+msgstr "Azalpenak"
+
+#: tfrmfpgeditor.lvfpg.columns[3].caption
+msgctxt "tfrmfpgeditor.lvfpg.columns[3].caption"
+msgid "Ancho"
+msgstr "Zabal."
+
+#: tfrmfpgeditor.lvfpg.columns[4].caption
+msgctxt "tfrmfpgeditor.lvfpg.columns[4].caption"
+msgid "Alto"
+msgstr "Garai."
+
+#: tfrmfpgeditor.lvfpg.columns[5].caption
+msgctxt "tfrmfpgeditor.lvfpg.columns[5].caption"
+msgid "Puntos de control"
+msgstr "Kontrol-guneak"
+
+#: tfrmfpgeditor.lvimages.columns[0].caption
+msgctxt "tfrmfpgeditor.lvimages.columns[0].caption"
+msgid "Nombre"
+msgstr "Azalpenak"
+
+#: tfrmfpgeditor.lvimages.columns[1].caption
+msgctxt "tfrmfpgeditor.lvimages.columns[1].caption"
+msgid "Ancho"
+msgstr "Zabal."
+
+#: tfrmfpgeditor.lvimages.columns[2].caption
+msgctxt "tfrmfpgeditor.lvimages.columns[2].caption"
+msgid "Alto"
+msgstr "Garai."
+
+#: tfrmfpgeditor.lvimages.columns[3].caption
+msgctxt "tfrmfpgeditor.lvimages.columns[3].caption"
+msgid "Bits Por Pixel"
+msgstr "bit pixel"
+
+#: tfrmfpgeditor.menuitem4.caption
+msgctxt "tfrmfpgeditor.menuitem4.caption"
+msgid "-"
+msgstr "-"
+
+#: tfrmfpgeditor.miaddimgs.caption
+msgctxt "tfrmfpgeditor.miaddimgs.caption"
+msgid "Añadir selección"
+msgstr "Gehitu hautapena"
+
+#: tfrmfpgeditor.miconvert.caption
+msgctxt "tfrmfpgeditor.miconvert.caption"
+msgid "Convertir a"
+msgstr "Bihurtu"
+
+#: tfrmfpgeditor.mideletesel.caption
+msgctxt "tfrmfpgeditor.mideletesel.caption"
+msgid "Eliminar selección"
+msgstr "Kendu hautapena"
+
+#: tfrmfpgeditor.mieditsel.caption
+msgctxt "tfrmfpgeditor.mieditsel.caption"
+msgid "Editar selección"
+msgstr "Hautatutako irudia eraldatu"
+
+#: tfrmfpgeditor.mieditselimg.caption
+msgctxt "tfrmfpgeditor.mieditselimg.caption"
+msgid "Editar seleccion"
+msgstr "Editatu hautapena"
+
+#: tfrmfpgeditor.mifpg.caption
+#, fuzzy
+#| msgid "FPG"
+msgctxt "tfrmfpgeditor.mifpg.caption"
+msgid "Archivo"
+msgstr "FPG"
+
+#: tfrmfpgeditor.mifpgdetails.caption
+msgctxt "tfrmfpgeditor.mifpgdetails.caption"
+msgid "Detalles"
+msgstr "Xehetasunak"
+
+#: tfrmfpgeditor.mifpgimages.caption
+msgctxt "tfrmfpgeditor.mifpgimages.caption"
+msgid "Imágenes"
+msgstr "Irudiak"
+
+#: tfrmfpgeditor.mifpglist.caption
+msgctxt "tfrmfpgeditor.mifpglist.caption"
+msgid "Lista"
+msgstr "Zerrenda"
+
+#: tfrmfpgeditor.mihideshowdirs.caption
+msgctxt "tfrmfpgeditor.mihideshowdirs.caption"
+msgid "Ocultar/Mostrar directorios"
+msgstr "Ezkutatu/Erakutsi helbideak"
+
+#: tfrmfpgeditor.miimages.caption
+msgctxt "tfrmfpgeditor.miimages.caption"
+msgid "Imágenes"
+msgstr "Irudiak"
+
+#: tfrmfpgeditor.miimgdetails.caption
+msgctxt "tfrmfpgeditor.miimgdetails.caption"
+msgid "Detalles"
+msgstr "Xehetasunak"
+
+#: tfrmfpgeditor.miimgimages.caption
+msgctxt "tfrmfpgeditor.miimgimages.caption"
+msgid "Imágenes"
+msgstr "Irudiak"
+
+#: tfrmfpgeditor.miimglist.caption
+msgctxt "tfrmfpgeditor.miimglist.caption"
+msgid "Lista"
+msgstr "Zerrenda"
+
+#: tfrmfpgeditor.minew.caption
+msgctxt "tfrmfpgeditor.minew.caption"
+msgid "Nuevo"
+msgstr "Berria"
+
+#: tfrmfpgeditor.miopen.caption
+msgctxt "tfrmfpgeditor.miopen.caption"
+msgid "Abrir"
+msgstr "Ireki"
+
+#: tfrmfpgeditor.miseparator1.caption
+msgctxt "tfrmfpgeditor.miseparator1.caption"
+msgid "-"
+msgstr "-"
+
+#: tfrmfpgeditor.miseparator10.caption
+msgctxt "tfrmfpgeditor.miseparator10.caption"
+msgid "-"
+msgstr "-"
+
+#: tfrmfpgeditor.miseparator11.caption
+msgctxt "tfrmfpgeditor.miseparator11.caption"
+msgid "-"
+msgstr "-"
+
+#: tfrmfpgeditor.miseparator2.caption
+msgctxt "tfrmfpgeditor.miseparator2.caption"
+msgid "-"
+msgstr "-"
+
+#: tfrmfpgeditor.miseparator3.caption
+msgctxt "tfrmfpgeditor.miseparator3.caption"
+msgid "-"
+msgstr "-"
+
+#: tfrmfpgeditor.miseparator4.caption
+msgctxt "tfrmfpgeditor.miseparator4.caption"
+msgid "-"
+msgstr "-"
+
+#: tfrmfpgeditor.miseparator5.caption
+msgctxt "tfrmfpgeditor.miseparator5.caption"
+msgid "-"
+msgstr "-"
+
+#: tfrmfpgeditor.miseparator6.caption
+msgctxt "tfrmfpgeditor.miseparator6.caption"
+msgid "-"
+msgstr "-"
+
+#: tfrmfpgeditor.miseparator7.caption
+msgctxt "tfrmfpgeditor.miseparator7.caption"
+msgid "-"
+msgstr "-"
+
+#: tfrmfpgeditor.miseparator8.caption
+msgctxt "tfrmfpgeditor.miseparator8.caption"
+msgid "-"
+msgstr "-"
+
+#: tfrmfpgeditor.miseparator9.caption
+msgctxt "tfrmfpgeditor.miseparator9.caption"
+msgid "-"
+msgstr "-"
+
+#: tfrmfpgeditor.mishowhideuppanel.caption
+msgctxt "tfrmfpgeditor.mishowhideuppanel.caption"
+msgid "Mostrar/Ocultar panel superior"
+msgstr "Erakutsi / Ezkutatu top panel"
+
+#: tfrmfpgeditor.mitools.caption
+msgctxt "tfrmfpgeditor.mitools.caption"
+msgid "Herramientas"
+msgstr "Tresnak"
+
+#: tfrmfpgeditor.miviewfpg.caption
+msgctxt "tfrmfpgeditor.miviewfpg.caption"
+msgid "&Ver"
+msgstr "& Ikusi"
+
+#: tfrmfpgeditor.miviewimg.caption
+msgctxt "tfrmfpgeditor.miviewimg.caption"
+msgid "Ver"
+msgstr "Ikusi"
+
+#: tfrmfpgeditor.miwallpaper.caption
+msgctxt "tfrmfpgeditor.miwallpaper.caption"
+msgid "Portapapeles"
+msgstr "Paper-biltegia"
+
+#: tfrmfpgeditor.n15.caption
+msgctxt "tfrmfpgeditor.n15.caption"
+msgid "-"
+msgstr "-"
+
+#: tfrmfpgeditor.n20.caption
+msgctxt "tfrmfpgeditor.n20.caption"
+msgid "-"
+msgstr "-"
+
+#: tfrmfpgeditor.pfpgcode.caption
+msgctxt "tfrmfpgeditor.pfpgcode.caption"
+msgid "Código de FPG"
+msgstr "Code FPG"
+
+#: tfrmfpgeditor.ppcopyimage.caption
+msgctxt "tfrmfpgeditor.ppcopyimage.caption"
+msgid "&Copiar al portapapeles"
+msgstr "& Copy to Clipboard"
+
+#: tfrmfpgeditor.ppfpgopen.caption
+msgctxt "tfrmfpgeditor.ppfpgopen.caption"
+msgid "Abrir"
+msgstr "Ireki"
+
 #: tfrmfpgimages.bbaceptchanges.caption
 msgctxt "tfrmfpgimages.bbaceptchanges.caption"
 msgid "&Aceptar"
@@ -300,7 +702,7 @@ msgstr "Irudiaren ezaugarriak aldatu"
 #: tfrmfpgimages.gbcode.caption
 msgctxt "tfrmfpgimages.gbcode.caption"
 msgid "Código"
-msgstr ""
+msgstr "Zenbakia"
 
 #: tfrmfpgimages.gbfname.caption
 msgid "Nombre Archivo"
@@ -309,7 +711,7 @@ msgstr ""
 #: tfrmfpgimages.gbname.caption
 msgctxt "tfrmfpgimages.gbname.caption"
 msgid "Nombre"
-msgstr ""
+msgstr "Azalpenak"
 
 #: tfrmfpgimages.groupbox5.caption
 msgid " X "
@@ -322,7 +724,7 @@ msgstr ""
 #: tfrmfpgimages.lbheight.caption
 msgctxt "tfrmfpgimages.lbheight.caption"
 msgid "Alto"
-msgstr ""
+msgstr "Garai."
 
 #: tfrmfpgimages.lbnumcp.caption
 msgid "Puntos Ctrl"
@@ -331,7 +733,7 @@ msgstr ""
 #: tfrmfpgimages.lbwidth.caption
 msgctxt "tfrmfpgimages.lbwidth.caption"
 msgid "Ancho"
-msgstr ""
+msgstr "Zabal."
 
 #: tfrmfpgimages.lb_ctrl_points.caption
 msgid "Puntos de control:"
@@ -553,431 +955,102 @@ msgctxt "tfrmmain.aabout.caption"
 msgid "Acerca de ..."
 msgstr "FPG EDIT 2005en inguruan ..."
 
-#: tfrmmain.aaddimg.caption
-msgctxt "tfrmmain.aaddimg.caption"
-msgid "Añadir"
-msgstr "Gehitu"
-
-#: tfrmmain.aanimfpg.caption
-msgctxt "TFRMMAIN.AANIMFPG.CAPTION"
-msgid "Animar"
-msgstr "Biziarazi"
-
-#: tfrmmain.aanimimgs.caption
-msgctxt "tfrmmain.aanimimgs.caption"
-msgid "Animar"
-msgstr "Biziarazi"
-
 #: tfrmmain.abennu.caption
-msgid "[BennuGD] http://bennugd.org/"
-msgstr "[BennuGD] http://bennugd.org/"
+msgid "[BennuGD] http://bennugd.org"
+msgstr ""
 
 #: tfrmmain.acdiv.caption
-msgid "[ CDIV ] http://cdiv.sourceforge.net/"
-msgstr "[CDIV] http://cdiv.sourceforge.net/"
-
-#: tfrmmain.aclose.caption
-msgctxt "tfrmmain.aclose.caption"
-msgid "&Cerrar"
-msgstr "& Itxi"
-
-#: tfrmmain.aconfig.caption
-msgid "Configuración"
-msgstr "Ezarpenak"
-
-#: tfrmmain.acopyimg.caption
-msgid "Copiar Imagen"
-msgstr "Kopiatu irudia"
-
-#: tfrmmain.action2.caption
-msgid "Action2"
-msgstr "action2"
-
-#: tfrmmain.adelete.caption
-msgctxt "tfrmmain.adelete.caption"
-msgid "Eliminar"
-msgstr "Ezabatu"
-
-#: tfrmmain.adeleteselimg.caption
-msgctxt "TFRMMAIN.ADELETESELIMG.CAPTION"
-msgid "Eliminar"
-msgstr "Ezabatu"
+msgid "[ CDIV ] http://cdiv.sourceforge.net"
+msgstr ""
 
 #: tfrmmain.adiv2.caption
-msgid "[ DIV2 ] http://www.div-arena.com/"
+#, fuzzy
+#| msgid "[ DIV2 ] http://www.div-arena.com/"
+msgctxt "tfrmmain.adiv2.caption"
+msgid "[ DIV2 ] http://www.div-arena.com"
 msgstr "[DIV2] http://www.div-arena.com/"
 
-#: tfrmmain.aeditsel.caption
-msgctxt "tfrmmain.aeditsel.caption"
-msgid "Editar"
-msgstr "Eraldatu"
-
-#: tfrmmain.aeditselimg.caption
-msgctxt "TFRMMAIN.AEDITSELIMG.CAPTION"
-msgid "Editar"
-msgstr "Eraldatu"
-
-#: tfrmmain.aempty.caption
-msgctxt "tfrmmain.aempty.caption"
-msgid "Vaciar portapapeles"
-msgstr "Paper-biltegia hustu"
-
-#: tfrmmain.aexit.caption
-msgctxt "tfrmmain.aexit.caption"
-msgid "Salir"
-msgstr "Irten"
-
-#: tfrmmain.aexport.caption
-msgctxt "TFRMMAIN.AEXPORT.CAPTION"
-msgid "Exportar"
-msgstr "Igorri"
-
 #: tfrmmain.afenix.caption
-msgid "[ FENIX ] http://fenix.divsite.net/"
+#, fuzzy
+#| msgid "[ FENIX ] http://fenix.divsite.net/"
+msgctxt "tfrmmain.afenix.caption"
+msgid "[ FENIX ] http://fenix.divsite.net"
 msgstr "[Phoenix] http://fenix.divsite.net/"
 
-#: tfrmmain.afntmaker.caption
-msgid "&Generador de Fuentes"
-msgstr "& Generator Sources"
+#: tfrmmain.afntgen.caption
+msgid "Generar..."
+msgstr ""
 
-#: tfrmmain.afpg1.caption
-msgid "1 Bit"
-msgstr "1 Bit"
+#: tfrmmain.afpgnew.caption
+msgctxt "tfrmmain.afpgnew.caption"
+msgid "Nuevo..."
+msgstr ""
 
-#: tfrmmain.afpg16c.caption
-msgid "16bits CDIV"
-msgstr "16bits CDIV"
-
-#: tfrmmain.afpg16f.caption
-msgid "16 bits Fenix"
-msgstr "Fenix ​​16 bit"
-
-#: tfrmmain.afpg24.caption
-msgid "24 bits"
-msgstr "24 bit"
-
-#: tfrmmain.afpg32.caption
-msgid "32 bits"
-msgstr "32 bit"
-
-#: tfrmmain.afpg8.caption
-msgid "8 bits"
-msgstr "8 biteko"
-
-#: tfrmmain.afpgpalette.caption
-msgctxt "tfrmmain.afpgpalette.caption"
-msgid "Paleta de colores"
-msgstr "Kolore-paleta"
+#: tfrmmain.afpgopen.caption
+msgctxt "tfrmmain.afpgopen.caption"
+msgid "Abrir..."
+msgstr ""
 
 #: tfrmmain.agemix.caption
+msgctxt "tfrmmain.agemix.caption"
 msgid "[GEMIX] http://www.gemixstudio.com"
 msgstr "[Gemix] http://www.gemixstudio.com"
 
-#: tfrmmain.ainvertsel.caption
-msgctxt "tfrmmain.ainvertsel.caption"
-msgid "Invertir selección"
-msgstr "Hautaketa alderantzi"
-
-#: tfrmmain.ainvertselimgs.caption
-msgctxt "TFRMMAIN.AINVERTSELIMGS.CAPTION"
-msgid "Invertir selección"
-msgstr "Hautaketa alderantzi"
-
-#: tfrmmain.alngconver.caption
+#: tfrmmain.alngconvert.caption
+msgctxt "tfrmmain.alngconvert.caption"
 msgid "Convertidor de lng"
 msgstr ""
 
-#: tfrmmain.aopenimg.caption
-msgctxt "TFRMMAIN.AOPENIMG.CAPTION"
-msgid "Abrir"
-msgstr "Ireki"
-
-#: tfrmmain.apasteimg.caption
-msgctxt "tfrmmain.apasteimg.caption"
-msgid "Pegar imagen"
-msgstr "Irudia itsatsi"
-
-#: tfrmmain.aprgeditor.caption
-msgctxt "tfrmmain.aprgeditor.caption"
-msgid "Editor de Archivos de Programa"
-msgstr ""
-
-#: tfrmmain.areload.caption
-msgctxt "tfrmmain.areload.caption"
-msgid "Recargar"
-msgstr "Birkargatu"
-
-#: tfrmmain.aselectall.caption
-msgctxt "tfrmmain.aselectall.caption"
-msgid "Seleccionar todo"
-msgstr "Hautatu guztia"
-
-#: tfrmmain.aselectallimgs.caption
-msgctxt "TFRMMAIN.ASELECTALLIMGS.CAPTION"
-msgid "Seleccionar todo"
-msgstr "Hautatu guztia"
-
-#: tfrmmain.aziptool.caption
-msgid "&Herramienta de Compresión"
-msgstr "& Konpresio tresna"
-
-#: tfrmmain.caption
-msgid "FPG Editor"
-msgstr "FPG Editor"
-
-#: tfrmmain.cbtipofpg.text
-msgid "FPG 32 bits (BennuGD )"
-msgstr "32 bit (BennuGD) FPG"
-
-#: tfrmmain.gbfpg.caption
-msgid " FPG (Ficheros de gráficos) "
-msgstr "FPG (grafikoak fitxategiak)"
-
-#: tfrmmain.gbimages.caption
-msgid " Imagenes "
-msgstr "Irudiak"
-
-#: tfrmmain.lvfpg.columns[0].caption
-msgctxt "tfrmmain.lvfpg.columns[0].caption"
-msgid "Código"
-msgstr "Zenbakia"
-
-#: tfrmmain.lvfpg.columns[1].caption
-msgctxt "tfrmmain.lvfpg.columns[1].caption"
-msgid "Nombre de Archivo"
-msgstr "Izena"
-
-#: tfrmmain.lvfpg.columns[2].caption
-msgctxt "tfrmmain.lvfpg.columns[2].caption"
-msgid "Nombre"
-msgstr "Azalpenak"
-
-#: tfrmmain.lvfpg.columns[3].caption
-msgctxt "tfrmmain.lvfpg.columns[3].caption"
-msgid "Ancho"
-msgstr "Zabal."
-
-#: tfrmmain.lvfpg.columns[4].caption
-msgctxt "tfrmmain.lvfpg.columns[4].caption"
-msgid "Alto"
-msgstr "Garai."
-
-#: tfrmmain.lvfpg.columns[5].caption
-msgctxt "tfrmmain.lvfpg.columns[5].caption"
-msgid "Puntos de control"
-msgstr "Kontrol-guneak"
-
-#: tfrmmain.lvimages.columns[0].caption
-msgctxt "tfrmmain.lvimages.columns[0].caption"
-msgid "Nombre"
-msgstr "Azalpenak"
-
-#: tfrmmain.lvimages.columns[1].caption
-msgctxt "tfrmmain.lvimages.columns[1].caption"
-msgid "Ancho"
-msgstr "Zabal."
-
-#: tfrmmain.lvimages.columns[2].caption
-msgctxt "tfrmmain.lvimages.columns[2].caption"
-msgid "Alto"
-msgstr "Garai."
-
-#: tfrmmain.lvimages.columns[3].caption
-msgid "Bits Por Pixel"
-msgstr "bit pixel"
-
-#: tfrmmain.menuitem4.caption
-msgctxt "TFRMMAIN.MENUITEM4.CAPTION"
-msgid "-"
-msgstr "-"
-
-#: tfrmmain.miaddimgs.caption
-msgid "Añadir selección"
-msgstr "Gehitu hautapena"
-
-#: tfrmmain.miconvert.caption
-msgctxt "tfrmmain.miconvert.caption"
-msgid "Convertir a"
-msgstr "Bihurtu"
-
-#: tfrmmain.mideletesel.caption
-msgid "Eliminar selección"
-msgstr "Kendu hautapena"
-
-#: tfrmmain.mieditsel.caption
-msgctxt "tfrmmain.mieditsel.caption"
-msgid "Editar selección"
-msgstr "Hautatutako irudia eraldatu"
-
-#: tfrmmain.mieditselimg.caption
-msgid "Editar seleccion"
-msgstr "Editatu hautapena"
-
-#: tfrmmain.mifpg.caption
-msgctxt "TFRMMAIN.MIFPG.CAPTION"
-msgid "FPG"
-msgstr "FPG"
-
-#: tfrmmain.mifpgdetails.caption
-msgctxt "tfrmmain.mifpgdetails.caption"
-msgid "Detalles"
-msgstr "Xehetasunak"
-
-#: tfrmmain.mifpgimages.caption
-msgctxt "tfrmmain.mifpgimages.caption"
-msgid "Imágenes"
-msgstr "Irudiak"
-
-#: tfrmmain.mifpglist.caption
-msgctxt "tfrmmain.mifpglist.caption"
-msgid "Lista"
-msgstr "Zerrenda"
-
-#: tfrmmain.mihelp.caption
-msgctxt "tfrmmain.mihelp.caption"
-msgid "Ayuda"
-msgstr "Laguntza"
-
-#: tfrmmain.mihideshowdirs.caption
-msgctxt "tfrmmain.mihideshowdirs.caption"
-msgid "Ocultar/Mostrar directorios"
-msgstr "Ezkutatu/Erakutsi helbideak"
-
-#: tfrmmain.miimages.caption
-msgctxt "tfrmmain.miimages.caption"
-msgid "Imágenes"
-msgstr "Irudiak"
-
-#: tfrmmain.miimgdetails.caption
-msgctxt "TFRMMAIN.MIIMGDETAILS.CAPTION"
-msgid "Detalles"
-msgstr "Xehetasunak"
-
-#: tfrmmain.miimgimages.caption
-msgctxt "TFRMMAIN.MIIMGIMAGES.CAPTION"
-msgid "Imágenes"
-msgstr "Irudiak"
-
-#: tfrmmain.miimglist.caption
-msgctxt "TFRMMAIN.MIIMGLIST.CAPTION"
-msgid "Lista"
-msgstr "Zerrenda"
-
-#: tfrmmain.milangtranslator.caption
-msgctxt "tfrmmain.milangtranslator.caption"
+#: tfrmmain.alngtranslator.caption
+msgctxt "tfrmmain.alngtranslator.caption"
 msgid "Traductor de Idiomas"
 msgstr "Language Translator"
 
-#: tfrmmain.minew.caption
-msgctxt "tfrmmain.minew.caption"
-msgid "Nuevo"
-msgstr "Berria"
+#: tfrmmain.aprgnew.caption
+msgctxt "tfrmmain.aprgnew.caption"
+msgid "Nuevo..."
+msgstr ""
 
-#: tfrmmain.miopen.caption
-msgctxt "TFRMMAIN.MIOPEN.CAPTION"
-msgid "Abrir"
-msgstr "Ireki"
+#: tfrmmain.aprgopen.caption
+msgctxt "tfrmmain.aprgopen.caption"
+msgid "Abrir..."
+msgstr ""
 
-#: tfrmmain.miseparator1.caption
-msgctxt "TFRMMAIN.MISEPARATOR1.CAPTION"
-msgid "-"
-msgstr "-"
+#: tfrmmain.azipcompress.caption
+msgid "Compresor..."
+msgstr ""
 
-#: tfrmmain.miseparator10.caption
-msgctxt "TFRMMAIN.MISEPARATOR10.CAPTION"
-msgid "-"
-msgstr "-"
+#: tfrmmain.caption
+#, fuzzy
+#| msgid "FPG Editor"
+msgctxt "tfrmmain.caption"
+msgid "FPG Editor v4.0"
+msgstr "FPG Editor"
 
-#: tfrmmain.miseparator11.caption
-msgctxt "TFRMMAIN.MISEPARATOR11.CAPTION"
-msgid "-"
-msgstr "-"
+#: tfrmmain.menuitem1.caption
+msgid "Programas"
+msgstr ""
 
-#: tfrmmain.miseparator2.caption
-msgctxt "TFRMMAIN.MISEPARATOR2.CAPTION"
-msgid "-"
-msgstr "-"
-
-#: tfrmmain.miseparator3.caption
-msgctxt "TFRMMAIN.MISEPARATOR3.CAPTION"
-msgid "-"
-msgstr "-"
-
-#: tfrmmain.miseparator4.caption
-msgctxt "TFRMMAIN.MISEPARATOR4.CAPTION"
-msgid "-"
-msgstr "-"
-
-#: tfrmmain.miseparator5.caption
-msgctxt "TFRMMAIN.MISEPARATOR5.CAPTION"
-msgid "-"
-msgstr "-"
-
-#: tfrmmain.miseparator6.caption
-msgctxt "TFRMMAIN.MISEPARATOR6.CAPTION"
-msgid "-"
-msgstr "-"
-
-#: tfrmmain.miseparator7.caption
-msgctxt "TFRMMAIN.MISEPARATOR7.CAPTION"
-msgid "-"
-msgstr "-"
-
-#: tfrmmain.miseparator8.caption
-msgctxt "TFRMMAIN.MISEPARATOR8.CAPTION"
-msgid "-"
-msgstr "-"
-
-#: tfrmmain.miseparator9.caption
-msgctxt "TFRMMAIN.MISEPARATOR9.CAPTION"
-msgid "-"
-msgstr "-"
-
-#: tfrmmain.mishowhideuppanel.caption
-msgid "Mostrar/Ocultar panel superior"
-msgstr "Erakutsi / Ezkutatu top panel"
-
-#: tfrmmain.mitools.caption
-msgctxt "tfrmmain.mitools.caption"
+#: tfrmmain.menuitem11.caption
+msgctxt "tfrmmain.menuitem11.caption"
 msgid "Herramientas"
 msgstr "Tresnak"
 
-#: tfrmmain.miviewfpg.caption
-msgid "&Ver"
-msgstr "& Ikusi"
+#: tfrmmain.menuitem13.caption
+msgctxt "tfrmmain.menuitem13.caption"
+msgid "Ayuda"
+msgstr "Honen inguruan"
 
-#: tfrmmain.miviewimg.caption
-msgctxt "tfrmmain.miviewimg.caption"
-msgid "Ver"
-msgstr "Ikusi"
-
-#: tfrmmain.miwallpaper.caption
-msgctxt "tfrmmain.miwallpaper.caption"
-msgid "Portapapeles"
-msgstr "Paper-biltegia"
-
-#: tfrmmain.n15.caption
-msgctxt "TFRMMAIN.N15.CAPTION"
-msgid "-"
+#: tfrmmain.menuitem4.caption
+#, fuzzy
+#| msgid "-"
+msgctxt "TFRMMAIN.MENUITEM4.CAPTION"
+msgid "Ficheros"
 msgstr "-"
 
-#: tfrmmain.n20.caption
-msgctxt "tfrmmain.n20.caption"
-msgid "-"
-msgstr "-"
-
-#: tfrmmain.pfpgcode.caption
-msgid "Código de FPG"
-msgstr "Code FPG"
-
-#: tfrmmain.ppcopyimage.caption
-msgid "&Copiar al portapapeles"
-msgstr "& Copy to Clipboard"
-
-#: tfrmmain.ppfpgopen.caption
-msgctxt "tfrmmain.ppfpgopen.caption"
-msgid "Abrir"
-msgstr "Ireki"
+#: tfrmmain.menuitem7.caption
+msgid "Tipografías"
+msgstr ""
 
 #: tfrmmainfnt.bgsize.caption
 msgctxt "tfrmmainfnt.bgsize.caption"
@@ -1633,6 +1706,14 @@ msgstr ""
 msgctxt "tfrmselectcolor.gbpalette.caption"
 msgid "Paleta de colores"
 msgstr "Kolore-paleta"
+
+#: tfrmsplash.caption
+msgid "frmSplash"
+msgstr ""
+
+#: tfrmsplash.lblrevision.caption
+msgid "r00"
+msgstr ""
 
 #: tfrmview.caption
 msgid "frmView"

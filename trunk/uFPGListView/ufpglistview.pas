@@ -87,7 +87,7 @@ var
   bmp_src : TMAPGraphic;
   filename: String;
 begin
-  // Creamos el bitmap fuente y destino
+  // Creamos el bitmap tipografía y destino
   bmp_src := TMAPGraphic.Create;
   // Se inializa la barra de progresión
   progressBar.Position := 0;
