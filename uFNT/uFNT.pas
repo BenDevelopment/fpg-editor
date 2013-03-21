@@ -27,7 +27,7 @@ type
    file_Offset : longint; // Desplazamiento en el archivo
  end;
 
-  // Estructura cabecera de fuente
+  // Estructura cabecera de Tipografía
  FNT_HEADER_R = record
    file_type : array [0 .. 2] of char; {fnt}
    code  : array [0 .. 3] of byte;
@@ -37,7 +37,7 @@ type
    types   : longint; // Tipos
    char_info: Array [0 .. 255] of FNT_CHAR_INFO_R; // Datos de las letras
  end;
- // Estructura cabecera de fuente
+ // Estructura cabecera de Tipografía
  FNX_HEADER_R = record
    file_type : array [0 .. 2] of char; {fnx}
    code  : array [0 .. 3] of byte;
@@ -248,7 +248,7 @@ begin
    Exit;
   end;
 
-  // Si no es una fuente
+  // Si no es una Tipografía
   if (fnt_container.HEADER.file_type[0] <> 'f') or (fnt_container.HEADER.file_type[1] <> 'n') or
       ((fnt_container.HEADER.file_type[2] <> 't') and (fnt_container.HEADER.file_type[2] <> 'x')) or (fnt_container.HEADER.code [0] <> 26 ) or
      (fnt_container.HEADER.code [1] <> 13 ) or (fnt_container.HEADER.code [2] <> 10 ) or

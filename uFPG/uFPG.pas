@@ -73,7 +73,7 @@ type
     fmsgError   : String;
     fmsgCorrect : String;
     fmsgWrong   : String;
-    (* Para soporte de Fuentes *)
+    (* Para soporte de Tipografías *)
     charset   : longint; // Tipos
 
     constructor Create;

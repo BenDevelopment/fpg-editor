@@ -564,7 +564,7 @@ procedure TfrmMainFNT.MakeFontDraw;
 var
  i : Longint;
 begin
- // Pintando fuente
+ // Pintando Tipografía
  dpCount := 0;
 
  for i := 0 to 255 do
@@ -572,7 +572,7 @@ begin
    begin
     RenderFNT( i );
 
-    drawProgress('Pintando fuente...');
+    drawProgress('Pintando Tipografía...');
    end;
 end;
 
@@ -852,7 +852,7 @@ begin
   Exit;
  end;
 
- // Pintamos la fuente
+ // Pintamos la Tipografía
  bmp_src.Canvas.Brush.Color := clBlack;
  bmp_src.Canvas.Font.Color  := inifile_fnt_color;
 
@@ -1039,7 +1039,7 @@ begin
  edgeColor.alpha:=(muldiv(high(word),alpha_edge,100)) and $FF00;
  shadowColor := TColorToFPColor(inifile_shadow_color);
  shadowColor.alpha:=(muldiv(high(word),alpha_shadow,100)) and $FF00;
- // Posición de la fuente
+ // Posición de la Tipografía
  if ( rbsLT.Checked or rbsLM.Checked or rbsLD.Checked ) then
   x := font_shadow;
 
@@ -1277,7 +1277,7 @@ begin
 
  j := 0;
 
- // Establecemos el color de fuente
+ // Establecemos el color de Tipografía
  if inifile_fnt_image = '' then
  begin
   j := j + 1;
@@ -1326,7 +1326,7 @@ begin
    if sort_pixel.nLink = 0 then
     continue;
 
-   // Si se establece color de fuente
+   // Si se establece color de Tipografía
    if ((inifile_fnt_image = '') and (sort_pixel.nLink = inifile_fnt_color)) then
     continue;
 
@@ -1560,7 +1560,7 @@ begin
    Exit;
   end;
 
-  pInfo.Caption := 'Cargando Fuente...';
+  pInfo.Caption := 'Cargando Tipografía...';
   pInfo.Show;
   Repaint;
 
@@ -1594,7 +1594,7 @@ end;
 
 procedure TfrmMainFNT.openParamFile;
 begin
- // Si hay fuente como parámetro
+ // Si hay Tipografía como parámetro
  if ParamCount = 1 then
   if FileExistsUTF8(ParamStr(1) ) { *Converted from FileExists*  } then
    if load_fnt( ParamStr(1) ) then
@@ -1629,14 +1629,14 @@ begin
 
  UpdateBGColor;
 
- // Crea una fuente
+ // Crea una Tipografía
  nFont := TFont.Create;
  cbStyle.ItemIndex := 0;
 
  // Crea los BITMAPS necesarios
  CreateBitmaps;
 
- // Inicializa la fuente
+ // Inicializa la Tipografía
  inifile_load_font( nFont );
 
  nFont.Size := inifile_fnt_size;
@@ -1679,7 +1679,7 @@ begin
   8 : rbsRD.Checked := true;
  end;
 
- // Si tenemos imagen para la fuente
+ // Si tenemos imagen para la Tipografía
  if (inifile_fnt_image <> '') then
   try
    img_font.LoadFromFile(inifile_fnt_image);
@@ -2070,7 +2070,7 @@ begin
  else
   if FileExistsUTF8(sbInfo.Panels.Items[0].Text) { *Converted from FileExists*  }  then
    if save_fnt(sbInfo.Panels.Items[0].Text, fBPP.cbBPP.itemIndex) then
-    showmessage('Fuente guardada.');
+    showmessage('Tipografía guardada.');
 end;
 
 procedure TfrmMainFNT.sbSaveAsClick(Sender: TObject);
@@ -2286,7 +2286,7 @@ procedure TfrmMainFNT.sbWriteTextClick(Sender: TObject);
 begin
  if not isFNTLoad then
  begin
-  showmessage('Aviso, no hay fuente cargada');
+  showmessage('Aviso, no hay tipografía cargada');
   Exit;
  end;
 
@@ -2369,7 +2369,7 @@ begin
    lazBMPbuffer.Colors[i,j]:= colBlack;
 
  x := 1;
- // Copiamos las fuentes
+ // Copiamos las Tipografías
  for i := 0 to 255 do
  begin
   lazBMPbuffer.Colors[x-1, 0] := colTransparent;
@@ -2404,7 +2404,7 @@ begin
  bmp_buffer.Destroy;
 
  drawProgress('');
- showmessage('Fuente exportada correctamente.');
+ showmessage('Tipografía exportada correctamente.');
 end;
 
 procedure TfrmMainFNT.ImportFNT( str : string );
@@ -2424,7 +2424,7 @@ begin
  bmp_buffer.LoadFromFile(str);
 
  lazBMPbuffer:=bmp_buffer.CreateIntfImage;
- // Comprobaciones básicas para ver que pudiese contener fuentes
+ // Comprobaciones básicas para ver que pudiese contener Tipografía
  bExit := (bmp_buffer.Width  <= 1) or
           (bmp_buffer.Height <= 1);
 
@@ -2436,11 +2436,11 @@ begin
  begin
   bmp_buffer.Destroy;
   lazBMPbuffer.free;
-  showmessage('Esta imagen no contiene una fuente (FNT)');
+  showmessage('Esta imagen no contiene una tipografía (FNT)');
   Exit;
  end;
 
- // Pensamos que contiene una fuente e intentamos cargarla
+ // Pensamos que contiene una Tipografía e intentamos cargarla
  dpCount := 0;
  dpTotal := 256;
 
@@ -2565,7 +2565,7 @@ begin
  drawProgress('');
  sbInfo.Panels.Items[1].Text := 'Tamaño: ' + IntToStr(fnt_container.sizeof div 1024) + 'KB';
 
- showmessage('Fuente importada correctamente.');
+ showmessage('Tipografía importada correctamente.');
 end;
 
 procedure TfrmMainFNT.sbExportClick(Sender: TObject);
@@ -2575,12 +2575,12 @@ begin
 
  if not isFNTLoad then
  begin
-  showmessage('Aviso, no hay fuente cargada');
+  showmessage('Aviso, no hay tipografía cargada');
   Exit;
  end
  else
  begin
-  sdSaveText.Title := 'Exportar fuente a BMP';
+  sdSaveText.Title := 'Exportar tipografía a BMP';
 
   if sdSaveText.Execute then
   begin
@@ -2624,7 +2624,7 @@ begin
 
  if not isFNTLoad then
  begin
-  showmessage('Aviso, no hay fuente cargada');
+  showmessage('Aviso, no hay tipografía cargada');
   Exit;
  end
  else

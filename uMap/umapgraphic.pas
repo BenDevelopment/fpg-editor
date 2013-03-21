@@ -82,7 +82,7 @@ type
     NCPoints: LongInt;
     (* fin Temporalmente publicas*)
     CPoints :   array[0..high(Word)*2] of Word;
-    (*Para soporte de Fuentes*)
+    (*Para soporte de Tipografías*)
     Width_Offset  : longint; // Ancho
     Height_Offset : longint; // Alto
     Horizontal_Offset: longint; // Desplazamiento vertical

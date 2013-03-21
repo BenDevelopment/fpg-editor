@@ -272,6 +272,386 @@ msgstr ""
 msgid "Comparar FPGs"
 msgstr ""
 
+#: tfrmfpgeditor.aaddimg.caption
+msgctxt "TFRMFPGEDITOR.AADDIMG.CAPTION"
+msgid "Añadir"
+msgstr ""
+
+#: tfrmfpgeditor.aanimfpg.caption
+msgctxt "TFRMFPGEDITOR.AANIMFPG.CAPTION"
+msgid "Animar"
+msgstr ""
+
+#: tfrmfpgeditor.aanimimgs.caption
+msgctxt "TFRMFPGEDITOR.AANIMIMGS.CAPTION"
+msgid "Animar"
+msgstr ""
+
+#: tfrmfpgeditor.aclose.caption
+msgctxt "TFRMFPGEDITOR.ACLOSE.CAPTION"
+msgid "&Cerrar"
+msgstr ""
+
+#: tfrmfpgeditor.aconfig.caption
+msgid "Configuración"
+msgstr ""
+
+#: tfrmfpgeditor.acopyimg.caption
+msgid "Copiar Imagen"
+msgstr ""
+
+#: tfrmfpgeditor.action2.caption
+msgid "Action2"
+msgstr ""
+
+#: tfrmfpgeditor.adelete.caption
+msgctxt "TFRMFPGEDITOR.ADELETE.CAPTION"
+msgid "Eliminar"
+msgstr ""
+
+#: tfrmfpgeditor.adeleteselimg.caption
+msgctxt "TFRMFPGEDITOR.ADELETESELIMG.CAPTION"
+msgid "Eliminar"
+msgstr ""
+
+#: tfrmfpgeditor.aeditsel.caption
+msgctxt "TFRMFPGEDITOR.AEDITSEL.CAPTION"
+msgid "Editar"
+msgstr ""
+
+#: tfrmfpgeditor.aeditselimg.caption
+msgctxt "TFRMFPGEDITOR.AEDITSELIMG.CAPTION"
+msgid "Editar"
+msgstr ""
+
+#: tfrmfpgeditor.aempty.caption
+msgctxt "TFRMFPGEDITOR.AEMPTY.CAPTION"
+msgid "Vaciar portapapeles"
+msgstr ""
+
+#: tfrmfpgeditor.aexit.caption
+msgctxt "TFRMFPGEDITOR.AEXIT.CAPTION"
+msgid "Salir"
+msgstr ""
+
+#: tfrmfpgeditor.aexport.caption
+msgctxt "TFRMFPGEDITOR.AEXPORT.CAPTION"
+msgid "Exportar"
+msgstr ""
+
+#: tfrmfpgeditor.afpg1.caption
+msgid "1 Bit"
+msgstr ""
+
+#: tfrmfpgeditor.afpg16c.caption
+msgid "16bits CDIV"
+msgstr ""
+
+#: tfrmfpgeditor.afpg16f.caption
+msgid "16 bits Fenix"
+msgstr ""
+
+#: tfrmfpgeditor.afpg24.caption
+msgid "24 bits"
+msgstr ""
+
+#: tfrmfpgeditor.afpg32.caption
+msgid "32 bits"
+msgstr ""
+
+#: tfrmfpgeditor.afpg8.caption
+msgid "8 bits"
+msgstr ""
+
+#: tfrmfpgeditor.afpgpalette.caption
+msgctxt "TFRMFPGEDITOR.AFPGPALETTE.CAPTION"
+msgid "Paleta de colores"
+msgstr ""
+
+#: tfrmfpgeditor.ainvertsel.caption
+msgctxt "TFRMFPGEDITOR.AINVERTSEL.CAPTION"
+msgid "Invertir selección"
+msgstr ""
+
+#: tfrmfpgeditor.ainvertselimgs.caption
+msgctxt "TFRMFPGEDITOR.AINVERTSELIMGS.CAPTION"
+msgid "Invertir selección"
+msgstr ""
+
+#: tfrmfpgeditor.aopenimg.caption
+msgctxt "TFRMFPGEDITOR.AOPENIMG.CAPTION"
+msgid "Abrir"
+msgstr ""
+
+#: tfrmfpgeditor.apasteimg.caption
+msgctxt "TFRMFPGEDITOR.APASTEIMG.CAPTION"
+msgid "Pegar imagen"
+msgstr ""
+
+#: tfrmfpgeditor.areload.caption
+msgctxt "TFRMFPGEDITOR.ARELOAD.CAPTION"
+msgid "Recargar"
+msgstr ""
+
+#: tfrmfpgeditor.aselectall.caption
+msgctxt "TFRMFPGEDITOR.ASELECTALL.CAPTION"
+msgid "Seleccionar todo"
+msgstr ""
+
+#: tfrmfpgeditor.aselectallimgs.caption
+msgctxt "TFRMFPGEDITOR.ASELECTALLIMGS.CAPTION"
+msgid "Seleccionar todo"
+msgstr ""
+
+#: tfrmfpgeditor.caption
+msgctxt "TFRMFPGEDITOR.CAPTION"
+msgid "FPG Editor"
+msgstr ""
+
+#: tfrmfpgeditor.cbtipofpg.text
+msgid "FPG 32 bits (BennuGD )"
+msgstr ""
+
+#: tfrmfpgeditor.gbfpg.caption
+msgid " FPG (Ficheros de gráficos) "
+msgstr ""
+
+#: tfrmfpgeditor.gbimages.caption
+msgid " Imagenes "
+msgstr ""
+
+#: tfrmfpgeditor.lvfpg.columns[0].caption
+msgctxt "TFRMFPGEDITOR.LVFPG.COLUMNS[0].CAPTION"
+msgid "Código"
+msgstr ""
+
+#: tfrmfpgeditor.lvfpg.columns[1].caption
+msgctxt "TFRMFPGEDITOR.LVFPG.COLUMNS[1].CAPTION"
+msgid "Nombre de Archivo"
+msgstr ""
+
+#: tfrmfpgeditor.lvfpg.columns[2].caption
+msgctxt "TFRMFPGEDITOR.LVFPG.COLUMNS[2].CAPTION"
+msgid "Nombre"
+msgstr ""
+
+#: tfrmfpgeditor.lvfpg.columns[3].caption
+msgctxt "TFRMFPGEDITOR.LVFPG.COLUMNS[3].CAPTION"
+msgid "Ancho"
+msgstr ""
+
+#: tfrmfpgeditor.lvfpg.columns[4].caption
+msgctxt "TFRMFPGEDITOR.LVFPG.COLUMNS[4].CAPTION"
+msgid "Alto"
+msgstr ""
+
+#: tfrmfpgeditor.lvfpg.columns[5].caption
+msgctxt "TFRMFPGEDITOR.LVFPG.COLUMNS[5].CAPTION"
+msgid "Puntos de control"
+msgstr ""
+
+#: tfrmfpgeditor.lvimages.columns[0].caption
+msgctxt "TFRMFPGEDITOR.LVIMAGES.COLUMNS[0].CAPTION"
+msgid "Nombre"
+msgstr ""
+
+#: tfrmfpgeditor.lvimages.columns[1].caption
+msgctxt "TFRMFPGEDITOR.LVIMAGES.COLUMNS[1].CAPTION"
+msgid "Ancho"
+msgstr ""
+
+#: tfrmfpgeditor.lvimages.columns[2].caption
+msgctxt "TFRMFPGEDITOR.LVIMAGES.COLUMNS[2].CAPTION"
+msgid "Alto"
+msgstr ""
+
+#: tfrmfpgeditor.lvimages.columns[3].caption
+msgid "Bits Por Pixel"
+msgstr ""
+
+#: tfrmfpgeditor.menuitem4.caption
+msgctxt "TFRMFPGEDITOR.MENUITEM4.CAPTION"
+msgid "-"
+msgstr ""
+
+#: tfrmfpgeditor.miaddimgs.caption
+msgid "Añadir selección"
+msgstr ""
+
+#: tfrmfpgeditor.miconvert.caption
+msgctxt "TFRMFPGEDITOR.MICONVERT.CAPTION"
+msgid "Convertir a"
+msgstr ""
+
+#: tfrmfpgeditor.mideletesel.caption
+msgid "Eliminar selección"
+msgstr ""
+
+#: tfrmfpgeditor.mieditsel.caption
+msgctxt "TFRMFPGEDITOR.MIEDITSEL.CAPTION"
+msgid "Editar selección"
+msgstr ""
+
+#: tfrmfpgeditor.mieditselimg.caption
+msgid "Editar seleccion"
+msgstr ""
+
+#: tfrmfpgeditor.mifpg.caption
+msgctxt "TFRMFPGEDITOR.MIFPG.CAPTION"
+msgid "Archivo"
+msgstr ""
+
+#: tfrmfpgeditor.mifpgdetails.caption
+msgctxt "TFRMFPGEDITOR.MIFPGDETAILS.CAPTION"
+msgid "Detalles"
+msgstr ""
+
+#: tfrmfpgeditor.mifpgimages.caption
+msgctxt "TFRMFPGEDITOR.MIFPGIMAGES.CAPTION"
+msgid "Imágenes"
+msgstr ""
+
+#: tfrmfpgeditor.mifpglist.caption
+msgctxt "TFRMFPGEDITOR.MIFPGLIST.CAPTION"
+msgid "Lista"
+msgstr ""
+
+#: tfrmfpgeditor.mihideshowdirs.caption
+msgctxt "TFRMFPGEDITOR.MIHIDESHOWDIRS.CAPTION"
+msgid "Ocultar/Mostrar directorios"
+msgstr ""
+
+#: tfrmfpgeditor.miimages.caption
+msgctxt "TFRMFPGEDITOR.MIIMAGES.CAPTION"
+msgid "Imágenes"
+msgstr ""
+
+#: tfrmfpgeditor.miimgdetails.caption
+msgctxt "TFRMFPGEDITOR.MIIMGDETAILS.CAPTION"
+msgid "Detalles"
+msgstr ""
+
+#: tfrmfpgeditor.miimgimages.caption
+msgctxt "TFRMFPGEDITOR.MIIMGIMAGES.CAPTION"
+msgid "Imágenes"
+msgstr ""
+
+#: tfrmfpgeditor.miimglist.caption
+msgctxt "TFRMFPGEDITOR.MIIMGLIST.CAPTION"
+msgid "Lista"
+msgstr ""
+
+#: tfrmfpgeditor.minew.caption
+msgctxt "TFRMFPGEDITOR.MINEW.CAPTION"
+msgid "Nuevo"
+msgstr ""
+
+#: tfrmfpgeditor.miopen.caption
+msgctxt "TFRMFPGEDITOR.MIOPEN.CAPTION"
+msgid "Abrir"
+msgstr ""
+
+#: tfrmfpgeditor.miseparator1.caption
+msgctxt "TFRMFPGEDITOR.MISEPARATOR1.CAPTION"
+msgid "-"
+msgstr ""
+
+#: tfrmfpgeditor.miseparator10.caption
+msgctxt "TFRMFPGEDITOR.MISEPARATOR10.CAPTION"
+msgid "-"
+msgstr ""
+
+#: tfrmfpgeditor.miseparator11.caption
+msgctxt "TFRMFPGEDITOR.MISEPARATOR11.CAPTION"
+msgid "-"
+msgstr ""
+
+#: tfrmfpgeditor.miseparator2.caption
+msgctxt "TFRMFPGEDITOR.MISEPARATOR2.CAPTION"
+msgid "-"
+msgstr ""
+
+#: tfrmfpgeditor.miseparator3.caption
+msgctxt "TFRMFPGEDITOR.MISEPARATOR3.CAPTION"
+msgid "-"
+msgstr ""
+
+#: tfrmfpgeditor.miseparator4.caption
+msgctxt "TFRMFPGEDITOR.MISEPARATOR4.CAPTION"
+msgid "-"
+msgstr ""
+
+#: tfrmfpgeditor.miseparator5.caption
+msgctxt "TFRMFPGEDITOR.MISEPARATOR5.CAPTION"
+msgid "-"
+msgstr ""
+
+#: tfrmfpgeditor.miseparator6.caption
+msgctxt "TFRMFPGEDITOR.MISEPARATOR6.CAPTION"
+msgid "-"
+msgstr ""
+
+#: tfrmfpgeditor.miseparator7.caption
+msgctxt "TFRMFPGEDITOR.MISEPARATOR7.CAPTION"
+msgid "-"
+msgstr ""
+
+#: tfrmfpgeditor.miseparator8.caption
+msgctxt "TFRMFPGEDITOR.MISEPARATOR8.CAPTION"
+msgid "-"
+msgstr ""
+
+#: tfrmfpgeditor.miseparator9.caption
+msgctxt "TFRMFPGEDITOR.MISEPARATOR9.CAPTION"
+msgid "-"
+msgstr ""
+
+#: tfrmfpgeditor.mishowhideuppanel.caption
+msgid "Mostrar/Ocultar panel superior"
+msgstr ""
+
+#: tfrmfpgeditor.mitools.caption
+msgctxt "TFRMFPGEDITOR.MITOOLS.CAPTION"
+msgid "Herramientas"
+msgstr ""
+
+#: tfrmfpgeditor.miviewfpg.caption
+msgid "&Ver"
+msgstr ""
+
+#: tfrmfpgeditor.miviewimg.caption
+msgctxt "TFRMFPGEDITOR.MIVIEWIMG.CAPTION"
+msgid "Ver"
+msgstr ""
+
+#: tfrmfpgeditor.miwallpaper.caption
+msgctxt "TFRMFPGEDITOR.MIWALLPAPER.CAPTION"
+msgid "Portapapeles"
+msgstr ""
+
+#: tfrmfpgeditor.n15.caption
+msgctxt "TFRMFPGEDITOR.N15.CAPTION"
+msgid "-"
+msgstr ""
+
+#: tfrmfpgeditor.n20.caption
+msgctxt "TFRMFPGEDITOR.N20.CAPTION"
+msgid "-"
+msgstr ""
+
+#: tfrmfpgeditor.pfpgcode.caption
+msgid "Código de FPG"
+msgstr ""
+
+#: tfrmfpgeditor.ppcopyimage.caption
+msgid "&Copiar al portapapeles"
+msgstr ""
+
+#: tfrmfpgeditor.ppfpgopen.caption
+msgctxt "TFRMFPGEDITOR.PPFPGOPEN.CAPTION"
+msgid "Abrir"
+msgstr ""
+
 #: tfrmfpgimages.bbaceptchanges.caption
 msgctxt "TFRMFPGIMAGES.BBACEPTCHANGES.CAPTION"
 msgid "&Aceptar"
@@ -542,434 +922,97 @@ msgid ".."
 msgstr ""
 
 #: tfrmmain.aabout.caption
-msgctxt "tfrmmain.aabout.caption"
+msgctxt "TFRMMAIN.AABOUT.CAPTION"
 msgid "Acerca de ..."
 msgstr ""
 
-#: tfrmmain.aaddimg.caption
-msgctxt "tfrmmain.aaddimg.caption"
-msgid "Añadir"
-msgstr ""
-
-#: tfrmmain.aanimfpg.caption
-msgctxt "TFRMMAIN.AANIMFPG.CAPTION"
-msgid "Animar"
-msgstr ""
-
-#: tfrmmain.aanimimgs.caption
-msgctxt "tfrmmain.aanimimgs.caption"
-msgid "Animar"
-msgstr ""
-
 #: tfrmmain.abennu.caption
-msgid "[BennuGD] http://bennugd.org/"
+msgid "[BennuGD] http://bennugd.org"
 msgstr ""
 
 #: tfrmmain.acdiv.caption
-msgid "[ CDIV ] http://cdiv.sourceforge.net/"
-msgstr ""
-
-#: tfrmmain.aclose.caption
-msgctxt "tfrmmain.aclose.caption"
-msgid "&Cerrar"
-msgstr ""
-
-#: tfrmmain.aconfig.caption
-msgid "Configuración"
-msgstr ""
-
-#: tfrmmain.acopyimg.caption
-msgid "Copiar Imagen"
-msgstr ""
-
-#: tfrmmain.action2.caption
-msgid "Action2"
-msgstr ""
-
-#: tfrmmain.adelete.caption
-msgctxt "tfrmmain.adelete.caption"
-msgid "Eliminar"
-msgstr ""
-
-#: tfrmmain.adeleteselimg.caption
-msgctxt "TFRMMAIN.ADELETESELIMG.CAPTION"
-msgid "Eliminar"
+msgid "[ CDIV ] http://cdiv.sourceforge.net"
 msgstr ""
 
 #: tfrmmain.adiv2.caption
-msgid "[ DIV2 ] http://www.div-arena.com/"
-msgstr ""
-
-#: tfrmmain.aeditsel.caption
-msgctxt "tfrmmain.aeditsel.caption"
-msgid "Editar"
-msgstr ""
-
-#: tfrmmain.aeditselimg.caption
-msgctxt "TFRMMAIN.AEDITSELIMG.CAPTION"
-msgid "Editar"
-msgstr ""
-
-#: tfrmmain.aempty.caption
-msgctxt "tfrmmain.aempty.caption"
-msgid "Vaciar portapapeles"
-msgstr ""
-
-#: tfrmmain.aexit.caption
-msgctxt "tfrmmain.aexit.caption"
-msgid "Salir"
-msgstr ""
-
-#: tfrmmain.aexport.caption
-msgctxt "TFRMMAIN.AEXPORT.CAPTION"
-msgid "Exportar"
+msgctxt "TFRMMAIN.ADIV2.CAPTION"
+msgid "[ DIV2 ] http://www.div-arena.com"
 msgstr ""
 
 #: tfrmmain.afenix.caption
-msgid "[ FENIX ] http://fenix.divsite.net/"
+msgctxt "TFRMMAIN.AFENIX.CAPTION"
+msgid "[ FENIX ] http://fenix.divsite.net"
 msgstr ""
 
-#: tfrmmain.afntmaker.caption
-msgid "&Generador de Fuentes"
+#: tfrmmain.afntgen.caption
+msgid "Generar..."
 msgstr ""
 
-#: tfrmmain.afpg1.caption
-msgid "1 Bit"
+#: tfrmmain.afpgnew.caption
+msgctxt "TFRMMAIN.AFPGNEW.CAPTION"
+msgid "Nuevo..."
 msgstr ""
 
-#: tfrmmain.afpg16c.caption
-msgid "16bits CDIV"
-msgstr ""
-
-#: tfrmmain.afpg16f.caption
-msgid "16 bits Fenix"
-msgstr ""
-
-#: tfrmmain.afpg24.caption
-msgid "24 bits"
-msgstr ""
-
-#: tfrmmain.afpg32.caption
-msgid "32 bits"
-msgstr ""
-
-#: tfrmmain.afpg8.caption
-msgid "8 bits"
-msgstr ""
-
-#: tfrmmain.afpgpalette.caption
-msgctxt "tfrmmain.afpgpalette.caption"
-msgid "Paleta de colores"
+#: tfrmmain.afpgopen.caption
+msgctxt "TFRMMAIN.AFPGOPEN.CAPTION"
+msgid "Abrir..."
 msgstr ""
 
 #: tfrmmain.agemix.caption
+msgctxt "TFRMMAIN.AGEMIX.CAPTION"
 msgid "[GEMIX] http://www.gemixstudio.com"
 msgstr ""
 
-#: tfrmmain.ainvertsel.caption
-msgctxt "tfrmmain.ainvertsel.caption"
-msgid "Invertir selección"
-msgstr ""
-
-#: tfrmmain.ainvertselimgs.caption
-msgctxt "TFRMMAIN.AINVERTSELIMGS.CAPTION"
-msgid "Invertir selección"
-msgstr ""
-
-#: tfrmmain.alngconver.caption
+#: tfrmmain.alngconvert.caption
+msgctxt "TFRMMAIN.ALNGCONVERT.CAPTION"
 msgid "Convertidor de lng"
 msgstr ""
 
-#: tfrmmain.aopenimg.caption
-msgctxt "TFRMMAIN.AOPENIMG.CAPTION"
-msgid "Abrir"
+#: tfrmmain.alngtranslator.caption
+msgctxt "TFRMMAIN.ALNGTRANSLATOR.CAPTION"
+msgid "Traductor de Idiomas"
 msgstr ""
 
-#: tfrmmain.apasteimg.caption
-msgctxt "tfrmmain.apasteimg.caption"
-msgid "Pegar imagen"
+#: tfrmmain.aprgnew.caption
+msgctxt "tfrmmain.aprgnew.caption"
+msgid "Nuevo..."
 msgstr ""
 
-#: tfrmmain.aprgeditor.caption
-msgctxt "tfrmmain.aprgeditor.caption"
-msgid "Editor de Archivos de Programa"
+#: tfrmmain.aprgopen.caption
+msgctxt "tfrmmain.aprgopen.caption"
+msgid "Abrir..."
 msgstr ""
 
-#: tfrmmain.areload.caption
-msgctxt "tfrmmain.areload.caption"
-msgid "Recargar"
-msgstr ""
-
-#: tfrmmain.aselectall.caption
-msgctxt "tfrmmain.aselectall.caption"
-msgid "Seleccionar todo"
-msgstr ""
-
-#: tfrmmain.aselectallimgs.caption
-msgctxt "TFRMMAIN.ASELECTALLIMGS.CAPTION"
-msgid "Seleccionar todo"
-msgstr ""
-
-#: tfrmmain.aziptool.caption
-msgid "&Herramienta de Compresión"
+#: tfrmmain.azipcompress.caption
+msgid "Compresor..."
 msgstr ""
 
 #: tfrmmain.caption
-msgid "FPG Editor"
+msgctxt "tfrmmain.caption"
+msgid "FPG Editor v4.0"
 msgstr ""
 
-#: tfrmmain.cbtipofpg.text
-msgid "FPG 32 bits (BennuGD )"
+#: tfrmmain.menuitem1.caption
+msgid "Programas"
 msgstr ""
 
-#: tfrmmain.gbfpg.caption
-msgid " FPG (Ficheros de gráficos) "
+#: tfrmmain.menuitem11.caption
+msgctxt "TFRMMAIN.MENUITEM11.CAPTION"
+msgid "Herramientas"
 msgstr ""
 
-#: tfrmmain.gbimages.caption
-msgid " Imagenes "
-msgstr ""
-
-#: tfrmmain.lvfpg.columns[0].caption
-msgctxt "TFRMMAIN.LVFPG.COLUMNS[0].CAPTION"
-msgid "Código"
-msgstr ""
-
-#: tfrmmain.lvfpg.columns[1].caption
-msgctxt "TFRMMAIN.LVFPG.COLUMNS[1].CAPTION"
-msgid "Nombre de Archivo"
-msgstr ""
-
-#: tfrmmain.lvfpg.columns[2].caption
-msgctxt "TFRMMAIN.LVFPG.COLUMNS[2].CAPTION"
-msgid "Nombre"
-msgstr ""
-
-#: tfrmmain.lvfpg.columns[3].caption
-msgctxt "TFRMMAIN.LVFPG.COLUMNS[3].CAPTION"
-msgid "Ancho"
-msgstr ""
-
-#: tfrmmain.lvfpg.columns[4].caption
-msgctxt "TFRMMAIN.LVFPG.COLUMNS[4].CAPTION"
-msgid "Alto"
-msgstr ""
-
-#: tfrmmain.lvfpg.columns[5].caption
-msgctxt "TFRMMAIN.LVFPG.COLUMNS[5].CAPTION"
-msgid "Puntos de control"
-msgstr ""
-
-#: tfrmmain.lvimages.columns[0].caption
-msgctxt "tfrmmain.lvimages.columns[0].caption"
-msgid "Nombre"
-msgstr ""
-
-#: tfrmmain.lvimages.columns[1].caption
-msgctxt "tfrmmain.lvimages.columns[1].caption"
-msgid "Ancho"
-msgstr ""
-
-#: tfrmmain.lvimages.columns[2].caption
-msgctxt "tfrmmain.lvimages.columns[2].caption"
-msgid "Alto"
-msgstr ""
-
-#: tfrmmain.lvimages.columns[3].caption
-msgid "Bits Por Pixel"
+#: tfrmmain.menuitem13.caption
+msgctxt "TFRMMAIN.MENUITEM13.CAPTION"
+msgid "Ayuda"
 msgstr ""
 
 #: tfrmmain.menuitem4.caption
 msgctxt "TFRMMAIN.MENUITEM4.CAPTION"
-msgid "-"
+msgid "Ficheros"
 msgstr ""
 
-#: tfrmmain.miaddimgs.caption
-msgid "Añadir selección"
-msgstr ""
-
-#: tfrmmain.miconvert.caption
-msgctxt "tfrmmain.miconvert.caption"
-msgid "Convertir a"
-msgstr ""
-
-#: tfrmmain.mideletesel.caption
-msgid "Eliminar selección"
-msgstr ""
-
-#: tfrmmain.mieditsel.caption
-msgctxt "tfrmmain.mieditsel.caption"
-msgid "Editar selección"
-msgstr ""
-
-#: tfrmmain.mieditselimg.caption
-msgid "Editar seleccion"
-msgstr ""
-
-#: tfrmmain.mifpg.caption
-msgctxt "TFRMMAIN.MIFPG.CAPTION"
-msgid "FPG"
-msgstr ""
-
-#: tfrmmain.mifpgdetails.caption
-msgctxt "tfrmmain.mifpgdetails.caption"
-msgid "Detalles"
-msgstr ""
-
-#: tfrmmain.mifpgimages.caption
-msgctxt "tfrmmain.mifpgimages.caption"
-msgid "Imágenes"
-msgstr ""
-
-#: tfrmmain.mifpglist.caption
-msgctxt "tfrmmain.mifpglist.caption"
-msgid "Lista"
-msgstr ""
-
-#: tfrmmain.mihelp.caption
-msgctxt "tfrmmain.mihelp.caption"
-msgid "Ayuda"
-msgstr ""
-
-#: tfrmmain.mihideshowdirs.caption
-msgctxt "tfrmmain.mihideshowdirs.caption"
-msgid "Ocultar/Mostrar directorios"
-msgstr ""
-
-#: tfrmmain.miimages.caption
-msgctxt "tfrmmain.miimages.caption"
-msgid "Imágenes"
-msgstr ""
-
-#: tfrmmain.miimgdetails.caption
-msgctxt "TFRMMAIN.MIIMGDETAILS.CAPTION"
-msgid "Detalles"
-msgstr ""
-
-#: tfrmmain.miimgimages.caption
-msgctxt "TFRMMAIN.MIIMGIMAGES.CAPTION"
-msgid "Imágenes"
-msgstr ""
-
-#: tfrmmain.miimglist.caption
-msgctxt "TFRMMAIN.MIIMGLIST.CAPTION"
-msgid "Lista"
-msgstr ""
-
-#: tfrmmain.milangtranslator.caption
-msgctxt "tfrmmain.milangtranslator.caption"
-msgid "Traductor de Idiomas"
-msgstr ""
-
-#: tfrmmain.minew.caption
-msgctxt "tfrmmain.minew.caption"
-msgid "Nuevo"
-msgstr ""
-
-#: tfrmmain.miopen.caption
-msgctxt "TFRMMAIN.MIOPEN.CAPTION"
-msgid "Abrir"
-msgstr ""
-
-#: tfrmmain.miseparator1.caption
-msgctxt "TFRMMAIN.MISEPARATOR1.CAPTION"
-msgid "-"
-msgstr ""
-
-#: tfrmmain.miseparator10.caption
-msgctxt "TFRMMAIN.MISEPARATOR10.CAPTION"
-msgid "-"
-msgstr ""
-
-#: tfrmmain.miseparator11.caption
-msgctxt "TFRMMAIN.MISEPARATOR11.CAPTION"
-msgid "-"
-msgstr ""
-
-#: tfrmmain.miseparator2.caption
-msgctxt "TFRMMAIN.MISEPARATOR2.CAPTION"
-msgid "-"
-msgstr ""
-
-#: tfrmmain.miseparator3.caption
-msgctxt "TFRMMAIN.MISEPARATOR3.CAPTION"
-msgid "-"
-msgstr ""
-
-#: tfrmmain.miseparator4.caption
-msgctxt "TFRMMAIN.MISEPARATOR4.CAPTION"
-msgid "-"
-msgstr ""
-
-#: tfrmmain.miseparator5.caption
-msgctxt "TFRMMAIN.MISEPARATOR5.CAPTION"
-msgid "-"
-msgstr ""
-
-#: tfrmmain.miseparator6.caption
-msgctxt "TFRMMAIN.MISEPARATOR6.CAPTION"
-msgid "-"
-msgstr ""
-
-#: tfrmmain.miseparator7.caption
-msgctxt "TFRMMAIN.MISEPARATOR7.CAPTION"
-msgid "-"
-msgstr ""
-
-#: tfrmmain.miseparator8.caption
-msgctxt "TFRMMAIN.MISEPARATOR8.CAPTION"
-msgid "-"
-msgstr ""
-
-#: tfrmmain.miseparator9.caption
-msgctxt "TFRMMAIN.MISEPARATOR9.CAPTION"
-msgid "-"
-msgstr ""
-
-#: tfrmmain.mishowhideuppanel.caption
-msgid "Mostrar/Ocultar panel superior"
-msgstr ""
-
-#: tfrmmain.mitools.caption
-msgctxt "tfrmmain.mitools.caption"
-msgid "Herramientas"
-msgstr ""
-
-#: tfrmmain.miviewfpg.caption
-msgid "&Ver"
-msgstr ""
-
-#: tfrmmain.miviewimg.caption
-msgctxt "tfrmmain.miviewimg.caption"
-msgid "Ver"
-msgstr ""
-
-#: tfrmmain.miwallpaper.caption
-msgctxt "tfrmmain.miwallpaper.caption"
-msgid "Portapapeles"
-msgstr ""
-
-#: tfrmmain.n15.caption
-msgctxt "TFRMMAIN.N15.CAPTION"
-msgid "-"
-msgstr ""
-
-#: tfrmmain.n20.caption
-msgctxt "tfrmmain.n20.caption"
-msgid "-"
-msgstr ""
-
-#: tfrmmain.pfpgcode.caption
-msgid "Código de FPG"
-msgstr ""
-
-#: tfrmmain.ppcopyimage.caption
-msgid "&Copiar al portapapeles"
-msgstr ""
-
-#: tfrmmain.ppfpgopen.caption
-msgctxt "tfrmmain.ppfpgopen.caption"
-msgid "Abrir"
+#: tfrmmain.menuitem7.caption
+msgid "Tipografías"
 msgstr ""
 
 #: tfrmmainfnt.bgsize.caption
@@ -1623,6 +1666,14 @@ msgstr ""
 #: tfrmselectcolor.gbpalette.caption
 msgctxt "TFRMSELECTCOLOR.GBPALETTE.CAPTION"
 msgid "Paleta de colores"
+msgstr ""
+
+#: tfrmsplash.caption
+msgid "frmSplash"
+msgstr ""
+
+#: tfrmsplash.lblrevision.caption
+msgid "r00"
 msgstr ""
 
 #: tfrmview.caption

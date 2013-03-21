@@ -84,9 +84,10 @@ type
     { private declarations }
     lastEncoding : String;
   public
+    { public declarations }
     found : boolean;
     fpos : integer;
-    { public declarations }
+
   end;
 
 var
