@@ -3,7 +3,7 @@
   <ProjectSession>
     <PathDelim Value="\"/>
     <Version Value="9"/>
-    <BuildModes Active="DefaultQT"/>
+    <BuildModes Active="DefaultWin32"/>
     <Units Count="148">
       <Unit0>
         <Filename Value="pfpgeditor.lpr"/>
@@ -1022,7 +1022,7 @@
         <UsageCount Value="9"/>
       </Unit110>
       <Unit111>
-        <Filename Value="..\..\..\..\usr\share\fpcsrc\2.6.0\packages\fcl-image\src\fpimage.pp"/>
+        <Filename Value="Z:\usr\share\fpcsrc\2.6.0\packages\fcl-image\src\fpimage.pp"/>
         <UnitName Value="FPimage"/>
         <WindowIndex Value="0"/>
         <TopLine Value="17"/>
@@ -1030,7 +1030,7 @@
         <UsageCount Value="9"/>
       </Unit111>
       <Unit112>
-        <Filename Value="..\..\..\..\usr\share\fpcsrc\2.6.0\rtl\inc\systemh.inc"/>
+        <Filename Value="Z:\usr\share\fpcsrc\2.6.0\rtl\inc\systemh.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="500"/>
         <CursorPos X="11" Y="518"/>
@@ -1061,7 +1061,7 @@
         <UsageCount Value="7"/>
       </Unit115>
       <Unit116>
-        <Filename Value="..\..\..\..\usr\share\fpcsrc\2.6.0\rtl\objpas\classes\classesh.inc"/>
+        <Filename Value="Z:\usr\share\fpcsrc\2.6.0\rtl\objpas\classes\classesh.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="640"/>
         <CursorPos X="14" Y="660"/>
