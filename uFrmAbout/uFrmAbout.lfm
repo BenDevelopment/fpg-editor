@@ -8,7 +8,7 @@ object FrmAbout: TFrmAbout
   ClientWidth = 449
   OnCreate = FormCreate
   Position = poMainFormCenter
-  LCLVersion = '1.1'
+  LCLVersion = '1.2.2.0'
   object PageControl1: TPageControl
     Left = 0
     Height = 380
@@ -20,13 +20,13 @@ object FrmAbout: TFrmAbout
     TabOrder = 0
     object tsDescription: TTabSheet
       Caption = 'Descripcion'
-      ClientHeight = 341
-      ClientWidth = 443
+      ClientHeight = 352
+      ClientWidth = 441
       object Memo2: TMemo
         Left = 0
-        Height = 341
+        Height = 352
         Top = 0
-        Width = 443
+        Width = 441
         Align = alClient
         Alignment = taCenter
         Font.Height = -11
@@ -38,7 +38,7 @@ object FrmAbout: TFrmAbout
           '--------------------'
           ''
           'Es un visualizador/editor de ficheros de imágenes (FPG) para '
-          'aplicaciones multimedia realizados en DIV2, FENIX y CDIV.'
+          'aplicaciones multimedia realizados en DIV2, FENIX, CDIV y BennuGD.'
           ''
           'Este programa trata de dar un soporte para la edición de '
           'ficheros FPG de una forma sencilla y eficiente.'
@@ -53,6 +53,7 @@ object FrmAbout: TFrmAbout
           'hace responsable de cualquier mal funcionamiento o daño que '
           'puediese ocasionar.'
         )
+        OnChange = Memo2Change
         ParentFont = False
         ReadOnly = True
         ScrollBars = ssVertical
@@ -61,30 +62,29 @@ object FrmAbout: TFrmAbout
     end
     object tsCharacteristic: TTabSheet
       Caption = 'Caracteristicas'
-      ClientHeight = 341
-      ClientWidth = 443
+      ClientHeight = 352
+      ClientWidth = 441
       ImageIndex = 1
       object Memo1: TMemo
         Left = 0
-        Height = 341
+        Height = 352
         Top = 0
-        Width = 443
+        Width = 441
         Align = alClient
         Font.Height = -11
         Font.Name = 'Verdana'
         Lines.Strings = (
           'Tiene la capacidad de abrir, cargar, convertir, visualizar, modificar, '
-          'extraer todo lo que contienen los ficheros FPG de 8 y 16 bits '
-          'comprimidos '
-          'y sin comprimir de DIV2,  CDIV, Fenix, BennuGD y Gemix.'
+          'extraer todo lo que contienen los ficheros FPG y FNT, '
+          'comprimidos y sin comprimir de entornos de programación DIV-like.'
           ''
           'Soporta:'
-          ' + FPG de 1 bit. '
-          ' + FPG de 8 bits para (DIV2,  CDIV, Fenix, BennuGD y Gemix)'
-          ' + FPG de 16 bits para Fenix y BennuGD'
-          ' + FPG de 16 bits para CDIV'
-          ' + FPG de 24 bits. '
-          ' + FPG de 32 bits para BennuGD'
+          ' + FPG y FNT de 1 bit para Fenix y BennuGD '
+          ' + FPG y FNT de 8 bits para (DIV2,  CDIV, Fenix, BennuGD y Gemix)'
+          ' + FPG y FNT de 16 bits para Fenix y BennuGD'
+          ' + FPG y FNTde 16 bits para CDIV'
+          ' + FPG y FNT de 24 bits. '
+          ' + FPG y FNT de 32 bits para BennuGD'
           ' + Conversión de un formato a otro'
           ' + Sistema de multi-lenguaje auto-adaptable'
           ' + Manejo del portapapeles para imágenes '
@@ -92,14 +92,17 @@ object FrmAbout: TFrmAbout
           ' + Capacidad de exportar todo lo que contine un FPG '
           '    ( Imágenes, paletas y puntos de control )'
           ' + "Drag and Drop" arrastrar y soltar, tanto para añadir imágenes al '
-          'FPG '
-          '    como para exportar las imágenes del FPG'
+          'FPG o FNT'
+          '    como para exportar las imágenes del FPG o FNT'
           ' + Selección de puntos de control de forma gráfica, con la posibilidad '
           'de '
           '    cargar desde un fichero de texto .CPT'
           ' + Sistema de animación para las imágenes de los ficheros FPG'
           ' + Filtrado de imágenes personalizado'
           ' + Compresor para los FPG de Fenix/BennuGD'
+          ' + Mini Editor de ficheros de código PRG'
+          ' + Generador de FNTs.'
+          ' + Mini Editor de Imágenes con soporte de Gamas de Colores en 8 bits'
           ''
           'Formatos de imágenes:'
           ' PNG, MNG, JNG, JPG, JIF, GIF, BMP, WMF,  EMF, DIB, RLE, TGA, '
@@ -124,8 +127,8 @@ object FrmAbout: TFrmAbout
     end
     object tsCredits: TTabSheet
       Caption = 'Creditos'
-      ClientHeight = 341
-      ClientWidth = 443
+      ClientHeight = 352
+      ClientWidth = 441
       ImageIndex = 2
       object Memo3: TMemo
         Left = 0
@@ -138,23 +141,23 @@ object FrmAbout: TFrmAbout
         Font.Name = 'Verdana'
         Lines.Strings = (
           ''
+          ''
+          ''
+          ''
           '--------------------'
           'FPG Editor r'
           '--------------------'
           ''
           'Programador:'
           ''
-          'CodeMaster'
-          'cdmstrinside@hotmail.com'
+          'DCelso'
           ''
           ''
-          'Agradezco la colaboración en la detección de bugs y las '
-          'sugerencias aportadas a este programa por la comunidad '
-          'DIVNET, especialmente al foro de dicha comunidad.'
           ''
-          'Añadido soporte para 1, 24 y 32 bits y portado a Lazarus IDE por '
-          'DCelso.'
           ''
+          'Basado en el código del fpg-edit de '
+          'CodeMaster (cdmstrinside@hotmail.com)'
+          'y adaptado a Lazarus'
         )
         ParentFont = False
         ReadOnly = True
@@ -182,4 +185,4 @@ object FrmAbout: TFrmAbout
       TabOrder = 0
     end
   end
-end
+end
