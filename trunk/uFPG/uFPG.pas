@@ -143,7 +143,7 @@ function TFpg.getBPP:Word;
 begin
   result:=0;
   case FileFormat of
-    FPG1:
+    FPG1, FNX1:
     begin
       result:=1;
     end;
@@ -182,6 +182,13 @@ begin
    (Magic[2] = 'x')  then
   begin
    byte_size := Version;
+  end;
+
+  // Ficheros de 1 bit1
+  if version = 1  then
+  begin
+   Result := FNX1;
+   Exit;
   end;
 
   // Ficheros de 8 bits
@@ -1020,4 +1027,4 @@ end;
 //initialization
 //  {$I fpgres.lrs}
 
-end.
+end.

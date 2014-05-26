@@ -44,6 +44,7 @@ type
     tsCredits: TTabSheet;
     Memo3: TMemo;
     procedure FormCreate(Sender: TObject);
+    procedure Memo2Change(Sender: TObject);
   private
     { Private declarations }
   public
@@ -62,6 +63,11 @@ procedure TfrmAbout.FormCreate(Sender: TObject);
 begin
   Memo3.Lines.Strings[2]:=Memo3.Lines.Strings[2]+RevisionStr;
   Memo2.Lines.Strings[2]:=Memo2.Lines.Strings[2]+RevisionStr;
+end;
+
+procedure TfrmAbout.Memo2Change(Sender: TObject);
+begin
+
 end;
 
 

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
     <Version Value="9"/>
@@ -54,12 +54,11 @@
             </CompilerMessages>
             <CompilerPath Value="$(CompPath)"/>
           </Other>
-          <LCLWidgetType Value="win32"/>
         </CompilerOptions>
       </Item2>
       <Item3 Name="DefaultQT">
         <MacroValues Count="1">
-          <Macro1 Name="LCLWidgetType" Value="qt"/>
+          <Macro2 Name="LCLWidgetType" Value="qt"/>
         </MacroValues>
         <CompilerOptions>
           <Version Value="11"/>
@@ -73,10 +72,10 @@
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <CodeGeneration>
-            <SmallerCode Value="True"/>
             <Optimizations>
               <OptimizationLevel Value="3"/>
             </Optimizations>
+            <SmallerCode Value="True"/>
           </CodeGeneration>
           <Linking>
             <Debugging>
@@ -94,12 +93,11 @@
             </CompilerMessages>
             <CompilerPath Value="$(CompPath)"/>
           </Other>
-          <LCLWidgetType Value="qt"/>
         </CompilerOptions>
       </Item3>
       <Item4 Name="DebugQT">
         <MacroValues Count="1">
-          <Macro1 Name="LCLWidgetType" Value="qt"/>
+          <Macro2 Name="LCLWidgetType" Value="qt"/>
         </MacroValues>
         <CompilerOptions>
           <Version Value="11"/>
@@ -128,9 +126,12 @@
             </CompilerMessages>
             <CompilerPath Value="$(CompPath)"/>
           </Other>
-          <LCLWidgetType Value="qt"/>
         </CompilerOptions>
       </Item4>
+      <SharedMatrixOptions Count="2">
+        <Item1 ID="525257142652" Modes="DefaultWin32,DebugWin32" Type="IDEMacro" MacroName="LCLWidgetType" Value="win32"/>
+        <Item2 ID="315224791454" Modes="DefaultQT,DebugQT" Type="IDEMacro" MacroName="LCLWidgetType" Value="qt"/>
+      </SharedMatrixOptions>
     </BuildModes>
     <PublishOptions>
       <Version Value="2"/>
@@ -473,10 +474,10 @@
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <CodeGeneration>
-      <SmallerCode Value="True"/>
       <Optimizations>
         <OptimizationLevel Value="3"/>
       </Optimizations>
+      <SmallerCode Value="True"/>
     </CodeGeneration>
     <Linking>
       <Debugging>
@@ -494,7 +495,6 @@
       </CompilerMessages>
       <CompilerPath Value="$(CompPath)"/>
     </Other>
-    <LCLWidgetType Value="win32"/>
   </CompilerOptions>
   <Debugging>
     <Exceptions Count="6">
