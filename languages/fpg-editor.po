@@ -469,9 +469,24 @@ msgstr ""
 msgid "Bits Por Pixel"
 msgstr ""
 
+#: tfrmfpgeditor.menuitem2.caption
+msgctxt "TFRMFPGEDITOR.MENUITEM2.CAPTION"
+msgid "Código"
+msgstr ""
+
+#: tfrmfpgeditor.menuitem3.caption
+msgctxt "TFRMFPGEDITOR.MENUITEM3.CAPTION"
+msgid "Nombre Archivo"
+msgstr ""
+
 #: tfrmfpgeditor.menuitem4.caption
 msgctxt "TFRMFPGEDITOR.MENUITEM4.CAPTION"
 msgid "-"
+msgstr ""
+
+#: tfrmfpgeditor.menuitem6.caption
+msgctxt "TFRMFPGEDITOR.MENUITEM6.CAPTION"
+msgid "Nombre"
 msgstr ""
 
 #: tfrmfpgeditor.miaddimgs.caption
@@ -610,6 +625,10 @@ msgstr ""
 msgid "Mostrar/Ocultar panel superior"
 msgstr ""
 
+#: tfrmfpgeditor.misort.caption
+msgid "Ordenar"
+msgstr ""
+
 #: tfrmfpgeditor.mitools.caption
 msgctxt "TFRMFPGEDITOR.MITOOLS.CAPTION"
 msgid "Herramientas"
@@ -677,6 +696,7 @@ msgid "Código"
 msgstr ""
 
 #: tfrmfpgimages.gbfname.caption
+msgctxt "tfrmfpgimages.gbfname.caption"
 msgid "Nombre Archivo"
 msgstr ""
 

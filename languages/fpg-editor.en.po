@@ -1,20 +1,20 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2013-03-15 17:15+0100\n"
+"PO-Revision-Date: 2014-05-29 23:33+0100\n"
 "Last-Translator: Pieter Kuperus <dyko.kuperus1@home.nl>\n"
 "Language-Team: debian wheezy\n"
 "Language: en\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.5\n"
-"Project-Id-Version: \n"
+"X-Generator: Poedit 1.6.5\n"
+"Project-Id-Version: FPG Editor\n"
 "POT-Creation-Date: \n"
 "MIME-Version: 1.0\n"
 
 #: pfpgeditor.lng_no_enough_memory
 msgid "Error, no se encuentran suficientes recursos para iniciar el programa. Salga de uno o más programas si desea ejecutar este programa."
-msgstr ""
+msgstr "Error, there is not enough resources to star the apllication. Close one or more apllications if you wish run it."
 
 #: tform1.btnaceptar.caption
 msgctxt "tform1.btnaceptar.caption"
@@ -193,7 +193,7 @@ msgstr ""
 
 #: tfrmfntview.groupbox2.caption
 msgid "Colores"
-msgstr ""
+msgstr "Colors"
 
 #: tfrmfntview.groupbox3.caption
 msgid "Paleta"
@@ -235,7 +235,7 @@ msgstr ""
 
 #: tfrmfntview.listview1.columns[1].caption
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 #: tfrmfntview.listview1.columns[2].caption
 msgid "Width"
@@ -493,10 +493,31 @@ msgctxt "tfrmfpgeditor.lvimages.columns[3].caption"
 msgid "Bits Por Pixel"
 msgstr "bpp"
 
+#: tfrmfpgeditor.menuitem2.caption
+#, fuzzy
+#| msgid " Código "
+msgctxt "tfrmfpgeditor.menuitem2.caption"
+msgid "Código"
+msgstr "Code"
+
+#: tfrmfpgeditor.menuitem3.caption
+#, fuzzy
+#| msgid "Nombre"
+msgctxt "tfrmfpgeditor.menuitem3.caption"
+msgid "Nombre Archivo"
+msgstr "Name"
+
 #: tfrmfpgeditor.menuitem4.caption
 msgctxt "tfrmfpgeditor.menuitem4.caption"
 msgid "-"
 msgstr "-"
+
+#: tfrmfpgeditor.menuitem6.caption
+#, fuzzy
+#| msgid "Nombre"
+msgctxt "tfrmfpgeditor.menuitem6.caption"
+msgid "Nombre"
+msgstr "Name"
 
 #: tfrmfpgeditor.miaddimgs.caption
 msgctxt "tfrmfpgeditor.miaddimgs.caption"
@@ -640,6 +661,10 @@ msgctxt "tfrmfpgeditor.mishowhideuppanel.caption"
 msgid "Mostrar/Ocultar panel superior"
 msgstr "Show / Hide top panel"
 
+#: tfrmfpgeditor.misort.caption
+msgid "Ordenar"
+msgstr ""
+
 #: tfrmfpgeditor.mitools.caption
 msgctxt "tfrmfpgeditor.mitools.caption"
 msgid "Herramientas"
@@ -712,8 +737,9 @@ msgid "Código"
 msgstr "Code"
 
 #: tfrmfpgimages.gbfname.caption
+msgctxt "tfrmfpgimages.gbfname.caption"
 msgid "Nombre Archivo"
-msgstr ""
+msgstr "Name"
 
 #: tfrmfpgimages.gbname.caption
 #, fuzzy
@@ -1551,7 +1577,7 @@ msgstr ""
 
 #: tfrmprgeditor.editcopy1.caption
 msgid "&Copiar"
-msgstr ""
+msgstr "&Copy"
 
 #: tfrmprgeditor.editcopy1.hint
 msgctxt "tfrmprgeditor.editcopy1.hint"
@@ -2550,9 +2576,9 @@ msgstr "Pen (dots)"
 
 #: umainmap.lng_rectangle
 msgid "Rectangulo"
-msgstr ""
+msgstr "Rectangle"
 
 #: umainmap.lng_triangle
 msgid "Triangulo"
-msgstr ""
+msgstr "Triangle"
 
