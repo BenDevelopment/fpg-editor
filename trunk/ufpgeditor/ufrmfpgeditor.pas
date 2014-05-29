@@ -101,6 +101,10 @@ type
     lComments: TLabel;
     lblTransparentColor: TLabel;
     lblFilename: TLabel;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem6: TMenuItem;
+    miSort: TMenuItem;
     miFPG1: TMenuItem;
     miFPG32: TMenuItem;
     miFPG24: TMenuItem;
@@ -273,6 +277,9 @@ type
     procedure edFPGCODEChange(Sender: TObject);
     procedure EFilterKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormResize(Sender: TObject);
+    procedure MenuItem2Click(Sender: TObject);
+    procedure MenuItem3Click(Sender: TObject);
+    procedure MenuItem6Click(Sender: TObject);
     procedure miLangTranslatorClick(Sender: TObject);
     procedure pbImagesContextPopup(Sender: TObject; MousePos: TPoint;
       var Handled: Boolean);
@@ -462,6 +469,22 @@ procedure TfrmFPGEditor.FormResize(Sender: TObject);
 begin
  if width  < 640 then width  := 640;
  if height < 480 then height := 480;
+end;
+
+procedure TfrmFPGEditor.MenuItem2Click(Sender: TObject);
+begin
+  lvFPG.SortColumn:=0;
+end;
+
+procedure TfrmFPGEditor.MenuItem3Click(Sender: TObject);
+begin
+  lvFPG.SortColumn:=1;
+end;
+
+
+procedure TfrmFPGEditor.MenuItem6Click(Sender: TObject);
+begin
+  lvFPG.SortColumn:=2;
 end;
 
 procedure TfrmFPGEditor.miLangTranslatorClick(Sender: TObject);
@@ -1142,6 +1165,7 @@ begin
  aCloseExecute(Sender);
 
  OpenFPG(OpenDialog.Filename);
+ lvFPG.SortColumn:=0;
  //frmLog.Show;
 
 end;
@@ -1791,4 +1815,4 @@ begin
 
 end;
 
-end.
+end.

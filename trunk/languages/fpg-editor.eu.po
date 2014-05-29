@@ -488,10 +488,29 @@ msgctxt "tfrmfpgeditor.lvimages.columns[3].caption"
 msgid "Bits Por Pixel"
 msgstr "bit pixel"
 
+#: tfrmfpgeditor.menuitem2.caption
+msgctxt "tfrmfpgeditor.menuitem2.caption"
+msgid "Código"
+msgstr "Zenbakia"
+
+#: tfrmfpgeditor.menuitem3.caption
+#, fuzzy
+#| msgid "Nombre"
+msgctxt "tfrmfpgeditor.menuitem3.caption"
+msgid "Nombre Archivo"
+msgstr "Azalpenak"
+
 #: tfrmfpgeditor.menuitem4.caption
 msgctxt "tfrmfpgeditor.menuitem4.caption"
 msgid "-"
 msgstr "-"
+
+#: tfrmfpgeditor.menuitem6.caption
+#, fuzzy
+#| msgid "Nombre"
+msgctxt "tfrmfpgeditor.menuitem6.caption"
+msgid "Nombre"
+msgstr "Azalpenak"
 
 #: tfrmfpgeditor.miaddimgs.caption
 msgctxt "tfrmfpgeditor.miaddimgs.caption"
@@ -635,6 +654,10 @@ msgctxt "tfrmfpgeditor.mishowhideuppanel.caption"
 msgid "Mostrar/Ocultar panel superior"
 msgstr "Erakutsi / Ezkutatu top panel"
 
+#: tfrmfpgeditor.misort.caption
+msgid "Ordenar"
+msgstr ""
+
 #: tfrmfpgeditor.mitools.caption
 msgctxt "tfrmfpgeditor.mitools.caption"
 msgid "Herramientas"
@@ -705,8 +728,9 @@ msgid "Código"
 msgstr "Zenbakia"
 
 #: tfrmfpgimages.gbfname.caption
+msgctxt "tfrmfpgimages.gbfname.caption"
 msgid "Nombre Archivo"
-msgstr ""
+msgstr "Azalpenak"
 
 #: tfrmfpgimages.gbname.caption
 msgctxt "tfrmfpgimages.gbname.caption"

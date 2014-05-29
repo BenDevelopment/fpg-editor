@@ -499,10 +499,31 @@ msgctxt "tfrmfpgeditor.lvimages.columns[3].caption"
 msgid "Bits Por Pixel"
 msgstr "bpp"
 
+#: tfrmfpgeditor.menuitem2.caption
+#, fuzzy
+#| msgid " Código "
+msgctxt "tfrmfpgeditor.menuitem2.caption"
+msgid "Código"
+msgstr "Kode"
+
+#: tfrmfpgeditor.menuitem3.caption
+#, fuzzy
+#| msgid "Nombre"
+msgctxt "tfrmfpgeditor.menuitem3.caption"
+msgid "Nombre Archivo"
+msgstr "Name"
+
 #: tfrmfpgeditor.menuitem4.caption
 msgctxt "tfrmfpgeditor.menuitem4.caption"
 msgid "-"
 msgstr "-"
+
+#: tfrmfpgeditor.menuitem6.caption
+#, fuzzy
+#| msgid "Nombre"
+msgctxt "tfrmfpgeditor.menuitem6.caption"
+msgid "Nombre"
+msgstr "Name"
 
 #: tfrmfpgeditor.miaddimgs.caption
 msgctxt "tfrmfpgeditor.miaddimgs.caption"
@@ -646,6 +667,10 @@ msgctxt "tfrmfpgeditor.mishowhideuppanel.caption"
 msgid "Mostrar/Ocultar panel superior"
 msgstr "Oberes Bedienfeld anzeigen / ausblenden"
 
+#: tfrmfpgeditor.misort.caption
+msgid "Ordenar"
+msgstr ""
+
 #: tfrmfpgeditor.mitools.caption
 msgctxt "tfrmfpgeditor.mitools.caption"
 msgid "Herramientas"
@@ -718,8 +743,9 @@ msgid "Código"
 msgstr "Kode"
 
 #: tfrmfpgimages.gbfname.caption
+msgctxt "tfrmfpgimages.gbfname.caption"
 msgid "Nombre Archivo"
-msgstr ""
+msgstr "Name"
 
 #: tfrmfpgimages.gbname.caption
 #, fuzzy
