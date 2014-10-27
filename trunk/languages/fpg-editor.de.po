@@ -29,17 +29,17 @@ msgstr "Annulieren"
 #: tform1.caption
 msgctxt "tform1.caption"
 msgid "Opciones del editor de Archivos de programa"
-msgstr ""
+msgstr "Programm Editor Einstellungen"
 
 #: tform1.lblcompilador.caption
 msgctxt "tform1.lblcompilador.caption"
 msgid "Compilador:"
-msgstr ""
+msgstr "Compiler:"
 
 #: tform1.lblinterprete.caption
 msgctxt "tform1.lblinterprete.caption"
 msgid "Intérprete:"
-msgstr ""
+msgstr "Interpreter:"
 
 #: tfrmabout.button1.caption
 msgid "Ok"
@@ -191,27 +191,27 @@ msgstr "Umgebung"
 
 #: tfrmfntview.caption
 msgid "Visor de datos FNT"
-msgstr ""
+msgstr "FNT Datensicht"
 
 #: tfrmfntview.groupbox1.caption
 msgid "Cabecera"
-msgstr ""
+msgstr "Header"
 
 #: tfrmfntview.groupbox2.caption
 msgid "Colores"
-msgstr ""
+msgstr "Farben"
 
 #: tfrmfntview.groupbox3.caption
 msgid "Paleta"
-msgstr ""
+msgstr "Palette"
 
 #: tfrmfntview.groupbox4.caption
 msgid "Gamas"
-msgstr ""
+msgstr "Bereiche"
 
 #: tfrmfntview.groupbox5.caption
 msgid "Descriptores"
-msgstr ""
+msgstr "Deskriptoren"
 
 #: tfrmfntview.groupbox6.caption
 msgctxt "tfrmfntview.groupbox6.caption"
@@ -220,15 +220,15 @@ msgstr "Bild"
 
 #: tfrmfntview.label1.caption
 msgid "Magic"
-msgstr ""
+msgstr "Magic"
 
 #: tfrmfntview.label2.caption
 msgid "MSDOS End"
-msgstr ""
+msgstr "MSDOS End"
 
 #: tfrmfntview.label3.caption
 msgid "Bits Per Pixel"
-msgstr ""
+msgstr "Bits Per Pixel"
 
 #: tfrmfntview.label4.caption
 msgctxt "tfrmfntview.label4.caption"
@@ -237,39 +237,41 @@ msgstr "Charset"
 
 #: tfrmfntview.listview1.columns[0].caption
 msgid "Index"
-msgstr ""
+msgstr "Index"
 
 #: tfrmfntview.listview1.columns[1].caption
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 #: tfrmfntview.listview1.columns[2].caption
 msgid "Width"
-msgstr ""
+msgstr "Breite"
 
 #: tfrmfntview.listview1.columns[3].caption
 msgid "Height"
-msgstr ""
+msgstr "Höhe"
 
 #: tfrmfntview.listview1.columns[4].caption
 msgid "Width Offset"
-msgstr ""
+msgstr "Breitenverzatz"
 
 #: tfrmfntview.listview1.columns[5].caption
+#, fuzzy
+#| msgid "Height Offset"
 msgid "Heigh Offset"
-msgstr ""
+msgstr "Höhenverzatz"
 
 #: tfrmfntview.listview1.columns[6].caption
 msgid "Horizontal Offset"
-msgstr ""
+msgstr "Horizontaler Versatz"
 
 #: tfrmfntview.listview1.columns[7].caption
 msgid "Vertical Offset"
-msgstr ""
+msgstr "Vertikaler Versatz"
 
 #: tfrmfntview.listview1.columns[8].caption
 msgid "File Offset"
-msgstr ""
+msgstr "Datei-Versatz"
 
 #: tfrmfpgcompare.button1.caption
 msgctxt "tfrmfpgcompare.button1.caption"
@@ -669,7 +671,7 @@ msgstr "Oberes Bedienfeld anzeigen / ausblenden"
 
 #: tfrmfpgeditor.misort.caption
 msgid "Ordenar"
-msgstr ""
+msgstr "Sortiert"
 
 #: tfrmfpgeditor.mitools.caption
 msgctxt "tfrmfpgeditor.mitools.caption"
@@ -756,11 +758,11 @@ msgstr "Name"
 
 #: tfrmfpgimages.groupbox5.caption
 msgid " X "
-msgstr ""
+msgstr " X "
 
 #: tfrmfpgimages.groupbox6.caption
 msgid " Y "
-msgstr ""
+msgstr " Y "
 
 #: tfrmfpgimages.lbheight.caption
 msgctxt "tfrmfpgimages.lbheight.caption"
@@ -769,7 +771,7 @@ msgstr "Höhe"
 
 #: tfrmfpgimages.lbnumcp.caption
 msgid "Puntos Ctrl"
-msgstr ""
+msgstr "Kontrollpunkte"
 
 #: tfrmfpgimages.lbwidth.caption
 msgctxt "tfrmfpgimages.lbwidth.caption"
@@ -796,11 +798,11 @@ msgstr "Nummer"
 
 #: tfrmfpgimages.lvcontrolpoints.columns[1].caption
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: tfrmfpgimages.lvcontrolpoints.columns[2].caption
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: tfrmfpgimages.sbadd.hint
 msgctxt "tfrmfpgimages.sbadd.hint"
@@ -1019,17 +1021,17 @@ msgstr "[ FENIX ] http://fenix.divsite.net/"
 
 #: tfrmmain.afntgen.caption
 msgid "Generar..."
-msgstr ""
+msgstr "Generieren..."
 
 #: tfrmmain.afpgnew.caption
 msgctxt "tfrmmain.afpgnew.caption"
 msgid "Nuevo..."
-msgstr ""
+msgstr "Nue..."
 
 #: tfrmmain.afpgopen.caption
 msgctxt "tfrmmain.afpgopen.caption"
 msgid "Abrir..."
-msgstr ""
+msgstr "Öffnen..."
 
 #: tfrmmain.agemix.caption
 msgctxt "tfrmmain.agemix.caption"
@@ -1049,16 +1051,16 @@ msgstr "Übersetzer"
 #: tfrmmain.aprgnew.caption
 msgctxt "tfrmmain.aprgnew.caption"
 msgid "Nuevo..."
-msgstr ""
+msgstr "Nue..."
 
 #: tfrmmain.aprgopen.caption
 msgctxt "tfrmmain.aprgopen.caption"
 msgid "Abrir..."
-msgstr ""
+msgstr "Öffnen..."
 
 #: tfrmmain.azipcompress.caption
 msgid "Compresor..."
-msgstr ""
+msgstr "Kompressor..."
 
 #: tfrmmain.caption
 msgctxt "tfrmmain.caption"
@@ -1067,7 +1069,7 @@ msgstr "FPG Editor"
 
 #: tfrmmain.menuitem1.caption
 msgid "Programas"
-msgstr ""
+msgstr "Programme"
 
 #: tfrmmain.menuitem11.caption
 msgctxt "tfrmmain.menuitem11.caption"
@@ -1081,11 +1083,11 @@ msgstr "Hilfe"
 
 #: tfrmmain.menuitem4.caption
 msgid "Ficheros"
-msgstr ""
+msgstr "Dateien"
 
 #: tfrmmain.menuitem7.caption
 msgid "Tipografías"
-msgstr ""
+msgstr "Schriften"
 
 #: tfrmmainfnt.bgsize.caption
 msgctxt "tfrmmainfnt.bgsize.caption"
@@ -1459,7 +1461,7 @@ msgstr "Farbe:"
 #: tfrmmapeditor.lblgamutreference.caption
 msgctxt "tfrmmapeditor.lblgamutreference.caption"
 msgid "16:"
-msgstr ""
+msgstr "16:"
 
 #: tfrmmapeditor.menuitem1.caption
 msgctxt "tfrmmapeditor.menuitem1.caption"
@@ -1509,7 +1511,7 @@ msgstr "Farbbereich"
 
 #: tfrmmapeditor.menuitem20.caption
 msgid "Relle&nar"
-msgstr ""
+msgstr "&Füllen"
 
 #: tfrmmapeditor.menuitem6.caption
 msgid "Herramienta"
@@ -1548,12 +1550,12 @@ msgstr ""
 
 #: tfrmprgeditor.acompile.caption
 msgid "Compilar"
-msgstr ""
+msgstr "Kompilieren"
 
 #: tfrmprgeditor.aexecute.caption
 msgctxt "tfrmprgeditor.aexecute.caption"
 msgid "Ejecutar"
-msgstr ""
+msgstr "Ausführen"
 
 #: tfrmprgeditor.aexit.caption
 msgctxt "tfrmprgeditor.aexit.caption"
@@ -1569,7 +1571,7 @@ msgstr "Optionen"
 
 #: tfrmprgeditor.asave.caption
 msgid "&Guardar"
-msgstr ""
+msgstr "&Speichern"
 
 #: tfrmprgeditor.cbcharset.text
 msgctxt "tfrmprgeditor.cbcharset.text"
@@ -1583,7 +1585,7 @@ msgstr ""
 
 #: tfrmprgeditor.editcopy1.caption
 msgid "&Copiar"
-msgstr ""
+msgstr "Kopieren"
 
 #: tfrmprgeditor.editcopy1.hint
 msgctxt "tfrmprgeditor.editcopy1.hint"
@@ -1592,23 +1594,23 @@ msgstr "Kopieren"
 
 #: tfrmprgeditor.editcut1.caption
 msgid "Cor&tar"
-msgstr ""
+msgstr "&Schneiden"
 
 #: tfrmprgeditor.editcut1.hint
 msgid "Cortar"
-msgstr ""
+msgstr "Schneiden"
 
 #: tfrmprgeditor.editdelete1.caption
 msgid "&Suprimir"
-msgstr ""
+msgstr "&Löschen"
 
 #: tfrmprgeditor.editdelete1.hint
 msgid "Suprimir"
-msgstr ""
+msgstr "Löschen"
 
 #: tfrmprgeditor.editpaste1.caption
 msgid "&Pegar"
-msgstr ""
+msgstr "&Kleben"
 
 #: tfrmprgeditor.editpaste1.hint
 msgctxt "tfrmprgeditor.editpaste1.hint"
@@ -1617,15 +1619,15 @@ msgstr "Kleben"
 
 #: tfrmprgeditor.editselectall1.caption
 msgid "Seleccion&ar todo"
-msgstr ""
+msgstr "&Alle wählen"
 
 #: tfrmprgeditor.editselectall1.hint
 msgid "Seleccionar Todo"
-msgstr ""
+msgstr "Alle wählen"
 
 #: tfrmprgeditor.editundo1.caption
 msgid "&Deshacer"
-msgstr ""
+msgstr "&Rückgängig machen"
 
 #: tfrmprgeditor.editundo1.hint
 msgctxt "tfrmprgeditor.editundo1.hint"
@@ -1634,7 +1636,7 @@ msgstr "Rückgängig machen"
 
 #: tfrmprgeditor.fileopen1.caption
 msgid "&Abrir..."
-msgstr ""
+msgstr "&Öffnen"
 
 #: tfrmprgeditor.fileopen1.hint
 msgctxt "tfrmprgeditor.fileopen1.hint"
@@ -1643,15 +1645,15 @@ msgstr "Öffnen"
 
 #: tfrmprgeditor.filesaveas1.caption
 msgid "Gu&ardar Como..."
-msgstr ""
+msgstr "&Speichern unter"
 
 #: tfrmprgeditor.filesaveas1.hint
 msgid "Guardar Como"
-msgstr ""
+msgstr "Speichern unter"
 
 #: tfrmprgeditor.lblcharset.caption
 msgid "Ver como"
-msgstr ""
+msgstr "Darstellung Als"
 
 #: tfrmprgeditor.lblconvert.caption
 msgctxt "tfrmprgeditor.lblconvert.caption"
@@ -1665,7 +1667,7 @@ msgstr "Datei"
 
 #: tfrmprgeditor.menuitem12.caption
 msgid "Buscar"
-msgstr ""
+msgstr "Suchen Nach"
 
 #: tfrmprgeditor.menuitem14.caption
 msgctxt "tfrmprgeditor.menuitem14.caption"
@@ -1675,7 +1677,7 @@ msgstr "Werkzeugen"
 #: tfrmprgeditor.menuitem18.caption
 msgctxt "tfrmprgeditor.menuitem18.caption"
 msgid "Ejecutar"
-msgstr ""
+msgstr "Ausführen"
 
 #: tfrmprgeditor.menuitem5.caption
 msgctxt "tfrmprgeditor.menuitem5.caption"
@@ -1684,19 +1686,19 @@ msgstr "Bearbeiten"
 
 #: tfrmprgeditor.searchfind1.caption
 msgid "&Buscar..."
-msgstr ""
+msgstr "&suchen..."
 
 #: tfrmprgeditor.searchfindfirst1.caption
 msgid "Buscar Pr&imero"
-msgstr ""
+msgstr "&Suche Erster"
 
 #: tfrmprgeditor.searchfindnext1.caption
 msgid "Buscar Siguiente"
-msgstr ""
+msgstr "Weitersuchen"
 
 #: tfrmprgeditor.searchreplace1.caption
 msgid "&Reemplazar"
-msgstr ""
+msgstr "&Ersetzen"
 
 #: tfrmprgoptions.btnaceptar.caption
 msgctxt "tfrmprgoptions.btnaceptar.caption"
@@ -1711,17 +1713,17 @@ msgstr "Annulieren"
 #: tfrmprgoptions.caption
 msgctxt "tfrmprgoptions.caption"
 msgid "Opciones del editor de Archivos de programa"
-msgstr ""
+msgstr "Source Code Editor-Optionen"
 
 #: tfrmprgoptions.lblcompilador.caption
 msgctxt "tfrmprgoptions.lblcompilador.caption"
 msgid "Compilador:"
-msgstr ""
+msgstr "Compiler:"
 
 #: tfrmprgoptions.lblinterprete.caption
 msgctxt "tfrmprgoptions.lblinterprete.caption"
 msgid "Intérprete:"
-msgstr ""
+msgstr "Interpreter:"
 
 #: tfrmselectcolor.baceptar.caption
 msgctxt "tfrmselectcolor.baceptar.caption"
@@ -1797,63 +1799,63 @@ msgstr "Zoom 1:1"
 
 #: tfrmzipfenix.bbcompress.caption
 msgid "&Comprimir fichero"
-msgstr ""
+msgstr "&Datenkomprimierung"
 
 #: tfrmzipfenix.caption
 msgid "Compresor de ficheros"
-msgstr ""
+msgstr "Dateien Komprimieren"
 
 #: tfrmzipfenix.lbzipfile.caption
 msgid "Comprimiendo fichero..."
-msgstr ""
+msgstr "Komprimieren..."
 
 #: ufpg.strfnt
 msgid "FNT 8 bits (All)"
-msgstr ""
+msgstr "FNT 8 bits (All)"
 
 #: ufpg.strfnx1
 msgid "FNT 1 bit (Fenix/BennuGD)"
-msgstr ""
+msgstr "FNT 1 bit (Fenix/BennuGD)"
 
 #: ufpg.strfnx16
 msgid "FNT 16 bits (Fenix/BennuGD)"
-msgstr ""
+msgstr "FNT 16 bits (Fenix/BennuGD)"
 
 #: ufpg.strfnx24
 msgid "FNT 24 bits "
-msgstr ""
+msgstr "FNT 24 bits "
 
 #: ufpg.strfnx32
 msgid "FNT 32 bits (BennuGD)"
-msgstr ""
+msgstr "FNT 32 bits (BennuGD)"
 
 #: ufpg.strfnx8
 msgid "FNT 8 bits (Fenix/BennuGD)"
-msgstr ""
+msgstr "FNT 8 bits (Fenix/BennuGD)"
 
 #: ufpg.strfpg1
 msgid "FPG 1 bit (Fenix/BennuGD)"
-msgstr ""
+msgstr "FPG 1 bit (Fenix/BennuGD)"
 
 #: ufpg.strfpg16
 msgid "FPG 16 bits (Fenix/BennuGD)"
-msgstr ""
+msgstr "FPG 16 bits (Fenix/BennuGD)"
 
 #: ufpg.strfpg24
 msgid "FPG 24 bits "
-msgstr ""
+msgstr "FPG 24 bits "
 
 #: ufpg.strfpg32
 msgid "FPG 32 bits (BennuGD)"
-msgstr ""
+msgstr "FPG 32 bits (BennuGD)"
 
 #: ufpg.strfpg8
 msgid "FPG 8 bits (All)"
-msgstr ""
+msgstr "FPG 8 bits (All)"
 
 #: ufpg.strfpgcdiv16
 msgid "FPG 16 bits (CDIV)"
-msgstr ""
+msgstr "FPG 16 bits (CDIV)"
 
 #: ufpgconvert.lng_lostcolors
 msgid "perdidos"
@@ -1865,24 +1867,24 @@ msgstr "Farben"
 
 #: ufrmmainfnt.lng_bold
 msgid "Negrita"
-msgstr ""
+msgstr "Fett"
 
 #: ufrmmainfnt.lng_labeled
 msgid "Tachado"
-msgstr ""
+msgstr "Durchstreichen"
 
 #: ufrmmainfnt.lng_normal
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 #: ufrmmainfnt.lng_underline
 msgid "Subrayado"
-msgstr ""
+msgstr "Unterstrichen"
 
 #: ufrmprgeditor.lng_prg_editor
 msgctxt "ufrmprgeditor.lng_prg_editor"
 msgid "Editor de Archivos de Programa"
-msgstr ""
+msgstr "Bearbeiten Quellcode"
 
 #: ulanguage.lng_abort
 msgid "Anular"
@@ -2558,11 +2560,11 @@ msgstr "Open the. po translate.   cotenido nCopia the clipboard.   nPégalo your
 
 #: ulngtranslator.lng_message_saved
 msgid "Archivo Guardado Correctamente"
-msgstr ""
+msgstr "Die Datei wird korrekt gespeichert"
 
 #: umainmap.lng_copycolor
 msgid "Copiar Color"
-msgstr ""
+msgstr "Farbe Kopieren"
 
 #: umainmap.lng_ellipse
 msgctxt "umainmap.lng_ellipse"
@@ -2571,11 +2573,11 @@ msgstr "Ellipse"
 
 #: umainmap.lng_fill
 msgid "Rellenar"
-msgstr ""
+msgstr "Ausfüllen"
 
 #: umainmap.lng_line
 msgid "Linea"
-msgstr ""
+msgstr "Zeile"
 
 #: umainmap.lng_mapedit_help
 msgid "Con control pulsado y haciendo clic, puedes cambiar los colores de la paleta."
@@ -2588,9 +2590,9 @@ msgstr "Pen (Punkte)"
 
 #: umainmap.lng_rectangle
 msgid "Rectangulo"
-msgstr ""
+msgstr "Rechteck"
 
 #: umainmap.lng_triangle
 msgid "Triangulo"
-msgstr ""
+msgstr "Dreieck"
 

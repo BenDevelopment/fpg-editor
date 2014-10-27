@@ -48,12 +48,6 @@
               </Win32>
             </Options>
           </Linking>
-          <Other>
-            <CompilerMessages>
-              <UseMsgFile Value="True"/>
-            </CompilerMessages>
-            <CompilerPath Value="$(CompPath)"/>
-          </Other>
         </CompilerOptions>
       </Item2>
       <Item3 Name="DefaultQT">
@@ -87,12 +81,6 @@
               </Win32>
             </Options>
           </Linking>
-          <Other>
-            <CompilerMessages>
-              <UseMsgFile Value="True"/>
-            </CompilerMessages>
-            <CompilerPath Value="$(CompPath)"/>
-          </Other>
         </CompilerOptions>
       </Item3>
       <Item4 Name="DebugQT">
@@ -120,12 +108,6 @@
               </Win32>
             </Options>
           </Linking>
-          <Other>
-            <CompilerMessages>
-              <UseMsgFile Value="True"/>
-            </CompilerMessages>
-            <CompilerPath Value="$(CompPath)"/>
-          </Other>
         </CompilerOptions>
       </Item4>
       <SharedMatrixOptions Count="2">
@@ -142,7 +124,6 @@
       <local>
         <FormatVersion Value="1"/>
         <CommandLineParams Value="BennuPRGs\FNXsTester.prg"/>
-        <LaunchingApplication PathPlusParams="\usr\bin\xterm -T 'Lazarus Run Output' -e $(LazarusDir)\tools\runwait.sh $(TargetCmdLine)"/>
       </local>
     </RunParams>
     <RequiredPackages Count="4">
@@ -163,7 +144,6 @@
       <Unit0>
         <Filename Value="pfpgeditor.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="pfpgeditor"/>
       </Unit0>
       <Unit1>
         <Filename Value="ufpgeditor\ufrmfpgeditor.pas"/>
@@ -179,7 +159,6 @@
         <ComponentName Value="frmView"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="ufrmView"/>
       </Unit2>
       <Unit3>
         <Filename Value="uFPG\uFPG.pas"/>
@@ -189,7 +168,6 @@
       <Unit4>
         <Filename Value="uPCX\uPCX.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uPCX"/>
       </Unit4>
       <Unit5>
         <Filename Value="uFrmPalette\ufrmPalette.pas"/>
@@ -202,7 +180,6 @@
       <Unit6>
         <Filename Value="uBMP\uBMP.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uBMP"/>
       </Unit6>
       <Unit7>
         <Filename Value="uFrmAnimate\ufrmAnimate.pas"/>
@@ -210,12 +187,10 @@
         <ComponentName Value="frmAnimate"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="ufrmAnimate"/>
       </Unit7>
       <Unit8>
         <Filename Value="uIniFile\uinifile.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uinifile"/>
       </Unit8>
       <Unit9>
         <Filename Value="uFPGConvert\uFPGConvert.pas"/>
@@ -225,17 +200,14 @@
       <Unit10>
         <Filename Value="uSort\uSort.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uSort"/>
       </Unit10>
       <Unit11>
         <Filename Value="uPAL\uPAL.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uPAL"/>
       </Unit11>
       <Unit12>
         <Filename Value="uTools\uTools.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uTools"/>
       </Unit12>
       <Unit13>
         <Filename Value="uFrmExport\uFrmExport.pas"/>
@@ -243,22 +215,18 @@
         <ComponentName Value="frmExport"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uFrmExport"/>
       </Unit13>
       <Unit14>
         <Filename Value="uLoadImage\uLoadImage.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uLoadImage"/>
       </Unit14>
       <Unit15>
         <Filename Value="uFrmExport\uExportToFiles\uExportToFiles.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uExportToFiles"/>
       </Unit15>
       <Unit16>
         <Filename Value="uColor16bits\uColor16bits.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uColor16bits"/>
       </Unit16>
       <Unit17>
         <Filename Value="uMessages\uFrmInputBox\uFrmInputBox.pas"/>
@@ -266,7 +234,6 @@
         <ComponentName Value="frmInputBox"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uFrmInputBox"/>
       </Unit17>
       <Unit18>
         <Filename Value="uMessages\uFrmMessageBox\uFrmMessageBox.pas"/>
@@ -274,7 +241,6 @@
         <ComponentName Value="frmMessageBox"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uFrmMessageBox"/>
       </Unit18>
       <Unit19>
         <Filename Value="uFrmConfig\ufrmConfig.pas"/>
@@ -282,7 +248,6 @@
         <ComponentName Value="frmConfig"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="ufrmConfig"/>
       </Unit19>
       <Unit20>
         <Filename Value="uFPGFrmImages\ufrmFPGImages.pas"/>
@@ -290,7 +255,6 @@
         <ComponentName Value="frmFPGImages"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="ufrmFPGImages"/>
       </Unit20>
       <Unit21>
         <Filename Value="uFPGFrmNew\ufrmNewFPG.pas"/>
@@ -298,7 +262,6 @@
         <ComponentName Value="frmNewFPG"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="ufrmNewFPG"/>
       </Unit21>
       <Unit22>
         <Filename Value="uFrmSplash\uFrmSplahs.pas"/>
@@ -311,7 +274,6 @@
       <Unit23>
         <Filename Value="uPAL\ucopypalette.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uCopyPalette"/>
       </Unit23>
       <Unit24>
         <Filename Value="uFrmZipFenix\ufrmZipFenix.pas"/>
@@ -319,22 +281,18 @@
         <ComponentName Value="frmZipFenix"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="ufrmZipFenix"/>
       </Unit24>
       <Unit25>
         <Filename Value="uAAtext\uAAText.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uAAText"/>
       </Unit25>
       <Unit26>
         <Filename Value="uColorTable\uColorTable.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uColorTable"/>
       </Unit26>
       <Unit27>
         <Filename Value="uFNT\uFNT.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uFNT"/>
       </Unit27>
       <Unit28>
         <Filename Value="uFrmBpp\uFrmBpp.pas"/>
@@ -342,7 +300,6 @@
         <ComponentName Value="fBPP"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="ufrmbpp"/>
       </Unit28>
       <Unit29>
         <Filename Value="uFrmCFG\uFrmCFG.pas"/>
@@ -350,7 +307,6 @@
         <ComponentName Value="FrmCFG"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uFrmCFG"/>
       </Unit29>
       <Unit30>
         <Filename Value="uFrmMainFNT\uFrmMainFNT.pas"/>
@@ -358,7 +314,6 @@
         <ComponentName Value="frmMainFNT"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uFrmMainFNT"/>
       </Unit30>
       <Unit31>
         <Filename Value="uFrmAbout\uFrmAbout.pas"/>
@@ -374,22 +329,18 @@
         <ComponentName Value="frmFNTView"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uFrmFNTView"/>
       </Unit32>
       <Unit33>
         <Filename Value="uFPGListView\ufpglistview.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uFPGListView"/>
       </Unit33>
       <Unit34>
         <Filename Value="uMap\umapgraphic.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uMAPGraphic"/>
       </Unit34>
       <Unit35>
         <Filename Value="uLanguage\uLanguage.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uLanguage"/>
       </Unit35>
       <Unit36>
         <Filename Value="uLanguage\ulngconverter.pas"/>
@@ -397,7 +348,6 @@
         <ComponentName Value="frmLanguageConverter"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="ulngConverter"/>
       </Unit36>
       <Unit37>
         <Filename Value="uLanguage\ulngtranslator.pas"/>
@@ -405,7 +355,6 @@
         <ComponentName Value="frmLangTranslator"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="ulngTranslator"/>
       </Unit37>
       <Unit38>
         <Filename Value="umainmap\umainmap.pas"/>
@@ -413,7 +362,6 @@
         <ComponentName Value="frmMapEditor"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="umainmap"/>
       </Unit38>
       <Unit39>
         <Filename Value="umainmap\uselectcolor.pas"/>
@@ -421,7 +369,6 @@
         <ComponentName Value="frmSelectColor"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uselectcolor"/>
       </Unit39>
       <Unit40>
         <Filename Value="uFPG\ufpgcompare.pas"/>
@@ -429,7 +376,6 @@
         <ComponentName Value="frmFPGCompare"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uFPGcompare"/>
       </Unit40>
       <Unit41>
         <Filename Value="uprgeditor\ufrmprgeditor.pas"/>
@@ -445,7 +391,6 @@
         <ComponentName Value="frmprgoptions"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="ufrmprgoptions"/>
       </Unit42>
       <Unit43>
         <Filename Value="uprgeditor\usynprghl.pas"/>
@@ -489,12 +434,6 @@
         </Win32>
       </Options>
     </Linking>
-    <Other>
-      <CompilerMessages>
-        <UseMsgFile Value="True"/>
-      </CompilerMessages>
-      <CompilerPath Value="$(CompPath)"/>
-    </Other>
   </CompilerOptions>
   <Debugging>
     <Exceptions Count="6">
