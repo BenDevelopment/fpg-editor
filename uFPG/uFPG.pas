@@ -1027,4 +1027,4 @@ end;
 //initialization
 //  {$I fpgres.lrs}
 
-end.
+end.

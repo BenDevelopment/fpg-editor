@@ -277,6 +277,8 @@ type
     procedure edFPGCODEChange(Sender: TObject);
     procedure EFilterKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormResize(Sender: TObject);
+    procedure lblTransparentColorClick(Sender: TObject);
+    procedure lCommentsClick(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem6Click(Sender: TObject);
@@ -469,6 +471,16 @@ procedure TfrmFPGEditor.FormResize(Sender: TObject);
 begin
  if width  < 640 then width  := 640;
  if height < 480 then height := 480;
+end;
+
+procedure TfrmFPGEditor.lblTransparentColorClick(Sender: TObject);
+begin
+
+end;
+
+procedure TfrmFPGEditor.lCommentsClick(Sender: TObject);
+begin
+
 end;
 
 procedure TfrmFPGEditor.MenuItem2Click(Sender: TObject);
@@ -1264,6 +1276,19 @@ begin
  if lvFPG.Fpg.source = '' then
     aSaveAsExecute(Sender)
  else begin
+    // en caso de que sea un .fnt debemos de mapear el tipo de fichero antes de guardar
+    if ( AnsiPos( '.fnt',AnsiLowerCase(lvFPG.Fpg.source))  > 0 ) then
+    begin
+      case lvFPG.Fpg.FileFormat of
+       FPG1: lvFPG.Fpg.FileFormat:= FNX1;
+       FPG8_DIV2: lvFPG.Fpg.FileFormat:= FNX8; (*Ver como distinguir con FNT8*)
+       FPG16: lvFPG.Fpg.FileFormat:= FNX16;
+       FPG16_CDIV: lvFPG.Fpg.FileFormat:= FNX16;
+       FPG24: lvFPG.Fpg.FileFormat:= FNX24;
+       FPG32: lvFPG.Fpg.FileFormat:= FNX32;
+      end;
+    end;
+
     lvFPG.Fpg.SaveToFile( pbFPG);
     lvFPG.Fpg.update := false;
  end;
@@ -1815,4 +1840,4 @@ begin
 
 end;
 
-end.
+end.

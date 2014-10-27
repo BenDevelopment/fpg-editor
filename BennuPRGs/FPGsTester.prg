@@ -43,7 +43,7 @@ Begin
     showimage(id16,150,300,2); 
     
     write(0,450,300,0,"32bits"); 
-    showimage(id32,450,300,2); 
+    showimage(id32,450,300,5);
     while (!key(_esc)) 
 		if (key(_f))
             if (full_screen==true)
@@ -59,5 +59,5 @@ Begin
         frame;
 	end
 	let_me_alone();
-  save_fpg(id8,"8bits2.fpg");
+  // save_fpg(id8,"8bits2.fpg");
 end

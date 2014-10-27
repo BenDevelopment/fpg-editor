@@ -1,11 +1,11 @@
 object frmFPGEditor: TfrmFPGEditor
-  Left = 295
+  Left = 392
   Height = 618
-  Top = 99
+  Top = 100
   Width = 818
   AllowDropFiles = True
   Caption = 'FPG Editor'
-  ClientHeight = 598
+  ClientHeight = 591
   ClientWidth = 818
   Menu = MainMenu
   OnActivate = FormActivate
@@ -16,7 +16,7 @@ object frmFPGEditor: TfrmFPGEditor
   OnResize = FormResize
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '1.2.2.0'
+  LCLVersion = '1.3'
   object spDiv: TSplitter
     Cursor = crVSplit
     Left = 0
@@ -33,22 +33,22 @@ object frmFPGEditor: TfrmFPGEditor
     Width = 818
     Align = alTop
     Caption = ' Imagenes '
-    ClientHeight = 241
-    ClientWidth = 814
+    ClientHeight = 237
+    ClientWidth = 816
     TabOrder = 2
     Visible = False
     object panelDirs: TPanel
       Left = 0
-      Height = 241
+      Height = 237
       Top = 0
       Width = 233
       Align = alLeft
-      ClientHeight = 241
+      ClientHeight = 237
       ClientWidth = 233
       TabOrder = 0
       object ShellTreeView1: TShellTreeView
         Left = 1
-        Height = 139
+        Height = 135
         Top = 1
         Width = 231
         Align = alClient
@@ -64,7 +64,7 @@ object frmFPGEditor: TfrmFPGEditor
       object ShellListView1: TShellListView
         Left = 1
         Height = 100
-        Top = 140
+        Top = 136
         Width = 231
         Align = alBottom
         Color = clDefault
@@ -72,23 +72,24 @@ object frmFPGEditor: TfrmFPGEditor
         Visible = False
         OnChange = ShellListView1Change
         ObjectTypes = [otNonFolders]
+        Root = '/'
         ShellTreeView = ShellTreeView1
       end
     end
     object pImagesList: TPanel
       Left = 238
-      Height = 241
+      Height = 237
       Top = 0
-      Width = 576
+      Width = 578
       Align = alClient
-      ClientHeight = 241
-      ClientWidth = 576
+      ClientHeight = 237
+      ClientWidth = 578
       TabOrder = 1
       object pbImages: TProgressBar
         Left = 1
         Height = 10
-        Top = 230
-        Width = 574
+        Top = 226
+        Width = 576
         Align = alBottom
         OnContextPopup = pbImagesContextPopup
         TabOrder = 1
@@ -99,7 +100,7 @@ object frmFPGEditor: TfrmFPGEditor
         Left = 1
         Height = 24
         Top = 1
-        Width = 574
+        Width = 576
         AutoSize = True
         TabOrder = 0
         object sbImagesViewDir: TSpeedButton
@@ -479,30 +480,26 @@ object frmFPGEditor: TfrmFPGEditor
       end
       object lvImages: TListView
         Left = 1
-        Height = 205
+        Height = 201
         Top = 25
-        Width = 574
+        Width = 576
         Align = alClient
         Columns = <        
           item
             Caption = 'Nombre'
             MinWidth = 50
-            Width = 10
           end        
           item
             Caption = 'Ancho'
             MinWidth = 50
-            Width = 10
           end        
           item
             Caption = 'Alto'
             MinWidth = 50
-            Width = 10
           end        
           item
             Caption = 'Bits Por Pixel'
             MinWidth = 50
-            Width = 10
           end>
         IconOptions.AutoArrange = True
         LargeImages = ilImages
@@ -519,35 +516,35 @@ object frmFPGEditor: TfrmFPGEditor
     end
     object Splitter1: TSplitter
       Left = 233
-      Height = 241
+      Height = 237
       Top = 0
       Width = 5
     end
   end
   object gbFPG: TGroupBox
     Left = 0
-    Height = 334
+    Height = 327
     Top = 264
     Width = 818
     Align = alClient
     Caption = ' FPG (Ficheros de gráficos) '
-    ClientHeight = 316
-    ClientWidth = 814
+    ClientHeight = 305
+    ClientWidth = 816
     TabOrder = 0
     object pbFPG: TProgressBar
       Left = 0
       Height = 11
-      Top = 277
-      Width = 814
+      Top = 266
+      Width = 816
       Align = alBottom
       TabOrder = 1
       Visible = False
     end
     object tbFPG: TToolBar
       Left = 0
-      Height = 24
+      Height = 27
       Top = 0
-      Width = 814
+      Width = 816
       AutoSize = True
       TabOrder = 0
       object sbFPGNew: TSpeedButton
@@ -1086,7 +1083,7 @@ object frmFPGEditor: TfrmFPGEditor
       end
       object edFPGCODE: TSpinEdit
         Left = 720
-        Height = 22
+        Height = 25
         Top = 2
         Width = 63
         Font.Height = -11
@@ -1102,40 +1099,34 @@ object frmFPGEditor: TfrmFPGEditor
     end
     object lvFPG: TFPGListView
       Left = 0
-      Height = 253
-      Top = 24
-      Width = 814
+      Height = 239
+      Top = 27
+      Width = 816
       Align = alClient
       Columns = <      
         item
           Caption = 'Código'
           MinWidth = 50
-          Width = 10
         end      
         item
           Caption = 'Nombre de Archivo'
           MinWidth = 50
-          Width = 10
         end      
         item
           Caption = 'Nombre'
           MinWidth = 50
-          Width = 10
         end      
         item
           Caption = 'Ancho'
           MinWidth = 50
-          Width = 10
         end      
         item
           Caption = 'Alto'
           MinWidth = 50
-          Width = 10
         end      
         item
           Caption = 'Puntos de control'
           MinWidth = 50
-          Width = 10
         end>
       IconOptions.AutoArrange = True
       LargeImages = ilFPG
@@ -1153,21 +1144,21 @@ object frmFPGEditor: TfrmFPGEditor
     object pFPGStatus: TPanel
       Left = 0
       Height = 28
-      Top = 288
-      Width = 814
+      Top = 277
+      Width = 816
       Align = alBottom
       ClientHeight = 28
-      ClientWidth = 814
+      ClientWidth = 816
       TabOrder = 3
       object cbTipoFPG: TComboBox
-        Left = 604
-        Height = 21
+        Left = 606
+        Height = 26
         Top = 1
         Width = 209
         Align = alRight
         AutoDropDown = True
         Font.Height = -11
-        ItemHeight = 13
+        ItemHeight = 0
         ItemIndex = 5
         Items.Strings = (
           'FPG 1 bit'
@@ -1193,7 +1184,7 @@ object frmFPGEditor: TfrmFPGEditor
         ParentColor = False
       end
       object lblTransparentColor: TLabel
-        Left = 599
+        Left = 601
         Height = 26
         Top = 1
         Width = 1
@@ -1202,6 +1193,7 @@ object frmFPGEditor: TfrmFPGEditor
         BorderSpacing.Right = 4
         Layout = tlCenter
         ParentColor = False
+        OnClick = lblTransparentColorClick
       end
       object lComments: TLabel
         Left = 10
@@ -1215,6 +1207,7 @@ object frmFPGEditor: TfrmFPGEditor
         Layout = tlCenter
         ParentColor = False
         ParentFont = False
+        OnClick = lCommentsClick
       end
     end
   end
@@ -2594,4 +2587,4 @@ object frmFPGEditor: TfrmFPGEditor
     left = 280
     top = 200
   end
-end
+end
